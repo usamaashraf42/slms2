@@ -1,0 +1,267 @@
+#matchLink{
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+.boldtext{
+    font-size: 40px !important;
+}
+.player-pic-hight{
+    max-height: 240px !important;
+}
+.team-hight{
+    min-height: 165px !important;
+}
+.info-ai{
+    flex: 0 0 48.33333% !important;
+    max-width: 49% !important;
+}
+.league-bg-ai{
+    background-size: 100% 100% !important;
+}
+.image-ai{
+    display: block;
+    margin:0 auto;
+}
+.color-white-ai{
+    color:white !important;
+}
+#nav li {
+    float: left;
+    margin-right: 20px;
+    font-size: 14px;
+    font-weight:bold;
+}
+#nav li a{color:#333333;text-decoration:none}
+#nav li a:hover{color:#006699;text-decoration:none}
+#notification_li{position:relative}
+#notificationContainer {
+    background-color: #fff;
+    border: 1px solid rgba(100, 100, 100, .4);
+    -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+    overflow: visible;
+    position: absolute;
+    top: 65px;
+    margin-left: -170px;
+    width: 400px;
+    z-index: -1;
+    display: none;
+    border-bottom: 3px solid #01d099;
+}
+#notificationContainer:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    color: transparent;
+    border: 10px solid black;
+    border-color: transparent transparent white;
+    margin-top: -20px;
+    margin-left: 188px;
+}
+#notificationTitle {
+    z-index: 1000;
+    font-weight: bold;
+    padding: 8px;
+    font-size: 13px;
+    background-color: #ffffff;
+    width: 384px;
+    border-bottom: 1px solid #dddddd;
+}
+.notifications::-webkit-scrollbar {
+    width: 20px;
+}
+#notificationsBody {
+    padding: 33px 0px 0px 0px !important;
+    min-height:300px;
+    height: 300px !important;
+    overflow-y: scroll;
+}
+#notificationFooter {
+    background-color: #e9eaed;
+    text-align: center;
+    font-weight: bold;
+    padding: 8px;
+    font-size: 12px;
+    border-top: 1px solid #dddddd;
+}
+#notification_count {
+    padding: 3px 7px 3px 7px;
+    background: #cc0000;
+    color: #ffffff;
+    font-weight: bold;
+    margin-left: 77px;
+    border-radius: 9px;
+    position: absolute;
+    margin-top: -11px;
+    font-size: 11px;
+}
+.notification-box{
+    padding: 10px 0px;
+}
+.player-fav-ul .btn{
+    margin:0 auto !important;
+}
+.help-block{
+    color: red;
+}
+.user-profile{
+ color :red;
+}
+.user-profile-layout{
+    margin-bottom: 10px;
+    border:2px solid darkslategray ;
+
+
+
+}
+.user-profile-img{
+    background-color: cornflowerblue;
+}
+.edit-user-btn{
+    border: none;
+    cursor: pointer;
+}
+.social-btn-ai{
+    margin-top: 15px;
+}
+.notify-list{
+    cursor: pointer;
+}
+.mobile-menu li a{
+    color: #8e8e8e !important;
+}
+.user-profile-pic{
+    margin: 0px 0px 0px 5px !important;
+    padding: 0px !important;
+}
+.livescore{
+    background-color:deepskyblue;
+    color: white;
+    text-anchor: start;
+    font-family: sans-serif;
+
+}
+.youtube-video{
+    height: 400px;
+}
+.upcomming_match{
+    margin-top: 100px;
+
+}
+.upcomming_match ul{
+    text-align: center;
+}
+.upcomming_match ul li {
+    list-style-type: none;
+}
+.upcome{
+    margin-top: 20px;
+    text-align: center;
+}
+.vs{
+    color: red;
+    font-family: Thonburi;
+}
+.cmnt-img{
+    margin-left: 20px;
+    width: 80px;
+
+}
+.integrity{
+    color: #24acce;
+}
+.excellence{
+
+}
+.respect{
+
+}
+.responsbility{
+
+}
+.fb{
+    color: white;
+}
+
+
+/*slider test Css*/
+/*#owl-demo .item img{*/
+    /*display: block;*/
+    /*width: 100%;*/
+    /*height: auto;*/
+/*}*/
+.carousel-content {
+    color:black;
+    display:flex;
+    align-items:center;
+}
+/*My style start*/
+.slide1_heading{
+    color: white !important;
+    text-shadow: 0 3px 15px rgba(0, 0, 0, 0.4) !important;
+}
+.right-qoute{
+    color: white;!important;
+}
+.franchise_button{
+    margin-left: 30px;
+}
+.radio_franchise{
+    margin-left: 15px;
+}
+.single_franchise{
+    margin-left: 30px;
+}
+.conversion_franchise{
+    margin-left: 15px;
+}
+.country_franchise{
+    margin-left: 15px;
+}
+
+/*franchisw form styling*/
+#form {
+    padding: 20px;
+}
+
+label {
+    display: block;
+}
+
+input.error {
+    border: 1px solid red;
+}
+
+label.error {
+    font-weight: normal;
+    color: red;
+}
+
+button {
+    display: block;
+    margin-top: 20px;
+}
+.form_layout
+{
+    padding: 30px;
+    height: 110px;
+    background-color: #0a568c;
+}
+.branch_name{
+    padding-top: 20px;
+    text-decoration-color: green; !important;
+}
+.cut_line{
+    border-width: 5px ; !important;
+}
+.error_form{
+    color: red;
+}
+.text_fonts{
+    color: red; !important;
+}
+.appbtn{
+    color: white; !important;
+}

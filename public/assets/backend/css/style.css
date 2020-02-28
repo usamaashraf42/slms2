@@ -1,0 +1,25 @@
+.poll-error{
+    display: none;
+}
+.select2.select2-container.select2-container--default.select2-container--below{
+    width:100% !important;
+}
+.select2.select2-container.select2-container--default{
+    width:100% !important;
+}
+.custom-profile{
+    padding: 0px !important;
+    margin-top: 10px !important;
+}
+.box1{
+    margin-left: 40px;
+}
+@page :left {
+    margin: 0.5cm;
+}
+body {
+    font: 12pt Georgia, "Times New Roman", Times, serif;
+    line-height: 1.3;
+}
+
+

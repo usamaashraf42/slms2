@@ -1,0 +1,6168 @@
+/* Client - This stylesheet drives the global styles for client sites. It is designed to provide defaults for system driven elements, but designers can override by specifying custom values for these selectors in their own stylesheets. */
+/* @group Credit */
+a.site-credit-link span {
+	display: none !important;
+}
+
+/* @group SiteBar */
+
+/* Initial work on public sitebar */
+
+div#site-bar {
+	background-color: #FFFFCC;
+	border-bottom: 1px solid #FFCC66;
+	color: black;
+	height: 45px;
+	width: 100%;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+/* @end */
+
+/* @group ------------------------------------ Modal Dialogs */
+
+/* @group Page Alerts */
+
+.page-alert-wrapper {
+            background: #333;
+            bottom: 0px;
+            filter: alpha(opacity=50);
+            height: auto !important;
+            left: 0px;
+            opacity: 0.5;
+            position: fixed;
+            right: 0px;
+            top: 0px;
+            z-index: 1000;
+        }
+.page-alert-message {
+            background-color: #FFF;
+            border: 10px solid #4D4D4D;
+            border-radius: 10px;
+            color: black;
+            left: 50%;
+            position: fixed;
+            text-align: left;
+            top: 25%;
+            width: 400px;
+            z-index: 1001;
+            padding: 20px;
+            margin-left: -210px;
+
+
+        }
+        .page-alert-message .controls {
+            margin: 1em 0 0;
+            position: relative;
+        }
+
+
+/* @end */
+
+.modal-dialog {
+	margin: 20px;
+}
+
+.modalpopup, .modalpopup-display {
+	margin: 0 auto;
+	border-radius: 10px;
+	padding: 20px;
+	background-color: #FFF;
+	border: solid #4D4D4D 10px;
+	position: absolute;
+	width: 400px;
+	min-height: 300px;
+}
+
+.modalpopup-display {
+	display: block;
+}
+
+.modalpopupmsg {
+	text-align: left;
+	padding: 5px;
+}
+
+.modaloverlay {
+	background-color: #000;
+	filter: alpha(opacity=60);
+	opacity: 0.6;
+	width: 100%;
+	height: 100%;
+}
+
+.modal-bg {
+	background-color: #999999;
+	filter: alpha(opacity=70);
+	opacity: 0.7;
+	width: 100%;
+	height: 100%;
+}
+
+/* @end */
+
+/* @group ------------------------------------ Base Body Styles */
+
+/* Sets the default font style and size, but will most likely be overridden by client specific. */
+
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+
+h1 {
+
+}
+
+h2 {
+
+}
+
+h3 {
+
+}
+
+h4 {
+
+}
+
+h5 {
+
+}
+
+h6 {
+
+}
+
+img {
+	border-style: none;
+}
+
+/* @end */
+
+/* @group ------------------------------------ General Use Classes */
+
+.page-part-end {
+	clear: both;
+	height: 0px;
+}
+span.form-validation-message {
+	display: block;
+}
+
+/* @end */
+
+/* @group ------------------------------------ SiteMap */
+
+/* Applies to the UL that makes up a sitemap of pages */
+
+.sitemap ul {
+	list-style-type: none;
+}
+
+/* @end */
+
+/* @group ------------------------------------ Site Search Results */
+
+/* Applies to DIV wrapping search results */
+
+.site-search {
+
+}
+
+.pageSearch {
+
+}
+
+/* Applies to TD containing individual search result */
+ul.site-search-results {
+	padding: 0px;
+}
+ul.site-search-results li {
+	padding: 0px;
+	list-style-type: none;
+	margin-bottom: 15px;
+}
+
+h3.site-search-result-title {
+
+}
+
+p.site-search-result-snippet {
+
+}
+
+a.site-search-result-link {
+	display: block;
+}
+
+.pageSearch table td, .pageSearch ul li {
+	padding-bottom: 20px;
+}
+
+/* Applies to A (link) for the search result page title  */
+
+.pageSearchTitle {
+
+}
+
+/* Applies to P for the search result snippet/description  */
+
+.pageSearch-result-snippet {
+
+}
+
+/* Applies to A (link) for the search result page link/shortcut  */
+
+.pageSearch-result-link {
+
+}
+
+/* Applies to Google Custom Search Engine results area */
+
+#cse-search-results {
+	display: none;
+}
+
+/* @end */
+
+/* @group ------------------------------------ Blog */
+
+.blog .blog-entry {
+	margin: 20px 0;
+	border-bottom: dashed 1px;
+	padding-bottom: 10px;
+}
+
+
+.blog .post-image a img {
+	border: none;
+}
+
+.blog .post-date {
+	font-size: 11px;
+}
+
+.blog .post-title {
+	margin-top: 5px;
+}
+
+.blog .post-body {
+	padding: 10px 0;
+}
+
+.blog .comment-entry {
+	border: solid 1px;
+	padding: 5px;
+	margin-bottom: 10px;
+}
+
+.blog .textarea {
+	width: 100%;
+	height: 150px;
+}
+
+div.blogcomment {
+	margin: 20px 0;
+}
+
+div.blog-comment-avatar {
+	float: left;
+	width: 50px;
+}
+
+div.blog-comment-details {
+	float: left;
+}
+div.blog-comments div.fb-comments {
+	display: none;
+}
+
+ul.sw-blog-entry-nav {
+	margin: 15px 0px 0px;
+	padding: 0px;
+}
+ul.sw-blog-entry-nav li {
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+}
+li.sw-blog-nav-prev, li.sw-blog-nav-new {
+	float: left;
+	width: 48%;
+	text-align: left;
+}
+li.sw-blog-nav-next, li.sw-blog-nav-old {
+	float: right;
+	width: 48%;
+	text-align: right;
+}
+
+/* @end */
+
+/* @group ------------------------------------ Media Archives */
+
+/* @group Player View */
+
+#MediaCenterWrapper {
+	width: 750px;
+}
+
+#mediaarchive-mediaplayer-leftcolumn {
+	float: left;
+	width: 400px;
+	margin-right: 5px;
+}
+
+#mediaarchive-mediaplayer-rightcolumn {
+	float: left;
+	width: 343px;
+	overflow: auto;
+	height: 600px;
+	border: 1px solid #CCCCCC;
+}
+
+#mediaarchive-mediaplayer-rightcolumn p {
+	font-size: 9px;
+	margin-left: 10px;
+}
+
+#mediaarchive-mediaplayer-trackbuttons {
+	float: left;
+	width: 400px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	height: 20px;
+}
+
+#mediaarchive-mediaplayer-trackbuttons p {
+	height: 20px;
+	margin: 2px;
+}
+
+#mediaarchive-mediaplayer-trackbuttons input {
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+
+#mediaarchive-mediaplayer-trackbuttons img a {
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+
+#mediaarchive-mediaplayer-trackbuttons a {
+	font-size: 10px;
+	color: #6995AB;
+	border: 1px solid #6995AB;
+	padding: 2px;
+	text-decoration: none;
+}
+
+#mediaarchive-mediaplayer-trackbuttons a:hover {
+	font-size: 10px;
+	color: #215160;
+	border: 1px solid #215160;
+	padding: 2px;
+	text-decoration: none;
+}
+
+#mediaarchive-mediaplayer-trackinfo {
+	float: left;
+	width: 400px;
+	overflow: auto;
+	height: 175px;
+}
+
+#HeaderFunctions {
+	float: left;
+	margin-right: 10px;
+}
+
+#HeaderFunctions p {
+	font-size: 10px;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+
+#mediaarchive-mediaplayer-header {
+	float: left;
+	width: 750px;
+	height: 95px;
+	margin-bottom: 5px;
+	display: none;
+}
+
+#mediaarchive-mediaplayer-navbar {
+	width: 467px;
+	top: 54px;
+	position: relative;
+	left: 272px;
+}
+
+#MediaItemBlock {
+	float: left;
+	padding: 10px;
+	border-bottom: 1px solid #CCCCCC;
+	width: 308px;
+}
+
+#MediaItemBlock:hover {
+	background-color: #eeeeee;
+}
+
+#MediaItemImage {
+	float: left;
+	width: 48px;
+	padding-right: 10px;
+}
+
+#MediaItemDetails {
+	float: left;
+	width: 225px;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+#MediaItemDetails a, #MediaItemDetails a:hover {
+	font-weight: bold;
+}
+
+#mediaarchive-mediaplayer-podcast {
+	float: right;
+	margin-right: 10px;
+}
+
+#mediaarchive-mediaplayer-emailtofriend {
+	clear: both;
+}
+
+#mediaarchive-mediaplayer-downloadlink {
+	float: right;
+}
+
+/* @end */
+
+/* @group List view */
+
+/* Applies to div wrapping list of individual archives */
+
+.media-archive-archive-item-list {
+
+}
+
+/* Applies to div wrapping individual archive image and info */
+
+.media-archive-archive-item {
+	float: left;
+	height: 140px;
+	margin: 13px;
+	width: 100px;
+}
+
+/* Applies to div wrapping individual archive image & the IMG for the selected archive view */
+
+.media-archive-archive-item-image {
+
+}
+
+/* Applies to div wrapping individual archive info */
+
+.media-archive-archive-item-info {
+
+}
+
+/* Applies to A for title of archive */
+
+.media-archive-item-title {
+
+}
+
+/* Applies to SPAN for title of archive */
+
+.media-archive-item-subtitle {
+
+}
+
+/* Applies to div wrapping info for selected archive */
+
+.media-archive-selected-archive-info {
+	margin-top: 10px;
+}
+
+/* Applies to DIV wrapping archive subtitle */
+
+.media-archive-selected-archive-subtitle {
+
+}
+
+/* Applies to DIV wrapping archive description */
+
+.media-archive-selected-archive-description {
+	margin-top: 10px;
+}
+
+/* Applies to div wrapping archive podcast info*/
+
+.media-archive-selected-archive-podcast-info {
+	margin-top: 10px;
+}
+
+/* Applies to div wrapping archive podcast url*/
+
+.media-archive-selected-archive-podcast-url {
+
+}
+
+/* Applies to div wrapping selected archive search options */
+
+.media-archive-searchfilter-wrapper {
+	margin-top: 10px;
+}
+
+/* Applies to A for search/filter link */
+
+.media-archive-searchfilter-link {
+
+}
+
+/* Applies to TABLE for serach/filter options*/
+
+.media-archive-searchfilter-table-options {
+
+}
+
+/* Applies to DIV wrapping grid of selected archive's entries */
+
+.media-archive-selected-archive-entries {
+
+}
+
+/* Applies to TABLE of archive entries */
+
+.media-archive-selected-archive-entries-table {
+	width: 100%;
+}
+
+/* Applies to TD of archive entries table */
+
+.media-archive-selected-archive-entries-table {
+	text-align: left;
+}
+
+/* Applies to alt TR of archive entries table */
+
+.media-archive-selected-archive-entries-table-altrow {
+
+}
+
+/* Applies to TD where links to play download exist */
+
+.media-archive-selected-archive-entries-table-actioncell {
+
+}
+
+/* @end */
+
+/* @end */
+
+/* @group Media Archive v2 */
+
+div.loading {
+	width: 100%;
+	height: 400px;
+	text-align: center;
+	padding-top: 80px;
+}
+
+ul.sw-media-archive-crumbs {
+	margin: 0;
+	padding: 0;
+	margin-bottom: 15px;
+}
+
+ul.sw-media-archive-crumbs li {
+	list-style-type: none;
+	float: left;
+	margin-right: 15px;
+	position: relative;
+}
+
+.sw-media-archive-crumbs > li span {
+	font-weight: bold;
+}
+
+.sw-media-archive-crumbs > li ul {
+	list-style: none;
+	padding-left: 0px;
+}
+
+.sw-media-archive-channels-crumbs:hover .sw-media-archive-channels-crumbs ul {
+	text-decoration: underline;
+}
+
+.sw-media-archive-channels-crumbs, .sw-media-archive-series-crumbs, .sw-media-archive-episodes-crumbs {
+	position: relative;
+	height: 25px;
+}
+
+ul.sw-media-archive-crumbs li ul {
+	display: none;
+	position: absolute;
+	top: 20px;
+	z-index: 100;
+	overflow: hidden;
+	width: 300px;
+	background-color: #222;
+	padding: 10px;
+	left: 0;
+	margin: 0;
+}
+
+ul.sw-media-archive-crumbs li ul li {
+	float: none;
+}
+
+.sw-media-archive-channels-crumbs:hover ul {
+	display: block;
+}
+
+.sw-media-archive-series-crumbs:hover ul {
+	display: block;
+}
+
+.sw-media-archive-episodes-crumbs:hover ul {
+	display: block;
+}
+
+li.selected {
+
+}
+
+ul.sw-media-archive-channels {
+	border-radius: 5px;
+	border-radius: 5px;
+	clear: both;
+	display: block;
+	margin: 0;
+	padding: 5px 10px;
+	position: relative;
+}
+
+li.channel {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	float: left;
+}
+
+div.sw-media-archive-series {
+	clear: both;
+}
+
+ul.series-list {
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+}
+
+ul.series-list li {
+	margin: 0 8px 0 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+ul.series-list li a {
+	display: block;
+}
+
+ul.sw-media-archive-series {
+	margin: 0;
+	padding: 0;
+	clear: both;
+}
+
+li.series {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+span.series-date-range {
+	display: block;
+}
+
+ul.sw-media-archive-episodes {
+	margin: 0;
+	padding: 0;
+	clear: both;
+}
+
+li.episode {
+	margin: 0;
+	padding: 15px 10px;
+	margin-bottom: 10px;
+	list-style: none;
+	overflow: hidden;
+	position: relative;
+}
+
+.sw-media-archive-episode-speaker {
+	font-style: italic;
+}
+
+a.image {
+	float: left;
+	margin-right: 15px;
+}
+
+div.sw-media-archive-episode-info {
+	float: left;
+}
+
+h2.name {
+
+}
+
+ul.summary {
+	display: none;
+}
+
+li.speaker {
+
+}
+
+li.datetime {
+
+}
+
+span.date {
+
+}
+
+span.time {
+
+}
+
+div.episode-details {
+	margin: 0;
+	padding: 0;
+	clear: both;
+	text-align: center;
+}
+
+div.series {
+
+}
+
+div.title {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+span.sw-media-archive-episode-play {
+	display: block;
+	padding: 20px 0 20px 20px;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+span.sw-media-archive-episode-play a {
+	border-radius: 5px;
+	display: block;
+	font-weight: bold;
+	margin: 10px 10px 0 0;
+	padding: 5px 10px;
+}
+
+div.main-details,
+div.metadata,
+div.downloads,
+div.sharing,
+div.subscribe {
+	text-align: left;
+}
+
+div.downloads,
+div.sharing,
+div.subscribe {
+	clear: both;
+	height: 50px;
+	padding-left: 2%;
+	padding-right: 2%;
+	width: 96%;
+}
+
+.episode-details span.label {
+	float: left;
+	font-weight: bold;
+	line-height: 50px;
+	text-transform: uppercase;
+}
+
+div.main-details {
+	margin-top: 20px;
+	padding: 3%;
+	width: 94%;
+}
+
+div.downloads ul, div.sharing ul, div.subscribe ul {
+	margin: 0;
+	padding: 0;
+}
+
+div.downloads ul li, div.sharing ul li, div.subscribe ul li {
+	float: right;
+	list-style-type: none;
+	margin: 0 0 0 10px;
+	padding: 0;
+}
+
+.metadata span.sw-media-archive-episode-button,
+.downloads span.sw-media-archive-episode-button,
+.sharing span.sw-media-archive-episode-button,
+.sw-media-archive-episode-button a {
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 50px;
+	overflow: hidden;
+	padding: 8px 12px;
+	text-decoration: none;
+}
+
+.sw-media-archive-episode-button a.itunes {
+	margin-right: 15px;
+}
+
+.episode-details .video div {
+	margin: 0 auto;
+}
+
+.sw-media-archive ul.pagination {
+	margin: 0;
+    padding: 0;
+}
+
+.sw-media-archive ul.pagination li {
+	float: left;
+    list-style: none outside none;
+    margin-right: 5px;
+}
+
+.sw-media-archive ul.pagination li a {
+
+}
+
+/* @end */
+
+/* @group ------------------------------------ News Archive */
+
+/* Applies to DIV wrapping entire News Archive */
+
+.news-archive-container {
+
+}
+
+/* Applies to H2 that formats the headline of the news entry on the entry detail page */
+
+.news-archive-entry-detail-container h2 {
+	margin: 0px;
+}
+
+/* Applies to SPAN that formats the date of the news entry */
+
+.news-archive-entry-date {
+	margin: 0px;
+}
+
+/* Applies to P that formats the content of the news entry on the entry detail page */
+
+.news-archive-entry-detail-container p {
+
+}
+
+/* Applies to A that links the reader back to the list of articles */
+
+.news-archive-entry-detail-back-link {
+
+}
+
+/* Applies to DIV wrapping each news entry on the news list page */
+
+.news-archive-entry-container {
+	margin-bottom: 15px;
+}
+
+/* Applies to H2 that formats the Headline of the news entry on the news list page*/
+
+.news-archive-entry-container h2 {
+	margin: 0px;
+}
+
+/* Applies to P that formats the content of the news entry on the news list page */
+
+.news-archive-entry-container p {
+	margin: 0px;
+}
+
+/* Applies to A for the link to read details */
+
+.news-archive-entry-container a {
+	margin: 0px;
+}
+
+/* Applies to A for the link view past articles */
+
+.news-archive-entry-detail-viewarchive-link {
+
+}
+
+/* @end */
+
+/* @group ------------------------------------ Donations */
+
+.donationmodule-table {
+	border-collapse: collapse
+}
+
+.donationmodule-row {
+
+}
+
+.donationmodule-column1 {
+
+}
+
+.donationmodule-column2 {
+
+}
+
+/* Applies to DIV wrapping search specified amount options -- */
+
+.donationv2-amount-options {
+	margin-top: 10px;
+}
+
+.onlinedonation-amount-textbox {
+	width: 30px;
+}
+
+/* Applies to DIV wrapping payment/submit button */
+
+.donationv2-submit {
+	margin-top: 10px;
+}
+
+/* Applies to DIV wrapping error messages */
+
+.donationv2-errors {
+
+}
+
+/* @end */
+
+/* @group ------------------------------------ Custom Form */
+
+/* Applies to DIV wrapping custom form page part */
+
+.formmodule {
+
+}
+
+/* Applies to TABLE used to layout form into columns & rows */
+
+.formmodule-table {
+	border-collapse: collapse;
+}
+
+/* Applies to TD of table to align contents to top of cell */
+
+.formmodule-table TD {
+	vertical-align: top;
+}
+
+
+/* Applies to form label */
+.formmodule-table .formmodule-checkboxlist {
+	border-collapse: collapse;
+}
+.formmodule-table label {
+	margin-left: 5px;
+}
+
+/* Applies to odd rows TR in formmodule-table to style the odd rows */
+
+.formmodule-row {
+
+}
+
+/* Applies to TR in formmodule-table to style the even rows */
+
+.formmodule-altrow {
+
+}
+
+/* Applies to TD in formmodule-table to style the column 1 (left) */
+
+.formmodule-column1 {
+	width: 50%;
+}
+
+/* Applies to TD in formmodule-table to style the column 2 (right) */
+
+.formmodule-column2 {
+	width: 50%;
+}
+
+/* Applies to INPUT specified as single line text */
+
+.formmodule-singleline {
+
+}
+
+/* Applies to TEXTAREA specified as multi line text */
+
+.formmodule-multiline {
+
+}
+
+/* Applies to DIV wrapping form buttons */
+
+.formmodule-submit {
+
+}
+
+/* Applies to DIV wrapping form error message(s) */
+
+formmodule-errors {
+
+}
+
+/* Applies to DIV around form bot stopper function */
+
+.form-bot-stopper {
+	margin-bottom: 7px;
+}
+
+/* Applies to DIV around function explanation  */
+
+.form-bot-stopper-info {
+
+}
+
+/* Applies to DIV around */
+
+.form-bot-stopper-question {
+
+}
+
+/* Applies to INPUT for form answer */
+
+.form-bot-stopper-value {
+
+}
+
+/* Applies to DIV around notice text */
+
+.form-bot-stopper-notice {
+	color: #f00;
+}
+
+/* @group Media Archives */
+
+/* @end */
+
+/* @end */
+
+/* @group ------------------------------------ Events */
+
+/* @group Event Detail */
+
+/* Applies to DIV that wraps the event image, name and date. */
+
+.event-detail-block-wrapper {
+	margin-bottom: 10px;
+	float: left;
+	width: 100%;
+}
+
+/* Applies to link that wraps the event imagee. */
+
+.event-detail-image {
+	float: left;
+	margin-right: 15px;
+}
+
+/* Applies to DIV that wraps event name, date and time. */
+
+.event-detail-info {
+	float: left;
+}
+
+/* Applies to H1 that wraps event name. */
+
+.event-detail-title {
+	margin: 0px;
+	padding: 0px;
+	font-weight: bold;
+}
+
+/* Applies to DIV that wraps event date & time. */
+
+.event-detail-date {
+	padding: 0px;
+	margin: 0px;
+}
+
+/* Applies to DIV that wraps event registration link. */
+
+.event-detail-registerlink {
+
+}
+
+/* Applies to DIV that wraps event location name. */
+
+div.event-detail-location-wrapper {
+	float: left;
+	width: 100%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	clear: both;
+}
+
+/* Applies to LABEL within the P that wraps event location name. */
+
+p.event-detail-location-name label {
+	font-weight: bold;
+	margin-right: 7px;
+}
+
+/* Applies to DIV that wraps event location address. */
+
+div.event-detail-contact-wrapper {
+	float: left;
+	width: 100%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+div.event-detail-contact-wrapper label {
+	font-weight: bold;
+	margin-right: 7px;
+}
+
+/* Applies to SPAN that wraps event contact name. */
+
+span.event-detail-contact-name {
+	margin-left: 5px;
+}
+
+/* Applies to SPAN that wraps event contact name. */
+
+span.event-detail-contact-email {
+	margin-left: 5px;
+}
+
+/* Applies to SPAN that wraps event contact name. */
+
+span.event-detail-contact-phone {
+	margin-left: 5px;
+}
+
+/* Applies to P that wraps event contact phone and email. */
+
+p.event-detail-description {
+	margin-top: 10px;
+	margin-bottom: 20px;
+	float: left;
+	width: 100%;
+}
+
+/* @end */
+
+/* @group Event Listing */
+
+.event-listing-table {
+	width: 100%;
+	margin-bottom: 20px;
+	border-collapse: collapse;
+}
+.event-listing-table td {
+	vertical-align: top;
+}
+
+.event-listing-date {
+
+}
+
+
+.event-listing-image-column  {
+	width: 1%;
+}
+.event-listing-event-column  {
+	margin: 0px;
+}
+.event-listing-event-column a {
+	font-size: large;
+}
+
+.event-listing-time-column {
+	width: 25%;
+}
+
+.event-listing-location-column {
+	width: 25%;
+}
+
+.event-listing-register-column {
+	width: 25%;
+}
+
+.event-listing-table th {
+	text-align: left;
+	font-weight: bold;
+	display: none;
+}
+
+/* @end */
+
+/* @group Event Listing v2 */
+ul.sw-events-detail-timeframes {
+	margin: 0;
+	padding: 0;
+}
+
+ul.sw-events-detail-timeframes li {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	border:medium none;
+	display:inline;
+	line-height:22px;
+	overflow:hidden;
+	padding-left:5px;
+}
+ul.sw-events-detail-timeframes li a{
+	background:none repeat scroll 0 0 #555555;
+	color:#FFFFFF;
+	margin:0;
+	padding:6px 15px 4px;
+	text-decoration:none;
+}
+
+a.timeframe-today {
+
+}
+a.timeframe-week {
+
+}
+a.timeframe-month {
+
+}
+a.timeframe-thirty {
+
+}
+a.selected {
+
+}
+
+ul.sw-events-detail-categories {
+	margin: 0;
+	padding: 0;
+}
+
+ul.sw-events-detail-categories li {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	border:medium none;
+	display:inline;
+	line-height:22px;
+	overflow:hidden;
+	padding-left:5px;
+}
+
+ul.sw-events-detail-categories li a {
+	background:none repeat scroll 0 0 #555555;
+	color:#FFFFFF;
+	margin:0;
+	padding:6px 15px 4px;
+	text-decoration:none;
+}
+
+ul.sw-events-detail-list {
+	margin: 0;
+	padding: 0;
+}
+ul.sw-events-detail-list li {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+li.sw-events-detail-list-event {
+
+}
+h2.sw-events-detail-list-event-subject {
+
+}
+div.sw-events-detail-list-event-details {
+
+}
+div.sw-events-detail-list-event-datetime {
+
+}
+div.sw-events-detail-list-event-date {
+	font-weight: bold;
+
+}
+div.sw-events-detail-list-event-time {
+
+}
+div.sw-events-detail-list-event-location{
+
+}
+
+
+div.sw-events-detail-list-event-location {
+
+}
+div.sw-events-detail-list-event-description {
+
+}
+
+
+/* @end */
+
+/* @group Calendar View */
+
+/* Applies to div wrapping entire control */
+
+.eventmodule {
+	clear: both;
+	text-align: left;
+}
+
+/* Applies to div wrapping the calendar and nav controls */
+
+.calendar-panel {
+
+}
+
+/* Applies to div wrapping the nav controls */
+
+.calendar-controls {
+	margin-bottom: 20px;
+}
+
+/* Applies to "previous month" nav button */
+
+.index-back {
+
+}
+
+/* Applies to "next month" nav button */
+
+.index-forward {
+
+}
+
+/* Applies to the "today" nav button */
+
+.index-today {
+
+}
+
+/* Applies to text displaying current month */
+
+.current-month {
+
+}
+
+/* Applies to SPAN around month, year and go controls */
+
+.month-year-jumper {
+
+}
+
+/* Applies to dropdown month selector */
+
+.jumper-months {
+
+}
+
+/* Applies to dropdown year selector */
+
+.jumper-years {
+
+}
+
+/* Applies to "Go" button  */
+
+.jumper-button {
+
+}
+
+/* Applies to table that forms the calendar itself  */
+
+.events-calendar {
+	table-layout: fixed;
+	width: 100%;
+}
+
+/* Applies to the table header containing the days of the week  */
+
+.events-calendar th {
+	font-size: small;
+	text-align: center;
+}
+
+/* Applies to ALL cells within the calendar table   */
+
+.events-calendar td {
+	vertical-align: top;
+	text-align: right;
+	border: solid 1px #eee;
+	height: 90px;
+	overflow: hidden;
+}
+
+/* Applies to cells that represent Monday - Friday  */
+
+.weekday {
+
+}
+
+/* Applies to cells that represent SATURDAY - SUNDAY  */
+
+.weekend {
+	background-color: #eee;
+	width: 75px;
+}
+
+/* Applies to the cell that represents the current date  */
+
+.today {
+	background-color: #F6F3BF;
+}
+
+/* Applies to SPAN around the time for an event  */
+
+.event-time {
+	font-size: 9px;
+}
+
+/* Applies to div containing events marked as "all day" their the hover state */
+
+.all-day-event {
+	background-color: #ccc;
+	margin-bottom: 2px;
+	cursor: pointer;
+	padding: 2px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-align: left;
+}
+
+.all-day-event a, .all-day-event a:link,.all-day-event a:visited,.all-day-event a:hover {
+	color: #fff;
+	font-size: 10px;
+	line-height: 12px;
+}
+
+.all-day-event:hover {
+	background-color: #999999;
+}
+
+/* Applies to div containing events with specific times. */
+
+.partial-day-event, .partial-day-event:hover {
+	cursor: pointer;
+	overflow: hidden;
+	text-align: left;
+	white-space: nowrap;
+}
+
+.partial-day-event a {
+	font-size: 10px;
+	line-height: 12px;
+}
+
+.partial-day-event:hover {
+	text-decoration: underline;
+}
+
+/* Applies to div containing events marked as "all day" & marked as "Private"  */
+
+a.private-all-day {
+	background-color: red;
+}
+
+/* Applies to div containing events with specific times & marked as "Private". */
+
+a.private-partial-day {
+	color: red;
+}
+
+/* @end */
+
+/* @end */
+
+/* @group ------------------------------------ Coupon */
+
+div.coupon {
+	border: 2px dashed;
+	text-align: center;
+	padding: 10px;
+	width: 350px;
+	margin: 10px;
+}
+
+div.coupon h3 {
+
+}
+
+p.coupon-description {
+
+}
+
+p.coupon-terms {
+	font-style: italic;
+}
+
+p.coupon-expirationdate {
+	font-weight: bold;
+}
+
+/* @end */
+
+/* @group ------------------------------------ Photo Gallery */
+
+/* Applies to a DIV around the photogallery */
+
+/*eliminated by JWS 6/30/10
+	.photogallery {
+	list-style-image: none;
+	list-style-position: outside;
+	list-style-type: none;
+	width: 100%;
+
+}*/
+
+ul.photo-list {
+	padding: 0px;
+	margin: 0px;
+}
+
+/* Controls the display of the thumbnails */
+
+.photogallery li {
+	background: transparent none repeat scroll 0%;
+	float: left;
+	margin: 0px;
+	padding: 0px 6px 6px 0px;
+	list-style-type: none;
+}
+
+/* Contols the link property for the thumbnails */
+
+.photogallery li a {
+	border: 1px solid #CCCCCC;
+	display: block;
+	padding: 2px;
+	list-style-type: none;
+}
+
+/* Contols the link hover property for the thumbnails  */
+
+.photogallery li a:hover {
+	border: 1px solid #666666;
+	display: block;
+	padding: 2px;
+}
+
+.photo-flickr-link {
+	display: block;
+	clear: both;
+}
+
+.floatleft {
+	float: left;
+}
+
+.floatright {
+	float: right;
+}
+
+.clear {
+	clear: both;
+	margin: 0;
+	padding: 0;
+}
+
+/* @end */
+
+/* @group ------------------------------------ Polls */
+
+/* Applies to DIV around entire poll */
+
+.polls-wrapper {
+
+}
+
+/* Applies to P around poll question */
+
+.poll-question {
+	font-weight: bold;
+}
+
+/* Applies to TABLE around list of poll choices */
+
+.poll-choices-table {
+
+}
+
+.poll-choices-table label {
+	margin-left: 4px;
+}
+
+/* Applies to INPUT for poll submit button */
+
+.poll-submit {
+
+}
+
+.poll-question-result {
+
+}
+
+.poll-total-responses {
+
+}
+
+.poll-results {
+
+}
+
+.poll-result-detail {
+
+}
+
+.poll-result-votes {
+
+}
+
+.poll-result-bar {
+
+}
+
+.poll-result-bar-fill {
+
+}
+
+.poll-result-percent {
+
+}
+
+.polls .poll-results .poll-result-detail {
+	display: block;
+	margin: 20px;
+	width: 150px;
+	border: solid 2px green;
+	float: left;
+}
+
+.polls .poll-results .poll-result-detail .poll-result-bar {
+	width: 70%;
+	height: 10px;
+	border: solid 1px #000;
+	float: left;
+}
+
+.polls .poll-results .poll-result-detail .poll-result-votes {
+	display: block;
+}
+
+.polls .poll-results .poll-result-detail .poll-result-percent {
+	float: left;
+}
+
+.polls .poll-results .poll-result-detail .poll-result-bar .poll-result-bar-fill {
+	background-image: url("../images/polls/poll_bar.html");
+	height: 10px;
+}
+
+/* @end */
+
+/* @group ------------------------------------ Store */
+
+/* @group Shopping Cart */
+
+.swstorecart__deliveryoptions {
+	margin: 10px 0px;
+}
+.swstorecart__deliveryoptions--header {
+	font-size: 1.5em;
+}
+
+
+.swstore__deliverysection--locations--selector,
+.shopping-cart-delivery-pickup, 
+.shopping-cart-delivery-shipping {
+	padding: 5px;
+}
+.shopping-cart-delivery-selected
+{
+	  border: solid 1px red;
+	  cursor: auto;
+}
+.swstorecart__deliveryoptions--selector {
+   display: flex;
+   flex-direction: row;
+   margin: 10px 0px;
+}
+.swstorecart__deliveryoptions--selector .swstorecart__deliveryoption{
+   flex-grow: 1;
+   height: 50px;
+   border: solid 1px #c2c2c2;
+   text-align: center;
+   vertical-align: middle;
+   align-items: center;
+   cursor: pointer;
+   padding: 12px 0 0;
+   margin: 0px 12px 0px;
+   text-decoration:none;
+}
+.swstorecart__deliveryoptions--selector .swstorecart__deliveryoption:hover,
+.swstorecart__deliveryoptions--selector .swstorecart__deliveryoption--selected{
+   background-color: #f6f6f6;
+}
+.swstore__local-delivery--message, .swstore__deliverysection--locationName {
+	display: none;
+}
+
+.swstore__deliverysection--localDelivery #swform__swstore--delivery--zip.swformfield {
+	display:inline-block;
+	width: 233px;
+}
+
+.swstorecart__deliveryoptions--selector .swstorecart__deliveryoption:first-child {
+  
+   margin: 0px 12px 0px 0px;
+}
+
+.swstorecart__deliveryoptions--selector .swstorecart__deliveryoption:last-child{
+  
+   margin: 0px 0px 0px 12px;
+}
+.swstore__deliverysection, .swstore__deliverysection--locations--selector {
+	display: none;
+}
+
+.swstore__cart--message {
+	text-align: left;
+}
+
+.swstorecart__deliveryoptions--description {
+	margin-bottom: 20px;
+}
+
+/* @group Checkout */
+
+#shipping-options-list li{
+	list-style-type: none;
+	margin:0px;
+	padding: 0px;
+}
+
+#checkout-steps .swformfield__helptxt {
+	font-size: 1rem;
+}
+
+#checkout-steps input[disabled=disabled] {
+	background-color: rgba(34, 36, 38, 0.15);
+}
+
+/* @end */
+
+/* @group Order Review */
+div.store-order {
+
+}
+div.cart-review-wrapper {
+
+}
+div.billing-info {
+	margin-bottom: 15px;
+}
+div.shipping-address {
+	margin-top: 10px;
+}
+div.shipping-info {
+	margin-bottom: 15px;
+}
+div.shipping-method {
+	margin-bottom: 15px;
+}
+div.payment-method {
+	margin-bottom: 15px;
+}
+ul.error-list {
+	margin: 0;
+	padding: 0;
+}
+ul.error-list li{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+/* @end */
+
+/* @group Order Confirmation */
+div.store-order-confirmation-wrapper {
+
+}
+ul.store-order-details {
+	padding: 0px;
+	margin: 0px;
+}
+ul.store-order-details li {
+	padding: 0px;
+	margin: 0px;
+	list-style-type: none;
+}
+ul.store-order-details li label{
+
+}
+ul.store-order-details li span{
+
+}
+li.store-order-number {
+
+}
+li.store-order-date {
+
+}
+li.store-order-customer {
+
+}
+ul.store-order-item-list {
+	padding: 0px;
+	margin: 0px;
+}
+
+ul.store-order-item-list li{
+	list-style-type: none;
+}
+div.store-order-item-image {
+
+}
+div.store-order-item-info {
+
+}
+p.store-order-item-name {
+
+}
+p.store-order-item-buttons {
+
+}
+p.store-order-item-quantity {
+
+}
+p.store-order-item-price {
+
+}
+p.store-order-item-description {
+
+}
+ul.store-order-item-variation-list {
+	padding: 0px;
+	margin: 0px;
+}
+ul.store-order-item-variation-list li {
+	list-style-type: none;
+}
+p.store-order-gift-note {
+
+}
+ul.store-order-totals-list {
+	padding: 0px;
+	margin: 0px;
+}
+ul.store-order-totals-list li{
+	list-style-type: none;
+}
+ul.store-order-totals-list li label{
+
+}
+ul.store-order-totals-list li span{
+
+}
+li.store-order-subtotal {
+
+}
+li.store-order-discount {
+
+}
+li.store-order-shipping {
+
+}
+li.store-order-tax {
+
+}
+li.store-order-total {
+
+}
+p.store-order-invalid {
+
+}
+/* @end */
+
+.swstore__cart--subtotal { 
+	margin-bottom: 20px;
+}
+
+.swstore__cart--subtotal td {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+#shopping-cart-item-table, .shopping-cart-item-table {
+	border-collapse: collapse;
+	width: 100%;
+	vertical-align: top;
+	margin-top: 15px;
+}
+
+#shopping-cart-item-table th, .shopping-cart-item-table  th {
+	font-weight: bold;
+	background-color: #CCCCCC;
+	vertical-align: middle;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-top-color: #999999;
+	border-bottom-color: #999999;
+}
+
+#shopping-cart-item-table td, .shopping-cart-item-table  td {
+	vertical-align: top;
+	padding-top: 5px;
+}
+
+.shopping-cart-item-table-thumbnail-column {
+	text-align: left;
+	width: 15%;
+	padding-left: 8px;
+}
+
+.shopping-cart-item-table-total-column {
+	text-align: right;
+	width: 10%;
+	padding-right: 8px;
+}
+
+.shopping-cart-item-table-quantity-column {
+	text-align: right;
+	width: 15%;
+}
+
+.shopping-cart-item-table-price-column {
+	text-align: right;
+	width: 10%;
+}
+
+/* Applies to Grand Total number in cart */
+
+.shopping-cart-item-table-total {
+
+}
+
+.shopping-cart-item-table-spacer-row {
+	height: 35px;
+}
+
+.shopping-cart-item-table-subtotal-row {
+
+}
+
+.shopping-cart-item-table-total-label {
+	text-align: right;
+	font-weight: bold;
+}
+
+.shopping-cart-item-table-checkout-button-cell {
+	text-align: right;
+}
+
+.shopping-cart-shipping-tax-note {
+	font-size: smaller;
+}
+
+/*removed by JWS 8/31/09
+#shopping-cart-totals {
+	width: 100%;
+}*/
+
+#shopping-cart-totals-table {
+	float: right;
+}
+
+#shopping-cart-cart-buttons {
+	width: 300px;
+	float: right;
+}
+
+div.shopping-cart-billing-information-summary {
+	float: left;
+	max-width: 245px;
+}
+
+div.shopping-cart-shipping-information-summary {
+	float: left;
+	max-width: 245px;
+	margin-left: 20px;
+}
+
+/*Main Cart Totals*/
+
+.shopping-cart-totals {
+	float: right;
+}
+
+/* @end */
+
+/* @group Product Detail */
+
+/* Applies to DIV around product inquiry popup */
+
+.product-detail-inquire-popup {
+	border: 3px solid #333;
+	background-color: #FFF;
+	padding: 25px;
+}
+
+.product-tellafriend-popup {
+	border: 3px solid #333;
+	background-color: #FFF;
+	padding: 25px;
+}
+
+.product-comment-popup {
+	border: 3px solid #333;
+	background-color: #FFF;
+	padding: 25px;
+	display: none;
+}
+
+/* ------------------------------------------------------------------------------- Store - Product Detail **/
+
+#product-detail-header {
+	width: 100%;
+}
+
+/* ------------------------------------------------------------------------------- Store - Product Detail - Photos **/
+
+/* Applies to DIV containing photo area */
+
+#product-detail-photos {
+	float: left;
+	width: 29%;
+}
+
+/* Applies to DIV containing main photo image */
+
+#product-detail-main-image {
+	text-align: center;
+}
+
+/* Applies to DIV containing thumbnail list */
+
+#product-detail-photos-list {
+	text-align: center;
+}
+
+/*Applies to DIV containing each single thumbnail*/
+
+.product-detail-thumbnail {
+	float: left;
+}
+
+/*Applies to IMG for each single thumbnail*/
+
+.product-detail-thumbnail img {
+	margin: 4px;
+	padding: 2px;
+	border: thin solid #CECECE;
+}
+
+/* ------------------------------------------------------------------------------- Store - Product Detail - Other Info **/
+
+/*Applies to DIV that contains product title, short description, details, qty, buttons, etc*/
+
+#product-detail-information-container {
+	float: right;
+	width: 60%;
+}
+
+#product-detail-description {
+
+}
+
+/* Applies to DIV that contains the product price */
+
+#product-detail-price {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+/* Applies to TABLE that contains label/values for product details */
+
+#product-detail-details-table {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+/* Applies to TD that contains label for each product detail */
+
+.product-detail-details-label {
+	padding-left: 0px;
+	font-weight: bold;
+}
+
+/* Applies to TD that contains value for each product detail */
+
+.product-detail-details-value {
+	padding-left: 10px;
+}
+
+/* Applies to DIV that contains all product variations */
+
+.product-detail-variation-wrapper {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+/* Applies to P that contains the dropdown menu & label for each product variation */
+
+.product-detail-variation-item {
+	margin-bottom: 5px;
+}
+
+/* Applies to LABEL for each product variation */
+
+.product-detail-variation label {
+	font-weight: bold;
+}
+
+/* Applies to DIV that contains "Out of stock" message */
+
+.out-of-stock {
+	display: none;
+}
+
+/* Applies to DIV that contains the add to cart, qty and wishlist */
+
+#add-to-cart-options {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+/* Applies to DIV that contains the add to cart, qty and wishlist */
+
+label.product-detail-quantity-label {
+
+}
+
+/* Applies to INPUT for the quanity */
+
+.product-detail-quantity-textfield {
+	width: 30px;
+}
+
+/* Applies to "Add to Cart" button */
+
+.product-detail-cart-button {
+
+}
+
+/* Applies to "Add to Wishlist" button */
+
+.product-detail-wishlist-button {
+
+}
+
+.product-detail-send-link {
+
+}
+
+.product-detail-request-link {
+
+}
+
+.product-detail-send-form {
+	list-style-type: none;
+}
+
+/* ------------------------------------------------------------------------------- Store - Product Detail - Notify Me **/
+
+/* Applies to TABLE for customer notification signup */
+
+#product-detail-notifyme-table {
+
+}
+
+/* Applies to TD for customer notification signup Label column */
+
+.product-detail-notifyme-label {
+
+}
+
+/* Applies to TD for customer notification signup Value column */
+
+.product-detail-notifyme-value {
+
+}
+
+/* Applies to Button for customer notification signup */
+
+.product-detail-notifyme-button {
+
+}
+
+/* Applies to P for customer notification signup thanks */
+
+.product-detail-notifyme-thanks {
+
+}
+
+/* ------------------------------------------------------------------------------- Store - Product Detail - Inquire **/
+
+/* Applies to DIV?????? for product inquiry */
+
+.product-detail-inquire-form {
+
+}
+
+/* Applies to button for product inquiry */
+
+.product-detail-inquire-button {
+
+}
+
+/* Applies to DIV for product inquiry */
+
+.product-detail-inquire-popup {
+	padding: 15px;
+	background-color: #FFFFFF;
+}
+
+/* Applies to H4 for product inquiry */
+
+.product-detail-inquire-popup h4 {
+	margin: -15px -15px 5px -15px;
+	padding: 5px;
+}
+
+/* Applies to TABLE for product inquiry labels and fields */
+
+.product-inquire-table {
+
+}
+
+/* Applies to primary TR for product inquiry table */
+
+.product-inquire-row {
+
+}
+
+/* Applies to alternate TR for product inquiry table */
+
+.product-inquire-altrow {
+
+}
+
+/* Applies to TD for left column of product inquiry table */
+
+.product-inquire-column1 {
+
+}
+
+/* Applies to TD for right column of product inquiry table */
+
+.product-inquire-column2 {
+
+}
+
+/* Applies to INPUT field for product inquiry (Name, email) */
+
+.product-inquire-singleline {
+
+}
+
+/* Applies to TEXTAREA field for product inquiry comments */
+
+.product-inquire-multiline {
+
+}
+
+/* Applies to "submit" BUTTON for product inquiry comments */
+
+#ctl00_cphPageBody_btnSubmitInquiry {
+
+}
+
+/* Applies to "cancel" BUTTON for product inquiry */
+
+ctl00_cphPageBody_btnCancelInquiry {
+
+}
+
+/* Applies to DIV for product inquiry confirmation/thank-you text */
+
+.product-detail-inquire-confirmation {
+
+}
+
+/* ------------------------------------------------------------------------------- Store - Product Detail - Overview */
+
+/* Applies to DIV containing overview content */
+
+#product-detail-overview {
+	margin-top: 20px;
+	width: 100%;
+	clear: both;
+}
+
+/* ------------------------------------------------------------------------------- Store - Product Detail - Comments **/
+
+/* Applies to DIV containing all things comments */
+
+#product-detail-comments {
+	margin-top: 20px;
+	width: 100%;
+	clear: both;
+}
+
+/* Applies to DIV containing comment & comment date */
+
+.product-detail-comment-entry {
+
+}
+
+/* Applies to P that makes up customer comment */
+
+.product-detail-comment-entry p {
+
+}
+
+/* Applies to SPAN that wraps comment name, date,time */
+
+.product-detail-comment-postinfo {
+	font-style: oblique;
+}
+
+.product-detail-comment-name {
+
+}
+
+.product-detail-comment-email {
+
+}
+
+.product-detail-comment-message {
+
+}
+
+.product-detail-comment-button {
+
+}
+
+.product-detail-comment-thankyou {
+
+}
+
+/* Applies to P that wraps "no comment" notice */
+
+#pNoComments {
+
+}
+
+#product-detail-comment-form {
+
+}
+
+/* ------------------------------------------------------------------------------- Store - Product Detail - Related Products **/
+
+/* Applies to DIV around related products section */
+
+#product-detail-related-products {
+	width: 100%;
+	margin-top: 20px;
+	clear: both;
+}
+
+/* Applies to DIV around related products list */
+
+#product-detail-related-list {
+
+}
+
+/* Applies to TD's containing related products */
+
+.product-detail-related-product-cell {
+	text-align: center;
+	padding-right: 7px;
+}
+
+/* Applies to DIV around related product images */
+
+.product-detail-related-product-image {
+
+}
+
+/* @end */
+
+/* @group Category View */
+
+.category-list {
+	margin: 20px 0px 0px;
+	padding: 0px;
+	list-style-type: none;
+	clear: both;
+	width: 100%;
+	float: left;
+	min-height: 300px;
+}
+
+.category-list-item {
+	float: left;
+	text-align: center;
+	width: 31%;
+	height: 150px;
+	border: 1px solid;
+	margin-right: 1%;
+}
+
+.category-list-item h4 {
+	margin-top: 65px;
+}
+
+.category-list-item li a {
+	list-style-type: none;
+}
+
+.category-list-item-image {
+
+}
+
+.product-list {
+	margin: 20px 0px 0px;
+	padding: 0px;
+	list-style-type: none;
+	clear: both;
+	width: 100%;
+	float: left;
+	min-height: 300px;
+}
+
+.product-list-item {
+	float: left;
+	text-align: center;
+	width: 31%;
+	height: 200px;
+}
+
+.product-list-item li a {
+	list-style-type: none;
+}
+
+.product-list-item-image {
+
+}
+
+.featured-product-list {
+	list-style-type: none;
+	border: 4px solid #CCCCCC;
+	clear: both;
+	width: 100%;
+	float: left;
+	margin: 20px 0 0;
+}
+
+.featured-product-list-item {
+	float: left;
+	text-align: center;
+	width: 33%;
+}
+
+.expressorder-link {
+	display: none;
+}
+
+.product-list-displayoptions {
+	clear: both;
+	float: left;
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.product-list-display-options {
+	width: 100%;
+	margin-top: 10px;
+}
+
+/* Applies to DIV containing sorting dropdown*/
+
+.product-list-sort {
+	float: left;
+	width: 50%;
+}
+
+/* Applies to DIV containing Search Link*/
+
+.product-list-search {
+	float: right;
+	width: 50%;
+	text-align: right;
+}
+
+.product-list-sort {
+	float: left;
+}
+
+.featured-product-list-item {
+	float: left;
+	list-style-type: none;
+	text-align: center;
+	width: 30%;
+}
+
+.featured-product-list-item-image {
+
+}
+
+.product-list-controls {
+	clear: both;
+	height: 25px;
+	float: left;
+	margin-top: 10px;
+	width: 100%;
+}
+
+.product-list-controls-pagecount {
+	float: left;
+}
+
+.product-list-controls-itemcount {
+	float: right;
+}
+
+/* @end */
+
+/* @group Quick Cart */
+
+.quickcart table td {
+	text-align: left;
+}
+
+.quickcart em {
+	font-style: italic;
+}
+
+.quickcart table {
+	border: solid 1px;
+	border-bottom-width: 0;
+	width: 100%;
+	margin-top: 20px;
+}
+
+.quickcart p {
+	margin-bottom: 5px;
+}
+
+.quickcart table td {
+	padding: 7px;
+	text-align: center;
+	border-bottom: solid 1px;
+}
+
+.quickcart .price-container {
+	padding: 15px;
+	text-align: center;
+	font-size: 18px;
+}
+
+.quickcart .price-large {
+	font-size: 2em;
+	display: block;
+	margin-top: 10px;
+}
+
+.quickcart p.view-cart {
+	font-size: 18px;
+	text-align: center;
+}
+
+.SandboxMessage {
+	margin-bottom: 15px;
+	padding: 10px 15px;
+}
+
+div.quickAdd {
+
+
+/*Here's where you change the overall background color of the quickAdd box, and other stuff. */
+	text-align: left;
+	padding: 15px 15px;
+	z-index: 99;
+
+
+/*don't touch this stuff here */
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	opacity: 0.95;
+
+/* Safari/CSS3 */
+    opacity: 0.95;
+/* Mozilla */
+    filter: alpha(opacity=95);
+/* IE*/
+}
+
+/* Change the style of the divider tag */
+
+div.quickAdd hr {
+
+}
+
+/* change the style of the b tag. */
+
+div.quickAdd b {
+
+}
+
+/* change the style of the italic tag */
+
+div.quickAdd i {
+	font-size: 1px
+}
+
+/* change the style of the paragraph tag if needed */
+
+div.quickAdd p {
+
+}
+
+/* change the style of the a tag */
+
+div.quickAdd a {
+
+}
+
+/* change the style of the a hover */
+
+div.quickAdd a:hover {
+
+}
+
+/* this is the link for the ? icon */
+
+.quickAdd {
+	padding-left: 5px;
+}
+
+/* @end */
+
+/* @end */
+
+/* @group ------------------------------------ Category Display */
+
+/* Applies to DIV around store category page part */
+
+.store-category-display {
+
+}
+
+/* @end */
+
+/* @group ------------------------------------ Store Front */
+
+/* @end */
+
+/* @group ------------------------------------ Registration */
+div.registraton-submit {
+
+}
+
+div.registraton-submit table td, table.regmodule-table td{
+	vertical-align: top;
+}
+
+span.registration-submit-googlecheckout {
+
+}
+span.registration-submit-website {
+
+}
+
+div.registration-website-payment-form {
+	margin-top:20px;
+}
+
+/* @end */
+
+/* @group ------------------------------------ General Listing */
+
+/* @end */
+
+/* @group ------------------------------------ Ecards */
+div.sw-ecard-wrapper {
+
+}
+ul.sw-ecard-list {
+	margin: 0;
+	padding: 0;
+}
+
+ul.sw-ecard-list li {
+	list-style-type: none;
+	width: 32%;
+	float: left;
+	text-align: center;
+}
+
+/* @end */
+
+/* @group ------------------------------------ Donations */
+
+/* @end */
+
+/* @group ------------------------------------ Menu */
+
+div.menu-section {
+	clear: both;
+	margin-top: 5px;
+	margin-right: 0;
+	margin-bottom: 5px;
+	margin-left: 0;
+	padding-bottom: 3px;
+	padding-top: 10px;
+}
+
+div.menu-section p {
+	margin-bottom: 20px;
+}
+
+dl.menu-item {
+	clear: both;
+	margin-bottom: 10px;
+	overflow: hidden;
+	padding-bottom: 5px;
+}
+
+dt.menu-item-name {
+	display: inline;
+	float: left;
+	font-weight: bold;
+}
+
+dd.menu-item-price {
+	display: inline;
+	float: right;
+	margin-left: 0px;
+	margin-right: 10px;
+	margin-left: 20px;
+	text-align: center;
+	font-weight: bold;
+}
+
+dd.menu-item-price label {
+	margin-right: 5px;
+	font-weight: normal;
+}
+
+dd.menu-item-description {
+	clear: both;
+	margin: 0;
+	padding: 0;
+}
+
+#printoptions {
+	width: 100%;
+	height: 50px;
+}
+
+#printoptions p a {
+	display: block;
+	float: left;
+	margin-right: 10px;
+}
+
+/*
+#menu_categories {
+	font-size:12px;
+	font-weight:bold;
+	list-style-type:none;
+	margin:5px 0 0;
+	padding:0 0 0 5px;
+}
+#menu_groupings {
+	font-size:14px;
+	font-weight:bold;
+	list-style-type:none;
+	margin:5px 0 0;
+	padding:0 0 0 10px;
+}
+
+#restaurantmenu {
+	width:495px;
+}
+#left600r .legal {
+	color:#888888;
+	font-size:11px;
+	font-style:italic;
+	margin:0 10px 0 0;
+	text-align:right;
+}
+.info190 .legal {
+	color:#888888;
+	font-size:11px;
+	font-style:italic;
+	margin:8px 10px 0;
+}
+.rest_menu {
+	width:48%;
+}
+.rest_menuLeft {
+	float:left;
+	width:49%;
+}
+#restaurantmenu dd {
+	display: inline;
+	float: left;
+	margin-left: 0px;
+	margin-right: 10px;
+}
+#restaurantmenu dt {
+	display: inline;
+	float: left;
+}
+.menu_item {
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color: #262626;
+	margin-bottom:10px;
+	overflow:hidden;
+	padding-bottom:5px;
+	clear:both;
+}
+.menu-item-name {
+	color:#FFFFFF;
+	font-size:14px;
+	font-weight:normal;
+}
+.item-description {
+	clear:right;
+	color:#999999;
+	font-size:12px;
+	font-style:italic;
+	margin:0;
+	padding:0 0 0 10px;
+	clear: right;
+}
+.itemprice {float: right;}
+.menu_item span {
+	color:#ffffff;
+	display:block;
+	float:left;
+	font-size:14px;
+	font-weight:normal;
+}
+.menu_item p {
+	clear:both;
+	color:#999999;
+	font-size:12px;
+	margin:0;
+	font-style:italic;
+	padding-top: 0;
+	padding-right: 0;
+	padding-bottom: 0;
+	padding-left: 10px;
+}
+.menu_item_2col {
+	float:left;
+	width:49%;
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color: #262626;
+	margin-bottom:10px;
+	margin-right:4px;
+	overflow:hidden;
+	padding-bottom:5px;
+	clear:none;
+}
+.menu_item_2col span {
+	color:#FFFFFF;
+	display:block;
+	float:left;
+	font-size:14px;
+	font-weight:normal;
+}
+.menu_item_2col p {
+	clear:both;
+	color:#999999;
+	font-size:12px;
+	margin:0;
+	font-style:italic;
+	padding-top: 0;
+	padding-right: 0;
+	padding-bottom: 0;
+	padding-left: 10px;
+}
+.itemprices {
+	clear:right;
+}
+.itemprice {
+	color:#DDB38C;
+	float:right;
+	font-size:14px;
+	font-weight:bold;
+	margin-left: 20px;
+	text-align:center;
+}
+.itemprice p {
+	color:#333333;
+	display: block;
+	margin: 0px;
+	padding: 0px;
+	text-align: left;
+}
+.itemprice span {
+	color:#DDB38C;
+	font-weight: bold;
+}
+.bold {
+	font-weight:bold;
+}
+.itemoptions {
+	overflow:hidden;
+}
+.itemoption {
+	color:#333333;
+	float:right;
+	font-size:11px;
+	font-weight:bold;
+	margin-left:5px;
+	text-align:center;
+	width:50px;
+}
+*/
+
+/* @end */
+
+/* @group ------------------------------------ Message Board */
+
+/*--------------------------------------------------------------------------------------------------------- Message Board Forum List */
+
+/* Applies to TABLE containing list of forums in the message board */
+
+.messageboard-forum-list-table {
+	width: 100%;
+	border-collapse: collapse;
+	table-layout: fixed;
+	margin-top: 15px;
+}
+
+/* Applies to TH of the table containing list of forums in the message board */
+
+.messageboard-forum-list-table th {
+	font-weight: bold;
+	text-align: left;
+}
+
+/* Applies to TD of the table containing list of forums in the message board */
+
+.messageboard-forum-list-table td {
+	padding: 5px;
+}
+
+/* Applies to the even numbered TR's in the table containing list of forums in the message board */
+
+.messageboard-forum-list-table-evenrow {
+
+}
+
+/* Applies to the odd numbered TR's in the table containing list of forums in the message board */
+
+.messageboard-forum-list-table-oddrow {
+	background: #EFEFEF;
+}
+
+/* Applies to the TH's and the TD's making up the column where the forum image displays  */
+
+.messageboard-forum-list-table-image-column {
+	width: 10%;
+}
+
+/* Applies to the TH's and the TD's making up the column where the forum name displays  */
+
+.messageboard-forum-list-table-forum-column {
+	width: 45%;
+}
+
+/* Applies to the TH's and the TD's making up the column where the number of forum topics displays  */
+
+.messageboard-forum-list-table-topics-column {
+	width: 10%;
+	text-align: center;
+}
+
+/* Applies to the TH's and the TD's making up the column where the number of forum replies displays  */
+
+.messageboard-forum-list-table-replies-column {
+	width: 10%;
+	text-align: center;
+}
+
+/* Applies to the TH's and the TD's making up the column where the last post info of forum displays  */
+
+.messageboard-forum-list-table-lastpost-column {
+	width: 25%;
+}
+
+/*--------------------------------------------------------------------------------------------------------- Forum Topic List */
+
+/* Applies to TABLE containing list of topics in the forum  */
+
+.messageboard-topic-list-table {
+	border-collapse: collapse;
+	width: 100%;
+	table-layout: fixed;
+	margin-top: 15px;
+}
+
+/* Applies to TH of the table containing list of topics in the forum */
+
+.messageboard-topic-list-table th {
+	font-weight: bold;
+	text-align: left;
+}
+
+/* Applies to TD of the table containing list of topics in the forum */
+
+.messageboard-topic-list-table td {
+	vertical-align: top;
+}
+
+/* Applies to the even numbered TR's in the table containing list of topics in the forum */
+
+.messageboard-topic-list-table-evenrow {
+
+}
+
+/* Applies to the odd numbered TR's in the table containing list of topics in the forum */
+
+.messageboard-topic-list-table-oddrow {
+	background: #EFEFEF;
+}
+
+/* Applies to the TH's and the TD's making up the column where the topic name displays  */
+
+.messageboard-topic-list-table-topic-column {
+	width: 45%;
+}
+
+/* Applies to the TH's and the TD's making up the column where the username who started the topic name displays  */
+
+.messageboard-topic-list-table-topicstarter-column {
+	width: 15%;
+}
+
+/* Applies to the TH's and the TD's making up the column where the number of replies to the topic displays  */
+
+.messageboard-topic-list-table-replies-column {
+	width: 10%;
+	text-align: center;
+}
+
+/* Applies to the TH's and the TD's making up the column where the number of views to the topic displays  */
+
+.messageboard-topic-list-table-views-column {
+	width: 10%;
+	text-align: center;
+}
+
+/* Applies to the TH's and the TD's making up the column where the last post info for the topic displays  */
+
+.messageboard-topic-list-table-lastpost-column {
+	width: 30%;
+}
+
+/*--------------------------------------------------------------------------------------------------------- Topic Message List */
+
+/* Applies to TABLE containing list of messages in the topic  */
+
+.messageboard-message-list-table {
+	border-collapse: collapse;
+	width: 100%;
+	margin-top: 15px;
+}
+
+/* Applies to TH of the table containing list of messages in the topic */
+
+.messageboard-message-list-table th {
+	font-weight: bold;
+	text-align: left;
+}
+
+/* Applies to TD of the table containing list of messages in the topic */
+
+.messageboard-message-list-table td {
+	vertical-align: top;
+	padding-bottom: 20px;
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+/* Applies to the even numbered TR's in the table containing list of messages in the topic */
+
+.messageboard-message-list-table-evenrow {
+
+}
+
+/* Applies to the odd numbered TR's in the table containing list of messages in the topic */
+
+.messageboard-message-list-table-oddrow {
+	background: #EFEFEF;
+}
+
+/*--------------------------------------------------------------------------------------------------------- Message/Thread View */
+
+.messageboard-thread-actions {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.messageboard-thread-header {
+	margin-bottom: 10px;
+	height: 25px;
+}
+
+.messageboard-thread-summary {
+	float: left;
+}
+
+.messageboard-message-table-even {
+	width: 100%;
+	border: solid #CCCCCC 1px;
+	margin-bottom: 10px;
+}
+
+.messageboard-message-table-odd {
+	width: 100%;
+	background: #EFEFEF;
+	border: solid #CCCCCC 1px;
+	margin-bottom: 10px;
+}
+
+.messageboard-message-table-even td, .messageboard-message-table-odd td {
+	vertical-align: top;
+}
+
+.messageboard-message-header {
+	height: 40px;
+	width: 100%;
+	border-bottom: dotted #666666 1px;
+	margin-bottom: 15px;
+}
+
+.messageboard-message-title {
+	margin: 0px;
+	font-weight: bold;
+	width: 75%
+}
+
+.messageboard-message-timestamp {
+	margin: 0px;
+	width: 75%;
+	font-size: smaller;
+}
+
+.messageboard-message-actions {
+	float: right;
+	width: 100px;
+}
+
+.messageboard-message-action-email {
+	margin-left: 10px;
+}
+
+.messageboard-message-action-reply {
+	margin-left: 10px;
+}
+
+.messageboard-member-avatar {
+	border: solid #CCC 3px;
+}
+
+/* Applies to the BLOCKQUOTE element inside the DIV wrapping the thread of messages */
+
+.messageboard-message-reply {
+	margin-right: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: 20px;
+}
+
+.message-board-thread-footer {
+	text-align: center;
+}
+
+.messageboard-backtotopics-link {
+	float: left;
+}
+
+.messageboard-topic-nav {
+	float: right;
+}
+
+/* @end */
+
+/* @group ------------------------------------ Membership */
+
+/* @group Register */
+
+ul.profile-group-option-list, ul.profile-list-option-list {
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+}
+
+li.profile-group-option-item, li.profile-list-option-item {
+
+}
+
+span.profile-group-option-item-name, span.profile-list-option-item-name {
+	font-weight: bold;
+}
+
+span.profile-group-option-item-description, span.profile-list-option-item-description {
+	margin-left: 5px;
+	font-style: italic;
+}
+
+/* @end */
+
+/* @group Member Login */
+
+/* @end */
+
+/* @group Form Layout */
+
+/* @group Table Setup */
+
+
+/* @end */
+
+/* @group List Setup */
+
+/* Input Styles */
+.sw-form-elements input[type="text"], .sw-form-elements input[type="password"] {
+	width: 200px;
+	height: 25px;
+}
+.sw-form-elements textarea {
+	width: 200px;
+}
+.sw-form-elements input[type="radio"] {
+}
+.sw-form-elements input[type="checkbox"] {
+}
+.sw-form-elements input[type="submit"] {
+}
+
+table.sw-form-custom-fields {
+	width: 100%;
+}
+.formmodule-row td, .formmodule-altrow td  {
+	vertical-align: top;
+	width: 49%;
+}
+
+/*Strip UL/LI formatting from layout*/
+.sw-form-elements,
+.sw-form-elements li,
+.sw-form-options,
+.sw-form-options li {
+	list-style-type:none;
+	background: none;
+	margin:0;
+	padding:0;
+}
+/* Set margin between form lines */
+.sw-form-elements li {
+	margin-bottom: 10px;
+}
+
+/* Table Based Selectors to be removed
+.formmodule-row (odd table rows)
+.formmodule-altrow (even table rows)
+.formmodule-column1 (column 1)
+.formmodule-column2 (column 2)
+.formmodule-column1 span (tag used by question)
+
+Fields
+.formmodule-singleline (type=text)
+.formmodule-multiline (textarea)
+.formmodule-checkboxlist (table containing checkbox list)
+.formmodule-radiobuttonlist  (table containing radio button list)
+.formmodule-checkbox (span containing checkbox input)
+ */
+
+
+/*style two column layout*/
+.sw-form-line-two-column .sw-form-question {
+	display:block;
+	float:left;
+	width:49%;
+}
+.sw-form-line-two-column .sw-form-options {
+	width:49%;
+	float:left;
+}
+/* one column layout*/
+.sw-form-line-one-column .sw-form-question {
+	float:none;
+	width:auto;
+}
+.sw-form-line-one-column .sw-form-options {
+	float:none;
+	width:auto;
+}
+/* Set style of question text */
+.sw-form-question, .formmodule-row td span, .formmodule-altrow td span {
+	font-weight:bold;
+}
+/* Set style of option label*/
+.sw-form-options label, .formmodule-row td label, .formmodule-altrow td label {
+	font-style:italic;
+	margin-left: 5px;
+}
+/* Set style of required field line*/
+.sw-form-line-required {
+
+}
+/* Set style of required field asterisk*/
+.sw-form-line-required em {
+
+}
+
+.sw-form-validation-text {
+	color: red;
+	display: block;
+}
+
+
+/* @end */
+
+/* @end */
+
+/* @group Profile Page */
+
+/* legacy style  to be removed  */
+#membership-signup-form-table td {
+	vertical-align: top;
+}
+
+div.profile-display-wrapper {
+
+}
+div.profile-edit-wrapper{
+
+}
+div.profile-display-wrapper fieldset, div.profile-edit-wrapper fieldset{
+}
+
+
+/* @end */
+
+/* @end */
+
+/* @group ------------------------------------ Template Content */
+
+/* @end */
+
+/* @group ------------------------------------ Navigation */
+
+/* @group Main Nav */
+
+/* @end */
+
+/* @group Subnav */
+
+/* @end */
+
+/* @group Level2Nav */
+
+/* @end */
+
+/* @group Breadcrumb */
+
+/* @end */
+
+/* @end */
+
+/* @group ------------------------------------ List Signup */
+
+.list-signup-list-name {
+	font-weight: bold;
+}
+
+.list-signup-list-description {
+
+}
+
+/* @end */
+
+/* @group ------------------------------------ Widgets */
+
+/* @group ------------------------------------ Recent Photos */
+
+/* Applies to DIV around entire control */
+
+.recent-photos-wrapper {
+
+}
+
+.recent-photo-list {
+
+}
+
+.recent-photo-list-item {
+
+}
+
+.recent-photo-list-item-image {
+
+}
+
+.recent-photos-view-all-link {
+
+}
+
+/* @end */
+
+/* @group ------------------------------------ Recent Blog Posts */
+
+/* Applies to DIV around entire control */
+
+.recent-blog-posts-wrapper {
+
+}
+
+/* Applies to UL for list of recent blog posts */
+
+.recent-blog-posts-list {
+
+}
+
+/* Applies to LI for each blog post title */
+
+.recent-blog-posts-title {
+
+}
+.recent-blog-posts-body {
+
+}
+
+.recent-blog-posts-date-wrapper {
+
+}
+.recent-blog-posts-weekday {
+
+}
+.recent-blog-posts-date-seperator {
+
+}
+.recent-blog-posts-month {
+
+}
+.recent-blog-posts-date {
+
+}
+.recent-blog-posts-year {
+
+}
+
+/* Applies to A for link to full blog */
+
+.recent-blog-posts-view-link {
+
+}
+
+/* @end */
+
+/* @group ------------------------------------ Recent Discussions */
+
+/* Applies to DIV around entire control */
+
+.recent-discussions-wrapper {
+
+}
+
+/* Applies to UL for list of recent discussions */
+
+.recent-discussions-list {
+
+}
+
+/* Applies to LI for each recent discussion item */
+
+.recent-discussions-title {
+
+}
+
+/* Applies to A for view discussions link */
+
+.recent-discussions-view-link {
+
+}
+
+/* @end */
+
+/* @group ------------------------------------ Recent News */
+
+/* Applies to DIV around entire control */
+
+div.recent-news-wrapper {
+
+}
+
+/* Applies to UL for recent news list */
+
+ul.recent-news-list {
+	padding: 0;
+}
+
+/* Applies to LI for recent news title */
+
+li.recent-news-list-item {
+	list-style-type: none;
+}
+
+/* Applies to A for recent news title */
+
+a.recent-news-title {
+
+}
+
+/* Applies to A for aire all news link */
+
+a.recent-news-view-link {
+
+}
+
+/* @end */
+
+/* @group ------------------------------------ New Members */
+
+/* Applies to DIV around entire
+
+ control*/
+
+.recent-members-wrapper {
+
+}
+
+.recent-members-wrapper li {
+	list-style-type: none;
+}
+
+/* Applies to A for each event image */
+
+.recent-members-image {
+	float: left;
+	margin-right: 10px;
+	clear: both;
+}
+
+/* Applies to P containing event date */
+
+.recent-members-date {
+	padding: 0px;
+	margin: 0px;
+	font-size: xx-small;
+}
+
+/* Applies to P containing event name */
+
+.recent-members-username {
+	margin: 0px;
+	padding: 0px;
+	font-weight: bold;
+}
+
+/* Applies to P containing event description */
+
+.recent-members-description {
+
+}
+
+/* @end */
+
+/* @group Mini-Cal Widget */
+/*!
+ * jQuery UI CSS Framework 1.8.20
+ *
+ * Copyright 2012, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Theming/API
+ */
+
+/* Layout helpers
+----------------------------------*/
+.mini-cal-app-wrapper .ui-helper-hidden { display: none; }
+.mini-cal-app-wrapper .ui-helper-hidden-accessible { position: absolute !important; clip: rect(1px,1px,1px,1px); }
+.mini-cal-app-wrapper .ui-helper-reset { margin: 0; padding: 0; border: 0; outline: 0; line-height: 1.3; text-decoration: none; font-size: 100%; list-style: none; }
+.mini-cal-app-wrapper .ui-helper-clearfix:before, .mini-cal-app-wrapper .ui-helper-clearfix:after { content: ""; display: table; }
+.mini-cal-app-wrapper .ui-helper-clearfix:after { clear: both; }
+.mini-cal-app-wrapper .ui-helper-clearfix { zoom: 1; }
+.mini-cal-app-wrapper .ui-helper-zfix { width: 100%; height: 100%; top: 0; left: 0; position: absolute; opacity: 0; filter:Alpha(Opacity=0); }
+
+
+/* Interaction Cues
+----------------------------------*/
+.mini-cal-app-wrapper .ui-state-disabled { cursor: default !important; }
+
+
+/* Icons
+----------------------------------*/
+
+/* states and images */
+.mini-cal-app-wrapper .ui-icon { display: block; text-indent: -99999px; overflow: hidden; background-repeat: no-repeat; }
+
+
+/* Misc visuals
+----------------------------------*/
+
+/* Overlays */
+.mini-cal-app-wrapper .ui-widget-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+
+/*!
+ * jQuery UI CSS Framework 1.8.20
+ *
+ * Copyright 2012, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Theming/API
+ *
+ * To view and modify this theme, visit http://jqueryui.com/themeroller/?ffDefault=Helvetica,Arial,Times-New-Roman&fwDefault=normal&fsDefault=&cornerRadius=0px&bgColorHeader=ffffff&bgTextureHeader=01_flat.png&bgImgOpacityHeader=0&borderColorHeader=000000&fcHeader=000000&iconColorHeader=222222&bgColorContent=ffffff&bgTextureContent=01_flat.png&bgImgOpacityContent=0&borderColorContent=000000&fcContent=000000&iconColorContent=000000&bgColorDefault=ffffff&bgTextureDefault=01_flat.png&bgImgOpacityDefault=0&borderColorDefault=000000&fcDefault=000000&iconColorDefault=000000&bgColorHover=ffffff&bgTextureHover=01_flat.png&bgImgOpacityHover=0&borderColorHover=000000&fcHover=212121&iconColorHover=000000&bgColorActive=ffffff&bgTextureActive=01_flat.png&bgImgOpacityActive=0&borderColorActive=000000&fcActive=000000&iconColorActive=000000&bgColorHighlight=ffffff&bgTextureHighlight=01_flat.png&bgImgOpacityHighlight=0&borderColorHighlight=000000&fcHighlight=363636&iconColorHighlight=2e83ff&bgColorError=ffffff&bgTextureError=01_flat.png&bgImgOpacityError=0&borderColorError=cd0a0a&fcError=cd0a0a&iconColorError=cd0a0a&bgColorOverlay=000000&bgTextureOverlay=01_flat.png&bgImgOpacityOverlay=0&opacityOverlay=0&bgColorShadow=aaaaaa&bgTextureShadow=01_flat.png&bgImgOpacityShadow=0&opacityShadow=0&thicknessShadow=8px&offsetTopShadow=-8px&offsetLeftShadow=-8px&cornerRadiusShadow=8px
+ */
+
+
+/* Component containers
+----------------------------------*/
+.mini-cal-app-wrapper .ui-widget { font-family: Helvetica,Arial,Times-New-Roman; }
+.mini-cal-app-wrapper .ui-widget .ui-widget { font-size: 1em; }
+.mini-cal-app-wrapper .ui-widget input, .mini-cal-app-wrapper .ui-widget select, .mini-cal-app-wrapper .ui-widget textarea, .mini-cal-app-wrapper .ui-widget button { font-family: Helvetica,Arial,Times-New-Roman; font-size: 1em; }
+.mini-cal-app-wrapper .ui-widget-content { border: 1px solid #000000; background: #ffffff url(images/ui-bg_flat_0_ffffff_40x100.html) 50% 50% repeat-x; color: #000000; }
+.mini-cal-app-wrapper .ui-widget-content a { color: #000000; }
+.mini-cal-app-wrapper .ui-widget-header { border: 1px solid #000000; background: #ffffff url(images/ui-bg_flat_0_ffffff_40x100.html) 50% 50% repeat-x; color: #000000; font-weight: bold; }
+.mini-cal-app-wrapper .ui-widget-header a { color: #000000; }
+
+/* Interaction states
+----------------------------------*/
+.mini-cal-app-wrapper .ui-state-default, .mini-cal-app-wrapper .ui-widget-content .ui-state-default, .mini-cal-app-wrapper .ui-widget-header .ui-state-default { border: 1px solid #000000; background: #ffffff url(images/ui-bg_flat_0_ffffff_40x100.html) 50% 50% repeat-x; font-weight: normal; color: #000000; }
+.mini-cal-app-wrapper .ui-state-default a, .mini-cal-app-wrapper .ui-state-default a:link, .mini-cal-app-wrapper .ui-state-default a:visited { color: #000000; text-decoration: none; }
+.mini-cal-app-wrapper .ui-state-hover, .mini-cal-app-wrapper .ui-widget-content .ui-state-hover, .mini-cal-app-wrapper .ui-widget-header .ui-state-hover, .mini-cal-app-wrapper .ui-state-focus, .mini-cal-app-wrapper .ui-widget-content .ui-state-focus, .mini-cal-app-wrapper .ui-widget-header .ui-state-focus { border: 1px solid #000000; background: #ffffff url(images/ui-bg_flat_0_ffffff_40x100.html) 50% 50% repeat-x; font-weight: normal; color: #212121; }
+.mini-cal-app-wrapper .ui-state-hover a, .mini-cal-app-wrapper .ui-state-hover a:hover { color: #212121; text-decoration: none; }
+.mini-cal-app-wrapper .ui-state-active, .mini-cal-app-wrapper .ui-widget-content .ui-state-active, .mini-cal-app-wrapper .ui-widget-header .ui-state-active { border: 1px solid #000000; background: #ffffff url(images/ui-bg_flat_0_ffffff_40x100.html) 50% 50% repeat-x; font-weight: normal; color: #000000; }
+.mini-cal-app-wrapper .ui-state-active a, .mini-cal-app-wrapper .ui-state-active a:link, .mini-cal-app-wrapper .ui-state-active a:visited { color: #000000; text-decoration: none; }
+.mini-cal-app-wrapper .ui-widget :active { outline: none; }
+
+/* Interaction Cues
+----------------------------------*/
+.mini-cal-app-wrapper .ui-state-highlight, .mini-cal-app-wrapper .ui-widget-content .ui-state-highlight, .mini-cal-app-wrapper .ui-widget-header .ui-state-highlight  {border: 1px solid #000000; background: #ffffff url(images/ui-bg_flat_0_ffffff_40x100.html) 50% 50% repeat-x; color: #363636; }
+.mini-cal-app-wrapper .ui-state-highlight a, .mini-cal-app-wrapper .ui-widget-content .ui-state-highlight a,.ui-widget-header .ui-state-highlight a { color: #363636; }
+.mini-cal-app-wrapper .ui-state-error, .mini-cal-app-wrapper .ui-widget-content .ui-state-error, .mini-cal-app-wrapper .ui-widget-header .ui-state-error {border: 1px solid #cd0a0a; background: #ffffff url(images/ui-bg_flat_0_ffffff_40x100.html) 50% 50% repeat-x; color: #cd0a0a; }
+.mini-cal-app-wrapper .ui-state-error a, .mini-cal-app-wrapper .ui-widget-content .ui-state-error a, .mini-cal-app-wrapper .ui-widget-header .ui-state-error a { color: #cd0a0a; }
+.mini-cal-app-wrapper .ui-state-error-text, .mini-cal-app-wrapper .ui-widget-content .ui-state-error-text, .mini-cal-app-wrapper .ui-widget-header .ui-state-error-text { color: #cd0a0a; }
+.mini-cal-app-wrapper .ui-priority-primary, .mini-cal-app-wrapper .ui-widget-content .ui-priority-primary, .mini-cal-app-wrapper .ui-widget-header .ui-priority-primary { font-weight: bold; }
+.mini-cal-app-wrapper .ui-priority-secondary, .mini-cal-app-wrapper .ui-widget-content .ui-priority-secondary,  .ui-widget-header .ui-priority-secondary { opacity: .7; filter:Alpha(Opacity=70); font-weight: normal; }
+.mini-cal-app-wrapper .ui-state-disabled, .mini-cal-app-wrapper .ui-widget-content .ui-state-disabled, .mini-cal-app-wrapper .ui-widget-header .ui-state-disabled { opacity: .35; filter:Alpha(Opacity=35); background-image: none; }
+
+/* Icons
+----------------------------------*/
+
+/* states and images */
+.mini-cal-app-wrapper .ui-icon { width: 16px; height: 16px; background-image: url(images/ui-icons_000000_256x240.html); }
+.mini-cal-app-wrapper .ui-widget-content .ui-icon {background-image: url(images/ui-icons_000000_256x240.html); }
+.mini-cal-app-wrapper .ui-widget-header .ui-icon {background-image: url(images/ui-icons_222222_256x240.html); }
+.mini-cal-app-wrapper .ui-state-default .ui-icon { background-image: url(images/ui-icons_000000_256x240.html); }
+.mini-cal-app-wrapper .ui-state-hover .ui-icon, .mini-cal-app-wrapper .ui-state-focus .ui-icon {background-image: url(images/ui-icons_000000_256x240.html); }
+.mini-cal-app-wrapper .ui-state-active .ui-icon {background-image: url(images/ui-icons_000000_256x240.html); }
+.mini-cal-app-wrapper .ui-state-highlight .ui-icon {background-image: url(images/ui-icons_2e83ff_256x240.html); }
+.mini-cal-app-wrapper .ui-state-error .ui-icon, .mini-cal-app-wrapper .ui-state-error-text .ui-icon {background-image: url(images/ui-icons_cd0a0a_256x240.html); }
+
+/* positioning */
+.mini-cal-app-wrapper .ui-icon-carat-1-n { background-position: 0 0; }
+.mini-cal-app-wrapper .ui-icon-carat-1-ne { background-position: -16px 0; }
+.mini-cal-app-wrapper .ui-icon-carat-1-e { background-position: -32px 0; }
+.mini-cal-app-wrapper .ui-icon-carat-1-se { background-position: -48px 0; }
+.mini-cal-app-wrapper .ui-icon-carat-1-s { background-position: -64px 0; }
+.mini-cal-app-wrapper .ui-icon-carat-1-sw { background-position: -80px 0; }
+.mini-cal-app-wrapper .ui-icon-carat-1-w { background-position: -96px 0; }
+.mini-cal-app-wrapper .ui-icon-carat-1-nw { background-position: -112px 0; }
+.mini-cal-app-wrapper .ui-icon-carat-2-n-s { background-position: -128px 0; }
+.mini-cal-app-wrapper .ui-icon-carat-2-e-w { background-position: -144px 0; }
+.mini-cal-app-wrapper .ui-icon-triangle-1-n { background-position: 0 -16px; }
+.mini-cal-app-wrapper .ui-icon-triangle-1-ne { background-position: -16px -16px; }
+.mini-cal-app-wrapper .ui-icon-triangle-1-e { background-position: -32px -16px; }
+.mini-cal-app-wrapper .ui-icon-triangle-1-se { background-position: -48px -16px; }
+.mini-cal-app-wrapper .ui-icon-triangle-1-s { background-position: -64px -16px; }
+.mini-cal-app-wrapper .ui-icon-triangle-1-sw { background-position: -80px -16px; }
+.mini-cal-app-wrapper .ui-icon-triangle-1-w { background-position: -96px -16px; }
+.mini-cal-app-wrapper .ui-icon-triangle-1-nw { background-position: -112px -16px; }
+.mini-cal-app-wrapper .ui-icon-triangle-2-n-s { background-position: -128px -16px; }
+.mini-cal-app-wrapper .ui-icon-triangle-2-e-w { background-position: -144px -16px; }
+.mini-cal-app-wrapper .ui-icon-arrow-1-n { background-position: 0 -32px; }
+.mini-cal-app-wrapper .ui-icon-arrow-1-ne { background-position: -16px -32px; }
+.mini-cal-app-wrapper .ui-icon-arrow-1-e { background-position: -32px -32px; }
+.mini-cal-app-wrapper .ui-icon-arrow-1-se { background-position: -48px -32px; }
+.mini-cal-app-wrapper .ui-icon-arrow-1-s { background-position: -64px -32px; }
+.mini-cal-app-wrapper .ui-icon-arrow-1-sw { background-position: -80px -32px; }
+.mini-cal-app-wrapper .ui-icon-arrow-1-w { background-position: -96px -32px; }
+.mini-cal-app-wrapper .ui-icon-arrow-1-nw { background-position: -112px -32px; }
+.mini-cal-app-wrapper .ui-icon-arrow-2-n-s { background-position: -128px -32px; }
+.mini-cal-app-wrapper .ui-icon-arrow-2-ne-sw { background-position: -144px -32px; }
+.mini-cal-app-wrapper .ui-icon-arrow-2-e-w { background-position: -160px -32px; }
+.mini-cal-app-wrapper .ui-icon-arrow-2-se-nw { background-position: -176px -32px; }
+.mini-cal-app-wrapper .ui-icon-arrowstop-1-n { background-position: -192px -32px; }
+.mini-cal-app-wrapper .ui-icon-arrowstop-1-e { background-position: -208px -32px; }
+.mini-cal-app-wrapper .ui-icon-arrowstop-1-s { background-position: -224px -32px; }
+.mini-cal-app-wrapper .ui-icon-arrowstop-1-w { background-position: -240px -32px; }
+.mini-cal-app-wrapper .ui-icon-arrowthick-1-n { background-position: 0 -48px; }
+.mini-cal-app-wrapper .ui-icon-arrowthick-1-ne { background-position: -16px -48px; }
+.mini-cal-app-wrapper .ui-icon-arrowthick-1-e { background-position: -32px -48px; }
+.mini-cal-app-wrapper .ui-icon-arrowthick-1-se { background-position: -48px -48px; }
+.mini-cal-app-wrapper .ui-icon-arrowthick-1-s { background-position: -64px -48px; }
+.mini-cal-app-wrapper .ui-icon-arrowthick-1-sw { background-position: -80px -48px; }
+.mini-cal-app-wrapper .ui-icon-arrowthick-1-w { background-position: -96px -48px; }
+.mini-cal-app-wrapper .ui-icon-arrowthick-1-nw { background-position: -112px -48px; }
+.mini-cal-app-wrapper .ui-icon-arrowthick-2-n-s { background-position: -128px -48px; }
+.mini-cal-app-wrapper .ui-icon-arrowthick-2-ne-sw { background-position: -144px -48px; }
+.mini-cal-app-wrapper .ui-icon-arrowthick-2-e-w { background-position: -160px -48px; }
+.mini-cal-app-wrapper .ui-icon-arrowthick-2-se-nw { background-position: -176px -48px; }
+.mini-cal-app-wrapper .ui-icon-arrowthickstop-1-n { background-position: -192px -48px; }
+.mini-cal-app-wrapper .ui-icon-arrowthickstop-1-e { background-position: -208px -48px; }
+.mini-cal-app-wrapper .ui-icon-arrowthickstop-1-s { background-position: -224px -48px; }
+.mini-cal-app-wrapper .ui-icon-arrowthickstop-1-w { background-position: -240px -48px; }
+.mini-cal-app-wrapper .ui-icon-arrowreturnthick-1-w { background-position: 0 -64px; }
+.mini-cal-app-wrapper .ui-icon-arrowreturnthick-1-n { background-position: -16px -64px; }
+.mini-cal-app-wrapper .ui-icon-arrowreturnthick-1-e { background-position: -32px -64px; }
+.mini-cal-app-wrapper .ui-icon-arrowreturnthick-1-s { background-position: -48px -64px; }
+.mini-cal-app-wrapper .ui-icon-arrowreturn-1-w { background-position: -64px -64px; }
+.mini-cal-app-wrapper .ui-icon-arrowreturn-1-n { background-position: -80px -64px; }
+.mini-cal-app-wrapper .ui-icon-arrowreturn-1-e { background-position: -96px -64px; }
+.mini-cal-app-wrapper .ui-icon-arrowreturn-1-s { background-position: -112px -64px; }
+.mini-cal-app-wrapper .ui-icon-arrowrefresh-1-w { background-position: -128px -64px; }
+.mini-cal-app-wrapper .ui-icon-arrowrefresh-1-n { background-position: -144px -64px; }
+.mini-cal-app-wrapper .ui-icon-arrowrefresh-1-e { background-position: -160px -64px; }
+.mini-cal-app-wrapper .ui-icon-arrowrefresh-1-s { background-position: -176px -64px; }
+.mini-cal-app-wrapper .ui-icon-arrow-4 { background-position: 0 -80px; }
+.mini-cal-app-wrapper .ui-icon-arrow-4-diag { background-position: -16px -80px; }
+.mini-cal-app-wrapper .ui-icon-extlink { background-position: -32px -80px; }
+.mini-cal-app-wrapper .ui-icon-newwin { background-position: -48px -80px; }
+.mini-cal-app-wrapper .ui-icon-refresh { background-position: -64px -80px; }
+.mini-cal-app-wrapper .ui-icon-shuffle { background-position: -80px -80px; }
+.mini-cal-app-wrapper .ui-icon-transfer-e-w { background-position: -96px -80px; }
+.mini-cal-app-wrapper .ui-icon-transferthick-e-w { background-position: -112px -80px; }
+.mini-cal-app-wrapper .ui-icon-folder-collapsed { background-position: 0 -96px; }
+.mini-cal-app-wrapper .ui-icon-folder-open { background-position: -16px -96px; }
+.mini-cal-app-wrapper .ui-icon-document { background-position: -32px -96px; }
+.mini-cal-app-wrapper .ui-icon-document-b { background-position: -48px -96px; }
+.mini-cal-app-wrapper .ui-icon-note { background-position: -64px -96px; }
+.mini-cal-app-wrapper .ui-icon-mail-closed { background-position: -80px -96px; }
+.mini-cal-app-wrapper .ui-icon-mail-open { background-position: -96px -96px; }
+.mini-cal-app-wrapper .ui-icon-suitcase { background-position: -112px -96px; }
+.mini-cal-app-wrapper .ui-icon-comment { background-position: -128px -96px; }
+.mini-cal-app-wrapper .ui-icon-person { background-position: -144px -96px; }
+.mini-cal-app-wrapper .ui-icon-print { background-position: -160px -96px; }
+.mini-cal-app-wrapper .ui-icon-trash { background-position: -176px -96px; }
+.mini-cal-app-wrapper .ui-icon-locked { background-position: -192px -96px; }
+.mini-cal-app-wrapper .ui-icon-unlocked { background-position: -208px -96px; }
+.mini-cal-app-wrapper .ui-icon-bookmark { background-position: -224px -96px; }
+.mini-cal-app-wrapper .ui-icon-tag { background-position: -240px -96px; }
+.mini-cal-app-wrapper .ui-icon-home { background-position: 0 -112px; }
+.mini-cal-app-wrapper .ui-icon-flag { background-position: -16px -112px; }
+.mini-cal-app-wrapper .ui-icon-calendar { background-position: -32px -112px; }
+.mini-cal-app-wrapper .ui-icon-cart { background-position: -48px -112px; }
+.mini-cal-app-wrapper .ui-icon-pencil { background-position: -64px -112px; }
+.mini-cal-app-wrapper .ui-icon-clock { background-position: -80px -112px; }
+.mini-cal-app-wrapper .ui-icon-disk { background-position: -96px -112px; }
+.mini-cal-app-wrapper .ui-icon-calculator { background-position: -112px -112px; }
+.mini-cal-app-wrapper .ui-icon-zoomin { background-position: -128px -112px; }
+.mini-cal-app-wrapper .ui-icon-zoomout { background-position: -144px -112px; }
+.mini-cal-app-wrapper .ui-icon-search { background-position: -160px -112px; }
+.mini-cal-app-wrapper .ui-icon-wrench { background-position: -176px -112px; }
+.mini-cal-app-wrapper .ui-icon-gear { background-position: -192px -112px; }
+.mini-cal-app-wrapper .ui-icon-heart { background-position: -208px -112px; }
+.mini-cal-app-wrapper .ui-icon-star { background-position: -224px -112px; }
+.mini-cal-app-wrapper .ui-icon-link { background-position: -240px -112px; }
+.mini-cal-app-wrapper .ui-icon-cancel { background-position: 0 -128px; }
+.mini-cal-app-wrapper .ui-icon-plus { background-position: -16px -128px; }
+.mini-cal-app-wrapper .ui-icon-plusthick { background-position: -32px -128px; }
+.mini-cal-app-wrapper .ui-icon-minus { background-position: -48px -128px; }
+.mini-cal-app-wrapper .ui-icon-minusthick { background-position: -64px -128px; }
+.mini-cal-app-wrapper .ui-icon-close { background-position: -80px -128px; }
+.mini-cal-app-wrapper .ui-icon-closethick { background-position: -96px -128px; }
+.mini-cal-app-wrapper .ui-icon-key { background-position: -112px -128px; }
+.mini-cal-app-wrapper .ui-icon-lightbulb { background-position: -128px -128px; }
+.mini-cal-app-wrapper .ui-icon-scissors { background-position: -144px -128px; }
+.mini-cal-app-wrapper .ui-icon-clipboard { background-position: -160px -128px; }
+.mini-cal-app-wrapper .ui-icon-copy { background-position: -176px -128px; }
+.mini-cal-app-wrapper .ui-icon-contact { background-position: -192px -128px; }
+.mini-cal-app-wrapper .ui-icon-image { background-position: -208px -128px; }
+.mini-cal-app-wrapper .ui-icon-video { background-position: -224px -128px; }
+.mini-cal-app-wrapper .ui-icon-script { background-position: -240px -128px; }
+.mini-cal-app-wrapper .ui-icon-alert { background-position: 0 -144px; }
+.mini-cal-app-wrapper .ui-icon-info { background-position: -16px -144px; }
+.mini-cal-app-wrapper .ui-icon-notice { background-position: -32px -144px; }
+.mini-cal-app-wrapper .ui-icon-help { background-position: -48px -144px; }
+.mini-cal-app-wrapper .ui-icon-check { background-position: -64px -144px; }
+.mini-cal-app-wrapper .ui-icon-bullet { background-position: -80px -144px; }
+.mini-cal-app-wrapper .ui-icon-radio-off { background-position: -96px -144px; }
+.mini-cal-app-wrapper .ui-icon-radio-on { background-position: -112px -144px; }
+.mini-cal-app-wrapper .ui-icon-pin-w { background-position: -128px -144px; }
+.mini-cal-app-wrapper .ui-icon-pin-s { background-position: -144px -144px; }
+.mini-cal-app-wrapper .ui-icon-play { background-position: 0 -160px; }
+.mini-cal-app-wrapper .ui-icon-pause { background-position: -16px -160px; }
+.mini-cal-app-wrapper .ui-icon-seek-next { background-position: -32px -160px; }
+.mini-cal-app-wrapper .ui-icon-seek-prev { background-position: -48px -160px; }
+.mini-cal-app-wrapper .ui-icon-seek-end { background-position: -64px -160px; }
+.mini-cal-app-wrapper .ui-icon-seek-start { background-position: -80px -160px; }
+/* ui-icon-seek-first is deprecated, use ui-icon-seek-start instead */
+.mini-cal-app-wrapper .ui-icon-seek-first { background-position: -80px -160px; }
+.mini-cal-app-wrapper .ui-icon-stop { background-position: -96px -160px; }
+.mini-cal-app-wrapper .ui-icon-eject { background-position: -112px -160px; }
+.mini-cal-app-wrapper .ui-icon-volume-off { background-position: -128px -160px; }
+.mini-cal-app-wrapper .ui-icon-volume-on { background-position: -144px -160px; }
+.mini-cal-app-wrapper .ui-icon-power { background-position: 0 -176px; }
+.mini-cal-app-wrapper .ui-icon-signal-diag { background-position: -16px -176px; }
+.mini-cal-app-wrapper .ui-icon-signal { background-position: -32px -176px; }
+.mini-cal-app-wrapper .ui-icon-battery-0 { background-position: -48px -176px; }
+.mini-cal-app-wrapper .ui-icon-battery-1 { background-position: -64px -176px; }
+.mini-cal-app-wrapper .ui-icon-battery-2 { background-position: -80px -176px; }
+.mini-cal-app-wrapper .ui-icon-battery-3 { background-position: -96px -176px; }
+.mini-cal-app-wrapper .ui-icon-circle-plus { background-position: 0 -192px; }
+.mini-cal-app-wrapper .ui-icon-circle-minus { background-position: -16px -192px; }
+.mini-cal-app-wrapper .ui-icon-circle-close { background-position: -32px -192px; }
+.mini-cal-app-wrapper .ui-icon-circle-triangle-e { background-position: -48px -192px; }
+.mini-cal-app-wrapper .ui-icon-circle-triangle-s { background-position: -64px -192px; }
+.mini-cal-app-wrapper .ui-icon-circle-triangle-w { background-position: -80px -192px; }
+.mini-cal-app-wrapper .ui-icon-circle-triangle-n { background-position: -96px -192px; }
+.mini-cal-app-wrapper .ui-icon-circle-arrow-e { background-position: -112px -192px; }
+.mini-cal-app-wrapper .ui-icon-circle-arrow-s { background-position: -128px -192px; }
+.mini-cal-app-wrapper .ui-icon-circle-arrow-w { background-position: -144px -192px; }
+.mini-cal-app-wrapper .ui-icon-circle-arrow-n { background-position: -160px -192px; }
+.mini-cal-app-wrapper .ui-icon-circle-zoomin { background-position: -176px -192px; }
+.mini-cal-app-wrapper .ui-icon-circle-zoomout { background-position: -192px -192px; }
+.mini-cal-app-wrapper .ui-icon-circle-check { background-position: -208px -192px; }
+.mini-cal-app-wrapper .ui-icon-circlesmall-plus { background-position: 0 -208px; }
+.mini-cal-app-wrapper .ui-icon-circlesmall-minus { background-position: -16px -208px; }
+.mini-cal-app-wrapper .ui-icon-circlesmall-close { background-position: -32px -208px; }
+.mini-cal-app-wrapper .ui-icon-squaresmall-plus { background-position: -48px -208px; }
+.mini-cal-app-wrapper .ui-icon-squaresmall-minus { background-position: -64px -208px; }
+.mini-cal-app-wrapper .ui-icon-squaresmall-close { background-position: -80px -208px; }
+.mini-cal-app-wrapper .ui-icon-grip-dotted-vertical { background-position: 0 -224px; }
+.mini-cal-app-wrapper .ui-icon-grip-dotted-horizontal { background-position: -16px -224px; }
+.mini-cal-app-wrapper .ui-icon-grip-solid-vertical { background-position: -32px -224px; }
+.mini-cal-app-wrapper .ui-icon-grip-solid-horizontal { background-position: -48px -224px; }
+.mini-cal-app-wrapper .ui-icon-gripsmall-diagonal-se { background-position: -64px -224px; }
+.mini-cal-app-wrapper .ui-icon-grip-diagonal-se { background-position: -80px -224px; }
+
+
+/* Misc visuals
+----------------------------------*/
+
+/* Corner radius */
+.mini-cal-app-wrapper .ui-corner-all, .mini-cal-app-wrapper .ui-corner-top, .mini-cal-app-wrapper .ui-corner-left, .mini-cal-app-wrapper .ui-corner-tl { border-top-left-radius: 0px;}
+.mini-cal-app-wrapper .ui-corner-all, .mini-cal-app-wrapper .ui-corner-top, .mini-cal-app-wrapper .ui-corner-right, .mini-cal-app-wrapper .ui-corner-tr { border-top-right-radius: 0px; }
+.mini-cal-app-wrapper .ui-corner-all, .mini-cal-app-wrapper .ui-corner-bottom, .mini-cal-app-wrapper .ui-corner-left, .mini-cal-app-wrapper .ui-corner-bl { border-bottom-left-radius: 0px; }
+.mini-cal-app-wrapper .ui-corner-all, .mini-cal-app-wrapper .ui-corner-bottom, .mini-cal-app-wrapper .ui-corner-right, .mini-cal-app-wrapper .ui-corner-br { border-bottom-right-radius: 0px;}
+
+/* Overlays */
+.mini-cal-app-wrapper .ui-widget-overlay { background: #000000 url(images/ui-bg_flat_0_000000_40x100.html) 50% 50% repeat-x; opacity: 0;filter:Alpha(Opacity=0); }
+.mini-cal-app-wrapper .ui-widget-shadow { margin: -8px 0 0 -8px; padding: 8px; background: #aaaaaa url(images/ui-bg_flat_0_aaaaaa_40x100.html) 50% 50% repeat-x; opacity: 0;filter:Alpha(Opacity=0); border-radius: 8px;}/*!
+ * jQuery UI Resizable 1.8.20
+ *
+ * Copyright 2012, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Resizable#theming
+ */
+.mini-cal-app-wrapper .ui-resizable { position: relative;}
+.mini-cal-app-wrapper .ui-resizable-handle { position: absolute;font-size: 0.1px; display: block; }
+.mini-cal-app-wrapper .ui-resizable-disabled .ui-resizable-handle, .mini-cal-app-wrapper .ui-resizable-autohide .ui-resizable-handle { display: none; }
+.mini-cal-app-wrapper .ui-resizable-n { cursor: n-resize; height: 7px; width: 100%; top: -5px; left: 0; }
+.mini-cal-app-wrapper .ui-resizable-s { cursor: s-resize; height: 7px; width: 100%; bottom: -5px; left: 0; }
+.mini-cal-app-wrapper .ui-resizable-e { cursor: e-resize; width: 7px; right: -5px; top: 0; height: 100%; }
+.mini-cal-app-wrapper .ui-resizable-w { cursor: w-resize; width: 7px; left: -5px; top: 0; height: 100%; }
+.mini-cal-app-wrapper .ui-resizable-se { cursor: se-resize; width: 12px; height: 12px; right: 1px; bottom: 1px; }
+.mini-cal-app-wrapper .ui-resizable-sw { cursor: sw-resize; width: 9px; height: 9px; left: -5px; bottom: -5px; }
+.mini-cal-app-wrapper .ui-resizable-nw { cursor: nw-resize; width: 9px; height: 9px; left: -5px; top: -5px; }
+.mini-cal-app-wrapper .ui-resizable-ne { cursor: ne-resize; width: 9px; height: 9px; right: -5px; top: -5px;}/*!
+ * jQuery UI Selectable 1.8.20
+ *
+ * Copyright 2012, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Selectable#theming
+ */
+.mini-cal-app-wrapper .ui-selectable-helper { position: absolute; z-index: 100; border:1px dotted black; }
+/*!
+ * jQuery UI Accordion 1.8.20
+ *
+ * Copyright 2012, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Accordion#theming
+ */
+/* IE/Win - Fix animation bug - #4615 */
+.mini-cal-app-wrapper .ui-accordion { width: 100%; }
+.mini-cal-app-wrapper .ui-accordion .ui-accordion-header { cursor: pointer; position: relative; margin-top: 1px; zoom: 1; }
+.mini-cal-app-wrapper .ui-accordion .ui-accordion-li-fix { display: inline; }
+.mini-cal-app-wrapper .ui-accordion .ui-accordion-header-active { border-bottom: 0 !important; }
+.mini-cal-app-wrapper .ui-accordion .ui-accordion-header a { display: block; font-size: 1em; padding: .5em .5em .5em .7em; }
+.mini-cal-app-wrapper .ui-accordion-icons .ui-accordion-header a { padding-left: 2.2em; }
+.mini-cal-app-wrapper .ui-accordion .ui-accordion-header .ui-icon { position: absolute; left: .5em; top: 50%; margin-top: -8px; }
+.mini-cal-app-wrapper .ui-accordion .ui-accordion-content { padding: 1em 2.2em; border-top: 0; margin-top: -2px; position: relative; top: 1px; margin-bottom: 2px; overflow: auto; display: none; zoom: 1; }
+.mini-cal-app-wrapper .ui-accordion .ui-accordion-content-active { display: block; }
+/*!
+ * jQuery UI Autocomplete 1.8.20
+ *
+ * Copyright 2012, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Autocomplete#theming
+ */
+.mini-cal-app-wrapper .ui-autocomplete { position: absolute; cursor: default; }
+
+/* workarounds */
+* html .ui-autocomplete { width:1px; } /* without this, the menu expands to 100% in IE6 */
+
+/*
+ * jQuery UI Menu 1.8.20
+ *
+ * Copyright 2010, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Menu#theming
+ */
+.mini-cal-app-wrapper .ui-menu {
+	list-style:none;
+	padding: 2px;
+	margin: 0;
+	display:block;
+	float: left;
+}
+.mini-cal-app-wrapper .ui-menu .ui-menu {
+	margin-top: -3px;
+}
+.mini-cal-app-wrapper .ui-menu .ui-menu-item {
+	margin:0;
+	padding: 0;
+	zoom: 1;
+	float: left;
+	clear: left;
+	width: 100%;
+}
+.mini-cal-app-wrapper .ui-menu .ui-menu-item a {
+	text-decoration:none;
+	display:block;
+	padding:.2em .4em;
+	line-height:1.5;
+	zoom:1;
+}
+.mini-cal-app-wrapper .ui-menu .ui-menu-item a.ui-state-hover,
+.mini-cal-app-wrapper .ui-menu .ui-menu-item a.ui-state-active {
+	font-weight: normal;
+	margin: -1px;
+}
+/*!
+ * jQuery UI Button 1.8.20
+ *
+ * Copyright 2012, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Button#theming
+ */
+.mini-cal-app-wrapper .ui-button { display: inline-block; position: relative; padding: 0; margin-right: .1em; text-decoration: none !important; cursor: pointer; text-align: center; zoom: 1; overflow: visible; } /* the overflow property removes extra width in IE */
+.mini-cal-app-wrapper .ui-button-icon-only { width: 2.2em; } /* to make room for the icon, a width needs to be set here */
+button.ui-button-icon-only { width: 2.4em; } /* button elements seem to need a little more width */
+.mini-cal-app-wrapper .ui-button-icons-only { width: 3.4em; }
+button.ui-button-icons-only { width: 3.7em; }
+
+/*button text element */
+.mini-cal-app-wrapper .ui-button .ui-button-text { display: block; line-height: 1.4;  }
+.mini-cal-app-wrapper .ui-button-text-only .ui-button-text { padding: .4em 1em; }
+.mini-cal-app-wrapper .ui-button-icon-only .ui-button-text, .mini-cal-app-wrapper .ui-button-icons-only .ui-button-text { padding: .4em; text-indent: -9999999px; }
+.mini-cal-app-wrapper .ui-button-text-icon-primary .ui-button-text, .mini-cal-app-wrapper .ui-button-text-icons .ui-button-text { padding: .4em 1em .4em 2.1em; }
+.mini-cal-app-wrapper .ui-button-text-icon-secondary .ui-button-text, .mini-cal-app-wrapper .ui-button-text-icons .ui-button-text { padding: .4em 2.1em .4em 1em; }
+.mini-cal-app-wrapper .ui-button-text-icons .ui-button-text { padding-left: 2.1em; padding-right: 2.1em; }
+/* no icon support for input elements, provide padding by default */
+input.ui-button { padding: .4em 1em; }
+
+/*button icon element(s) */
+.mini-cal-app-wrapper .ui-button-icon-only .ui-icon, .mini-cal-app-wrapper .ui-button-text-icon-primary .ui-icon, .mini-cal-app-wrapper .ui-button-text-icon-secondary .ui-icon, .mini-cal-app-wrapper .ui-button-text-icons .ui-icon, .mini-cal-app-wrapper .ui-button-icons-only .ui-icon { position: absolute; top: 50%; margin-top: -8px; }
+.mini-cal-app-wrapper .ui-button-icon-only .ui-icon { left: 50%; margin-left: -8px; }
+.mini-cal-app-wrapper .ui-button-text-icon-primary .ui-button-icon-primary, .mini-cal-app-wrapper .ui-button-text-icons .ui-button-icon-primary, .mini-cal-app-wrapper .ui-button-icons-only .ui-button-icon-primary { left: .5em; }
+.mini-cal-app-wrapper .ui-button-text-icon-secondary .ui-button-icon-secondary, .mini-cal-app-wrapper .ui-button-text-icons .ui-button-icon-secondary, .mini-cal-app-wrapper .ui-button-icons-only .ui-button-icon-secondary { right: .5em; }
+.mini-cal-app-wrapper .ui-button-text-icons .ui-button-icon-secondary, .mini-cal-app-wrapper .ui-button-icons-only .ui-button-icon-secondary { right: .5em; }
+
+/*button sets*/
+.mini-cal-app-wrapper .ui-buttonset { margin-right: 7px; }
+.mini-cal-app-wrapper .ui-buttonset .ui-button { margin-left: 0; margin-right: -.3em; }
+
+/* workarounds */
+button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra padding in Firefox */
+/*!
+ * jQuery UI Dialog 1.8.20
+ *
+ * Copyright 2012, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Dialog#theming
+ */
+.mini-cal-app-wrapper .ui-dialog { position: absolute; padding: .2em; width: 300px; overflow: hidden; }
+.mini-cal-app-wrapper .ui-dialog .ui-dialog-titlebar { padding: .4em 1em; position: relative;  }
+.mini-cal-app-wrapper .ui-dialog .ui-dialog-title { float: left; margin: .1em 16px .1em 0; }
+.mini-cal-app-wrapper .ui-dialog .ui-dialog-titlebar-close { position: absolute; right: .3em; top: 50%; width: 19px; margin: -10px 0 0 0; padding: 1px; height: 18px; }
+.mini-cal-app-wrapper .ui-dialog .ui-dialog-titlebar-close span { display: block; margin: 1px; }
+.mini-cal-app-wrapper .ui-dialog .ui-dialog-titlebar-close:hover, .mini-cal-app-wrapper .ui-dialog .ui-dialog-titlebar-close:focus { padding: 0; }
+.mini-cal-app-wrapper .ui-dialog .ui-dialog-content { position: relative; border: 0; padding: .5em 1em; background: none; overflow: auto; zoom: 1; }
+.mini-cal-app-wrapper .ui-dialog .ui-dialog-buttonpane { text-align: left; border-width: 1px 0 0 0; background-image: none; margin: .5em 0 0 0; padding: .3em 1em .5em .4em; }
+.mini-cal-app-wrapper .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset { float: right; }
+.mini-cal-app-wrapper .ui-dialog .ui-dialog-buttonpane button { margin: .5em .4em .5em 0; cursor: pointer; }
+.mini-cal-app-wrapper .ui-dialog .ui-resizable-se { width: 14px; height: 14px; right: 3px; bottom: 3px; }
+.mini-cal-app-wrapper .ui-draggable .ui-dialog-titlebar { cursor: move; }
+/*!
+ * jQuery UI Slider 1.8.20
+ *
+ * Copyright 2012, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Slider#theming
+ */
+.mini-cal-app-wrapper .ui-slider { position: relative; text-align: left; }
+.mini-cal-app-wrapper .ui-slider .ui-slider-handle { position: absolute; z-index: 2; width: 1.2em; height: 1.2em; cursor: default; }
+.mini-cal-app-wrapper .ui-slider .ui-slider-range { position: absolute; z-index: 1; font-size: .7em; display: block; border: 0; background-position: 0 0; }
+
+.mini-cal-app-wrapper .ui-slider-horizontal { height: .8em; }
+.mini-cal-app-wrapper .ui-slider-horizontal .ui-slider-handle { top: -.3em; margin-left: -.6em; }
+.mini-cal-app-wrapper .ui-slider-horizontal .ui-slider-range { top: 0; height: 100%; }
+.mini-cal-app-wrapper .ui-slider-horizontal .ui-slider-range-min { left: 0; }
+.mini-cal-app-wrapper .ui-slider-horizontal .ui-slider-range-max { right: 0; }
+
+.mini-cal-app-wrapper .ui-slider-vertical { width: .8em; height: 100px; }
+.mini-cal-app-wrapper .ui-slider-vertical .ui-slider-handle { left: -.3em; margin-left: 0; margin-bottom: -.6em; }
+.mini-cal-app-wrapper .ui-slider-vertical .ui-slider-range { left: 0; width: 100%; }
+.mini-cal-app-wrapper .ui-slider-vertical .ui-slider-range-min { bottom: 0; }
+.mini-cal-app-wrapper .ui-slider-vertical .ui-slider-range-max { top: 0; }/*!
+ * jQuery UI Tabs 1.8.20
+ *
+ * Copyright 2012, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Tabs#theming
+ */
+.mini-cal-app-wrapper .ui-tabs { position: relative; padding: .2em; zoom: 1; } /* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
+.mini-cal-app-wrapper .ui-tabs .ui-tabs-nav { margin: 0; padding: .2em .2em 0; }
+.mini-cal-app-wrapper .ui-tabs .ui-tabs-nav li { list-style: none; float: left; position: relative; top: 1px; margin: 0 .2em 1px 0; border-bottom: 0 !important; padding: 0; white-space: nowrap; }
+.mini-cal-app-wrapper .ui-tabs .ui-tabs-nav li a { float: left; padding: .5em 1em; text-decoration: none; }
+.mini-cal-app-wrapper .ui-tabs .ui-tabs-nav li.ui-tabs-selected { margin-bottom: 0; padding-bottom: 1px; }
+.mini-cal-app-wrapper .ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .mini-cal-app-wrapper .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .mini-cal-app-wrapper .ui-tabs .ui-tabs-nav li.ui-state-processing a { cursor: text; }
+.mini-cal-app-wrapper .ui-tabs .ui-tabs-nav li a, .mini-cal-app-wrapper .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a { cursor: pointer; } /* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
+.mini-cal-app-wrapper .ui-tabs .ui-tabs-panel { display: block; border-width: 0; padding: 1em 1.4em; background: none; }
+.mini-cal-app-wrapper .ui-tabs .ui-tabs-hide { display: none !important; }
+/*!
+ * jQuery UI Datepicker 1.8.20
+ *
+ * Copyright 2012, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Datepicker#theming
+ */
+.mini-cal-app-wrapper .ui-datepicker { width: 17em; padding: .2em .2em 0; display: none; }
+.mini-cal-app-wrapper .ui-datepicker .ui-datepicker-header { position:relative; padding:.2em 0; }
+.mini-cal-app-wrapper .ui-datepicker .ui-datepicker-prev, .mini-cal-app-wrapper .ui-datepicker .ui-datepicker-next { position:absolute; top: 2px; width: 1.8em; height: 1.8em; }
+.mini-cal-app-wrapper .ui-datepicker .ui-datepicker-prev-hover, .mini-cal-app-wrapper .ui-datepicker .ui-datepicker-next-hover { top: 1px; }
+.mini-cal-app-wrapper .ui-datepicker .ui-datepicker-prev { left:2px; }
+.mini-cal-app-wrapper .ui-datepicker .ui-datepicker-next { right:2px; }
+.mini-cal-app-wrapper .ui-datepicker .ui-datepicker-prev-hover { left:1px; }
+.mini-cal-app-wrapper .ui-datepicker .ui-datepicker-next-hover { right:1px; }
+.mini-cal-app-wrapper .ui-datepicker .ui-datepicker-prev span, .mini-cal-app-wrapper .ui-datepicker .ui-datepicker-next span { display: block; position: absolute; left: 50%; margin-left: -8px; top: 50%; margin-top: -8px;  }
+.mini-cal-app-wrapper .ui-datepicker .ui-datepicker-title { margin: 0 2.3em; line-height: 1.8em; text-align: center; }
+.mini-cal-app-wrapper .ui-datepicker .ui-datepicker-title select { font-size:1em; margin:1px 0; }
+.mini-cal-app-wrapper .ui-datepicker select.ui-datepicker-month-year {width: 100%;}
+.mini-cal-app-wrapper .ui-datepicker select.ui-datepicker-month,
+.mini-cal-app-wrapper .ui-datepicker select.ui-datepicker-year { width: 49%;}
+.mini-cal-app-wrapper .ui-datepicker table {width: 100%; font-size: .9em; border-collapse: collapse; margin:0 0 .4em; }
+.mini-cal-app-wrapper .ui-datepicker th { padding: .7em .3em; text-align: center; font-weight: bold; border: 0;  }
+.mini-cal-app-wrapper .ui-datepicker td { border: 0; padding: 1px; }
+.mini-cal-app-wrapper .ui-datepicker td span, .mini-cal-app-wrapper .ui-datepicker td a { display: block; padding: .2em; text-align: right; text-decoration: none; }
+.mini-cal-app-wrapper .ui-datepicker .ui-datepicker-buttonpane { background-image: none; margin: .7em 0 0 0; padding:0 .2em; border-left: 0; border-right: 0; border-bottom: 0; }
+.mini-cal-app-wrapper .ui-datepicker .ui-datepicker-buttonpane button { float: right; margin: .5em .2em .4em; cursor: pointer; padding: .2em .6em .3em .6em; width:auto; overflow:visible; }
+.mini-cal-app-wrapper .ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current { float:left; }
+
+/* with multiple calendars */
+.mini-cal-app-wrapper .ui-datepicker.ui-datepicker-multi { width:auto; }
+.mini-cal-app-wrapper .ui-datepicker-multi .ui-datepicker-group { float:left; }
+.mini-cal-app-wrapper .ui-datepicker-multi .ui-datepicker-group table { width:95%; margin:0 auto .4em; }
+.mini-cal-app-wrapper .ui-datepicker-multi-2 .ui-datepicker-group { width:50%; }
+.mini-cal-app-wrapper .ui-datepicker-multi-3 .ui-datepicker-group { width:33.3%; }
+.mini-cal-app-wrapper .ui-datepicker-multi-4 .ui-datepicker-group { width:25%; }
+.mini-cal-app-wrapper .ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header { border-left-width:0; }
+.mini-cal-app-wrapper .ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header { border-left-width:0; }
+.mini-cal-app-wrapper .ui-datepicker-multi .ui-datepicker-buttonpane { clear:left; }
+.mini-cal-app-wrapper .ui-datepicker-row-break { clear:both; width:100%; font-size:0em; }
+
+/* RTL support */
+.mini-cal-app-wrapper .ui-datepicker-rtl { direction: rtl; }
+.mini-cal-app-wrapper .ui-datepicker-rtl .ui-datepicker-prev { right: 2px; left: auto; }
+.mini-cal-app-wrapper .ui-datepicker-rtl .ui-datepicker-next { left: 2px; right: auto; }
+.mini-cal-app-wrapper .ui-datepicker-rtl .ui-datepicker-prev:hover { right: 1px; left: auto; }
+.mini-cal-app-wrapper .ui-datepicker-rtl .ui-datepicker-next:hover { left: 1px; right: auto; }
+.mini-cal-app-wrapper .ui-datepicker-rtl .ui-datepicker-buttonpane { clear:right; }
+.mini-cal-app-wrapper .ui-datepicker-rtl .ui-datepicker-buttonpane button { float: left; }
+.mini-cal-app-wrapper .ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current { float:right; }
+.mini-cal-app-wrapper .ui-datepicker-rtl .ui-datepicker-group { float:right; }
+.mini-cal-app-wrapper .ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header { border-right-width:0; border-left-width:1px; }
+.mini-cal-app-wrapper .ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header { border-right-width:0; border-left-width:1px; }
+
+/* IE6 IFRAME FIX (taken from datepicker 1.5.3 */
+.mini-cal-app-wrapper .ui-datepicker-cover {
+    display: none; /*sorry for IE5*/
+    display/**/: block; /*sorry for IE5*/
+    position: absolute; /*must have*/
+    z-index: -1; /*must have*/
+    filter: mask(); /*must have*/
+    top: -4px; /*must have*/
+    left: -4px; /*must have*/
+    width: 200px; /*must have*/
+    height: 200px; /*must have*/
+}/*!
+ * jQuery UI Progressbar 1.8.20
+ *
+ * Copyright 2012, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Progressbar#theming
+ */
+.mini-cal-app-wrapper .ui-progressbar { height:2em; text-align: left; overflow: hidden; }
+.mini-cal-app-wrapper .ui-progressbar .ui-progressbar-value {margin: -1px; height:100%; }
+
+
+/* @end */
+
+/* @group ------------------------------------ Upcoming Events */
+
+/* Applies to DIV around entire control */
+
+.upcoming-events-wrapper {
+
+}
+
+/* Applies to the UL of upcoming events */
+
+.upcoming-events-list {
+	margin: 0px;
+	padding: 0px;
+}
+
+.upcoming-events-list li {
+	list-style-type: none;
+}
+
+/* Applies to A for each event image */
+
+.upcoming-events-image {
+	float: left;
+	margin-right: 10px;
+}
+
+/* Applies to P containing event date */
+
+p.upcoming-events-date {
+	padding: 0px;
+	margin: 0px;
+	font-size: xx-small;
+}
+
+/* Applies to SPAN around the day of the week within the date */
+
+span.upcoming-events-weekday {
+
+}
+
+/* Applies to SPAN around the month of the year within the date */
+
+span.upcoming-events-month {
+
+}
+
+/* Applies to SPAN around the datenumber of the month within the date */
+
+span.upcoming-events-date {
+	padding: 0px;
+	margin: 0px;
+	font-size: xx-small;
+}
+
+/* Applies to SPAN around the time of the day within the date */
+
+span.upcoming-events-time {
+
+}
+
+span.upcoming-events-date-seperator {
+
+}
+
+span.upcoming-events-date-year {
+
+}
+
+/* Applies to P containing event name */
+
+p.upcoming-events-title {
+	margin: 0px;
+	padding: 0px;
+	font-weight: bold;
+}
+
+/* Applies to P containing event description */
+
+p.upcoming-events-description {
+
+}
+
+/* @end
+
+*/
+
+/* @end */
+
+/* @group Portoflio */
+
+div.sw-portfolio {
+}
+
+ul.sw-portfolio-tags {
+	margin:0px;
+	padding:0px;
+	background: none;
+}
+
+ul.sw-portfolio-tags li  {
+	margin:0px;
+	padding:0px;
+	list-style: none;
+}
+
+li.sw-portfolio-tag-group {
+
+}
+li.sw-portfolio-tag-group span{
+
+}
+li.sw-portfolio-tag-group ul {
+	margin: 0px 0px 10px;
+	padding:0px;
+	background: none;
+}
+li.sw-portfolio-tag-group ul li {
+	margin: 0px;
+	padding: 0px;
+	background: none;
+}
+li.sw-portfolio-tag-group ul li a {
+
+}
+ul.sw-portfolio-projects-list {
+	margin: 0px;
+	padding: 0px;
+}
+ul.sw-portfolio-projects-list li {
+	list-style: none;
+	float:left;
+	margin: 0px 10px 10px 0px;
+	height: 185px;
+}
+ul.sw-portfolio-projects-list li a {
+	display:block;
+}
+div.sw-portfolio-project-name a {
+	margin: 0px;
+	padding: 8px;
+}
+div.sw-portfolio-project-detail {
+}
+div.sw-portfolio-project-detail ul {
+	margin: 0px;
+	padding: 0px;
+	background: none;
+}
+div.sw-portfolio-project-detail li {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+div.sw-portfolio-project-images ul {
+	margin-bottom: 18px;
+}
+div.sw-portfolio-project-images li {
+	display: inline;
+	margin: 0px 10px 0px 0px;
+}
+div.sw-portfolio-project-images img {
+	max-width: 600px;
+}
+ul.images {
+
+}
+ul.tabs {
+
+}
+h1.sw-portfolio-project-title {
+}
+h2.sw-portfolio-project-subtitle {
+}
+ul.sw-portfolio-project-tags {
+}
+li.sw-portfolio-project-tag {
+}
+
+
+
+
+/* @end */
+
+/* @group ------------------------------------ Site Search Form */
+
+/* @end */
+
+/* @group ------------------------------------ Navigation */
+
+/* @end */
+
+/* @group Banner Rotator App */
+
+/* swRotator common styles */
+
+.swRotator .scrollable {
+	overflow: hidden;
+	position: relative;
+}
+.swRotator .prev,.swRotator .browse,.swRotator .left,.swRotator .backward {
+	cursor: pointer;
+}
+
+.swRotator .scrollable .items {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* -- wrapper for individual element captions -- */
+
+.swRotator .scrollable .items .item .caption {
+	/*background-color: rgba(0, 0, 0, 0.5);*/
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	right: 0;
+}
+
+.swRotator .scrollable .items .item .caption .title {
+	color: #FFFFFF;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 4px 4px 2px;
+}
+
+.swRotator .scrollable .items .item .caption .description {
+	color: #FFFFFF;
+	font-size: 12px;
+	padding: 2px 4px 4px;
+}
+
+/* -- indicator for active pager element -- */
+
+.swRotator .pager .current {
+	color: red;
+}
+
+span.pager-index {
+
+}
+span.pager-title {
+	display: none;
+}
+
+/* swSlider specific styles */
+
+.swSlider {
+	overflow: auto;
+}
+
+.swSlider .scrollable {
+	/*test disable JWS
+	float: left;*/
+}
+
+.swSlider .scrollable .items .item {
+	position: relative;
+}
+
+.swSlider a.browse {
+	cursor: pointer;
+}
+
+.swSlider a.disabled {
+	visibility: hidden !important;
+}
+
+/* swFader specific styles */
+
+.swFader .scrollable .items .item {
+	display: none;
+	left: 0;
+	position: absolute;
+	top: 0;
+}
+
+
+/* @end */
+
+/* @group ------------------------------------ Places App */
+
+/* page part wrappe */
+
+div.places-app-wrapper {
+
+}
+div.places-app-loader {
+	text-align: center;
+}
+
+/* category list*/
+
+ul.places-app-category-list {
+
+}
+
+/* category list item */
+
+li.places-app-category-item {
+	background: none;
+	list-style-type: none;
+}
+
+/* location list */
+
+ol.places-app-location-list {
+
+}
+
+/* location list item */
+
+li.places-app-location-item {
+	cursor: pointer;
+}
+span.places-app-location-name {
+	display: block;
+}
+
+li.places-app-location-item span {
+	margin-right: 7px;
+}
+
+.places-app-location-image {
+	max-height: 200px;
+	display: block;
+}
+
+/* map canvas */
+
+div.places-app-map-canvas {
+
+}
+
+/* location popup */
+
+div.places-app-location-popup {
+	position: absolute;
+	padding: 10px;
+	background: #FFF;
+	width: 250px;
+	border: 1px solid #999;
+}
+
+/* location name */
+
+h4.places-app-location-name {
+
+}
+
+/* location description */
+
+p.places-app-location-description {
+
+}
+
+/* location address */
+
+p.places-app-location-address {
+
+}
+
+/* @end */
+
+/* @group RSS Widget */
+
+ul.rss-widget-list {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+li.rss-widget-list-item {
+	margin-bottom: 10px;
+}
+
+a.rss-item-title {
+
+}
+
+span.rss-item-date {
+
+}
+
+span.rss-item-author {
+
+}
+
+div.rss-item-summary {
+
+}
+
+/* @end */
+
+/* @group FILE BOX */
+
+.file-cabinet-wrapper svg {
+    fill: #757575;
+		width: 36px;
+    height: 36px;
+}
+
+table.filecabinet-table {
+	width: 100%;
+	max-width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+div.filecabinet-toolbar {
+	border-bottom: 1px solid #CCCCCC;
+	padding-bottom: 5px;
+}
+
+div.filecabinet-toolbar-sort {
+	float: left;
+	margin-right: 10px;
+}
+
+img.filecabinet-sorting-choose {
+	float: left;
+}
+
+div.filecabinet-toolbar-search {
+	float: right;
+}
+
+ul.filecabinet-grid {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.filecabinet-grid li {
+	float: left;
+	font-size: 11px;
+	line-height: 16px;
+	width: 33%;
+	text-align: center;
+	margin: 20px 0;
+	height: 125px;
+}
+
+.filecabinet-grid li h4 {
+	margin: 5px 0;
+}
+
+.filecabinet-table td {
+	/*padding: 10px 0;*/
+	padding: 6px;
+}
+.filecabinet-footer {
+	clear: both;
+	margin-top: 10px;
+}
+.filecabinet-paging {
+	float: left;
+}
+.filecabinet-recordcount {
+	float: right;
+}
+
+ul.filecabinet-tree,
+ul.filecabinet-tree ul,
+ul.filecabinet-tree li {
+	list-style: none;
+}
+
+ul.filecabinet-tree li svg,
+ul.filecabinet-tree li img {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 10px;
+}
+
+ul.filecabinet-tree li h4 {
+	display: inline-block;
+}
+
+/* @end */
+
+/* @group Printer Friendly View */
+
+div.print-wrapper {
+	width: 660px;
+}
+
+/* @end */
+
+/* @group ------------------------------------ IDX */
+
+/* @group General IDX Classes */
+
+p.property-city-st-zip {
+
+}
+
+p.property-price {
+	font-weight: bold;
+}
+
+/* @end */
+
+/* @group Agents */
+
+ul.agent-directory-list {
+	margin: 0;
+	padding: 0;
+}
+
+ul.agent-directory-list li {
+	list-style-type: none;
+	float: left;
+	margin-right: 20px;
+	height: 150px;
+	margin-bottom: 5px;
+	width: 150px;
+}
+
+ul.agent-directory-list li a {
+	display: block;
+	text-align: center;
+	width: 150px;
+}
+
+div.agent-directory-photo-wrapper {
+	height: 118px;
+	width: 158px;
+	overflow: hidden;
+}
+div.agent-contact {
+	margin-left: 7px;
+}
+div.agent-contact p {
+	margin-bottom: auto;
+}
+/* @end */
+
+/* @group AddThis */
+
+.addthis_button_email, #ati_email, #ati_mailto {
+	display: none;
+}
+
+/* @end */
+
+/* Hidden during testing because it was in my way - jWS */
+
+#share_modal {
+	display: none;
+}
+
+/* @group IDX Header */
+
+.property-search-header {
+	background-color: #EEEEEE;
+	height: 20px;
+	margin: 20px 0;
+	padding: 10px;
+}
+
+.property-search-header h1 {
+	margin: 0;
+	display: inline;
+}
+
+.property-search-actions {
+	float: right;
+}
+
+/* @end */
+
+/* @group Advanced Search */
+
+div.property-search-saved-searches {
+	margin-bottom: 10px;
+}
+
+div.property-search-form fieldset {
+	border: 1px solid #CCC;
+	padding: 10px;
+	margin-bottom: 15px;
+}
+
+fieldset#search-form-propertytype label {
+	float: none;
+	margin-left: 5px;
+	display: inline;
+}
+
+.property-search-form legend {
+
+}
+
+.property-search-form label {
+	width: 100px;
+	display: block;
+	float: left;
+	font-weight: bold;
+}
+
+ul.search-form-layout {
+	margin: 20px 0;
+	padding: 0;
+}
+
+ul.search-form-layout li {
+	float: left;
+	margin: 2px 0;
+	padding: 0;
+	width: 50%;
+	list-style-type: none;
+}
+
+fieldset#search-form-resultoptions {
+	padding: 0;
+	border: none;
+}
+
+ul.property-search-form-options {
+	background-color: #EEE;
+	padding: 15px;
+}
+
+.property-search-form-options li {
+	list-style-type: none;
+	float: none;
+	margin: 10px 0;
+	width: auto;
+}
+
+.property-search-form-options li label img {
+	margin-top: 2px;
+}
+
+.property-search-form-options input {
+	float: left;
+}
+
+#ctl00_cphPageBody_selSpecificArea {
+	width: 100%;
+	height: 400px;
+}
+
+/* @end */
+
+/* @group Search Results - List */
+
+#search-results-output {
+	clear: both;
+}
+
+div.property-search-results {
+	clear: both;
+}
+
+div.property-search-results-display-options {
+	height: 20px;
+}
+
+div.property-search-results-display-options a {
+	height: 20px;
+}
+
+div.property-search-display-viewby {
+	float: right;
+}
+
+div.property-search-display-viewby a.current {
+	background-color: #EEE;
+}
+
+div.property-search-toolbar-sortby {
+	float: left;
+}
+
+div.property-search-results-footer {
+	margin-top: 15px;
+}
+
+div.property-search-toolbar-pagecount {
+	float: left;
+}
+
+div.property-search-toolbar-recordcount {
+	float: right;
+}
+
+div.property-search-toolbar-recordcount a {
+	padding: 5px;
+	text-transform: uppercase;
+}
+
+ul.property-search-results-table {
+	border-collapse: collapse;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+ul.property-search-results-table li {
+	list-style-type: none;
+	margin-bottom: 8px;
+	clear: both;
+}
+
+ul.property-search-results-table li:hover {
+	background-color: #FAFAFA;
+}
+
+ul.property-search-results-table li.favorite {
+	background-color: #faf3d7;
+}
+
+div.property-search-results-image-column {
+	width: 190px;
+	vertical-align: top;
+	float: left;
+	position: relative;
+}
+
+div.property-search-results-summary-column {
+	vertical-align: middle;
+	float: left;
+	margin-top: 15px;
+	width: 330px;
+}
+
+div.property-search-results-action-column {
+	text-align: right;
+	vertical-align: top;
+	float: right;
+	margin-top: 15px;
+}
+
+div.property-search-results-hidden-summary-column {
+	float: left;
+}
+
+div.property-search-results-hidden-action-column {
+	float: right;
+}
+
+p.search-results-quickinfo {
+
+}
+
+ul.property.property-search-results h1 {
+	margin: 0;
+}
+
+li.property-search-results-hidden-row {
+	display: table-row !important;
+	background-color: #EEE;
+}
+
+ul.property-search-result-actions {
+	padding: 0;
+	margin: 0;
+}
+
+ul.property-search-result-actions li {
+	border-bottom: 1px dashed #CCC;
+	padding: 5px 0;
+	list-style-type: none;
+}
+
+div#huntpicker ul {
+	margin: 0px;
+	padding: 0px;
+}
+
+div#huntpicker ul li {
+	list-style-type: none;
+}
+/* @end */
+
+
+/* @group Search Results - Map */
+
+.search-results-output-map {
+	height: 500px;
+}
+
+ol.property-search-map-results-location-list {
+	list-style-type: square;
+	margin: 20px;
+	padding: 0;
+}
+
+.property-search-map-results-location-list li {
+	float: left;
+	font-size: 11px;
+	line-height: 14px;
+	list-style-type: square !important;
+	margin-right: 20px;
+	padding: 0;
+	width: 190px;
+}
+
+/* @end */
+
+/* @group Detail View */
+
+.property-search-result-actions li.last {
+	border: none;
+}
+
+.property-search-results-realtor {
+	font-size: x-small;
+}
+
+.property-navigate-prev {
+	float: right;
+}
+
+.property-navigate-next {
+	float: right;
+}
+
+div.property-photos {
+	float: left;
+	width: 55%;
+	margin-right: 15px;
+	position: relative;
+}
+
+.property-label-contingent {
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	background: #aa1c26;
+	color: #fff;
+	padding: 5px;
+	font-size: 12px;
+	z-index: 1;
+}
+
+/* Hidden Temporarily */
+
+.property-photos-thumbnail-wrapper {
+	display: none;
+}
+
+.property-photos-thumbnails {
+	margin-top: 10px;
+}
+
+div.property-info {
+	float: left;
+	width: 40%;
+}
+
+.property-info-address, .property-info h1 {
+	margin: 0;
+	padding: 0;
+}
+
+ul.property-info-actions {
+	margin: 0;
+	width: 200px;
+	padding: 0;
+}
+
+ul.property-info-actions li {
+	list-style-type: none;
+	margin: 0;
+	border-bottom: 1px dashed #CCC;
+	padding: 5px 0;
+}
+
+ul.property-info-actions li.last {
+	border: none;
+}
+
+p.property-info-description {
+	clear: both;
+}
+
+/* @group Detail View Tabs */
+
+ul.property-details-tabs {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	border-bottom: 1px solid #CCC;
+	height: 29px;
+	margin-top: 15px;
+}
+
+#tabMap {
+	height: 400px;
+}
+
+ul.property-details-tabs li {
+	list-style-type: none;
+	border-right: 1px solid #CCC;
+	border-left: 1px solid #CCC;
+	border-top: 1px solid #CCC;
+	float: left;
+	background-color: #EFEFEF;
+	margin-right: 5px;
+}
+
+.property-details-tabs li:hover {
+	background-color: #CCC;
+}
+
+.property-details-tabs li.current {
+	background-color: #FFF;
+	line-height: 19px;
+}
+
+.property-details-tabs li a {
+	color: #666666;
+	display: block;
+	padding: 5px 17px;
+	text-decoration: none;
+}
+
+.property-details-tabs li a:hover {
+	text-decoration: none;
+}
+
+div.tab-content-wrapper {
+	padding: 15px;
+	clear: both;
+	border-top-style: none;
+	border-right: solid 1px #CCC;
+	border-bottom: solid 1px #CCC;
+	border-left: solid 1px #CCC;
+}
+
+h3.property-detail-list-label {
+	margin-top: 20px;
+	font-weight: bold;
+	border-bottom: 1px solid #CCC;
+	clear: both;
+}
+
+ul.property-details-list {
+	margin: 0;
+	padding: 0;
+	margin-top: 10px;
+}
+
+ul.property-details-list li {
+	list-style-type: none;
+}
+
+ul.property-details-list label {
+	font-weight: bold;
+	float: left;
+	margin-right: 10px;
+}
+
+ul.property-details-list span {
+
+}
+
+div.property-details-detail {
+	background-color: #EEEEEE;
+	padding: 20px 0;
+}
+
+#photo-list {
+	margin: 0;
+	padding: 0;
+}
+
+#photo-list li {
+	list-style-type: none;
+	float: left;
+	margin: 4px;
+	max-height: 65px;
+	overflow: hidden;
+}
+
+/* @end */
+
+/* @end */
+
+/* @group Compare Listings */
+
+.property-search-results-compare table {
+	border-collapse: collapse;
+}
+
+.property-search-results-compare table th {
+	border-bottom: 1px solid #E7E7E7;
+	border-right: 1px solid #E7E7E7;
+	padding: 3px 6px;
+	text-align: right;
+	vertical-align: middle;
+}
+
+.property-search-results-compare table td {
+	border-bottom: 1px solid #E7E7E7;
+	border-right: 1px solid #E7E7E7;
+	padding: 3px 6px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.property-search-results-compare table td.last, .property-search-results-compare table th.last {
+	border-bottom: none;
+}
+
+.property-search-results-compare table td.right, .property-search-results-compare table td.right {
+	border-right: none;
+}
+
+/* @end */
+
+/* @group My Stuff */
+
+/* @group Fav List */
+
+div.property-search-results-property img {
+	float: left;
+}
+
+div.property-search-results-property-details {
+	float: left;
+	margin-left: 10px;
+}
+
+div.property-search-results-property-options {
+	float: right;
+}
+
+/* @end */
+
+div.my-stuff-saved-search-wrapper {
+
+}
+
+div.my-stuff-favorites-wrapper {
+	margin-top: 20px;
+}
+
+ul.my-stuff-hunt-list {
+	margin: 0;
+	padding: 0;
+}
+
+ul.my-stuff-hunt-list li {
+	list-style-type: none;
+}
+ul.my-stuff-hunt-list-tabs {
+	margin: 0;
+padding: 0;
+width: 100%;
+border-bottom: 1px solid #CCC;
+height: 29px;
+margin-top: 15px;
+margin-bottom: 10px;
+}
+ul.my-stuff-hunt-list-tabs li {
+	list-style-type: none;
+border-right: 1px solid #CCC;
+border-left: 1px solid #CCC;
+border-top: 1px solid #CCC;
+float: left;
+background-color: #EFEFEF;
+margin-right: 5px;
+
+}
+ul.my-stuff-hunt-list-tabs li a {
+	color: #666;
+display: block;
+padding: 5px 17px;
+text-decoration: none
+	}
+
+ul.my-stuff-hunt-list-tabs li.my-stuff-active-tab {
+		list-style-type: none;
+border-right: 1px solid #CCC;
+border-left: 1px solid #CCC;
+border-top: 1px solid #CCC;
+float: left;
+margin-right: 5px;
+	background-color: white;
+line-height: 19px;
+}
+
+
+
+ul.my-stuff-searches {
+	margin: 0;
+	padding: 0;
+}
+
+ul.my-stuff-searches li {
+	list-style-type: none;
+}
+
+ul.my-stuff-searches li span {
+	display: block;
+	float: right;
+}
+
+span.saved-search-recordcount {
+
+}
+
+span.saved-search-actions {
+	clear: both;
+}
+
+span.saved-search-actions a {
+	margin-right: 8px;
+}
+
+.my-stuff-profile label {
+	display: block;
+	float: left;
+	width: 150px;
+}
+
+/* @end */
+
+/* @group IDX Featured Listing Widget */
+
+ul.featured-listing-widget-list {
+	margin: 0;
+	padding: 0;
+}
+
+ul.featured-listing-widget-list li {
+	list-style-type: none;
+	position: relative;
+}
+
+/* @end */
+
+/* @group IDX Quick Search */
+
+ul.idx-quicksearch-form {
+	margin: 0;
+	padding: 0;
+}
+
+ul.idx-quicksearch-form li {
+	list-style-type: none;
+}
+
+ul.idx-quicksearch-form label {
+	display: inline;
+	float: left;
+	width: 65px;
+}
+
+/* @end */
+
+/* @group Trash */
+
+/*
+.property-search-grid ul {
+	width: 100%;
+}
+.property-search-grid li {
+	float: left;
+	padding: 15px 0;
+	text-align: center;
+	width: 33%;
+}
+.property-search-grid li:hover {
+	background-color: #eee;
+}
+*/
+
+/* @end */
+
+ul.clean-list {
+	margin: 0 0 30px;
+	padding: 0;
+}
+
+ul.clean-list li {
+	list-style-type: none;
+	margin-bottom: 5px;
+}
+
+ul.clean-list label {
+	font-weight: bold;
+	width: 100px;
+	display: block;
+	float: left;
+}
+
+#share-item textarea {
+	width: 200px;
+	height: 125px;
+}
+
+/* @group Job Board */
+
+
+div.job-search-options {
+
+}
+div.job-filter-options {
+	margin-top: 10px;
+}
+table.jobs-list {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 20px;
+}
+
+a.job-listing-title {
+	display: block;
+}
+span.job-listing-company {
+
+}
+span.job-posting-location {
+
+}
+
+span.job-posting-type {
+	display: block;
+}
+span.job-posting-date {
+
+}
+
+/* @end */
+
+/* @group Store Order Form */
+div.sw-store-orderform-datetime-wrapper {
+	margin-top: 20px;
+}
+#sw-store-orderform-date {
+	width: 75px;
+}
+#sw-store-orderform-time {
+
+}
+
+
+div.sw-store-orderform-product-list {
+	margin-top: 20px;
+}
+div.sw-store-orderform-product-list-item {
+	border-bottom:1px solid #CCCCCC;
+	margin-bottom:10px;
+	padding-bottom:10px;
+}
+div.sw-store-orderform-product-list-item-featured {
+}
+
+a.sw-store-orderform-image-link {
+	position: relative;
+}
+img.sw-store-orderform-product-list-item-image {
+	margin:5px;
+	float: left;
+}
+div.sw-store-orderform-product-list-item h3{
+
+}
+div.sw-store-orderform-product-list-item h4{
+
+}
+div.sw-store-orderform-product-list-item p {
+
+}
+div.sw-store-orderform-product-list-item-order {
+	text-align: right;
+}
+div.sw-store-orderform-product-list-item-order label{
+	font-weight: bold;
+	margin-right: 5px;
+}
+input.sw-store-orderform-product-list-item-qty {
+	width: 50px;
+}
+
+div.sw-store-orderform-addtocart {
+	text-align:right
+}
+div.sw-store-orderform-unavailable {
+}
+#sw-store-orderform-image-preview {
+	position:absolute;
+	top: -72px;
+	left: 0;
+	border:6px solid #ccc;
+	border-radius:8px;
+	display:none;
+	color:#000;
+}
+#sw-store-orderform-image-preview-arrow {
+	width: 30px;
+	height: 30px;
+	margin-left: -35px;
+	margin-top: -140px;
+	position: absolute;
+	background: url(../images/popuparrow.png) no-repeat right center;
+}
+
+/* @end */
+
+#ui-datepicker-div {display:none;}
+
+/* @group Front End Editing */
+
+div.sw-admin-edit-mode {
+
+}
+div.sw-admin-edit-mode h2{
+	font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	font-size: 20px;
+	font-family: helvetica;
+	font-size: 20px;
+	color: white;
+	float: left;
+}
+
+        .sw-public-ad-mess {
+            height:100%;
+            width: 100%;
+            top: 0px;
+            left: 0px;
+            position:fixed;
+            background-color: #333;
+            /*margin-top: -8px;*/
+            color: #fff;
+            z-index: 99999;
+        }
+        .sw-public-ad-mess span {
+            position: relative;
+            top: 50%;
+            text-align: center;
+            margin: -20px auto 0px;
+            display: block;
+            z-index: 2001;
+        }
+        .sw-admin-bar {
+            font-family: "Lucida Grande", verdana, arial, helvetica, sans-serif;
+            font-size: 12px;
+            line-height: 18px;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(20,19,19,0.71);
+            width: 300px;
+            color: #fff;
+            z-index: 2000;
+            border-radius: 10px;
+            padding: 10px;
+            cursor: move;
+        }
+        .sw-admin-drop-down {
+            display: inline-block;
+            float: left;
+            margin-right: 0px;
+        }
+        .sw-admin-bar-message {
+        }
+
+        .sw-admin-bar p, .sw-admin-bar label {
+            color: #fff;
+            font-family: "Lucida Grande", verdana, arial, helvetica, sans-serif;
+            font-size: 12px;
+            line-height: 18px;
+        }
+
+        .sw-admin-bar p {
+            margin: 2px 0px 0px;
+        }
+
+        .sw-admin-bar a {
+            color: #6691C4;
+            font-family: "Lucida Grande", verdana, arial, helvetica, sans-serif;
+            font-size: 12px;
+            line-height: 18px;
+            text-decoration: none;
+        }
+        .sw-admin-bar-profile {
+            float: left;
+            margin: 5px 5px 0px 0px;
+        }
+        .sw-admin-bar-avatar {
+            height: 48px;
+            width: 48px;
+        }
+        .sw-admin-bar-logout {
+        }
+        .sw-public-admin-modal {
+            z-index: 2001;
+        }
+        .sw-prof-position-0 {
+            bottom: 20px;
+            right: 20px;
+            top: auto;
+            left: auto;
+        }
+        .sw-prof-position-1 {
+            top: 20px;
+            right: 20px;
+            bottom: auto;
+            left: auto;
+        }
+        .sw-prof-position-2 {
+            top: 20px;
+            left: 20px;
+            bottom: auto;
+            right: auto;
+        }
+        .sw-prof-position-3 {
+            bottom: 20px;
+            left: 20px;
+            top: auto;
+            right: auto;
+        }
+        .sw-prof-position-4 {
+            left: auto;
+            bottom: auto;
+            right: -320px;
+            top: 100px;
+            position: fixed;
+        }
+        .sw-prof-position-5 {
+            right: -20px;
+            top: 100px;
+            left: auto;
+            bottom: auto;
+        }
+        a.sw-dock-tab-show,
+        a.sw-dock-tab-hide{
+            position: absolute;
+            left: -60px;
+            top: 52px;
+            height: 21px;
+            width: 100px;
+            text-align: center;
+            transform: rotate(-90deg);
+            filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            color: #fff;
+            background-color:rgba(20,19,19,0.7);
+            display:none;
+            cursor: pointer;
+        }
+        .sw-prof-position-4 a.sw-dock-tab-show,
+        .sw-prof-position-5 a.sw-dock-tab-hide
+         {
+            display: block;
+        }
+        .sw-prof-position-4 a.sw-dock-tab-hide,
+        .sw-prof-position-5 a.sw-dock-tab-show  {
+            display: none;
+        }
+
+        .sw-admin-mode-0 .sw-admin-preview-mode,
+        .sw-admin-mode-1 .sw-admin-edit-mode{
+            display: block;
+        }
+        .sw-admin-mode-0 .sw-admin-edit-mode,
+        .sw-admin-mode-1 .sw-admin-preview-mode {
+            display:none;
+        }
+
+        .sw-admin-swap-modes {
+            display: block;
+            cursor: pointer;
+        }
+
+    .sw-edit-overlay
+     {
+        display: block;
+        display:none;
+        position: absolute;
+        height: 20px;
+        width: 100px;
+        top: 0px;
+        right:0px;
+        cursor: pointer;
+        opacity:0.8;
+        filter:alpha(opacity=80);
+    }
+    .sw-public-admin-modal {
+        z-index: 2001;
+    }
+    .sw-edit-overlay a.sw-public-edit-link {
+        text-align: center;
+        height: 100%;
+        width: 100%;
+        display: block;
+        display: none;
+        color: #000;
+        font-family: "Lucida Grande", verdana, arial, helvetica, sans-serif;
+        font-size: 12px;
+        line-height: 18px;
+        text-decoration:none;
+        margin-top: -8px;
+        font-size: 20px;
+        position: relative;
+    }
+    /*.templatecontent {
+        position: relative;
+    }*/
+    .sw-edit-overlay-mode-1:hover {
+        background: #343c46;
+    }
+    .sw-edit-overlay-mode-0,.sw-edit-overlay-mode-0 a {
+        display: none;
+    }
+    .sw-public-edit-text {
+        padding: 10px;
+            border-radius: 10px;
+            position: relative;
+        top: 50%;
+        color:white;
+    }
+
+
+/* @end */
+
+
+/* begin LocatorMapLocationWidget.aspx */
+.lmlw-normal-hours--today, .lmlw-special-hours--today,
+.lmlw-hours__isopennow
+{
+	font-weight: bolder;
+}
+.lmlw-special-hours--today.lmlw-special-hours--closed,
+.lmlw-hours__isopennow.lmlw-hours__isopennow--closed
+{
+	color: #f47b00;
+}
+.lmlw-special-hours--today.lmlw-special-hours--open,
+.lmlw-hours__isopennow.lmlw-hours__isopennow--open
+{
+	color: #22a922;
+}
+.lmlw-normal-hours__day
+{
+	min-width: 100px; display: inline-block;
+}
+.lmlw-special-hours__isclosed
+{
+	min-width: 60px; display: inline-block;
+}
+/* end LocatorMapLocationWidget.aspx */
+
+/* ====================== Global Form Styles ====================== */
+
+.swform,
+.swform *,
+.swform *:before,
+.swform *:after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.swform .swformsection .swformsection__header {
+    font-size: 1.17em;
+    font-weight: 700;
+    margin: 1.125em 0 2.25em 0;
+    display: inline-block;
+    width: 100%;
+}
+
+.swform .swformfield,
+.swform .swformfieldlist {
+    margin-bottom: 1.125em;
+}
+
+.swform .swformfield__control__tiny {
+	width: 40px;
+}
+
+.swform .swformfield .swformfield__helptxt,
+.swform .swformfield .swformfieldlist__helptxt,
+.swform .swformfieldlist .swformfield__helptxt,
+.swform .swformfieldlist .swformfieldlist__helptxt,
+.swformfield__helptxt {
+    font-size: 0.8rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+    letter-spacing: 0.03333em;
+    text-decoration: inherit;
+    text-transform: inherit;
+    margin: 0.375em 0 0 0;
+}
+
+.swform .swformfield .swformfieldlist__label,
+.swform .swformfieldlist .swformfieldlist__label {
+    display: inline-block;
+    width: 100%;
+    color: #000;
+    position: relative;
+}
+
+.swform .swformfield.swformfield--select .swformfield__label,
+.swform .swformfield.swformfield--text .swformfield__label,
+.swform .swformfield.swformfield--textarea .swformfield__label,
+.swform .swformfieldlist.swformfield--select .swformfield__label,
+.swform .swformfieldlist.swformfield--text .swformfield__label,
+.swform .swformfieldlist.swformfield--textarea .swformfield__label {
+    display: inline-block;
+    width: 100%;
+    color: #000;
+    position: relative;
+}
+
+.swform .swformfield.swformfield--select .swformfieldwrapper,
+.swform .swformfield.swformfield--text .swformfieldwrapper,
+.swform .swformfield.swformfield--textarea .swformfieldwrapper,
+.swform .swformfieldlist.swformfield--select .swformfieldwrapper,
+.swform .swformfieldlist.swformfield--text .swformfieldwrapper,
+.swform .swformfieldlist.swformfield--textarea .swformfieldwrapper {
+    margin: 0;
+    display: inline-block;
+    width: 100%;
+}
+
+.swform .swformfield.swformfield--select .swformfieldwrapper .swformfield__control,
+.swform .swformfield.swformfield--text .swformfieldwrapper .swformfield__control,
+.swform .swformfield.swformfield--textarea .swformfieldwrapper .swformfield__control,
+.swform .swformfieldlist.swformfield--select .swformfieldwrapper .swformfield__control,
+.swform .swformfieldlist.swformfield--text .swformfieldwrapper .swformfield__control,
+.swform .swformfieldlist.swformfield--textarea .swformfieldwrapper .swformfield__control {
+    margin: 0.375em 0 0 0;
+    display: inline-block;
+    font-size: 1em;
+    padding: 0.375em;
+    border: 1px solid rgba(34, 36, 38, 0.15);
+    -webkit-box-shadow: 0 0 0 0 transparent inset;
+    box-shadow: 0 0 0 0 transparent inset;
+    -webkit-transition: color 0.1s ease, border-color 0.1s ease;
+    transition: color 0.1s ease, border-color 0.1s ease;
+}
+
+.swform .swformfield.swformfield--select .swformfieldwrapper .swformfield__control:placeholder,
+.swform .swformfield.swformfield--text .swformfieldwrapper .swformfield__control:placeholder,
+.swform .swformfield.swformfield--textarea .swformfieldwrapper .swformfield__control:placeholder,
+.swform .swformfieldlist.swformfield--select .swformfieldwrapper .swformfield__control:placeholder,
+.swform .swformfieldlist.swformfield--text .swformfieldwrapper .swformfield__control:placeholder,
+.swform .swformfieldlist.swformfield--textarea .swformfieldwrapper .swformfield__control:placeholder {
+    color: rgba(0, 0, 0, 0.25);
+}
+
+.swform .swformfield .swformfield--checkbox,
+.swform .swformfield .swformfield--radio,
+.swform .swformfieldlist .swformfield--checkbox,
+.swform .swformfieldlist .swformfield--radio {
+    margin: 0 0 0.375em 0;
+}
+
+.swform .swformfield .swformfield--checkbox:last-of-type,
+.swform .swformfield .swformfield--radio:last-of-type,
+.swform .swformfieldlist .swformfield--checkbox:last-of-type,
+.swform .swformfieldlist .swformfield--radio:last-of-type {
+    margin-bottom: 0;
+}
+
+.swform .swformfield .swformfield--checkbox .swformfieldwrapper,
+.swform .swformfield .swformfield--radio .swformfieldwrapper,
+.swform .swformfieldlist .swformfield--checkbox .swformfieldwrapper,
+.swform .swformfieldlist .swformfield--radio .swformfieldwrapper {
+    display: inline-block;
+    position: relative;
+    -ms-flex: 0 0 24px;
+    flex: 0 0 24px;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    width: 24px;
+    height: 24px;
+    padding: 0px;
+    line-height: 0;
+    white-space: nowrap;
+    cursor: pointer;
+    vertical-align: bottom;
+    -webkit-tap-highlight-color: transparent;
+    will-change: transform, opacity;
+}
+
+.swform .swformfield .swformfield--checkbox .swformfieldwrapper .swformfield__control,
+.swform .swformfield .swformfield--radio .swformfieldwrapper .swformfield__control,
+.swform .swformfieldlist .swformfield--checkbox .swformfieldwrapper .swformfield__control,
+.swform .swformfieldlist .swformfield--radio .swformfieldwrapper .swformfield__control {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    cursor: inherit;
+    margin-top: 2px;
+}
+
+.swform .swformfield .swformfield--checkbox .swformfield__label,
+.swform .swformfield .swformfield--radio .swformfield__label,
+.swform .swformfieldlist .swformfield--checkbox .swformfield__label,
+.swform .swformfieldlist .swformfield--radio .swformfield__label {
+    margin-bottom: 0.375em;
+}
+
+.swform .swformfield.swformfieldlist--required .swformfield__label:after,
+.swform .swformfield.swformfieldlist--required .swformfieldlist__label:after,
+.swform .swformfield.swformfield--required .swformfield__label:after,
+.swform .swformfield.swformfield--required .swformfieldlist__label:after,
+.swform .swformfield.swformfieldlist--required .swformfield__label:after,
+.swform .swformfield.swformfieldlist--required .swformfieldlist__label:after,
+.swform .swformfieldlist.swformfieldlist--required .swformfield__label:after,
+.swform .swformfieldlist.swformfieldlist--required .swformfieldlist__label:after,
+.swform .swformfieldlist.swformfield--required .swformfield__label:after,
+.swform .swformfieldlist.swformfield--required .swformfieldlist__label:after,
+.swform .swformfieldlist.swformfieldlist--required .swformfield__label:after,
+.swform .swformfieldlist.swformfieldlist--required .swformfield--checkboxconfirm .swformfield--checkbox .swformfield__label:after {
+    display: inline-block;
+    vertical-align: top;
+    margin: -0.2em 0 0 0.2em;
+    content: "*";
+    color: #db2828;
+}
+.swform .swformfieldlist.swformfield--required .swformfield--radio .swformfield__label:after,
+.swform .swformfieldlist.swformfield--required .swformfield--checkbox .swformfield__label:after {
+    content: '';
+}
+
+
+.swform .swformfield.swformfieldlist--error,
+.swform .swformfield.swformfield--error,
+.swform .swformfieldlist.swformfieldlist--error,
+.swform .swformfieldlist.swformfield--error {
+    color: #db2828;
+}
+
+.swform .swformfield.swformfieldlist--error .swformfield__label,
+.swform .swformfield.swformfieldlist--error .swformfieldlist__label,
+.swform .swformfield.swformfield--error .swformfield__label,
+.swform .swformfield.swformfield--error .swformfieldlist__label,
+.swform .swformfieldlist.swformfieldlist--error .swformfield__label,
+.swform .swformfieldlist.swformfieldlist--error .swformfieldlist__label,
+.swform .swformfieldlist.swformfield--error .swformfield__label,
+.swform .swformfieldlist.swformfield--error .swformfieldlist__label {
+    color: #db2828;
+}
+
+.swform .swformfield.swformfieldlist--error .swformfield__control,
+.swform .swformfield.swformfield--error .swformfield__control,
+.swform .swformfieldlist.swformfieldlist--error .swformfield__control,
+.swform .swformfieldlist.swformfield--error .swformfield__control {
+    color: #db2828;
+    border-color: #db2828;
+    -webkit-box-shadow: 0 0 0 0 transparent inset;
+    box-shadow: 0 0 0 0 transparent inset;
+    background: rgba(219, 40, 40, 0.05);
+}
+
+.swform .swformfield.swformfieldlist--error p.swformfield__errortxt,
+.swform .swformfield.swformfield--error p.swformfield__errortxt,
+.swform .swformfieldlist.swformfieldlist--error p.swformfield__errortxt,
+.swform .swformfieldlist.swformfield--error p.swformfield__errortxt {
+    font-size: 0.8rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+    letter-spacing: 0.03333em;
+    text-decoration: inherit;
+    text-transform: inherit;
+    margin: 0.375em 0 0 0;
+    color: #db2828;
+}
+
+
+.swform .swformactions .swformmsg,
+.swformactions .swformmsg  {
+    display: block;
+    padding: 0.75em;
+    margin-bottom: 0.75em;
+}
+
+.swform .swformactions .swformmsg .swformmsg__intro,
+.swformactions .swformmsg .swformmsg__intro  {
+    margin: 0 0 0.375em 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.swform .swformactions .swformmsg .swformmsg__txt,
+.swformactions .swformmsg .swformmsg__txt {
+    margin: 0;
+    padding: 0;
+}
+
+.swform .swformactions.swformactions--error .swformmsg,
+.swformactions.swformactions--error .swformmsg {
+    background-color: rgba(219, 40, 40, 0.05);
+    border: 1px solid #db2828;
+}
+
+.swform .swformactions.swformactions--error .swformmsg .swformmsg__intro,
+.swform .swformactions.swformactions--error .swformmsg .swformmsg__txt,
+.swformactions.swformactions--error .swformmsg .swformmsg__intro,
+.swformactions.swformactions--error .swformmsg .swformmsg__txt  {
+    color: #db2828;
+}
+
+
+.swform .swformactions.swformactions--warning .swformmsg,
+.swformactions--warning .swformmsg {
+    background-color: rgba(219, 40, 40, 0.05);
+    border: 1px solid #dbc928;
+}
+
+.swform .swformactions .swformmsg,
+.swformactions .swformmsg {
+	border: 1px solid rgba(34, 36, 38, 0.15);
+}
+
+.swform .swformactions.swformactions--warning .swformmsg .swformmsg__intro,
+.swform .swformactions.swformactions--warning .swformmsg .swformmsg__txt,
+.swformactions--warning .swformmsg .swformmsg__intro,
+.swformactions--warning .swformmsg .swformmsg__txt {
+    color: #dbb128;
+}
+
+.swform .swformactions .swformsubmit .swformsubmit__btn {
+    padding: 0.375em;
+    font-size: 1em;
+    margin-bottom: 0.75em;
+}
+
+
+/* ====================== Billing Specific Form Styles ====================== */
+
+.swform--billing fieldset.swformsmartgroup {
+    margin: 0px;
+    padding: 0px;
+    border: none;
+}
+
+.swform--billing .swformsmartgroup .swformfieldsetwrapper {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.swform--billing .swformsmartgroup .swformfieldsetwrapper .swformfieldsmart.swformfieldsmart--lastname,
+.swform--billing .swformsmartgroup .swformfieldsetwrapper .swformfieldsmart.swformfieldsmart--zip,
+.swform--billing .swformsmartgroup .swformfieldsetwrapper .swformfield--text.swformfieldsmart--cccvc {
+	padding: 0 0 0 0.750em;
+}
+
+
+.swform--billing .swformsmartgroup .swformfieldsetwrapper .swformfieldsmart.swformfieldsmart--firstname,
+.swform--billing .swformsmartgroup .swformfieldsetwrapper .swformfieldsmart.swformfieldsmart--city,
+.swform--billing .swformsmartgroup .swformfieldsetwrapper .swformfield--text.swformfieldsmart.swformfieldsmart--ccnumber {
+	padding: 0 0.750em 0 0;
+}
+
+.swform--billing .swformsmartgroup .swformfieldsetwrapper .swformfieldsmart.swformfieldsmart--state,
+.swform--billing .swformsmartgroup .swformfieldsetwrapper .swformfield--text.swformfieldsmart.swformfieldsmart--ccexpdate  {
+	padding: 0 0.750em 0 0.750em;
+}
+
+.swform--billing .swformsmartgroup .swformfieldsetwrapper .swformfieldsmart .swformfieldwrapper input.swformfield__control, 
+.swform--billing .swformsmartgroup .swformfieldsetwrapper .swformfieldsmart .swformfieldwrapper div.swformfield__control {
+    width: 100%;
+}
+
+.swform--billing .swformsmartgroup--name .swformfieldsetwrapper .swformfieldsmart {
+    flex: 0 0 50%;
+}
+
+.swform--billing .swformsmartgroup--address .swformfieldsetwrapper {
+    flex-flow: row wrap;
+}
+
+.swform--billing .swformsmartgroup--address .swformfieldsetwrapper .swformfieldsmart--addressline1,
+.swform--billing .swformsmartgroup--address .swformfieldsetwrapper .swformfieldsmart--addressline2 {
+    flex: 0 0 100%;
+}
+
+.swform--billing .swformsmartgroup--address .swformfieldsetwrapper .swformfieldsmart--city,
+.swform--billing .swformsmartgroup--address .swformfieldsetwrapper .swformfieldsmart--state,
+.swform--billing .swformsmartgroup--address .swformfieldsetwrapper .swformfieldsmart--zip,
+.swform--billing .swformsmartgroup--ccinfo .swformfieldsetwrapper .swformfieldsmart--ccnumber,
+.swform--billing .swformsmartgroup--ccinfo .swformfieldsetwrapper .swformfieldsmart--ccexpdate,
+.swform--billing .swformsmartgroup--ccinfo .swformfieldsetwrapper .swformfieldsmart--cccvc {
+    flex: 0 0 33.333%;
+}
+
+.swform--billing .swformcostsummary,
+.swform--billing .swformactions {
+    padding: 0.750em 0;
+}
+
+.swform--billing .swformcostsummary .swformcostsummary__title {
+    font-size: 1.17em;
+    font-weight: bold;
+    padding: 0.750em;
+    border-bottom: 2px solid #000;
+}
+
+.swform--billing .swformcostsummary table.swformcostsummary__costtable {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.swform--billing .swformcostsummary table.swformcostsummary__costtable tr.swformcostsummary__cost__itemtotal {
+    background: rgba(34, 36, 38, 0.15);
+    font-weight: bold;
+}
+
+.swform--billing .swformcostsummary table.swformcostsummary__costtable tr td {
+    padding: 0.750em;
+}
+
+.swform--billing .swformcostsummary table.swformcostsummary__costtable tr td.swformcostsummary__costprice {
+    text-align: right;
+}
+
+@media screen and (min-width: 768px) {
+
+    .swform--billing .swformcostsummary .swformcostsummary__title {
+        text-align: left;
+        width: 50%;
+        margin-left: 50%;
+    }
+
+    .swform--billing .swformcostsummary table.swformcostsummary__costtable {
+        width: 50%;
+        margin-left: 50%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+
+    .swform--billing .swformsmartgroup--ccinfo .swformfieldsetwrapper {
+        flex-flow: row wrap;
+    }
+
+    .swform--billing .swformsmartgroup--address .swformfieldsetwrapper .swformfieldsmart--city,
+    .swform--billing .swformsmartgroup--ccinfo .swformfieldsetwrapper .swformfieldsmart--ccnumber {
+        flex: 0 0 100%;
+    }
+    .swform--billing .swformsmartgroup--address .swformfieldsetwrapper .swformfieldsmart--state,
+    .swform--billing .swformsmartgroup--address .swformfieldsetwrapper .swformfieldsmart--zip,
+    .swform--billing .swformsmartgroup--ccinfo .swformfieldsetwrapper .swformfieldsmart--ccexpdate,
+    .swform--billing .swformsmartgroup--ccinfo .swformfieldsetwrapper .swformfieldsmart--cccvc {
+        flex: 0 0 50%;
+    }
+
+    .swform--billing .swformactions .swformsubmit .swformsubmit__btn {
+        width: 100%;
+        text-align: center;
+	}
+	
+	.swform--billing .swformsmartgroup .swformfieldsetwrapper .swformfieldsmart.swformfieldsmart--zip,
+	.swform--billing .swformsmartgroup .swformfieldsetwrapper .swformfield--text.swformfieldsmart--cccvc {
+		padding: 0 0 0 0.750em;
+	}
+	
+	.swform--billing .swformsmartgroup .swformfieldsetwrapper .swformfieldsmart.swformfieldsmart--city,
+	.swform--billing .swformsmartgroup .swformfieldsetwrapper .swformfield--text.swformfieldsmart.swformfieldsmart--ccnumber {
+		padding: 0;
+	}
+
+	.swform--billing .swformsmartgroup .swformfieldsetwrapper .swformfieldsmart.swformfieldsmart--state,
+	.swform--billing .swformsmartgroup .swformfieldsetwrapper .swformfield--text.swformfieldsmart.swformfieldsmart--ccexpdate  {
+		padding: 0 0.750em 0 0;
+	}
+
+	.swform .swformactions .swformsubmit {
+		text-align: right;
+	}
+}
