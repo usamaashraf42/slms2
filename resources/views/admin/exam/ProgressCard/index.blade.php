@@ -114,7 +114,7 @@
 						}
 
 						.subpage {
-							padding: 1cm;
+							padding: 10px;
 							border: 2px solid #ddd;
 							height: 256mm;
 							outline: 1px #FFEAEA solid;
@@ -209,7 +209,7 @@
 							<div class="subpage">
 								<div class="height_box">
 									<div style="width: 100%;text-align: center;">
-										<div class="marin_top" align="center" style="margin-top: 180px!important;">
+										<div class="marin_top" align="center" style="margin-top: 100px!important;">
 											<strong></strong>
 										</div>
 
@@ -258,11 +258,13 @@
 										<strong class="lable_name">Section:</strong><u class="result_name">@isset($std->course->course_name) {{$std->course->course_name}} @endisset</u>
 										<br>
 										<strong class="lable_name">Branch:</strong><u class="result_name">@isset($std->branch->branch_name) {{$std->branch->branch_name}} @endisset</u></span>
+										<br>
 										<strong class="lable_name"> Lyceonion #:</strong><span> <u style="font-weight: normal;font-size: 24px;width: 100%;">@isset($std->id) {{$std->id}} @endisset</u></span>
 
 										
 										<div style="font-size:20.0pt; line-height:115%; mso-bidi-font-family:Calibri; mso-bidi-theme-font:minor-latin">
-											<strong class="lable_name">Name of Teacher: </strong> <span><u class="result_name">tahir</u></span> <strong class="lable_name">Session:</strong> <span><u class="result_name"></u></span></div>
+											<strong class="lable_name">Name of Teacher: </strong> <span><u class="result_name">tahir</u></span> 
+											<br><strong class="lable_name">Session:</strong> <span><u class="result_name"></u></span></div>
 
 										</div>
 
