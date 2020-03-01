@@ -8,19 +8,44 @@
 </div>
 	<div  id="printAllRecord"  class="page-break-after " style="page-break-after  : auto | always | avoid | left | right!important;">
 		<style>
-			@media print {
-				.no-print, .no-print *
-				{
-					display: none !important;
-				}
-				.repeatedCard{
-					display: block !important;
-					page-break-after: always!important;
-				}
-			}
+			.page {
+  width: 21cm;
+  min-height: 29.7cm;
+  padding: 14px;
+  margin: 1cm auto;
+  border: 1px #D3D3D3 solid;
+  border-radius: 5px;
+  background: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.repeatedCard {
+  padding: 20px;
+  height: 270mm;
+}
+
+@page {
+  size: A4;
+  margin: 0;
+}
+
+@media print {
+  .page {
+    margin: 0;
+    border: initial;
+    border-radius: initial;
+    width: initial;
+    min-height: initial;
+    box-shadow: initial;
+    background: initial;
+    page-break-after: always;
+  }
+}
+		
 			td {
 				border: 1px solid #726E6D;
 				padding: 0px px;
+				font-size: 13px;
 			}
 			ul, ol {
 				padding-left: 6px!important;
@@ -54,7 +79,7 @@
 				margin: 0;
 			}
 			.block_name{
-				width:120px;
+				width:112px;
 				font-size:12px;
 				display: inline-flex;
 			}
@@ -168,8 +193,9 @@
 				background: linear-gradient(#d67060, #cc4b37 70%);
 			}
         </style>
-		<div class="pdfer page">
+		
 			@foreach($data as $record)
+			<div class="page">
 			<div class="repeatedCard" style="-webkit-print-color-adjust: exact!important; padding-top: 10px;">
 				<div style="width: 60%;float: left;">
 					<div style="font-size: 22px; font-weight: bold; margin-bottom: 1px;">
@@ -255,7 +281,7 @@
 					<h3>Good, try to reach the pinnacle</h3>
 				</div>
 				</div>
-               <div style="width: 100%; min-height: 340px;">
+               <div style="width: 100%; min-height: 360px;">
 			   <div  style="width: 44%; float: left;">
 			   <h5>Personality Development Grid</h5>
 					<table class="" id="task-table" style="width: 90%;">
@@ -310,9 +336,9 @@
 						<br>
 						<div class="teacher_clas">
 							<span></span>
-							<hr style="height: 1px!important; color: #000;
-							background: #e2e2e2;margin-bottom: 0px;">
-							<p>Class Teacher</p>
+			                 <div style="width: 200px;float:left; border-top: 1px solid #bbb;">
+			                 	Class Teacher
+			                 </div>
 						</div>
 					</div>
 				</div>
@@ -354,17 +380,15 @@
 				</div>
 				<div style="clear: both;"></div>
 				<div style="width: 100%; ">
-				<div class="teacher_class" >
+				<div class="teacher_class1" style="float:left;border-top: 1px solid #ddd;width: 200px;">
 				<span></span>
-				<hr style="height: 1px!important; color: #000;
-				background: #e2e2e2; margin-bottom: 0px;">
-				<p>Senior Teacher</p>
+			
+			Senior Teacher
 				</div>
-				<div class="teacher_class" style="float: right;">
+				<div class="teacher_class2" style="float: right; border-top: 1px solid #ddd;width: 200px;">
 				<span></span>
-				<hr style="height: 1px!important; color: #000;
-				background: #e2e2e2;margin-bottom: 0px;">
-				<p>Principal's Signature</p>
+			
+				Principal's Signature
 				</div>
 				</div>
 				<div style="clear: both;"></div>
@@ -385,12 +409,15 @@
 				<div class="block_name"><p>C - 50% to 54.9%; </p></div>	
 				<div class="block_name"><p>D 33% to 49.9%; </p></div>
 				</div>
+					<br>
 				<br>
+
 				<div class=" line_last" style="float: left; width: 48%;margin-top: 12px;">
 				<img src="{{asset('images/school/Capture.JPG')}}" width="100%" height="40px;">
 				</div>
 				<div class=" line_last" style="float: right; width: 50%;">
-				<p style="font-size: 10px;width: 100%;"> 
+				<p style="font-size: 10px;width: 100%;padding-top: 8px;"> 
+
 				<strong>Head Office:</strong> 58-l/B-l Peco Road Township Lahore Ph: 0423-5115411<br>
 				<strong> Email:</strong> info@americanlyceum.edu.pk
 				<strong>web:<br>
@@ -399,8 +426,9 @@
 				</div>
 				</div>
 				</div>
+						</div>
 				@endforeach
-			</div>
+	
 			</div>
 			<div style="clear: both;"></div>
 		
