@@ -78,7 +78,6 @@
 										</select>
 									</div>
 								</div>
-
 								<div class="col-md-3">
 									<div class="form-group">
 										<label for="exam_type_id">Exam Type</label>
@@ -165,7 +164,6 @@
 						</div>
 					</div>
 					<div class="form-group row">
-						
 						<div class="card formsubmit" style="width:100%; display: block" >
 							<div class="card-block">
 								<div class="ks-items-block float-center" style="align-items: center;margin-left: 40%">
@@ -180,6 +178,113 @@
 		</div>
 	</div>
 </div>
+<!-- 
+////////////////////////////////////student_picture start ///////////////////////////////////////// -->
+
+<style>
+	body {
+  background: rgb(204,204,204); 
+}
+.box_new {
+  background: white;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 0.5cm;
+  box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+}
+.box_new[size="A4"] {  
+  width: 21cm;
+  height: 29.7cm; 
+}
+@media print {
+  body, .box_new {
+    margin: 0;
+    box-shadow: 0;
+  }
+  .height_box{
+  	min-height: 1320px!important;
+  }
+}
+</style>
+<button id="doPrint">Print</button>
+
+<div class="hidden">
+
+<div  class="box" style="margin-top: 50px; width: 100%;">
+	<div id="printDiv">
+	<div class="box_new"  size="A4" style="padding: 37px!important;">
+		
+<div class="height_box"  style="border: 1px solid #ccc;height: 100%;  height: 1050px;">
+	 <div style="width: 100%;text-align: center;">
+    <div align="center" style="margin-top: 200px!important;">
+        <strong></strong>
+    </div>
+   
+ 
+     <div style="margin: 0 auto; width: 250px;">
+     	   <img  src="assets/img/logo_student.png"
+            alt="LYCEUM"
+        / width="100%">
+     </div>
+     <br>
+      <div>
+    <strong style="font-size: 24px;"> Progress Report</strong>
+    </div>
+ 
+    <div align="center" style="font-size: 22px;">
+        Montessori Advance
+    </div>
+         <h6 style="font-size: 18px;">
+        Final Semester
+    </h6>   
+    <br>
+     <div class="img_box" style="  width: 180px;
+       height: 180px;
+       border-radius: 50%;border: 1px solid #ccc; margin: 0 auto;">
+       <img src=" http://lyceumgroupofschools.com/images/student/pics/no-image.png" alt="" 
+       class="image--cover"/ width="100%">
+     </div>
+     <div style="margin-bottom: 0px;">
+  
+<p>&nbsp;
+</p>
+<div>
+</div>
+  <p style="text-align: center;">
+	<span style="background-color:initial; font-size:20pt; font-style:inherit">Student's Name <span>_____________________________</span>
+</span>
+</p>
+<div class="WordSection1">
+  <p class="MsoNormal">
+  	<div style="font-size:20.0pt; line-height:115%; mso-bidi-font-family:Calibri; mso-bidi-theme-font:minor-latin">
+  		<label>Section: </label><span> ______</span>
+  		<label>Branch:</label><span> ______</span>
+  		 <label>Lyceonion #:</label><span> ______</span></div>
+  </p>
+  <p class="MsoNormal">
+  	<div style="font-size:20.0pt; line-height:115%; mso-bidi-font-family:Calibri; mso-bidi-theme-font:minor-latin">
+  		<label>Name of Teacher: </label> <span>______________</span> <label>Session:</label> <span>_______</span></div>
+  </p>
+</div>
+<p>&nbsp;
+</p>
+
+<p>&nbsp;
+</p>
+<p>&nbsp;
+</p>
+
+     </div>
+</div>
+<br clear="all"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<!-- ////////////////////////////////////Student Picture End////////////////////////////////////////////// -->
 <div class="content container-fluid" style="display: none">
 
 	<div class="col-md-2">
@@ -709,6 +814,14 @@ function printDiv(eve,obj)
 
 
 </script>
-
+<!-- <script>
+document.getElementById("doPrint").addEventListener("click", function() {
+     var printContents = document.getElementById('printDiv').innerHTML;
+     var originalContents = document.body.innerHTML;
+     document.body.innerHTML = printContents;
+     window.print();
+     document.body.innerHTML = originalContents;
+});
+</script> -->
 
 @endpush

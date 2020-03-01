@@ -1,11 +1,11 @@
 @extends('_layouts.admin.default')
-@section('title', 'Marks List')
+@section('title', 'Discipline Marks ')
 @section('content')
 <div class="content container-fluid">
 	<div class="row">
 		<div class="col-md-12 col-sm-12 col-lg-12 col-xl-12">
       <div class="card-block">
-        <h4 class="card-title">Marks List </h4>
+        <h4 class="card-title">Discipline Marks  </h4>
         <div class="col-md-12">
           <button style="font-size:36px;color:#000d82;" onclick="printDivs(this,printAllRecord)"> <i class="fa fa-print"></i><br><input type='button' id='btn' value='Print'  class="btn btn-primary float-center allrecord"></button>
           <!-- <input type='button' id='btn' value='Print' onclick="printDivs(this,printAllRecord)" 
@@ -50,6 +50,8 @@
                     <th></th>
                     <th>Std Id</th>
                     <th>Student</th>
+                    <th> Papers Marks</th>
+
 
                     <th>class_participation</th>
                     <th>social_integration</th>
@@ -59,17 +61,12 @@
                     <th>confidence</th>
                     <th>spoken_eng</th>
                     <th>motivation</th>
+                    <th></th>
 
-                    @if(isset($data[0]->subject_marks) && count($data[0]->subject_marks))
-
-                    @foreach($data[0]->subject_marks as $sub)
-                    <th>@isset($sub->subjects) {{$sub->subjects->sub_name}} @endisset</th>
-                    @endforeach
-                    @endif
+                   
 
 
-
-                    <th> Total Marks</th>
+                    
 
                   </tr>
                 </thead>
@@ -95,21 +92,9 @@
                   <td>@isset($pro->student){{$pro->student->id}}@endisset</td>
                   <td>@isset($pro->student){{$pro->student->s_name}}@endisset</td>
 
-                    <th>{{$pro->class_participation}}</th>
-                    <th>{{$pro->social_integration}}</th>
-                    <th>{{$pro->accept_to_suggestion}}</th>
-                    <th>{{$pro->share_with}}</th>
-                    <th>{{$pro->helping_other}}</th>
-                    <th>{{$pro->confidence}}</th>
-                    <th>{{$pro->spoken_eng}}</th>
-                    <th>{{$pro->motivation}}</th>
-
-
-
                   @if(isset($pro->subject_marks) && count($pro->subject_marks))
 
                   @foreach($pro->subject_marks as $sub)
-                  <td>@isset($sub->gain_marks) {{$sub->gain_marks}} / {{$sub->total_marks}} @endisset</td>
                   @php($totalMarks+=$sub->gain_marks)
                   @php($totalOverAllMarks+=$sub->total_marks)
                   @endforeach
@@ -117,6 +102,22 @@
 
 
                   <td>{{$totalMarks}}/{{$totalOverAllMarks}}</td>
+
+
+
+                    <th><input type="number" name="" step="any" min="0" max="10" style="max-width: 60px" class="equipCatValidation class_participation_{{$pro->id}}" value="{{$pro->class_participation}}"></th>
+                    <th><input type="number" name="" step="any" min="0" max="10" style="max-width: 60px" class="equipCatValidation social_integration_{{$pro->id}}" value="{{$pro->social_integration}}"></th>
+                    <th><input type="number" name="" step="any" min="0" max="10" style="max-width: 60px" class="equipCatValidation accept_to_suggestion_{{$pro->id}}" value="{{$pro->accept_to_suggestion}}"></th>
+                    <th><input type="number" name="" step="any" min="0" max="10" style="max-width: 60px" class="equipCatValidation share_with_{{$pro->id}}" value="{{$pro->share_with}}"></th>
+                    <th><input type="number" name="" step="any" min="0" max="10" style="max-width: 60px" class="equipCatValidation helping_other_{{$pro->id}}" value="{{$pro->helping_other}}"></th>
+                    <th><input type="number" name="" step="any" min="0" max="10" style="max-width: 60px" class="equipCatValidation confidence_{{$pro->id}}" value="{{$pro->confidence}}"></th>
+                    <th><input type="number" name="" step="any" min="0" max="10" style="max-width: 60px" class="equipCatValidation spoken_eng_{{$pro->id}}" value="{{$pro->spoken_eng}}"></th>
+                    <th><input type="number" name="" step="any" min="0" max="10" style="max-width: 60px" class="equipCatValidation motivation_{{$pro->id}}" value="{{$pro->motivation}}"></th>
+                    <td></td>
+
+
+
+                  
 
 
                 </tr>
@@ -157,7 +158,7 @@
       }
 
       
-      function approveRequest(id){
+      function marksPosted(id){
         console.log('approve Request Id',id);
         $.ajax({
           url: "{{route('correctionRecord')}}", 
@@ -185,6 +186,18 @@
           }
         }});
       }
+
+
+      $('.equipCatValidation').on('keyup keydown', function(e){
+    console.log($(this).val() > 10)
+        if ($(this).val() > 10 
+            && e.keyCode !== 46
+            && e.keyCode !== 8
+           ) {
+           e.preventDefault();     
+           $(this).val(10);
+        }
+    });
 
     </script>
 

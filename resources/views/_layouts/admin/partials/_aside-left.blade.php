@@ -846,6 +846,15 @@
                 <span> Marks Edit</span> 
             </a>
         </li>
+        <li class="{{ areActiveRoutes(['discipline-marks.create','discipline-marks.index','discipline-marks.edit'])}}">
+            <a href="{{route('discipline-marks.index')}}" class="{{ areActiveRoutes(['discipline-marks.create','discipline-marks.index','discipline-marks.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                <span> Discipline Marks</span> 
+            </a>
+        </li>
+
+
+
+        
         @endif
 
         @if(Auth::user()->can('Marks List')  )

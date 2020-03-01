@@ -69,6 +69,8 @@ Route::get('/summer/fee', 'Web\Pakistan\PublicController@Summer_fee')->name('pak
 Route::get('/contact/us','Web\Pakistan\PublicController@contactus')->name('pakistan.contactus');
 Route::get('/news','Web\Pakistan\PublicController@news')->name('pakistan.news');
 Route::get('/event','Web\Pakistan\PublicController@event')->name('pakistan.event');
+Route::get('/student_picture','Web\Pakistan\PublicController@student_picture')->name('pakistan.student_picture');
+
 Route::get('job/internship','Web\Pakistan\PublicController@job_internship')->name('job_internship');
 
 Route::get('job/application/','Web\Pakistan\PublicController@job_application')->name('job_application');
@@ -76,6 +78,7 @@ Route::get('job/application/','Web\Pakistan\PublicController@job_application')->
 
 Route::prefix('pakistan')->group(function () {
 	Route::get('/', 'Web\Pakistan\PublicController@index')->name('pakistan.index');
+	Route::get('/student_picture','Web\Pakistan\PublicController@student_picture')->name('pakistan.student_picture');
 	Route::get('/about', 'Web\Pakistan\PublicController@about')->name('pakistan.about');
 	Route::get('/history', 'Web\Pakistan\PublicController@history')->name('pakistan.history');
 	Route::get('/coreValue', 'Web\Pakistan\PublicController@coreValue')->name('pakistan.coreValue');
@@ -401,6 +404,7 @@ Route::prefix('admin')->group(function () {
 			Route::resource('student-card','Exam\ResultCardController');
 			Route::resource('marks-list','Exam\MarksListController');
 			Route::resource('marks-edit','Exam\MarkPostEditController');
+			Route::resource('discipline-marks','Exam\DisciplineMarksPostController');
 
 
 		});
