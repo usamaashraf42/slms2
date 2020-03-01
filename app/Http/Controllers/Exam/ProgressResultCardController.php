@@ -11,9 +11,10 @@ use App\Models\Subject;
 use App\Models\ExamMark;
 use App\Models\StudentExamMark;
 use App\Models\StudentSubjectExamMark;
+use App\Models\Student;
 use Auth;
 use Session;
-
+use DOMPDF;
 class ProgressResultCardController extends Controller
 {
   function __construct()
@@ -38,7 +39,44 @@ class ProgressResultCardController extends Controller
 	}
 
 	public function store(Request $request){
-		return view('admin.exam.ProgressCard.index');
+
+		$exam=ExamType::find($request->exam_id?$request->exam_id:$request->exam_type_id);
+
+		$student=Student::where('course_id',$request->section_id)->where('status',1)->where('branch_id',$request->branch_id);
+		if($request->std_id){
+			$student->where('id',$request->std_id);
+		}
+		$students=$student->get();
+		
+		if(!count($students)){
+			Session::flash('error_message', __('Record Not Found'));
+			return redirect()->back();
+		}
+
+
+		return view('admin.exam.ProgressCard.index',compact('students','exam'));
+// 		$data='';
+// 		$pdf = DOMPDF::loadView('admin.exam.ProgressCard.index',  ['data' => $data]);  
+//         return $pdf->download('medium.pdf');
+//   return DOMPDF::loadView('admin.exam.ProgressCard.index')->setPaper('a4', 'landscape')->setWarnings(false)->stream();
+
+// 		$dompdf = new DOMPDF();
+// 		// $dompdf->setOptions(['isPhpEnabled' => true]);
+// // $dompdf->loadHtml('hello world');
+// $dompdf->loadView('print_tests.test_pdf', ['data' => $data]);
+
+// // (Optional) Setup the paper size and orientation
+// $dompdf->setPaper('A4', 'landscape');
+
+// // Render the HTML as PDF
+// $dompdf->render();
+
+// // Output the generated PDF to Browser
+// $dompdf->stream();
+
+
+
+		
 		$markPost=0;
 
 		$marks=StudentExamMark::where('branch_id',$request->branch_id)->orderBy('course_id','ASC')->where('exam_id',$request->exam_id?$request->exam_id:$request->exam_type_id)->where('exam_month',$request->month)->where('exam_year',$request->year);
@@ -58,8 +96,12 @@ class ProgressResultCardController extends Controller
 		}
 		$data=$marks->get();
 
+ 
+
 		if (isset($data) && !empty($data)) {
-			return view('admin.exam.ResultCard.store',compact('data'));
+
+
+			// return view('admin.exam.ResultCard.store',compact('data'));
 		} else {
 
 			Session::flash('error_message', __('Record Not Found'));
