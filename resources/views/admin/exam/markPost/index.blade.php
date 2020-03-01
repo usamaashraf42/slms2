@@ -181,13 +181,13 @@
 												<th>Total</th>
 												<th>Obtain</th>
 
-												<th>class partiception</th>
+												<!-- <th>class partiception</th>
 												<th>Social integration</th>
 												<th>Accept suggestion</th>
 												<th>Share/Help Other</th>
 												<th>disciplen manners</th>
 												<th>confidance</th>
-												<th>Motivation</th>
+												<th>Motivation</th> -->
 											</tr>
 										</thead>
 										<tbody id="studentRecord">
@@ -309,47 +309,34 @@
 						var std=``;
 						var indexA=0;
 						var max_marks=$('.max_mark').val();
+
+								// std+=`<tr>
+								// <td> ${++indexA}</td>
+								// <td><input type="text" name='std_id[]' value="${val.id}" readonly /></td>
+								// <td>${val.s_name+' '+val.s_fatherName} </td>
+								// <td><input type="text" value="${max_marks}" style ="max-width: 60px;"   /></td>
+								// <td><input type="number" step="any" min='0' max="${max_marks} "name='gain_mark[]' value='0' style ="max-width: 60px;"  /></td>
+								// <td><input type="number" step="any" min='0' max="10" name="class_participation[]" value='0'  style ="max-width: 60px;" /></td>
+								// <td><input type="number" step="any"  min='0' max="10" name="social_integration[]" value='0' style ="max-width: 60px;"  /></td>
+								// <td><input type="number" step="any"  min='0' max="10" name="accept_to_suggestion[]" value='0' style ="max-width: 60px;"  /></td>
+								// <td><input type="number" step="any"  min='0' max="10" name="share_with[]" value='0' style ="max-width: 60px;"  /><input type="number" step="any"  min='0' max="10" name="helping_other[]" value='0' style ="max-width: 60px;"  /></td>
+								// <td><input type="number" step="any"  min='0' max="10" name="confidence[]" value='0' style ="max-width: 60px;"  /></td>
+								// <td><input type="number" step="any"  min='0' max="10" name="spoken_eng[]" value='0' style ="max-width: 60px;"  /></td>
+								// <td><input type="number" step="any"  min='0' max="10" name="motivation[]" value='0'  style ="max-width: 60px;" /></td>
+
+								// </tr>`;
 						response.data.forEach(function(val,ind){
 							console.log(val,'student');
-								// <tr>
-								// 	<td> ${++indexA}</td>
-								// 	<td><input type="text" name='std_id[]' value="${val.id}" readonly class="form-control"/></td>
-								// 	<td><input type="text" value="${val.s_name+' '+val.s_fatherName}" readonly class="form-control"/></td>
-								// 	<td><input type="text" value="${max_marks}"   class="form-control"/></td>
-								// 	<td><input type="number" step="any" min='0' max="${max_marks} "name='gain_mark[]' value='0'  class="form-control"/></td>
-								// 	<td><input type="number" step="any" class="form-control"/></td>
-								// 	<td><input type="number" step="any" class="form-control"/></td>
-								// 	<td><input type="number" step="any" class="form-control"/></td>
-								// 	<td><input type="number" step="any" class="form-control"/></td>
-								// 	<td><input type="number" step="any" class="form-control"/></td>
-								// 	<td><input type="number" step="any" class="form-control"/></td>
-								// 	<td><input type="number" step="any" class="form-control"/></td>
-
-
-								// </tr>
-
-								// <th>class partiception</th>
-								// <th>Social integration</th>
-								// <th>Accept suggestion</th>
-								// <th>Share/Help Other</th>
-								// <th>disciplen manners</th>
-								// <th>confidance</th>
-								// <th>Motivation</th>
+							
 
 
 								std+=`<tr>
 								<td> ${++indexA}</td>
 								<td><input type="text" name='std_id[]' value="${val.id}" readonly /></td>
 								<td>${val.s_name+' '+val.s_fatherName} </td>
-								<td><input type="text" value="${max_marks}" style ="max-width: 60px;"   /></td>
-								<td><input type="number" step="any" min='0' max="${max_marks} "name='gain_mark[]' value='0' style ="max-width: 60px;"  /></td>
-								<td><input type="number" step="any" min='0' max="10" name="class_participation[]" value='0'  style ="max-width: 60px;" /></td>
-								<td><input type="number" step="any"  min='0' max="10" name="social_integration[]" value='0' style ="max-width: 60px;"  /></td>
-								<td><input type="number" step="any"  min='0' max="10" name="accept_to_suggestion[]" value='0' style ="max-width: 60px;"  /></td>
-								<td><input type="number" step="any"  min='0' max="10" name="share_with[]" value='0' style ="max-width: 60px;"  /><input type="number" step="any"  min='0' max="10" name="helping_other[]" value='0' style ="max-width: 60px;"  /></td>
-								<td><input type="number" step="any"  min='0' max="10" name="confidence[]" value='0' style ="max-width: 60px;"  /></td>
-								<td><input type="number" step="any"  min='0' max="10" name="spoken_eng[]" value='0' style ="max-width: 60px;"  /></td>
-								<td><input type="number" step="any"  min='0' max="10" name="motivation[]" value='0'  style ="max-width: 60px;" /></td>
+								<td><input type="text" value="${max_marks}"   /></td>
+								<td><input type="number" step="any" min='0' max="${max_marks} "name='gain_mark[]' value='0'  /></td>
+								
 
 								</tr>`;
 							});
@@ -371,15 +358,9 @@
 								<td> </td>
 								<td><input type="text" name='std_id[]' value="" /></td>
 								<td></td>
-								<td><input type="text" value="${max_marks}" style ="max-width: 60px;"   /></td>
-								<td><input type="number" step="any" min='0' max="${max_marks} "name='gain_mark[]' value='0' style ="max-width: 60px;"  /></td>
-								<td><input type="number" step="any" name="class_participation[]" value='0'  style ="max-width: 60px;" /></td>
-								<td><input type="number" step="any" name="social_integration[]" value='0' style ="max-width: 60px;"  /></td>
-								<td><input type="number" step="any" name="accept_to_suggestion[]" value='0' style ="max-width: 60px;"  /></td>
-								<td><input type="number" step="any" name="share_with[]" value='0' style ="max-width: 60px;"  /><input type="number" step="any" name="helping_other[]" value='0' style ="max-width: 60px;"  /></td>
-								<td><input type="number" step="any" name="confidence[]" value='0' style ="max-width: 60px;"  /></td>
-								<td><input type="number" step="any" name="spoken_eng[]" value='0' style ="max-width: 60px;"  /></td>
-								<td><input type="number" step="any" name="motivation[]" value='0'  style ="max-width: 60px;" /></td>
+								<td><input type="text" value="${max_marks}"  readonly  /></td>
+								<td><input type="number" step="any" min='0' max="${max_marks} "name='gain_mark[]' value='0'   /></td>
+								
 
 								</tr>`
 								$("#studentRecord").append(htmlContent);

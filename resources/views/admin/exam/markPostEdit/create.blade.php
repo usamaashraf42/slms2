@@ -173,13 +173,13 @@
 											<th>Ly-no</th>
 											<th>Student's name</th>
 											<th>Obtain</th>
-											<th>class partiception</th>
+											<!-- <th>class partiception</th>
 											<th>Social integration</th>
 											<th>Accept suggestion</th>
 											<th>Share/Help Other</th>
 											<th>disciplen manners</th>
 											<th>confidance</th>
-											<th>Motivation</th>
+											<th>Motivation</th> -->
 
 										</tr>
 									</thead>
@@ -197,13 +197,7 @@
 												
 												<input type="hidden" readonly  name='ids[]' value="@isset($data->id) {{$data->id}} @endisset" />
 												<td><input name='gain_mark[]' value="@if(isset($data->gain_marks)) {{$data->gain_marks}} @else 0 @endif" /></td>
-												<td><input name="class_participation[]" value="@if(isset($data->class_participation)) {{$data->class_participation}} @else 0 @endif"  style ="max-width: 60px;" /></td>
-												<td><input name="social_integration[]" value="@if(isset($data->social_integration)) {{$data->social_integration}} @else 0 @endif" style ="max-width: 60px;"  /></td>
-												<td><input name="accept_to_suggestion[]" value="@if(isset($data->accept_to_suggestion)) {{$data->accept_to_suggestion}} @else 0 @endif" style ="max-width: 60px;"  /></td>
-												<td><input name="share_with[]" value="@if(isset($data->share_with)) {{$data->share_with}} @else 0 @endif" style ="max-width: 60px;"  /><input name="helping_other[]" value="@if(isset($data->helping_other)) {{$data->helping_other}} @else 0 @endif" style ="max-width: 60px;"  /></td>
-												<td><input name="confidence[]" value="@if(isset($data->confidence)) {{$data->confidence}} @else 0 @endif" style ="max-width: 60px;"  /></td>
-												<td><input name="spoken_eng[]" value="@if(isset($data->spoken_eng)) {{$data->spoken_eng}} @else 0 @endif" style ="max-width: 60px;"  /></td>
-												<td><input name="motivation[]" value="@if(isset($data->motivation)) {{$data->motivation}} @else 0 @endif"  style ="max-width: 60px;" /></td>
+												
 											</tr>
 											@endforeach
 											@endif
@@ -216,13 +210,7 @@
 												
 												
 												<td><input name='gain_mark[]' value="0" /></td>
-												<td><input name="class_participation[]" value="0"  style ="max-width: 60px;" /></td>
-												<td><input name="social_integration[]" value="0" style ="max-width: 60px;"  /></td>
-												<td><input name="accept_to_suggestion[]" value="0" style ="max-width: 60px;"  /></td>
-												<td><input name="share_with[]" value="0" style ="max-width: 60px;"  /><input name="helping_other[]" value="0" style ="max-width: 60px;"  /></td>
-												<td><input name="confidence[]" value="0" style ="max-width: 60px;"  /></td>
-												<td><input name="spoken_eng[]" value="0" style ="max-width: 60px;"  /></td>
-												<td><input name="motivation[]" value="0"  style ="max-width: 60px;" /></td>
+												
 											</tr>
 											<tr>
 												<input name='max_mark' type="hidden" value="{{$max_mark}}">
@@ -232,13 +220,7 @@
 												
 												
 												<td><input name='gain_mark[]' value="0" /></td>
-												<td><input name="class_participation[]" value="0"  style ="max-width: 60px;" /></td>
-												<td><input name="social_integration[]" value="0" style ="max-width: 60px;"  /></td>
-												<td><input name="accept_to_suggestion[]" value="0" style ="max-width: 60px;"  /></td>
-												<td><input name="share_with[]" value="0" style ="max-width: 60px;"  /><input name="helping_other[]" value="0" style ="max-width: 60px;"  /></td>
-												<td><input name="confidence[]" value="0" style ="max-width: 60px;"  /></td>
-												<td><input name="spoken_eng[]" value="0" style ="max-width: 60px;"  /></td>
-												<td><input name="motivation[]" value="0"  style ="max-width: 60px;" /></td>
+												
 											</tr>
 											<tr>
 												<input name='max_mark' type="hidden" value="{{$max_mark}}">
@@ -248,13 +230,7 @@
 												
 												
 												<td><input name='gain_mark[]' value="0" /></td>
-												<td><input name="class_participation[]" value="0"  style ="max-width: 60px;" /></td>
-												<td><input name="social_integration[]" value="0" style ="max-width: 60px;"  /></td>
-												<td><input name="accept_to_suggestion[]" value="0" style ="max-width: 60px;"  /></td>
-												<td><input name="share_with[]" value="0" style ="max-width: 60px;"  /><input name="helping_other[]" value="0" style ="max-width: 60px;"  /></td>
-												<td><input name="confidence[]" value="0" style ="max-width: 60px;"  /></td>
-												<td><input name="spoken_eng[]" value="0" style ="max-width: 60px;"  /></td>
-												<td><input name="motivation[]" value="0"  style ="max-width: 60px;" /></td>
+												
 											</tr>
 
 
@@ -303,15 +279,7 @@
 			    	<td><input type="text" name='std_ids[]' value="" /></td>
 			    	<td></td>
 			    	<td><input type="number" step="any" min='0' max="${max_marks} "name='gain_mark[]' value='0' style ="max-width: 60px;"  /></td>
-			    	<td><input type="number" step="any" name="class_participation[]" value='0'  style ="max-width: 60px;" /></td>
-			    	<td><input type="number" step="any" name="social_integration[]" value='0' style ="max-width: 60px;"  /></td>
-			    	<td><input type="number" step="any" name="accept_to_suggestion[]" value='0' style ="max-width: 60px;"  /></td>
-			    	<td><input type="number" step="any" name="share_with[]" value='0' style ="max-width: 60px;"  />
-			    	<input type="number" step="any" name="helping_other[]" value='0' style ="max-width: 60px;"  />
-			    	</td>
-			    	<td><input type="number" step="any" name="confidence[]" value='0' style ="max-width: 60px;"  /></td>
-			    	<td><input type="number" step="any" name="spoken_eng[]" value='0' style ="max-width: 60px;"  /></td>
-			    	<td><input type="number" step="any" name="motivation[]" value='0'  style ="max-width: 60px;" /></td>
+			    	
 
 			    	</tr>`
 			    	$("#studentRecord").append(htmlContent);

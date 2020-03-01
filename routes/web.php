@@ -405,6 +405,8 @@ Route::prefix('admin')->group(function () {
 			Route::resource('marks-list','Exam\MarksListController');
 			Route::resource('marks-edit','Exam\MarkPostEditController');
 			Route::resource('discipline-marks','Exam\DisciplineMarksPostController');
+			Route::resource('progress-card','Exam\ProgressResultCardController');
+			Route::post('desciplineMarksPosted','Exam\DisciplineMarksPostController@desciplineMarksPosted')->name('desciplineMarksPosted');
 
 
 		});
