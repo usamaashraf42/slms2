@@ -150,7 +150,7 @@
 					
 						}
 					</style>
-
+					@foreach($students as $std)
 					<div class="hidden">
 
 						<div  class="box" style="margin-top: 50px; width: 100%;">
@@ -185,7 +185,7 @@
 											<div class="img_box" style="  width: 180px;
 											height: 180px;
 											border-radius: 50%;border: 1px solid #ccc; margin: 0 auto;">
-											<img src=" http://lyceumgroupofschools.com/images/student/pics/no-image.png" alt="" 
+											<img src="@if($std->images) {{asset('images/student/pics/'.$std->images)}} @else http://lyceumgroupofschools.com/images/student/pics/no-image.png @endif" alt="" 
 											class="image--cover"/ width="100%">
 										</div>
 										<div style="margin-left:  20px; text-align: justify;">
@@ -198,20 +198,20 @@
 												<strong style="background-color:initial; font-size:20pt; font-style:inherit">Student's Name :<strong style="
     text-decoration: underline;
     font-weight: normal;
-    font-family: inherit;"><u>saddam hussain</u>
+    font-family: inherit;"><u>{{$std->s_name}}</u>
 
 										</strong>
 										</p>
 										<div class="WordSection1">
 											<p class="MsoNormal">
 												<div style="font-size:20.0pt; line-height:115%; mso-bidi-font-family:Calibri; mso-bidi-theme-font:minor-latin">
-													<strong>Section: </strong><span> <u style="font-weight: normal;width: 100%;">section A</u></span>
-													<strong> &nbsp;Branch:</strong><span> <u style="font-weight: normal;width: 100%;">Township</u></span>
-													<strong> &nbsp;Lyceonion #:</strong><span> <u style="font-weight: normal;width: 100%;">11224</u></span></div>
+													<strong>Section: </strong><span> <u style="font-weight: normal;width: 100%;">@isset($std->course->course_name) {{$std->course->course_name}} @endisset</u></span>
+													<strong> &nbsp;Branch:</strong><span> <u style="font-weight: normal;width: 100%;">@isset($std->branch->branch_name) {{$std->branch->branch_name}} @endisset</u></span>
+													<strong> &nbsp;Lyceonion #:</strong><span> <u style="font-weight: normal;width: 100%;">@isset($std->id) {{$std->id}} @endisset</u></span></div>
 												</p>
 												<p class="MsoNormal">
 													<div style="font-size:20.0pt; line-height:115%; mso-bidi-font-family:Calibri; mso-bidi-theme-font:minor-latin">
-														<strong>Name of Teacher: </strong> <span><u style="font-weight: normal;width: 100%;">tahir</u></span> <strong> &nbsp;Session:</strong> <span><u style="font-weight: normal;width: 100%;">leapord</u></span></div>
+														<strong>Name of Teacher: </strong> <span><u style="font-weight: normal;width: 100%;">tahir</u></span> <strong> &nbsp;Session:</strong> <span><u style="font-weight: normal;width: 100%;"></u></span></div>
 													</p>
 												</div>
 												
@@ -224,6 +224,7 @@
 							</div>
 						</div>
 					</div>
+					@endforeach
 				</div>
 			</div>
 			<div>
