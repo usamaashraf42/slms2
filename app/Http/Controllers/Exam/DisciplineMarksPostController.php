@@ -60,4 +60,29 @@ class DisciplineMarksPostController extends Controller
 		// dd($data);
 
 	}
+
+	public function desciplineMarksPosted(Request $request){
+
+		// return $request->all();
+		$marks=StudentExamMark::find($request->id);
+
+		if(!($marks)){
+			return response()->json(['status'=>0,'message'=>'Record not found']);
+		}
+// `class_participation`, `social_integration`, `accept_to_suggestion`, `share_with`, `helping_other`, `confidence`, `spoken_eng`, `motivation
+		$marks->class_participation=$request->class_participation?$request->class_participation:0;
+		$marks->social_integration=$request->social_integration?$request->social_integration:0;
+		$marks->accept_to_suggestion=$request->accept_to_suggestion?$request->accept_to_suggestion:0;
+		$marks->share_with=$request->share_with?$request->share_with:0;
+		$marks->helping_other=$request->helping_other?$request->helping_other:0;
+		$marks->confidence=$request->confidence?$request->confidence:0;
+		$marks->spoken_eng=$request->spoken_eng?$request->spoken_eng:0;
+		$marks->motivation=$request->motivation?$request->motivation:0;
+		if($marks->save()){
+			return response()->json(['status'=>1,'message'=>'Record update Successfully']);
+		}else{
+			return response()->json(['status'=>0,'message'=>'Failed to update record']);
+		}
+
+	}
 }

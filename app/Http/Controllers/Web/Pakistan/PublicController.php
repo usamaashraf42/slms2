@@ -102,9 +102,7 @@ class PublicController extends Controller
     public function date_sheet(){
         return view('web.pakistan.date_sheet');
     }
-    public function  student_picture(){
-        return view('web.pakistan.student_picture');
-    }
+
     public function job_internship(){
         return view('web.pakistan.internship_job');
     }

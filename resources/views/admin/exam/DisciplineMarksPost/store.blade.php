@@ -87,7 +87,7 @@
 
                 @php($totalMarks=0)
                 @php($totalOverAllMarks=0)
-                <tr>
+                <tr class="desciplineMarks_{{$pro->id}}">
                   <td>{{++$index}}</td>
                   <td>@isset($pro->student){{$pro->student->id}}@endisset</td>
                   <td>@isset($pro->student){{$pro->student->s_name}}@endisset</td>
@@ -113,7 +113,8 @@
                     <th><input type="number" name="" step="any" min="0" max="10" style="max-width: 60px" class="equipCatValidation confidence_{{$pro->id}}" value="{{$pro->confidence}}"></th>
                     <th><input type="number" name="" step="any" min="0" max="10" style="max-width: 60px" class="equipCatValidation spoken_eng_{{$pro->id}}" value="{{$pro->spoken_eng}}"></th>
                     <th><input type="number" name="" step="any" min="0" max="10" style="max-width: 60px" class="equipCatValidation motivation_{{$pro->id}}" value="{{$pro->motivation}}"></th>
-                    <td></td>
+                    <td><button onclick="desciplineMarks({{$pro->id}})" class="btn btn-info btn-sm" >Update</button>
+                    </form></td>
 
 
 
@@ -141,7 +142,8 @@
 
 @endpush
 @push('post-scripts')
-
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jQuery.print/1.6.0/jQuery.print.min.js"></script>
 <script>
   function printDivs(eve,obj)
@@ -158,31 +160,38 @@
       }
 
       
-      function marksPosted(id){
-        console.log('approve Request Id',id);
+      function desciplineMarks(id){
+        var obj=parseInt(id);
+        var class_participation_=$('.class_participation_'+obj).val();
+        var social_integration_=$('.social_integration_'+obj).val();
+        var accept_to_suggestion_=$('.accept_to_suggestion_'+obj).val();
+        var share_with_=$('.share_with_'+obj).val();
+        var helping_other_=$('.helping_other_'+obj).val();
+        var confidence_=$('.confidence_'+obj).val();
+        var spoken_eng_=$('.spoken_eng_'+obj).val();
+        var motivation_=$('.motivation_'+obj).val();
+
+
+        console.log('id',obj,'accept_to_suggestion',accept_to_suggestion_ ,'class_participation',class_participation_ ,'social_integration',social_integration_ ,'share_with',share_with_ ,'helping_other_',helping_other_ ,'confidence_',confidence_ ,'spoken_eng_',spoken_eng_ ,'motivation_',motivation_ );
+
+        // return false;
         $.ajax({
-          url: "{{route('correctionRecord')}}", 
+          url: "{{route('desciplineMarksPosted')}}", 
           method:"POST",
-          data:{'id':id},
+          data:{'id':obj,'accept_to_suggestion':accept_to_suggestion_ ,'class_participation':class_participation_ ,'social_integration':social_integration_ ,'share_with':share_with_ ,'helping_other':helping_other_ ,'confidence':confidence_ ,'spoken_eng':spoken_eng_ ,'motivation':motivation_},
           success: function(response){
            console.log('ajax call',response);
            if(response.status){
-            $('.stdinfo').val(response.data.student.s_name);
-            $('.branch').val(response.data.student.branch.branch_name);
-            $('.amount').val(response.data.amount);
-            $('.correctinId').val(response.data.id);
-            $('.feeId').val(response.data.feeId);
-            if(response.data.tbl_correctioncol==12){
-              console.log('gg');
-              $('#amount').css({"display": "none"});
-            }else{
-              console.log('display show');
-              $('#amount').css({"display": "block"});
-            }
+            console.log('descipline marks ',response);
+            
+                $('.desciplineMarks_'+obj).remove();
+                toastr.success('Record Update Successfully');
+            
 
           }
           else{
             console.log(response.message);
+            toastr.danger('Record not update');
           }
         }});
       }

@@ -866,6 +866,13 @@
         </li>
         @endif
         @if(Auth::user()->can('Student Result Card')  )
+        <li class="{{ areActiveRoutes(['progress-card.create','progress-card.index','progress-card.edit'])}}">
+            <a href="{{route('progress-card.index')}}" class="{{ areActiveRoutes(['progress-card.create','progress-card.index','progress-card.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                <span> Progress Card</span> 
+            </a>
+        </li>
+
+
         <li class="{{ areActiveRoutes(['student-card.create','student-card.index','student-card.edit'])}}">
             <a href="{{route('student-card.index')}}" class="{{ areActiveRoutes(['student-card.create','student-card.index','student-card.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
                 <span> Result Card</span> 

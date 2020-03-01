@@ -51,11 +51,11 @@
                     <th>Std Id</th>
                     <th>Student</th>
 
-                    <th>class_participation</th>
-                    <th>social_integration</th>
-                    <th>accept_to_suggestion</th>
-                    <th>share_with</th>
-                    <th>helping_other</th>
+                    <th>participate</th>
+                    <th>social</th>
+                    <th>suggestion</th>
+                    <th>sharing</th>
+                    <th>helping</th>
                     <th>confidence</th>
                     <th>spoken_eng</th>
                     <th>motivation</th>
