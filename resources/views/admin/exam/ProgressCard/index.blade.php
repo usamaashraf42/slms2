@@ -263,7 +263,7 @@
 
 										
 										<div style="font-size:20.0pt; line-height:115%; mso-bidi-font-family:Calibri; mso-bidi-theme-font:minor-latin">
-											<strong class="lable_name">Name of Teacher: </strong> <span><u class="result_name">tahir</u></span> 
+											<strong class="lable_name">Name of Teacher: </strong> <span><u class="result_name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></span> 
 											<br><strong class="lable_name">Session:</strong> <span><u class="result_name"></u></span></div>
 
 										</div>
