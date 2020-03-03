@@ -780,11 +780,11 @@
                        </div>
                        <div class="col-md-1">
                          <label class="control-label" for="m6">Jun:</label>
-                         <input class="form-control first_check_month cutomFeeFactor firstFeeCharge annualFee m6" type="checkbox"   value="1"  min="0" step="any" value="0" id="m6" name="m6" placeholder="Enter the June Factor :" class="input-xlarge">
+                         <input class="form-control first_check_month cutomFeeFactor firstFeeCharge annualFee m6" type="checkbox" checked  value="1"  min="0" step="any" value="0" id="m6" name="m6" placeholder="Enter the June Factor :" class="input-xlarge">
                        </div>
                        <div class="col-md-1">
                          <label class="control-label" for="m7">Jul:</label>
-                         <input class="form-control first_check_month cutomFeeFactor firstFeeCharge annualFee m7" type="checkbox"   value="1"  min="0" step="any" value="0" id="m7" name="m7" placeholder="Enter the July Factor :" class="input-xlarge">
+                         <input class="form-control first_check_month cutomFeeFactor firstFeeCharge annualFee m7" type="checkbox" checked  value="1"  min="0" step="any" value="0" id="m7" name="m7" placeholder="Enter the July Factor :" class="input-xlarge">
                        </div>
                        <div class="col-md-1">
                          <label class="control-label" for="m8">Aug:</label>
@@ -840,11 +840,11 @@
                      </div>
                      <div class="col-md-1">
                        <label class="control-label" for="every_m6">Jun:</label>
-                       <input class="form-control every_cutomFeeFactor every_annualFee every_m6" type="checkbox"   value="1"  min="0" step="any" value="0" id="every_m6" name="every_m6" placeholder="Enter the June Factor :" class="input-xlarge">
+                       <input class="form-control every_cutomFeeFactor every_annualFee every_m6" type="checkbox"   checked value="1"  min="0" step="any" value="0" id="every_m6" name="every_m6" placeholder="Enter the June Factor :" class="input-xlarge">
                      </div>
                      <div class="col-md-1">
                        <label class="control-label" for="every_m7">Jul:</label>
-                       <input class="form-control every_cutomFeeFactor every_annualFee every_m7" type="checkbox"   value="1"  min="0" step="any" value="0" id="every_m7" name="every_m7" placeholder="Enter the July Factor :" class="input-xlarge">
+                       <input class="form-control every_cutomFeeFactor every_annualFee every_m7" type="checkbox"   checked value="1"  min="0" step="any" value="0" id="every_m7" name="every_m7" placeholder="Enter the July Factor :" class="input-xlarge">
                      </div>
                      <div class="col-md-1">
                        <label class="control-label" for="every_m8">Aug:</label>
