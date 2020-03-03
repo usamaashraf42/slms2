@@ -18,7 +18,14 @@
 					background: white;
 					box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 				}
+				.box_color_fill {
+					width: 12px;
+					height: 12px;
 
+					border: 1px solid #ddd;
+					margin-right: 3px;
+					margin-top: 2px;
+				}
 				.repeatedCard {
 					padding: 20px;
 					height: 270mm;
@@ -39,6 +46,13 @@
 						box-shadow: initial;
 						background: initial;
 						page-break-after: always;
+					}
+					.box_color_fill {
+						width: 12px;
+						height: 12px;
+						border: 1px solid #ddd;
+						margin-right: 3px;
+						margin-top: 12px;
 					}
 				}
 
@@ -83,6 +97,7 @@
 					font-size:12px;
 					display: inline-flex;
 				}
+
 				.bar-graph li {
 					display: block;
 					padding-right: 5px;
@@ -194,7 +209,7 @@
 				}
 				.fill-ratings {
 					color: #e7711b;
-
+					text-align: center;
 					overflow: hidden;
 
 
@@ -210,8 +225,6 @@
 					position: relative;
 					margin: 0;
 					padding: 0;
-
-
 				}
 			</style>
 
@@ -312,118 +325,83 @@
 											<th>Rank</th>
 										</tr>
 									</thead>
-									<tbody>
+									<tbody>		
 										<tr>
 											<td>Class Participation</td>
-											<td><div class="star-ratings">
-												@if(($record->class_participation)/10)
-												<div class="fill-ratings" style="width: {{(($record->class_participation)/10) * 100}}%;">
-													<span>★★★★★</span>
+											<td>
+												<div class="fill-ratings">
+													<span style="
+													font-size: 15px;
+													font-weight: bold; color:#{{MarksColor((($record->class_participation)/10) * 100)}};">★</span>
 												</div>
-												@else
-												<div class="empty-ratings">
-													<span>★★★★★</span>
-												</div>
-												@endif
-
-											</div></td>
-											<!-- <td> {{marksGrade(round(round($class_participation)/round($totalSubject)) * 100)}}</td> -->
+											</td>
+											<!-- <td> {{MarksColor(round(round($class_participation)/round($totalSubject)) * 100)}}</td> -->
 										</tr>
 										<tr>
 											<td>social Integration</td>
-											<td><div class="star-ratings">
-												@if(($record->social_integration)/10)
-												<div class="fill-ratings" style="width: {{(($record->social_integration)/10) * 100}}%;">
-													<span>★★★★★</span>
+											<td>
+												<div class="fill-ratings">
+													<span style="
+													font-size: 15px;
+													font-weight: bold; color:#{{MarksColor((($record->social_integration)/10) * 100)}};">★</span>
 												</div>
-												@else
-												<div class="empty-ratings">
-													<span>★★★★★</span>
-												</div>
-												@endif
-
-											</div></td>
+											</td>
 											<!-- <td>{{marksGrade(round(round($social_integration)/round($totalSubject))*100)}}</td> -->
 										</tr>
 										<tr>
 											<td>Acceptance to suggestions</td>
-											<td><div class="star-ratings">
-												@if(($record->accept_to_suggestion)/10)
-												<div class="fill-ratings" style="width: {{(($record->accept_to_suggestion)/10) * 100}}%;">
-													<span>★★★★★</span>
+											<td>
+												<div class="fill-ratings">
+													<span style="
+													font-size: 15px;
+													font-weight: bold; color:#{{MarksColor((($record->accept_to_suggestion)/10) * 100)}};">★</span>
 												</div>
-												@else
-												<div class="empty-ratings">
-													<span>★★★★★</span>
-												</div>
-												@endif
-
-											</div></td>
+											</td>
 											<!-- <td>{{marksGrade(round(round($accept_to_suggestion)/round($totalSubject))*100)}}</td> -->
 										</tr>
 										<tr>
 
 											<td>Share with / Helping Others</td>
-											<td><div class="star-ratings">
-												@if(($record->share_with)/10)
-												<div class="fill-ratings" style="width: {{(($record->share_with)/10) * 100}}%;">
-													<span>★★★★★</span>
+											<td>
+												<div class="fill-ratings">
+													<span style="
+													font-size: 15px;
+													font-weight: bold; color:#{{MarksColor((($record->share_with)/10) * 100)}};">★</span>
 												</div>
-												@else
-												<div class="empty-ratings">
-													<span>★★★★★</span>
-												</div>
-												@endif
-
-											</div></td>
+											</td>
 											<!-- <td>{{marksGrade(round(round($share_with)/round($totalSubject))*100)}} / {{marksGrade(round(round($helping_other/$totalSubject))*100)}}</td> -->
 
 										</tr>
 										<tr>
 											<td>Discipline & Manners</td>
-											<td><div class="star-ratings">
-												@if(($record->confidence)/10)
-												<div class="fill-ratings" style="width: {{(($record->confidence)/10) * 100}}%;">
-													<span>★★★★★</span>
+											<td>
+												<div class="fill-ratings">
+													<span style="
+													font-size: 15px;
+													font-weight: bold; color:#{{MarksColor((($record->helping_other)/10) * 100)}};">★</span>
 												</div>
-												@else
-												<div class="empty-ratings">
-													<span>★★★★★</span>
-												</div>
-												@endif
-
-											</div></td>
+											</td>
 										</tr>
 										<tr>
 											<td>Confidence & Spoken English</td>
-											<td><div class="star-ratings">
-												@if(($record->spoken_eng)/10)
-												<div class="fill-ratings" style="width: {{(($record->spoken_eng)/10) * 100}}%;">
-													<span>★★★★★</span>
+											<td>
+												<div class="fill-ratings">
+													<span style="
+													font-size: 15px;
+													font-weight: bold; color:#{{MarksColor((($record->confidence)/10) * 100)}};">★</span>
 												</div>
-												@else
-												<div class="empty-ratings">
-													<span>★★★★★</span>
-												</div>
-												@endif
-
-											</div></td>
+											</td>
 											<!-- <td>{{marksGrade(round($spoken_eng/$totalSubject)*100)}}</td> -->
 										</tr>
 										<tr>
 											<td>Motivation</td>
-											<td><div class="star-ratings">
-												@if(($record->motivation)/10)
-												<div class="fill-ratings" style="width: {{(($record->motivation)/10) * 100}}%;">
-													<span>★★★★★</span>
+											<td>
+												<div class="fill-ratings">
+													<span style="
+													font-size: 15px;
+													font-weight: bold; color: #{{MarksColor((($record->motivation)/10) * 100)}};">★</span>
 												</div>
-												@else
-												<div class="empty-ratings">
-													<span>★★★★★</span>
-												</div>
-												@endif
-
-											</div></td>
+											</td>
 											<!-- <td>{{marksGrade(round($motivation/$totalSubject)*100)}}</td> -->
 										</tr>
 									</tbody>
@@ -495,17 +473,17 @@
 								<br>
 								<div style="width:100%;">
 									<div class="block_name">Grading Key</div>
-									<div class="block_name"><p>A + 90% to 100%</p></div>	
-									<div class="block_name"><p>A 85 % to 89.9%</p></div>	
-									<div class="block_name"><p>A - 80% to 84.9%</p></div>	
-									<div class="block_name"><p>B + 75% to 79.9%; </p></div>	
-									<div class="block_name"><p>B  70% to 74.9%; </p></div>	
+									<div class="block_name"><span class="box_color_fill" style="background-color: #35ac46;"> </span> <p>A + 90% to 100%</p></div>	
+									<div class="block_name"><span class="box_color_fill"> </span> <p>A 85 % to 89.9%</p></div>	
+									<div class="block_name"><span class="box_color_fill"> </span> <p>A - 80% to 84.9%</p></div>	
+									<div class="block_name"><span class="box_color_fill" style="background-color: #ff7743;"> </span> <p>B + 75% to 79.9%; </p></div>	
+									<div class="block_name"><span class="box_color_fill"> </span> <p>B  70% to 74.9%; </p></div>	
 									<div class="block_name"></div>	
-									<div class="block_name"><p>B - 65% to 69.9%</p></div>	
-									<div class="block_name"><p>C + 60 % to 64.9%</p></div>	
-									<div class="block_name"><p>C  55% to 69.9%</p></div>	
-									<div class="block_name"><p>C - 50% to 54.9%; </p></div>	
-									<div class="block_name"><p>D 33% to 49.9%; </p></div>
+									<div class="block_name"><span class="box_color_fill"> </span> <p>B - 65% to 69.9%</p></div>	
+									<div class="block_name"><span class="box_color_fill" style="background-color: #ff558f;"> </span> <p>C + 60 % to 64.9%</p></div>	
+									<div class="block_name"><span class="box_color_fill"> </span> <p>C  55% to 59.9%</p></div>	
+									<div class="block_name"><span class="box_color_fill"> </span> <p>C - 50% to 54.9%; </p></div>	
+									<div class="block_name"><span class="box_color_fill" style="background-color: #ffd53b;"> </span> <p>D 33% to 49.9%; </p></div>
 								</div>
 								<br>
 								<br>

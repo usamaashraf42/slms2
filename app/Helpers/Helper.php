@@ -442,7 +442,27 @@ else if ($grad >= 90)
 }
 return $grad;
 }
+function MarksColor($grad){
+  if ($grad < 50){
+   return  'ffd53b;';
+ }
 
+ else if ($grad > 50 && $grad <=64.99){
+
+  return  'ff558f';
+}
+else if ($grad  >= 65 && $grad <=79.99)
+{
+  return  'ff7743'; 
+}
+
+else if ($grad  >= 80 && $grad <=100)
+{
+ return  '35ac46';
+}
+
+return 'fff';
+}
 
 function colorCode($grad,$sub_id=null){
 
