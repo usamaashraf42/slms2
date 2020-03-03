@@ -53,7 +53,7 @@ class ProgressResultCardController extends Controller
 			return redirect()->back();
 		}
 
-
+// dd($exam);
 		return view('admin.exam.ProgressCard.index',compact('students','exam'));
 // 		$data='';
 // 		$pdf = DOMPDF::loadView('admin.exam.ProgressCard.index',  ['data' => $data]);  

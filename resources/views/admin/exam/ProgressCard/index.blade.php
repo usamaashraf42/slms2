@@ -1,5 +1,5 @@
 @extends('_layouts.admin.default')
-@section('title', 'Class List')
+@section('title', 'Progress Card')
 @section('content')
 @php($levelName='')
 <style>
@@ -225,11 +225,11 @@
 										</div>
 										<br>
 										<div  class="montes" align="center">
-											Montessori Advance	
+											@isset($std->course->course_name) {{$std->course->course_name}} @endisset
 										</div>
 										<br>
 										<div class="final">
-											Final Semester
+											@isset($exam->term) {{$exam->term}} @endisset
 										</div>
 										<br>
 										<div class="img_box" style="  width: 180px;
@@ -263,7 +263,7 @@
 
 										
 										<div style="font-size:20.0pt; line-height:115%; mso-bidi-font-family:Calibri; mso-bidi-theme-font:minor-latin">
-											<strong class="lable_name">Name of Teacher: </strong> <span><u class="result_name">tahir</u></span> 
+											<strong class="lable_name">Name of Teacher: </strong> <span><u class="result_name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></span> 
 											<br><strong class="lable_name">Session:</strong> <span><u class="result_name"></u></span></div>
 
 										</div>
