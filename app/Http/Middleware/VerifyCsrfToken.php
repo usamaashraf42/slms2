@@ -19,6 +19,6 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        'admin/course/has-section','/countryHasBranch','admin/parent/has-kids','admin/admissionPackage','admin/admissionPackageFirst','admin/bankHasChecque','admin/admissionPackageNulls','easypaisa/store','admin/branchHasClasses','admin/readonlyBranchSetting','pakistan/franchise/store','pakistan/jobs'
+        'admin/course/has-section','/countryHasBranch','admin/parent/has-kids','admin/admissionPackage','admin/admissionPackageFirst','admin/bankHasChecque','admin/admissionPackageNulls','easypaisa/store','admin/branchHasClasses','admin/readonlyBranchSetting','pakistan/franchise/store','pakistan/jobs','feedeposit','pakistan/feedeposit'
     ];
 }
