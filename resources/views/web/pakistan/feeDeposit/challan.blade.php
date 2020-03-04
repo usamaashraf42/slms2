@@ -309,7 +309,7 @@ border-bottom-left-radius: 25px;
 
     $MerchantID ="MC35662"; //Your Merchant from transaction Credentials
     $Password   ="hv920evz9v"; //Your Password from transaction Credentials
-    $ReturnURL  ="http://lyceumgroupofschools.com/feedeposit"; //Your Return URL 
+    $ReturnURL  ="http://lyceumgroupofschools.com/feedeposit-status"; //Your Return URL 
     $HashKey    ="y14yb32g8s";//Your HashKey from transaction Credentials
     $PostURL = "https://sandbox.jazzcash.com.pk/CustomerPortal/transactionmanagement/merchantform";
     //"http://testpayments.jazzcash.com.pk/PayAxisCustomerPortal/transactionmanagement/merchantform"; 
