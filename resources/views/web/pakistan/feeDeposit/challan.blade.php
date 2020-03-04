@@ -419,10 +419,10 @@ border-bottom-left-radius: 25px;
                     <input type="hidden" name="pp_SubMerchantID" value="<?php echo $SubMerchantID; ?>" />
                     <input type="hidden" name="pp_Password" value="<?php echo $Password; ?>" />
                     <input type="hidden" name="pp_TxnRefNo" value="<?php echo $TxnRefNumber; ?>"/>
-                    <input type="hidden" name="pp_Amount" class="pp_Amount" value="" />
+                    <input type="hidden" name="pp_Amount" value="<?php echo $Amount; ?>" />
                     <input type="hidden" name="pp_TxnCurrency" value="<?php echo $TxnCurrency; ?>"/>
                     <input type="hidden" name="pp_TxnDateTime" value="<?php echo $TxnDateTime; ?>" />
-                    <input type="hidden" name="pp_BillReference" class="pp_BillReference" value="" />
+                    <input type="hidden" name="pp_BillReference" value="<?php echo $BillReference ?>" />
                     <input type="hidden" name="pp_Description" value="<?php echo $Description; ?>" />
                   <input type="hidden" id="pp_DiscountedAmount" name="pp_DiscountedAmount" value="<?php echo $DiscountedAmount ?>">
                   <input type="hidden" id="pp_DiscountBank" name="pp_DiscountBank" value="<?php echo $DiscountedBank ?>">

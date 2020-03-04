@@ -1,42 +1,43 @@
 <?php
 
-		$MerchantID ="MC35662"; //Your Merchant from transaction Credentials
-		$Password   ="hv920evz9v"; //Your Password from transaction Credentials
-		$ReturnURL  ="http://lyceumgroupofschools.com/fee-deposit"; //Your Return URL 
-		$HashKey    ="y14yb32g8s";//Your HashKey from transaction Credentials
-		$PostURL = "https://sandbox.jazzcash.com.pk/CustomerPortal/transactionmanagement/merchantform";
-		//"http://testpayments.jazzcash.com.pk/PayAxisCustomerPortal/transactionmanagement/merchantform";	
-		date_default_timezone_set("Asia/karachi");
-		$Amount = 1*100; //Last two digits will be considered as Decimal
-		$BillReference = "11111";
-		$Description = "Thank you for using Jazz Cash";
-		$Language = "EN";
-		$TxnCurrency = "PKR";
-		$TxnDateTime = date('YmdHis') ;
-		$TxnExpiryDateTime = date('YmdHis', strtotime('+8 Days'));
-		$TxnRefNumber = "T".date('YmdHis');
-		$TxnType = "";
-		$Version = '1.1';
-		$SubMerchantID = "";
-		$DiscountedAmount = "";
-		$DiscountedBank = "";
-		$ppmpf_1="";
-		$ppmpf_2="";
-		$ppmpf_3="";
-		$ppmpf_4="";
-		$ppmpf_5="";
+    $MerchantID ="MC35662"; //Your Merchant from transaction Credentials
+    $Password   ="hv920evz9v"; //Your Password from transaction Credentials
+    $ReturnURL  ="http://lyceumgroupofschools.com/feedeposit"; //Your Return URL 
+    $HashKey    ="y14yb32g8s";//Your HashKey from transaction Credentials
+    $PostURL = "https://sandbox.jazzcash.com.pk/CustomerPortal/transactionmanagement/merchantform";
+    //"http://testpayments.jazzcash.com.pk/PayAxisCustomerPortal/transactionmanagement/merchantform"; 
+    date_default_timezone_set("Asia/karachi");
+    $Amount = 1*100; //Last two digits will be considered as Decimal
+    $BillReference = "11111";
+    $Description = "Thank you for using Jazz Cash";
+    $Language = "EN";
+    $TxnCurrency = "PKR";
+    $TxnDateTime = date('YmdHis') ;
+    $TxnExpiryDateTime = date('YmdHis', strtotime('+8 Days'));
+    $TxnRefNumber = "T".date('YmdHis');
+    $TxnType = "";
+    $Version = '1.1';
+    $SubMerchantID = "";
+    $DiscountedAmount = "";
+    $DiscountedBank = "";
+    $ppmpf_1="";
+    $ppmpf_2="";
+    $ppmpf_3="";
+    $ppmpf_4="";
+    $ppmpf_5="";
 
-		$HashArray=[$Amount,$BillReference,$Description,$DiscountedAmount,$DiscountedBank,$Language,$MerchantID,$Password,$ReturnURL,$TxnCurrency,$TxnDateTime,$TxnExpiryDateTime,$TxnRefNumber,$TxnType,$Version,$ppmpf_1,$ppmpf_2,$ppmpf_3,$ppmpf_4,$ppmpf_5];
+    $HashArray=[$Amount,$BillReference,$Description,$DiscountedAmount,$DiscountedBank,$Language,$MerchantID,$Password,$ReturnURL,$TxnCurrency,$TxnDateTime,$TxnExpiryDateTime,$TxnRefNumber,$TxnType,$Version,$ppmpf_1,$ppmpf_2,$ppmpf_3,$ppmpf_4,$ppmpf_5];
 
-		$SortedArray=$HashKey;
-		for ($i = 0; $i < count($HashArray); $i++) { 
-		if($HashArray[$i] != 'undefined' AND $HashArray[$i]!= null AND $HashArray[$i]!="" )
-		{
-		
-		$SortedArray .="&".$HashArray[$i];
-		}	}
-		$Securehash = hash_hmac('sha256', $SortedArray, $HashKey); 	
+    $SortedArray=$HashKey;
+    for ($i = 0; $i < count($HashArray); $i++) { 
+    if($HashArray[$i] != 'undefined' AND $HashArray[$i]!= null AND $HashArray[$i]!="" )
+    {
+    
+    $SortedArray .="&".$HashArray[$i];
+    } }
+    $Securehash = hash_hmac('sha256', $SortedArray, $HashKey);  
 ?>
+
 <form method="post" action="<?php echo $PostURL; ?>"/>  
 
     <input type="hidden" name="pp_Version" value="<?php echo $Version; ?>" />
