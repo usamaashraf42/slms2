@@ -1,67 +1,339 @@
-<?php
 
-    $MerchantID ="MC35662"; //Your Merchant from transaction Credentials
-    $Password   ="hv920evz9v"; //Your Password from transaction Credentials
-    $ReturnURL  ="http://lyceumgroupofschools.com/feedeposit"; //Your Return URL 
-    $HashKey    ="y14yb32g8s";//Your HashKey from transaction Credentials
-    $PostURL = "https://sandbox.jazzcash.com.pk/CustomerPortal/transactionmanagement/merchantform";
-    //"http://testpayments.jazzcash.com.pk/PayAxisCustomerPortal/transactionmanagement/merchantform"; 
-    date_default_timezone_set("Asia/karachi");
-    $Amount = 1*100; //Last two digits will be considered as Decimal
-    $BillReference = "11111";
-    $Description = "Thank you for using Jazz Cash";
-    $Language = "EN";
-    $TxnCurrency = "PKR";
-    $TxnDateTime = date('YmdHis') ;
-    $TxnExpiryDateTime = date('YmdHis', strtotime('+8 Days'));
-    $TxnRefNumber = "T".date('YmdHis');
-    $TxnType = "";
-    $Version = '1.1';
-    $SubMerchantID = "";
-    $DiscountedAmount = "";
-    $DiscountedBank = "";
-    $ppmpf_1="";
-    $ppmpf_2="";
-    $ppmpf_3="";
-    $ppmpf_4="";
-    $ppmpf_5="";
 
-    $HashArray=[$Amount,$BillReference,$Description,$DiscountedAmount,$DiscountedBank,$Language,$MerchantID,$Password,$ReturnURL,$TxnCurrency,$TxnDateTime,$TxnExpiryDateTime,$TxnRefNumber,$TxnType,$Version,$ppmpf_1,$ppmpf_2,$ppmpf_3,$ppmpf_4,$ppmpf_5];
+<style>
+    body {
+        background: #fff;
+    }
 
-    $SortedArray=$HashKey;
-    for ($i = 0; $i < count($HashArray); $i++) { 
-    if($HashArray[$i] != 'undefined' AND $HashArray[$i]!= null AND $HashArray[$i]!="" )
-    {
+    form {
+        margin: 0;
+        padding: 0;
+    }
+
+    .jsformWrapper {
+        border: 1px solid rgba(196, 21, 28, 0.50);
+        padding: 2rem;
+        width: 600px;
+        margin: 0 auto;
+        border-radius: 2px;
+        margin-top: 2rem;
+        box-shadow: 0 7px 5px #eee;
+        padding-bottom: 4rem;
+    }
+
+        .jsformWrapper .formFielWrapper label {
+            width: 300px;
+            float: left;
+        }
+
+        .jsformWrapper .formFielWrapper input {
+            width: 300px;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            float: left;
+            font-family: sans-serif;
+        }
+
+        .jsformWrapper .formFielWrapper select {
+            width: 300px;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            float: left;
+            font-family: sans-serif;
+        }
+
+        .jsformWrapper .formFielWrapper {
+            float: left;
+            margin-bottom: 1rem;
+        }
+
+        .jsformWrapper button {
+            background: rgba(196, 21, 28, 1);
+            border: none;
+            color: #fff;
+            width: 120px;
+            height: 40px;
+            line-height: 25px;
+            font-size: 16px;
+            font-family: sans-serif;
+            text-transform: uppercase;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+
+    h3 {
+        text-align: center;
+        margin-top: 3rem;
+        color: rgba(196, 21, 28, 1);
+    }
+</style>
+<script>
+    function submitForm() {
+
+        CalculateHash();
+        var IntegritySalt = document.getElementById("salt").innerText;
+        var hash = CryptoJS.HmacSHA256(document.getElementById("hashValuesString").value, IntegritySalt);
+        document.getElementsByName("pp_SecureHash")[0].value = hash + '';
+
+        console.log('string: ' + hashString);
+        console.log('hash: ' + document.getElementsByName("pp_SecureHash")[0].value);
+
+        document.jsform.submit();
+    }
+</script>
+<script src="https://sandbox.jazzcash.com.pk/Sandbox/Scripts/hmac-sha256.js"></script>
+
+<h3>JazzCash HTTP POST (Page Redirection) Testing</h3>
+<div class="jsformWrapper">
+    <form name="jsform" method="post" action="https://sandbox.jazzcash.com.pk/CustomerPortal/transactionmanagement/merchantform/">
+
+        <div class="formFielWrapper">
+            <label class="active">pp_Version: </label>
+            <select name="pp_Version" id="pp_Version">
+                <option value="2.0" selected="">2.0</option>
+            </select>
+        </div>
+
+        <div class="formFielWrapper">
+            <label class="active">pp_IsRegisteredCustomer: </label>
+            <select name="pp_IsRegisteredCustomer" id="pp_IsRegisteredCustomer">
+                <option value="Yes" selected="">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+
+        <div class="formFielWrapper">
+            <label class="active">pp_TxnType: </label>
+            <input type="text" name="pp_TxnType" value="MPAY">
+        </div>
+
+        <div class="formFielWrapper">
+            <label class="active">pp_TokenizedCardNumber: </label>
+            <input type="text" name="pp_TokenizedCardNumber" value="">
+        </div>
+
+        <div class="formFielWrapper">
+            <label class="active">pp_CustomerID: </label>
+            <input type="text" name="pp_CustomerID" value="">
+        </div>
+
+        <div class="formFielWrapper">
+            <label class="active">pp_CustomerEmail: </label>
+            <input type="text" name="pp_CustomerEmail" value="">
+        </div>
+
+        <div class="formFielWrapper">
+            <label class="active">pp_CustomerMobile: </label>
+            <input type="text" name="pp_CustomerMobile" value="">
+        </div>
+
+        <div class="formFielWrapper">
+            <label class="active">pp_MerchantID: </label>
+            <input type="text" name="pp_MerchantID">
+        </div>
+
+        <div class="formFielWrapper">
+            <label class="active">pp_Language: </label>
+            <input type="text" name="pp_Language" value="EN">
+        </div>
+
+        <div class="formFielWrapper">
+            <label class="active">pp_SubMerchantID: </label>
+            <input type="text" name="pp_SubMerchantID" value="">
+        </div>
+
+        <div class="formFielWrapper">
+            <label class="active">pp_Password: </label>
+            <input type="text" name="pp_Password">
+        </div>
+
+        <div class="formFielWrapper">
+            <label class="active">pp_TxnRefNo: </label>
+            <input type="text" name="pp_TxnRefNo" id="pp_TxnRefNo" value="T20200304124915">
+        </div>
+
+        <div class="formFielWrapper">
+            <label class="active">pp_Amount: </label>
+            <input type="text" name="pp_Amount" value="10000">
+        </div>
+
+        <div class="formFielWrapper">
+            <label class="active">pp_DiscountedAmount: </label>
+            <input type="text" name="pp_DiscountedAmount" value="">
+        </div>
+
+        <div class="formFielWrapper">
+            <label class="active">pp_DiscountBank: </label>
+            <input type="text" name="pp_DiscountBank" value="">
+        </div>
+
+        <div class="formFielWrapper">
+            <label class="active">pp_TxnCurrency: </label>
+            <input type="text" name="pp_TxnCurrency" value="PKR">
+        </div>
+
+        <div class="formFielWrapper">
+            <label class="active">pp_TxnDateTime: </label>
+            <input type="text" name="pp_TxnDateTime" id="pp_TxnDateTime" value="20200304124915">
+        </div>
+
+        <div class="formFielWrapper">
+            <label class="active">pp_TxnExpiryDateTime: </label>
+            <input type="text" name="pp_TxnExpiryDateTime" id="pp_TxnExpiryDateTime" value="20200305124915">
+        </div>
+
+        <div class="formFielWrapper">
+            <label class="active">pp_BillReference: </label>
+            <input type="text" name="pp_BillReference" value="billRef">
+        </div>
+
+        <div class="formFielWrapper">
+            <label class="active">pp_Description: </label>
+            <input type="text" name="pp_Description" value="Description of transaction">
+        </div>
+
+        <div class="formFielWrapper">
+            <label class="active">pp_ReturnURL: </label>
+            <input type="text" name="pp_ReturnURL">
+        </div>
+
+
+        <div class="formFielWrapper">
+            <label class="active">pp_SecureHash: </label>
+            <input type="text" name="pp_SecureHash" value="0123456789">
+        </div>
+
+        <div class="formFielWrapper">
+            <label class="active">ppmpf 1: </label>
+            <input type="text" name="ppmpf_1" value="1">
+        </div>
+
+        <div class="formFielWrapper">
+            <label class="active">ppmpf 2: </label>
+            <input type="text" name="ppmpf_2" value="2">
+        </div>
+
+        <div class="formFielWrapper">
+            <label class="active">ppmpf 3: </label>
+            <input type="text" name="ppmpf_3" value="3">
+        </div>
+
+        <div class="formFielWrapper">
+            <label class="active">ppmpf 4: </label>
+            <input type="text" name="ppmpf_4" value="4">
+        </div>
+
+        <div class="formFielWrapper">
+            <label class="active">ppmpf 5: </label>
+            <input type="text" name="ppmpf_5" value="5">
+        </div>
+
+        <button type="button" onclick="submitForm()">Submit</button>
+
+    </form>
+
+    <label id="salt" style="display:none;"></label>
+    <br><br>
+    <div class="formFielWrapper" style="margin-bottom: 2rem;">
+        <label class="active">Hash values string: </label>
+        <input type="text" id="hashValuesString" value="">
+        <br><br>
+    </div>
+
+</div>
+
+<script>
+
+    function CalculateHash() {
+    var IntegritySalt = document.getElementById("salt").innerText;
+    hashString = '';
+
+    hashString += IntegritySalt + '&';
+
+    if (document.getElementsByName("pp_Amount")[0].value != '') {
+        hashString += document.getElementsByName("pp_Amount")[0].value + '&';
+    }
+
+    if (document.getElementsByName("pp_BillReference")[0].value != '') {
+        hashString += document.getElementsByName("pp_BillReference")[0].value + '&';
+    }
+    if (document.getElementsByName("pp_CustomerEmail")[0].value != '') {
+        hashString += document.getElementsByName("pp_CustomerEmail")[0].value + '&';
+    }
+    if (document.getElementsByName("pp_CustomerID")[0].value != '') {
+        hashString += document.getElementsByName("pp_CustomerID")[0].value + '&';
+    }
+    if (document.getElementsByName("pp_CustomerMobile")[0].value != '') {
+        hashString += document.getElementsByName("pp_CustomerMobile")[0].value + '&';
+    }
+    if (document.getElementsByName("pp_Description")[0].value != '') {
+        hashString += document.getElementsByName("pp_Description")[0].value + '&';
+    }
+    if (document.getElementsByName("pp_IsRegisteredCustomer")[0].value != '') {
+        hashString += document.getElementsByName("pp_IsRegisteredCustomer")[0].value + '&';
+    }
+    if (document.getElementsByName("pp_Language")[0].value != '') {
+        hashString += document.getElementsByName("pp_Language")[0].value + '&';
+    }
+    if (document.getElementsByName("pp_MerchantID")[0].value != '') {
+        hashString += document.getElementsByName("pp_MerchantID")[0].value + '&';
+    }
+    if (document.getElementsByName("pp_Password")[0].value != '') {
+        hashString += document.getElementsByName("pp_Password")[0].value + '&';
+    }
+    if (document.getElementsByName("pp_ReturnURL")[0].value != '') {
+        hashString += document.getElementsByName("pp_ReturnURL")[0].value + '&';
+    }
+    if (document.getElementsByName("pp_SubMerchantID")[0].value != '') {
+        hashString += document.getElementsByName("pp_SubMerchantID")[0].value + '&';
+    }
+    if (document.getElementsByName("pp_TokenizedCardNumber")[0].value != '') {
+        hashString += document.getElementsByName("pp_TokenizedCardNumber")[0].value + '&';
+    }
+    if (document.getElementsByName("pp_TxnCurrency")[0].value != '') {
+        hashString += document.getElementsByName("pp_TxnCurrency")[0].value + '&';
+    }
+    if (document.getElementsByName("pp_TxnDateTime")[0].value != '') {
+        hashString += document.getElementsByName("pp_TxnDateTime")[0].value + '&';
+    }
+    if (document.getElementsByName("pp_TxnExpiryDateTime")[0].value != '') {
+        hashString += document.getElementsByName("pp_TxnExpiryDateTime")[0].value + '&';
+    }
+    if (document.getElementsByName("pp_TxnRefNo")[0].value != '') {
+        hashString += document.getElementsByName("pp_TxnRefNo")[0].value + '&';
+    }
+
+    if (document.getElementsByName("pp_TxnType")[0].value != '') {
+        hashString += document.getElementsByName("pp_TxnType")[0].value + '&';
+    }
+
+    if (document.getElementsByName("pp_Version")[0].value != '') {
+        hashString += document.getElementsByName("pp_Version")[0].value + '&';
+    }
+    if (document.getElementsByName("ppmpf_1")[0].value != '') {
+        hashString += document.getElementsByName("ppmpf_1")[0].value + '&';
+    }
+    if (document.getElementsByName("ppmpf_2")[0].value != '') {
+        hashString += document.getElementsByName("ppmpf_2")[0].value + '&';
+    }
+    if (document.getElementsByName("ppmpf_3")[0].value != '') {
+        hashString += document.getElementsByName("ppmpf_3")[0].value + '&';
+    }
+    if (document.getElementsByName("ppmpf_4")[0].value != '') {
+        hashString += document.getElementsByName("ppmpf_4")[0].value + '&';
+    }
+    if (document.getElementsByName("ppmpf_5")[0].value != '') {
+        hashString += document.getElementsByName("ppmpf_5")[0].value + '&';
+    }
+
+    hashString = hashString.slice(0, -1);
+    document.getElementById("hashValuesString").value = hashString;
+    }
     
-    $SortedArray .="&".$HashArray[$i];
-    } }
-    $Securehash = hash_hmac('sha256', $SortedArray, $HashKey);  
-?>
+    
 
-<form method="post" action="<?php echo $PostURL; ?>"/>  
+</script>
 
-    <input type="hidden" name="pp_Version" value="<?php echo $Version; ?>" />
-    <input type="hidden" name="pp_TxnType" value="<?php echo $TxnType; ?>" />
-    <input type="hidden" name="pp_Language" value="<?php echo $Language; ?>" />
-    <input type="hidden" name="pp_MerchantID" value="<?php echo $MerchantID; ?>" />
-    <input type="hidden" name="pp_SubMerchantID" value="<?php echo $SubMerchantID; ?>" />
-    <input type="hidden" name="pp_Password" value="<?php echo $Password; ?>" />
-    <input type="hidden" name="pp_TxnRefNo" value="<?php echo $TxnRefNumber; ?>"/>
-    <input type="hidden" name="pp_Amount" value="<?php echo $Amount; ?>" />
-    <input type="hidden" name="pp_TxnCurrency" value="<?php echo $TxnCurrency; ?>"/>
-    <input type="hidden" name="pp_TxnDateTime" value="<?php echo $TxnDateTime; ?>" />
-    <input type="hidden" name="pp_BillReference" value="<?php echo $BillReference ?>" />
-    <input type="hidden" name="pp_Description" value="<?php echo $Description; ?>" />
-	<input type="hidden" id="pp_DiscountedAmount" name="pp_DiscountedAmount" value="<?php echo $DiscountedAmount ?>">
-	<input type="hidden" id="pp_DiscountBank" name="pp_DiscountBank" value="<?php echo $DiscountedBank ?>">
-    <input type="hidden" name="pp_TxnExpiryDateTime" value="<?php echo  $TxnExpiryDateTime; ?>" />
-    <input type="hidden" name="pp_ReturnURL" value="<?php echo $ReturnURL; ?>" />
-    <input type="hidden" name="pp_SecureHash" value="<?php echo $Securehash; ?>" />
-    <input type="hidden" name="ppmpf_1" value="<?php echo $ppmpf_1; ?>" />
-    <input type="hidden" name="ppmpf_2" value="<?php echo $ppmpf_2; ?>" />
-    <input type="hidden" name="ppmpf_3" value="<?php echo $ppmpf_3; ?>" />
-    <input type="hidden" name="ppmpf_4" value="<?php echo $ppmpf_4; ?>" />
-    <input type="hidden" name="ppmpf_5" value="<?php echo $ppmpf_5; ?>" />
-    <input type="submit" name="Jazz Cash" value="Jazz Cash"/>
-</form>
 
+
+                                    

@@ -9,8 +9,13 @@ use App\Models\Branch;
 class FeeDepositController extends Controller
 {
 	public function index(){
-		dd($_POST);
+		// dd($_POST);
 		return view('web.pakistan.feeDeposit.challan');
+	}
+
+
+	public function feeDepositstatus(Request $request){
+		dd($request->all());
 	}
 
 	public function feeChallan(Request $request){

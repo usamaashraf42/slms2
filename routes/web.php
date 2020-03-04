@@ -71,6 +71,8 @@ Route::get('/news','Web\Pakistan\PublicController@news')->name('pakistan.news');
 Route::get('/event','Web\Pakistan\PublicController@event')->name('pakistan.event');
 Route::get('/student_picture','Web\Pakistan\PublicController@student_picture')->name('pakistan.student_picture');
 Route::resource('feedeposit','Web\FeeDepositController');
+
+Route::POST('feedeposit-status','Web\FeeDepositController@feeDepositstatus')->name('feeDepositstatus');
 Route::POST('feeChallan','Web\FeeDepositController@feeChallan')->name('feeChallan');
 
 
