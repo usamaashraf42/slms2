@@ -1,111 +1,66 @@
-
 <?php
 
-	// $ivlen = openssl_cipher_iv_length($cipher="AES-128-ECB");
-	// $iv = openssl_random_pseudo_bytes($ivlen);
-	// $stringTobeEncoded ='';
-	// $crypttext = openssl_encrypt($stringTobeEncoded, $cipher, 'GJ0WXA292VPTS7ZS',OPENSSL_RAW_DATA, $iv);
-	// $hashRequest = base64_encode( $crypttext );
+		$MerchantID ="MC35662"; //Your Merchant from transaction Credentials
+		$Password   ="hv920evz9v"; //Your Password from transaction Credentials
+		$ReturnURL  ="http://lyceumgroupofschools.com/fee-deposit"; //Your Return URL 
+		$HashKey    ="y14yb32g8s";//Your HashKey from transaction Credentials
+		$PostURL = "https://sandbox.jazzcash.com.pk/CustomerPortal/transactionmanagement/merchantform";
+		//"http://testpayments.jazzcash.com.pk/PayAxisCustomerPortal/transactionmanagement/merchantform";	
+		date_default_timezone_set("Asia/karachi");
+		$Amount = 1*100; //Last two digits will be considered as Decimal
+		$BillReference = "11111";
+		$Description = "Thank you for using Jazz Cash";
+		$Language = "EN";
+		$TxnCurrency = "PKR";
+		$TxnDateTime = date('YmdHis') ;
+		$TxnExpiryDateTime = date('YmdHis', strtotime('+8 Days'));
+		$TxnRefNumber = "T".date('YmdHis');
+		$TxnType = "";
+		$Version = '1.1';
+		$SubMerchantID = "";
+		$DiscountedAmount = "";
+		$DiscountedBank = "";
+		$ppmpf_1="";
+		$ppmpf_2="";
+		$ppmpf_3="";
+		$ppmpf_4="";
+		$ppmpf_5="";
 
+		$HashArray=[$Amount,$BillReference,$Description,$DiscountedAmount,$DiscountedBank,$Language,$MerchantID,$Password,$ReturnURL,$TxnCurrency,$TxnDateTime,$TxnExpiryDateTime,$TxnRefNumber,$TxnType,$Version,$ppmpf_1,$ppmpf_2,$ppmpf_3,$ppmpf_4,$ppmpf_5];
 
-$hashRequest = '';
-$hashKey = 'GJ0WXA292VPTS7ZS'; // generated from easypay account
-$storeId="7637";
-$amount="30.0" ;
-$postBackURL="http://localhost:8000/easypaisa/token";
-$orderRefNum="1101";
-$autoRedirect=0 ;
-$paymentMethod='CC_PAYMENT_METHOD';
-$emailAddr='khizer.987@gmail.com';
-$mobileNum="03458509233";
-
-$paramMap = array();
-$paramMap['amount']  = $amount;
-$paramMap['autoRedirect']  = $autoRedirect;
-$paramMap['emailAddr']  = $emailAddr;
-$paramMap['mobileNum'] =$mobileNum;
-$paramMap['orderRefNum']  = $orderRefNum;
-$paramMap['paymentMethod']  = $paymentMethod;
-$paramMap['postBackURL'] = $postBackURL;
-$paramMap['storeId']  = $storeId;
-
-////////////////////////////
-// public function encryptPasswordOld($password, $salt)
-// {
-//     $key = md5($salt);
-//     $result = mcrypt_encrypt(MCRYPT_RIJNDAEL_128, $key, $password, MCRYPT_MODE_ECB);
-//     return base64_encode($result);
-// }
-
-
-// public function encryptPasswordNew($password, $salt)
-// {
-//     $method = 'AES-256-ECB';
-//     $ivSize = openssl_cipher_iv_length($method);
-//     $iv = openssl_random_pseudo_bytes($ivSize);
-//     $key = md5($salt);
-//     $result = openssl_encrypt($password, $method, $key, OPENSSL_RAW_DATA, $iv);
-//     return base64_encode($result);
-// }
-
-////////////////////
-
-
-$mapString = '';
-foreach ($paramMap as $key => $val) {
-	$mapString .=  $key.'='.$val.'&';
-}
-$mapString  = substr($mapString , 0, -1);
-$hashKey = 'GJ0WXA292VPTS7ZS';
-
-
-
-$ivlen = openssl_cipher_iv_length($cipher="AES-128-ECB");
-$iv = openssl_random_pseudo_bytes($ivlen);
-$crypttext = openssl_encrypt($mapString, $cipher, $hashKey,OPENSSL_RAW_DATA, $iv);
-$hashRequest = base64_encode( $crypttext );
-
+		$SortedArray=$HashKey;
+		for ($i = 0; $i < count($HashArray); $i++) { 
+		if($HashArray[$i] != 'undefined' AND $HashArray[$i]!= null AND $HashArray[$i]!="" )
+		{
+		
+		$SortedArray .="&".$HashArray[$i];
+		}	}
+		$Securehash = hash_hmac('sha256', $SortedArray, $HashKey); 	
 ?>
+<form method="post" action="<?php echo $PostURL; ?>"/>  
 
+    <input type="hidden" name="pp_Version" value="<?php echo $Version; ?>" />
+    <input type="hidden" name="pp_TxnType" value="<?php echo $TxnType; ?>" />
+    <input type="hidden" name="pp_Language" value="<?php echo $Language; ?>" />
+    <input type="hidden" name="pp_MerchantID" value="<?php echo $MerchantID; ?>" />
+    <input type="hidden" name="pp_SubMerchantID" value="<?php echo $SubMerchantID; ?>" />
+    <input type="hidden" name="pp_Password" value="<?php echo $Password; ?>" />
+    <input type="hidden" name="pp_TxnRefNo" value="<?php echo $TxnRefNumber; ?>"/>
+    <input type="hidden" name="pp_Amount" value="<?php echo $Amount; ?>" />
+    <input type="hidden" name="pp_TxnCurrency" value="<?php echo $TxnCurrency; ?>"/>
+    <input type="hidden" name="pp_TxnDateTime" value="<?php echo $TxnDateTime; ?>" />
+    <input type="hidden" name="pp_BillReference" value="<?php echo $BillReference ?>" />
+    <input type="hidden" name="pp_Description" value="<?php echo $Description; ?>" />
+	<input type="hidden" id="pp_DiscountedAmount" name="pp_DiscountedAmount" value="<?php echo $DiscountedAmount ?>">
+	<input type="hidden" id="pp_DiscountBank" name="pp_DiscountBank" value="<?php echo $DiscountedBank ?>">
+    <input type="hidden" name="pp_TxnExpiryDateTime" value="<?php echo  $TxnExpiryDateTime; ?>" />
+    <input type="hidden" name="pp_ReturnURL" value="<?php echo $ReturnURL; ?>" />
+    <input type="hidden" name="pp_SecureHash" value="<?php echo $Securehash; ?>" />
+    <input type="hidden" name="ppmpf_1" value="<?php echo $ppmpf_1; ?>" />
+    <input type="hidden" name="ppmpf_2" value="<?php echo $ppmpf_2; ?>" />
+    <input type="hidden" name="ppmpf_3" value="<?php echo $ppmpf_3; ?>" />
+    <input type="hidden" name="ppmpf_4" value="<?php echo $ppmpf_4; ?>" />
+    <input type="hidden" name="ppmpf_5" value="<?php echo $ppmpf_5; ?>" />
+    <input type="submit" name="Jazz Cash" value="Jazz Cash"/>
+</form>
 
-
-<form action=" https://easypaystg.easypaisa.com.pk/easypay/Index.jsf" method="POST" target="_blank">
-	<!-- <form action="{{route('easypaisaStore')}}" method="POST" target="_blank"> -->
-
-
-
-		<! -- Amount of Transaction from merchant’s website -->
-		<input name="amount" value="10" />
-		<! -- Store Id Provided by Easypay-->
-		<input name="storeId" value="7637" hidden = "true"/>
-		<! – Post back URL from merchant’s website -- >
-		<input name="postBackURL" value=" http://localhost:8000/easypaisa" hidden = "true"/>
-		<! – Order Reference Number from merchant’s website -- >
-		<input name="orderRefNum" value="1101" hidden = "true"/>
-		<! – Merchant Hash Value -- >
-
-		<input type ="hidden" name=”merchantHashedReq” value="{{$hashRequest}}">
-		<! –When merchant wants to redirect their customers to Easypay secure Checkout screen for Credit Card Transactions-- >
-		<input type ="hidden" name=”paymentMethod” value=”CC_PAYMENT_METHOD”>
-		<! – Expiry Date from merchant’s website (Optional) -- > 
-		<!-- always pass a future date value for this parameter -->
-		<!-- <input type ="hidden" name=”expiryDate” value=”20140606 201521”> ;  -->
-		<! – If Merchant wants to redirect to Merchant website after payment completion (Optional) -- >
-		<input type ="hidden" name=”autoRedirect” value=”0”>
-		<! – If the merchant wants to pass the customer’s entered email address it would be pre populated on Easypay checkout screen.
-		<input type ="hidden" name=”emailAddr” value=”test.abcd@abcd.com”>
-		<! – If the merchant wants to pass the customer’s entered mobile number it would be pre populated on Easypay checkout screen
-		<input type ="hidden" name=”mobileNum” value=03454013178>
-		<! – If merchant wants to post specific Bank Identifier (Optional) -- >
-		<input type ="hidden" name=”bankIdentifier” value=”UBL456”>
-		<! – This is the button of the form which submits the form -- >
-		<!-- <input type = “image” src=”checkout-button-with-logo.png border=”0” name= “pay”> -->
-		<button type="submit" class="btn btn-primary">submit</button>
-	</form>
-
-
-
-
-	<?php 
-
-	;

@@ -70,7 +70,8 @@ Route::get('/contact/us','Web\Pakistan\PublicController@contactus')->name('pakis
 Route::get('/news','Web\Pakistan\PublicController@news')->name('pakistan.news');
 Route::get('/event','Web\Pakistan\PublicController@event')->name('pakistan.event');
 Route::get('/student_picture','Web\Pakistan\PublicController@student_picture')->name('pakistan.student_picture');
-Route::get('fee-deposit','Web\FeeDepositController@index');
+Route::resource('feedeposit','Web\FeeDepositController');
+Route::POST('feeChallan','Web\FeeDepositController@feeChallan')->name('feeChallan');
 
 
 Route::get('job/internship','Web\Pakistan\PublicController@job_internship')->name('job_internship');
@@ -107,7 +108,7 @@ Route::prefix('pakistan')->group(function () {
 	Route::get('/contact/us','Web\Pakistan\PublicController@contactus')->name('pakistan.contactus');
 	Route::get('/news','Web\Pakistan\PublicController@news')->name('pakistan.news');
 	Route::get('job/internship','Web\Pakistan\PublicController@job_internship')->name('pakistan_job_internship');
-	Route::get('/fee-deposit','Web\FeeDepositController@index')->name('onlineFeeDeposit');
+	Route::get('/feedeposit','Web\FeeDepositController@index')->name('onlineFeeDeposit');
 
         // Route::get('/why_Us', 'Web\Pakistan\PublicController@why_Us')->name('pakistan.why_Us');
         // Route::get('/apply_frenchise','Web\Pakistan\PublicController@apply_frenchise')->name('pakistan.apply_frenchise');
