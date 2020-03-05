@@ -483,7 +483,7 @@ $(document).ready(function() {
             <hr class="cut_line">
 
             <li class="branch_name"><b>37. Gujranwala-2 </b></li>
-            93-D G Magnolia Gujranwala<br>
+            90-D G Magnolia Gujranwala<br>
             Contact @Mr. Umar<br>
             
             0333-821-1648<br>

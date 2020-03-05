@@ -1976,7 +1976,7 @@ data-center-center="transform:translatex(380%);">
                                  <tbody>
                                   <tr>
                                    <td class="text-left"> Sunday to Thursday </td>
-                                   <td class="text-right">07:00 AM to  - 4:00 PM </td> 
+                                   <td class="text-right">07:00 AM to  - 5:00 PM </td> 
                                  </tr>
                                  <tr>
                                    <td class="text-left">Weekends / Holidays</td>
