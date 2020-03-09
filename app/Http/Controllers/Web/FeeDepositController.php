@@ -38,8 +38,8 @@ class FeeDepositController extends Controller
 		}	
 		$GeneratedSecureHash= hash_hmac('sha256', $Response, $HashKey);		
 
-		echo "GeneratedSecureHash ".$GeneratedSecureHash.' '.'ReceivedSecureHash'.$ReceivedSecureHash;
-		dd($request->all());			
+		// echo "GeneratedSecureHash ".$GeneratedSecureHash.' '.'ReceivedSecureHash'.$ReceivedSecureHash;
+		// dd($request->all());			
 		if (strtolower($GeneratedSecureHash) == strtolower($ReceivedSecureHash)) 
 		{
 			if($ResponseCode == '000'||$ResponseCode == '121'||$ResponseCode == '200'){
