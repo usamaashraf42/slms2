@@ -15,7 +15,7 @@ class FeeDepositController extends Controller
 
 
 	public function feeDepositstatus(Request $request){
-		// dd($request->all());
+		
 		$HashKey= ""; //Your Hash Key
 		$ResponseCode =$_POST['pp_ResponseCode'];
 		$ResponseMessage = $_POST['pp_ResponseMessage'];
@@ -36,7 +36,10 @@ class FeeDepositController extends Controller
 				$Response.='&'.$val;				
 			}
 		}	
-		$GeneratedSecureHash= hash_hmac('sha256', $Response, $HashKey);					
+		$GeneratedSecureHash= hash_hmac('sha256', $Response, $HashKey);		
+
+		echo "GeneratedSecureHash ".$GeneratedSecureHash.' '.'ReceivedSecureHash'.$ReceivedSecureHash;
+		dd($request->all());			
 		if (strtolower($GeneratedSecureHash) == strtolower($ReceivedSecureHash)) 
 		{
 			if($ResponseCode == '000'||$ResponseCode == '121'||$ResponseCode == '200'){
