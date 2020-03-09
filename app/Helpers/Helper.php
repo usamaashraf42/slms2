@@ -236,184 +236,258 @@ if (!function_exists('SendSms')) {
     return $result;
   }
 }
-if (!function_exists('accountCreate')) {
-  function accountCreate($name,$project_id=null,$emp_id=null,$vendor_id=null,$customer_id=null,$cat_ids=null,$opening_balance=0,$c_balance=0,$shed_id=null,$type=null,$cat_id=null){
-    $cat=\App\Models\AccountCategory::where('cat_name',$cat_id)->first();
 
-    $data=array('name'=>$name,'project_id'=>$project_id,'emp_id'=>$emp_id,'vendor_id'=>$vendor_id,'customer_id'=>$customer_id,'cat_id'=>$cat_id,'opening_balance'=>$opening_balance,'c_balance'=>$c_balance+$opening_balance,'shed_id'=>$shed_id,'type'=>$type,'cat_id'=>isset($cat->id)?$cat->id:null);
-    $account=\App\Models\Account::create($data);
-    if($account)
-      return $account;
-    else
-      return false;
-  }
-}
-if (!function_exists('accountCreate')) {
-  function accountUpdate($acc_id,$balance,$type,$accFrom_id){
-    $Fromaccount=\App\Models\Account::find($accFrom_id);
-    if($Fromaccount){
-      $current=$Fromaccount->c_balance;
-      $data['c_balance']= $current - $balance;
-      \App\Models\Account::where('id',$accFrom_id)->update($data);
+if (!function_exists('jazzcash_deposit')) {
+  function jazzcash_deposit($request){
+
+     $MerchantID ="MC35662"; //Your Merchant from transaction Credentials
+    $Password   ="hv920evz9v"; //Your Password from transaction Credentials
+    $ReturnURL  ="http://lyceumgroupofschools.com/feedeposit-status"; //Your Return URL 
+    $HashKey    ="y14yb32g8s";//Your HashKey from transaction Credentials
+    $PostURL = "https://sandbox.jazzcash.com.pk/CustomerPortal/transactionmanagement/merchantform";
+    //"http://testpayments.jazzcash.com.pk/PayAxisCustomerPortal/transactionmanagement/merchantform"; 
+    date_default_timezone_set("Asia/karachi");
+    $Amount = $request->pp_Amount; //Last two digits will be considered as Decimal
+    $BillReference = $request->pp_BillReference;
+    $Description = "Thank you for using Jazz Cash";
+    $Language = "EN";
+    $TxnCurrency = "PKR";
+    $TxnDateTime = date('YmdHis') ;
+    $TxnExpiryDateTime = date('YmdHis', strtotime('+8 Days'));
+    $TxnRefNumber = $request->pp_TxnRefNo;
+    $TxnType = "";
+    $Version = '1.1';
+    $SubMerchantID = "";
+    $DiscountedAmount = "";
+    $DiscountedBank = "";
+    $ppmpf_1="";
+    $ppmpf_2="";
+    $ppmpf_3="";
+    $ppmpf_4="";
+    $ppmpf_5="";
+
+    $HashArray=[$Amount,$BillReference,$Description,$DiscountedAmount,$DiscountedBank,$Language,$MerchantID,$Password,$ReturnURL,$TxnCurrency,$TxnDateTime,$TxnExpiryDateTime,$TxnRefNumber,$TxnType,$Version,$ppmpf_1,$ppmpf_2,$ppmpf_3,$ppmpf_4,$ppmpf_5];
+
+    $SortedArray=$HashKey;
+    for ($i = 0; $i < count($HashArray); $i++) { 
+      if($HashArray[$i] != 'undefined' AND $HashArray[$i]!= null AND $HashArray[$i]!="" )
+      {
+
+        $SortedArray .="&".$HashArray[$i];
+      } }
+      $Securehash = hash_hmac('sha256', $SortedArray, $HashKey); 
+
+
+// 
+    // dd($request->all());
+      $data = "pp_Version=".$Version."&pp_TxnType=".$TxnType."&pp_Language=".$Language."&pp_MerchantID=".$MerchantID."&pp_SubMerchantID=".$SubMerchantID."&pp_Password=".$Password."&pp_TxnRefNo=".$request->pp_TxnRefNo."&pp_Amount=".$request->pp_Amount."&pp_TxnCurrency=".$TxnCurrency."&pp_TxnDateTime=".$TxnDateTime."&pp_BillReference=".$request->pp_BillReference."&pp_Description=".$Description."&pp_DiscountedAmount=".$DiscountedAmount."&pp_DiscountBank=".$DiscountedBank."&pp_TxnExpiryDateTime=".$TxnExpiryDateTime."&pp_ReturnURL=".$ReturnURL."&pp_SecureHash=".$Securehash."&ppmpf_1=".$request->ppmpf_1."&ppmpf_2=".$request->ppmpf_2."&ppmpf_3=".$request->ppmpf_3."&ppmpf_4=".$request->ppmpf_4."&ppmpf_5=".$request->ppmpf_5;
+// dd($data);
+
+      $ch = curl_init();
+
+      curl_setopt($ch, CURLOPT_URL,"https://sandbox.jazzcash.com.pk/CustomerPortal/transactionmanagement/merchantform");
+      curl_setopt($ch, CURLOPT_POST, 1);
+      curl_setopt($ch, CURLOPT_POSTFIELDS,
+        $data);
+
+// In real life you should use something like:
+// curl_setopt($ch, CURLOPT_POSTFIELDS, 
+//          http_build_query(array('postvar1' => 'value1')));
+
+// Receive server response ...
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+      $server_output = curl_exec($ch);
+
+      curl_close ($ch);
+
+// Further processing ...
+      if ($server_output == "OK") { 
+        return $server_output;
+      } else { 
+        return $server_output;
+      }
     }
-    $account=\App\Models\Account::find($acc_id);
-    if($account){
-      $current=$account->c_balance;
-      $record['c_balance']=$current + $balance;
-
-      \App\Models\Account::where('id',$acc_id)->update($record);
-    }
-    return true;
-
   }
-}
-if(!function_exists('account_update')){
-  function account_update($id,$amount){
-    $acc= \App\Models\Account::with('LedgerBalance')->find($id);
-    $balance=$acc->LedgerBalance->balance;
-    $amnt['c_balance']=$balance + $amount;
+
+  if (!function_exists('accountCreate')) {
+    function accountCreate($name,$project_id=null,$emp_id=null,$vendor_id=null,$customer_id=null,$cat_ids=null,$opening_balance=0,$c_balance=0,$shed_id=null,$type=null,$cat_id=null){
+      $cat=\App\Models\AccountCategory::where('cat_name',$cat_id)->first();
+
+      $data=array('name'=>$name,'project_id'=>$project_id,'emp_id'=>$emp_id,'vendor_id'=>$vendor_id,'customer_id'=>$customer_id,'cat_id'=>$cat_id,'opening_balance'=>$opening_balance,'c_balance'=>$c_balance+$opening_balance,'shed_id'=>$shed_id,'type'=>$type,'cat_id'=>isset($cat->id)?$cat->id:null);
+      $account=\App\Models\Account::create($data);
+      if($account)
+        return $account;
+      else
+        return false;
+    }
+  }
+  if (!function_exists('accountCreate')) {
+    function accountUpdate($acc_id,$balance,$type,$accFrom_id){
+      $Fromaccount=\App\Models\Account::find($accFrom_id);
+      if($Fromaccount){
+        $current=$Fromaccount->c_balance;
+        $data['c_balance']= $current - $balance;
+        \App\Models\Account::where('id',$accFrom_id)->update($data);
+      }
+      $account=\App\Models\Account::find($acc_id);
+      if($account){
+        $current=$account->c_balance;
+        $record['c_balance']=$current + $balance;
+
+        \App\Models\Account::where('id',$acc_id)->update($record);
+      }
+      return true;
+
+    }
+  }
+  if(!function_exists('account_update')){
+    function account_update($id,$amount){
+      $acc= \App\Models\Account::with('LedgerBalance')->find($id);
+      $balance=$acc->LedgerBalance->balance;
+      $amnt['c_balance']=$balance + $amount;
     // dd($id);
-    $master_acc=$acc->update($amnt);
-    return $master_acc;
-  }
-}
-if(!function_exists('account_minus')){
-  function account_minus($id,$amount){
-    $acc= \App\Models\Account::with('LedgerBalance')->find($id);
-    $balance=$acc->LedgerBalance->balance;
-    $amnt['c_balance']=$balance - $amount;
-    $master_acc=$acc->update($amnt);
-
-
-    return $master_acc;
-  }
-}
-
-
-if(!function_exists('roleImplode')){
-  function roleImplode($role){
-
-    $tempArray=array();
-    foreach($role as $roles){
-      array_push($tempArray, $roles->name);
+      $master_acc=$acc->update($amnt);
+      return $master_acc;
     }
-
-    return implode(', ', $tempArray);
-    
   }
-}
+  if(!function_exists('account_minus')){
+    function account_minus($id,$amount){
+      $acc= \App\Models\Account::with('LedgerBalance')->find($id);
+      $balance=$acc->LedgerBalance->balance;
+      $amnt['c_balance']=$balance - $amount;
+      $master_acc=$acc->update($amnt);
 
 
-function implodeUser($users){
-  $tempUser=[];
-  foreach ($users as  $value) {
-          # code...
-    $tempUser[]=$value->user->name.' '.$value->user->fname;
+      return $master_acc;
+    }
   }
 
-  return implode(',', $tempUser);
-}
 
+  if(!function_exists('roleImplode')){
+    function roleImplode($role){
 
-function send_default_email($recipient, $subject, $message, $file_path = '', $file_name = '')
-{
-      // return ($message);exit();
-  $mail_data['personalizations'] = array(
-    0 => array(
-      'to' => array(
-        0 => array(
-          'email' => $recipient
-        )
-      )
-    )
-  );
-  $mail_data['from'] = array(
-    'name' => "American Lyceum",
-    'email' => 'admin@americanlyceum.com'
-  );
-  $mail_data['subject'] = $subject;
-  $mail_data['content'] = array(
-    0 => array(
-      'type' => 'text/html',
-      'value' => $message)
-  );
-
-  if ($file_path != '') {
-    $file = file_get_contents($file_path);
-    $fileencoded = base64_encode($file);
-
-    $mail_data['attachments'] = array(
-      0 => array(
-        'content' => $fileencoded,
-        'filename' => $file_name
-      )
-    );
-  }
-  $curl = curl_init();
-  curl_setopt_array($curl, array(
-    CURLOPT_URL => "https://api.sendgrid.com/v3/mail/send",
-    CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_ENCODING => "",
-    CURLOPT_MAXREDIRS => 10,
-    CURLOPT_TIMEOUT => 30,
-    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-    CURLOPT_CUSTOMREQUEST => "POST",
-    CURLOPT_POSTFIELDS => json_encode($mail_data),
-    CURLOPT_HTTPHEADER => array(
-      "authorization: Bearer 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",
-      "cache-control: no-cache",
-      "content-type: application/json",
-      "postman-token: 4777b2d8-61b0-ed32-76ef-1c3be81dd4f7"
-    ),
-  ));
-
-  $response = curl_exec($curl);
-  $err = curl_error($curl);
-  curl_close($curl);
-  if ($err) {
-    return json_encode(array('status' => 0, 'message' => "cURL Error #:" . $err));
-  } else {
-    return json_encode(array('status' => 1, 'message' => $response));
-  }
-}
-
-
- function ImplodeBranchName($departBranch){
-      $temarry=array();
-      foreach ($departBranch as $branches) {
-        if(isset($branches->branch->branch_name)){
-          array_push($temarry,$branches->branch->branch_name);
-        }
+      $tempArray=array();
+      foreach($role as $roles){
+        array_push($tempArray, $roles->name);
       }
 
-      return implode(',', $temarry);
+      return implode(', ', $tempArray);
+
+    }
+  }
+
+
+  function implodeUser($users){
+    $tempUser=[];
+    foreach ($users as  $value) {
+          # code...
+      $tempUser[]=$value->user->name.' '.$value->user->fname;
     }
 
+    return implode(',', $tempUser);
+  }
 
 
-function marksGrade($grad){
-  if ($grad < 33){
-   return  'F';
- }
+  function send_default_email($recipient, $subject, $message, $file_path = '', $file_name = '')
+  {
+      // return ($message);exit();
+    $mail_data['personalizations'] = array(
+      0 => array(
+        'to' => array(
+          0 => array(
+            'email' => $recipient
+          )
+        )
+      )
+    );
+    $mail_data['from'] = array(
+      'name' => "American Lyceum",
+      'email' => 'admin@americanlyceum.com'
+    );
+    $mail_data['subject'] = $subject;
+    $mail_data['content'] = array(
+      0 => array(
+        'type' => 'text/html',
+        'value' => $message)
+    );
 
- else if ($grad >= 33 && $grad <=49.99){
+    if ($file_path != '') {
+      $file = file_get_contents($file_path);
+      $fileencoded = base64_encode($file);
 
-  return  'D';
-}
-else if ($grad  >= 50 && $grad <=54.99)
-{
-  return  'C -'; 
-}
+      $mail_data['attachments'] = array(
+        0 => array(
+          'content' => $fileencoded,
+          'filename' => $file_name
+        )
+      );
+    }
+    $curl = curl_init();
+    curl_setopt_array($curl, array(
+      CURLOPT_URL => "https://api.sendgrid.com/v3/mail/send",
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_ENCODING => "",
+      CURLOPT_MAXREDIRS => 10,
+      CURLOPT_TIMEOUT => 30,
+      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST => "POST",
+      CURLOPT_POSTFIELDS => json_encode($mail_data),
+      CURLOPT_HTTPHEADER => array(
+        "authorization: Bearer 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",
+        "cache-control: no-cache",
+        "content-type: application/json",
+        "postman-token: 4777b2d8-61b0-ed32-76ef-1c3be81dd4f7"
+      ),
+    ));
+
+    $response = curl_exec($curl);
+    $err = curl_error($curl);
+    curl_close($curl);
+    if ($err) {
+      return json_encode(array('status' => 0, 'message' => "cURL Error #:" . $err));
+    } else {
+      return json_encode(array('status' => 1, 'message' => $response));
+    }
+  }
+
+
+  function ImplodeBranchName($departBranch){
+    $temarry=array();
+    foreach ($departBranch as $branches) {
+      if(isset($branches->branch->branch_name)){
+        array_push($temarry,$branches->branch->branch_name);
+      }
+    }
+
+    return implode(',', $temarry);
+  }
+
+
+
+  function marksGrade($grad){
+    if ($grad < 33){
+     return  'F';
+   }
+
+   else if ($grad >= 33 && $grad <=49.99){
+
+    return  'D';
+  }
+  else if ($grad  >= 50 && $grad <=54.99)
+  {
+    return  'C -'; 
+  }
 // else if ($grad  >= 50 && $grad <=54.99)
 // {
 //  return  'C-';
 // }
-else if ($grad  >= 55 && $grad <=59.99)
-{
- return  'C';
-}
-else if ($grad >= 60 && $grad <=64.99 )
-{
+  else if ($grad  >= 55 && $grad <=59.99)
+  {
+   return  'C';
+ }
+ else if ($grad >= 60 && $grad <=64.99 )
+ {
   return  'C+';
 }
 else if ($grad  >= 65 && $grad <=69.99)
@@ -466,39 +540,39 @@ return 'fff';
 
 function colorCode($grad,$sub_id=null){
 
-if($sub_id==11){
-  return '004a80';
-}
-if($sub_id==14){
-  return 'c68348';
-}
-if($sub_id==40){
-  return '35ac46';
-}
-if($sub_id==41){
-  return 'cea857';
-}
-if($sub_id==31){
-  return 'dece1e';
-}
-if($sub_id==42){
-  return '8833df';
-}
-if($sub_id==6){
-  return '33c9df';
-}
-if($sub_id==9){
-  return 'cea876';
-}
-if($sub_id==7){
-  return '6bf8ab';
-}
-if($sub_id==38){
-  return '6bf8ab';
-}
-if($sub_id==39){
-  return '6bf8ab';
-}
+  if($sub_id==11){
+    return '004a80';
+  }
+  if($sub_id==14){
+    return 'c68348';
+  }
+  if($sub_id==40){
+    return '35ac46';
+  }
+  if($sub_id==41){
+    return 'cea857';
+  }
+  if($sub_id==31){
+    return 'dece1e';
+  }
+  if($sub_id==42){
+    return '8833df';
+  }
+  if($sub_id==6){
+    return '33c9df';
+  }
+  if($sub_id==9){
+    return 'cea876';
+  }
+  if($sub_id==7){
+    return '6bf8ab';
+  }
+  if($sub_id==38){
+    return '6bf8ab';
+  }
+  if($sub_id==39){
+    return '6bf8ab';
+  }
 
 
   if ($grad == 1){

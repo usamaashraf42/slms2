@@ -337,132 +337,154 @@ border-bottom-left-radius: 25px;
 
     $SortedArray=$HashKey;
     for ($i = 0; $i < count($HashArray); $i++) { 
-    if($HashArray[$i] != 'undefined' AND $HashArray[$i]!= null AND $HashArray[$i]!="" )
-    {
-    
-    $SortedArray .="&".$HashArray[$i];
-    } }
-    $Securehash = hash_hmac('sha256', $SortedArray, $HashKey);  
-?>
+      if($HashArray[$i] != 'undefined' AND $HashArray[$i]!= null AND $HashArray[$i]!="" )
+      {
 
-<div class="breadcrumb-container w-100 pa3 pv2-ns ph4-ns relative">
-  <div id="ctl00_cphBreadCrumb_BreadcrumbMenu1_pnlControls">
-  </div>
-</div>
-<div class="clear-fix"></div>
-<div class="container" style="background-image: url('');">
-  <section id="contact-page" class="pt-90 pb-120 white-bg">
-    <div style="    width: 100%;
-    height: 4px;
-    background-color: #d1d2d4;">
-    <h5 style="text-align: center;color: #fff;padding-top: 5px;"></h5>
-  </div>
-  <div class="col-md-12" style=" padding: 20px; margin: 0 auto; border: 1px solid #ccc; width: 100%;box-shadow: 0px 4px 4px #bbb;">
-    <div class="row">
-      <div class="">
-        @component('_components.alerts-default')
-        @endcomponent
-        <div id="signupbox"  class="mainbox col-md-12  col-sm-12 col-xs-12">
-          <div>
-            <form   action="https://sandbox.jazzcash.com.pk/CustomerPortal/transactionmanagement/merchantform" id="applicationForm"  method="POST" enctype="multipart/form-data">
-              @csrf
-              <div class="panel-body" style="border:1px solid #ccc; margin-bottom: 20px;">
-                <div class="row">
-                  <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                      <div id="div_id_username" class="form-group required">
-                        <label for="std_id" class="control-label requiredField">Roll No                         
-                          <span class="required" style="color: red">*</span> 
-                        </label>
-                        <div class="controls">
-                          <input class="input-md  textinput textInput form-control" id="std_id" value="@if(old('std_id')){{old('std_id')}}@endif"   min="0" name="std_id"
-                          placeholder="Please enter the Roll No" value="" style="margin-bottom: 10px;" type="number" />
-                          <p class="std_id-error" style="display: none; color:red;"></p>
-                          @if ($errors->has('std_id'))
-                          <div class="alert alert-danger" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                              <span aria-hidden="true">×</span>
-                              <span class="sr-only">Close</span>
-                            </button>
-                            <strong>Warning!</strong> {{$errors->first('std_id')}}
+        $SortedArray .="&".$HashArray[$i];
+      } }
+      $Securehash = hash_hmac('sha256', $SortedArray, $HashKey);  
+      ?>
+
+      <div class="breadcrumb-container w-100 pa3 pv2-ns ph4-ns relative">
+        <div id="ctl00_cphBreadCrumb_BreadcrumbMenu1_pnlControls">
+        </div>
+      </div>
+      <div class="clear-fix"></div>
+      <div class="container" style="background-image: url('');">
+        <section id="contact-page" class="pt-90 pb-120 white-bg">
+          <div style="    width: 100%;
+          height: 4px;
+          background-color: #d1d2d4;">
+          <h5 style="text-align: center;color: #fff;padding-top: 5px;"></h5>
+        </div>
+        <div class="col-md-12" style=" padding: 20px; margin: 0 auto; border: 1px solid #ccc; width: 100%;box-shadow: 0px 4px 4px #bbb;">
+          <div class="row">
+            <div class="">
+              @component('_components.alerts-default')
+              @endcomponent
+              <div id="signupbox"  class="mainbox col-md-12  col-sm-12 col-xs-12">
+                <div>
+                  <form   action="{{route('feedeposit.store')}}" id="applicationForm"  method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="panel-body" style="border:1px solid #ccc; margin-bottom: 20px;">
+                      <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                          <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div id="div_id_username" class="form-group required">
+                              <label for="std_id" class="control-label requiredField">Roll No                         
+                                <span class="required" style="color: red">*</span> 
+                              </label>
+                              <div class="controls">
+                                <input class="input-md  textinput textInput form-control" id="std_id" value="@if(old('std_id')){{old('std_id')}}@endif"   min="0" name="std_id"
+                                placeholder="Please enter the Roll No" value="" style="margin-bottom: 10px;" type="number" />
+                                <p class="std_id-error" style="display: none; color:red;"></p>
+                                @if ($errors->has('std_id'))
+                                <div class="alert alert-danger" role="alert">
+                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                    <span class="sr-only">Close</span>
+                                  </button>
+                                  <strong>Warning!</strong> {{$errors->first('std_id')}}
+                                </div>
+                                @endif
+                              </div>
+                            </div>
                           </div>
-                          @endif
+                          <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div id="div_id_username" class="form-group required">
+                              <label for="fee_id" class="control-label requiredField">Voucher Id                        
+                                <span class="required" style="color: red">*</span> 
+                              </label>
+                              <div class="controls">
+                                <input class="input-md  textinput textInput form-control" id="fee_id" value="@if(old('fee_id')){{old('fee_id')}}@endif"  min="0" name="fee_id"
+                                placeholder="Please enter the Voucher No" value="" style="margin-bottom: 10px;" type="number" />
+                                <p class="fee_id_error" style="display: none; color:red;"></p>
+                                @if ($errors->has('fee_id'))
+                                <div class="alert alert-danger" role="alert">
+                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                    <span class="sr-only">Close</span>
+                                  </button>
+                                  <strong>Warning!</strong> {{$errors->first('fee_id')}}
+                                </div>
+                                @endif
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div style="width: 100%; border-left: 2px solid #ddd;">
+                            </div>
+                            <ul>
+                              <li class="list_radio">
+                                <input type="radio" value="1" id="f-option" name="method">
+                                <label for="f-option"> 
+                                  <img src="{{asset('assets/img/paypal.png')}}" width="100%" style="max-width: 260px;height: 68px; margin-top: -23px;"></label>
+
+                                  <div class="check"></div>
+                                </li>
+
+                                <li class="list_radio">
+                                  <input type="radio" checked value="2" id="s-option" name="method">
+                                  <label for="s-option"> <img src="{{asset('assets/img/jazzcash.jpg')}}" width="100%" style="max-width: 260px;height:80px; margin-top: -23px;">
+                                  </label>
+                                  <div class="check"><div class="inside"></div></div>
+                                </li>
+
+
+                              </ul>
+                            </div>
+
+                            <input type="hidden" name="pp_Version" value="<?php echo $Version; ?>" />
+                            <input type="hidden" name="pp_TxnType" value="<?php echo $TxnType; ?>" />
+                            <input type="hidden" name="pp_Language" value="<?php echo $Language; ?>" />
+                            <input type="hidden" name="pp_MerchantID" value="<?php echo $MerchantID; ?>" />
+                            <input type="hidden" name="pp_SubMerchantID" value="<?php echo $SubMerchantID; ?>" />
+                            <input type="hidden" name="pp_Password" value="<?php echo $Password; ?>" />
+                            <input type="hidden" name="pp_TxnRefNo" class="TxnRefNumber" value="<?php echo $TxnRefNumber; ?>"/>
+                            <input type="hidden" name="pp_Amount" class="pp_Amount" value="<?php echo $Amount; ?>" />
+                            <input type="hidden" name="pp_TxnCurrency" value="<?php echo $TxnCurrency; ?>"/>
+                            <input type="hidden" name="pp_TxnDateTime" value="<?php echo $TxnDateTime; ?>" />
+                            <input type="hidden" name="pp_BillReference" class="pp_BillReference" value="<?php echo $BillReference ?>" />
+                            <input type="hidden" name="pp_Description" value="<?php echo $Description; ?>" />
+                            <input type="hidden" id="pp_DiscountedAmount" name="pp_DiscountedAmount" value="<?php echo $DiscountedAmount ?>">
+                            <input type="hidden" id="pp_DiscountBank" name="pp_DiscountBank" value="<?php echo $DiscountedBank ?>">
+                            <input type="hidden" name="pp_TxnExpiryDateTime" value="<?php echo  $TxnExpiryDateTime; ?>" />
+                            <input type="hidden" name="pp_ReturnURL" value="<?php echo $ReturnURL; ?>" />
+                            <input type="hidden" name="pp_SecureHash" value="<?php echo $Securehash; ?>" />
+                            <input type="hidden" name="ppmpf_1" class="ppmpf_1" value="<?php echo $ppmpf_1; ?>" />
+                            <input type="hidden" name="ppmpf_2" class="ppmpf_2" value="<?php echo $ppmpf_2; ?>" />
+                            <input type="hidden" name="ppmpf_3" value="<?php echo $ppmpf_3; ?>" />
+                            <input type="hidden" name="ppmpf_4" value="<?php echo $ppmpf_4; ?>" />
+                            <input type="hidden" name="ppmpf_5" value="<?php echo $ppmpf_5; ?>" />
+
+
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                      <div id="div_id_username" class="form-group required">
-                        <label for="fee_id" class="control-label requiredField">Voucher Id                        
-                          <span class="required" style="color: red">*</span> 
-                        </label>
-                        <div class="controls">
-                          <input class="input-md  textinput textInput form-control" id="fee_id" value="@if(old('fee_id')){{old('fee_id')}}@endif"  min="0" name="fee_id"
-                          placeholder="Please enter the Voucher No" value="" style="margin-bottom: 10px;" type="number" />
-                          <p class="fee_id_error" style="display: none; color:red;"></p>
-                          @if ($errors->has('fee_id'))
-                          <div class="alert alert-danger" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                              <span aria-hidden="true">×</span>
-                              <span class="sr-only">Close</span>
-                            </button>
-                            <strong>Warning!</strong> {{$errors->first('fee_id')}}
-                          </div>
-                          @endif
-                        </div>
+                      <!-- //////////////////???????????????????? start ????????????????????????????????? -->
+                      <div class="row" id="feeChallan">
+
                       </div>
+
+
+                      <!-- /////////////////////////////  end display none????????????????????????????????? -->
                     </div>
-
-                   <input type="hidden" name="pp_Version" value="<?php echo $Version; ?>" />
-                    <input type="hidden" name="pp_TxnType" value="<?php echo $TxnType; ?>" />
-                    <input type="hidden" name="pp_Language" value="<?php echo $Language; ?>" />
-                    <input type="hidden" name="pp_MerchantID" value="<?php echo $MerchantID; ?>" />
-                    <input type="hidden" name="pp_SubMerchantID" value="<?php echo $SubMerchantID; ?>" />
-                    <input type="hidden" name="pp_Password" value="<?php echo $Password; ?>" />
-                    <input type="hidden" name="pp_TxnRefNo" value="<?php echo $TxnRefNumber; ?>"/>
-                    <input type="hidden" name="pp_Amount" value="<?php echo $Amount; ?>" />
-                    <input type="hidden" name="pp_TxnCurrency" value="<?php echo $TxnCurrency; ?>"/>
-                    <input type="hidden" name="pp_TxnDateTime" value="<?php echo $TxnDateTime; ?>" />
-                    <input type="hidden" name="pp_BillReference" value="<?php echo $BillReference ?>" />
-                    <input type="hidden" name="pp_Description" value="<?php echo $Description; ?>" />
-                  <input type="hidden" id="pp_DiscountedAmount" name="pp_DiscountedAmount" value="<?php echo $DiscountedAmount ?>">
-                  <input type="hidden" id="pp_DiscountBank" name="pp_DiscountBank" value="<?php echo $DiscountedBank ?>">
-                    <input type="hidden" name="pp_TxnExpiryDateTime" value="<?php echo  $TxnExpiryDateTime; ?>" />
-                    <input type="hidden" name="pp_ReturnURL" value="<?php echo $ReturnURL; ?>" />
-                    <input type="hidden" name="pp_SecureHash" value="<?php echo $Securehash; ?>" />
-                    <input type="hidden" name="ppmpf_1" value="<?php echo $ppmpf_1; ?>" />
-                    <input type="hidden" name="ppmpf_2" value="<?php echo $ppmpf_2; ?>" />
-                    <input type="hidden" name="ppmpf_3" value="<?php echo $ppmpf_3; ?>" />
-                    <input type="hidden" name="ppmpf_4" value="<?php echo $ppmpf_4; ?>" />
-                    <input type="hidden" name="ppmpf_5" value="<?php echo $ppmpf_5; ?>" />
-
-
                   </div>
                 </div>
               </div>
-              <!-- //////////////////???????????????????? start ????????????????????????????????? -->
-              <div class="row" id="feeChallan">
-                
-              </div>
-            
+              <div class="col-md-12">
+                <div class="modal-footer">
 
-        <!-- /////////////////////////////  end display none????????????????????????????????? -->
-      </div>
+               <!--    <input type="button" class="btn btn-info btn-lg validateButton "   onclick="jobFormSubmit(this)"  id="updateDataBtn" value="Submit"> -->
+                  <input type="submit" class="btn btn-success btn-lg submitButton"   style="display: block;"  id="updateDataBtn" value="submit">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
     </div>
   </div>
-</div>
-<div class="col-md-12">
-  <div class="modal-footer">
-
-    <input type="button" class="btn btn-info btn-lg validateButton "   onclick="jobFormSubmit(this)"  id="updateDataBtn" value="Click">
-    <input type="submit" class="btn btn-success btn-lg submitButton"   style="display: none;"  id="updateDataBtn" value="submit">
-  </div>
-</div>
-</form>
-</div>
-</div>
-</section>
-</div>
-</div>
 </div>
 </div>
 
@@ -722,150 +744,153 @@ function jobFormSubmit(ob){
  }
 
  if(valid){
-$('.validateButton').css('display','none');
-$('.submitButton').css('display','block');
+  $('.validateButton').css('display','none');
+  $('.submitButton').css('display','block');
 
 
   
-      $.ajax({
-        method:"POST",
-        url: "{{route('feeChallan')}}",
-        data : {'fee_id': fee_id,'std_id':std_id},
-        dataType:"json",
-        success: function (response) {
-          console.log('feeChallan', response);
+  $.ajax({
+    method:"POST",
+    url: "{{route('feeChallan')}}",
+    data : {'fee_id': fee_id,'std_id':std_id},
+    dataType:"json",
+    success: function (response) {
+      console.log('feeChallan', response);
 
-          if (response.status) {
-            $('.pp_Amount').val(response.data.total_payable);
-            $('.pp_BillReference').val(fee_id);
-            
-            var content=`<div class="col-md-9">
-                  <div style="margin: 0 0 2em 0;
-                  padding: 1em 1em 1.5em 1em;
-                  background: #fff;
-                  ">
+      if (response.status) {
+        $('.pp_Amount').val(response.data.total_payable);
+        $('.pp_BillReference').val(fee_id);
+        $('.TxnRefNumber').val(fee_id);
+        $('.ppmpf_1').val(fee_id);
+        $('.ppmpf_2').val(std_id);
 
-                  <div class="col-md-4">
-                    <div class="receipt-header" style="border: 1px solid #ccc;
-                    padding: 12px;text-align: center; ">
+        var content=`<div class="col-md-9">
+        <div style="margin: 0 0 2em 0;
+        padding: 1em 1em 1.5em 1em;
+        background: #fff;
+        ">
 
-                    <div class="receipt-left">
-                      <img class="img-responsive" alt="iamgurdeeposahan" src="${response.data.images?'images/student/pics/'+response.data.images:'assets/img/user.jpg'}" width="100%"  style="max-width: 180px;margin: 0 auto;">
-                      <br>
-                    </div>
-                    <div class="clearfix"></div>
-                    <div class="receipt-right" style="text-align: center;">
-                     <div class="box_filed"> <STRONG>${response.data.name}</STRONG>  </div>
+        <div class="col-md-4">
+        <div class="receipt-header" style="border: 1px solid #ccc;
+        padding: 12px;text-align: center; ">
 
-                     <div class="box_filed"><STRONG>${response.data.branch}</STRONG></div>
-                     <div class="box_filed"><STRONG>${response.data.course} </STRONG></div>
+        <div class="receipt-left">
+        <img class="img-responsive" alt="iamgurdeeposahan" src="${response.data.images?'images/student/pics/'+response.data.images:'assets/img/user.jpg'}" width="100%"  style="max-width: 180px;margin: 0 auto;">
+        <br>
+        </div>
+        <div class="clearfix"></div>
+        <div class="receipt-right" style="text-align: center;">
+        <div class="box_filed"> <STRONG>${response.data.name}</STRONG>  </div>
 
-                   </div>
+        <div class="box_filed"><STRONG>${response.data.branch}</STRONG></div>
+        <div class="box_filed"><STRONG>${response.data.course} </STRONG></div>
 
-
-                 </div>
-               </div>
-               <div class="col-md-8">
-                <div class="box_filed" style="float: left;"> <STRONG>Lyc No. ${response.data.std_id}</STRONG></div>
-                <div style="float: right;"><b>Date :</b> ${response.data.due_date}</div>
-                <br>
-                <table class="table table-bordered" style="width: 100%;">
-                  <thead>
-                    <tr style="background-color: #ddd;">
-                      <th>Fee-Id</th>
-                      <th>Month</th>
-                      <th>Year</th>
-                      <th>Due Date</th>
-                      <th>Amount</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>${response.data.fee_id}</td>
-                      <td>${response.data.fee_month}</td>
-                      <td>${response.data.fee_year}</td>
-                      <td>${response.data.due_date}</td>
-                      <td>${response.data.total_fee}/-</td>
-                    </tr>
-                  </tbody>
-                </table>
-                <div style="width: 50%; float: left; text-align: justify;">
-                  <p>
-                    <strong>Total Amount: </strong>
-                  </p>
-                  <p>
-                    <strong>Late Fees: </strong>
-                  </p>
-                  <p>
-                    <strong>Payable Amount: </strong>
-                  </p>
+        </div>
 
 
-
-                  <h2><strong>Total: </strong></h2>
-                </div>
-                <div style="width: 50%;float: right; text-align: right;padding-right: 15px; ">
-                 <p>
-
-                  <strong><i class="fa fa-inr"></i> ${response.data.total_fee}/-</strong>
-                </p>
-                <p>
-                  <strong><i class="fa fa-inr"></i> ${response.data.fine}/-</strong>
-                </p>
-                <p>
-                  <strong><i class="fa fa-inr"></i> ${response.data.total_payable}/-</strong>
-
-
-                  <h2><strong><i class="fa fa-inr"></i> ${response.data.total_payable}/-</strong></h2>
-
-                </div>
-              </div>
-
-
-            </div>    
-          </div>
-          <div class="col-md-3">
-            <div style="width: 100%; border-left: 2px solid #ddd;">
-            </div>
-            <ul>
-              <li class="list_radio">
-                <input type="radio" value="1" id="f-option" name="method">
-                <label for="f-option"> 
-                <img src="{{asset('assets/img/paypal.png')}}" width="100%" style="max-width: 260px;height: 68px; margin-top: -23px;"></label>
-
-                <div class="check"></div>
-              </li>
-
-              <li class="list_radio">
-                <input type="radio" checked value="2" id="s-option" name="method">
-                <label for="s-option"> <img src="{{asset('assets/img/jazzcash.jpg')}}" width="100%" style="max-width: 260px;height:80px; margin-top: -23px;">
-                </label>
-                <div class="check"><div class="inside"></div></div>
-              </li>
+        </div>
+        </div>
+        <div class="col-md-8">
+        <div class="box_filed" style="float: left;"> <STRONG>Lyc No. ${response.data.std_id}</STRONG></div>
+        <div style="float: right;"><b>Date :</b> ${response.data.due_date}</div>
+        <br>
+        <table class="table table-bordered" style="width: 100%;">
+        <thead>
+        <tr style="background-color: #ddd;">
+        <th>Fee-Id</th>
+        <th>Month</th>
+        <th>Year</th>
+        <th>Due Date</th>
+        <th>Amount</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>${response.data.fee_id}</td>
+        <td>${response.data.fee_month}</td>
+        <td>${response.data.fee_year}</td>
+        <td>${response.data.due_date}</td>
+        <td>${response.data.total_fee}/-</td>
+        </tr>
+        </tbody>
+        </table>
+        <div style="width: 50%; float: left; text-align: justify;">
+        <p>
+        <strong>Total Amount: </strong>
+        </p>
+        <p>
+        <strong>Late Fees: </strong>
+        </p>
+        <p>
+        <strong>Payable Amount: </strong>
+        </p>
 
 
-            </ul>
-          </div>`;
 
-          $('#feeChallan').append(content);
+        <h2><strong>Total: </strong></h2>
+        </div>
+        <div style="width: 50%;float: right; text-align: right;padding-right: 15px; ">
+        <p>
 
-          } else {
-           swal(
-            'Oops...',
-            'Something went wrong!',
-            'error'
-            )
-         }
-       },
-       error: function () {
-        swal(
-          'Oops...',
-          'Something went wrong!',
-          'error'
-          )
-      }
-    });
+        <strong><i class="fa fa-inr"></i> ${response.data.total_fee}/-</strong>
+        </p>
+        <p>
+        <strong><i class="fa fa-inr"></i> ${response.data.fine}/-</strong>
+        </p>
+        <p>
+        <strong><i class="fa fa-inr"></i> ${response.data.total_payable}/-</strong>
+
+
+        <h2><strong><i class="fa fa-inr"></i> ${response.data.total_payable}/-</strong></h2>
+
+        </div>
+        </div>
+
+
+        </div>    
+        </div>
+        <div class="col-md-3">
+        <div style="width: 100%; border-left: 2px solid #ddd;">
+        </div>
+        <ul>
+        <li class="list_radio">
+        <input type="radio" value="1" id="f-option" name="method">
+        <label for="f-option"> 
+        <img src="{{asset('assets/img/paypal.png')}}" width="100%" style="max-width: 260px;height: 68px; margin-top: -23px;"></label>
+
+        <div class="check"></div>
+        </li>
+
+        <li class="list_radio">
+        <input type="radio" checked value="2" id="s-option" name="method">
+        <label for="s-option"> <img src="{{asset('assets/img/jazzcash.jpg')}}" width="100%" style="max-width: 260px;height:80px; margin-top: -23px;">
+        </label>
+        <div class="check"><div class="inside"></div></div>
+        </li>
+
+
+        </ul>
+        </div>`;
+
+        $('#feeChallan').append(content);
+
+      } else {
+       swal(
+        'Oops...',
+        'Something went wrong!',
+        'error'
+        )
+     }
+   },
+   error: function () {
+    swal(
+      'Oops...',
+      'Something went wrong!',
+      'error'
+      )
   }
+});
+}
 }
 </script>
 
