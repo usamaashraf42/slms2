@@ -14,7 +14,8 @@ class FeeDepositController extends Controller
 	}
 
 
-	public function feeDepositstatus(){
+	public function feeDepositstatus(Request $request){
+		dd($request->all());
 		$HashKey= ""; //Your Hash Key
 		$ResponseCode =$_POST['pp_ResponseCode'];
 		$ResponseMessage = $_POST['pp_ResponseMessage'];
@@ -63,7 +64,7 @@ class FeeDepositController extends Controller
 			echo "mismatched marked it suspicious or reject it";				
 		}	
 	}
-	
+
 
 	public function feeChallan(Request $request){
 
