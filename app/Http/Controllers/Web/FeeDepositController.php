@@ -14,7 +14,7 @@ class FeeDepositController extends Controller
 	}
 
 
-	public function feeDepositstatus(Request $request){
+	public function feeDepositstatus(){
 		$MerchantID ="MC35662"; //Your Merchant from transaction Credentials
     $Password   ="hv920evz9v"; //Your Password from transaction Credentials
     $ReturnURL  ="http://lyceumgroupofschools.com/feedeposit-status"; //Your Return URL 
@@ -160,8 +160,8 @@ class FeeDepositController extends Controller
 		}
 
 
-		public function store(Request $request){
-			dd($request->all());
+		public function store(){
+			// dd($request->all());
 		 $HashKey= ""; //Your Hash Key
 		 $ResponseCode =$_POST['pp_ResponseCode'];
 		 $ResponseMessage = $_POST['pp_ResponseMessage'];
