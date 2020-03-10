@@ -27,13 +27,13 @@ class SmsSendController extends Controller
 
 
     public function store(SmsSendRequest $request){
-
-        if(($request->branch_id) != -1){
+// dd($request->all());
+        if($request->branch_id && count($request->branch_id)  ){
         	$students=Student::where('is_active',1)->where('status',1);
-        	if(($request->branch_id)){
-        		$students->where('branch_id',$request->branch_id);
+        	if(count($request->branch_id)){
+        		$students->whereIn('branch_id',$request->branch_id);
         	}
-        	if($request->class_id){
+        	if($request->class_id != -1){
         		$students->where('course_id',$request->class_id);
         	}
         	if(($request->student_ids) && count($request->student_ids)>1){
@@ -42,6 +42,7 @@ class SmsSendController extends Controller
 
 
         	$stds=$students->get();
+            dd($stds);
             
         	foreach ($stds as $std) {
     			$log=null;
@@ -64,7 +65,7 @@ class SmsSendController extends Controller
     	    	]);
         	}
         }
-
+dd($request->all());
     	if($request->phone){
     		if(isset($request->phone) && ($request->phone) && $request->sms_body){
 				$sms=strip_tags($request->sms_body);

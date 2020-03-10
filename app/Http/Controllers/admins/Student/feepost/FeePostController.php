@@ -94,11 +94,12 @@ class FeePostController extends Controller
 
 
         for($i=0; $i<count($stduents);$i++){
+            $checkFee=null;
             $checkFee=FeePost::where('std_id',$stduents[$i]->id)->where('fee_month',$request->month)->where('fee_year',$request->year)->first();
 
             $fineCheck=FeePost::where('std_id',$stduents[$i]->id)->orderBy('id','DESC')->first();
-            if(!($checkFee)){
-                 $feeid=(isset($feeLast->feeId)?$feeLast->feeId:0)+$i+1;
+            if(!($checkFee) && empty($checkFee)){
+                $feeid=(isset($feeLast->feeId)?$feeLast->feeId:0)+$i+1;
                 $grade=Course::where('id',$stduents[$i]->course_id)->first();
                 $msterAccount=Account::where('std_id',$stduents[$i]->id)->orderBy('id','DESC')->first();
                 if(!$msterAccount){

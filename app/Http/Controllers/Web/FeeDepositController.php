@@ -37,7 +37,6 @@ class FeeDepositController extends Controller
 			}
 		}	
 		$GeneratedSecureHash= hash_hmac('sha256', $Response, $HashKey);		
-
 		// echo "GeneratedSecureHash ".$GeneratedSecureHash.' '.'ReceivedSecureHash'.$ReceivedSecureHash;
 		// dd($request->all());			
 		if (strtolower($GeneratedSecureHash) == strtolower($ReceivedSecureHash)) 
@@ -46,14 +45,12 @@ class FeeDepositController extends Controller
 
 				session()->flash('success_message', __("Payment Successfull."));
 				return redirect()->route('feedeposit.index');
-				// echo "Payment Successfull".$ResponseCode;
-				// echo "Transaction Message=".$ResponseMessage;
-							 // do your handling for success
+				
 			} 
 			else  if($ResponseCode == '124'||$ResponseCode == '210') {
 				session()->flash('error_message', __("Payment Pending."));
 				return redirect()->route('feedeposit.index');
-							// do your handling for faliure
+			
 			}
 			else {
 				session()->flash('error_message', __("Payment Failed. "));
@@ -68,7 +65,7 @@ class FeeDepositController extends Controller
 			$reqMerchantID = htmlspecialchars($_POST['pp_MerchantID']);	
 		}
 		else {
-			// echo "mismatched marked it suspicious or reject it";	
+			
 			session()->flash('error_message', __("mismatched marked it suspicious or reject it"));
 			return redirect()->route('feedeposit.index');			
 		}	
