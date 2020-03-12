@@ -283,7 +283,7 @@ border-bottom-left-radius: 25px;
     $PostURL = "https://sandbox.jazzcash.com.pk/CustomerPortal/transactionmanagement/merchantform";
     //"http://testpayments.jazzcash.com.pk/PayAxisCustomerPortal/transactionmanagement/merchantform"; 
     date_default_timezone_set("Asia/karachi");
-    $Amount = $object->total_payable; //Last two digits will be considered as Decimal
+    $Amount = $object->desire_amount; //Last two digits will be considered as Decimal
     $BillReference = $request->fee_id;
     $Description = "Thank you for using Jazz Cash";
     $Language = "EN";
@@ -448,7 +448,7 @@ border-bottom-left-radius: 25px;
     											<strong><i class="fa fa-inr"></i> {{$object->total_payable}}/-</strong>
 
 
-    											<h2><strong><i class="fa fa-inr"></i> {{$object->total_payable}}/-</strong></h2>
+    											<h2><strong><i class="fa fa-inr"></i> {{$object->desire_amount}}/-</strong></h2>
 
     										</div>
     									</div>

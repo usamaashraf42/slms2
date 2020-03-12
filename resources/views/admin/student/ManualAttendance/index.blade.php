@@ -191,15 +191,19 @@
 <script>
 	$('.branch_id').select2();
 	var today = new Date();
+	$('.branch_id').select2();
+	var today = new Date();
 	$('#attendance_date').calendar({
-		monthFirst: false,
 		type: 'date',
-		minDate: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
-	});
+		monthFirst: false,
+		// minDate: new Date(today.getFullYear(), today.getMonth(), today.getDate() - 5),
+  // 		maxDate: new Date(today.getFullYear(), today.getMonth(), today.getDate() )
+});
 	$('#example1').calendar({
 		monthFirst: false,
 		type: 'date',
-		minDate: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
+		maxDate: new Date(today.getFullYear(), today.getMonth(), today.getDate() )
+		// minDate: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
 	});
 
 	function getClass(obj){

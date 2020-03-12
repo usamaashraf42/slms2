@@ -73,6 +73,7 @@ Route::get('/student_picture','Web\Pakistan\PublicController@student_picture')->
 Route::resource('feedeposit','Web\FeeDepositController');
 
 Route::POST('feedeposit-status','Web\FeeDepositController@feeDepositstatus')->name('feeDepositstatus');
+Route::POST('searchChallan','Web\FeeDepositController@searchChallan')->name('searchChallan');
 
 Route::POST('feedeposit-paypal','Web\PaypalFeeDepositController@feeDepositpaypal')->name('feeDepositpaypal');
 

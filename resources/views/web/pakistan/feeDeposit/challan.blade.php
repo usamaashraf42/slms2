@@ -368,29 +368,28 @@ border-bottom-left-radius: 25px;
                     @csrf
                     <div class="panel-body" style="border:1px solid #ccc; margin-bottom: 20px;">
                       <div class="row">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                          <div class="col-md-6 col-sm-6 col-xs-12">
-                            <div id="div_id_username" class="form-group required">
-                              <label for="std_id" class="control-label requiredField">Roll No                         
-                                <span class="required" style="color: red">*</span> 
-                              </label>
-                              <div class="controls">
-                                <input class="input-md  textinput textInput form-control" id="std_id" value="@if(old('std_id')){{old('std_id')}}@endif"   min="0" name="std_id"
-                                placeholder="Please enter the Roll No" value="" style="margin-bottom: 10px;" type="number" />
-                                <p class="std_id-error" style="display: none; color:red;"></p>
-                                @if ($errors->has('std_id'))
-                                <div class="alert alert-danger" role="alert">
-                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                    <span class="sr-only">Close</span>
-                                  </button>
-                                  <strong>Warning!</strong> {{$errors->first('std_id')}}
-                                </div>
-                                @endif
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <div id="div_id_username" class="form-group required">
+                            <label for="std_id" class="control-label requiredField">Roll No                         
+                              <span class="required" style="color: red">*</span> 
+                            </label>
+                            <div class="controls">
+                              <input class="input-md  textinput textInput form-control" id="std_id" value="@if(old('std_id')){{old('std_id')}}@endif"   min="0" name="std_id"
+                              placeholder="Please enter the Roll No" value="" style="margin-bottom: 10px;" type="number" />
+                              <p class="std_id-error" style="display: none; color:red;"></p>
+                              @if ($errors->has('std_id'))
+                              <div class="alert alert-danger" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                  <span aria-hidden="true">×</span>
+                                  <span class="sr-only">Close</span>
+                                </button>
+                                <strong>Warning!</strong> {{$errors->first('std_id')}}
                               </div>
+                              @endif
                             </div>
                           </div>
-                          <div class="col-md-6 col-sm-6 col-xs-12">
+                        </div>
+                          <!-- <div class="col-md-6 col-sm-6 col-xs-12">
                             <div id="div_id_username" class="form-group required">
                               <label for="fee_id" class="control-label requiredField">Voucher Id                        
                                 <span class="required" style="color: red">*</span> 
@@ -410,7 +409,9 @@ border-bottom-left-radius: 25px;
                                 @endif
                               </div>
                             </div>
-                          </div>
+                          </div> -->
+                        </div>
+                        <div class="row" style="display: none;">
                           <div class="col-md-6 col-sm-6 col-xs-12">
                             <div style="width: 100%; border-left: 2px solid #ddd;">
                             </div>
@@ -475,8 +476,8 @@ border-bottom-left-radius: 25px;
               <div class="col-md-12">
                 <div class="modal-footer">
 
-               <!--    <input type="button" class="btn btn-info btn-lg validateButton "   onclick="jobFormSubmit(this)"  id="updateDataBtn" value="Submit"> -->
-                  <input type="submit" class="btn btn-success btn-lg submitButton"   style="display: block;"  id="updateDataBtn" value="submit">
+                  <input type="button" class="btn btn-info btn-lg validateButton "   onclick="jobFormSubmit(this)"  id="updateDataBtn" value="Search">
+                  <input type="submit" class="btn btn-success btn-lg submitButton"   style="display: none;"  id="updateDataBtn" value="submit">
                 </div>
               </div>
             </form>
@@ -734,14 +735,14 @@ function jobFormSubmit(ob){
   }
 
 
-  if ($('#fee_id').val() == '') {
-   console.log('fee_id',$('#fee_id').val());
-   $('.fee_id_error').text('Fee Id field is required');
-   $('.fee_id_error').css('display','block','color','red','border-color','red');
+ //  if ($('#fee_id').val() == '') {
+ //   console.log('fee_id',$('#fee_id').val());
+ //   $('.fee_id_error').text('Fee Id field is required');
+ //   $('.fee_id_error').css('display','block','color','red','border-color','red');
 
 
-   valid = false;
- }
+ //   valid = false;
+ // }
 
  if(valid){
   $('.validateButton').css('display','none');
@@ -827,7 +828,7 @@ function jobFormSubmit(ob){
 
 
 
-        <h2><strong>Total: </strong></h2>
+        <h2><strong>Enter Amount: </strong></h2>
         </div>
         <div style="width: 50%;float: right; text-align: right;padding-right: 15px; ">
         <p>
@@ -841,7 +842,7 @@ function jobFormSubmit(ob){
         <strong><i class="fa fa-inr"></i> ${response.data.total_payable}/-</strong>
 
 
-        <h2><strong><i class="fa fa-inr"></i> ${response.data.total_payable}/-</strong></h2>
+        <h2><input type="number"  onchange="AmountConstraint(this)" data-amount="${response.data.total_payable}" class="input-md  textinput textInput form-control" value="${response.data.total_payable}" min="${response.data.total_payable}" name='pp_Amount'></h2>
 
         </div>
         </div>
@@ -891,6 +892,24 @@ function jobFormSubmit(ob){
   }
 });
 }
+}
+
+function AmountConstraint(obj){
+  console.log($(obj).attr('data-amount'),'amount');
+
+  var finalAmount=parseInt($(obj).attr('data-amount'));
+  var partialAmount=parseInt($(obj).val());
+
+
+  if ($(obj).val() < finalAmount){
+    console.log('amount',finalAmount);
+    var content=`Amount not allowed Less then ${finalAmount}`;
+    // alert(content);
+    $(obj).val(finalAmount);
+  }
+
+  $('.pp_Amount').val(partialAmount);
+
 }
 </script>
 
