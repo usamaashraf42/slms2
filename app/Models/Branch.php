@@ -54,7 +54,7 @@ class Branch extends Model
     }
 
     public function level(){
-        return $this->hasMany(BranchClass::class,'branch_id');
+        return $this->hasMany(BranchCourse::class,'branch_id');
     
     }
 

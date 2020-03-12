@@ -73,6 +73,10 @@ Route::get('/student_picture','Web\Pakistan\PublicController@student_picture')->
 Route::resource('feedeposit','Web\FeeDepositController');
 
 Route::POST('feedeposit-status','Web\FeeDepositController@feeDepositstatus')->name('feeDepositstatus');
+
+Route::POST('feedeposit-paypal','Web\PaypalFeeDepositController@feeDepositpaypal')->name('feeDepositpaypal');
+
+
 Route::POST('feeChallan','Web\FeeDepositController@feeChallan')->name('feeChallan');
 
 
@@ -168,9 +172,7 @@ Route::prefix('admin')->group(function () {
 		Route::resource('section','admins\SectionController');
 		Route::resource('students','admins\Student\StudentController');
 		Route::resource('school','Branch\SchoolController');
-
 		Route::resource('student-parents','admins\StudentParentRecordController');
-
 		Route::post('student/search','admins\Student\StudentController@SearchAjax')->name('student_search');
 		Route::resource('syllabus','admins\SyllabusController');
 		Route::resource('student-card','admins\StudentCardController');
@@ -222,6 +224,14 @@ Route::prefix('admin')->group(function () {
 			Route::resource('class-list','admins\Student\classList\ClassListController');
 			Route::resource('attendance','admins\AttandanceController');
 			Route::resource('fee-structure','admins\Student\StudentFeeStructureController');
+			Route::resource('manual-attendance','admins\Student\Attendance\ManualAttendanceController');
+			Route::get('manual-attendance-class-wise/{branch_id}/{class_id}/{date_id}','admins\Student\Attendance\ManualAttendanceController@manualAttendance')->name('manual-attendance-class-wise');
+
+			Route::post('add-manual-attendance','admins\Student\Attendance\ManualAttendanceController@AddAttendance')->name('AddAttendance');
+			Route::post('marked-manual-attendance','admins\Student\Attendance\ManualAttendanceController@attendanceMarked')->name('attendanceMarked');
+
+
+			
 
 			Route::post('get_student_attandence','admins\AttandanceController@get_student_attandence')->name('get_student_attandence');
 			Route::resource('attendance-list','admins\Student\attandanceSheet\StudentAttandanceListController');

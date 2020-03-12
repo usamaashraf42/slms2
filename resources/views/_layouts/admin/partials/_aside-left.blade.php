@@ -133,7 +133,7 @@
 
 
 
-                   
+
 
 
                     @if(Auth::user()->can('Admission Package') || Auth::user()->can('Admission Package Edit') )
@@ -346,8 +346,8 @@
                     </ul>
                 </li>    
 
-            <li class="submenu">
-                <a href="javascript:;"><i class="la la-money"></i>  <span> Payroll  </span>  <span class="menu-arrow"></span></a>
+                <li class="submenu">
+                    <a href="javascript:;"><i class="la la-money"></i>  <span> Payroll  </span>  <span class="menu-arrow"></span></a>
                     <ul style="display: none;">
                         <li><a href="{{route('salary-post.index')}}">Salary Post</a></li>
                         <li><a href="{{route('employee-salary.index')}}"> Employee Salary  </a></li>
@@ -355,313 +355,317 @@
                         <li><a href="{{route('pay-slip.index')}}"> Salary List  </a></li>
                         <li><a href="{{route('pay-slip.index')}}"> Payslip  </a></li>
                     </ul>
-            </li> 
+                </li> 
 
 
 
-      @if(Auth::user()->can('Application-status Record') || Auth::user()->can('Application-status Create') || Auth::user()->can('Application-status Edit')  )
-      <li class="{{ areActiveRoutes(['application-status.index','application-status.create','application-status.edit'])}}">
-        <a href="{{route('application-status.index')}}" class="{{ areActiveRoutes(['application-status.index','application-status.create','application-status.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
-            <span> Job Status</span> 
-        </a>
-    </li>
-    @endif
+                @if(Auth::user()->can('Application-status Record') || Auth::user()->can('Application-status Create') || Auth::user()->can('Application-status Edit')  )
+                <li class="{{ areActiveRoutes(['application-status.index','application-status.create','application-status.edit'])}}">
+                    <a href="{{route('application-status.index')}}" class="{{ areActiveRoutes(['application-status.index','application-status.create','application-status.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                        <span> Job Status</span> 
+                    </a>
+                </li>
+                @endif
 
-    </ul>
-</li>
-@endif
-
-
-<li class="submenu ">
-    <a href="javascript:;" class="{{ areActiveRoutes(['student-registration.create','students.edit','transfer.index','transfer.create','transfer.edit','students.index','left-student.create','left-student.edit','branch_student_left_report','approval-left-student.create','approval-left-student.store','approval-left-student.index','approveBranchWiseLeft','re-admission.index.index','re-admission.index.edit','re-admission.create','student-freeze.index','student-freeze.edit','student-freeze.create'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Student Management</span> <span class="menu-arrow"></span></a>
-    <ul class="list-unstyled" style="display: none;">
-        @if(Auth::user()->can('Student Category Record') || Auth::user()->can('Student Category Add') || Auth::user()->can('Student Category Edit') )
-        <li class="{{ areActiveRoutes(['student-category.index','student-category.create','student-category.edit'])}}">
-            <a href="{{route('student-category.index')}}" class="{{ areActiveRoutes(['student-category.index','student-category.create','student-category.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
-                <span> Student Category</span> 
-            </a>
+            </ul>
         </li>
-
         @endif
 
 
-        @if(Auth::user()->can('Student Admission Record') || Auth::user()->can('Student Addmission Add') || Auth::user()->can('Student Edit')  )
-        <li class="submenu">
-            <a href="#" class="{{ areActiveRoutes(['student-registration.create','student-registration.index'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Admission</span> <span class="menu-arrow"></span></a>
+        <li class="submenu ">
+            <a href="javascript:;" class="{{ areActiveRoutes(['student-registration.create','students.edit','transfer.index','transfer.create','transfer.edit','students.index','left-student.create','left-student.edit','branch_student_left_report','approval-left-student.create','approval-left-student.store','approval-left-student.index','approveBranchWiseLeft','re-admission.index.index','re-admission.index.edit','re-admission.create','student-freeze.index','student-freeze.edit','student-freeze.create'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Student Management</span> <span class="menu-arrow"></span></a>
             <ul class="list-unstyled" style="display: none;">
-             <li class="{{ areActiveRoutes(['student-registration.create'])}}">
-                <a href="{{route('student-registration.create')}}" class="{{ areActiveRoutes(['student-registration.create'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
-                    <span>Add Student</span> 
-                </a>
-            </li>
+                @if(Auth::user()->can('Student Category Record') || Auth::user()->can('Student Category Add') || Auth::user()->can('Student Category Edit') )
+                <li class="{{ areActiveRoutes(['student-category.index','student-category.create','student-category.edit'])}}">
+                    <a href="{{route('student-category.index')}}" class="{{ areActiveRoutes(['student-category.index','student-category.create','student-category.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                        <span> Student Category</span> 
+                    </a>
+                </li>
 
-            <li class="{{ areActiveRoutes(['student-registration.index'])}}">
-                <a href="{{route('student-registration.index')}}" class="{{ areActiveRoutes(['student-registration.index'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
-                    <span> New Students List</span> 
-                </a>
-            </li>
-
-            <li class="{{ areActiveRoutes(['edit-student.index'])}}">
-                <a href="{{route('edit-student.index')}}" class="{{ areActiveRoutes(['edit-student.index'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
-                    <span> Edit Student</span> 
-                </a>
-            </li>
-
-        </ul>
-    </li>
-    @endif
+                @endif
 
 
-    @if(Auth::user()->can('Student Record')  )
-    <li class="{{ areActiveRoutes(['students.index','students.edit'])}}">
-        <a href="{{route('students.index')}}" class="{{ areActiveRoutes(['students.index'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
-            <span> All Student</span> 
-        </a>
-    </li>
-    @endif
-
-
-
-    @if(Auth::user()->can('Student-Freeze') || Auth::user()->can('Student-Freeze Report') )
-    <li class="submenu" class="{{ areActiveRoutes(['student-freeze.index','student-freeze.edit','student-freeze.create'])}}">
-        <a href="#" class="{{ areActiveRoutes(['student-freeze.index','student-freeze.edit','student-freeze.create'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Student-Freeze</span> <span class="menu-arrow"></span></a>
-        <ul class="list-unstyled" style="display: none;" class="{{ areActiveRoutes(['student-freeze.index','student-freeze.edit','student-freeze.create'])}}">
-            @if(Auth::user()->can('Student-Freeze') )
-            <li class="{{ areActiveRoutes(['student-freeze.store'])}}"><a href="{{route('student-freeze.create')}}"> Student-Freeze </a></li>
-            @endif
-            @if(Auth::user()->can('Student-Freeze Report') )
-            <li class="{{ areActiveRoutes(['student-freeze.index'])}}"><a href="{{route('student-freeze.index')}}"> Student-Freeze Report</a></li>
-            @endif
-
-        </ul>
-    </li>
-    @endif
-
-
-    @if(Auth::user()->can('Student-left') || Auth::user()->can('Student-left Report') || Auth::user()->can('Student-left Approval') || Auth::user()->can('Student-left Approved Report') )
-    <li class="submenu">
-        <a href="#" class="{{ areActiveRoutes(['left-student.create','left-student.edit','branch_student_left_report','approval-left-student.create','approval-left-student.store','approveBranchWiseLeft','approval-left-student.index'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Student Left</span> <span class="menu-arrow"></span></a>
-        <ul class="list-unstyled" style="display: none;">
-            @if(Auth::user()->can('Student-left') )
-            <li class="{{ areActiveRoutes(['left-student.store'])}}"><a href="{{route('left-student.create')}}"> Student Left</a></li>
-            <li class="{{ areActiveRoutes(['left-student.index' ,'branch_student_left_report'])}}"><a href="{{route('left-student.index')}}"> Student Left Record</a></li>
-            <li class="{{ areActiveRoutes(['approval-left-student.create','approval-left-student.store','approveBranchWiseLeft'])}}"><a href="{{route('approval-left-student.create')}}"> Student Left Approval</a></li>
-            <li class="{{ areActiveRoutes(['approval-left-student.index'])}}"><a href="{{route('approval-left-student.index')}}"> Approved Left Record </a></li>
-            @endif
-        </ul>
-    </li>
-    @endif
-    @if(Auth::user()->can('Student-left') || Auth::user()->can('Student-left Report') || Auth::user()->can('Student-left Approval') || Auth::user()->can('Student-left Approved Report') )
-    <li class="submenu">
-        <a href="#" class="{{ areActiveRoutes(['transfer.create','transfer.store','transfer.index','branch_student_transfer_report','approval-transfer-student.index','approval-transfer-student.edit','approval-transfer-student.index','approval-transfer-student.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Student Transfer</span> <span class="menu-arrow"></span></a>
-        <ul class="list-unstyled" style="display: none;">
-            <li class="{{ areActiveRoutes(['transfer.create','transfer.store'])}}"><a href="{{route('transfer.create')}}"> Transfer</a></li>
-
-            <li class="{{ areActiveRoutes(['transfer.index','branch_student_transfer_report'])}}"><a href="{{route('transfer.index')}}"> Transfer Record</a></li>
-
-            <li class="{{ areActiveRoutes(['approval-transfer-student.index','approval-transfer-student.edit'])}}"><a href="{{route('approval-transfer-student.index')}}"> Student Transfer Approval</a></li>
-            <li class="{{ areActiveRoutes(['approval-transfer-student.create'])}}"><a href="{{route('approval-transfer-student.create')}}">Student transfer Record</a></li>
-        </ul>
-    </li>
-    @endif
-
-    @if(Auth::user()->can('Student Card')  )
-
-    <li class="{{ areActiveRoutes(['card.index','card.edit','card.create','card.store'])}}">
-        <a href="{{route('card.index')}}" class="{{ areActiveRoutes(['card.index','card.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
-            <span>Student Card</span> 
-        </a>
-    </li>
-
-    @endif
-
-
-
-
-
-    <li class="{{ areActiveRoutes(['branch-performance.index','branch-performance.edit','branch-performance.create','branch-performance.store'])}}">
-        <a href="{{route('branch-performance.index')}}" class="{{ areActiveRoutes(['branch-performance.index','branch-performance.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
-            <span>Branch Performance</span> 
-        </a>
-    </li>
-
-
-    <li class="{{ areActiveRoutes(['class-list.index','class-list.edit','class-list.create','class-list.store'])}}">
-        <a href="{{route('class-list.index')}}" class="{{ areActiveRoutes(['class-list.index','class-list.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
-            <span>Class List</span> 
-        </a>
-    </li>
-
-    <li class="{{ areActiveRoutes(['attendance-list.create','attendance-list.store'])}}">
-        <a href="{{route('attendance-list.index')}}" class="{{ areActiveRoutes(['attendance-list.index.index','attendance-list.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
-            <span>Attendance  List</span> 
-        </a>
-    </li>
-
-    <li class="{{ areActiveRoutes(['student-edit.index.index','student-edit.index.edit','student-edit.create'])}}">
-        <a href="{{route('student-edit.index')}}" class="{{ areActiveRoutes(['student-edit.index.index','student-edit.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
-            <span>Student Bulk Edit</span> 
-        </a>
-    </li>
-
-
-
-    <li class="{{ areActiveRoutes(['attendance.index.index','attendance.index.edit','attendance.create'])}}">
-        <a href="{{route('attendance.index')}}" class="{{ areActiveRoutes(['attendance.index.index','attendance.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
-            <span>Attendance</span> 
-        </a>
-    </li>
-
-
-
-    <li class="{{ areActiveRoutes(['re-admission.index.index','re-admission.index.edit','re-admission.create'])}}">
-        <a href="{{route('re-admission.index')}}" class="{{ areActiveRoutes(['re-admission.index.index','re-admission.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
-            <span>Re-Admission</span> 
-        </a>
-    </li>
-
-    @if(Auth::user()->can('Student Fee Structure')  )
-
-
-    <li class="{{ areActiveRoutes(['fee-structure.index.index','fee-structure.index.edit','fee-structure.create'])}}">
-        <a href="{{route('fee-structure.create')}}" class="{{ areActiveRoutes(['fee-structure.index.index','fee-structure.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
-            <span>Student Fee Structure</span> 
-        </a>
-    </li>
-
-    @endif
-
-</ul>
-</li>
-
-@if(Auth::user()->can('Fee Challen') || Auth::user()->can('Fee Deposit') || Auth::user()->can('Fee Post') || Auth::user()->can('Profit Loss') || Auth::user()->can('Balance Sheet')  || Auth::user()->can('Trial Balance')  || Auth::user()->can('Ledger')  || Auth::user()->can('General Voucher')  || Auth::user()->can('Bank Deposit') || Auth::user()->can('Bank Payment') || Auth::user()->can('Cash Payment') || Auth::user()->can('Cash Receipt') || Auth::user()->can('Account Record') || Auth::user()->can('Account Add') || Auth::user()->can('Account Edit')  || Auth::user()->can('statement')  || Auth::user()->can('Outstanding') || Auth::user()->can('Franchise Applicant') || Auth::user()->can('Correction') ||  Auth::user()->can('Correction Approval') || Auth::user()->can('Correction Approved Report') || Auth::user()->can('Paid List') || Auth::user()->can('Tentive List'))
-<li class="submenu ">
-    <a href="javascript:;" class="{{ areActiveRoutes(['franchise-applicant.create','franchise-applicant.index','statement.create','statement.index','statement.store','account.create','account.index','feepost.create','feepost.index','fee-deposit.create','fee-deposit.index','fee-challan.create','fee-challan.index' ,'fee-challan.store','outstanding.create','outstanding.index','outstanding.store','cash-receipt.create','cash-receipt.index','cash-payment.create','cash-payment.index','bank-payment.create','bank-payment.index','bank-deposit.create','bank-deposit.index','ledger.create','ledger.index','ledger.edit','general-voucher.create','general-voucher.index','tentive.create','tentive.store','tentive.index','paid-account.create','paid-account.index','paid-account.store','fee-increment.create','fee-increment.index' ,'fee-increment.store','bank-outstanding.create','bank-outstanding.index','bank-outstanding.store','account-category.create','account-category.index','account-category.edit','bank-outstanding.create','bank-outstanding.index','bank-outstanding.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Account Management</span> <span class="menu-arrow"></span></a>
-
-    <ul class="list-unstyled" style="display: none;">
-
-
-        @if(Auth::user()->can('Outstanding')  || Auth::user()->can('Tentive List') || Auth::user()->can('Paid List') || Auth::user()->can('Correction') || Auth::user()->can('Correction Report') ||  Auth::user()->can('Correction Approval') || Auth::user()->can('Correction Approved Report') || Auth::user()->can('statement') || Auth::user()->can('statement') || Auth::user()->can('Fee Increment')  || Auth::user()->can('Tentive List') || Auth::user()->can('Outstanding') ||  Auth::user()->can('Paid List') || Auth::user()->can('Correction') || Auth::user()->can('Correction Report') ||  Auth::user()->can('Correction Approval') || Auth::user()->can('Correction Approved Report'))
-        <li class="submenu">
-            <a href="#" class="{{ areActiveRoutes(['feepost.create','feepost.index','fee-deposit.create','fee-deposit.index','fee-challan.create','fee-challan.index' ,'fee-challan.store','fee-increment.create','fee-increment.index' ,'fee-increment.store','statement.create','statement.index','statement.store','fee-increment.create','fee-increment.index' ,'fee-increment.store','outstanding.create','outstanding.index','outstanding.store','tentive.create','tentive.index','tentive.store','paid-account.create','paid-account.index','paid-account.store','approval-correction.create','approval-correction.store','approveBranchWise','approveBranchWise','approval-correction.index','correctionReport','individual-feepost.create','individual-feepost.index'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Fee</span> <span class="menu-arrow"></span></a>
-            <ul class="list-unstyled" style="display: none;">
-
-
-                @if(Auth::user()->can('Fee Post') || Auth::user()->can('Fee Deposit') ||  Auth::user()->can('Fee Challen') )
+                @if(Auth::user()->can('Student Admission Record') || Auth::user()->can('Student Addmission Add') || Auth::user()->can('Student Edit')  )
                 <li class="submenu">
-                    <a href="javascript:;" class="{{ areActiveRoutes(['feepost.create','feepost.index','fee-deposit.create','fee-deposit.index','fee-challan.create','fee-challan.index' ,'fee-challan.store','fee-increment.create','fee-increment.index' ,'fee-increment.store','individual-feepost.create','individual-feepost.index'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Post Deposit</span> <span class="menu-arrow"></span></a>
+                    <a href="#" class="{{ areActiveRoutes(['student-registration.create','student-registration.index'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Admission</span> <span class="menu-arrow"></span></a>
                     <ul class="list-unstyled" style="display: none;">
+                     <li class="{{ areActiveRoutes(['student-registration.create'])}}">
+                        <a href="{{route('student-registration.create')}}" class="{{ areActiveRoutes(['student-registration.create'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                            <span>Add Student</span> 
+                        </a>
+                    </li>
+
+                    <li class="{{ areActiveRoutes(['student-registration.index'])}}">
+                        <a href="{{route('student-registration.index')}}" class="{{ areActiveRoutes(['student-registration.index'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                            <span> New Students List</span> 
+                        </a>
+                    </li>
+
+                    <li class="{{ areActiveRoutes(['edit-student.index'])}}">
+                        <a href="{{route('edit-student.index')}}" class="{{ areActiveRoutes(['edit-student.index'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                            <span> Edit Student</span> 
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+            @endif
+
+
+            @if(Auth::user()->can('Student Record')  )
+            <li class="{{ areActiveRoutes(['students.index','students.edit'])}}">
+                <a href="{{route('students.index')}}" class="{{ areActiveRoutes(['students.index'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                    <span> All Student</span> 
+                </a>
+            </li>
+            @endif
+
+
+
+            @if(Auth::user()->can('Student-Freeze') || Auth::user()->can('Student-Freeze Report') )
+            <li class="submenu" class="{{ areActiveRoutes(['student-freeze.index','student-freeze.edit','student-freeze.create'])}}">
+                <a href="#" class="{{ areActiveRoutes(['student-freeze.index','student-freeze.edit','student-freeze.create'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Student-Freeze</span> <span class="menu-arrow"></span></a>
+                <ul class="list-unstyled" style="display: none;" class="{{ areActiveRoutes(['student-freeze.index','student-freeze.edit','student-freeze.create'])}}">
+                    @if(Auth::user()->can('Student-Freeze') )
+                    <li class="{{ areActiveRoutes(['student-freeze.store'])}}"><a href="{{route('student-freeze.create')}}"> Student-Freeze </a></li>
+                    @endif
+                    @if(Auth::user()->can('Student-Freeze Report') )
+                    <li class="{{ areActiveRoutes(['student-freeze.index'])}}"><a href="{{route('student-freeze.index')}}"> Student-Freeze Report</a></li>
+                    @endif
+
+                </ul>
+            </li>
+            @endif
+
+
+            @if(Auth::user()->can('Student-left') || Auth::user()->can('Student-left Report') || Auth::user()->can('Student-left Approval') || Auth::user()->can('Student-left Approved Report') )
+            <li class="submenu">
+                <a href="#" class="{{ areActiveRoutes(['left-student.create','left-student.edit','branch_student_left_report','approval-left-student.create','approval-left-student.store','approveBranchWiseLeft','approval-left-student.index'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Student Left</span> <span class="menu-arrow"></span></a>
+                <ul class="list-unstyled" style="display: none;">
+                    @if(Auth::user()->can('Student-left') )
+                    <li class="{{ areActiveRoutes(['left-student.store'])}}"><a href="{{route('left-student.create')}}"> Student Left</a></li>
+                    <li class="{{ areActiveRoutes(['left-student.index' ,'branch_student_left_report'])}}"><a href="{{route('left-student.index')}}"> Student Left Record</a></li>
+                    <li class="{{ areActiveRoutes(['approval-left-student.create','approval-left-student.store','approveBranchWiseLeft'])}}"><a href="{{route('approval-left-student.create')}}"> Student Left Approval</a></li>
+                    <li class="{{ areActiveRoutes(['approval-left-student.index'])}}"><a href="{{route('approval-left-student.index')}}"> Approved Left Record </a></li>
+                    @endif
+                </ul>
+            </li>
+            @endif
+            @if(Auth::user()->can('Student-left') || Auth::user()->can('Student-left Report') || Auth::user()->can('Student-left Approval') || Auth::user()->can('Student-left Approved Report') )
+            <li class="submenu">
+                <a href="#" class="{{ areActiveRoutes(['transfer.create','transfer.store','transfer.index','branch_student_transfer_report','approval-transfer-student.index','approval-transfer-student.edit','approval-transfer-student.index','approval-transfer-student.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Student Transfer</span> <span class="menu-arrow"></span></a>
+                <ul class="list-unstyled" style="display: none;">
+                    <li class="{{ areActiveRoutes(['transfer.create','transfer.store'])}}"><a href="{{route('transfer.create')}}"> Transfer</a></li>
+
+                    <li class="{{ areActiveRoutes(['transfer.index','branch_student_transfer_report'])}}"><a href="{{route('transfer.index')}}"> Transfer Record</a></li>
+
+                    <li class="{{ areActiveRoutes(['approval-transfer-student.index','approval-transfer-student.edit'])}}"><a href="{{route('approval-transfer-student.index')}}"> Student Transfer Approval</a></li>
+                    <li class="{{ areActiveRoutes(['approval-transfer-student.create'])}}"><a href="{{route('approval-transfer-student.create')}}">Student transfer Record</a></li>
+                </ul>
+            </li>
+            @endif
+
+            @if(Auth::user()->can('Student Card')  )
+
+            <li class="{{ areActiveRoutes(['card.index','card.edit','card.create','card.store'])}}">
+                <a href="{{route('card.index')}}" class="{{ areActiveRoutes(['card.index','card.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                    <span>Student Card</span> 
+                </a>
+            </li>
+
+            @endif
 
 
 
 
-                       @if(Auth::user()->can('Fee Post')  )
-                       <li class="{{ areActiveRoutes(['feepost.create','feepost.index'])}}"><a href="{{route('feepost.index')}}"> Fee Post</a></li>
-                       <li class="{{ areActiveRoutes(['individual-feepost.create','individual-feepost.index'])}}"><a href="{{route('individual-feepost.index')}}">Individual FeePost</a></li>
-                       @endif
-                       @if(Auth::user()->can('Fee Deposit') )
-                       <li class="{{ areActiveRoutes(['fee-deposit.create','fee-deposit.index'])}}"><a href="{{route('fee-deposit.index')}}">Fee Deposit</a></li>
 
-                        <li class="{{ areActiveRoutes(['manual-fee-deposit.create','manual-fee-deposit.index'])}}"><a href="{{route('manual-fee-deposit.index')}}">Manual Fee Deposit</a></li>
-
-                      
-                       @endif
-                       @if(Auth::user()->can('Fee Challen')  )
-                       <li class="{{ areActiveRoutes(['fee-challan.create','fee-challan.index' ,'fee-challan.store'])}}"><a href="{{route('fee-challan.create')}}">Fee Challan</a></li>
-                       @endif
-
-                       @if(Auth::user()->can('Fee Increment')  )
-                       <li class="{{ areActiveRoutes(['fee-increment.create','fee-increment.index' ,'fee-increment.store'])}}"><a href="{{route('fee-increment.create')}}">Fee Increment</a></li>
-                       @endif
-                   </ul>
-               </li>
-               @endif                                
+            <li class="{{ areActiveRoutes(['branch-performance.index','branch-performance.edit','branch-performance.create','branch-performance.store'])}}">
+                <a href="{{route('branch-performance.index')}}" class="{{ areActiveRoutes(['branch-performance.index','branch-performance.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                    <span>Branch Performance</span> 
+                </a>
+            </li>
 
 
+            <li class="{{ areActiveRoutes(['class-list.index','class-list.edit','class-list.create','class-list.store'])}}">
+                <a href="{{route('class-list.index')}}" class="{{ areActiveRoutes(['class-list.index','class-list.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                    <span>Class List</span> 
+                </a>
+            </li>
 
-               @if(Auth::user()->can('statement') || Auth::user()->can('Fee Increment')  )
-               <li class="submenu">
-                <a href="javascript:;" class="{{ areActiveRoutes(['statement.create','statement.index','statement.store','fee-increment.create','fee-increment.index' ,'fee-increment.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Student Fee</span> <span class="menu-arrow"></span></a>
+            <li class="{{ areActiveRoutes(['attendance-list.create','attendance-list.store'])}}">
+                <a href="{{route('attendance-list.index')}}" class="{{ areActiveRoutes(['attendance-list.index.index','attendance-list.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                    <span>Attendance  List</span> 
+                </a>
+            </li>
+
+            <li class="{{ areActiveRoutes(['student-edit.index.index','student-edit.index.edit','student-edit.create'])}}">
+                <a href="{{route('student-edit.index')}}" class="{{ areActiveRoutes(['student-edit.index.index','student-edit.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                    <span>Student Bulk Edit</span> 
+                </a>
+            </li>
+
+
+
+
+            <li class="submenu">
+                <a href="#" class="{{ areActiveRoutes(['attendance.index.index','attendance.index.edit','attendance.create'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Attendance</span> <span class="menu-arrow"></span></a>
+                <ul class="list-unstyled" style="display: none;">
+                    <li class="{{ areActiveRoutes(['attendance.index.index','attendance.store'])}}"><a href="{{route('attendance.index')}}"> Machine Attendance</a></li>
+
+                    <li class="{{ areActiveRoutes(['manual-attendance.index','manual-attendance.store'])}}"><a href="{{route('manual-attendance.index')}}"> Manual Attendance</a></li>
+                </ul>
+            </li>
+
+
+
+            <li class="{{ areActiveRoutes(['re-admission.index.index','re-admission.index.edit','re-admission.create'])}}">
+                <a href="{{route('re-admission.index')}}" class="{{ areActiveRoutes(['re-admission.index.index','re-admission.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                    <span>Re-Admission</span> 
+                </a>
+            </li>
+
+            @if(Auth::user()->can('Student Fee Structure')  )
+
+
+            <li class="{{ areActiveRoutes(['fee-structure.index.index','fee-structure.index.edit','fee-structure.create'])}}">
+                <a href="{{route('fee-structure.create')}}" class="{{ areActiveRoutes(['fee-structure.index.index','fee-structure.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                    <span>Student Fee Structure</span> 
+                </a>
+            </li>
+
+            @endif
+
+        </ul>
+    </li>
+
+    @if(Auth::user()->can('Fee Challen') || Auth::user()->can('Fee Deposit') || Auth::user()->can('Fee Post') || Auth::user()->can('Profit Loss') || Auth::user()->can('Balance Sheet')  || Auth::user()->can('Trial Balance')  || Auth::user()->can('Ledger')  || Auth::user()->can('General Voucher')  || Auth::user()->can('Bank Deposit') || Auth::user()->can('Bank Payment') || Auth::user()->can('Cash Payment') || Auth::user()->can('Cash Receipt') || Auth::user()->can('Account Record') || Auth::user()->can('Account Add') || Auth::user()->can('Account Edit')  || Auth::user()->can('statement')  || Auth::user()->can('Outstanding') || Auth::user()->can('Franchise Applicant') || Auth::user()->can('Correction') ||  Auth::user()->can('Correction Approval') || Auth::user()->can('Correction Approved Report') || Auth::user()->can('Paid List') || Auth::user()->can('Tentive List'))
+    <li class="submenu ">
+        <a href="javascript:;" class="{{ areActiveRoutes(['franchise-applicant.create','franchise-applicant.index','statement.create','statement.index','statement.store','account.create','account.index','feepost.create','feepost.index','fee-deposit.create','fee-deposit.index','fee-challan.create','fee-challan.index' ,'fee-challan.store','outstanding.create','outstanding.index','outstanding.store','cash-receipt.create','cash-receipt.index','cash-payment.create','cash-payment.index','bank-payment.create','bank-payment.index','bank-deposit.create','bank-deposit.index','ledger.create','ledger.index','ledger.edit','general-voucher.create','general-voucher.index','tentive.create','tentive.store','tentive.index','paid-account.create','paid-account.index','paid-account.store','fee-increment.create','fee-increment.index' ,'fee-increment.store','bank-outstanding.create','bank-outstanding.index','bank-outstanding.store','account-category.create','account-category.index','account-category.edit','bank-outstanding.create','bank-outstanding.index','bank-outstanding.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Account Management</span> <span class="menu-arrow"></span></a>
+
+        <ul class="list-unstyled" style="display: none;">
+
+
+            @if(Auth::user()->can('Outstanding')  || Auth::user()->can('Tentive List') || Auth::user()->can('Paid List') || Auth::user()->can('Correction') || Auth::user()->can('Correction Report') ||  Auth::user()->can('Correction Approval') || Auth::user()->can('Correction Approved Report') || Auth::user()->can('statement') || Auth::user()->can('statement') || Auth::user()->can('Fee Increment')  || Auth::user()->can('Tentive List') || Auth::user()->can('Outstanding') ||  Auth::user()->can('Paid List') || Auth::user()->can('Correction') || Auth::user()->can('Correction Report') ||  Auth::user()->can('Correction Approval') || Auth::user()->can('Correction Approved Report'))
+            <li class="submenu">
+                <a href="#" class="{{ areActiveRoutes(['feepost.create','feepost.index','fee-deposit.create','fee-deposit.index','fee-challan.create','fee-challan.index' ,'fee-challan.store','fee-increment.create','fee-increment.index' ,'fee-increment.store','statement.create','statement.index','statement.store','fee-increment.create','fee-increment.index' ,'fee-increment.store','outstanding.create','outstanding.index','outstanding.store','tentive.create','tentive.index','tentive.store','paid-account.create','paid-account.index','paid-account.store','approval-correction.create','approval-correction.store','approveBranchWise','approveBranchWise','approval-correction.index','correctionReport','individual-feepost.create','individual-feepost.index'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Fee</span> <span class="menu-arrow"></span></a>
                 <ul class="list-unstyled" style="display: none;">
 
-                   <li class="">
-                    <a href="javascript:;" class=""><i class="fa fa-user" aria-hidden="true"></i> 
-                        <span> Change Update</span> 
-                    </a>
-                </li>
 
-                @if(Auth::user()->can('statement')  )
-                <li class="{{ areActiveRoutes(['statement.create','statement.index','statement.store'])}}">
-                    <a href="{{route('statement.index')}}" class=""><i class="fa fa-user" aria-hidden="true"></i> 
-                        <span> Statement</span> 
-                    </a>
-                </li>
-                @endif
-
-                @if(Auth::user()->can('Fee Increment')  )
-                <li class="{{ areActiveRoutes(['fee-increment.create','fee-increment.index' ,'fee-increment.store'])}}"><a href="{{route('fee-increment.create')}}">Fee Increment</a></li>
-                @endif
-            </ul>
-        </li>
-        @endif
-
-        @if(Auth::user()->can('Tentive List') || Auth::user()->can('Outstanding') ||  Auth::user()->can('Paid List') )
-        <li class="submenu">
-            <a href="javascript:;" class="{{ areActiveRoutes(['outstanding.create','outstanding.index','outstanding.store','tentive.create','tentive.index','tentive.store','paid-account.create','paid-account.index','paid-account.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Monthly Detail</span> <span class="menu-arrow"></span></a>
-            <ul class="list-unstyled" style="display: none;">
-
-                @if(Auth::user()->can('Outstanding') ) 
-
-                <li class="{{ areActiveRoutes(['outstanding.create','outstanding.index','outstanding.store'])}}">
-                    <a href="{{route('outstanding.index')}}" class=""><i class="fa fa-user" aria-hidden="true"></i> 
-                        <span> Outstanding</span> 
-                    </a>
-                </li>
-                @endif
-                @if(Auth::user()->can('Tentive List'))  
-                <li class="{{ areActiveRoutes(['tentive.create','tentive.index','tentive.store'])}}">
-                    <a href="{{ route('tentive.create')}}" class=""><i class="fa fa-user" aria-hidden="true"></i> 
-                        <span> Tentative List</span> 
-                    </a>
-                </li>
-                @endif
-                @if(Auth::user()->can('Paid List'))
-                <li class="{{ areActiveRoutes(['paid-account.create','paid-account.index','paid-account.store'])}}">
-                    <a href="{{ route('paid-account.create')}}" class=""><i class="fa fa-user" aria-hidden="true"></i> 
-                        <span> Paid List</span> 
-                    </a>
-                </li>
-                @endif
-            </ul>
-        </li>
-        @endif
+                    @if(Auth::user()->can('Fee Post') || Auth::user()->can('Fee Deposit') ||  Auth::user()->can('Fee Challen') )
+                    <li class="submenu">
+                        <a href="javascript:;" class="{{ areActiveRoutes(['feepost.create','feepost.index','fee-deposit.create','fee-deposit.index','fee-challan.create','fee-challan.index' ,'fee-challan.store','fee-increment.create','fee-increment.index' ,'fee-increment.store','individual-feepost.create','individual-feepost.index'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Post Deposit</span> <span class="menu-arrow"></span></a>
+                        <ul class="list-unstyled" style="display: none;">
 
 
-        @if(Auth::user()->can('Correction') || Auth::user()->can('Correction Report') ||  Auth::user()->can('Correction Approval') || Auth::user()->can('Correction Approved Report') )
-        <li class="submenu">
-            <a href="javascript:;" class="{{ areActiveRoutes(['approval-correction.create','approval-correction.store','approveBranchWise','approveBranchWise','approval-correction.index','correctionReport'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Correction</span> <span class="menu-arrow"></span></a>
-            <ul class="list-unstyled" style="display: none;">
-               @if(Auth::user()->can('Correction')  )
-               <li class="{{ areActiveRoutes(['correction.create','correction.store'])}}"><a href="{{route('correction.create')}}"> Correction</a></li>
-               @if(Auth::user()->can('Correction Report')  )
-               <li class="{{ areActiveRoutes(['correction.index','branch_correction_report'])}}">
-                <a href="{{route('correction.index')}}"> Correction Report</a>
+
+
+                           @if(Auth::user()->can('Fee Post')  )
+                           <li class="{{ areActiveRoutes(['feepost.create','feepost.index'])}}"><a href="{{route('feepost.index')}}"> Fee Post</a></li>
+                           <li class="{{ areActiveRoutes(['individual-feepost.create','individual-feepost.index'])}}"><a href="{{route('individual-feepost.index')}}">Individual FeePost</a></li>
+                           @endif
+                           @if(Auth::user()->can('Fee Deposit') )
+                           <li class="{{ areActiveRoutes(['fee-deposit.create','fee-deposit.index'])}}"><a href="{{route('fee-deposit.index')}}">Fee Deposit</a></li>
+
+                           <li class="{{ areActiveRoutes(['manual-fee-deposit.create','manual-fee-deposit.index'])}}"><a href="{{route('manual-fee-deposit.index')}}">Manual Fee Deposit</a></li>
+
+
+                           @endif
+                           @if(Auth::user()->can('Fee Challen')  )
+                           <li class="{{ areActiveRoutes(['fee-challan.create','fee-challan.index' ,'fee-challan.store'])}}"><a href="{{route('fee-challan.create')}}">Fee Challan</a></li>
+                           @endif
+
+                           @if(Auth::user()->can('Fee Increment')  )
+                           <li class="{{ areActiveRoutes(['fee-increment.create','fee-increment.index' ,'fee-increment.store'])}}"><a href="{{route('fee-increment.create')}}">Fee Increment</a></li>
+                           @endif
+                       </ul>
+                   </li>
+                   @endif                                
+
+
+
+                   @if(Auth::user()->can('statement') || Auth::user()->can('Fee Increment')  )
+                   <li class="submenu">
+                    <a href="javascript:;" class="{{ areActiveRoutes(['statement.create','statement.index','statement.store','fee-increment.create','fee-increment.index' ,'fee-increment.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Student Fee</span> <span class="menu-arrow"></span></a>
+                    <ul class="list-unstyled" style="display: none;">
+
+                       <li class="">
+                        <a href="javascript:;" class=""><i class="fa fa-user" aria-hidden="true"></i> 
+                            <span> Change Update</span> 
+                        </a>
+                    </li>
+
+                    @if(Auth::user()->can('statement')  )
+                    <li class="{{ areActiveRoutes(['statement.create','statement.index','statement.store'])}}">
+                        <a href="{{route('statement.index')}}" class=""><i class="fa fa-user" aria-hidden="true"></i> 
+                            <span> Statement</span> 
+                        </a>
+                    </li>
+                    @endif
+
+                    @if(Auth::user()->can('Fee Increment')  )
+                    <li class="{{ areActiveRoutes(['fee-increment.create','fee-increment.index' ,'fee-increment.store'])}}"><a href="{{route('fee-increment.create')}}">Fee Increment</a></li>
+                    @endif
+                </ul>
             </li>
             @endif
 
-            @endif
-            @if(Auth::user()->can('Correction Approval')  )
-            <li class="{{ areActiveRoutes(['approval-correction.create','approval-correction.store','approveBranchWise'])}}"><a href="{{route('approval-correction.create')}}">Correction Approval </a></li>
+            @if(Auth::user()->can('Tentive List') || Auth::user()->can('Outstanding') ||  Auth::user()->can('Paid List') )
+            <li class="submenu">
+                <a href="javascript:;" class="{{ areActiveRoutes(['outstanding.create','outstanding.index','outstanding.store','tentive.create','tentive.index','tentive.store','paid-account.create','paid-account.index','paid-account.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Monthly Detail</span> <span class="menu-arrow"></span></a>
+                <ul class="list-unstyled" style="display: none;">
 
-            
+                    @if(Auth::user()->can('Outstanding') ) 
+
+                    <li class="{{ areActiveRoutes(['outstanding.create','outstanding.index','outstanding.store'])}}">
+                        <a href="{{route('outstanding.index')}}" class=""><i class="fa fa-user" aria-hidden="true"></i> 
+                            <span> Outstanding</span> 
+                        </a>
+                    </li>
+                    @endif
+                    @if(Auth::user()->can('Tentive List'))  
+                    <li class="{{ areActiveRoutes(['tentive.create','tentive.index','tentive.store'])}}">
+                        <a href="{{ route('tentive.create')}}" class=""><i class="fa fa-user" aria-hidden="true"></i> 
+                            <span> Tentative List</span> 
+                        </a>
+                    </li>
+                    @endif
+                    @if(Auth::user()->can('Paid List'))
+                    <li class="{{ areActiveRoutes(['paid-account.create','paid-account.index','paid-account.store'])}}">
+                        <a href="{{ route('paid-account.create')}}" class=""><i class="fa fa-user" aria-hidden="true"></i> 
+                            <span> Paid List</span> 
+                        </a>
+                    </li>
+                    @endif
+                </ul>
+            </li>
             @endif
-            @if(Auth::user()->can('Correction Approved Report')  )
-            <li class="{{ areActiveRoutes(['approval-correction.index','correctionReport'])}}"><a href="{{route('approval-correction.index')}}">Approved Report</a></li>
-            @endif
-        </ul>
-    </li>
-    @endif
-</ul>
+
+
+            @if(Auth::user()->can('Correction') || Auth::user()->can('Correction Report') ||  Auth::user()->can('Correction Approval') || Auth::user()->can('Correction Approved Report') )
+            <li class="submenu">
+                <a href="javascript:;" class="{{ areActiveRoutes(['approval-correction.create','approval-correction.store','approveBranchWise','approveBranchWise','approval-correction.index','correctionReport'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Correction</span> <span class="menu-arrow"></span></a>
+                <ul class="list-unstyled" style="display: none;">
+                   @if(Auth::user()->can('Correction')  )
+                   <li class="{{ areActiveRoutes(['correction.create','correction.store'])}}"><a href="{{route('correction.create')}}"> Correction</a></li>
+                   @if(Auth::user()->can('Correction Report')  )
+                   <li class="{{ areActiveRoutes(['correction.index','branch_correction_report'])}}">
+                    <a href="{{route('correction.index')}}"> Correction Report</a>
+                </li>
+                @endif
+
+                @endif
+                @if(Auth::user()->can('Correction Approval')  )
+                <li class="{{ areActiveRoutes(['approval-correction.create','approval-correction.store','approveBranchWise'])}}"><a href="{{route('approval-correction.create')}}">Correction Approval </a></li>
+
+
+                @endif
+                @if(Auth::user()->can('Correction Approved Report')  )
+                <li class="{{ areActiveRoutes(['approval-correction.index','correctionReport'])}}"><a href="{{route('approval-correction.index')}}">Approved Report</a></li>
+                @endif
+            </ul>
+        </li>
+        @endif
+    </ul>
 </li>
 @endif
 
@@ -1094,7 +1098,7 @@
                 <span> Complaint</span> 
             </a>
         </li>
-       
+
 
         
 
