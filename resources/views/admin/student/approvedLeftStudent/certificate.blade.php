@@ -246,7 +246,7 @@ p{
                         <div class="box_right">@isset($stds->student) {{$stds->student->s_name}} @endisset</div>
 
                         <div class="box_left"><strong>Father Name<span style="padding-left: 26px;">:</span></strong></div>
-                        <div class="box_right">@isset($stds->student) {{$stds->student->f_name}} @endisset</div>
+                        <div class="box_right">@isset($stds->student->s_fatherName) {{$stds->student->s_fatherName}} @endisset</div>
 
                         <div class="box_left"><strong>Grade<span style="padding-left: 78px;">:</span></strong></div>
                         <div class="box_right">@isset($stds->student->course){{$stds->student->course->course_name}} @endisset</div>

@@ -434,7 +434,7 @@ border-bottom-left-radius: 25px;
     												<strong><i class="fa fa-inr"></i> {{$object->total_payable}}/-</strong>
 
 
-    												<h2><strong><i class="fa fa-inr"></i> {{$object->total_payable}}/-</strong></h2>
+    												<h2><strong><i class="fa fa-inr"></i> {{$object->desire_amount}}/-</strong></h2>
 
     											</div>
     										</div>
