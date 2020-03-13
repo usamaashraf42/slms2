@@ -193,8 +193,7 @@
     											<div class="card" style="width:100%">
     												<div class="card-block">
     													<div class="ks-items-block float-center" style="align-items: center;margin-left: 40%">
-    														<button class="btn btn-primary ks-rounded"> Submit </button>
-    														<button class="btn btn-success ks-rounded">Cancel</button>
+    														<button class="btn btn-primary ks-rounded" onclick="submitForm(this)"> Send SMS </button>
     													</div>
 
     												</div>
@@ -249,8 +248,7 @@
     										<div class="card" style="width:100%">
     											<div class="card-block">
     												<div class="ks-items-block float-center" style="align-items: center;margin-left: 40%">
-    													<button class="btn btn-primary ks-rounded"> Submit </button>
-    													<button class="btn btn-success ks-rounded">Cancel</button>
+    													<button class="btn btn-primary ks-rounded" onclick="submitForm(this)"> Send SMS </button>
     												</div>
 
     											</div>
@@ -328,110 +326,119 @@
 				});
 			});
 		});
-	</script>
-	<script>
-		
+		function submitForm(btn) {
 
-		var $remaining = $('#remaining1'),
-		$messages = $remaining.next();
+			console.log('profileFormSubmit');
+        // disable the button
+        btn.disabled = true;
+        // submit the form    
+        btn.form.submit();
+        return true;
+    }
+</script>
+<script>
 
-		$('.sms_body_one').keyup(function(){
 
-			var chars = this.value.length;
+	var $remaining = $('#remaining1'),
+	$messages = $remaining.next();
 
-			console.log('keyup sms body 1',chars);
-			messages = Math.ceil(chars / 160);
-			remaining = messages * 160 - (chars % (messages * 160) || messages * 160);
-			console.log('remaining body 1',remaining);
-			$('#remaining1').text(remaining + ' characters remaining');
-			$messages.text(messages + ' message(s)');
+	$('.sms_body_one').keyup(function(){
+
+		var chars = this.value.length;
+
+		console.log('keyup sms body 1',chars);
+		messages = Math.ceil(chars / 160);
+		remaining = messages * 160 - (chars % (messages * 160) || messages * 160);
+		console.log('remaining body 1',remaining);
+		$('#remaining1').text(remaining + ' characters remaining');
+		$messages.text(messages + ' message(s)');
+	});
+	var $remaining = $('#remaining2'),
+	$messages = $remaining.next();
+	$('.sms_body2').keyup(function(){
+		console.log('keyup sms body 2');
+		var chars = this.value.length,
+		messages = Math.ceil(chars / 160),
+		remaining = messages * 160 - (chars % (messages * 160) || messages * 160);
+
+		$remaining.text(remaining + ' characters remaining');
+		$messages.text(messages + ' message(s)');
+	});
+
+	function getClass(obj){
+		$("[name='class_id']").html(` <option selected="selected" value='0'> All Classes  </option>`);
+		var branch_id  = $(".branch_id").val();
+		console.log('branch',$("[name='branch_id']").val());
+		$('.branch').val(branch_id);
+		$.ajax({
+			method:"POST",
+			url:"{{route('branchHasClass')}}",
+			data : {id:branch_id},
+			dataType:"json",
+			success:function(data){
+				data.forEach(function(val,ind){
+					var id = val.course.id;
+					var name = val.course.course_name;
+					var option = `<option value="${id}">${name}</option>`;
+					$("[name='class_id']").append(option);
+				});
+				$('.class_id').select2();
+			}
 		});
-		var $remaining = $('#remaining2'),
-		$messages = $remaining.next();
-		$('.sms_body2').keyup(function(){
-			console.log('keyup sms body 2');
-			var chars = this.value.length,
-			messages = Math.ceil(chars / 160),
-			remaining = messages * 160 - (chars % (messages * 160) || messages * 160);
 
-			$remaining.text(remaining + ' characters remaining');
-			$messages.text(messages + ' message(s)');
-		});
+	}
 
-		function getClass(obj){
-			$("[name='class_id']").html(` <option selected="selected" value='0'> All Classes  </option>`);
-			var branch_id  = $(".branch_id").val();
-			console.log('branch',$("[name='branch_id']").val());
-			$('.branch').val(branch_id);
+	function getStudent(){
+		console.log('getStudent',$("[name='branch_id']").val(),$("[name='class_id']").val());
+
+		$("#banks-selected-options").html(` <option selected="selected" value='0'> All Students  </option>`);
+
+		var branch_id=$("[name='branch_id']").val();
+		var course_id=$("[name='class_id']").val();
+		if(course_id!='' && branch_id!=''){
 			$.ajax({
 				method:"POST",
-				url:"{{route('branchHasClass')}}",
-				data : {id:branch_id},
+				url:"{{route('classHasStudent')}}",
+				data : {branch_id:branch_id,course_id:course_id},
 				dataType:"json",
 				success:function(data){
 					data.forEach(function(val,ind){
-						var id = val.course.id;
-						var name = val.course.course_name;
+						var id = val.id;
+						var name = val.s_name+' '+val.s_fatherName;
 						var option = `<option value="${id}">${name}</option>`;
-						$("[name='class_id']").append(option);
-					});
-					$('.class_id').select2();
-				}
-			});
-
-		}
-
-		function getStudent(){
-			console.log('getStudent',$("[name='branch_id']").val(),$("[name='class_id']").val());
-
-			$("#banks-selected-options").html(` <option selected="selected" value='0'> All Students  </option>`);
-
-			var branch_id=$("[name='branch_id']").val();
-			var course_id=$("[name='class_id']").val();
-			if(course_id!='' && branch_id!=''){
-				$.ajax({
-					method:"POST",
-					url:"{{route('classHasStudent')}}",
-					data : {branch_id:branch_id,course_id:course_id},
-					dataType:"json",
-					success:function(data){
-						data.forEach(function(val,ind){
-							var id = val.id;
-							var name = val.s_name+' '+val.s_fatherName;
-							var option = `<option value="${id}">${name}</option>`;
-							console.log('students',option);
-							$("#banks-selected-options").append(option);
+						console.log('students',option);
+						$("#banks-selected-options").append(option);
 									// var o = new Option(`${name}`, `${id}`);
 									// 	$("#banks-selected-options").append(o);
 
 								});
 
 
-						$("#banks-selected-options").multiSelect();
-					}
-				});
-			}
-
+					$("#banks-selected-options").multiSelect();
+				}
+			});
 		}
 
-		$('#account').select2({
-			ajax: {
-				url: "{{route('get_student_search')}}",
-				method:"post",
-				dataType: 'json',
-				processResults: function (_data, params) {
+	}
 
-					var data1= $.map(_data, function (obj) {
-						var newobj = {};
-						newobj.id = obj.id;
-						newobj.text= `${obj.s_name} - (${obj.id}) `;
-						return newobj;
-					});
-					return { results:data1};
-				}
+	$('#account').select2({
+		ajax: {
+			url: "{{route('get_student_search')}}",
+			method:"post",
+			dataType: 'json',
+			processResults: function (_data, params) {
+
+				var data1= $.map(_data, function (obj) {
+					var newobj = {};
+					newobj.id = obj.id;
+					newobj.text= `${obj.s_name} - (${obj.id}) `;
+					return newobj;
+				});
+				return { results:data1};
 			}
-		});
+		}
+	});
 
-	</script>
+</script>
 
-	@endpush
+@endpush

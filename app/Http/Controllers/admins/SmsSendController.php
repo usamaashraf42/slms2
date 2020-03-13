@@ -13,6 +13,14 @@ use Session;
 use Auth;
 class SmsSendController extends Controller
 {
+
+     function __construct()
+    {
+         $this->middleware('role_or_permission:SMS Alert', ['only' => ['create','store']]);
+         
+    }
+
+
     public function create(){
     	$branch=Branch::where('status',1);
 

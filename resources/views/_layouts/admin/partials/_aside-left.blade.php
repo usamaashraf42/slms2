@@ -538,6 +538,26 @@
         </ul>
     </li>
 
+   
+
+
+ @if(Auth::user()->can('SMS Alert')  )
+    <li class="submenu ">
+        <a href="javascript:;" class="{{ areActiveRoutes(['sms-send.create','sms-send.index'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> SMS & E-Mails Alert</span> <span class="menu-arrow"></span></a>
+        <ul class="list-unstyled" style="display: none;">
+
+            @if(Auth::user()->can('SMS Alert')  )
+            <li class="{{ areActiveRoutes(['sms-send.create','sms-send.index'])}}">
+                <a href="{{route('sms-send.create')}}" class=""><i class="fa fa-user" aria-hidden="true"></i> 
+                    <span>SMS Alert</span> 
+                </a>
+            </li>
+            @endif
+        </ul>
+    </li>
+
+ @endif
+
     @if(Auth::user()->can('Fee Challen') || Auth::user()->can('Fee Deposit') || Auth::user()->can('Fee Post') || Auth::user()->can('Profit Loss') || Auth::user()->can('Balance Sheet')  || Auth::user()->can('Trial Balance')  || Auth::user()->can('Ledger')  || Auth::user()->can('General Voucher')  || Auth::user()->can('Bank Deposit') || Auth::user()->can('Bank Payment') || Auth::user()->can('Cash Payment') || Auth::user()->can('Cash Receipt') || Auth::user()->can('Account Record') || Auth::user()->can('Account Add') || Auth::user()->can('Account Edit')  || Auth::user()->can('statement')  || Auth::user()->can('Outstanding') || Auth::user()->can('Franchise Applicant') || Auth::user()->can('Correction') ||  Auth::user()->can('Correction Approval') || Auth::user()->can('Correction Approved Report') || Auth::user()->can('Paid List') || Auth::user()->can('Tentive List'))
     <li class="submenu ">
         <a href="javascript:;" class="{{ areActiveRoutes(['franchise-applicant.create','franchise-applicant.index','statement.create','statement.index','statement.store','account.create','account.index','feepost.create','feepost.index','fee-deposit.create','fee-deposit.index','fee-challan.create','fee-challan.index' ,'fee-challan.store','outstanding.create','outstanding.index','outstanding.store','cash-receipt.create','cash-receipt.index','cash-payment.create','cash-payment.index','bank-payment.create','bank-payment.index','bank-deposit.create','bank-deposit.index','ledger.create','ledger.index','ledger.edit','general-voucher.create','general-voucher.index','tentive.create','tentive.store','tentive.index','paid-account.create','paid-account.index','paid-account.store','fee-increment.create','fee-increment.index' ,'fee-increment.store','bank-outstanding.create','bank-outstanding.index','bank-outstanding.store','account-category.create','account-category.index','account-category.edit','bank-outstanding.create','bank-outstanding.index','bank-outstanding.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Account Management</span> <span class="menu-arrow"></span></a>
@@ -679,11 +699,7 @@
     </a>
 </li>
 @endif
-<li class="{{ areActiveRoutes(['sms-send.create','sms-send.index'])}}">
-    <a href="{{route('sms-send.create')}}" class=""><i class="fa fa-user" aria-hidden="true"></i> 
-        <span>Sms To Student</span> 
-    </a>
-</li>
+
 
 
 
