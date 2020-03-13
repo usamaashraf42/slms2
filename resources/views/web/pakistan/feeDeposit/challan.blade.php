@@ -334,13 +334,15 @@ border-bottom-left-radius: 25px;
               @endcomponent
               <div id="signupbox"  class="mainbox col-md-12  col-sm-12 col-xs-12">
                 <div>
+
+                
                   <form   action="{{route('feedeposit.store')}}" id="applicationForm"  method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="panel-body" style="border:1px solid #ccc; margin-bottom: 20px;">
                       <div class="row">
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <div id="div_id_username" class="form-group required">
-                            <label for="std_id" class="control-label requiredField">Roll No                         
+                            <label for="std_id" class="control-label requiredField">Student Id                         
                               <span class="required" style="color: red">*</span> 
                             </label>
                             <div class="controls">
@@ -478,7 +480,8 @@ crossorigin="anonymous"></script>
 <script type="text/javascript" src="{{asset('assets/chosen/init.js')}}"></script>
 <link rel="stylesheet" type="text/css" href="{{asset('assets/chosen/chosen.css')}}">
 
-
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.js">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"></script>
 <script type="text/javascript">
   $('.nationality').select2();
   $('.residence').select2();
@@ -697,7 +700,7 @@ function jobFormSubmit(ob){
 
  if(valid){
   $('.validateButton').css('display','none');
-  $('.submitButton').css('display','block');
+  
 
 
   
@@ -710,10 +713,11 @@ function jobFormSubmit(ob){
       console.log('feeChallan', response);
 
       if (response.status) {
+
         $('.pp_Amount').val(response.data.total_payable);
-        $('.pp_BillReference').val(fee_id);
-        $('.TxnRefNumber').val(fee_id);
-        $('.ppmpf_1').val(fee_id);
+        $('.pp_BillReference').val(response.data.fee_id);
+        $('.TxnRefNumber').val(response.data.fee_id);
+        $('.ppmpf_1').val(response.data.fee_id);
         $('.ppmpf_2').val(std_id);
 
         var content=`<div class="col-md-9">
@@ -825,13 +829,15 @@ function jobFormSubmit(ob){
         </div>`;
 
         $('#feeChallan').append(content);
+         $('.submitButton').css('display','block');
 
       } else {
-       swal(
-        'Oops...',
-        'Something went wrong!',
-        'error'
-        )
+        console.log('status false', response);
+       $('.std_id-error').text('std Id is not valid.');
+      $('.std_id-error').css('display','block','color','red','border-color','red');
+      $('.validateButton').css('display','block');
+
+       // location.reload(true);
      }
    },
    error: function () {

@@ -332,6 +332,7 @@ border-bottom-left-radius: 25px;
     					@component('_components.alerts-default')
     					@endcomponent
     					<div id="signupbox"  class="mainbox col-md-12  col-sm-12 col-xs-12">
+    						 <h2 >1 Dollar ={{currencyCnv(1,'USD','PKR')}}</h2>
     						<div>
     							<form   action="{{route('feeDepositpaypal')}}" id="applicationForm"  method="POST" enctype="multipart/form-data">
     								@csrf
@@ -403,7 +404,7 @@ border-bottom-left-radius: 25px;
     													<td>{{$object->fee_month}}</td>
     													<td>{{$object->fee_year}}</td>
     													<td>{{$object->due_date}}</td>
-    													<td>{{$object->total_fee}}/-</td>
+    													<td>{{currencyCnv($object->total_fee,'PKR','USD')}}$/-</td>
     												</tr>
     											</tbody>
     										</table>
@@ -425,16 +426,16 @@ border-bottom-left-radius: 25px;
     										<div style="width: 50%;float: right; text-align: right;padding-right: 15px; ">
     											<p>
 
-    												<strong><i class="fa fa-inr"></i> {{$object->total_fee}}/-</strong>
+    												<strong><i class="fa fa-inr"></i>  {{currencyCnv($object->total_fee,'PKR','USD')}}$/-</strong>
     											</p>
     											<p>
-    												<strong><i class="fa fa-inr"></i> {{$object->fine}}/-</strong>
+    												<strong><i class="fa fa-inr"></i> {{currencyCnv($object->fine,'PKR','USD')}}$ /-</strong>
     											</p>
     											<p>
-    												<strong><i class="fa fa-inr"></i> {{$object->total_payable}}/-</strong>
+    												<strong><i class="fa fa-inr"></i> {{currencyCnv($object->total_payable,'PKR','USD')}}$ /-</strong>
 
 
-    												<h2><strong><i class="fa fa-inr"></i> @isset($object->desire_amount) {{$object->desire_amount}} @endisset/-</strong></h2>
+    												<h2><strong><i class="fa fa-inr"></i> @isset($object->desire_amount) {{currencyCnv($object->desire_amount,'PKR','USD')}}$  @endisset/-</strong></h2>
 
     											</div>
     										</div>
