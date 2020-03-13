@@ -43,17 +43,17 @@ class FeeDepositController extends Controller
 		{
 			if($ResponseCode == '000'||$ResponseCode == '121'||$ResponseCode == '200'){
 
-				session()->flash('success_message', __("Payment Successfull."));
+				session()->flash('success_message', __("Payment Successfull. $ResponseMessage"));
 				return redirect()->route('feedeposit.index');
 				
 			} 
 			else  if($ResponseCode == '124'||$ResponseCode == '210') {
-				session()->flash('error_message', __("Payment Pending."));
+				session()->flash('error_message', __("Payment Pending. $ResponseMessage"));
 				return redirect()->route('feedeposit.index');
 
 			}
 			else {
-				session()->flash('error_message', __("Payment Failed. "));
+				session()->flash('error_message', __("Payment Failed. $ResponseMessage "));
 				return redirect()->route('feedeposit.index');
 				
 			}
