@@ -61,16 +61,16 @@ class SmsSendController extends Controller
     				$log=SendSms($request->emergency_mobile?$request->emergency_mobile:$std->s_phoneNo,$sms);
     			}
 
-        		SmsSendLog::create([
-    	    		'std_id'=>$std->id,
-    	    		'branch_id'=>$request->branch_id?$request->branch_id:$std->branch_id,
-    	    		'class_id'=>$request->class_id?$request->class_id:$std->course_id,
-    	    		'created_by'=>Auth::user()->id,
-    	    		'sms_title'=>$request->sms_title,
-    	    		'sms_body'=>$request->sms_body,
-    	    		'phone'=>$request->emergency_mobile?$request->emergency_mobile:$std->s_phoneNo,
-    	    		'description'=>isset($log)?$log:null,
-    	    	]);
+        		// SmsSendLog::create([
+    	    	// 	'std_id'=>$std->id,
+    	    	// 	'branch_id'=>$request->branch_id?$request->branch_id:$std->branch_id,
+    	    	// 	'class_id'=>$request->class_id?$request->class_id:$std->course_id,
+    	    	// 	'created_by'=>Auth::user()->id,
+    	    	// 	'sms_title'=>$request->sms_title,
+    	    	// 	'sms_body'=>$request->sms_body,
+    	    	// 	'phone'=>$request->emergency_mobile?$request->emergency_mobile:$std->s_phoneNo,
+    	    	// 	'description'=>isset($log)?$log:null,
+    	    	// ]);
         	}
         }
 
@@ -79,13 +79,13 @@ class SmsSendController extends Controller
 				$sms=strip_tags($request->sms_body);
 				$log=SendSms($request->phone,$sms);
              
-				SmsSendLog::create([
-		    		'created_by'=>Auth::user()->id,
-		    		'sms_title'=>$request->sms_title,
-		    		'sms_body'=>$request->sms_body,
-		    		'phone'=>$request->phone,
-		    		'description'=>isset($log)?$log:null,
-		    	]);
+				// SmsSendLog::create([
+		  //   		'created_by'=>Auth::user()->id,
+		  //   		'sms_title'=>$request->sms_title,
+		  //   		'sms_body'=>$request->sms_body,
+		  //   		'phone'=>$request->phone,
+		  //   		'description'=>isset($log)?$log:null,
+		  //   	]);
 			}
     	}
 

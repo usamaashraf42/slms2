@@ -212,7 +212,7 @@ if (!function_exists('SendSms')) {
   $tokens=$vear;
 // return $tokens;
 
-  $type = "text";
+  $type = "json";
   $id = "923224772704";
   $pass = "tahir786";
   $lang = "English";
@@ -223,8 +223,6 @@ if (!function_exists('SendSms')) {
     // Prepare data for POST request
   $data =
   "id=".$id."&pass=".$pass."&msg=".$message."&to=".$to."&lang=".$lang."&mask=A_LYCEUM&type=".$type;
-  // return $data;
-    // Send the POST request with cURL
   $ch = curl_init('http://www.sms4connect.com/api/sendsms.php/sendsms/url');
   curl_setopt($ch, CURLOPT_POST, true);
   curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
