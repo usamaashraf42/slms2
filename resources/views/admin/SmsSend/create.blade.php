@@ -105,6 +105,8 @@
 
 
     						</ul>
+    						@component('_components.alerts-default')
+    						@endcomponent
 
     						<!-- Tab panes -->
 
@@ -340,7 +342,7 @@
 			console.log('keyup sms body 1',chars);
 			messages = Math.ceil(chars / 160);
 			remaining = messages * 160 - (chars % (messages * 160) || messages * 160);
-console.log('remaining body 1',remaining);
+			console.log('remaining body 1',remaining);
 			$('#remaining1').text(remaining + ' characters remaining');
 			$messages.text(messages + ' message(s)');
 		});
