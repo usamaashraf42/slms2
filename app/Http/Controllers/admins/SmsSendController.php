@@ -42,7 +42,7 @@ class SmsSendController extends Controller
 
 
         	$stds=$students->get();
-            dd($stds);
+        
             
         	foreach ($stds as $std) {
     			$log=null;
@@ -65,7 +65,7 @@ class SmsSendController extends Controller
     	    	]);
         	}
         }
-dd($request->all());
+
     	if($request->phone){
     		if(isset($request->phone) && ($request->phone) && $request->sms_body){
 				$sms=strip_tags($request->sms_body);
