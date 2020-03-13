@@ -15,7 +15,7 @@ class FeeDepositController extends Controller
 
 
 	public function feeDepositstatus(Request $request){
-		
+		dd($request->all());
 		$HashKey= "y14yb32g8s"; //Your Hash Key
 		$ResponseCode =$_POST['pp_ResponseCode'];
 		$ResponseMessage = $_POST['pp_ResponseMessage'];
@@ -133,8 +133,7 @@ class FeeDepositController extends Controller
 	public function feeChallan(Request $request){
 
 
-		// dd($request->all());
-		$fee=FeePost::where('std_id',$request->std_id)->with('student.branch','student.course')->where('paid_amount','<=',0)->orderBy('id','DESC')->first();
+		$fee=FeePost::where('std_id',$request->std_id)->with('student.branch','student.course')->orderBy('id','DESC')->first();
 
 
 
@@ -190,7 +189,7 @@ class FeeDepositController extends Controller
 
 	public function store(Request $request){
 // dd($request->all());
-		$fee=FeePost::where('std_id',$request->std_id)->with('student.branch','student.course')->where('paid_amount','<=',0)->orderBy('id','DESC')->first();
+		$fee=FeePost::where('std_id',$request->std_id)->with('student.branch','student.course')->orderBy('id','DESC')->first();
 
 		if(!$fee){
 			session()->flash('error_message', __('Record not found'));
@@ -240,12 +239,12 @@ class FeeDepositController extends Controller
 			session()->flash('error_message', __('Amount Should be Equal or greater then $object->total_payable'));
 			return redirect()->back();
 		}
-		if($request->method==2 && $object){
+		if($request->type_method==2 && $object){
 			$object->desire_amount=$request->pp_Amount;
 			// dd($request->all());
 			return view('web.pakistan.feeDeposit.newForm',compact('request','object'));
 		}else{
-
+			$object->desire_amount=$request->pp_Amount;
 			return view('web.pakistan.feeDeposit.paypalChallan',compact('request','object'));
 			// session()->flash('error_message', __('PayPal is not integrate'));
 			// return redirect()->back();
@@ -254,7 +253,7 @@ class FeeDepositController extends Controller
 
 	public function searchChallan(Request $request){
 		
-		$fee=FeePost::where('std_id',$request->std_id)->with('student.branch','student.course')->where('paid_amount','<=',0)->orderBy('id','DESC')->first();
+		$fee=FeePost::where('std_id',$request->std_id)->with('student.branch','student.course')->orderBy('id','DESC')->first();
 
 		if(!$fee){
 			session()->flash('error_message', __('Record not found'));
@@ -299,7 +298,7 @@ class FeeDepositController extends Controller
 			$object->due_date=$fee->outstand_lastmonth>0?date("d M Y", strtotime($fee->fee_due_date2)):date("d M Y", strtotime($fee->fee_due_date1));
 		}
 		$request=$request;
-		if($request->method==2 && $object){
+		if( $object){
 			return response()->json(['status'=>1,'request'=>$request,'object'=>'object','data'=>$object]);
 		}else{
 			return response()->json(['status'=>0,'request'=>$request,'object'=>'object','data'=>$object]);

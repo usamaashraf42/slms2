@@ -1,37 +1,7 @@
 @extends('_layouts.web.pakistan.default')
 @section('title', 'Fee Deposit')
 @section('content')
-<div id="search-container" class="bg-dark-blue invert">
-  <a id="search-close" class="close-location pull-right no-style f7">CLOSE <span class="icon icon-x f5 ml1 relative white dib bg-gold"></span></a>
-  <div class="pv3">
-    <script type="text/javascript">
-// <![CDATA[
-$(document).ready(function() {
-  $("#searchButton").click(function() { return send(); });
-  $("#searchField").keypress(function(evt) {
-   if (evt.keyCode == 13) {
-    return send();
-  }
-});
-  $("#searchField").click(function() { $(this).val(""); });
-  function send() {
-   val = $("#searchField").val();
-   if (val != "") window.location = "/searchresults.aspx?s=" + escape(val);
-   return false;
- }
-});
-//  ]]>
-</script>
-<div class="searchPanel">
 
-  <label style="position: absolute;width: 1px;height: 1px;padding: 0;margin: -1px;overflow: hidden;clip: rect(0,0,0,0);border: 0;" class="sw-site-search-label sr-only" for="searchField">Search</label>
-  <input type="text" id="searchField" class="searchField" value="Search" title="Search the Site" />
-  <input type="button" id="searchButton" class="searchButton" value="Go" />
-</div>
-
-<span class="light-gray pt2 ph3 dib f6">Enter your search term and press enter. Press Esc or X to close.</span>
-</div>
-</div>
 <div id="siteWrapper" class="slide-right" style="overflow:hidden;">
   <div class="body-overlay"></div>
   <style>
@@ -412,28 +382,7 @@ border-bottom-left-radius: 25px;
                           </div> -->
                         </div>
                         <div class="row" style="display: none;">
-                          <div class="col-md-6 col-sm-6 col-xs-12">
-                            <div style="width: 100%; border-left: 2px solid #ddd;">
-                            </div>
-                            <ul>
-                              <li class="list_radio">
-                                <input type="radio" value="1" id="f-option" name="method">
-                                <label for="f-option"> 
-                                  <img src="{{asset('assets/img/paypal.png')}}" width="100%" style="max-width: 260px;height: 68px; margin-top: -23px;"></label>
-
-                                  <div class="check"></div>
-                                </li>
-
-                                <li class="list_radio">
-                                  <input type="radio" checked value="2" id="s-option" name="method">
-                                  <label for="s-option"> <img src="{{asset('assets/img/jazzcash.jpg')}}" width="100%" style="max-width: 260px;height:80px; margin-top: -23px;">
-                                  </label>
-                                  <div class="check"><div class="inside"></div></div>
-                                </li>
-
-
-                              </ul>
-                            </div>
+                          
 
                             <input type="hidden" name="pp_Version" value="<?php echo $Version; ?>" />
                             <input type="hidden" name="pp_TxnType" value="<?php echo $TxnType; ?>" />
@@ -458,6 +407,8 @@ border-bottom-left-radius: 25px;
                             <input type="hidden" name="ppmpf_4" value="<?php echo $ppmpf_4; ?>" />
                             <input type="hidden" name="ppmpf_5" value="<?php echo $ppmpf_5; ?>" />
 
+                             <input type="hidden" class="type_method" name="type_method" value="" />
+
 
                           </div>
                         </div>
@@ -476,8 +427,8 @@ border-bottom-left-radius: 25px;
               <div class="col-md-12">
                 <div class="modal-footer">
 
-                  <input type="button" class="btn btn-info btn-lg validateButton "   onclick="jobFormSubmit(this)"  id="updateDataBtn" value="Search">
-                  <input type="submit" class="btn btn-success btn-lg submitButton"   style="display: none;"  id="updateDataBtn" value="submit">
+                  <input type="button" class="btn btn-info btn-lg validateButton "   onclick="jobFormSubmit(this)"  value="Search">
+                  <input type="submit" class="btn btn-success btn-lg submitButton"   style="display: none;"  value="submit">
                 </div>
               </div>
             </form>
@@ -855,7 +806,7 @@ function jobFormSubmit(ob){
         </div>
         <ul>
         <li class="list_radio">
-        <input type="radio" value="1" id="f-option" name="method">
+        <input type="radio" onclick="checkedMethod(this)" checked value="1" id="f-option" name="method">
         <label for="f-option"> 
         <img src="{{asset('assets/img/paypal.png')}}" width="100%" style="max-width: 260px;height: 68px; margin-top: -23px;"></label>
 
@@ -863,7 +814,7 @@ function jobFormSubmit(ob){
         </li>
 
         <li class="list_radio">
-        <input type="radio" checked value="2" id="s-option" name="method">
+        <input type="radio" onclick="checkedMethod(this)"  value="2" id="s-option" name="method">
         <label for="s-option"> <img src="{{asset('assets/img/jazzcash.jpg')}}" width="100%" style="max-width: 260px;height:80px; margin-top: -23px;">
         </label>
         <div class="check"><div class="inside"></div></div>
@@ -911,6 +862,24 @@ function AmountConstraint(obj){
   $('.pp_Amount').val(partialAmount);
 
 }
+
+
+
+  function checkedMethod(obj){
+    // $(obj).val(this.checked);
+    console.log('checkmethod',obj);
+    $(obj).prop("checked");
+
+    var method=parseInt($(obj).val());
+    $('.type_method').val(method);
+    
+  }
+
+
+
+
+
+
 </script>
 
 
