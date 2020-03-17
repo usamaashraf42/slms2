@@ -62,7 +62,13 @@ class IndividualFeePostController extends Controller
 
         $tem=array();
         $branch=Branch::where('id',$ly_no->branch_id)->first();
-        $on_round_off=isset($branch->userSetting->on_round_off)?$branch->userSetting->on_round_off:5;
+        $on_round_off=1;
+
+        if(isset($branch->userSetting->on_round_off) && ($branch->userSetting->on_round_off)){
+            $on_round_off=$branch->userSetting->on_round_off;
+        }else{
+            $on_round_off=5;
+        }
 
         $stduentsi=Student::where('id',$request->std_id)->first();
 
