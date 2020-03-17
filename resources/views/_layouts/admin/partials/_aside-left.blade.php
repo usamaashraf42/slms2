@@ -8,171 +8,173 @@
                 </li>
 
 
-                @if(Auth::user()->can('Class Record') || Auth::user()->can('Class-Create') || Auth::user()->can('Class-Edit') || Auth::user()->can('Section Record') || Auth::user()->can('Section-Create') || Auth::user()->can('Section-Edit') || Auth::user()->can('Subject Record') || Auth::user()->can('Subject-Create') || Auth::user()->can('Subject-Edit'))
-                <li class="submenu ">
-                    <a href="javascript:;" class="{{ areActiveRoutes(['subject.index','subject.create','subject.edit','section.index','section.create','section.edit','class.index','class.create','class.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Academic Management</span> <span class="menu-arrow"></span></a>
-                    <ul class="list-unstyled" style="display: none;">
-                        @if(Auth::user()->can('Class Record') || Auth::user()->can('Class-Create') || Auth::user()->can('Class-Edit') )
-                        <li class="{{ areActiveRoutes(['class.index','class.create','class.edit'])}}">
-                            <a href="{{route('class.index')}}" class="{{ areActiveRoutes(['class.index','class.create','class.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
-                                <span> Course / Classes</span>
-                            </a>
-                        </li>
-                        @endif
-                        @if(Auth::user()->can('Section Record') || Auth::user()->can('Section-Create') || Auth::user()->can('Section-Edit') )
-                        <li class="{{ areActiveRoutes(['section.index','section.create','section.edit'])}}">
-                            <a href="{{route('section.index')}}" class="{{ areActiveRoutes(['section.index','section.create','section.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
-                                <span> Section</span> 
-                            </a>
-                        </li>
-                        @endif
-                        @if(Auth::user()->can('Subject Record') || Auth::user()->can('Subject-Create') || Auth::user()->can('Subject-Edit') )
-                        <li class="submenu ">
-                            <a href="javascript:;" class="{{ areActiveRoutes(['subject.index','subject.create','subject.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Subject</span> <span class="menu-arrow"></span></a>
-                            <ul class="list-unstyled" style="display: none;">
-                              @if(Auth::user()->can('Subject Record')  || Auth::user()->can('Subject-Edit') )
-                              <li class="{{ areActiveRoutes(['subject.index'])}}"><a href="{{route('subject.index')}}">All Subject</a></li>
-                              @endif
-                              @if(Auth::user()->can('Subject-Create')  )
-                              <li><a href="javascript:;">Add Subject</a></li>
-                              @endif
-                              <li><a href="javascript:;">Assign Subject</a></li>
-                              <li><a href="javascript:;">Subject Allocation</a></li>
+                
 
+                @if(Auth::user()->can('Franchise Applicant')  )
+                <li class="submenu ">
+                    <a href="javascript:;" class="{{ areActiveRoutes(['subject.index','subject.create','subject.edit','section.index','section.create','section.edit','class.index','class.create','class.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Franchise Management</span> <span class="menu-arrow"></span></a>
+                    <ul class="list-unstyled" style="display: none;">
+                        @if(Auth::user()->can('Franchise Applicant')  )
+                        <li class="{{ areActiveRoutes(['franchise-applicant.create','franchise-applicant.index'])}}">
+                            <a href="{{route('franchise-applicant.index')}}" class=""><i class="fa fa-user" aria-hidden="true"></i> 
+                                <span>Franchise Applicant </span> 
+                            </a>
+                        </li>
+                        @endif
+                    </ul>
+                </li>
+                @endif
+
+                
+                <li class="submenu ">
+                    <a href="javascript:;" class="{{ areActiveRoutes(['branch-detail.index','branch-class.create','branch-class.edit' ,'branch-detail.index','branch-detail.create','branch-detail.store','branch-monthly-fee.index','branch-monthly-fee.create','branch-monthly-fee.store','branch-detail-monthly.index','branch-detail-monthly.create','branch-detail-monthly.store','branch-status.index','branch-status.create','branch-status.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Branch Management</span> <span class="menu-arrow"></span></a>
+                    <ul class="list-unstyled" style="display: none;">
+
+
+
+                        @if(Auth::user()->can('Branch Record') || Auth::user()->can('Branch-Create') || Auth::user()->can('Branch-Edit') )
+                        <li class="{{ areActiveRoutes(['branch.index','branch.create','branch.edit'])}}">
+                            <a href="{{route('branch.index')}}" class="{{ areActiveRoutes(['branch.index','branch.create','branch.edit'])}}">
+                                <i class="fa fa-user" aria-hidden="true"></i> 
+                                <span> Branch Setting</span> 
+                            </a>
+                        </li>
+                        @endif
+
+
+                        @if(Auth::user()->can('Branch Detail') )
+
+                        <li class="{{ areActiveRoutes(['branch-status.index','branch-status.create','branch-status.edit'])}}">
+                            <a href="{{route('branch-status.index')}}" class="{{ areActiveRoutes(['branch-status.index','branch-status.create','branch-status.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                                <span> Branch Status</span> 
+                            </a>
+                        </li>
+
+                        <li class="{{ areActiveRoutes(['branch-detail.index','branch-detail.create','branch-detail.store'])}}">
+                            <a href="{{route('branch-detail.create')}}" class="{{ areActiveRoutes(['branch-detail.index','branch-detail.create','branch-detail.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                                <span> Branch Detail</span> 
+                            </a>
+                        </li>
+
+                        <li class="{{ areActiveRoutes(['branch-detail-monthly.index','branch-detail-monthly.create','branch-detail-monthly.store'])}}">
+                            <a href="{{route('branch-detail-monthly.create')}}" class="{{ areActiveRoutes(['branch-detail-monthly.index','branch-detail-monthly.create','branch-detail-monthly.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                                <span> Branch Montly Detail</span> 
+                            </a>
+                        </li>
+
+                        <li class="{{ areActiveRoutes(['branch-monthly-fee.index','branch-monthly-fee.create','branch-monthly-fee.store'])}}">
+                            <a href="{{route('branch-monthly-fee.create')}}" class="{{ areActiveRoutes(['branch-monthly-fee.index','branch-monthly-fee.create','branch-monthly-fee.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                                <span> Branch Fee Detail</span> 
+                            </a>
+                        </li>
+
+
+                        <li class="{{ areActiveRoutes(['branch-detail.index','branch-detail.create','branch-detail.edit'])}}">
+                            <a href="{{route('branch-detail.index')}}" class="{{ areActiveRoutes(['branch-detail.index','branch-detail.create','branch-detail.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                                <span> Full Detail</span> 
+                            </a>
+                        </li>
+                        @endif
+
+
+                        
+
+
+                        @if(Auth::user()->can('Branch-Class-Record') || Auth::user()->can('Branch-Class-Record') )
+                        <li class="{{ areActiveRoutes(['branch-class.index','branch-class.create','branch-class.edit'])}}">
+                            <a href="{{route('branch-class.index')}}" class="{{ areActiveRoutes(['branch-class.index','branch-class.create','branch-class.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                                <span> Branch has Class</span> 
+                            </a>
+                        </li>
+                        @endif
+
+
+                        @if(Auth::user()->can('Admission Package') || Auth::user()->can('Admission Package Edit') )
+                        <li class="{{ areActiveRoutes(['admission-package.index','admission-package.create','admission-package.edit'])}}">
+                            <a href="{{route('admission-package.index')}}" class="{{ areActiveRoutes(['admission-package.index','admission-package.create','admission-package.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                                <span> Addmission Package</span> 
+                            </a>
+                        </li>
+                        @endif
+                        <li class="{{ areActiveRoutes(['branch-performance.index','branch-performance.edit','branch-performance.create','branch-performance.store'])}}">
+                            <a href="{{route('branch-performance.index')}}" class="{{ areActiveRoutes(['branch-performance.index','branch-performance.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                                <span>Branch Performance</span> 
+                            </a>
+                        </li>
+                        @if(Auth::user()->can('New Admission Status'))
+                        <li class="{{ areActiveRoutes(['net-admission-status.index','net-admission-status.edit','net-admission-status.create','net-admission-status.store'])}}">
+                            <a href="{{route('net-admission-status.index')}}" class="{{ areActiveRoutes(['net-admission-status.index','net-admission-status.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                                <span>Net Admission</span> 
+                            </a>
+                        </li>
+                        @endif
+                        
+
+
+                        <li class="{{ areActiveRoutes(['school.index','school.create','school.edit'])}}">
+                            <a href="{{route('school.index')}}" class="{{ areActiveRoutes(['school.index','school.create','school.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                                <span> School</span> 
+                            </a>
+                        </li>
+
+
+
+                        <li class="{{ areActiveRoutes(['bank.index','bank.create','bank.edit'])}}">
+                            <a href="{{route('bank.index')}}" class="{{ areActiveRoutes(['bank.index','bank.create','bank.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                                <span> Bank</span> 
+                            </a>
+                        </li>
+
+                        @if(Auth::user()->can('Class Record') || Auth::user()->can('Class-Create') || Auth::user()->can('Class-Edit') || Auth::user()->can('Section Record') || Auth::user()->can('Section-Create') || Auth::user()->can('Section-Edit') || Auth::user()->can('Subject Record') || Auth::user()->can('Subject-Create') || Auth::user()->can('Subject-Edit'))
+                        <li class="submenu ">
+                            <a href="javascript:;" class="{{ areActiveRoutes(['subject.index','subject.create','subject.edit','section.index','section.create','section.edit','class.index','class.create','class.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Academic Setting</span> <span class="menu-arrow"></span></a>
+                            <ul class="list-unstyled" style="display: none;">
+                                @if(Auth::user()->can('Class Record') || Auth::user()->can('Class-Create') || Auth::user()->can('Class-Edit') )
+                                <li class="{{ areActiveRoutes(['class.index','class.create','class.edit'])}}">
+                                    <a href="{{route('class.index')}}" class="{{ areActiveRoutes(['class.index','class.create','class.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                                        <span> Course / Classes</span>
+                                    </a>
+                                </li>
+                                @endif
+                                @if(Auth::user()->can('Section Record') || Auth::user()->can('Section-Create') || Auth::user()->can('Section-Edit') )
+                                <li class="{{ areActiveRoutes(['section.index','section.create','section.edit'])}}">
+                                    <a href="{{route('section.index')}}" class="{{ areActiveRoutes(['section.index','section.create','section.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                                        <span> Section</span> 
+                                    </a>
+                                </li>
+                                @endif
+                                @if(Auth::user()->can('Subject Record') || Auth::user()->can('Subject-Create') || Auth::user()->can('Subject-Edit') )
+                                <li class="submenu ">
+                                    <a href="javascript:;" class="{{ areActiveRoutes(['subject.index','subject.create','subject.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Subject</span> <span class="menu-arrow"></span></a>
+                                    <ul class="list-unstyled" style="display: none;">
+                                      @if(Auth::user()->can('Subject Record')  || Auth::user()->can('Subject-Edit') )
+                                      <li class="{{ areActiveRoutes(['subject.index'])}}"><a href="{{route('subject.index')}}">All Subject</a></li>
+                                      @endif
+                                      @if(Auth::user()->can('Subject-Create')  )
+                                      <li><a href="javascript:;">Add Subject</a></li>
+                                      @endif
+                                      <li><a href="javascript:;">Assign Subject</a></li>
+                                      <li><a href="javascript:;">Subject Allocation</a></li>
+
+                                  </ul>
+                              </li>
+                              @endif
                           </ul>
                       </li>
                       @endif
+
+
+
+
+
+
                   </ul>
               </li>
-              @endif
 
-              @if(Auth::user()->can('Franchise Applicant')  )
+
+
+              @if(Auth::user()->can('Admin Record') || Auth::user()->can('Admin-Create') || Auth::user()->can('Admin-Edit') || Auth::user()->can('Role Record') || Auth::user()->can('Role-Create') || Auth::user()->can('Role-Edit') || Auth::user()->can('Role-Delete') || Auth::user()->can('Permission Record') || Auth::user()->can('Permission Add') || Auth::user()->can('Permission Edit'))
               <li class="submenu ">
-                <a href="javascript:;" class="{{ areActiveRoutes(['subject.index','subject.create','subject.edit','section.index','section.create','section.edit','class.index','class.create','class.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Franchise Management</span> <span class="menu-arrow"></span></a>
-                <ul class="list-unstyled" style="display: none;">
-                    @if(Auth::user()->can('Franchise Applicant')  )
-                    <li class="{{ areActiveRoutes(['franchise-applicant.create','franchise-applicant.index'])}}">
-                        <a href="{{route('franchise-applicant.index')}}" class=""><i class="fa fa-user" aria-hidden="true"></i> 
-                            <span>Franchise Applicant </span> 
-                        </a>
-                    </li>
-                    @endif
-                </ul>
-            </li>
-            @endif
-
-            
-            <li class="submenu ">
-                <a href="javascript:;" class="{{ areActiveRoutes(['branch-detail.index','branch-class.create','branch-class.edit' ,'branch-detail.index','branch-detail.create','branch-detail.store','branch-monthly-fee.index','branch-monthly-fee.create','branch-monthly-fee.store','branch-detail-monthly.index','branch-detail-monthly.create','branch-detail-monthly.store','branch-status.index','branch-status.create','branch-status.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Branch Management</span> <span class="menu-arrow"></span></a>
-                <ul class="list-unstyled" style="display: none;">
-
-
-
-                    @if(Auth::user()->can('Branch Record') || Auth::user()->can('Branch-Create') || Auth::user()->can('Branch-Edit') )
-                    <li class="{{ areActiveRoutes(['branch.index','branch.create','branch.edit'])}}">
-                        <a href="{{route('branch.index')}}" class="{{ areActiveRoutes(['branch.index','branch.create','branch.edit'])}}">
-                            <i class="fa fa-user" aria-hidden="true"></i> 
-                            <span> Branch Setting</span> 
-                        </a>
-                    </li>
-                    @endif
-
-
-                    @if(Auth::user()->can('Branch Detail') )
-
-                    <li class="{{ areActiveRoutes(['branch-status.index','branch-status.create','branch-status.edit'])}}">
-                        <a href="{{route('branch-status.index')}}" class="{{ areActiveRoutes(['branch-status.index','branch-status.create','branch-status.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
-                            <span> Branch Status</span> 
-                        </a>
-                    </li>
-
-                    <li class="{{ areActiveRoutes(['branch-detail.index','branch-detail.create','branch-detail.store'])}}">
-                        <a href="{{route('branch-detail.create')}}" class="{{ areActiveRoutes(['branch-detail.index','branch-detail.create','branch-detail.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
-                            <span> Branch Detail</span> 
-                        </a>
-                    </li>
-
-                    <li class="{{ areActiveRoutes(['branch-detail-monthly.index','branch-detail-monthly.create','branch-detail-monthly.store'])}}">
-                        <a href="{{route('branch-detail-monthly.create')}}" class="{{ areActiveRoutes(['branch-detail-monthly.index','branch-detail-monthly.create','branch-detail-monthly.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
-                            <span> Branch Montly Detail</span> 
-                        </a>
-                    </li>
-
-                    <li class="{{ areActiveRoutes(['branch-monthly-fee.index','branch-monthly-fee.create','branch-monthly-fee.store'])}}">
-                        <a href="{{route('branch-monthly-fee.create')}}" class="{{ areActiveRoutes(['branch-monthly-fee.index','branch-monthly-fee.create','branch-monthly-fee.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
-                            <span> Branch Fee Detail</span> 
-                        </a>
-                    </li>
-
-
-                    <li class="{{ areActiveRoutes(['branch-detail.index','branch-detail.create','branch-detail.edit'])}}">
-                        <a href="{{route('branch-detail.index')}}" class="{{ areActiveRoutes(['branch-detail.index','branch-detail.create','branch-detail.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
-                            <span> Full Detail</span> 
-                        </a>
-                    </li>
-                    @endif
-
-
-                    
-
-
-                    @if(Auth::user()->can('Branch-Class-Record') || Auth::user()->can('Branch-Class-Record') )
-                    <li class="{{ areActiveRoutes(['branch-class.index','branch-class.create','branch-class.edit'])}}">
-                        <a href="{{route('branch-class.index')}}" class="{{ areActiveRoutes(['branch-class.index','branch-class.create','branch-class.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
-                            <span> Branch has Class</span> 
-                        </a>
-                    </li>
-                    @endif
-
-
-                    @if(Auth::user()->can('Admission Package') || Auth::user()->can('Admission Package Edit') )
-                    <li class="{{ areActiveRoutes(['admission-package.index','admission-package.create','admission-package.edit'])}}">
-                        <a href="{{route('admission-package.index')}}" class="{{ areActiveRoutes(['admission-package.index','admission-package.create','admission-package.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
-                            <span> Addmission Package</span> 
-                        </a>
-                    </li>
-                    @endif
-                    <li class="{{ areActiveRoutes(['branch-performance.index','branch-performance.edit','branch-performance.create','branch-performance.store'])}}">
-                        <a href="{{route('branch-performance.index')}}" class="{{ areActiveRoutes(['branch-performance.index','branch-performance.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
-                            <span>Branch Performance</span> 
-                        </a>
-                    </li>
-                    @if(Auth::user()->can('New Admission Status'))
-                    <li class="{{ areActiveRoutes(['net-admission-status.index','net-admission-status.edit','net-admission-status.create','net-admission-status.store'])}}">
-                        <a href="{{route('net-admission-status.index')}}" class="{{ areActiveRoutes(['net-admission-status.index','net-admission-status.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
-                            <span>Net Admission</span> 
-                        </a>
-                    </li>
-                    @endif
-                    
-
-
-                    <li class="{{ areActiveRoutes(['school.index','school.create','school.edit'])}}">
-                        <a href="{{route('school.index')}}" class="{{ areActiveRoutes(['school.index','school.create','school.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
-                            <span> School</span> 
-                        </a>
-                    </li>
-
-
-
-                    <li class="{{ areActiveRoutes(['bank.index','bank.create','bank.edit'])}}">
-                        <a href="{{route('bank.index')}}" class="{{ areActiveRoutes(['bank.index','bank.create','bank.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
-                            <span> Bank</span> 
-                        </a>
-                    </li>
-
-
-
-
-
-
-                </ul>
-            </li>
-
-
-
-            @if(Auth::user()->can('Admin Record') || Auth::user()->can('Admin-Create') || Auth::user()->can('Admin-Edit') || Auth::user()->can('Role Record') || Auth::user()->can('Role-Create') || Auth::user()->can('Role-Edit') || Auth::user()->can('Role-Delete') || Auth::user()->can('Permission Record') || Auth::user()->can('Permission Add') || Auth::user()->can('Permission Edit'))
-            <li class="submenu ">
                 <a href="javascript:;" class="{{ areActiveRoutes(['staff.index','staff.create','staff.edit','role.index','role.create','role.edit','permission.index','permission.create','permission.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> User Management</span> <span class="menu-arrow"></span></a>
                 <ul class="list-unstyled" style="display: none;">
 
@@ -255,76 +257,76 @@
 
                     @endif
                     <li class="submenu">
-                       <a href="javascript:;"><i class="la la-graduation-cap"></i>  <span> Performance  </span>  <span class="menu-arrow"></span></a>
-                       <ul style="display: none;">
-                         <li><a href="{{route('performance-indicator.index')}}"> Performance Indicator  </a></li>
-                         <li><a href="{{route('performance.index')}}"> Performance Review  </a></li>
-                         <!-- <li><a href="{{route('performance-list.index')}}"> Performance  </a></li> -->
-                     </ul>
-                 </li>
+                     <a href="javascript:;"><i class="la la-graduation-cap"></i>  <span> Performance  </span>  <span class="menu-arrow"></span></a>
+                     <ul style="display: none;">
+                       <li><a href="{{route('performance-indicator.index')}}"> Performance Indicator  </a></li>
+                       <li><a href="{{route('performance.index')}}"> Performance Review  </a></li>
+                       <!-- <li><a href="{{route('performance-list.index')}}"> Performance  </a></li> -->
+                   </ul>
+               </li>
 
 
-                 <li><a href="{{route('holidays.index')}}"><i class="la la-bullhorn"></i>  <span>Holidays </span></a></li>
-                 <li><a href="{{route('leaves.index')}}"><i class="la la-bullhorn"></i>  <span>Leaves (Admin) </span> <span class="badge badge-pill bg-primary float-right">1 </span></a></li>
-                 <li><a href="{{route('leaves-requests.index')}}"><i class="la la-bullhorn"></i>  <span>Leaves (Employee)</span> </a></li>
-                 <li><a href="{{route('leaves-setting.index')}}"><i class="la la-bullhorn"></i>  <span>Leave Settings </span></a></li>
-
-
-
-                 @if(Auth::user()->can('Employee Attandance Record') || Auth::user()->can('Employee Attandance Add') || Auth::user()->can('Employee Attandance Edit')  )
-                 <li class="{{ areActiveRoutes(['employee-attandance.index','employee-attandance.create','employee-attandance.edit'])}}">
-                    <a href="{{route('employee-attandance.index')}}" class="{{ areActiveRoutes(['employee-attandance.index','employee-attandance.create','employee-attandance.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
-                        <span> Attandance</span> 
-                    </a>
-                </li>
-                @endif
-
-                <li class="{{ areActiveRoutes(['employee-card.index','employee-card.create','employee-card.edit'])}}">
-                    <a href="{{route('employee-card.index')}}" class="{{ areActiveRoutes(['employee-card.index','employee-card.create','employee-card.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
-                        <span> Employee Card</span> 
-                    </a>
-                </li>
-
-                <li class="submenu">
-                    <a href="javascript:;" class="{{ areActiveRoutes(['advance-request.create','advance-request.store','advance-request.index','advance-approval.create','advance-approval.index'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Advance </span> <span class="menu-arrow"></span></a>
-                    <ul class="list-unstyled" style="display: none;">
-
-                        <li class="{{ areActiveRoutes(['advance-request.index','advance-request.create','advance-request.edit'])}}"><a href="{{route('advance-request.index')}}"> Advance Request</a></li>
-                        <li class="{{ areActiveRoutes(['advance-approval.index','advance-approval.create','advance-approval.edit'])}}"><a href="{{route('advance-approval.index')}}"> Approval Advance</a></li> 
-                        <li class="{{ areActiveRoutes(['advance.index','advance.create','advance.edit'])}}"><a href="{{route('advance.index')}}"> Advance</a></li> 
+               <li><a href="{{route('holidays.index')}}"><i class="la la-bullhorn"></i>  <span>Holidays </span></a></li>
+               <li><a href="{{route('leaves.index')}}"><i class="la la-bullhorn"></i>  <span>Leaves (Admin) </span> <span class="badge badge-pill bg-primary float-right">1 </span></a></li>
+               <li><a href="{{route('leaves-requests.index')}}"><i class="la la-bullhorn"></i>  <span>Leaves (Employee)</span> </a></li>
+               <li><a href="{{route('leaves-setting.index')}}"><i class="la la-bullhorn"></i>  <span>Leave Settings </span></a></li>
 
 
 
-                    </ul>
-                </li>
+               @if(Auth::user()->can('Employee Attandance Record') || Auth::user()->can('Employee Attandance Add') || Auth::user()->can('Employee Attandance Edit')  )
+               <li class="{{ areActiveRoutes(['employee-attandance.index','employee-attandance.create','employee-attandance.edit'])}}">
+                <a href="{{route('employee-attandance.index')}}" class="{{ areActiveRoutes(['employee-attandance.index','employee-attandance.create','employee-attandance.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                    <span> Attandance</span> 
+                </a>
+            </li>
+            @endif
+
+            <li class="{{ areActiveRoutes(['employee-card.index','employee-card.create','employee-card.edit'])}}">
+                <a href="{{route('employee-card.index')}}" class="{{ areActiveRoutes(['employee-card.index','employee-card.create','employee-card.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                    <span> Employee Card</span> 
+                </a>
+            </li>
+
+            <li class="submenu">
+                <a href="javascript:;" class="{{ areActiveRoutes(['advance-request.create','advance-request.store','advance-request.index','advance-approval.create','advance-approval.index'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Advance </span> <span class="menu-arrow"></span></a>
+                <ul class="list-unstyled" style="display: none;">
+
+                    <li class="{{ areActiveRoutes(['advance-request.index','advance-request.create','advance-request.edit'])}}"><a href="{{route('advance-request.index')}}"> Advance Request</a></li>
+                    <li class="{{ areActiveRoutes(['advance-approval.index','advance-approval.create','advance-approval.edit'])}}"><a href="{{route('advance-approval.index')}}"> Approval Advance</a></li> 
+                    <li class="{{ areActiveRoutes(['advance.index','advance.create','advance.edit'])}}"><a href="{{route('advance.index')}}"> Advance</a></li> 
 
 
-                <li class="submenu">
-                    <a href="#" class="{{ areActiveRoutes(['department.create','department.store','department.index','designation.create','designation.store','designation.index'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Departmentalization </span> <span class="menu-arrow"></span></a>
-                    <ul class="list-unstyled" style="display: none;">
 
-                        <li class="{{ areActiveRoutes(['department.index','department.create','department.edit'])}}"><a href="{{route('department.index')}}"> Department</a></li>
-                        <li class="{{ areActiveRoutes(['designation.index','designation.create','designation.edit'])}}"><a href="{{route('designation.index')}}"> Designation</a></li>
-                        <li class="{{ areActiveRoutes(['designation.index','designation.create','designation.edit'])}}"><a href="{{route('designation.index')}}"> Shift</a></li>
+                </ul>
+            </li>
 
 
-                    </ul>
-                </li>
+            <li class="submenu">
+                <a href="#" class="{{ areActiveRoutes(['department.create','department.store','department.index','designation.create','designation.store','designation.index'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Departmentalization </span> <span class="menu-arrow"></span></a>
+                <ul class="list-unstyled" style="display: none;">
+
+                    <li class="{{ areActiveRoutes(['department.index','department.create','department.edit'])}}"><a href="{{route('department.index')}}"> Department</a></li>
+                    <li class="{{ areActiveRoutes(['designation.index','designation.create','designation.edit'])}}"><a href="{{route('designation.index')}}"> Designation</a></li>
+                    <li class="{{ areActiveRoutes(['designation.index','designation.create','designation.edit'])}}"><a href="{{route('designation.index')}}"> Shift</a></li>
+
+
+                </ul>
+            </li>
 
 
 
 
-                <li class="submenu">
-                 <a href="#"><i class="la la-files-o"></i>  <span> Accounts  </span>  <span class="menu-arrow"></span></a>
-                 <ul style="display: none;">                     
-                   <li><a href="{{route('income-tax.index')}}">Income Tax</a></li>
-                   <li><a href="{{route('payroll-item.index')}}"> payroll-item  </a></li>
-               </ul>
-           </li>
+            <li class="submenu">
+               <a href="#"><i class="la la-files-o"></i>  <span> Accounts  </span>  <span class="menu-arrow"></span></a>
+               <ul style="display: none;">                     
+                 <li><a href="{{route('income-tax.index')}}">Income Tax</a></li>
+                 <li><a href="{{route('payroll-item.index')}}"> payroll-item  </a></li>
+             </ul>
+         </li>
 
-           <li class="submenu">
-             <a href="#"><i class="la la-money"></i>  <span> Payroll  </span>  <span class="menu-arrow"></span></a>
-             <ul style="display: none;">
+         <li class="submenu">
+           <a href="#"><i class="la la-money"></i>  <span> Payroll  </span>  <span class="menu-arrow"></span></a>
+           <ul style="display: none;">
               <li><a href="{{route('salary-post.index')}}">Salary Post</a></li>
               <li><a href="{{route('employee-salary.index')}}"> Employee Salary  </a></li>
               <li><a href="{{route('salary-post-approval.index')}}"> Employee Salary Approval  </a></li>
@@ -484,14 +486,14 @@
             <a href="javascript:;" class="{{ areActiveRoutes(['attendance.index.index','attendance.index.edit','attendance.create'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Attendance</span> <span class="menu-arrow"></span>
             </a>
             <ul class="list-unstyled" style="display: none;">
-               <li class="{{ areActiveRoutes(['attendance.index.index','attendance.store'])}}"><a href="{{route('attendance.index')}}"> Machine Attendance</a></li>
+             <li class="{{ areActiveRoutes(['attendance.index.index','attendance.store'])}}"><a href="{{route('attendance.index')}}"> Machine Attendance</a></li>
 
 
-               <li class="{{ areActiveRoutes(['manual-attendance.index','manual-attendance.store'])}}"><a href="{{route('manual-attendance.index')}}"> Manual Attendance</a></li>
-           </ul>
-       </li>
+             <li class="{{ areActiveRoutes(['manual-attendance.index','manual-attendance.store'])}}"><a href="{{route('manual-attendance.index')}}"> Manual Attendance</a></li>
+         </ul>
+     </li>
 
-       <li class="{{ areActiveRoutes(['student-edit.index.index','student-edit.index.edit','student-edit.create'])}}">
+     <li class="{{ areActiveRoutes(['student-edit.index.index','student-edit.index.edit','student-edit.create'])}}">
         <a href="{{route('student-edit.index')}}" class="{{ areActiveRoutes(['student-edit.index.index','student-edit.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
             <span>Student Bulk Edit</span> 
         </a>
@@ -531,7 +533,7 @@
 <li class="submenu ">
     <a href="javascript:;" class="{{ areActiveRoutes(['sms-send.create','sms-send.index'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> SMS & E-Mails Alert</span> <span class="menu-arrow"></span></a>
     <ul class="list-unstyled" style="display: none;">
-        
+
         @if(Auth::user()->can('SMS Alert')  )
         <li class="{{ areActiveRoutes(['sms-send.create','sms-send.index'])}}">
             <a href="{{route('sms-send.create')}}" class=""><i class="fa fa-user" aria-hidden="true"></i> 
@@ -565,32 +567,32 @@
 
 
 
-                       @if(Auth::user()->can('Fee Post')  )
-                       <li class="{{ areActiveRoutes(['feepost.create','feepost.index'])}}"><a href="{{route('feepost.index')}}"> Fee Post</a></li>
-                       <li class="{{ areActiveRoutes(['individual-feepost.create','individual-feepost.index'])}}"><a href="{{route('individual-feepost.index')}}">Individual FeePost</a></li>
-                       @endif
-                       @if(Auth::user()->can('Fee Deposit') )
-                       <li class="{{ areActiveRoutes(['fee-deposit.create','fee-deposit.index'])}}"><a href="{{route('fee-deposit.index')}}">Fee Deposit</a></li>
-                       @endif
-                       @if(Auth::user()->can('Fee Challen')  )
-                       <li class="{{ areActiveRoutes(['fee-challan.create','fee-challan.index' ,'fee-challan.store'])}}"><a href="{{route('fee-challan.create')}}">Fee Challan</a></li>
-                       @endif
+                     @if(Auth::user()->can('Fee Post')  )
+                     <li class="{{ areActiveRoutes(['feepost.create','feepost.index'])}}"><a href="{{route('feepost.index')}}"> Fee Post</a></li>
+                     <li class="{{ areActiveRoutes(['individual-feepost.create','individual-feepost.index'])}}"><a href="{{route('individual-feepost.index')}}">Individual FeePost</a></li>
+                     @endif
+                     @if(Auth::user()->can('Fee Deposit') )
+                     <li class="{{ areActiveRoutes(['fee-deposit.create','fee-deposit.index'])}}"><a href="{{route('fee-deposit.index')}}">Fee Deposit</a></li>
+                     @endif
+                     @if(Auth::user()->can('Fee Challen')  )
+                     <li class="{{ areActiveRoutes(['fee-challan.create','fee-challan.index' ,'fee-challan.store'])}}"><a href="{{route('fee-challan.create')}}">Fee Challan</a></li>
+                     @endif
 
-                       @if(Auth::user()->can('Fee Increment')  )
-                       <li class="{{ areActiveRoutes(['fee-increment.create','fee-increment.index' ,'fee-increment.store'])}}"><a href="{{route('fee-increment.create')}}">Fee Increment</a></li>
-                       @endif
-                   </ul>
-               </li>
-               @endif                                
+                     @if(Auth::user()->can('Fee Increment')  )
+                     <li class="{{ areActiveRoutes(['fee-increment.create','fee-increment.index' ,'fee-increment.store'])}}"><a href="{{route('fee-increment.create')}}">Fee Increment</a></li>
+                     @endif
+                 </ul>
+             </li>
+             @endif                                
 
 
 
-               @if(Auth::user()->can('statement') || Auth::user()->can('Fee Increment')  )
-               <li class="submenu">
+             @if(Auth::user()->can('statement') || Auth::user()->can('Fee Increment')  )
+             <li class="submenu">
                 <a href="javascript:;" class="{{ areActiveRoutes(['statement.create','statement.index','statement.store','fee-increment.create','fee-increment.index' ,'fee-increment.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Student Fee</span> <span class="menu-arrow"></span></a>
                 <ul class="list-unstyled" style="display: none;">
 
-                   <li class="">
+                 <li class="">
                     <a href="javascript:;" class=""><i class="fa fa-user" aria-hidden="true"></i> 
                         <span> Change Update</span> 
                     </a>
@@ -647,10 +649,10 @@
         <li class="submenu">
             <a href="javascript:;" class="{{ areActiveRoutes(['approval-correction.create','approval-correction.store','approveBranchWise','approveBranchWise','approval-correction.index','correctionReport'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Correction</span> <span class="menu-arrow"></span></a>
             <ul class="list-unstyled" style="display: none;">
-               @if(Auth::user()->can('Correction')  )
-               <li class="{{ areActiveRoutes(['correction.create','correction.store'])}}"><a href="{{route('correction.create')}}"> Correction</a></li>
-               @if(Auth::user()->can('Correction Report')  )
-               <li class="{{ areActiveRoutes(['correction.index','branch_correction_report'])}}">
+             @if(Auth::user()->can('Correction')  )
+             <li class="{{ areActiveRoutes(['correction.create','correction.store'])}}"><a href="{{route('correction.create')}}"> Correction</a></li>
+             @if(Auth::user()->can('Correction Report')  )
+             <li class="{{ areActiveRoutes(['correction.index','branch_correction_report'])}}">
                 <a href="{{route('correction.index')}}"> Correction Report</a>
             </li>
             @endif
