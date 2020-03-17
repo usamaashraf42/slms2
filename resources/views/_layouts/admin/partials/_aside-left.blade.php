@@ -348,7 +348,7 @@
     </li>
     @endif
 
-    </ul>
+</ul>
 </li>
 @endif
 
@@ -365,115 +365,133 @@
 
         @endif
 
-
         @if(Auth::user()->can('Student Admission Record') || Auth::user()->can('Student Addmission Add') || Auth::user()->can('Student Edit')  )
         <li class="submenu">
             <a href="#" class="{{ areActiveRoutes(['student-registration.create','student-registration.index'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Admission</span> <span class="menu-arrow"></span></a>
             <ul class="list-unstyled" style="display: none;">
-             <li class="{{ areActiveRoutes(['student-registration.create'])}}">
-                <a href="{{route('student-registration.create')}}" class="{{ areActiveRoutes(['student-registration.create'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
-                    <span>Add Student</span> 
-                </a>
-            </li>
+                <li class="{{ areActiveRoutes(['student-registration.create'])}}">
+                    <a href="{{route('student-registration.create')}}" class="{{ areActiveRoutes(['student-registration.create'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                        <span>Add Student</span> 
+                    </a>
+                </li>
 
-            <li class="{{ areActiveRoutes(['student-registration.index'])}}">
-                <a href="{{route('student-registration.index')}}" class="{{ areActiveRoutes(['student-registration.index'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
-                    <span> New Students List</span> 
-                </a>
-            </li>
+                <li class="{{ areActiveRoutes(['student-registration.index'])}}">
+                    <a href="{{route('student-registration.index')}}" class="{{ areActiveRoutes(['student-registration.index'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                        <span> New Students List</span> 
+                    </a>
+                </li>
 
-        </ul>
-    </li>
-    @endif
+                <li class="{{ areActiveRoutes(['edit-student.index'])}}">
+                    <a href="{{route('edit-student.index')}}" class="{{ areActiveRoutes(['edit-student.index'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                        <span> Edit Student</span> 
+                    </a>
+                </li>
 
-
-    @if(Auth::user()->can('Student Record')  )
-    <li class="{{ areActiveRoutes(['students.index','students.edit'])}}">
-        <a href="{{route('students.index')}}" class="{{ areActiveRoutes(['students.index'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
-            <span> All Student</span> 
-        </a>
-    </li>
-    @endif
-
-
-
-    @if(Auth::user()->can('Student-Freeze') || Auth::user()->can('Student-Freeze Report') )
-    <li class="submenu" class="{{ areActiveRoutes(['student-freeze.index','student-freeze.edit','student-freeze.create'])}}">
-        <a href="#" class="{{ areActiveRoutes(['student-freeze.index','student-freeze.edit','student-freeze.create'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Student-Freeze</span> <span class="menu-arrow"></span></a>
-        <ul class="list-unstyled" style="display: none;" class="{{ areActiveRoutes(['student-freeze.index','student-freeze.edit','student-freeze.create'])}}">
-            @if(Auth::user()->can('Student-Freeze') )
-            <li class="{{ areActiveRoutes(['student-freeze.store'])}}"><a href="{{route('student-freeze.create')}}"> Student-Freeze </a></li>
-            @endif
-            @if(Auth::user()->can('Student-Freeze Report') )
-            <li class="{{ areActiveRoutes(['student-freeze.index'])}}"><a href="{{route('student-freeze.index')}}"> Student-Freeze Report</a></li>
-            @endif
-
-        </ul>
-    </li>
-    @endif
-
-
-    @if(Auth::user()->can('Student-left') || Auth::user()->can('Student-left Report') || Auth::user()->can('Student-left Approval') || Auth::user()->can('Student-left Approved Report') )
-    <li class="submenu">
-        <a href="#" class="{{ areActiveRoutes(['left-student.create','left-student.edit','branch_student_left_report','approval-left-student.create','approval-left-student.store','approveBranchWiseLeft','approval-left-student.index'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Student Left</span> <span class="menu-arrow"></span></a>
-        <ul class="list-unstyled" style="display: none;">
-            @if(Auth::user()->can('Student-left') )
-            <li class="{{ areActiveRoutes(['left-student.store'])}}"><a href="{{route('left-student.create')}}"> Student Left</a></li>
-            <li class="{{ areActiveRoutes(['left-student.index' ,'branch_student_left_report'])}}"><a href="{{route('left-student.index')}}"> Student Left Record</a></li>
-            <li class="{{ areActiveRoutes(['approval-left-student.create','approval-left-student.store','approveBranchWiseLeft'])}}"><a href="{{route('approval-left-student.create')}}"> Student Left Approval</a></li>
-            <li class="{{ areActiveRoutes(['approval-left-student.index'])}}"><a href="{{route('approval-left-student.index')}}"> Approved Left Record </a></li>
-            @endif
-        </ul>
-    </li>
-    @endif
-    @if(Auth::user()->can('Student-left') || Auth::user()->can('Student-left Report') || Auth::user()->can('Student-left Approval') || Auth::user()->can('Student-left Approved Report') )
-    <li class="submenu">
-        <a href="#" class="{{ areActiveRoutes(['transfer.create','transfer.store','transfer.index','branch_student_transfer_report','approval-transfer-student.index','approval-transfer-student.edit','approval-transfer-student.index','approval-transfer-student.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Student Transfer</span> <span class="menu-arrow"></span></a>
-        <ul class="list-unstyled" style="display: none;">
-            <li class="{{ areActiveRoutes(['transfer.create','transfer.store'])}}"><a href="{{route('transfer.create')}}"> Transfer</a></li>
-
-            <li class="{{ areActiveRoutes(['transfer.index','branch_student_transfer_report'])}}"><a href="{{route('transfer.index')}}"> Transfer Record</a></li>
-
-            <li class="{{ areActiveRoutes(['approval-transfer-student.index','approval-transfer-student.edit'])}}"><a href="{{route('approval-transfer-student.index')}}"> Student Transfer Approval</a></li>
-            <li class="{{ areActiveRoutes(['approval-transfer-student.create'])}}"><a href="{{route('approval-transfer-student.create')}}">Student transfer Record</a></li>
-        </ul>
-    </li>
-    @endif
-
-    @if(Auth::user()->can('Student Card')  )
-
-    <li class="{{ areActiveRoutes(['card.index','card.edit','card.create','card.store'])}}">
-        <a href="{{route('card.index')}}" class="{{ areActiveRoutes(['card.index','card.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
-            <span>Student Card</span> 
-        </a>
-    </li>
-
-    @endif
+            </ul>
+        </li>
+        @endif
 
 
 
 
+        @if(Auth::user()->can('Student Record')  )
+        <li class="{{ areActiveRoutes(['students.index','students.edit'])}}">
+            <a href="{{route('students.index')}}" class="{{ areActiveRoutes(['students.index'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                <span> All Student</span> 
+            </a>
+        </li>
+        @endif
 
-    <li class="{{ areActiveRoutes(['branch-performance.index','branch-performance.edit','branch-performance.create','branch-performance.store'])}}">
-        <a href="{{route('branch-performance.index')}}" class="{{ areActiveRoutes(['branch-performance.index','branch-performance.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
-            <span>Branch Performance</span> 
-        </a>
-    </li>
 
 
-    <li class="{{ areActiveRoutes(['class-list.index','class-list.edit','class-list.create','class-list.store'])}}">
-        <a href="{{route('class-list.index')}}" class="{{ areActiveRoutes(['class-list.index','class-list.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
-            <span>Class List</span> 
-        </a>
-    </li>
+        @if(Auth::user()->can('Student-Freeze') || Auth::user()->can('Student-Freeze Report') )
+        <li class="submenu" class="{{ areActiveRoutes(['student-freeze.index','student-freeze.edit','student-freeze.create'])}}">
+            <a href="#" class="{{ areActiveRoutes(['student-freeze.index','student-freeze.edit','student-freeze.create'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Student-Freeze</span> <span class="menu-arrow"></span></a>
+            <ul class="list-unstyled" style="display: none;" class="{{ areActiveRoutes(['student-freeze.index','student-freeze.edit','student-freeze.create'])}}">
+                @if(Auth::user()->can('Student-Freeze') )
+                <li class="{{ areActiveRoutes(['student-freeze.store'])}}"><a href="{{route('student-freeze.create')}}"> Student-Freeze </a></li>
+                @endif
+                @if(Auth::user()->can('Student-Freeze Report') )
+                <li class="{{ areActiveRoutes(['student-freeze.index'])}}"><a href="{{route('student-freeze.index')}}"> Student-Freeze Report</a></li>
+                @endif
 
-    <li class="{{ areActiveRoutes(['attendance-list.create','attendance-list.store'])}}">
-        <a href="{{route('attendance-list.index')}}" class="{{ areActiveRoutes(['attendance-list.index.index','attendance-list.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
-            <span>Attendance  List</span> 
-        </a>
-    </li>
+            </ul>
+        </li>
+        @endif
 
-    <li class="{{ areActiveRoutes(['student-edit.index.index','student-edit.index.edit','student-edit.create'])}}">
+
+        @if(Auth::user()->can('Student-left') || Auth::user()->can('Student-left Report') || Auth::user()->can('Student-left Approval') || Auth::user()->can('Student-left Approved Report') )
+        <li class="submenu">
+            <a href="#" class="{{ areActiveRoutes(['left-student.create','left-student.edit','branch_student_left_report','approval-left-student.create','approval-left-student.store','approveBranchWiseLeft','approval-left-student.index'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Student Left</span> <span class="menu-arrow"></span></a>
+            <ul class="list-unstyled" style="display: none;">
+                @if(Auth::user()->can('Student-left') )
+                <li class="{{ areActiveRoutes(['left-student.store'])}}"><a href="{{route('left-student.create')}}"> Student Left</a></li>
+                <li class="{{ areActiveRoutes(['left-student.index' ,'branch_student_left_report'])}}"><a href="{{route('left-student.index')}}"> Student Left Record</a></li>
+                <li class="{{ areActiveRoutes(['approval-left-student.create','approval-left-student.store','approveBranchWiseLeft'])}}"><a href="{{route('approval-left-student.create')}}"> Student Left Approval</a></li>
+                <li class="{{ areActiveRoutes(['approval-left-student.index'])}}"><a href="{{route('approval-left-student.index')}}"> Approved Left Record </a></li>
+                @endif
+            </ul>
+        </li>
+        @endif
+        @if(Auth::user()->can('Student-left') || Auth::user()->can('Student-left Report') || Auth::user()->can('Student-left Approval') || Auth::user()->can('Student-left Approved Report') )
+        <li class="submenu">
+            <a href="#" class="{{ areActiveRoutes(['transfer.create','transfer.store','transfer.index','branch_student_transfer_report','approval-transfer-student.index','approval-transfer-student.edit','approval-transfer-student.index','approval-transfer-student.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Student Transfer</span> <span class="menu-arrow"></span></a>
+            <ul class="list-unstyled" style="display: none;">
+                <li class="{{ areActiveRoutes(['transfer.create','transfer.store'])}}"><a href="{{route('transfer.create')}}"> Transfer</a></li>
+
+                <li class="{{ areActiveRoutes(['transfer.index','branch_student_transfer_report'])}}"><a href="{{route('transfer.index')}}"> Transfer Record</a></li>
+
+                <li class="{{ areActiveRoutes(['approval-transfer-student.index','approval-transfer-student.edit'])}}"><a href="{{route('approval-transfer-student.index')}}"> Student Transfer Approval</a></li>
+                <li class="{{ areActiveRoutes(['approval-transfer-student.create'])}}"><a href="{{route('approval-transfer-student.create')}}">Student transfer Record</a></li>
+            </ul>
+        </li>
+        @endif
+
+        @if(Auth::user()->can('Student Card')  )
+
+        <li class="{{ areActiveRoutes(['card.index','card.edit','card.create','card.store'])}}">
+            <a href="{{route('card.index')}}" class="{{ areActiveRoutes(['card.index','card.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                <span>Student Card</span> 
+            </a>
+        </li>
+
+        @endif
+
+
+
+
+
+        <li class="{{ areActiveRoutes(['branch-performance.index','branch-performance.edit','branch-performance.create','branch-performance.store'])}}">
+            <a href="{{route('branch-performance.index')}}" class="{{ areActiveRoutes(['branch-performance.index','branch-performance.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                <span>Branch Performance</span> 
+            </a>
+        </li>
+
+
+        <li class="{{ areActiveRoutes(['class-list.index','class-list.edit','class-list.create','class-list.store'])}}">
+            <a href="{{route('class-list.index')}}" class="{{ areActiveRoutes(['class-list.index','class-list.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                <span>Class List</span> 
+            </a>
+        </li>
+
+        <li class="{{ areActiveRoutes(['attendance-list.create','attendance-list.store'])}}">
+            <a href="{{route('attendance-list.index')}}" class="{{ areActiveRoutes(['attendance-list.index.index','attendance-list.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                <span>Attendance  List</span> 
+            </a>
+        </li>
+
+        <li class="submenu">
+            <a href="javascript:;" class="{{ areActiveRoutes(['attendance.index.index','attendance.index.edit','attendance.create'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Attendance</span> <span class="menu-arrow"></span>
+            </a>
+            <ul class="list-unstyled" style="display: none;">
+               <li class="{{ areActiveRoutes(['attendance.index.index','attendance.store'])}}"><a href="{{route('attendance.index')}}"> Machine Attendance</a></li>
+
+
+               <li class="{{ areActiveRoutes(['manual-attendance.index','manual-attendance.store'])}}"><a href="{{route('manual-attendance.index')}}"> Manual Attendance</a></li>
+           </ul>
+       </li>
+
+       <li class="{{ areActiveRoutes(['student-edit.index.index','student-edit.index.edit','student-edit.create'])}}">
         <a href="{{route('student-edit.index')}}" class="{{ areActiveRoutes(['student-edit.index.index','student-edit.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
             <span>Student Bulk Edit</span> 
         </a>
@@ -508,6 +526,23 @@
 
 </ul>
 </li>
+
+@if(Auth::user()->can('SMS Alert')  )
+<li class="submenu ">
+    <a href="javascript:;" class="{{ areActiveRoutes(['sms-send.create','sms-send.index'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> SMS & E-Mails Alert</span> <span class="menu-arrow"></span></a>
+    <ul class="list-unstyled" style="display: none;">
+        
+        @if(Auth::user()->can('SMS Alert')  )
+        <li class="{{ areActiveRoutes(['sms-send.create','sms-send.index'])}}">
+            <a href="{{route('sms-send.create')}}" class=""><i class="fa fa-user" aria-hidden="true"></i> 
+                <span>SMS Alert</span> 
+            </a>
+        </li>
+        @endif
+    </ul>
+</li>
+
+@endif
 
 @if(Auth::user()->can('Fee Challen') || Auth::user()->can('Fee Deposit') || Auth::user()->can('Fee Post') || Auth::user()->can('Profit Loss') || Auth::user()->can('Balance Sheet')  || Auth::user()->can('Trial Balance')  || Auth::user()->can('Ledger')  || Auth::user()->can('General Voucher')  || Auth::user()->can('Bank Deposit') || Auth::user()->can('Bank Payment') || Auth::user()->can('Cash Payment') || Auth::user()->can('Cash Receipt') || Auth::user()->can('Account Record') || Auth::user()->can('Account Add') || Auth::user()->can('Account Edit')  || Auth::user()->can('statement')  || Auth::user()->can('Outstanding') || Auth::user()->can('Franchise Applicant') || Auth::user()->can('Correction') ||  Auth::user()->can('Correction Approval') || Auth::user()->can('Correction Approved Report') || Auth::user()->can('Paid List') || Auth::user()->can('Tentive List'))
 <li class="submenu ">
@@ -1051,7 +1086,7 @@
                 <span> Complaint</span> 
             </a>
         </li>
-       
+
 
         
 
