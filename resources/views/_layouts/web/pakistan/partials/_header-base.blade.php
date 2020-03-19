@@ -10,6 +10,11 @@
       <div class="dn dib-l">
        <ul>
          <li>
+          <a class="btn btn-success" href="http://lectures.americanlyceum.com" style="margin-top: 0px!important;
+    border: 2px solid #f7f7f7!important;
+    background: #363886!important;">Online lectures</a>
+        </li>
+         <li>
            <a href="{{route('pakistan.news')}}" class="text_fonts">News</a>
          </li>
          <li>
