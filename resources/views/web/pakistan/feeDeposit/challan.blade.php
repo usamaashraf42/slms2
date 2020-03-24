@@ -699,9 +699,8 @@ function jobFormSubmit(ob){
  // }
 
  if(valid){
-  $('.validateButton').css('display','none');
   
-
+$('.validateButton').css('display','none');
 
   
   $.ajax({
@@ -714,10 +713,10 @@ function jobFormSubmit(ob){
 
       if (response.status) {
 
-        $('.pp_Amount').val(response.data.total_payable);
-        $('.pp_BillReference').val(response.data.fee_id);
-        $('.TxnRefNumber').val(response.data.fee_id);
-        $('.ppmpf_1').val(response.data.fee_id);
+        $('.pp_Amount').val(response.student.total_payable);
+        $('.pp_BillReference').val(response.student.fee_id);
+        $('.TxnRefNumber').val(response.student.fee_id);
+        $('.ppmpf_1').val(response.student.fee_id);
         $('.ppmpf_2').val(std_id);
 
         var content=`<div class="col-md-9">
@@ -751,14 +750,14 @@ function jobFormSubmit(ob){
         
         <div style="width: 50%; float: left; text-align: justify;">
         <p>
-        <strong> ${response.student.total_pending>0?'pending':'Advance'} Amount: </strong>
+        <strong> Pending Amount: </strong>
         </p>
         <p>
     
 
 
 
-        <h2><strong>Enter Amount: </strong></h2>
+        <h4><strong>Enter ${response.student.total_pending>0?'Pending':'Advance'} Amount: </strong></h4>
         </div>
         <div style="width: 50%;float: right; text-align: right;padding-right: 15px; ">
         <p>
