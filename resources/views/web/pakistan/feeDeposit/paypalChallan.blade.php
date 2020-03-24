@@ -283,21 +283,21 @@ border-bottom-left-radius: 25px;
     $PostURL = "https://sandbox.jazzcash.com.pk/CustomerPortal/transactionmanagement/merchantform";
     //"http://testpayments.jazzcash.com.pk/PayAxisCustomerPortal/transactionmanagement/merchantform"; 
     date_default_timezone_set("Asia/karachi");
-    $Amount = $object->total_payable; //Last two digits will be considered as Decimal
-    $BillReference = $request->fee_id;
+    $Amount = $object->desire_amount; //Last two digits will be considered as Decimal
+    $BillReference = $students->fee_id;
     $Description = "Thank you for using Jazz Cash";
     $Language = "EN";
     $TxnCurrency = "PKR";
     $TxnDateTime = date('YmdHis') ;
     $TxnExpiryDateTime = date('YmdHis', strtotime('+8 Days'));
-    $TxnRefNumber = $request->fee_id;
+    $TxnRefNumber = $students->fee_id;
     $TxnType = "";
     $Version = '1.1';
     $SubMerchantID = "";
     $DiscountedAmount = "";
     $DiscountedBank = "";
-    $ppmpf_1=$request->fee_id;
-    $ppmpf_2=$request->std_id;
+    $ppmpf_1=$students->fee_id;
+    $ppmpf_2=$students->std_id;
     $ppmpf_3="";
     $ppmpf_4="";
     $ppmpf_5="";
@@ -359,91 +359,50 @@ border-bottom-left-radius: 25px;
     									<!-- //////////////////???????????????????? start ????????????????????????????????? -->
     									<div class="row" id="feeChallan">
 
-    										<div style="margin: 0 0 2em 0;
-    										padding: 1em 1em 1.5em 1em;
-    										background: #fff;
-    										">
+    									<div style="margin: 0 0 2em 0;
+    									padding: 1em 1em 1.5em 1em;
+    									background: #fff;
+    									">
 
-    										<div class="col-md-4">
-    											<div class="receipt-header" style="border: 1px solid #ccc;
-    											padding: 12px;text-align: center; ">
+    									<div class="col-md-4">
+    										<div class="receipt-header" style="border: 1px solid #ccc;
+    										padding: 12px;text-align: center; ">
 
-    											<div class="receipt-left">
-    												<img class="img-responsive" alt="iamgurdeeposahan" src="@if($object->images){{asset('images/student/pics/'.$object->images)}} @else {{asset('assets/img/user.jpg')}} @endif" width="100%"  style="max-width: 180px;margin: 0 auto;">
-    												<br>
-    											</div>
-    											<div class="clearfix"></div>
-    											<div class="receipt-right" style="text-align: center;">
-    												<div class="box_filed"> <STRONG>{{$object->name}}</STRONG>  </div>
-
-    												<div class="box_filed"><STRONG>{{$object->branch}}</STRONG></div>
-    												<div class="box_filed"><STRONG>{{$object->course}} </STRONG></div>
-
-    											</div>
-
-
+    										<div class="receipt-left">
+    											<img class="img-responsive" alt="iamgurdeeposahan" src="@if(isset($students->images) && $students->images){{asset('images/student/pics/'.$students->images)}} @else {{asset('assets/img/user.jpg')}} @endif" width="100%"  style="max-width: 180px;margin: 0 auto;">
+    											<br>
     										</div>
-    									</div>
-    									<div class="col-md-8">
-    										<div class="box_filed" style="float: left;"> <STRONG>Lyc No. {{$object->std_id}}</STRONG></div>
-    										<div style="float: right;"><b>Date :</b> {{$object->due_date}}</div>
-    										<br>
-    										<table class="table table-bordered" style="width: 100%;">
-    											<thead>
-    												<tr style="background-color: #ddd;">
-    													<th>Fee-Id</th>
-    													<th>Month</th>
-    													<th>Year</th>
-    													<th>Due Date</th>
-    													<th>Amount</th>
-    												</tr>
-    											</thead>
-    											<tbody>
-    												<tr>
-    													<td>{{$object->fee_id}}</td>
-    													<td>{{$object->fee_month}}</td>
-    													<td>{{$object->fee_year}}</td>
-    													<td>{{$object->due_date}}</td>
-    													<td>{{currencyCnv($object->total_fee,'PKR','USD')}}$/-</td>
-    												</tr>
-    											</tbody>
-    										</table>
-    										<div style="width: 50%; float: left; text-align: justify;">
-    											<p>
-    												<strong>Total Amount: </strong>
-    											</p>
-    											<p>
-    												<strong>Late Fees: </strong>
-    											</p>
-    											<p>
-    												<strong>Payable Amount: </strong>
-    											</p>
+    										<div class="clearfix"></div>
+    										<div class="receipt-right" style="text-align: center;">
+    											<div class="box_filed"> <STRONG>{{$students->name}}</STRONG>  </div>
 
+    											<div class="box_filed"><STRONG>{{$students->branch}}</STRONG></div>
+    											<div class="box_filed"><STRONG>{{$students->course}} </STRONG></div>
 
-
-    											<h2><strong>Total: </strong></h2>
-    										</div>
-    										<div style="width: 50%;float: right; text-align: right;padding-right: 15px; ">
-    											<p>
-
-    												<strong><i class="fa fa-inr"></i>  {{currencyCnv($object->total_fee,'PKR','USD')}}$/-</strong>
-    											</p>
-    											<p>
-    												<strong><i class="fa fa-inr"></i> {{currencyCnv($object->fine,'PKR','USD')}}$ /-</strong>
-    											</p>
-    											<p>
-    												<strong><i class="fa fa-inr"></i> {{currencyCnv($object->total_payable,'PKR','USD')}}$ /-</strong>
-
-
-    												<h2><strong><i class="fa fa-inr"></i> @isset($object->desire_amount) {{currencyCnv($object->desire_amount,'PKR','USD')}}$  @endisset/-</strong></h2>
-
-    											</div>
     										</div>
 
 
     									</div>
+    								</div>
+    								<div class="col-md-8">
+    									
+    									<div style="width: 50%; float: left; text-align: justify;">
+    										
+    										<p>
+    											<strong> Amount To Pay: </strong>
+    										</p>
+    									</div>
+    									<div style="width: 50%;float: right; text-align: right;padding-right: 15px; ">
+
+    											<h2><strong><i class="fa fa-inr"></i> @isset($object->desire_amount) {{currencyCnv($object->desire_amount,'PKR','USD')}}$  @endisset/-</strong></h2>
+
+    										</div>
+    									</div>
+
 
     								</div>
+
+    							</div>
 
 
     								<!-- /////////////////////////////  end display none????????????????????????????????? -->

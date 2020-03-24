@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\FeePost;
 use App\Models\Branch;
+use App\Models\Account;
+use App\Models\Master;
+use App\Models\Student;
 class FeeDepositController extends Controller
 {
 	public function index(){
@@ -134,6 +137,11 @@ class FeeDepositController extends Controller
 
 
 		$fee=FeePost::where('std_id',$request->std_id)->with('student.branch','student.course')->orderBy('id','DESC')->first();
+
+		$student=Student::find($request->std_id);
+		$account=Account::where('std_id',$request->std_id)->with('LedgerBalance')->first();
+// $object
+
 		if($fee){
 			$object = new \stdClass;
 			$object->fee_id=$fee->id;
@@ -174,8 +182,30 @@ class FeeDepositController extends Controller
 
 
 
-			return response()->json(['status'=>1,'message'=>'Record found successfully','data'=>$object]);
-		}else{
+			
+		}
+		if($student){
+			$students = new \stdClass;
+			$students->std_id=$student->id;
+			$students->name=$student->s_name.' '.$student->s_fatherName;
+			$students->branch=isset($student->branch->branch_name)?$student->branch->branch_name:null;
+			$students->course=isset($student->course->course_name)?$student->course->course_name:null;
+			$students->images=$student->images;
+
+			$total_pending_amount=0;
+			if(isset($account->LedgerBalance) && $account->LedgerBalance){
+					$total_pending_amount=$account->LedgerBalance->balance;
+			}
+
+			if(isset($object->fine) && $object->fine){
+				$total_pending_amount+=$object->fine;
+			}
+			$students->total_pending=$total_pending_amount;
+
+			return response()->json(['status'=>1,'message'=>'Record found successfully','data'=>isset($object)?$object:null,'student'=>$students]);
+		}
+
+		else{
 			return response()->json(['status'=>0]);
 		}
 
@@ -187,10 +217,19 @@ class FeeDepositController extends Controller
 // dd($request->all());
 		$fee=FeePost::where('std_id',$request->std_id)->with('student.branch','student.course')->orderBy('id','DESC')->first();
 
-		if(!$fee){
+		$student=Student::find($request->std_id);
+		$account=Account::where('std_id',$request->std_id)->with('LedgerBalance')->first();
+
+
+
+		if(!$student){
 			session()->flash('error_message', __('Record not found'));
 			return redirect()->back();
 		}
+
+		
+
+
 		$object = new \stdClass;
 		if($fee){
 			$object->fee_id=$fee->id;
@@ -231,17 +270,36 @@ class FeeDepositController extends Controller
 		}
 		$request=$request;
 
-		if($object->total_payable> $request->pp_Amount){
-			session()->flash('error_message', __('Amount Should be Equal or greater then $object->total_payable'));
+		$students = new \stdClass;
+		$students->std_id=$student->id;
+		$students->name=$student->s_name.' '.$student->s_fatherName;
+		$students->branch=isset($student->branch->branch_name)?$student->branch->branch_name:null;
+		$students->course=isset($student->course->course_name)?$student->course->course_name:null;
+		$students->images=$student->images;
+
+		$total_pending_amount=0;
+		if(isset($account->LedgerBalance) && $account->LedgerBalance){
+				$total_pending_amount=$account->LedgerBalance->balance;
+		}
+
+		if(isset($object->fine) && $object->fine){
+			$total_pending_amount+=$object->fine;
+		}
+		$students->total_pending=$total_pending_amount;
+		$students->fee_id=isset($object->fee_id)?$object->fee_id:rand(1, 7);
+
+
+		if($students->total_pending> $request->pp_Amount){
+			session()->flash('error_message', __('Amount Should be Equal or greater then $students->total_pending'));
 			return redirect()->back();
 		}
 		if($request->type_method==2 && $object){
 			$object->desire_amount=$request->pp_Amount;
 			// dd($request->all());
-			return view('web.pakistan.feeDeposit.newForm',compact('request','object'));
+			return view('web.pakistan.feeDeposit.newForm',compact('request','object','students'));
 		}else{
 			$object->desire_amount=$request->pp_Amount;
-			return view('web.pakistan.feeDeposit.paypalChallan',compact('request','object'));
+			return view('web.pakistan.feeDeposit.paypalChallan',compact('request','object','students'));
 			// session()->flash('error_message', __('PayPal is not integrate'));
 			// return redirect()->back();
 		}
