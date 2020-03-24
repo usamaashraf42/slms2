@@ -731,15 +731,15 @@ function jobFormSubmit(ob){
         padding: 12px;text-align: center; ">
 
         <div class="receipt-left">
-        <img class="img-responsive" alt="iamgurdeeposahan" src="${response.data.images?'images/student/pics/'+response.data.images:'assets/img/user.jpg'}" width="100%"  style="max-width: 180px;margin: 0 auto;">
+        <img class="img-responsive" alt="iamgurdeeposahan" src="${response.student.images?'images/student/pics/'+response.student.images:'assets/img/user.jpg'}" width="100%"  style="max-width: 180px;margin: 0 auto;">
         <br>
         </div>
         <div class="clearfix"></div>
         <div class="receipt-right" style="text-align: center;">
-        <div class="box_filed"> <STRONG>${response.data.name}</STRONG>  </div>
+        <div class="box_filed"> <STRONG>${response.student.name}</STRONG>  </div>
 
-        <div class="box_filed"><STRONG>${response.data.branch}</STRONG></div>
-        <div class="box_filed"><STRONG>${response.data.course} </STRONG></div>
+        <div class="box_filed"><STRONG>${response.student.branch}</STRONG></div>
+        <div class="box_filed"><STRONG>${response.student.course} </STRONG></div>
 
         </div>
 
@@ -747,39 +747,14 @@ function jobFormSubmit(ob){
         </div>
         </div>
         <div class="col-md-8">
-        <div class="box_filed" style="float: left;"> <STRONG>Lyc No. ${response.data.std_id}</STRONG></div>
-        <div style="float: right;"><b>Date :</b> ${response.data.due_date}</div>
         <br>
-        <table class="table table-bordered" style="width: 100%;">
-        <thead>
-        <tr style="background-color: #ddd;">
-        <th>Fee-Id</th>
-        <th>Month</th>
-        <th>Year</th>
-        <th>Due Date</th>
-        <th>Amount</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-        <td>${response.data.fee_id}</td>
-        <td>${response.data.fee_month}</td>
-        <td>${response.data.fee_year}</td>
-        <td>${response.data.due_date}</td>
-        <td>${response.data.total_fee}/-</td>
-        </tr>
-        </tbody>
-        </table>
+        
         <div style="width: 50%; float: left; text-align: justify;">
         <p>
-        <strong>Total Amount: </strong>
+        <strong> ${response.student.total_pending>0?'pending':'Advance'} Amount: </strong>
         </p>
         <p>
-        <strong>Late Fees: </strong>
-        </p>
-        <p>
-        <strong>Payable Amount: </strong>
-        </p>
+    
 
 
 
@@ -788,16 +763,13 @@ function jobFormSubmit(ob){
         <div style="width: 50%;float: right; text-align: right;padding-right: 15px; ">
         <p>
 
-        <strong><i class="fa fa-inr"></i> ${response.data.total_fee}/-</strong>
+        <strong><i class="fa fa-inr"></i> ${response.student.total_pending}/-</strong>
         </p>
         <p>
-        <strong><i class="fa fa-inr"></i> ${response.data.fine}/-</strong>
-        </p>
-        <p>
-        <strong><i class="fa fa-inr"></i> ${response.data.total_payable}/-</strong>
+       
 
 
-        <h2><input type="number"  onchange="AmountConstraint(this)" data-amount="${response.data.total_payable}" class="input-md  textinput textInput form-control" value="${response.data.total_payable}" min="${response.data.total_payable}" name='pp_Amount'></h2>
+        <h2><input type="number"  onchange="AmountConstraint(this)" data-amount="${response.student.total_pending}" class="input-md  textinput textInput form-control" value="${response.student.total_pending}" min="${response.student.total_pending}" name='pp_Amount'></h2>
 
         </div>
         </div>

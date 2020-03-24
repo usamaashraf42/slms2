@@ -284,20 +284,20 @@ border-bottom-left-radius: 25px;
     //"http://testpayments.jazzcash.com.pk/PayAxisCustomerPortal/transactionmanagement/merchantform"; 
     date_default_timezone_set("Asia/karachi");
     $Amount = $object->desire_amount; //Last two digits will be considered as Decimal
-    $BillReference = $object->fee_id;
+    $BillReference = $students->fee_id;
     $Description = "Thank you for using Jazz Cash";
     $Language = "EN";
     $TxnCurrency = "PKR";
     $TxnDateTime = date('YmdHis') ;
     $TxnExpiryDateTime = date('YmdHis', strtotime('+8 Days'));
-    $TxnRefNumber = $object->fee_id;
+    $TxnRefNumber = $students->fee_id;
     $TxnType = "";
     $Version = '1.1';
     $SubMerchantID = "";
     $DiscountedAmount = "";
     $DiscountedBank = "";
-    $ppmpf_1=$object->fee_id;
-    $ppmpf_2=$object->std_id;
+    $ppmpf_1=$students->fee_id;
+    $ppmpf_2=$students->std_id;
     $ppmpf_3="";
     $ppmpf_4="";
     $ppmpf_5="";
@@ -382,15 +382,15 @@ border-bottom-left-radius: 25px;
     										padding: 12px;text-align: center; ">
 
     										<div class="receipt-left">
-    											<img class="img-responsive" alt="iamgurdeeposahan" src="@if($object->images){{asset('images/student/pics/'.$object->images)}} @else {{asset('assets/img/user.jpg')}} @endif" width="100%"  style="max-width: 180px;margin: 0 auto;">
+    											<img class="img-responsive" alt="iamgurdeeposahan" src="@if(isset($students->images) && $students->images){{asset('images/student/pics/'.$students->images)}} @else {{asset('assets/img/user.jpg')}} @endif" width="100%"  style="max-width: 180px;margin: 0 auto;">
     											<br>
     										</div>
     										<div class="clearfix"></div>
     										<div class="receipt-right" style="text-align: center;">
-    											<div class="box_filed"> <STRONG>{{$object->name}}</STRONG>  </div>
+    											<div class="box_filed"> <STRONG>{{$students->name}}</STRONG>  </div>
 
-    											<div class="box_filed"><STRONG>{{$object->branch}}</STRONG></div>
-    											<div class="box_filed"><STRONG>{{$object->course}} </STRONG></div>
+    											<div class="box_filed"><STRONG>{{$students->branch}}</STRONG></div>
+    											<div class="box_filed"><STRONG>{{$students->course}} </STRONG></div>
 
     										</div>
 
@@ -398,55 +398,14 @@ border-bottom-left-radius: 25px;
     									</div>
     								</div>
     								<div class="col-md-8">
-    									<div class="box_filed" style="float: left;"> <STRONG>Lyc No. {{$object->std_id}}</STRONG></div>
-    									<div style="float: right;"><b>Date :</b> {{$object->due_date}}</div>
-    									<br>
-    									<table class="table table-bordered" style="width: 100%;">
-    										<thead>
-    											<tr style="background-color: #ddd;">
-    												<th>Fee-Id</th>
-    												<th>Month</th>
-    												<th>Year</th>
-    												<th>Due Date</th>
-    												<th>Amount</th>
-    											</tr>
-    										</thead>
-    										<tbody>
-    											<tr>
-    												<td>{{$object->fee_id}}</td>
-    												<td>{{$object->fee_month}}</td>
-    												<td>{{$object->fee_year}}</td>
-    												<td>{{$object->due_date}}</td>
-    												<td>{{$object->total_fee}}/-</td>
-    											</tr>
-    										</tbody>
-    									</table>
+    									
     									<div style="width: 50%; float: left; text-align: justify;">
+    										
     										<p>
-    											<strong>Total Amount: </strong>
+    											<strong> Amount To Pay: </strong>
     										</p>
-    										<p>
-    											<strong>Late Fees: </strong>
-    										</p>
-    										<p>
-    											<strong>Payable Amount: </strong>
-    										</p>
-
-
-
-    										<h2><strong>Total: </strong></h2>
     									</div>
     									<div style="width: 50%;float: right; text-align: right;padding-right: 15px; ">
-    										<p>
-
-    											<strong><i class="fa fa-inr"></i> {{$object->total_fee}}/-</strong>
-    										</p>
-    										<p>
-    											<strong><i class="fa fa-inr"></i> {{$object->fine}}/-</strong>
-    										</p>
-    										<p>
-    											<strong><i class="fa fa-inr"></i> {{$object->total_payable}}/-</strong>
-
 
     											<h2><strong><i class="fa fa-inr"></i> {{$object->desire_amount}}/-</strong></h2>
 
