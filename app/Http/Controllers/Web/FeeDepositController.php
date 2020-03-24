@@ -9,6 +9,7 @@ use App\Models\Branch;
 use App\Models\Account;
 use App\Models\Master;
 use App\Models\Student;
+use \DB;
 class FeeDepositController extends Controller
 {
 	public function index(){
@@ -46,6 +47,8 @@ class FeeDepositController extends Controller
 		{
 			if($ResponseCode == '000'||$ResponseCode == '121'||$ResponseCode == '200'){
 
+				
+				$this->feeDepositDbEffected($_POST['ppmpf_1'],$_POST['pp_TxnRefNo'],$_POST['pp_Amount'],8);
 				session()->flash('success_message', __("Payment Successfull. $ResponseMessage"));
 				return redirect()->route('feedeposit.index');
 				
@@ -76,7 +79,7 @@ class FeeDepositController extends Controller
 
 
 	public function feeDepositpaypal(Request $request){
-	
+
 		$HashKey= "y14yb32g8s"; //Your Hash Key
 		$ResponseCode =$_POST['pp_ResponseCode'];
 		$ResponseMessage = $_POST['pp_ResponseMessage'];
@@ -140,7 +143,6 @@ class FeeDepositController extends Controller
 
 		$student=Student::find($request->std_id);
 		$account=Account::where('std_id',$request->std_id)->with('LedgerBalance')->first();
-// $object
 
 		if(isset($fee->isPaid) && $fee->isPaid!=1 ){
 			$object = new \stdClass;
@@ -194,7 +196,7 @@ class FeeDepositController extends Controller
 
 			$total_pending_amount=0;
 			if(isset($account->LedgerBalance) && $account->LedgerBalance){
-					$total_pending_amount=$account->LedgerBalance->balance;
+				$total_pending_amount=$account->LedgerBalance->balance;
 			}
 
 			if(isset($object->fine) && $object->fine){
@@ -217,21 +219,14 @@ class FeeDepositController extends Controller
 
 
 	public function store(Request $request){
-// dd($request->all());
 		$fee=FeePost::where('std_id',$request->std_id)->with('student.branch','student.course')->orderBy('id','DESC')->first();
 
 		$student=Student::find($request->std_id);
 		$account=Account::where('std_id',$request->std_id)->with('LedgerBalance')->first();
-
-
-
 		if(!$student){
 			session()->flash('error_message', __('Record not found'));
 			return redirect()->back();
 		}
-
-		
-
 
 		$object = new \stdClass;
 		if(isset($fee->isPaid) && $fee->isPaid!=1 ){
@@ -282,7 +277,7 @@ class FeeDepositController extends Controller
 
 		$total_pending_amount=0;
 		if(isset($account->LedgerBalance) && $account->LedgerBalance){
-				$total_pending_amount=$account->LedgerBalance->balance;
+			$total_pending_amount=$account->LedgerBalance->balance;
 		}
 
 		if(isset($object->fine) && $object->fine){
@@ -298,7 +293,7 @@ class FeeDepositController extends Controller
 		}
 		if($request->type_method==2 && $object){
 			$object->desire_amount=$request->pp_Amount;
-		
+
 			return view('web.pakistan.feeDeposit.newForm',compact('request','object','students'));
 		}else{
 			$object->desire_amount=$request->pp_Amount;
@@ -364,18 +359,28 @@ class FeeDepositController extends Controller
 	}
 
 	function feeDepositDbEffected($std_id,$fee_id,$amount,$bank){
-		$feePosts=FeePost::where('id',$stdd->id)->update([
-			'paid_date'=>date("d-m-Y", strtotime($request->deposit_date)),
-			'paid_amount'=>$request->amount,
-			'isPaid'=>($stdd->total_fee<=$request->amount)?1:2
-		]);
-		if(!$feePosts){
-			DB::rollBack(); 
-			session()->flash('error_message', __('Failed to fee record update'));
-			return redirect()->back();
-		}else{
-			$baranch=Branch::where('id',$request->branch_id)->with('userSetting')->first();
-			$branch_fine=isset($baranch->userSetting->fine)?$baranch->userSetting->fine:40;
+
+		$fee=FeePost::find($fee_id);
+		$stdd=$fee;
+		$month=$stdd->fee_month;
+		$year=$stdd->fee_year;
+		$depositDatest=date('Y-m-d');
+		$students=Student::find($std_id);
+		if($fee){
+			$feePosts=FeePost::where('id',$fee_id)->update([
+				'paid_date'=>date("d-m-Y"),
+				'paid_amount'=>$amount,
+				'isPaid'=>($fee->total_fee<=$amount)?1:2
+			]);
+		}
+		
+			$branch_fine=0;
+			$baranch=Branch::where('id',$students->branch_id)->with('userSetting')->first();
+			if($baranch){
+				$branch_fine=isset($baranch->userSetting->fine)?$baranch->userSetting->fine:40;
+			}
+
+			DB::beginTransaction();
                     ///////////////////////// Fee Deposit ......,...................
 			$studentAc=Account::where('std_id',$students->id)->first();
 			$master=Master::where('account_id',$studentAc->id)->orderBy('id','DESC')->first();
@@ -391,9 +396,9 @@ class FeeDepositController extends Controller
 				'fee_id'=>isset($stdd)?$stdd->id:null,
 				'std_id'=>isset($students)?$students->id:null,
 				'account_id'=>$studentAc->id,
-				'a_credit'=>isset($request->amount)?$request->amount:0,
+				'a_credit'=>isset($amount)?$amount:0,
 				'a_debit'=>0,
-				'balance'=>isset($master->balance)?$master->balance-$request->amount:((isset($master->balance)?$master->balance:0)-$request->amount),
+				'balance'=>isset($master->balance)?$master->balance-$amount:((isset($master->balance)?$master->balance:0)-$amount),
 
 
 				'posting_date'=>$depositDatest,
@@ -405,7 +410,8 @@ class FeeDepositController extends Controller
 			];
 			$std=Master::insert($ledger);
 			if(!$std){
-				DB::rollBack(); 
+				DB::rollBack();
+				return false; 
 			}else{
 				$branch=Account::where('branch_id',$students->branch_id)->first();
 				if(!$branch){
@@ -420,8 +426,8 @@ class FeeDepositController extends Controller
 					'fee_id'=>isset($stdd)?$stdd->id:null,
 					'a_credit'=>0,
 					'account_id'=>$branch->id,
-					'a_debit'=>isset($request->amount)?$request->amount:0,
-					'balance'=>isset($master->balance)?$master->balance+$request->amount:($request->amount),
+					'a_debit'=>isset($amount)?$amount:0,
+					'balance'=>isset($master->balance)?$master->balance+$amount:($amount),
 					'posting_date'=>$depositDatest,
 					'description'=>"Fee Deposited of  $students->s_name($students->id)".' ' .getMonthName($stdd->fee_month).' ' ."$stdd->fee_year",
 					'month'=>$month,
@@ -432,23 +438,15 @@ class FeeDepositController extends Controller
 				$std=Master::create($ledger);
 				if(!$std){
 					DB::rollBack(); 
-					session()->flash('error_message', __('Failed to update account'));
-					return redirect()->back(); 
+					return false;
 				}else{
-                          //////////////////////
-                          // end fee deposit...................... ////////////////////////
-                          ///////////////////////// fine Posting
-					$now = strtotime(date( 'Y-m-d', strtotime($request->deposit_date) )); 
-
+					$now = date('Y-m-d'); 
 					$your_date = strtotime($stdd->fee_due_date1);
-
 					if($stdd->outstand_lastmonth > 0){
 						$your_date = strtotime($stdd->fee_due_date2);
 					}else{
 						$your_date = strtotime($stdd->fee_due_date1);
 					}
-
-
 					$datediff = $now - $your_date;
 					$totalDay=round($datediff / (60 * 60 * 24));
 					$fine=$totalDay * $branch_fine;
@@ -490,12 +488,8 @@ class FeeDepositController extends Controller
 					$std=1;
 					if(!$std){
 						DB::rollBack();
-						session()->flash('error_message', __('Failed to update Fee Record'));
-						return redirect()->back();
+						return false;
 					}else{
-
-
-
 						$banks=BankFeeDeposit::create([
 							'deposite_date'=>$depositDatest,
 							'fee_id'=>isset($stdd)?$stdd->id:null,
@@ -503,26 +497,23 @@ class FeeDepositController extends Controller
 							'branch_id'=>$students->branch_id,
 							'fee_month'=>isset($stdd)?$stdd->fee_month:null,
 							'fee_year'=>isset($stdd)?$stdd->fee_year:null,
-							'paid_amount'=>$request->amount,
+							'paid_amount'=>$amount,
 							'created_by'=>Auth::user()->id,
 						]);
 
 
 						if($banks){
 							DB::commit();
-							session()->flash('success_message', __('Record Update Successfully'));
-							return redirect()->back();
+							return true;
 						}else{
 							DB::rollBack();
-							session()->flash('error_message', __('Failed! To Fee deposit'));
-							return redirect()->back();
+							return false;
 						}
 
 					}
 				}
 			}
-		}
-
+		
 	}
 
 }
