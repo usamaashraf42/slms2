@@ -163,8 +163,6 @@ Route::prefix('admin')->group(function () {
 
 		Route::get('/','admins\DashboardController@index')->name('dashboard');
 		Route::get('/profile', function () { return view('_layouts.admin.profile'); })->name('admin.profile');
-
-
 		Route::resource('class','admins\CourseController');
 		Route::resource('sms-send','admins\SmsSendController');
 		Route::resource('branch','Branch\BranchController');
@@ -227,6 +225,13 @@ Route::prefix('admin')->group(function () {
 			Route::resource('attendance','admins\AttandanceController');
 			Route::resource('fee-structure','admins\Student\StudentFeeStructureController');
 			Route::resource('manual-attendance','admins\Student\Attendance\ManualAttendanceController');
+
+			Route::resource('attendance-report','admins\Student\Attendance\AttendanceReportController');
+
+
+			
+
+
 			Route::get('manual-attendance-class-wise/{branch_id}/{class_id}/{date_id}','admins\Student\Attendance\ManualAttendanceController@manualAttendance')->name('manual-attendance-class-wise');
 
 			Route::post('add-manual-attendance','admins\Student\Attendance\ManualAttendanceController@AddAttendance')->name('AddAttendance');

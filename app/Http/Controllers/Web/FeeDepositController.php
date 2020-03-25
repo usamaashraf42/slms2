@@ -17,7 +17,7 @@ class FeeDepositController extends Controller
 {
 	public function index(){
 		// dd($_POST);
-		 $this->feeDepositDbEffected(1911842,1008583,4400,8);
+		 // $this->feeDepositDbEffected(1911842,1008583,4400,8);
 		return view('web.pakistan.feeDeposit.challan');
 	}
 
@@ -51,7 +51,7 @@ class FeeDepositController extends Controller
 			if($ResponseCode == '000'||$ResponseCode == '121'||$ResponseCode == '200'){
 
 				
-				$this->feeDepositDbEffected($request->ppmpf_1,$request->ppmpf_2,$request->pp_Amount,8);
+				$this->feeDepositDbEffected($request->ppmpf_2,$request->ppmpf_1,$request->pp_Amount,8);
 				session()->flash('success_message', __("Payment Successfull. $ResponseMessage"));
 				return redirect()->route('feedeposit.index');
 				

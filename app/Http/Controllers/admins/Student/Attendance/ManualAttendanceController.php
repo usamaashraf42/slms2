@@ -13,6 +13,7 @@ use Auth;
 use DB;
 class ManualAttendanceController extends Controller
 {
+
 	public function index(){
 		$branch=Branch::where('status',1)->with('level.course.Students')->has('level.course.Students');
 
@@ -34,7 +35,7 @@ class ManualAttendanceController extends Controller
 	public function store(Request $request){
 
 
-		$student=BranchCourse::orderBy('course_id','ASC')->where('branch_id',$request->branch_id);
+		$student=BranchCourse::orderBy('course_id','ASC')->where('branch_id',$request->branch_id);v  
 
 
 		if(isset($request->class_id) && !empty($request->class_id) && ($request->class_id) > 0){

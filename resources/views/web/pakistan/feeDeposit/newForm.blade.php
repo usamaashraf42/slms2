@@ -313,7 +313,6 @@ border-bottom-left-radius: 25px;
     	} }
     	$Securehash = hash_hmac('sha256', $SortedArray, $HashKey);  
     	?>
-
     	<div class="breadcrumb-container w-100 pa3 pv2-ns ph4-ns relative">
     		<div id="ctl00_cphBreadCrumb_BreadcrumbMenu1_pnlControls">
     		</div>

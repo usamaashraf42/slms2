@@ -490,6 +490,11 @@
 
 
              <li class="{{ areActiveRoutes(['manual-attendance.index','manual-attendance.store'])}}"><a href="{{route('manual-attendance.index')}}"> Manual Attendance</a></li>
+
+             <li class="{{ areActiveRoutes(['attendance-report.index','attendance-report.store'])}}"><a href="{{route('attendance-report.index')}}"> Attendance Report</a></li>
+
+
+             
          </ul>
      </li>
 
