@@ -22,7 +22,7 @@
               <div class="table-responsive">
                 <table id="category_table" class="table">
                   <thead>
-                    <tr>
+                    
                      <tr>
                       <th></th>
                       <th>Student Id </th>
