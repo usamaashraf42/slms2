@@ -370,6 +370,10 @@ class FeeDepositController extends Controller
 		$year=$stdd->fee_year;
 		$depositDatest=date('Y-m-d');
 		$students=Student::find($std_id);
+		dd($students);
+		if(!$students){
+			return false;
+		}
 		if($fee){
 			$feePosts=FeePost::where('id',$fee_id)->update([
 				'paid_date'=>date("d-m-Y"),
