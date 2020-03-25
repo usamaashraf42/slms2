@@ -1,5 +1,5 @@
 @extends('_layouts.web.pakistan.default')
-@section('title', 'Fee Deposit')
+@section('title', 'Fee Deposit Verification')
 @section('content')
 <
 <div id="siteWrapper" class="slide-right" style="overflow:hidden;">
@@ -271,7 +271,7 @@ color: white;
 padding: 6px;
 border-bottom-right-radius: 25px;
 border-bottom-left-radius: 25px;
-}">Fee Deposit Via JazzCash</h2>
+}">Verification</h2>
 </div>
 </div>
 
@@ -379,19 +379,20 @@ border-bottom-left-radius: 25px;
     									<div class="col-md-4">
     										<div class="receipt-header" style="border: 1px solid #ccc;
     										padding: 12px;text-align: center; ">
+    										<div class="receipt-right" style="text-align: center;">
+    											<div class="box_filed"> <h3><b>{{$students->name}}</b></h3>  </div>
+
+    											<div class="box_filed"><STRONG>{{$students->branch}}</STRONG></div>
+    											<div class="box_filed"><STRONG>{{$students->course}} </STRONG></div>
+
+    										</div>
 
     										<div class="receipt-left">
     											<img class="img-responsive" alt="iamgurdeeposahan" src="@if(isset($students->images) && $students->images){{asset('images/student/pics/'.$students->images)}} @else {{asset('assets/img/user.jpg')}} @endif" width="100%"  style="max-width: 180px;margin: 0 auto;">
     											<br>
     										</div>
     										<div class="clearfix"></div>
-    										<div class="receipt-right" style="text-align: center;">
-    											<div class="box_filed"> <STRONG>{{$students->name}}</STRONG>  </div>
-
-    											<div class="box_filed"><STRONG>{{$students->branch}}</STRONG></div>
-    											<div class="box_filed"><STRONG>{{$students->course}} </STRONG></div>
-
-    										</div>
+    										
 
 
     									</div>
@@ -401,7 +402,7 @@ border-bottom-left-radius: 25px;
     									<div style="width: 50%; float: left; text-align: justify;">
     										
     										<p>
-    											<strong> Amount To Pay: </strong>
+    											<b> amount is going charge to from you: </b>
     										</p>
     									</div>
     									<div style="width: 50%;float: right; text-align: right;padding-right: 15px; ">
@@ -423,10 +424,13 @@ border-bottom-left-radius: 25px;
     				</div>
     			</div>
     			<div class="col-md-12">
-    				<div class="modal-footer">
+    				<div class="row">
+    					<div class="col-md-10"></div>
+    					<div class="col-md-2">
 
     					<!--    <input type="button" class="btn btn-info btn-lg validateButton "   onclick="jobFormSubmit(this)"  id="updateDataBtn" value="Submit"> -->
     					<input type="submit" class="btn btn-success btn-lg submitButton"   style="display: block;"  id="updateDataBtn" value="submit">
+    				</div>
     				</div>
     			</div>
     		</form>

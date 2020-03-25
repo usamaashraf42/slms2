@@ -335,7 +335,7 @@ border-bottom-left-radius: 25px;
               <div id="signupbox"  class="mainbox col-md-12  col-sm-12 col-xs-12">
                 <div>
 
-                
+
                   <form   action="{{route('feedeposit.store')}}" id="applicationForm"  method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="panel-body" style="border:1px solid #ccc; margin-bottom: 20px;">
@@ -384,61 +384,64 @@ border-bottom-left-radius: 25px;
                           </div> -->
                         </div>
                         <div class="row" style="display: none;">
-                          
-
-                            <input type="hidden" name="pp_Version" value="<?php echo $Version; ?>" />
-                            <input type="hidden" name="pp_TxnType" value="<?php echo $TxnType; ?>" />
-                            <input type="hidden" name="pp_Language" value="<?php echo $Language; ?>" />
-                            <input type="hidden" name="pp_MerchantID" value="<?php echo $MerchantID; ?>" />
-                            <input type="hidden" name="pp_SubMerchantID" value="<?php echo $SubMerchantID; ?>" />
-                            <input type="hidden" name="pp_Password" value="<?php echo $Password; ?>" />
-                            <input type="hidden" name="pp_TxnRefNo" class="TxnRefNumber" value="<?php echo $TxnRefNumber; ?>"/>
-                            <input type="hidden" name="pp_Amount" class="pp_Amount" value="<?php echo $Amount; ?>" />
-                            <input type="hidden" name="pp_TxnCurrency" value="<?php echo $TxnCurrency; ?>"/>
-                            <input type="hidden" name="pp_TxnDateTime" value="<?php echo $TxnDateTime; ?>" />
-                            <input type="hidden" name="pp_BillReference" class="pp_BillReference" value="<?php echo $BillReference ?>" />
-                            <input type="hidden" name="pp_Description" value="<?php echo $Description; ?>" />
-                            <input type="hidden" id="pp_DiscountedAmount" name="pp_DiscountedAmount" value="<?php echo $DiscountedAmount ?>">
-                            <input type="hidden" id="pp_DiscountBank" name="pp_DiscountBank" value="<?php echo $DiscountedBank ?>">
-                            <input type="hidden" name="pp_TxnExpiryDateTime" value="<?php echo  $TxnExpiryDateTime; ?>" />
-                            <input type="hidden" name="pp_ReturnURL" value="<?php echo $ReturnURL; ?>" />
-                            <input type="hidden" name="pp_SecureHash" value="<?php echo $Securehash; ?>" />
-                            <input type="hidden" name="ppmpf_1" class="ppmpf_1" value="<?php echo $ppmpf_1; ?>" />
-                            <input type="hidden" name="ppmpf_2" class="ppmpf_2" value="<?php echo $ppmpf_2; ?>" />
-                            <input type="hidden" name="ppmpf_3" value="<?php echo $ppmpf_3; ?>" />
-                            <input type="hidden" name="ppmpf_4" value="<?php echo $ppmpf_4; ?>" />
-                            <input type="hidden" name="ppmpf_5" value="<?php echo $ppmpf_5; ?>" />
-
-                             <input type="hidden" class="type_method" name="type_method" value="" />
 
 
-                          </div>
+                          <input type="hidden" name="pp_Version" value="<?php echo $Version; ?>" />
+                          <input type="hidden" name="pp_TxnType" value="<?php echo $TxnType; ?>" />
+                          <input type="hidden" name="pp_Language" value="<?php echo $Language; ?>" />
+                          <input type="hidden" name="pp_MerchantID" value="<?php echo $MerchantID; ?>" />
+                          <input type="hidden" name="pp_SubMerchantID" value="<?php echo $SubMerchantID; ?>" />
+                          <input type="hidden" name="pp_Password" value="<?php echo $Password; ?>" />
+                          <input type="hidden" name="pp_TxnRefNo" class="TxnRefNumber" value="<?php echo $TxnRefNumber; ?>"/>
+                          <input type="hidden" name="pp_Amount" class="pp_Amount" value="<?php echo $Amount; ?>" />
+                          <input type="hidden" name="pp_TxnCurrency" value="<?php echo $TxnCurrency; ?>"/>
+                          <input type="hidden" name="pp_TxnDateTime" value="<?php echo $TxnDateTime; ?>" />
+                          <input type="hidden" name="pp_BillReference" class="pp_BillReference" value="<?php echo $BillReference ?>" />
+                          <input type="hidden" name="pp_Description" value="<?php echo $Description; ?>" />
+                          <input type="hidden" id="pp_DiscountedAmount" name="pp_DiscountedAmount" value="<?php echo $DiscountedAmount ?>">
+                          <input type="hidden" id="pp_DiscountBank" name="pp_DiscountBank" value="<?php echo $DiscountedBank ?>">
+                          <input type="hidden" name="pp_TxnExpiryDateTime" value="<?php echo  $TxnExpiryDateTime; ?>" />
+                          <input type="hidden" name="pp_ReturnURL" value="<?php echo $ReturnURL; ?>" />
+                          <input type="hidden" name="pp_SecureHash" value="<?php echo $Securehash; ?>" />
+                          <input type="hidden" name="ppmpf_1" class="ppmpf_1" value="<?php echo $ppmpf_1; ?>" />
+                          <input type="hidden" name="ppmpf_2" class="ppmpf_2" value="<?php echo $ppmpf_2; ?>" />
+                          <input type="hidden" name="ppmpf_3" value="<?php echo $ppmpf_3; ?>" />
+                          <input type="hidden" name="ppmpf_4" value="<?php echo $ppmpf_4; ?>" />
+                          <input type="hidden" name="ppmpf_5" value="<?php echo $ppmpf_5; ?>" />
+
+                          <input type="hidden" class="type_method" name="type_method" value="2" />
+
+
                         </div>
                       </div>
-                      <!-- //////////////////???????????????????? start ????????????????????????????????? -->
-                      <div class="row" id="feeChallan">
-
-                      </div>
-
-
-                      <!-- /////////////////////////////  end display none????????????????????????????????? -->
                     </div>
+                    <!-- //////////////////???????????????????? start ????????????????????????????????? -->
+                    <div class="row" id="feeChallan">
+
+                    </div>
+
+
+                    <!-- /////////////////////////////  end display none????????????????????????????????? -->
                   </div>
                 </div>
               </div>
-              <div class="col-md-12">
-                <div class="modal-footer">
-
-                  <input type="button" class="btn btn-info btn-lg validateButton "   onclick="jobFormSubmit(this)"  value="Search">
-                  <input type="submit" class="btn btn-success btn-lg submitButton"   style="display: none;"  value="submit">
+            </div>
+            <div class="col-md-12 " >
+              <div class="row" >
+                <div class="col-md-9"></div>
+                <div class="col-md-3 float-right" style="float:right">
+                  <input type="button"  class="btn btn-info btn-lg validateButton   float-left"   onclick="jobFormSubmit(this)"  value="Search">
+                  <input class="btn btn-success btn-lg submitButton float-left" onclick="FormSubmit(this)"   style="display: none; "  value="submit">
                 </div>
               </div>
-            </form>
-          </div>
+
+            </div>
+          </form>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   </div>
+</div>
 </div>
 </div>
 
@@ -492,6 +495,10 @@ crossorigin="anonymous"></script>
 <script>
 
   $("#phone").inputmask({"mask": "99999999999"});
+
+  function FormSubmit(obj){
+    document.getElementById("applicationForm").submit();
+  }
 
   function countryHasBranch(obj){
 
@@ -699,8 +706,8 @@ function jobFormSubmit(ob){
  // }
 
  if(valid){
-  
-$('.validateButton').css('display','none');
+
+  $('.validateButton').css('display','none');
 
   
   $.ajax({
@@ -727,19 +734,19 @@ $('.validateButton').css('display','none');
         <div class="col-md-4">
         <div class="receipt-header" style="border: 1px solid #ccc;
         padding: 12px;text-align: center; ">
+        <div class="receipt-right" style="text-align: center;">
+        <div class="box_filed"><h3> <b>${response.student.name}</b> </h23> </div>
+
+        <div class="box_filed"><STRONG>${response.student.branch}</STRONG></div>
+        <div class="box_filed"><STRONG>${response.student.course} </STRONG></div>
+
+        </div>
 
         <div class="receipt-left">
         <img class="img-responsive" alt="iamgurdeeposahan" src="${response.student.images?'images/student/pics/'+response.student.images:'assets/img/user.jpg'}" width="100%"  style="max-width: 180px;margin: 0 auto;">
         <br>
         </div>
         <div class="clearfix"></div>
-        <div class="receipt-right" style="text-align: center;">
-        <div class="box_filed"> <STRONG>${response.student.name}</STRONG>  </div>
-
-        <div class="box_filed"><STRONG>${response.student.branch}</STRONG></div>
-        <div class="box_filed"><STRONG>${response.student.course} </STRONG></div>
-
-        </div>
 
 
         </div>
@@ -752,7 +759,7 @@ $('.validateButton').css('display','none');
         <strong> Pending Amount: </strong>
         </p>
         <p>
-    
+
 
 
 
@@ -764,7 +771,7 @@ $('.validateButton').css('display','none');
         <strong><i class="fa fa-inr"></i> ${response.student.total_pending}/-</strong>
         </p>
         <p>
-       
+
 
 
         <h2><input type="number"  onchange="AmountConstraint(this)" data-amount="${response.student.total_pending}" class="input-md  textinput textInput form-control" value="${response.student.total_pending}" min="${response.student.total_pending}" name='pp_Amount'></h2>
@@ -779,33 +786,36 @@ $('.validateButton').css('display','none');
         <div style="width: 100%; border-left: 2px solid #ddd;">
         </div>
         <ul>
+
         <li class="list_radio">
-        <input type="radio" onclick="checkedMethod(this)" checked value="1" id="f-option" name="method">
+        <input type="radio" onclick="checkedMethod(this)" checked value="2" id="s-option" name="method">
+        <label for="s-option"> <img src="{{asset('assets/img/jazzcash.jpg')}}" width="100%" style="max-width: 260px;height:80px; margin-top: -23px;">
+        </label>
+        <div class="check"><div class="inside"></div></div>
+        </li>
+
+        <li class="list_radio">
+        <input type="radio" onclick="checkedMethod(this)"  value="1" id="f-option" name="method">
         <label for="f-option"> 
         <img src="{{asset('assets/img/paypal.png')}}" width="100%" style="max-width: 260px;height: 68px; margin-top: -23px;"></label>
 
         <div class="check"></div>
         </li>
 
-        <li class="list_radio">
-        <input type="radio" onclick="checkedMethod(this)"  value="2" id="s-option" name="method">
-        <label for="s-option"> <img src="{{asset('assets/img/jazzcash.jpg')}}" width="100%" style="max-width: 260px;height:80px; margin-top: -23px;">
-        </label>
-        <div class="check"><div class="inside"></div></div>
-        </li>
+
 
 
         </ul>
         </div>`;
 
         $('#feeChallan').append(content);
-         $('.submitButton').css('display','block');
+        $('.submitButton').css('display','block');
 
       } else {
         console.log('status false', response);
-       $('.std_id-error').text('std Id is not valid.');
-      $('.std_id-error').css('display','block','color','red','border-color','red');
-      $('.validateButton').css('display','block');
+        $('.std_id-error').text('std Id is not valid.');
+        $('.std_id-error').css('display','block','color','red','border-color','red');
+        $('.validateButton').css('display','block');
 
        // location.reload(true);
      }
@@ -841,7 +851,7 @@ function AmountConstraint(obj){
 
 
 
-  function checkedMethod(obj){
+function checkedMethod(obj){
     // $(obj).val(this.checked);
     console.log('checkmethod',obj);
     $(obj).prop("checked");

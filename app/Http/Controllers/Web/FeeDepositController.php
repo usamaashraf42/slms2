@@ -23,7 +23,7 @@ class FeeDepositController extends Controller
 
 
 	public function feeDepositstatus(Request $request){
-		dd($request->all());
+
 		$HashKey= "y14yb32g8s"; //Your Hash Key
 		$ResponseCode =$_POST['pp_ResponseCode'];
 		$ResponseMessage = $_POST['pp_ResponseMessage'];
@@ -225,6 +225,7 @@ class FeeDepositController extends Controller
 
 
 	public function store(Request $request){
+		// dd($request->all());
 		$fee=FeePost::where('std_id',$request->std_id)->with('student.branch','student.course')->orderBy('id','DESC')->first();
 
 		$student=Student::find($request->std_id);
