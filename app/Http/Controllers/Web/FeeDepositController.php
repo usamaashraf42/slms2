@@ -369,7 +369,7 @@ class FeeDepositController extends Controller
 		$year=$stdd->fee_year;
 		$depositDatest=date('Y-m-d');
 		$students=Student::find($std_id);
-		dd($std_id);
+	
 		if(!$students){
 			return false;
 		}
