@@ -17,7 +17,7 @@ class FeeDepositController extends Controller
 {
 	public function index(){
 		// dd($_POST);
-		// $this->feeDepositDbEffected(1912124,1009118,500,8);
+		 $this->feeDepositDbEffected(1911842,1008583,4400,8);
 		return view('web.pakistan.feeDeposit.challan');
 	}
 
@@ -362,7 +362,7 @@ class FeeDepositController extends Controller
 	}
 
 	function feeDepositDbEffected($std_id,$fee_id,$amount,$bank){
-dd($fee_id);
+
 		$fee=FeePost::find($fee_id);
 		$stdd=$fee;
 		$month=isset($stdd->fee_month)?$stdd->fee_month:date('m');
@@ -387,7 +387,7 @@ dd($fee_id);
 			$branch_fine=isset($baranch->userSetting->fine)?$baranch->userSetting->fine:40;
 		}
 
-		DB::beginTransaction();
+		
                     ///////////////////////// Fee Deposit ......,...................
 		$studentAc=Account::where('std_id',$students->id)->first();
 		$master=Master::where('account_id',$studentAc->id)->orderBy('id','DESC')->first();
@@ -398,6 +398,8 @@ dd($fee_id);
 				'type'=>'student', 
 			]);
 		}
+
+		DB::beginTransaction();
 
 		$ledger=[
 			'fee_id'=>isset($stdd)?$stdd->id:null,
@@ -471,6 +473,7 @@ dd($fee_id);
 				DB::rollBack(); 
 				return false;
 			}else{
+				
 				if(isset($stdd->fee_due_date1) && $stdd->outstand_lastmonth){
 					$now = date('Y-m-d'); 
 				$your_date = strtotime($stdd->fee_due_date1);
