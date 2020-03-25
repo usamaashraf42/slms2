@@ -475,7 +475,7 @@ class FeeDepositController extends Controller
 			}else{
 				
 				if(isset($stdd->fee_due_date1) && $stdd->outstand_lastmonth){
-					$now = date('Y-m-d'); 
+					$now = strtotime(date('Y-m-d')); 
 				$your_date = strtotime($stdd->fee_due_date1);
 				if($stdd->outstand_lastmonth > 0){
 					$your_date = strtotime($stdd->fee_due_date2);
