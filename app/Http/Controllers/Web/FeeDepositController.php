@@ -23,7 +23,7 @@ class FeeDepositController extends Controller
 
 
 	public function feeDepositstatus(Request $request){
-		// dd($request->all());
+		 dd($request->all());
 		$HashKey= "y14yb32g8s"; //Your Hash Key
 		$ResponseCode =$_POST['pp_ResponseCode'];
 		$ResponseMessage = $_POST['pp_ResponseMessage'];
@@ -370,7 +370,7 @@ class FeeDepositController extends Controller
 		$year=$stdd->fee_year;
 		$depositDatest=date('Y-m-d');
 		$students=Student::find($std_id);
-		dd($students);
+		dd($std_id);
 		if(!$students){
 			return false;
 		}
