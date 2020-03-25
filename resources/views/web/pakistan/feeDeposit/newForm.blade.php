@@ -429,7 +429,7 @@ border-bottom-left-radius: 25px;
     					<div class="col-md-2">
 
     					<!--    <input type="button" class="btn btn-info btn-lg validateButton "   onclick="jobFormSubmit(this)"  id="updateDataBtn" value="Submit"> -->
-    					<input type="submit" class="btn btn-success btn-lg submitButton"   style="display: block;"  id="updateDataBtn" value="submit">
+    					<input type="submit" class="btn btn-success btn-lg submitButton"   style="display: block;"  id="updateDataBtn" value="Verify">
     				</div>
     				</div>
     			</div>
