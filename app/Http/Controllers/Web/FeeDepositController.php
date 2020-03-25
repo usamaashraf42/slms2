@@ -9,6 +9,7 @@ use App\Models\Branch;
 use App\Models\Account;
 use App\Models\Master;
 use App\Models\Student;
+use App\Models\Bank;
 use \DB;
 class FeeDepositController extends Controller
 {
@@ -374,24 +375,79 @@ class FeeDepositController extends Controller
 			]);
 		}
 		
-			$branch_fine=0;
-			$baranch=Branch::where('id',$students->branch_id)->with('userSetting')->first();
-			if($baranch){
-				$branch_fine=isset($baranch->userSetting->fine)?$baranch->userSetting->fine:40;
-			}
+		$branch_fine=0;
+		$baranch=Branch::where('id',$students->branch_id)->with('userSetting')->first();
+		if($baranch){
+			$branch_fine=isset($baranch->userSetting->fine)?$baranch->userSetting->fine:40;
+		}
 
-			DB::beginTransaction();
+		DB::beginTransaction();
                     ///////////////////////// Fee Deposit ......,...................
-			$studentAc=Account::where('std_id',$students->id)->first();
-			$master=Master::where('account_id',$studentAc->id)->orderBy('id','DESC')->first();
-			if(!$studentAc){
-				$studentAc=Account::create([
-					'name'=>$students->s_name.' '.$students->s_fatherName, 
-					'std_id'=>$students->id, 
-					'type'=>'student', 
+		$studentAc=Account::where('std_id',$students->id)->first();
+		$master=Master::where('account_id',$studentAc->id)->orderBy('id','DESC')->first();
+		if(!$studentAc){
+			$studentAc=Account::create([
+				'name'=>$students->s_name.' '.$students->s_fatherName, 
+				'std_id'=>$students->id, 
+				'type'=>'student', 
+			]);
+		}
+
+		$ledger=[
+			'fee_id'=>isset($stdd)?$stdd->id:null,
+			'std_id'=>isset($students)?$students->id:null,
+			'account_id'=>$studentAc->id,
+			'a_credit'=>isset($amount)?$amount:0,
+			'a_debit'=>0,
+			'balance'=>isset($master->balance)?$master->balance-$amount:((isset($master->balance)?$master->balance:0)-$amount),
+			'posting_date'=>$depositDatest,
+			'description'=>"Fee Deposited of".' '.getMonthName($stdd->fee_month). ' '."$year",
+			'month'=>$month,
+			'year'=>$year,
+			'created_by'=>Auth::user()->id,
+			'updated_by'=>Auth::user()->id,
+		];
+		$std=Master::insert($ledger);
+		if(!$std){
+			DB::rollBack();
+			return false; 
+		}else{
+			$branch=Account::where('branch_id',$students->branch_id)->first();
+			if(!$branch){
+				$branch=Account::create([
+					'name'=>$baranch->branch_name, 
+					'branch_id'=>$baranch->id,
+					'type'=>'Branch', 
 				]);
 			}
+			$master=Master::where('account_id',$branch->id)->orderBy('id','DESC')->first();
+			$ledger=[
+				'fee_id'=>isset($stdd)?$stdd->id:null,
+				'a_credit'=>0,
+				'account_id'=>$branch->id,
+				'a_debit'=>isset($amount)?$amount:0,
+				'balance'=>isset($master->balance)?$master->balance+$amount:($amount),
+				'posting_date'=>$depositDatest,
+				'description'=>"Fee Deposited of  $students->s_name($students->id)".' ' .getMonthName($stdd->fee_month).' ' ."$stdd->fee_year",
+				'month'=>$month,
+				'year'=>$year,
+				'created_by'=>Auth::user()->id,
+				'updated_by'=>Auth::user()->id,
+			];
+			$std=Master::create($ledger);
 
+
+			$bankAc=Account::where('bank_id',$bank)->first();
+			
+			if(!$bankAc){
+				$bank_name=Bank::find($bank);
+				$bankAc=Account::create([
+					'name'=>$bank_name->bank_name, 
+					'bank_id'=>$bank, 
+					'type'=>'bank', 
+				]);
+			}
+			$master=Master::where('account_id',$bankAc->id)->orderBy('id','DESC')->first();
 			$ledger=[
 				'fee_id'=>isset($stdd)?$stdd->id:null,
 				'std_id'=>isset($students)?$students->id:null,
@@ -399,8 +455,6 @@ class FeeDepositController extends Controller
 				'a_credit'=>isset($amount)?$amount:0,
 				'a_debit'=>0,
 				'balance'=>isset($master->balance)?$master->balance-$amount:((isset($master->balance)?$master->balance:0)-$amount),
-
-
 				'posting_date'=>$depositDatest,
 				'description'=>"Fee Deposited of".' '.getMonthName($stdd->fee_month). ' '."$year",
 				'month'=>$month,
@@ -409,110 +463,85 @@ class FeeDepositController extends Controller
 				'updated_by'=>Auth::user()->id,
 			];
 			$std=Master::insert($ledger);
+
 			if(!$std){
-				DB::rollBack();
-				return false; 
+				DB::rollBack(); 
+				return false;
 			}else{
-				$branch=Account::where('branch_id',$students->branch_id)->first();
-				if(!$branch){
-					$branch=Account::create([
-						'name'=>$baranch->branch_name, 
-						'branch_id'=>$baranch->id,
-						'type'=>'Branch', 
-					]);
+				$now = date('Y-m-d'); 
+				$your_date = strtotime($stdd->fee_due_date1);
+				if($stdd->outstand_lastmonth > 0){
+					$your_date = strtotime($stdd->fee_due_date2);
+				}else{
+					$your_date = strtotime($stdd->fee_due_date1);
 				}
-				$master=Master::where('account_id',$branch->id)->orderBy('id','DESC')->first();
-				$ledger=[
-					'fee_id'=>isset($stdd)?$stdd->id:null,
-					'a_credit'=>0,
-					'account_id'=>$branch->id,
-					'a_debit'=>isset($amount)?$amount:0,
-					'balance'=>isset($master->balance)?$master->balance+$amount:($amount),
-					'posting_date'=>$depositDatest,
-					'description'=>"Fee Deposited of  $students->s_name($students->id)".' ' .getMonthName($stdd->fee_month).' ' ."$stdd->fee_year",
-					'month'=>$month,
-					'year'=>$year,
-					'created_by'=>Auth::user()->id,
-					'updated_by'=>Auth::user()->id,
-				];
-				$std=Master::create($ledger);
+				$datediff = $now - $your_date;
+				$totalDay=round($datediff / (60 * 60 * 24));
+				$fine=$totalDay * $branch_fine;
+
+				if(($fine) && ($fine>=1)){
+					$master=Master::where('account_id',$studentAc->id)->orderBy('id','DESC')->first();
+					$ledger=[
+						'fee_id'=>isset($stdd)?$stdd->id:null,
+						'std_id'=>isset($students)?$students->id:null,
+						'account_id'=>$studentAc->id,
+						'a_credit'=>0,
+						'a_debit'=>isset($fine)?$fine:0,
+						'balance'=>isset($master->balance)?$master->balance+$fine:($fine),
+						'posting_date'=>$depositDatest,
+						'description'=>"Late Fee Deposit fine of".' '.getMonthName($stdd->fee_month).' '. "$year",
+						'month'=>$month,
+						'year'=>$year,
+						'created_by'=>Auth::user()->id,
+						'updated_by'=>Auth::user()->id,
+					];
+					$std=Master::create($ledger);
+
+					$master=Master::where('account_id',$branch->id)->orderBy('id','DESC')->first();
+					$ledger=[
+						'fee_id'=>isset($stdd)?$stdd->id:null,
+						'a_credit'=>isset($fine)?$fine:0,
+						'account_id'=>$branch->id,
+						'a_debit'=>0,
+						'balance'=>isset($master->balance)?$master->balance-$fine:(-$fine),
+						'posting_date'=>$depositDatest,
+						'description'=>"Late Fee Deposit fine of".' '. getMonthName($month).' ' ."$year",
+						'month'=>$month,
+						'year'=>$year,
+						'created_by'=>Auth::user()->id,
+						'updated_by'=>Auth::user()->id,
+					];
+					$firstInsert=Master::create($ledger);
+				}
+				$std=1;
 				if(!$std){
-					DB::rollBack(); 
+					DB::rollBack();
 					return false;
 				}else{
-					$now = date('Y-m-d'); 
-					$your_date = strtotime($stdd->fee_due_date1);
-					if($stdd->outstand_lastmonth > 0){
-						$your_date = strtotime($stdd->fee_due_date2);
+					$banks=BankFeeDeposit::create([
+						'bank_id'=>$bank,
+						'deposite_date'=>$depositDatest,
+						'fee_id'=>isset($stdd)?$stdd->id:null,
+						'std_id'=>$students->id,
+						'branch_id'=>$students->branch_id,
+						'fee_month'=>isset($stdd)?$stdd->fee_month:null,
+						'fee_year'=>isset($stdd)?$stdd->fee_year:null,
+						'paid_amount'=>$amount,
+						'created_by'=>Auth::user()->id,
+					]);
+
+
+					if($banks){
+						DB::commit();
+						return true;
 					}else{
-						$your_date = strtotime($stdd->fee_due_date1);
-					}
-					$datediff = $now - $your_date;
-					$totalDay=round($datediff / (60 * 60 * 24));
-					$fine=$totalDay * $branch_fine;
-
-					if(($fine) && ($fine>=1)){
-						$master=Master::where('account_id',$studentAc->id)->orderBy('id','DESC')->first();
-						$ledger=[
-							'fee_id'=>isset($stdd)?$stdd->id:null,
-							'std_id'=>isset($students)?$students->id:null,
-							'account_id'=>$studentAc->id,
-							'a_credit'=>0,
-							'a_debit'=>isset($fine)?$fine:0,
-							'balance'=>isset($master->balance)?$master->balance+$fine:($fine),
-							'posting_date'=>$depositDatest,
-							'description'=>"Late Fee Deposit fine of".' '.getMonthName($stdd->fee_month).' '. "$year",
-							'month'=>$month,
-							'year'=>$year,
-							'created_by'=>Auth::user()->id,
-							'updated_by'=>Auth::user()->id,
-						];
-						$std=Master::create($ledger);
-
-						$master=Master::where('account_id',$branch->id)->orderBy('id','DESC')->first();
-						$ledger=[
-							'fee_id'=>isset($stdd)?$stdd->id:null,
-							'a_credit'=>isset($fine)?$fine:0,
-							'account_id'=>$branch->id,
-							'a_debit'=>0,
-							'balance'=>isset($master->balance)?$master->balance-$fine:(-$fine),
-							'posting_date'=>$depositDatest,
-							'description'=>"Late Fee Deposit fine of".' '. getMonthName($month).' ' ."$year",
-							'month'=>$month,
-							'year'=>$year,
-							'created_by'=>Auth::user()->id,
-							'updated_by'=>Auth::user()->id,
-						];
-						$firstInsert=Master::create($ledger);
-					}
-					$std=1;
-					if(!$std){
 						DB::rollBack();
 						return false;
-					}else{
-						$banks=BankFeeDeposit::create([
-							'deposite_date'=>$depositDatest,
-							'fee_id'=>isset($stdd)?$stdd->id:null,
-							'std_id'=>$students->id,
-							'branch_id'=>$students->branch_id,
-							'fee_month'=>isset($stdd)?$stdd->fee_month:null,
-							'fee_year'=>isset($stdd)?$stdd->fee_year:null,
-							'paid_amount'=>$amount,
-							'created_by'=>Auth::user()->id,
-						]);
-
-
-						if($banks){
-							DB::commit();
-							return true;
-						}else{
-							DB::rollBack();
-							return false;
-						}
-
 					}
+
 				}
 			}
+		}
 		
 	}
 
