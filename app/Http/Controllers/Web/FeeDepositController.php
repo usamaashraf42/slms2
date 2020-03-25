@@ -362,7 +362,7 @@ class FeeDepositController extends Controller
 	}
 
 	function feeDepositDbEffected($std_id,$fee_id,$amount,$bank){
-dd($std_id);
+dd($fee_id);
 		$fee=FeePost::find($fee_id);
 		$stdd=$fee;
 		$month=isset($stdd->fee_month)?$stdd->fee_month:date('m');
