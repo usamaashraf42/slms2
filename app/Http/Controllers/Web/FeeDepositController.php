@@ -23,6 +23,7 @@ class FeeDepositController extends Controller
 
 
 	public function feeDepositstatus(Request $request){
+		dd($request->all());
 		$HashKey= "y14yb32g8s"; //Your Hash Key
 		$ResponseCode =$_POST['pp_ResponseCode'];
 		$ResponseMessage = $_POST['pp_ResponseMessage'];
@@ -192,6 +193,8 @@ class FeeDepositController extends Controller
 		if($student){
 			$students = new \stdClass;
 			$students->std_id=$student->id;
+
+			$students->fee_id=isset($object->fee_id)?$object->fee_id:rand(1, 7);
 			$students->name=$student->s_name.' '.$student->s_fatherName;
 			$students->branch=isset($student->branch->branch_name)?$student->branch->branch_name:null;
 			$students->course=isset($student->course->course_name)?$student->course->course_name:null;

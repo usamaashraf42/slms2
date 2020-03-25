@@ -13,6 +13,7 @@ use DB;
 class AttendanceReportController extends Controller
 {
    public function index(){
+   	
 		$branch=Branch::where('status',1)->with('level.course.Students')->has('level.course.Students');
 
 		if(Auth::user()->branch_id){
@@ -25,7 +26,6 @@ class AttendanceReportController extends Controller
 			$branch->where('school_id',Auth::user()->school_id);
 		}
 		$branches=$branch->limit(2)->get();
-
 
 		return view('admin.student.attendanceReport.index',compact('branches'));
 	}

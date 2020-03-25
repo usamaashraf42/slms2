@@ -712,7 +712,6 @@ $('.validateButton').css('display','none');
       console.log('feeChallan', response);
 
       if (response.status) {
-
         $('.pp_Amount').val(response.student.total_payable);
         $('.pp_BillReference').val(response.student.fee_id);
         $('.TxnRefNumber').val(response.student.fee_id);
