@@ -17,7 +17,7 @@ class FeeDepositController extends Controller
 {
 	public function index(){
 		// dd($_POST);
-		 // $this->feeDepositDbEffected(1911842,1008583,4400,8);
+		 $this->feeDepositDbEffected(1911842,1008583,4400,8);
 		return view('web.pakistan.feeDeposit.challan');
 	}
 
@@ -457,7 +457,7 @@ class FeeDepositController extends Controller
 			$ledger=[
 				'fee_id'=>isset($stdd)?$stdd->id:null,
 				'std_id'=>isset($students)?$students->id:null,
-				'account_id'=>$studentAc->id,
+				'account_id'=>$bankAc->id,
 				'a_credit'=>isset($amount)?$amount:0,
 				'a_debit'=>0,
 				'balance'=>isset($master->balance)?$master->balance-$amount:((isset($master->balance)?$master->balance:0)-$amount),
