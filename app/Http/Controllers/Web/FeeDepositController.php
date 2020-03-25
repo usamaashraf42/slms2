@@ -10,11 +10,14 @@ use App\Models\Account;
 use App\Models\Master;
 use App\Models\Student;
 use App\Models\Bank;
+use App\Models\BankFeeDeposit;
 use \DB;
+use Auth;
 class FeeDepositController extends Controller
 {
 	public function index(){
 		// dd($_POST);
+		// $this->feeDepositDbEffected(1912124,1009118,500,8);
 		return view('web.pakistan.feeDeposit.challan');
 	}
 
@@ -404,8 +407,7 @@ class FeeDepositController extends Controller
 			'description'=>"Fee Deposited of".' '.getMonthName($stdd->fee_month). ' '."$year",
 			'month'=>$month,
 			'year'=>$year,
-			'created_by'=>Auth::user()->id,
-			'updated_by'=>Auth::user()->id,
+			
 		];
 		$std=Master::insert($ledger);
 		if(!$std){
@@ -431,8 +433,7 @@ class FeeDepositController extends Controller
 				'description'=>"Fee Deposited of  $students->s_name($students->id)".' ' .getMonthName($stdd->fee_month).' ' ."$stdd->fee_year",
 				'month'=>$month,
 				'year'=>$year,
-				'created_by'=>Auth::user()->id,
-				'updated_by'=>Auth::user()->id,
+				
 			];
 			$std=Master::create($ledger);
 
@@ -459,8 +460,7 @@ class FeeDepositController extends Controller
 				'description'=>"Fee Deposited of".' '.getMonthName($stdd->fee_month). ' '."$year",
 				'month'=>$month,
 				'year'=>$year,
-				'created_by'=>Auth::user()->id,
-				'updated_by'=>Auth::user()->id,
+				
 			];
 			$std=Master::insert($ledger);
 
@@ -468,7 +468,8 @@ class FeeDepositController extends Controller
 				DB::rollBack(); 
 				return false;
 			}else{
-				$now = date('Y-m-d'); 
+				if(isset($stdd->fee_due_date1) && $stdd->outstand_lastmonth){
+					$now = date('Y-m-d'); 
 				$your_date = strtotime($stdd->fee_due_date1);
 				if($stdd->outstand_lastmonth > 0){
 					$your_date = strtotime($stdd->fee_due_date2);
@@ -492,8 +493,7 @@ class FeeDepositController extends Controller
 						'description'=>"Late Fee Deposit fine of".' '.getMonthName($stdd->fee_month).' '. "$year",
 						'month'=>$month,
 						'year'=>$year,
-						'created_by'=>Auth::user()->id,
-						'updated_by'=>Auth::user()->id,
+						
 					];
 					$std=Master::create($ledger);
 
@@ -508,10 +508,10 @@ class FeeDepositController extends Controller
 						'description'=>"Late Fee Deposit fine of".' '. getMonthName($month).' ' ."$year",
 						'month'=>$month,
 						'year'=>$year,
-						'created_by'=>Auth::user()->id,
-						'updated_by'=>Auth::user()->id,
+						
 					];
 					$firstInsert=Master::create($ledger);
+				}
 				}
 				$std=1;
 				if(!$std){
@@ -527,7 +527,6 @@ class FeeDepositController extends Controller
 						'fee_month'=>isset($stdd)?$stdd->fee_month:null,
 						'fee_year'=>isset($stdd)?$stdd->fee_year:null,
 						'paid_amount'=>$amount,
-						'created_by'=>Auth::user()->id,
 					]);
 
 
