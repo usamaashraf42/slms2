@@ -365,8 +365,8 @@ class FeeDepositController extends Controller
 
 		$fee=FeePost::find($fee_id);
 		$stdd=$fee;
-		$month=$stdd->fee_month;
-		$year=$stdd->fee_year;
+		$month=isset($stdd->fee_month)?$stdd->fee_month:date('m');
+		$year=isset($stdd->fee_year)?$stdd->fee_year:date('Y');
 		$depositDatest=date('Y-m-d');
 		$students=Student::find($std_id);
 	
