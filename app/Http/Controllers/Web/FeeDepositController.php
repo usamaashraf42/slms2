@@ -17,7 +17,7 @@ class FeeDepositController extends Controller
 {
 	public function index(){
 		// dd($_POST);
-		 $this->feeDepositDbEffected(1911842,1008583,4400,8);
+		 // $this->feeDepositDbEffected(1911842,1008583,4400,8);
 		return view('web.pakistan.feeDeposit.challan');
 	}
 
