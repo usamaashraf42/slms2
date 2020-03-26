@@ -10,9 +10,9 @@
       <div class="dn dib-l">
        <ul>
          <li>
-          <a class="btn btn-success" href="http://lectures.americanlyceum.com" style="margin-top: 0px!important;
+          <a class="" href="http://lectures.americanlyceum.com" style="margin-top: 0px!important;
     border: 2px solid #f7f7f7!important;
-    background: #363886!important;">Online lectures</a>
+    background: #363886!important; padding: 2px 4px;">Online lectures</a>
         </li>
          <li>
            <a href="{{route('pakistan.news')}}" class="text_fonts">News</a>
@@ -62,7 +62,7 @@
         </li>
         
         <li class="sw-menucode-item" id="mn-admissions">
-          <a href="" class=" sw-menucode-item__link">Admission</a>
+          <a>Admission</a>
           <ul class="sw-menucode-list">
             <li class="sw-menucode-list__item" id="mn-admission-at-">
               <a href="{{route('pakistan.Information')}}" class="first  sw-menucode-item__link">Information</a>
@@ -114,7 +114,7 @@
 
         </li>
         <li class="sw-menucode-item" id="mn-summer">
-          <a href="{{route('pakistan.Summer')}}" class=" sw-menucode-item__link">camps</a>
+          <a href="{{route('pakistan.Summer')}}" class=" sw-menucode-item__link">Camps</a>
 
         </li>
         <li class="sw-menucode-item" id="mn-athletics">

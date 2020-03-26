@@ -65,7 +65,6 @@
         .nav-tabs > li > a > span {display:none;} 
         .nav-tabs > li > a {padding: 5px 5px;}
       }
-
       @page { size: auto;  margin: 0mm; margin-right: 5px; }
 
     </style>
