@@ -35,7 +35,7 @@ class ManualAttendanceController extends Controller
 	public function store(Request $request){
 
 
-		$student=BranchCourse::orderBy('course_id','ASC')->where('branch_id',$request->branch_id);v  
+		$student=BranchCourse::orderBy('course_id','ASC')->where('branch_id',$request->branch_id);
 
 
 		if(isset($request->class_id) && !empty($request->class_id) && ($request->class_id) > 0){

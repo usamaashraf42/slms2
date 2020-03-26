@@ -15,7 +15,7 @@ if (!function_exists('class_attendance_by_date_absent')) {
   function class_attendance_by_date_absent($branch_id,$class_id,$attendance_date)
   {
 
-   $attendance=\App\Models\StudentDate::where('branch_id',$branch_id)->where('class_id',$class_id)->whereDate('attendance_date',$attendance_date)->where('present',2)->count();
+   $attendance=\App\Models\StudentDate::where('branch_id',$branch_id)->where('class_id',$class_id)->whereDate('attendance_date',$attendance_date)->where('absent',1)->count();
 
    return $attendance;
  }
@@ -41,6 +41,32 @@ if (!function_exists('class_students')) {
    return $students;
  }
 }
+if (!function_exists('lastAbsentDay')) {
+  function lastAbsentDay($branch_id,$dates)
+  {
+
+    $attendance=\App\Models\StudentDate::where('branch_id',$branch_id);
+    foreach($dates as $date){
+        $attendance->where('attendance_date',$date);
+    }
+
+   return $attendance->where('absent',1)->groupBy('std_id')->with('student')->get();
+
+    
+ }
+}
+
+
+if (!function_exists('lastAbsentFromDay')) {
+  function lastAbsentFromDay($branch_id,$dates)
+  {
+
+   $attendance=\App\Models\StudentDate::where('branch_id',$branch_id)->whereIn('attendance_date',$dates)->where('absent',1)->with('student')->get();
+
+   return $attendance;
+ }
+}
+
 
 
 function currencyCnv( $amount, $from, $to){
