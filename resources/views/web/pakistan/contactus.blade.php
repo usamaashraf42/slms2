@@ -157,7 +157,7 @@ $(document).ready(function() {
         </div>
     </div>
 
-    <<section class="content-info">
+    <section class="content-info">
 
         <div class="container">
             <div class="row paddings-mini">

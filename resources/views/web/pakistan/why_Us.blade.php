@@ -5,7 +5,17 @@
 <div id="search-container" class="bg-dark-blue invert">
   <a id="search-close" class="close-location pull-right no-style f7">CLOSE <span class="icon icon-x f5 ml1 relative white dib bg-gold"></span></a>
   <div class="pv3">
+<style>
+.bg-gold, .ui-accordion h3.ui-accordion-header:after, .ui-accordion div.event-module h1.ui-accordion-header.event-detail-title:after, div.event-module .ui-accordion h1.ui-accordion-header.event-detail-title:after {
+    list-style-type: none;
+    background-color: #00075699!important;
+}  
+#childpagenav-161286 li{
+  list-style-type: none!important;
+  color: #fff;
 
+}
+</style>
 
 
 
