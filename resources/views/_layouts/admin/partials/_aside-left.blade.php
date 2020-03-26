@@ -548,7 +548,6 @@
         @endif
     </ul>
 </li>
-
 @endif
 
 @if(Auth::user()->can('Fee Challen') || Auth::user()->can('Fee Deposit') || Auth::user()->can('Fee Post') || Auth::user()->can('Profit Loss') || Auth::user()->can('Balance Sheet')  || Auth::user()->can('Trial Balance')  || Auth::user()->can('Ledger')  || Auth::user()->can('General Voucher')  || Auth::user()->can('Bank Deposit') || Auth::user()->can('Bank Payment') || Auth::user()->can('Cash Payment') || Auth::user()->can('Cash Receipt') || Auth::user()->can('Account Record') || Auth::user()->can('Account Add') || Auth::user()->can('Account Edit')  || Auth::user()->can('statement')  || Auth::user()->can('Outstanding') || Auth::user()->can('Franchise Applicant') || Auth::user()->can('Correction') ||  Auth::user()->can('Correction Approval') || Auth::user()->can('Correction Approved Report') || Auth::user()->can('Paid List') || Auth::user()->can('Tentive List'))
@@ -705,6 +704,14 @@
 @endif
 
 
+@if(Auth::user()->can('Account Statement')  )
+<li class="{{ areActiveRoutes(['account-statement.create','account-statement.index','account-statement.store'])}}">
+    <a href="{{route('account-statement.index')}}" class=""><i class="fa fa-user" aria-hidden="true"></i> 
+        <span> Account Statement</span> 
+    </a>
+</li>
+@endif
+
 <li class="{{ areActiveRoutes(['account-category.create','account-category.index','account-category.edit'])}}">
     <a href="{{route('account-category.index')}}" class=""><i class="fa fa-user" aria-hidden="true"></i> 
         <span> Accounts Category</span> 
@@ -776,13 +783,7 @@
     </a>
 </li>
 @endif
-@if(Auth::user()->can('Account Statement')  )
-<li class="{{ areActiveRoutes(['account-statement.create','account-statement.index','account-statement.store'])}}">
-    <a href="{{route('account-statement.index')}}" class=""><i class="fa fa-user" aria-hidden="true"></i> 
-        <span> Account Statement</span> 
-    </a>
-</li>
-@endif
+
 
 @if(Auth::user()->can('Ledger')  )
 <li class="{{ areActiveRoutes(['ledger.create','ledger.index','ledger.store'])}}">

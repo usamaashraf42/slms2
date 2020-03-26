@@ -373,7 +373,7 @@ class FeeDepositController extends Controller
 		$year=isset($stdd->fee_year)?$stdd->fee_year:date('Y');
 		$depositDatest=date('Y-m-d');
 		$students=Student::find($std_id);
-	
+		
 		if(!$students){
 			return false;
 		}
@@ -404,6 +404,51 @@ class FeeDepositController extends Controller
 		}
 
 		DB::beginTransaction();
+		if(isset($stdd->fee_due_date1) && $stdd->outstand_lastmonth){
+			$now = strtotime(date('Y-m-d')); 
+			$your_date = strtotime($stdd->fee_due_date1);
+			if($stdd->outstand_lastmonth > 0){
+				$your_date = strtotime($stdd->fee_due_date2);
+			}else{
+				$your_date = strtotime($stdd->fee_due_date1);
+			}
+			$datediff = $now - $your_date;
+			$totalDay=round($datediff / (60 * 60 * 24));
+			$fine=$totalDay * $branch_fine;
+
+			if(($fine) && ($fine>=1)){
+				$master=Master::where('account_id',$studentAc->id)->orderBy('id','DESC')->first();
+				$ledger=[
+					'fee_id'=>isset($stdd)?$stdd->id:null,
+					'std_id'=>isset($students)?$students->id:null,
+					'account_id'=>$studentAc->id,
+					'a_credit'=>0,
+					'a_debit'=>isset($fine)?$fine:0,
+					'balance'=>isset($master->balance)?$master->balance+$fine:($fine),
+					'posting_date'=>$depositDatest,
+					'description'=>"Late Fee Deposit fine of".' '.getMonthName($stdd->fee_month).' '. "$year",
+					'month'=>$month,
+					'year'=>$year,
+					
+				];
+				$std=Master::create($ledger);
+
+				$master=Master::where('account_id',$branch->id)->orderBy('id','DESC')->first();
+				$ledger=[
+					'fee_id'=>isset($stdd)?$stdd->id:null,
+					'a_credit'=>isset($fine)?$fine:0,
+					'account_id'=>$branch->id,
+					'a_debit'=>0,
+					'balance'=>isset($master->balance)?$master->balance-$fine:(-$fine),
+					'posting_date'=>$depositDatest,
+					'description'=>"Late Fee Deposit fine of".' '. getMonthName($month).' ' ."$year",
+					'month'=>$month,
+					'year'=>$year,
+					
+				];
+				$firstInsert=Master::create($ledger);
+			}
+		}
 
 		$ledger=[
 			'fee_id'=>isset($stdd)?$stdd->id:null,
@@ -478,51 +523,7 @@ class FeeDepositController extends Controller
 				return false;
 			}else{
 				
-				if(isset($stdd->fee_due_date1) && $stdd->outstand_lastmonth){
-					$now = strtotime(date('Y-m-d')); 
-				$your_date = strtotime($stdd->fee_due_date1);
-				if($stdd->outstand_lastmonth > 0){
-					$your_date = strtotime($stdd->fee_due_date2);
-				}else{
-					$your_date = strtotime($stdd->fee_due_date1);
-				}
-				$datediff = $now - $your_date;
-				$totalDay=round($datediff / (60 * 60 * 24));
-				$fine=$totalDay * $branch_fine;
-
-				if(($fine) && ($fine>=1)){
-					$master=Master::where('account_id',$studentAc->id)->orderBy('id','DESC')->first();
-					$ledger=[
-						'fee_id'=>isset($stdd)?$stdd->id:null,
-						'std_id'=>isset($students)?$students->id:null,
-						'account_id'=>$studentAc->id,
-						'a_credit'=>0,
-						'a_debit'=>isset($fine)?$fine:0,
-						'balance'=>isset($master->balance)?$master->balance+$fine:($fine),
-						'posting_date'=>$depositDatest,
-						'description'=>"Late Fee Deposit fine of".' '.getMonthName($stdd->fee_month).' '. "$year",
-						'month'=>$month,
-						'year'=>$year,
-						
-					];
-					$std=Master::create($ledger);
-
-					$master=Master::where('account_id',$branch->id)->orderBy('id','DESC')->first();
-					$ledger=[
-						'fee_id'=>isset($stdd)?$stdd->id:null,
-						'a_credit'=>isset($fine)?$fine:0,
-						'account_id'=>$branch->id,
-						'a_debit'=>0,
-						'balance'=>isset($master->balance)?$master->balance-$fine:(-$fine),
-						'posting_date'=>$depositDatest,
-						'description'=>"Late Fee Deposit fine of".' '. getMonthName($month).' ' ."$year",
-						'month'=>$month,
-						'year'=>$year,
-						
-					];
-					$firstInsert=Master::create($ledger);
-				}
-				}
+				
 				$std=1;
 				if(!$std){
 					DB::rollBack();

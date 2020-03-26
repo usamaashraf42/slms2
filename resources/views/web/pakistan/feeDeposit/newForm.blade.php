@@ -276,6 +276,7 @@ border-bottom-left-radius: 25px;
 </div>
 
 <?php
+
      $MerchantID ="MC35662"; //Your Merchant from transaction Credentials
     $Password   ="hv920evz9v"; //Your Password from transaction Credentials
     $ReturnURL  ="http://lyceumgroupofschools.com/feedeposit-status"; //Your Return URL 
@@ -380,7 +381,7 @@ border-bottom-left-radius: 25px;
     										<div class="receipt-header" style="border: 1px solid #ccc;
     										padding: 12px;text-align: center; ">
     										<div class="receipt-right" style="text-align: center;">
-    											<div class="box_filed"> <h3><b>{{$students->name}}</b></h3>  </div>
+    											<div class="box_filed"> <h3><b style="color:red">{{$students->name}}</b></h3>  </div>
 
     											<div class="box_filed"><STRONG>{{$students->branch}}</STRONG></div>
     											<div class="box_filed"><STRONG>{{$students->course}} </STRONG></div>
@@ -402,7 +403,7 @@ border-bottom-left-radius: 25px;
     									<div style="width: 50%; float: left; text-align: justify;">
     										
     										<p>
-    											<b> amount is going charge to from you: </b>
+    											<b> amount going to be charge from you: </b>
     										</p>
     									</div>
     									<div style="width: 50%;float: right; text-align: right;padding-right: 15px; ">
@@ -429,7 +430,7 @@ border-bottom-left-radius: 25px;
     					<div class="col-md-2">
 
     					<!--    <input type="button" class="btn btn-info btn-lg validateButton "   onclick="jobFormSubmit(this)"  id="updateDataBtn" value="Submit"> -->
-    					<input type="submit" class="btn btn-success btn-lg submitButton"   style="display: block;"  id="updateDataBtn" value="Verify">
+    					<input type="submit" class="btn btn-success btn-lg submitButton"   style="display: block;"  id="updateDataBtn" value="OK">
     				</div>
     				</div>
     			</div>

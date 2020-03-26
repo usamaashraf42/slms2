@@ -24,7 +24,7 @@ class AccountStatementRequest extends FormRequest
     public function rules()
     {
         return [
-            'checque_id'=>'required',
+            'account_id'=>'required',
             
         ];
     }

@@ -25,9 +25,13 @@ class AttendanceReportController extends Controller
 		if(Auth::user()->school_id){
 			$branch->where('school_id',Auth::user()->school_id);
 		}
-		$branches=$branch->limit(2)->get();
+		$branches=$branch->get();
 
-		return view('admin.student.attendanceReport.index',compact('branches'));
+		return view('admin.student.attendanceReport.create',compact('branches'));
+	}
+
+	public function store(Request $reqeust){
+		dd($request->all());
 	}
 
 

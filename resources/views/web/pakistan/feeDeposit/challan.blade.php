@@ -735,7 +735,7 @@ function jobFormSubmit(ob){
         <div class="receipt-header" style="border: 1px solid #ccc;
         padding: 12px;text-align: center; ">
         <div class="receipt-right" style="text-align: center;">
-        <div class="box_filed"><h3> <b>${response.student.name}</b> </h23> </div>
+        <div class="box_filed"><h3 style="color:red;"> ${response.student.name}</h3> </div>
 
         <div class="box_filed"><STRONG>${response.student.branch}</STRONG></div>
         <div class="box_filed"><STRONG>${response.student.course} </STRONG></div>
@@ -763,7 +763,7 @@ function jobFormSubmit(ob){
 
 
 
-        <h4><strong>Enter ${response.student.total_pending>0?'Pending':'Advance'} Amount: </strong></h4>
+        <h4><strong>Enter Amount To Pay: </strong></h4>
         </div>
         <div style="width: 50%;float: right; text-align: right;padding-right: 15px; ">
         <p>
