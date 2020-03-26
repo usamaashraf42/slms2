@@ -16,5 +16,17 @@ class BankFeeDeposit extends Model
     	return $this->belongsTo(Bank::class,'bank_id');
     }
 
+     public function student(){
+    	return $this->belongsTo(Student::class,'std_id');
+    }
+
+
+    public function branch(){
+    	return $this->belongsTo(Branch::class,'branch_id');
+    }
+
+
+
+
 
 }

@@ -33,9 +33,8 @@
 									<td>@isset($account->id){{$account->id}}@endisset</td>
 									<td>@isset($account->posting_date){{$account->posting_date}}@endisset</td>
 									<td>@isset($account->description){{$account->description}}@endisset</td>
-									
-									<td>@isset($account->a_debit){{$account->a_debit}}@endisset</td>
 									<td>@isset($account->a_credit){{$account->a_credit}}@endisset</td>
+									<td>@isset($account->a_debit){{$account->a_debit}}@endisset</td>
 									<td>@isset($account->balance){{$account->balance}}@endisset</td>
 									
 									</tr>

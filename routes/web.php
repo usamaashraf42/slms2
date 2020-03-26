@@ -356,6 +356,9 @@ Route::prefix('admin')->group(function () {
 			Route::resource('paid-account','Account\paidList\PaidListController');
 			Route::resource('trial-balance','Account\TrialAccountController');
 
+
+			Route::resource('fee-deposit-detail','Account\FeeDepositDetailController');
+
 			Route::resource('bank-checque','Account\BankChecqueController');
 			Route::resource('account-statement','Account\AccountStatementController');
 
