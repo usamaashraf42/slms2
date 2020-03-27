@@ -82,6 +82,11 @@ class FeeDepositController extends Controller
 	}
 
 
+	public function feeDepositCreditCardstatus(Request $request){
+		dd($request->all());
+	}
+
+
 	public function feeDepositpaypal(Request $request){
 
 		$HashKey= "y14yb32g8s"; //Your Hash Key

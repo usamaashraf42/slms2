@@ -79,6 +79,9 @@ Route::POST('feedeposit-paypal','Web\PaypalFeeDepositController@feeDepositpaypal
 Route::get('feedeposit-paypal-status','Web\PaypalFeeDepositController@getPaymentStatus')->name('payment.status');
 
 
+Route::get('feedeposit-status','Web\FeeDepositController@feeDepositCreditCardstatus');
+
+
 Route::POST('feeChallan','Web\FeeDepositController@feeChallan')->name('feeChallan');
 
 
