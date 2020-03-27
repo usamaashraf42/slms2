@@ -309,7 +309,7 @@ class FeeDepositController extends Controller
 			return view('web.pakistan.feeDeposit.newForm',compact('request','object','students'));
 		}else{
 			$object->desire_amount=$request->pp_Amount;
-			return view('web.pakistan.feeDeposit.paypalChallan',compact('request','object','students'));
+			return view('web.pakistan.feeDeposit.checkoutChallan',compact('request','object','students'));
 			// session()->flash('error_message', __('PayPal is not integrate'));
 			// return redirect()->back();
 		}

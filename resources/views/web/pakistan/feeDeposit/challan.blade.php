@@ -797,7 +797,7 @@ function jobFormSubmit(ob){
         <li class="list_radio">
         <input type="radio" onclick="checkedMethod(this)"  value="1" id="f-option" name="method">
         <label for="f-option"> 
-        <img src="{{asset('assets/img/checkout.png')}}" width="100%" style="max-width: 260px;height: 68px; margin-top: -23px;"></label>
+        <img src="{{asset('assets/img/checkout.png')}}" width="100%" style="max-width: 300px;height: 68px; margin-top: -23px;"></label>
 
         <div class="check"></div>
         </li>
