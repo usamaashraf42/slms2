@@ -76,6 +76,8 @@ Route::get('/event','Web\Pakistan\PublicController@event')->name('pakistan.event
 Route::get('/student_picture','Web\Pakistan\PublicController@student_picture')->name('pakistan.student_picture');
 Route::resource('feedeposit','Web\FeeDepositController');
 
+
+
 Route::POST('feedeposit-status','Web\FeeDepositController@feeDepositstatus')->name('feeDepositstatus');
 Route::POST('searchChallan','Web\FeeDepositController@searchChallan')->name('searchChallan');
 
@@ -83,7 +85,6 @@ Route::POST('feedeposit-paypal','Web\PaypalFeeDepositController@feeDepositpaypal
 Route::get('feedeposit-paypal-status','Web\PaypalFeeDepositController@getPaymentStatus')->name('payment.status');
 
 
-// Route::get('feedeposit-status','Web\FeeDepositController@feeDepositCreditCardstatus');
 
 
 Route::POST('feeChallan','Web\FeeDepositController@feeChallan')->name('feeChallan');
