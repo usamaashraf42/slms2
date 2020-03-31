@@ -403,7 +403,7 @@ border-bottom-left-radius: 25px;
     									<div style="width: 70%; float: left; text-align: justify;">
     										
     										<p style="font-size:22px;">
-    											<b> amount going to be charged from you: </b>
+    											<b> Amount going to be charged from you: </b>
     										</p>
     									</div>
     									<div style="width: 30%;float: right; text-align: right;padding-right: 15px; ">
