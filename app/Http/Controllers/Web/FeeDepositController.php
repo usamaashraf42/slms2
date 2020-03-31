@@ -299,7 +299,7 @@ class FeeDepositController extends Controller
 		$students->fee_id=isset($object->fee_id)?$object->fee_id:rand(1, 7);
 
 
-		if($students->total_pending > $request->pp_Amount){
+		if(!$request->pp_Amount){
 			session()->flash('error_message', __("Amount Should be Equal or greater then $students->total_pending"));
 			return redirect()->back();
 		}

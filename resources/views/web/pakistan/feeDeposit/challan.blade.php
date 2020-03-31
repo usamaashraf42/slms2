@@ -774,7 +774,7 @@ function jobFormSubmit(ob){
 
 
 
-        <h2><input type="number"  onchange="AmountConstraint(this)" data-amount="${response.student.total_pending}" class="input-md  textinput textInput form-control" value="${response.student.total_pending}" min="${response.student.total_pending}" name='pp_Amount'></h2>
+        <h2><input type="number" onKeyup="AmountConstraint(this)" data-amount="${response.student.total_pending}" class="input-md  textinput textInput form-control" value="${response.student.total_pending}" min="${response.student.total_pending}" name='pp_Amount'></h2>
 
         </div>
         </div>
@@ -838,12 +838,12 @@ function AmountConstraint(obj){
   var partialAmount=parseInt($(obj).val());
 
 
-  if ($(obj).val() < finalAmount){
-    console.log('amount',finalAmount);
-    var content=`Amount not allowed Less then ${finalAmount}`;
-    // alert(content);
-    $(obj).val(finalAmount);
-  }
+  // if ($(obj).val() < finalAmount){
+  //   console.log('amount',finalAmount);
+  //   var content=`Amount not allowed Less then ${finalAmount}`;
+  //   // alert(content);
+  //   $(obj).val(finalAmount);
+  // }
 
   $('.pp_Amount').val(partialAmount);
 

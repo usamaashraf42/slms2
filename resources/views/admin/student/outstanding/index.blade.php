@@ -147,7 +147,7 @@
         @endif
         @endforeach
 
-        @if($data->is_active==1 && isset($feeArray[0]) && ($feeArray[0]->paid_amount<=0) && $feeArray[0]->total_fee > 0)
+        @if($data->is_active==1 && isset($feeArray[0]) && ($feeArray[0]->isPaid==1) )
         <tbody>
 
 
@@ -256,7 +256,7 @@
           @endif
 
 
-          @if($data->is_active==1 && isset($feeArray[0]) && ($feeArray[0]->paid_amount<=0)  && $feeArray[0]->total_fee > 0)
+          @if($data->is_active==1 && isset($feeArray[0]) && ($feeArray[0]->isPaid==1))
           @php($outstandStd++)
           @php($totaloutStd++)
 
