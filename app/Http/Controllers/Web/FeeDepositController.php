@@ -11,6 +11,8 @@ use App\Models\Master;
 use App\Models\Student;
 use App\Models\Bank;
 use App\Models\BankFeeDeposit;
+use App\Models\BankTransactionDetail;
+
 use \DB;
 use Auth;
 class FeeDepositController extends Controller
@@ -236,7 +238,10 @@ class FeeDepositController extends Controller
 		
 		
 		
-	
+		if($request->pp_Amount>100){
+			session()->flash('error_message', __('Amount should be greater then 100'));
+			return redirect()->back();
+		}
 		$fee=FeePost::where('std_id',$request->std_id)->with('student.branch','student.course')->orderBy('id','DESC')->first();
 
 		$student=Student::find($request->std_id);
@@ -245,10 +250,21 @@ class FeeDepositController extends Controller
 			session()->flash('error_message', __('Record not found'));
 			return redirect()->back();
 		}
+		$fees=BankTransactionDetail::create([
+			'std_id'=>$request->std_id,
+			'amount'=>$request->pp_Amount,
+			'bank_id'=>8,
+			'branch_id'=>isset($fee->branch_id)?$fee->branch_id:0,
 
+
+		]);
+		if(!$fees){
+			session()->flash('error_message', __('Something went wrong please try later'));
+			return redirect()->back();
+		}
 		$object = new \stdClass;
 		if(isset($fee->isPaid) && $fee->isPaid!=1 ){
-			$object->fee_id=rand();
+			$object->fee_id=$fees->id;
 			$object->std_id=$fee->student->id;
 			$object->name=$fee->student->s_name.' '.$fee->student->s_fatherName;
 			$object->branch=$fee->student->branch->branch_name;
@@ -302,13 +318,7 @@ class FeeDepositController extends Controller
 			$total_pending_amount+=$object->fine;
 		}
 		$students->total_pending=$total_pending_amount;
-
-		if(isset($fee->isPaid) && $fee->isPaid>0 ){
-		
-			$students->fee_id=rand();
-		}else{
-			$students->fee_id=rand();
-		}
+		$students->fee_id=$fees->id;
 		
 		if(!$request->pp_Amount){
 			session()->flash('error_message', __("Amount Should be Equal or greater then $students->total_pending"));
