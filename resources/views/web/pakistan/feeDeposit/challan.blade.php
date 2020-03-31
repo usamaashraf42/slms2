@@ -679,29 +679,21 @@ function jobFormSubmit(ob){
   }
 
 
- //  if ($('#fee_id').val() == '') {
- //   console.log('fee_id',$('#fee_id').val());
- //   $('.fee_id_error').text('Fee Id field is required');
- //   $('.fee_id_error').css('display','block','color','red','border-color','red');
-
-
- //   valid = false;
- // }
-
  if(valid){
 
-  $('.validateButton').css('display','none');
+  
 
   
   $.ajax({
     method:"POST",
     url: "{{route('feeChallan')}}",
-    data : {'fee_id': fee_id,'std_id':std_id},
+    data : {'std_id':std_id},
     dataType:"json",
     success: function (response) {
       console.log('feeChallan', response);
 
       if (response.status) {
+        $('.validateButton').css('display','none');
         $('.pp_Amount').val(response.student.total_payable);
         $('.pp_BillReference').val(response.student.fee_id);
         $('.TxnRefNumber').val(response.student.fee_id);
