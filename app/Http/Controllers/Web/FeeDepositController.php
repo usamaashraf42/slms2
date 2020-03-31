@@ -234,7 +234,7 @@ class FeeDepositController extends Controller
 
 	public function store(Request $request){
 		
-		$request->pp_Amount=($request->pp_Amount).'.00';
+		$request->pp_Amount=($request->pp_Amount).'00';
 		
 	
 		$fee=FeePost::where('std_id',$request->std_id)->with('student.branch','student.course')->orderBy('id','DESC')->first();
