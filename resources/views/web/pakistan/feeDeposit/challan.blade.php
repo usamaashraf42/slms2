@@ -821,12 +821,12 @@ function AmountConstraint(obj){
   var partialAmount=parseInt($(obj).val());
 
 
-  if ($(obj).val() < finalAmount){
-    console.log('amount',finalAmount);
-    var content=`Amount not allowed Less then ${finalAmount}`;
-    // alert(content);
-    $(obj).val(finalAmount);
-  }
+  // if ($(obj).val() < finalAmount){
+  //   console.log('amount',finalAmount);
+  //   var content=`Amount not allowed Less then ${finalAmount}`;
+  //   // alert(content);
+  //   $(obj).val(finalAmount);
+  // }
 
   $('.pp_Amount').val(partialAmount);
 
