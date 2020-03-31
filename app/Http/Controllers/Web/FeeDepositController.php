@@ -24,7 +24,7 @@ class FeeDepositController extends Controller
 	public function feeDepositstatus(Request $request){
 		$HashKey= "y14yb32g8s"; //Your Hash Key
 		if(!(isset($_POST['pp_ResponseCode']))){
-			session()->flash('error_message', __("Something is wrong plz try later"));
+			session()->flash('error_message', __("Something went wrong from bank side, please try later"));
 			return redirect()->route('feedeposit.index');
 		}
 		$ResponseCode =$_POST['pp_ResponseCode'];
@@ -233,7 +233,10 @@ class FeeDepositController extends Controller
 
 
 	public function store(Request $request){
-		// dd($request->all());
+		
+		$request->pp_Amount=($request->pp_Amount).'.00';
+		
+	
 		$fee=FeePost::where('std_id',$request->std_id)->with('student.branch','student.course')->orderBy('id','DESC')->first();
 
 		$student=Student::find($request->std_id);

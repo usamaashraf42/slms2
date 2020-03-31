@@ -147,7 +147,7 @@
         @endif
         @endforeach
 
-        @if($data->is_active==1 && isset($feeArray[0]) && ($feeArray[0]->isPaid==1) )
+        @if($data->is_active==1 && isset($feeArray[0]) && ($feeArray[0]->isPaid!=1) )
         <tbody>
 
 
