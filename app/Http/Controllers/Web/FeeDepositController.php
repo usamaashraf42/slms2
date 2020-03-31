@@ -153,7 +153,7 @@ class FeeDepositController extends Controller
 
 		if(isset($fee->isPaid) && $fee->isPaid!=1 ){
 			$object = new \stdClass;
-			$object->fee_id=$fee->id;
+			$object->fee_id=rand();
 			$object->std_id=$fee->student->id;
 			$object->name=$fee->student->s_name.' '.$fee->student->s_fatherName;
 			$object->branch=$fee->student->branch->branch_name;
@@ -199,7 +199,7 @@ class FeeDepositController extends Controller
 			$students = new \stdClass;
 			$students->std_id=$student->id;
 
-			$students->fee_id=isset($object->fee_id)?$object->fee_id:rand(4, 7);
+			$students->fee_id=rand();
 			$students->name=$student->s_name.' '.$student->s_fatherName;
 			$students->branch=isset($student->branch->branch_name)?$student->branch->branch_name:null;
 			$students->course=isset($student->course->course_name)?$student->course->course_name:null;
@@ -242,7 +242,7 @@ class FeeDepositController extends Controller
 
 		$object = new \stdClass;
 		if(isset($fee->isPaid) && $fee->isPaid!=1 ){
-			$object->fee_id=$fee->id;
+			$object->fee_id=rand();
 			$object->std_id=$fee->student->id;
 			$object->name=$fee->student->s_name.' '.$fee->student->s_fatherName;
 			$object->branch=$fee->student->branch->branch_name;
@@ -301,7 +301,7 @@ class FeeDepositController extends Controller
 		
 			$students->fee_id=rand();
 		}else{
-			$students->fee_id=$fee->id;
+			$students->fee_id=rand();
 		}
 		
 		if(!$request->pp_Amount){
