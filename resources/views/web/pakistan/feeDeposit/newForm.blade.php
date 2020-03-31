@@ -277,10 +277,10 @@ border-bottom-left-radius: 25px;
 
 <?php
 
-     $MerchantID ="MC35662"; //Your Merchant from transaction Credentials
-    $Password   ="hv920evz9v"; //Your Password from transaction Credentials
+     $MerchantID ="00168054"; //Your Merchant from transaction Credentials
+    $Password   ="55589342s0"; //Your Password from transaction Credentials
     $ReturnURL  ="http://lyceumgroupofschools.com/feedeposit-status"; //Your Return URL 
-    $HashKey    ="y14yb32g8s";//Your HashKey from transaction Credentials
+    $HashKey    ="txtw58z1x0";//Your HashKey from transaction Credentials
     $PostURL = "https://sandbox.jazzcash.com.pk/CustomerPortal/transactionmanagement/merchantform";
     //"http://testpayments.jazzcash.com.pk/PayAxisCustomerPortal/transactionmanagement/merchantform"; 
     date_default_timezone_set("Asia/karachi");
@@ -333,7 +333,7 @@ border-bottom-left-radius: 25px;
     					@endcomponent
     					<div id="signupbox"  class="mainbox col-md-12  col-sm-12 col-xs-12">
     						<div>
-    							<form   action="https://sandbox.jazzcash.com.pk/CustomerPortal/transactionmanagement/merchantform" id="applicationForm"  method="POST" enctype="multipart/form-data">
+    							<form   action="https://payments.jazzcash.com.pk/CustomerPortal/transactionmanagement/merchantform" id="applicationForm"  method="POST" enctype="multipart/form-data">
     								@csrf
     								<div class="panel-body" style="border:1px solid #ccc; margin-bottom: 20px;">
     									<div class="row">
