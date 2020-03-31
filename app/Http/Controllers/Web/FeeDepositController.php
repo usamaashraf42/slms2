@@ -421,12 +421,21 @@ class FeeDepositController extends Controller
 		
                     ///////////////////////// Fee Deposit ......,...................
 		$studentAc=Account::where('std_id',$students->id)->first();
-		$master=Master::where('account_id',$studentAc->id)->orderBy('id','DESC')->first();
+		
 		if(!$studentAc){
 			$studentAc=Account::create([
 				'name'=>$students->s_name.' '.$students->s_fatherName, 
 				'std_id'=>$students->id, 
 				'type'=>'student', 
+			]);
+		}
+
+		$branch=Account::where('branch_id',$students->branch_id)->first();
+		if(!$branch){
+			$branch=Account::create([
+				'name'=>$baranch->branch_name, 
+				'branch_id'=>$baranch->id,
+				'type'=>'Branch', 
 			]);
 		}
 
@@ -460,6 +469,8 @@ class FeeDepositController extends Controller
 				];
 				$std=Master::create($ledger);
 
+				
+
 				$master=Master::where('account_id',$branch->id)->orderBy('id','DESC')->first();
 				$ledger=[
 					'fee_id'=>isset($stdd)?$stdd->id:null,
@@ -476,6 +487,8 @@ class FeeDepositController extends Controller
 				$firstInsert=Master::create($ledger);
 			}
 		}
+
+		$master=Master::where('account_id',$studentAc->id)->orderBy('id','DESC')->first();
 
 		$ledger=[
 			'fee_id'=>isset($stdd)?$stdd->id:null,
@@ -495,14 +508,7 @@ class FeeDepositController extends Controller
 			DB::rollBack();
 			return false; 
 		}else{
-			$branch=Account::where('branch_id',$students->branch_id)->first();
-			if(!$branch){
-				$branch=Account::create([
-					'name'=>$baranch->branch_name, 
-					'branch_id'=>$baranch->id,
-					'type'=>'Branch', 
-				]);
-			}
+			
 			$master=Master::where('account_id',$branch->id)->orderBy('id','DESC')->first();
 			$ledger=[
 				'fee_id'=>isset($stdd)?$stdd->id:null,
@@ -517,8 +523,6 @@ class FeeDepositController extends Controller
 				
 			];
 			$std=Master::create($ledger);
-
-
 			$bankAc=Account::where('bank_id',$bank)->first();
 			
 			if(!$bankAc){
