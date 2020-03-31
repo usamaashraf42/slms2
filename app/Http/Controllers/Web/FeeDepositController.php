@@ -22,7 +22,7 @@ class FeeDepositController extends Controller
 
 
 	public function feeDepositstatus(Request $request){
-
+dd($request->all());
 		$HashKey= "y14yb32g8s"; //Your Hash Key
 		$ResponseCode =$_POST['pp_ResponseCode'];
 		$ResponseMessage = $_POST['pp_ResponseMessage'];
@@ -51,7 +51,7 @@ class FeeDepositController extends Controller
 
 				
 				$this->feeDepositDbEffected($request->ppmpf_2,$request->ppmpf_1,$request->pp_Amount,8);
-				session()->flash('success_message', __("Payment Successfull. $ResponseMessage"));
+				session()->flash('success_message', __("Fee deposit successfully"));
 				return redirect()->route('feedeposit.index');
 				
 			} 
@@ -114,7 +114,7 @@ class FeeDepositController extends Controller
 		{
 			if($ResponseCode == '000'||$ResponseCode == '121'||$ResponseCode == '200'){
 
-				session()->flash('success_message', __("Payment Successfull."));
+				session()->flash('success_message', __("Fee deposit successfully."));
 				return redirect()->route('feedeposit.index');
 				
 			} 
@@ -415,7 +415,7 @@ class FeeDepositController extends Controller
 		}
 
 		DB::beginTransaction();
-		if(isset($stdd->fee_due_date1) && $stdd->outstand_lastmonth){
+		if(isset($stdd->fee_due_date1) && $stdd->outstand_lastmonth && $stdd->isPaid==0){
 			$now = strtotime(date('Y-m-d')); 
 			$your_date = strtotime($stdd->fee_due_date1);
 			if($stdd->outstand_lastmonth > 0){
