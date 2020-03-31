@@ -400,15 +400,15 @@ border-bottom-left-radius: 25px;
     								</div>
     								<div class="col-md-8">
     									
-    									<div style="width: 50%; float: left; text-align: justify;">
+    									<div style="width: 70%; float: left; text-align: justify;">
     										
-    										<p>
-    											<b> amount going to be charge from you: </b>
+    										<p style="font-size:22px;">
+    											<b> amount going to be charged from you: </b>
     										</p>
     									</div>
-    									<div style="width: 50%;float: right; text-align: right;padding-right: 15px; ">
+    									<div style="width: 30%;float: right; text-align: right;padding-right: 15px; ">
 
-    											<h2><strong><i class="fa fa-inr"></i> {{$object->desire_amount}}/-</strong></h2>
+    											<h2 style="font-size:32px;"><strong><i class="fa fa-inr"></i> {{$object->desire_amount}}/-</strong></h2>
 
     										</div>
     									</div>

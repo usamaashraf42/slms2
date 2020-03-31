@@ -168,6 +168,8 @@ class FeeDepositController extends Controller
 
 			$now = strtotime(date( 'Y-m-d', strtotime( now() ) )); 
 			$your_date = strtotime($fee->fee_due_date1);
+
+
 			if($fee->outstand_lastmonth > 0){
 				$your_date = strtotime($fee->fee_due_date2);
 			}else{
@@ -197,7 +199,7 @@ class FeeDepositController extends Controller
 			$students = new \stdClass;
 			$students->std_id=$student->id;
 
-			$students->fee_id=isset($object->fee_id)?$object->fee_id:rand(1, 7);
+			$students->fee_id=isset($object->fee_id)?$object->fee_id:rand(4, 7);
 			$students->name=$student->s_name.' '.$student->s_fatherName;
 			$students->branch=isset($student->branch->branch_name)?$student->branch->branch_name:null;
 			$students->course=isset($student->course->course_name)?$student->course->course_name:null;
@@ -294,9 +296,14 @@ class FeeDepositController extends Controller
 			$total_pending_amount+=$object->fine;
 		}
 		$students->total_pending=$total_pending_amount;
-		$students->fee_id=isset($object->fee_id)?$object->fee_id:rand(1, 7);
 
-
+		if(isset($fee->isPaid) && $fee->isPaid>0 ){
+		
+			$students->fee_id=rand();
+		}else{
+			$students->fee_id=$fee->id;
+		}
+		
 		if(!$request->pp_Amount){
 			session()->flash('error_message', __("Amount Should be Equal or greater then $students->total_pending"));
 			return redirect()->back();
@@ -370,7 +377,7 @@ class FeeDepositController extends Controller
 
 	function feeDepositDbEffected($std_id,$fee_id,$amount,$bank){
 
-		$fee=FeePost::find($fee_id);
+		$fee=FeePost::where('std_id',$std_id)->orderBy('id','DESC')->first();
 		$stdd=$fee;
 		$month=isset($stdd->fee_month)?$stdd->fee_month:date('m');
 		$year=isset($stdd->fee_year)?$stdd->fee_year:date('Y');
@@ -381,10 +388,11 @@ class FeeDepositController extends Controller
 			return false;
 		}
 		if($fee){
+			$effectedAmount=$fee->paid_amount>0?$fee->paid_amount+$amount:$amount;
 			$feePosts=FeePost::where('id',$fee_id)->update([
 				'paid_date'=>date("d-m-Y"),
-				'paid_amount'=>$amount,
-				'isPaid'=>($fee->total_fee<=$amount)?1:2
+				'paid_amount'=>$effectedAmount,
+				'isPaid'=>($fee->total_fee<=$effectedAmount)?1:2
 			]);
 		}
 		

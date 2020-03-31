@@ -361,27 +361,7 @@ border-bottom-left-radius: 25px;
                             </div>
                           </div>
                         </div>
-                          <!-- <div class="col-md-6 col-sm-6 col-xs-12">
-                            <div id="div_id_username" class="form-group required">
-                              <label for="fee_id" class="control-label requiredField">Voucher Id                        
-                                <span class="required" style="color: red">*</span> 
-                              </label>
-                              <div class="controls">
-                                <input class="input-md  textinput textInput form-control" id="fee_id" value="@if(old('fee_id')){{old('fee_id')}}@endif"  min="0" name="fee_id"
-                                placeholder="Please enter the Voucher No" value="" style="margin-bottom: 10px;" type="number" />
-                                <p class="fee_id_error" style="display: none; color:red;"></p>
-                                @if ($errors->has('fee_id'))
-                                <div class="alert alert-danger" role="alert">
-                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                    <span class="sr-only">Close</span>
-                                  </button>
-                                  <strong>Warning!</strong> {{$errors->first('fee_id')}}
-                                </div>
-                                @endif
-                              </div>
-                            </div>
-                          </div> -->
+                         
                         </div>
                         <div class="row" style="display: none;">
 
