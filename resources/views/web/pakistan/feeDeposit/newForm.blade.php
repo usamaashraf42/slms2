@@ -408,7 +408,7 @@ border-bottom-left-radius: 25px;
     									</div>
     									<div style="width: 30%;float: right; text-align: right;padding-right: 15px; ">
 
-    											<h2 style="font-size:32px;"><strong><i class="fa fa-inr"></i> {{$object->desire_amount}}/-</strong></h2>
+    											<h2 style="font-size:32px;"><strong><i class="fa fa-inr"></i> {{$object->pp_Amount}}/-</strong></h2>
 
     										</div>
     									</div>

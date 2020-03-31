@@ -234,7 +234,7 @@ class FeeDepositController extends Controller
 
 	public function store(Request $request){
 		
-		$request->pp_Amount=($request->pp_Amount).'00';
+		
 		
 	
 		$fee=FeePost::where('std_id',$request->std_id)->with('student.branch','student.course')->orderBy('id','DESC')->first();
@@ -315,7 +315,8 @@ class FeeDepositController extends Controller
 			return redirect()->back();
 		}
 		if($request->type_method==2 && $object){
-			$object->desire_amount=$request->pp_Amount;
+			$object->desire_amount=($request->pp_Amount).'00';
+			$object->pp_Amount=($request->pp_Amount);
 
 			return view('web.pakistan.feeDeposit.newForm',compact('request','object','students'));
 		}else{
