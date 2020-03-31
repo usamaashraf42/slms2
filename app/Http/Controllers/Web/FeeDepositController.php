@@ -237,8 +237,7 @@ class FeeDepositController extends Controller
 	public function store(Request $request){
 		
 		
-		
-		if($request->pp_Amount>100){
+		if($request->pp_Amount<100){
 			session()->flash('error_message', __('Amount should be greater then 100'));
 			return redirect()->back();
 		}
