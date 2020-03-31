@@ -83,6 +83,7 @@ Route::POST('searchChallan','Web\FeeDepositController@searchChallan')->name('sea
 
 Route::POST('feedeposit-paypal','Web\PaypalFeeDepositController@feeDepositpaypal')->name('feeDepositpaypal');
 Route::get('feedeposit-paypal-status','Web\PaypalFeeDepositController@getPaymentStatus')->name('payment.status');
+Route::GET('feedeposit-status','Web\FeeDepositController@feeDepositstatus')->name('feeDepositstatus');
 
 
 
