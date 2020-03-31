@@ -16,8 +16,7 @@ use Auth;
 class FeeDepositController extends Controller
 {
 	public function index(){
-		// dd($_POST);
-		 // $this->feeDepositDbEffected(1911842,1008583,4400,8);
+		
 		return view('web.pakistan.feeDeposit.challan');
 	}
 
@@ -45,8 +44,7 @@ class FeeDepositController extends Controller
 			}
 		}	
 		$GeneratedSecureHash= hash_hmac('sha256', $Response, $HashKey);		
-		// echo "GeneratedSecureHash ".$GeneratedSecureHash.' '.'ReceivedSecureHash'.$ReceivedSecureHash;
-		// dd($request->all());			
+					
 		if (strtolower($GeneratedSecureHash) == strtolower($ReceivedSecureHash)) 
 		{
 			if($ResponseCode == '000'||$ResponseCode == '121'||$ResponseCode == '200'){
