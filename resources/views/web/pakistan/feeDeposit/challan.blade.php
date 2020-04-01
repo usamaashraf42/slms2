@@ -361,6 +361,9 @@ border-bottom-left-radius: 25px;
                             </div>
                           </div>
                         </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                           <input type="button"  class="btn btn-info btn-sm validateButton   float-left"   onclick="jobFormSubmit(this)"  value="Search">
+                        </div>
                          
                         </div>
                         <div class="row" style="display: none;">
@@ -408,10 +411,13 @@ border-bottom-left-radius: 25px;
             </div>
             <div class="col-md-12 " >
               <div class="row" >
-                <div class="col-md-9"></div>
-                <div class="col-md-3 float-right" style="float:right">
-                  <input type="button"  class="btn btn-info btn-lg validateButton   float-left"   onclick="jobFormSubmit(this)"  value="Search">
-                  <input class="btn btn-success btn-lg submitButton float-left" onclick="FormSubmit(this)"   style="display: none; "  value="submit">
+                <div class="col-md-8"></div>
+                <div class="col-md-2 float-right" style="float:right">
+                   <input type="button"  class="btn btn-info btn-sm   float-left"   onclick="refreshwindow(this)"  value="back">
+                 </div>
+                  <div class="col-md-2 float-right" style="float:right">
+
+                  <input class="btn btn-success btn-sm submitButton float-left" onclick="FormSubmit(this)"   style="display: none; "  value="submit">
                 </div>
               </div>
 
@@ -585,6 +591,10 @@ crossorigin="anonymous"></script>
   });
 </script>
 <script type="text/javascript">
+
+  function refreshwindow(obj){
+      location.reload(true);
+  }
   function readURL(input) {
     if (input.files && input.files[0]) {
       var reader = new FileReader();
@@ -664,6 +674,8 @@ window.onclick = function(event) {
 function jobFormSubmit(ob){
 
   var valid = true;   
+ 
+
 
   $('.std_id-error').css('display','none');
   $('.fee_id_error').css('display','none');
@@ -693,6 +705,7 @@ function jobFormSubmit(ob){
       console.log('feeChallan', response);
 
       if (response.status) {
+         $('#std_id').prop('readonly', true);
         $('.validateButton').css('display','none');
         $('.pp_Amount').val(response.student.total_payable);
         $('.pp_BillReference').val(response.student.fee_id);
