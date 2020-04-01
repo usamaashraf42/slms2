@@ -156,7 +156,7 @@
     										<div class="col-md-3">
     											<div class="form-group">
     												<label for="sms_title">Sms Title (it will not send in sms ) </label>
-    												<input type="text" class="form-control sms_title" value="{{old('sms_title')}}" id="sms_title"  name="sms_title"  placeholder="Title">
+    												<input type="text" class="form-control sms_title" value="{{old}}" id="sms_title"  name="sms_title"  placeholder="Title">
 
     											</div>
     										</div>
