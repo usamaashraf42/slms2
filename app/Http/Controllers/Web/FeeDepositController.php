@@ -17,8 +17,10 @@ use \DB;
 use Auth;
 class FeeDepositController extends Controller
 {
+	
 	public function index(){
-		
+		// $amount=substr(4000, 0, -2);
+		// $this->feeDepositDbEffected(175362,40004,$amount,8);
 		return view('web.pakistan.feeDeposit.challan');
 	}
 
@@ -53,9 +55,9 @@ class FeeDepositController extends Controller
 		if (strtolower($GeneratedSecureHash) == strtolower($ReceivedSecureHash)) 
 		{
 			if($ResponseCode == '000'||$ResponseCode == '121'||$ResponseCode == '200'){
-
+				$amount=substr($request->pp_Amount, 0, -2);
 				
-				$this->feeDepositDbEffected($request->ppmpf_2,$request->ppmpf_1,$request->pp_Amount,8);
+				$this->feeDepositDbEffected($request->ppmpf_2,$request->ppmpf_1,$amount,8);
 				session()->flash('success_message', __("Fee deposit successfully"));
 				return redirect()->route('feedeposit.index');
 				
@@ -217,7 +219,8 @@ class FeeDepositController extends Controller
 
 			
 			if(isset($fee) && $fee){
-				$total_pending_amount+=$fee->total_fee;
+				$paid=$fee->paid_amount>0?$fee->paid_amount:0;
+				$total_pending_amount+=$fee->total_fee  -$paid;
 			}
 			
 
@@ -411,12 +414,13 @@ class FeeDepositController extends Controller
 		}
 		if($fee){
 			$effectedAmount=$fee->paid_amount>0?$fee->paid_amount+$amount:$amount;
-			$feePosts=FeePost::where('id',$fee_id)->update([
+			$feePosts=FeePost::where('id',$fee->id)->update([
 				'paid_date'=>date("d-m-Y"),
 				'paid_amount'=>$effectedAmount,
 				'isPaid'=>($fee->total_fee<=$effectedAmount)?1:2
 			]);
 		}
+
 		
 		$branch_fine=0;
 		$baranch=Branch::where('id',$students->branch_id)->with('userSetting')->first();
@@ -504,7 +508,7 @@ class FeeDepositController extends Controller
 			'a_debit'=>0,
 			'balance'=>isset($master->balance)?$master->balance-$amount:((isset($master->balance)?$master->balance:0)-$amount),
 			'posting_date'=>$depositDatest,
-			'description'=>"Fee Deposited of".' '.getMonthName($stdd->fee_month). ' '."$year",
+			'description'=>"Fee Deposited of".' '.getMonthName($stdd->fee_month). ' '."$year by jazzcash",
 			'month'=>$month,
 			'year'=>$year,
 			
@@ -523,7 +527,7 @@ class FeeDepositController extends Controller
 				'a_debit'=>isset($amount)?$amount:0,
 				'balance'=>isset($master->balance)?$master->balance+$amount:($amount),
 				'posting_date'=>$depositDatest,
-				'description'=>"Fee Deposited of  $students->s_name($students->id)".' ' .getMonthName($stdd->fee_month).' ' ."$stdd->fee_year",
+				'description'=>"Fee Deposited of  $students->s_name($students->id)".' ' .getMonthName($stdd->fee_month).' ' ."$stdd->fee_year by jazzcash",
 				'month'=>$month,
 				'year'=>$year,
 				
@@ -548,7 +552,7 @@ class FeeDepositController extends Controller
 				'a_debit'=>0,
 				'balance'=>isset($master->balance)?$master->balance-$amount:((isset($master->balance)?$master->balance:0)-$amount),
 				'posting_date'=>$depositDatest,
-				'description'=>"Fee Deposited of".' '.getMonthName($stdd->fee_month). ' '."$year",
+				'description'=>"Fee Deposited of".' '.getMonthName($stdd->fee_month). ' '."$year by jazzcash",
 				'month'=>$month,
 				'year'=>$year,
 				
