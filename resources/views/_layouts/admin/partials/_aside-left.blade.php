@@ -687,11 +687,9 @@
     </a>
 </li>
 @endif
-<li class="{{ areActiveRoutes(['sms-send.create','sms-send.index'])}}">
-    <a href="{{route('sms-send.create')}}" class=""><i class="fa fa-user" aria-hidden="true"></i> 
-        <span>Sms To Student</span> 
-    </a>
-</li>
+
+
+
 
 
 
@@ -711,6 +709,13 @@
     </a>
 </li>
 @endif
+
+
+<li class="{{ areActiveRoutes(['fee-deposit-detail.create','fee-deposit-detail.index','fee-deposit-detail.edit'])}}">
+    <a href="{{route('fee-deposit-detail.create')}}" class=""><i class="fa fa-user" aria-hidden="true"></i> 
+        <span> Fee Deposit Detail</span> 
+    </a>
+</li>
 
 <li class="{{ areActiveRoutes(['account-category.create','account-category.index','account-category.edit'])}}">
     <a href="{{route('account-category.index')}}" class=""><i class="fa fa-user" aria-hidden="true"></i> 

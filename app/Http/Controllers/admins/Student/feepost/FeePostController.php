@@ -45,7 +45,7 @@ class FeePostController extends Controller
     }
 
     public function store(FeePostRequest $request){
-       
+       // dd($request->all());
        $ly_no=Student::select('id')->where('status',1)->where('branch_id',$request->branch_id)->get();
      
         $correction=FeeCorrection::whereIn('std_id',$ly_no)->where('correction_approv',0)->whereMonth('created_at',"<",$request->month)->get();
@@ -54,6 +54,8 @@ class FeePostController extends Controller
              session()->flash('error_message', __('before fee post coreection approved'));
              return redirect()->back();
         }
+        $discount=$request->discount;
+        $discount_description=$request->discount_description;
     if(isset($request->courses) && count($request->courses)){
         foreach ($request->courses as $course) {
            $classId=$course;
@@ -78,7 +80,16 @@ class FeePostController extends Controller
             
             $student=Student::where('branch_id',$request->branch_id)->where('status',1)->where('is_freeze','<>',0);
             $branch=Branch::where('id',$request->branch_id)->with('userSetting')->first();
-            $on_round_off=isset($branch->userSetting->on_round_off)?$branch->userSetting->on_round_off:5;
+
+            $on_round_off=1;
+
+            if(isset($branch->userSetting->on_round_off) && ($branch->userSetting->on_round_off)){
+                $on_round_off=$branch->userSetting->on_round_off;
+            }else{
+                $on_round_off=5;
+            }
+
+
             $branch_fine=(isset($branch->userSetting->fine)?$branch->userSetting->fine:40)*20;
 
             if(isset($classId) && $classId>0){
@@ -130,8 +141,7 @@ class FeePostController extends Controller
                 }
                 //(isset($stdFee->insurance_of)?$stdFee->insurance_of:0)
                 $totalFee=round((isset($request->compFee)?(isset($grade->computer_fee)?$grade->computer_fee:0):0)+(isset($request->labFee)?(isset($grade->lab_fee)?$grade->lab_fee:0):0)+(isset($request->libFee)?(isset($grade->lib_fee)?$grade->lib_fee:0):0)+(isset($request->examFee)?(isset($grade->exam_fee)?$grade->exam_fee:0):0)+(isset($request->statFee)?(isset($grade->stationary)?$grade->stationary:0):0)+(isset($request->acFee)?(isset($grade->ac_charge)?$grade->ac_charge:0):0)+$currentFee+(isset($request->misc1)?$request->misc1:0)+(isset($request->misc2)?$request->misc2:0)  +($request->outType==0?($fineCheck?($stdAccount->balance>1000)?$branch_fine:0:0):0) + $stdFee->transport_fee);
-
-                
+                               
                 $fineMonth=0;
                 $monthDeff=0;
 
@@ -147,18 +157,30 @@ class FeePostController extends Controller
                 $grandTotalPay=0;
                 if(($request->outType==0) && isset($fineCheck) && ($stdAccount) ){
                     $total_feel=($totalFee+ $stdAccount->balance);
-                     $fineMonth=(($stdAccount->balance)>1000)?800:0;
+                    $fineMonth=$fineCheck?($stdAccount->balance>1000)?$branch_fine:0:0;
                     $monthDeff=($fineCheck->month_def)?$fineCheck->month_def:0;
                     $grandTotalPay=$totalFee+(($stdAccount->balance)?$stdAccount->balance:0);
                 }
+                
 
 
+                // $total_feel
+                $discount_total_feel=0;
+                $discount_rate=0;
+
+                if($discount && $currentFee){
+                    $discount_rate=($discount*$currentFee)/100;
+                    $discount_total_feel=$currentFee-$discount_rate;
+
+                }
                 $stdAccounBalance=($totalFee+ (($stdAccount)?$stdAccount->balance:0));
                 $feeRecord['feeId']=$feeid;
                 $feeRecord['fee_this_month']=$singleFee;
                 $feeRecord['fee_factor']=$factor;
-                
 
+                $feeRecord['fee_discount']=$request->discount;
+                $feeRecord['fee_discount_des']=$request->discount_description;
+                
                 $feeRecord['std_id']=$stduents[$i]->id;
                 $feeRecord['branch_id']=$stduents[$i]->branch_id;
                 $feeRecord['fee_month']=$request->month;
@@ -200,7 +222,7 @@ class FeePostController extends Controller
                 $feeRecord['misc1_desc']=isset($request->misc1_desc)?$request->misc1_desc:'';
                 $feeRecord['misc2']=isset($request->misc2)?$request->misc2:0;
                 $feeRecord['misc2_desc']=isset($request->misc2_desc)?$request->misc2_desc:'';
-                $feeRecord['total_fee']=$total_feel;
+                $feeRecord['total_fee']=($discount)>0? $this->feeTotalRounded($stduents[$i]->id,($total_feel-$discount_rate),$on_round_off):$total_feel;
                 $feeRecord['created_by']=Auth::user()->id;
                 $feeRecord['updated_by']=Auth::user()->id;
                 
@@ -232,8 +254,8 @@ class FeePostController extends Controller
                     $st['a_debit']=$student->a_debit+$totalFee;
                     
                     $std=Master::create($ledger);
-                    $branch=Account::where('branch_id',$request->branch_id)->first();
 
+                    $branch=Account::where('branch_id',$request->branch_id)->first();
                     if(!$branch){
                         $baranch=Branch::find($request->branch_id);
                         $branch=Account::create([
@@ -261,9 +283,49 @@ class FeePostController extends Controller
                     $br['a_credit']=$branch->a_credit+$totalFee;
                     $std=Master::create($ledger);
 
+                    // if discount given by admin
+                    if($discount && $discount_rate){
+                        $student=Account::where('std_id',$stduents[$i]->id)->first();
+                        $masterSc=Master::where('account_id',$student->id)->orderBy('id','DESC')->first();
+                        
+                        $ledger=[
+                            'fee_id'=>isset($feeEffected)?$feeEffected->id:null,
+                            'account_id'=>$student->id,
+                            'a_credit'=>$discount_rate,
+                            'a_debit'=>0,
+                            'balance'=>isset($masterSc->balance)?$masterSc->balance-$discount_rate:(-$discount_rate),
+                            'posting_date'=>date('Y-m-d'),
+                            'description'=>$discount_description,
+                            'month'=>$request->month,
+                            'year'=>$request->year,
+                            'created_by'=>Auth::user()->id,
+                            'updated_by'=>Auth::user()->id,
+                        ];
+                        
+                        $std=Master::create($ledger);
+
+                        $branch=Account::where('branch_id',$request->branch_id)->first();
+                        
+                        $master=Master::where('account_id',$branch->id)->orderBy('id','DESC')->first();
+                        $ledger=[
+                            'fee_id'=>isset($feeEffected)?$feeEffected->id:null,
+                            'a_credit'=>0,
+                            'account_id'=>$branch->id,
+                            'a_debit'=>$discount_rate,
+                            'balance'=>isset($master->balance)?$master->balance+$discount_rate:($totalFee),
+                            'posting_date'=>date('Y-m-d'),
+                            'description'=>$discount_description,
+                            'month'=>$request->month,
+                            'year'=>$request->year,
+                            'created_by'=>Auth::user()->id,
+                            'updated_by'=>Auth::user()->id,
+                        ];
+                        $std=Master::create($ledger);
+                    }
+
                     if($std){
-                        Account::where('std_id',$stduents[$i]->id)->update($st);
-                        Account::where('branch_id',$request->branch_id)->update($br);
+                        // Account::where('std_id',$stduents[$i]->id)->update($st);
+                        // Account::where('branch_id',$request->branch_id)->update($br);
                         DB::commit();
                         session()->flash('success_message', __('Fee Post Successfully'));
 
@@ -307,5 +369,15 @@ return redirect()->back();
              return redirect()->back();
         }
         return view('admin.student.fee-challen.studentChallen',compact('feePost'));
+    }
+
+    public function feeTotalRounded($std_id,$totalFee,$on_round_off){
+        $stdFee=StudentFeeStructure::where('std_id',$std_id)->orderBy('id','DESC')->first();
+        $firstReminder=$stdFee->carry_forward;
+        $TotaLsecondFee=($firstReminder+($totalFee));
+        $secondReminder=($TotaLsecondFee)%$on_round_off;
+        $totalFee=(int)($TotaLsecondFee-$secondReminder);
+        StudentFeeStructure::where('std_id',$std_id)->update(['carry_forward'=>$secondReminder]);
+        return $totalFee;
     }
 }

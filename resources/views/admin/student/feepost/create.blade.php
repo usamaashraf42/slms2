@@ -174,6 +174,28 @@
 
 							</div>
 						</div>
+						<div class="form-group row discountgivenDiv" > 
+							<label for="input-group-icon-email" class="col-sm-2 form-control-label">Discount %</label>
+							<div class="col-sm-4">
+								<input type="number" name="discount" class="form-control"  step="any" min="0" max="100" value="0">
+								@if ($errors->has('discount'))
+								<label id="discount-error" class="error" for="discount">
+									{{$errors->first('discount')}}
+								</label>
+								@endif
+							</div>
+							<label for="input-group-icon-email" class="col-sm-2 form-control-label">Discount Reason </label>
+							<div class="col-sm-4">
+								<input type="text" name="discount_description" class="form-control"  value="" >
+								@if ($errors->has('year'))
+								<label id="year-error" class="error" for="year">
+									{{$errors->first('year')}}
+								</label>
+								@endif
+
+
+							</div>
+						</div>
 						<style type="text/css">
 
 
@@ -309,7 +331,9 @@
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 	<script>
-
+		function discountgiven(obj){
+			$('.discountgivenDiv').css('display','block');
+		}
 
 		function getClass(obj){
 			$("[name='class_id']").html(` <option selected="selected" value='0'> All Classes  </option>`);

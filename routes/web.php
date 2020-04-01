@@ -13,6 +13,10 @@
 
 include('Ajax/customRoute.php');
 Route::get('/', function () { return view('welcome'); });
+
+Route::get('/checkout', function () { return view('web.checkout'); });
+
+
 Route::get('/easypaisa', function () { return view('web.easypaisa.index'); });
 Route::get('/easypaisa/token', function () { return view('web.easypaisa.get_token'); });
 
@@ -72,11 +76,16 @@ Route::get('/event','Web\Pakistan\PublicController@event')->name('pakistan.event
 Route::get('/student_picture','Web\Pakistan\PublicController@student_picture')->name('pakistan.student_picture');
 Route::resource('feedeposit','Web\FeeDepositController');
 
+
+
 Route::POST('feedeposit-status','Web\FeeDepositController@feeDepositstatus')->name('feeDepositstatus');
 Route::POST('searchChallan','Web\FeeDepositController@searchChallan')->name('searchChallan');
 
 Route::POST('feedeposit-paypal','Web\PaypalFeeDepositController@feeDepositpaypal')->name('feeDepositpaypal');
 Route::get('feedeposit-paypal-status','Web\PaypalFeeDepositController@getPaymentStatus')->name('payment.status');
+Route::GET('feedeposit-status','Web\FeeDepositController@feeDepositstatus')->name('feeDepositstatus');
+
+
 
 
 Route::POST('feeChallan','Web\FeeDepositController@feeChallan')->name('feeChallan');
@@ -355,6 +364,9 @@ Route::prefix('admin')->group(function () {
 			Route::resource('tentive','Account\tentive\TentiveController');
 			Route::resource('paid-account','Account\paidList\PaidListController');
 			Route::resource('trial-balance','Account\TrialAccountController');
+
+
+			Route::resource('fee-deposit-detail','Account\FeeDepositDetailController');
 
 			Route::resource('bank-checque','Account\BankChecqueController');
 			Route::resource('account-statement','Account\AccountStatementController');

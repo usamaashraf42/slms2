@@ -37,14 +37,27 @@
                    $totalStudentCount=0;
                   $totalPresentCount=0;
                   $totalAbsentCount=0;
+                  $students=array();
 
+                 
                   ?>
                   @foreach($branch->level as $course)
                   <?php
 
+                   if(count($tempDates)){
+                    $student=lastAbsentDay($branch->id,$tempDates);
+                    // dd($student);
+                    if(count($student)){
+                      // dd($student);
+                      $students=$student;
+                      // array_merge($students,$student);
+                    }
+                  }
+
+
                   $totalStd=count(class_students($branch->id,$course->course_id));
-                  $todayPresent=class_attendance_by_date($branch->id,$course->course_id,date('Y-m-d'));
-                  $todayAbsent=class_attendance_by_date_absent($branch->id,$course->course_id,date('Y-m-d'));
+                  $todayPresent=class_attendance_by_date($branch->id,$course->course_id,$date);
+                  $todayAbsent=class_attendance_by_date_absent($branch->id,$course->course_id,$date);
 
                   $totalStudentCount+=$totalStd;
                   $totalPresentCount+=$todayPresent;
@@ -81,6 +94,52 @@
         </div>
       </div>
     </div>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~? -->
+@if($last_absent_day)
+    <div class="card-box">
+        
+        <div class="card-block">
+          <h4 class="card-title">Absent Student From Last {{$last_absent_day}} Days</h4>
+          
+          @component('_components.alerts-default')
+          @endcomponent
+          <div class="table-responsive">
+            <table id="example" class="table border table-bordered ">
+              <thead>
+                <tr>
+                  <th>Ids</th>
+                  <th>S.Name</th>
+                  <th>Class</th>
+                  <th>Phone</th>
+                  <th>Address</th>
+                 
+                </tr>
+              </thead>
+              <tbody>
+                @isset($students)
+                @foreach($students as $admin)
+
+                <tr>
+                  <td>@isset($admin->student){{$admin->student->id}}@endisset</td>
+                  <td>@isset($admin->student){{$admin->student->s_name}}@endisset</td>
+                  
+                  <td>@isset($admin->student->course->course_name){{$admin->student->course->course_name}}@endisset</td>
+                  <td>@isset($admin->student->s_phoneNo){{$admin->student->s_phoneNo}}@endisset</td>
+                  <td>@isset($admin->student->home_address){{$admin->student->home_address}}@endisset</td>
+                 
+                   
+                  </tr>
+                  @endforeach
+                  @endisset
+                </tbody>
+                
+              </table>
+            </div>
+          </div>
+        </div>
+
+        @endif
   </div>
 </div>
 

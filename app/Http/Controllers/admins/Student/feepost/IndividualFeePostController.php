@@ -69,7 +69,7 @@ class IndividualFeePostController extends Controller
         }else{
             $on_round_off=5;
         }
-
+        
         $stduentsi=Student::where('id',$request->std_id)->first();
 
         $feeLast=FeePost::orderBy('id','DESC')->first();

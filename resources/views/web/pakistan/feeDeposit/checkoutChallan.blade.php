@@ -275,45 +275,7 @@ border-bottom-left-radius: 25px;
 </div>
 </div>
 
-<?php
 
-     $MerchantID ="00168054"; //Your Merchant from transaction Credentials
-    $Password   ="55589342s0"; //Your Password from transaction Credentials
-    $ReturnURL  ="https://lyceumgroupofschools.com/feedeposit-status"; //Your Return URL 
-    $HashKey    ="txtw58z1x0";//Your HashKey from transaction Credentials
-    $PostURL = "https://payments.jazzcash.com.pk/CustomerPortal/transactionmanagement/merchantform";
-    //"http://testpayments.jazzcash.com.pk/PayAxisCustomerPortal/transactionmanagement/merchantform"; 
-    date_default_timezone_set("Asia/karachi");
-    $Amount = $object->desire_amount; //Last two digits will be considered as Decimal
-    $BillReference = $students->fee_id;
-    $Description = "Thank you for using Jazz Cash";
-    $Language = "EN";
-    $TxnCurrency = "PKR";
-    $TxnDateTime = date('YmdHis') ;
-    $TxnExpiryDateTime = date('YmdHis', strtotime('+8 Days'));
-    $TxnRefNumber = $students->fee_id;
-    $TxnType = "";
-    $Version = '1.1';
-    $SubMerchantID = "";
-    $DiscountedAmount = "";
-    $DiscountedBank = "";
-    $ppmpf_1=$students->fee_id;
-    $ppmpf_2=$students->std_id;
-    $ppmpf_3="";
-    $ppmpf_4="";
-    $ppmpf_5="";
-// dd($TxnRefNumber);
-    $HashArray=[$Amount,$BillReference,$Description,$DiscountedAmount,$DiscountedBank,$Language,$MerchantID,$Password,$ReturnURL,$TxnCurrency,$TxnDateTime,$TxnExpiryDateTime,$TxnRefNumber,$TxnType,$Version,$ppmpf_1,$ppmpf_2,$ppmpf_3,$ppmpf_4,$ppmpf_5];
-
-    $SortedArray=$HashKey;
-    for ($i = 0; $i < count($HashArray); $i++) { 
-    	if($HashArray[$i] != 'undefined' AND $HashArray[$i]!= null AND $HashArray[$i]!="" )
-    	{
-
-    		$SortedArray .="&".$HashArray[$i];
-    	} }
-    	$Securehash = hash_hmac('sha256', $SortedArray, $HashKey);  
-    	?>
     	<div class="breadcrumb-container w-100 pa3 pv2-ns ph4-ns relative">
     		<div id="ctl00_cphBreadCrumb_BreadcrumbMenu1_pnlControls">
     		</div>
@@ -332,8 +294,39 @@ border-bottom-left-radius: 25px;
     					@component('_components.alerts-default')
     					@endcomponent
     					<div id="signupbox"  class="mainbox col-md-12  col-sm-12 col-xs-12">
+    						<h2 >1 Dollar ={{currencyCnv(1,'USD','PKR')}}</h2>
     						<div>
-    							<form   action="https://payments.jazzcash.com.pk/CustomerPortal/transactionmanagement/merchantform" id="applicationForm"  method="POST" enctype="multipart/form-data">
+
+    							
+
+    					
+
+    								<form action='https://sandbox.2checkout.com/checkout/purchase'  method="POST" enctype="multipart/form-data">
+										<input type='hidden' name='sid' value='901421364' >
+										<input type='hidden' name='mode' value='2CO' >
+										<input type='hidden' name='li_0_type' value='feedeposit' >
+										<input type='hidden' name='li_0_name' value='American Lyceum Group Of Schools' >
+										<input type='hidden' name='li_0_product_id' value="{{$students->fee_id}}" >
+										<input type='hidden' name='li_0__description' value="{{$students->name}} of feedeposit" >
+										<input type='hidden' name='li_0_price' value="{{round(currencyCnv($object->desire_amount,'PKR','USD'))}}" >
+										<input type='hidden' name='li_0_quantity' value='1' >
+										<input type='hidden' name='li_0_tangible' value='N' >
+										<input type='hidden' name='card_holder_name' value='Checkout Shopper' >
+										<input type='hidden' name='street_address' value='123 Test St' >
+										<input type='hidden' name='street_address2' value='Suite 200' >
+										<input type='hidden' name='city' value='' >
+										<input type='hidden' name='state' value='OH' >
+										<input type='hidden' name='zip' value='43228' >
+										<input type='hidden' name='country' value='USA' >
+										<input type='hidden' name='email' value='' >
+										<input type='hidden' name='phone' value='' >
+										<input type='hidden' name='phone_extension' value='' >
+										<input type='hidden' name='purchase_step' value='payment-method' >
+										<input type='hidden' name='std_id' value="{{$students->std_id}}" >
+										<input type="hidden" name="fee_id" value="{{$students->fee_id}}">
+
+
+
     								@csrf
     								<div class="panel-body" style="border:1px solid #ccc; margin-bottom: 20px;">
     									<div class="row">
@@ -342,29 +335,7 @@ border-bottom-left-radius: 25px;
     											
 
 
-    											<input type="hidden" name="pp_Version" value="<?php echo $Version; ?>" />
-    											<input type="hidden" name="pp_TxnType" value="<?php echo $TxnType; ?>" />
-    											<input type="hidden" name="pp_Language" value="<?php echo $Language; ?>" />
-    											<input type="hidden" name="pp_MerchantID" value="<?php echo $MerchantID; ?>" />
-    											<input type="hidden" name="pp_SubMerchantID" value="<?php echo $SubMerchantID; ?>" />
-    											<input type="hidden" name="pp_Password" value="<?php echo $Password; ?>" />
-    											<input type="hidden" name="pp_TxnRefNo" class="TxnRefNumber" value="<?php echo $TxnRefNumber; ?>"/>
-    											<input type="hidden" name="pp_Amount" class="pp_Amount" value="<?php echo $Amount; ?>" />
-    											<input type="hidden" name="pp_TxnCurrency" value="<?php echo $TxnCurrency; ?>"/>
-    											<input type="hidden" name="pp_TxnDateTime" value="<?php echo $TxnDateTime; ?>" />
-    											<input type="hidden" name="pp_BillReference" class="pp_BillReference" value="<?php echo $BillReference ?>" />
-    											<input type="hidden" name="pp_Description" value="<?php echo $Description; ?>" />
-    											<input type="hidden" id="pp_DiscountedAmount" name="pp_DiscountedAmount" value="<?php echo $DiscountedAmount ?>">
-    											<input type="hidden" id="pp_DiscountBank" name="pp_DiscountBank" value="<?php echo $DiscountedBank ?>">
-    											<input type="hidden" name="pp_TxnExpiryDateTime" value="<?php echo  $TxnExpiryDateTime; ?>" />
-    											<input type="hidden" name="pp_ReturnURL" value="<?php echo $ReturnURL; ?>" />
-    											<input type="hidden" name="pp_SecureHash" value="<?php echo $Securehash; ?>" />
-    											<input type="hidden" name="ppmpf_1" class="ppmpf_1" value="<?php echo $ppmpf_1; ?>" />
-    											<input type="hidden" name="ppmpf_2" class="ppmpf_2" value="<?php echo $ppmpf_2; ?>" />
-    											<input type="hidden" name="ppmpf_3" value="<?php echo $ppmpf_3; ?>" />
-    											<input type="hidden" name="ppmpf_4" value="<?php echo $ppmpf_4; ?>" />
-    											<input type="hidden" name="ppmpf_5" value="<?php echo $ppmpf_5; ?>" />
-
+    										
 
     										</div>
     									</div>
@@ -400,15 +371,15 @@ border-bottom-left-radius: 25px;
     								</div>
     								<div class="col-md-8">
     									
-    									<div style="width: 70%; float: left; text-align: justify;">
+    									<div style="width: 50%; float: left; text-align: justify;">
     										
-    										<p style="font-size:22px;">
-    											<b> Amount going to be charged from you: </b>
+    										<p>
+    											<b> amount going to be charge from you: </b>
     										</p>
     									</div>
-    									<div style="width: 30%;float: right; text-align: right;padding-right: 15px; ">
+    									<div style="width: 50%;float: right; text-align: right;padding-right: 15px; ">
 
-    											<h2 style="font-size:32px;"><strong><i class="fa fa-inr"></i> {{$object->pp_Amount}}/-</strong></h2>
+    											<h2><strong><i class="fa fa-inr"></i> @isset($object->desire_amount) {{currencyCnv($object->desire_amount,'PKR','USD')}}$  @endisset/-</strong></h2>
 
     										</div>
     									</div>
@@ -429,7 +400,7 @@ border-bottom-left-radius: 25px;
     					<div class="col-md-10"></div>
     					<div class="col-md-2">
 
-    					<!--    <input type="button" class="btn btn-info btn-lg validateButton "   onclick="jobFormSubmit(this)"  id="updateDataBtn" value="Submit"> -->
+    				
     					<input type="submit" class="btn btn-success btn-lg submitButton"   style="display: block;"  id="updateDataBtn" value="OK">
     				</div>
     				</div>

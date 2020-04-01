@@ -11,20 +11,24 @@ use App\Models\Master;
 use App\Models\Student;
 use App\Models\Bank;
 use App\Models\BankFeeDeposit;
+use App\Models\BankTransactionDetail;
+
 use \DB;
 use Auth;
 class FeeDepositController extends Controller
 {
 	public function index(){
-		// dd($_POST);
-		 // $this->feeDepositDbEffected(1911842,1008583,4400,8);
+		
 		return view('web.pakistan.feeDeposit.challan');
 	}
 
 
 	public function feeDepositstatus(Request $request){
-
-		$HashKey= "y14yb32g8s"; //Your Hash Key
+		$HashKey= "txtw58z1x0"; //Your Hash Key
+		if(!(isset($_POST['pp_ResponseCode']))){
+			session()->flash('error_message', __("Something went wrong from bank side, please try later"));
+			return redirect()->route('feedeposit.index');
+		}
 		$ResponseCode =$_POST['pp_ResponseCode'];
 		$ResponseMessage = $_POST['pp_ResponseMessage'];
 		$Response="";$comment="";
@@ -45,15 +49,14 @@ class FeeDepositController extends Controller
 			}
 		}	
 		$GeneratedSecureHash= hash_hmac('sha256', $Response, $HashKey);		
-		// echo "GeneratedSecureHash ".$GeneratedSecureHash.' '.'ReceivedSecureHash'.$ReceivedSecureHash;
-		// dd($request->all());			
+					
 		if (strtolower($GeneratedSecureHash) == strtolower($ReceivedSecureHash)) 
 		{
 			if($ResponseCode == '000'||$ResponseCode == '121'||$ResponseCode == '200'){
 
 				
 				$this->feeDepositDbEffected($request->ppmpf_2,$request->ppmpf_1,$request->pp_Amount,8);
-				session()->flash('success_message', __("Payment Successfull. $ResponseMessage"));
+				session()->flash('success_message', __("Fee deposit successfully"));
 				return redirect()->route('feedeposit.index');
 				
 			} 
@@ -79,6 +82,11 @@ class FeeDepositController extends Controller
 			session()->flash('error_message', __("mismatched marked it suspicious or reject it"));
 			return redirect()->route('feedeposit.index');			
 		}	
+	}
+
+
+	public function feeDepositCreditCardstatus(Request $request){
+		dd($request->all());
 	}
 
 
@@ -111,7 +119,7 @@ class FeeDepositController extends Controller
 		{
 			if($ResponseCode == '000'||$ResponseCode == '121'||$ResponseCode == '200'){
 
-				session()->flash('success_message', __("Payment Successfull."));
+				session()->flash('success_message', __("Fee deposit successfully."));
 				return redirect()->route('feedeposit.index');
 				
 			} 
@@ -150,7 +158,7 @@ class FeeDepositController extends Controller
 
 		if(isset($fee->isPaid) && $fee->isPaid!=1 ){
 			$object = new \stdClass;
-			$object->fee_id=$fee->id;
+			$object->fee_id=rand();
 			$object->std_id=$fee->student->id;
 			$object->name=$fee->student->s_name.' '.$fee->student->s_fatherName;
 			$object->branch=$fee->student->branch->branch_name;
@@ -165,6 +173,8 @@ class FeeDepositController extends Controller
 
 			$now = strtotime(date( 'Y-m-d', strtotime( now() ) )); 
 			$your_date = strtotime($fee->fee_due_date1);
+
+
 			if($fee->outstand_lastmonth > 0){
 				$your_date = strtotime($fee->fee_due_date2);
 			}else{
@@ -194,7 +204,7 @@ class FeeDepositController extends Controller
 			$students = new \stdClass;
 			$students->std_id=$student->id;
 
-			$students->fee_id=isset($object->fee_id)?$object->fee_id:rand(1, 7);
+			$students->fee_id=rand();
 			$students->name=$student->s_name.' '.$student->s_fatherName;
 			$students->branch=isset($student->branch->branch_name)?$student->branch->branch_name:null;
 			$students->course=isset($student->course->course_name)?$student->course->course_name:null;
@@ -225,7 +235,12 @@ class FeeDepositController extends Controller
 
 
 	public function store(Request $request){
-		// dd($request->all());
+		
+		
+		if($request->pp_Amount<100){
+			session()->flash('error_message', __('Amount should be greater then 100'));
+			return redirect()->back();
+		}
 		$fee=FeePost::where('std_id',$request->std_id)->with('student.branch','student.course')->orderBy('id','DESC')->first();
 
 		$student=Student::find($request->std_id);
@@ -234,10 +249,21 @@ class FeeDepositController extends Controller
 			session()->flash('error_message', __('Record not found'));
 			return redirect()->back();
 		}
+		$fees=BankTransactionDetail::create([
+			'std_id'=>$request->std_id,
+			'amount'=>$request->pp_Amount,
+			'bank_id'=>8,
+			'branch_id'=>isset($fee->branch_id)?$fee->branch_id:0,
 
+
+		]);
+		if(!$fees){
+			session()->flash('error_message', __('Something went wrong please try later'));
+			return redirect()->back();
+		}
 		$object = new \stdClass;
 		if(isset($fee->isPaid) && $fee->isPaid!=1 ){
-			$object->fee_id=$fee->id;
+			$object->fee_id=$fees->id;
 			$object->std_id=$fee->student->id;
 			$object->name=$fee->student->s_name.' '.$fee->student->s_fatherName;
 			$object->branch=$fee->student->branch->branch_name;
@@ -291,20 +317,20 @@ class FeeDepositController extends Controller
 			$total_pending_amount+=$object->fine;
 		}
 		$students->total_pending=$total_pending_amount;
-		$students->fee_id=isset($object->fee_id)?$object->fee_id:rand(1, 7);
-
-
-		if($students->total_pending > $request->pp_Amount){
+		$students->fee_id=$fees->id;
+		
+		if(!$request->pp_Amount){
 			session()->flash('error_message', __("Amount Should be Equal or greater then $students->total_pending"));
 			return redirect()->back();
 		}
 		if($request->type_method==2 && $object){
-			$object->desire_amount=$request->pp_Amount;
+			$object->desire_amount=($request->pp_Amount).'00';
+			$object->pp_Amount=($request->pp_Amount);
 
 			return view('web.pakistan.feeDeposit.newForm',compact('request','object','students'));
 		}else{
 			$object->desire_amount=$request->pp_Amount;
-			return view('web.pakistan.feeDeposit.paypalChallan',compact('request','object','students'));
+			return view('web.pakistan.feeDeposit.checkoutChallan',compact('request','object','students'));
 			// session()->flash('error_message', __('PayPal is not integrate'));
 			// return redirect()->back();
 		}
@@ -367,7 +393,7 @@ class FeeDepositController extends Controller
 
 	function feeDepositDbEffected($std_id,$fee_id,$amount,$bank){
 
-		$fee=FeePost::find($fee_id);
+		$fee=FeePost::where('std_id',$std_id)->orderBy('id','DESC')->first();
 		$stdd=$fee;
 		$month=isset($stdd->fee_month)?$stdd->fee_month:date('m');
 		$year=isset($stdd->fee_year)?$stdd->fee_year:date('Y');
@@ -378,10 +404,11 @@ class FeeDepositController extends Controller
 			return false;
 		}
 		if($fee){
+			$effectedAmount=$fee->paid_amount>0?$fee->paid_amount+$amount:$amount;
 			$feePosts=FeePost::where('id',$fee_id)->update([
 				'paid_date'=>date("d-m-Y"),
-				'paid_amount'=>$amount,
-				'isPaid'=>($fee->total_fee<=$amount)?1:2
+				'paid_amount'=>$effectedAmount,
+				'isPaid'=>($fee->total_fee<=$effectedAmount)?1:2
 			]);
 		}
 		
@@ -394,7 +421,7 @@ class FeeDepositController extends Controller
 		
                     ///////////////////////// Fee Deposit ......,...................
 		$studentAc=Account::where('std_id',$students->id)->first();
-		$master=Master::where('account_id',$studentAc->id)->orderBy('id','DESC')->first();
+		
 		if(!$studentAc){
 			$studentAc=Account::create([
 				'name'=>$students->s_name.' '.$students->s_fatherName, 
@@ -403,8 +430,17 @@ class FeeDepositController extends Controller
 			]);
 		}
 
+		$branch=Account::where('branch_id',$students->branch_id)->first();
+		if(!$branch){
+			$branch=Account::create([
+				'name'=>$baranch->branch_name, 
+				'branch_id'=>$baranch->id,
+				'type'=>'Branch', 
+			]);
+		}
+
 		DB::beginTransaction();
-		if(isset($stdd->fee_due_date1) && $stdd->outstand_lastmonth){
+		if(isset($stdd->fee_due_date1) && $stdd->outstand_lastmonth && $stdd->isPaid==0){
 			$now = strtotime(date('Y-m-d')); 
 			$your_date = strtotime($stdd->fee_due_date1);
 			if($stdd->outstand_lastmonth > 0){
@@ -433,6 +469,8 @@ class FeeDepositController extends Controller
 				];
 				$std=Master::create($ledger);
 
+				
+
 				$master=Master::where('account_id',$branch->id)->orderBy('id','DESC')->first();
 				$ledger=[
 					'fee_id'=>isset($stdd)?$stdd->id:null,
@@ -449,6 +487,8 @@ class FeeDepositController extends Controller
 				$firstInsert=Master::create($ledger);
 			}
 		}
+
+		$master=Master::where('account_id',$studentAc->id)->orderBy('id','DESC')->first();
 
 		$ledger=[
 			'fee_id'=>isset($stdd)?$stdd->id:null,
@@ -468,14 +508,7 @@ class FeeDepositController extends Controller
 			DB::rollBack();
 			return false; 
 		}else{
-			$branch=Account::where('branch_id',$students->branch_id)->first();
-			if(!$branch){
-				$branch=Account::create([
-					'name'=>$baranch->branch_name, 
-					'branch_id'=>$baranch->id,
-					'type'=>'Branch', 
-				]);
-			}
+			
 			$master=Master::where('account_id',$branch->id)->orderBy('id','DESC')->first();
 			$ledger=[
 				'fee_id'=>isset($stdd)?$stdd->id:null,
@@ -490,8 +523,6 @@ class FeeDepositController extends Controller
 				
 			];
 			$std=Master::create($ledger);
-
-
 			$bankAc=Account::where('bank_id',$bank)->first();
 			
 			if(!$bankAc){

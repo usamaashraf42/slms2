@@ -99,22 +99,14 @@
             <th> FeeId</th>
             <th> <div style="transform: rotate(90deg);max-width: 44px;">Bank</div></th>
             <th> <div style="transform: rotate(90deg);padding: 0px; max-width: 30px; font-size: 8pt; font-weight: bold;"> Deposit Date</div></th>
-            <!-- <th> <div style="transform: rotate(90deg);padding: 0px; max-width: 35px; font-size: 8pt; font-weight: bold;"> Deposit Amount</div></th> -->
-            <!-- <th> <div style="transform: rotate(90deg);padding: 0px; max-width: 35px; font-size: 8pt; font-weight: bold;"> insurance</div></th> -->
-           <!--  <th> <div style="transform: rotate(90deg);padding: 0px; max-width: 54px; font-size: 8pt; font-weight: bold;font-size: 9pt;">Deferred Amount
-            Lastmonth </div></th> -->
-<!--             <th> <div style="transform: rotate(90deg);padding: 0px; min-width: 60px; font-size: 8pt; font-weight: bold;"> Net Fee</div></th>
- -->        <th> <div style="padding: 0px; max-width: 100px; font-size: 8pt; font-weight: bold; justify-content: center;">Posted Fee</div></th>
+          
+       <th> <div style="padding: 0px; max-width: 100px; font-size: 8pt; font-weight: bold; justify-content: center;">Posted Fee</div></th>
 
             <th ><div style="transform: rotate(90deg);padding: 0px; max-width: 37px; font-size: 8pt; font-weight: bold;"  >Correction Amount </div></th>
             <th ><div style="transform: rotate(90deg);padding: 0px; max-width: 37px; font-size: 8pt; font-weight: bold;"  >After Cor fee </div></th>
 
             <th> <div style="transform: rotate(90deg);padding: 0px; max-width: 38px; font-size: 8pt; font-weight: bold;font-size: 8pt;">Deposit Amount </div></th>
-            <!-- <th > <div style="transform: rotate(90deg);padding: 0px; max-width: 44px; font-size: 8pt; font-weight: bold;font-size: 9pt;">Fine</div></th>
-
-            <th> <div style="transform: rotate(90deg);padding: 0px; max-width: 38px; font-size: 8pt; font-weight: bold;font-size: 8pt;">Total </div></th>
-            <th> <div style="transform: rotate(90deg);padding: 0px; max-width: 38px; font-size: 8pt; font-weight: bold;font-size: 8pt;">Due date </div></th> -->
-
+           
 
 
 
@@ -182,17 +174,6 @@
                   <td>@isset($feeArray[0]->total_fee){{($feeArray[0]->total_fee)}}@endisset </td>
 
                <td>@isset($feeArray[0]->BankFeeDeposit->paid_amount){{$feeArray[0]->BankFeeDeposit->paid_amount}}@endisset </td>
-               <!-- <td>@isset($feeArray[0]->insurance_of) {{$feeArray[0]->insurance_of}}@endisset </td> -->
-               <!-- <td> @isset($feeArray[0]->deffered_amount) {{$feeArray[0]->deffered_amount}}@endisset </td> -->
-              <!--  <td>@isset($data->studentFee->Net_AnnualFee) {{round(($data->studentFee->Net_AnnualFee)/12)}} * {{$data->studentFee['m'.$month]}}@endisset </td>
-               <td>@isset($feeArray[0]->fee_due_date2){{ $feeArray[0]->paid_amount}} @if($feeArray[0]->paid_date) {{date("d-M-y", strtotime(date($feeArray[0]->paid_date))) }} @endif @endisset</td>
-
-               <td>@isset($feeArray[0]->transport_fee){{date($feeArray[0]->transport_fee)}}@endisset</td>
-               <td>@isset($feeArray[0]->student->balance->balance){{date($feeArray[0]->student->balance->balance)}}@endisset</td>
-               <td>@isset($feeArray[0]->fine){{date($feeArray[0]->fine)}}@endisset</td>
-               <td><i>@isset($feeArray[0]->total_fee){{date($feeArray[0]->total_fee)}}@endisset &nbsp;&nbsp;</i> </td>
-               <td><i>@isset($feeArray[0]->fee_due_date2){{date("d-M-y", strtotime(date($feeArray[0]->fee_due_date2)))}}@endisset</td> -->
-
 
                </tr>
 
