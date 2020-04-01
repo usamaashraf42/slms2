@@ -110,7 +110,7 @@ table, th, td {
 									<b style="text-align: right">@if(isset($record->userSetting->account_no) && $record->userSetting->account_no) {{$record->userSetting->account_no}} @else Credit MCB Bank Ltd:AC#4011076351010132 @endif</b>
 									@else
 
-									<b style="">MCB</b>,<b style="margin-left: 0px">UBl Omni</b>,<b style="margin-left: 5px">HBL Konnect, Alfalah </b><br>
+									<b style="">MCB</b>,<b style="margin-left: 0px">UBl Omni</b>,<b style="margin-left: 5px">HBL Konnect, Alfalah , Mobi Cash</b><br>
 									<i style="float: right">{{$record->branch_name}}</i>
 									<b style="text-align: right">Credit MCB Bank Ltd:AC#4011076351010132 </b>
 									@endif
@@ -412,7 +412,7 @@ table, th, td {
 									
 												<b style="text-align: right">@if(isset($record->userSetting->account_no) && $record->userSetting->account_no) {{$record->userSetting->account_no}} @else Credit MCB Bank Ltd:AC#4011076351010132 @endif</b>
 												@else
-												<b style="">MCB</b>,<b style="margin-left: 0px">UBl Omni</b>,<b style="margin-left: 5px">HBL Konnect, Alfalah </b><br>
+												<b style="">MCB</b>,<b style="margin-left: 0px">UBl Omni</b>,<b style="margin-left: 5px">HBL Konnect, Alfalah , Mobi Cash </b><br>
 												<i style="float: right">{{$record->branch_name}}</i>
 												<b style="text-align: right">Credit MCB Bank Ltd:AC#4011076351010132 </b>
 												@endif
@@ -453,7 +453,7 @@ table, th, td {
 															<td>
 																<i>Installment:@isset($feeMonth){{$feeMonth}}@endisset*@isset($feeFactor){{$feeFactor}}@endisset</i>
 															</td>
-															<td>@isset($feeArray[0]['total_fee']){{$feeArray[0]['total_fee']}}@endisset</td>
+															<td>{{(isset($feeMonth)?(round(($feeMonth))):0)* (isset($feeFactor)?$feeFactor:0)}}</td>
 
 														</tr>
 														<tr>
@@ -469,6 +469,7 @@ table, th, td {
 																<i>Payable Before due date</i>
 															</td>
 															<td>
+																@isset($feeArray[0]['total_fee']){{$feeArray[0]['total_fee']}}@endisset
 
 															</td>
 														</tr>
@@ -501,7 +502,7 @@ table, th, td {
 									
 													<b style="text-align: right">@if(isset($record->userSetting->account_no) && $record->userSetting->account_no) {{$record->userSetting->account_no}} @else Credit MCB Bank Ltd:AC#4011076351010132 @endif</b>
 													@else
-													<b style="">MCB</b>,<b style="margin-left: 0px">UBl Omni</b>,<b style="margin-left: 5px">HBL Konnect, Alfalah </b><br>
+													<b style="">MCB</b>,<b style="margin-left: 0px">UBl Omni</b>,<b style="margin-left: 5px">HBL Konnect, Alfalah , Mobi Cash</b><br>
 													<i style="float: right">{{$record->branch_name}}</i>
 													<b style="text-align: right">Credit MCB Bank Ltd:AC#4011076351010132 </b>
 													@endif
@@ -538,7 +539,7 @@ table, th, td {
 																<td>
 																	<i>Installment:@isset($feeMonth){{ round(($feeMonth))}}@endisset*@isset($feeFactor){{$feeFactor}}@endisset</i>
 																</td>
-																<td>@isset($feeArray[0]['total_fee']){{$feeArray[0]['total_fee']}}@endisset</td>
+																<td>{{(isset($feeMonth)?(round(($feeMonth))):0)* (isset($feeFactor)?$feeFactor:0)}}</td>
 
 															</tr>
 
@@ -555,6 +556,7 @@ table, th, td {
 																	<i>Payable Before due date</i>
 																</td>
 																<td>
+																	@isset($feeArray[0]['total_fee']){{$feeArray[0]['total_fee']}}@endisset
 
 																</td>
 															</tr>
