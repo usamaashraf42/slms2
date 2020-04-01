@@ -282,7 +282,7 @@ table, th, td {
 														@endif
 														@if(isset($record->userSetting->summerPack) || isset($record->userSetting->Insurace))
 														@if(($record->userSetting->summerPack) || ($record->userSetting->Insurace))
-														<tr>
+														<!-- <tr>
 															<td>
 																@if($record->userSetting->summerPack) 
 																<i style="margin-left: 10px">Summer Pack</i>/
@@ -298,6 +298,24 @@ table, th, td {
 																@if($record->userSetting->Insurace)
 																<i style="margin-left: 2px">@isset($feeArray[0]['insurance_of']){{$feeArray[0]['insurance_of']}}@endisset</i>
 																@endif
+															</td>
+														</tr> -->
+														<tr>
+															<td>
+																<i style="margin-left: 10px">Discount</i>
+															
+																
+															</td>
+															<td>
+																<i style="margin-left: 2px">-
+																	@isset($feeArray[0]['libfee'])
+																		{{ ($feeArray[0]['current_fee']*$feeArray[0]['fee_discount'] /100)  }}
+
+																		
+																	@endisset
+																</i>
+																
+																
 															</td>
 														</tr>
 														@endif
@@ -354,7 +372,18 @@ table, th, td {
 														<tr>
 															<td><i style="margin-left: 10px"><b>This Month Total</b></i><i style="margin-left: 10px"></i></td>
 
-															<td><i style="margin-left: 2px"></i>@isset($feeArray[0]['grand_totalPayThisMonth']){{round(($feeArray[0]['grand_totalPayThisMonth']-$feeArray[0]['outstand_lastmonth'] -$feeArray[0]['deffered_amount']))}}@endisset<i style="margin-left: 5px"></i></td>
+															<td><i style="margin-left: 2px"></i>
+																@isset($feeArray[0]['fee_this_month'])
+
+																{{round(
+																	(isset($feeMonth)?(round(($feeMonth))):0)* (isset($feeFactor)?$feeFactor:0)+$feeArray[0]['comp_fee'] + $feeArray[0]['labfee']+ $feeArray[0]['libfee']+ $feeArray[0]['examfee']+ $feeArray[0]['statfee']+ $feeArray[0]['accharge']+ $feeArray[0]['fine'] + $feeArray[0]['utility_fee']+ $feeArray[0]['fine']+ $feeArray[0]['transport_fee']+ $feeArray[0]['insurance_of']+ $feeArray[0]['books_charges'] + $feeArray[0]['uniform']+ $feeArray[0]['misc1']+ $feeArray[0]['misc2']-  ($feeArray[0]['current_fee']*$feeArray[0]['fee_discount'] /100 )
+																	
+																	)
+																}}
+
+
+																@endisset
+																<i style="margin-left: 5px"></i></td>
 
 														</tr>
 														<tr>
