@@ -329,7 +329,7 @@ class FeeDepositController extends Controller
 			session()->flash('error_message', __("Amount Should be Equal or greater then $students->total_pending"));
 			return redirect()->back();
 		}
-		if($request->type_method==2 && $object){
+		if($request->type_method==2 or $request->type_method==3 && $object){
 			$object->desire_amount=($request->pp_Amount).'00';
 			$object->pp_Amount=($request->pp_Amount);
 
