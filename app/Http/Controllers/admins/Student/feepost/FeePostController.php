@@ -78,7 +78,16 @@ class FeePostController extends Controller
             
             $student=Student::where('branch_id',$request->branch_id)->where('status',1)->where('is_freeze','<>',0);
             $branch=Branch::where('id',$request->branch_id)->with('userSetting')->first();
-            $on_round_off=isset($branch->userSetting->on_round_off)?$branch->userSetting->on_round_off:5;
+
+            $on_round_off=1;
+
+            if(isset($branch->userSetting->on_round_off) && ($branch->userSetting->on_round_off)){
+                $on_round_off=$branch->userSetting->on_round_off;
+            }else{
+                $on_round_off=5;
+            }
+
+
             $branch_fine=(isset($branch->userSetting->fine)?$branch->userSetting->fine:40)*20;
 
             if(isset($classId) && $classId>0){
