@@ -211,9 +211,15 @@ class FeeDepositController extends Controller
 			$students->images=$student->images;
 
 			$total_pending_amount=0;
-			if(isset($account->LedgerBalance) && $account->LedgerBalance){
-				$total_pending_amount=$account->LedgerBalance->balance;
+			// if(isset($account->LedgerBalance) && $account->LedgerBalance){
+			// 	$total_pending_amount=$account->LedgerBalance->balance;
+			// }
+
+			
+			if(isset($fee) && $fee){
+				$total_pending_amount+=$fee->total_fee;
 			}
+			
 
 			if(isset($object->fine) && $object->fine){
 				$total_pending_amount+=$object->fine;
