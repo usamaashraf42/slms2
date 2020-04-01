@@ -770,9 +770,18 @@ function jobFormSubmit(ob){
         </li>
 
         <li class="list_radio">
-        <input type="radio" onclick="checkedMethod(this)"  value="1" id="f-option" name="method">
+        <input type="radio" onclick="checkedMethod(this)"  value="3" id="f-option" name="method">
         <label for="f-option"> 
-        <img src="{{asset('assets/img/checkout.png')}}" width="100%" style="max-width: 300px;height: 68px; margin-top: -23px;"></label>
+        <img src="{{asset('assets/img/credit.jpg')}}" width="100%" style="max-width: 300px;height: 68px; margin-top: -23px;"></label>
+
+        <div class="check"></div>
+        </li>
+
+
+        <li class="list_radio">
+        <input type="radio" onclick="checkedMethod(this)" id='paypal' value="1" id="f-option" name="method">
+        <label for="paypal"> 
+        <img src="{{asset('assets/img/paypal.png')}}" width="100%" style="max-width: 300px;height: 68px; margin-top: -23px;"></label>
 
         <div class="check"></div>
         </li>
