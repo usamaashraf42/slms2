@@ -19,7 +19,7 @@ class FeeDepositController extends Controller
 {
 	
 	public function index(){
-		// $amount=substr(4000, 0, -2);
+		// $amount=substr(400000, 0, -2);
 		// $this->feeDepositDbEffected(175362,40004,$amount,8);
 		return view('web.pakistan.feeDeposit.challan');
 	}
@@ -57,6 +57,7 @@ class FeeDepositController extends Controller
 			if($ResponseCode == '000'||$ResponseCode == '121'||$ResponseCode == '200'){
 				$amount=substr($request->pp_Amount, 0, -2);
 				
+
 				$this->feeDepositDbEffected($request->ppmpf_2,$request->ppmpf_1,$amount,8);
 				session()->flash('success_message', __("Fee deposit successfully"));
 				return redirect()->route('feedeposit.index');
@@ -408,7 +409,8 @@ class FeeDepositController extends Controller
 		$year=isset($stdd->fee_year)?$stdd->fee_year:date('Y');
 		$depositDatest=date('Y-m-d');
 		$students=Student::find($std_id);
-		
+
+	
 		if(!$students){
 			return false;
 		}
@@ -583,6 +585,10 @@ class FeeDepositController extends Controller
 
 
 					if($banks){
+						 if(isset($students->s_phoneNo)){
+                            $sms= nl2br("Dear Parent,\nThank you for deposited the fee of St No $students->id ,$students->s_name. Rs.($amount) received on Mobi cash for any queries contact (03464292920)",false);
+                            (SendSms($students->s_phoneNo,$sms));
+                          }
 						DB::commit();
 						return true;
 					}else{
