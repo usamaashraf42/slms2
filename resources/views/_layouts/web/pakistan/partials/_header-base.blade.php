@@ -73,7 +73,11 @@
             </li>
           </ul>
         </li>
-        <li class="sw-menucode-item" id="mn-admissions">
+        <li class="sw-menucode-item" id="mn-arts">
+          <a href="{{route('onlineFeeDeposit')}}" class=" sw-menucode-item__link">Feedeposit</a>
+
+        </li>
+       <!--  <li class="sw-menucode-item" id="mn-admissions">
           <a href="{{route('pakistan.life')}}" class=" sw-menucode-item__link">Life</a>
           <ul class="sw-menucode-list">
             <li class="sw-menucode-list__item" id="mn-admission-at-">
@@ -84,7 +88,7 @@
             </li>
 
           </ul>
-        </li>
+        </li> -->
         <li class="sw-menucode-item" id="mn-admissions">
           <a href="{{route('pakistan.life')}}" class=" sw-menucode-item__link">Exam</a>
           <ul class="sw-menucode-list">
