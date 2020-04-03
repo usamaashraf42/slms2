@@ -719,11 +719,12 @@ function jobFormSubmit(ob){
         background: #fff;
         ">
 
-        <div class="col-md-4">
+        <div class="col-md-6">
         <div class="receipt-header" style="border: 1px solid #ccc;
         padding: 12px;text-align: center; ">
         <div class="receipt-right" style="text-align: center;">
-        <div class="box_filed"><h3 style="color:red;"> ${response.student.name}</h3> </div>
+        <div class="box_filed"><h4 style="color:red;"> ${response.student.name}</h4> </div>
+        <div class="box_filed"><STRONG>${response.student.s_fatherName}</STRONG></div>
 
         <div class="box_filed"><STRONG>${response.student.branch}</STRONG></div>
         <div class="box_filed"><STRONG>${response.student.course} </STRONG></div>
@@ -739,7 +740,7 @@ function jobFormSubmit(ob){
 
         </div>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-6">
         <br>
         
         <div style="width: 50%; float: left; text-align: justify;">

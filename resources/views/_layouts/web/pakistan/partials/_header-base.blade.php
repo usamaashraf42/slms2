@@ -10,6 +10,11 @@
       <div class="dn dib-l">
        <ul>
          <li>
+          <a class="" href="{{route('onlineFeeDeposit')}}" style="margin-top: 0px!important;
+    border: 2px solid #f7f7f7!important;
+    background: #363886!important; padding: 2px 4px;">Online feedeposit</a>
+        </li>
+         <li>
           <a class="" href="http://lectures.americanlyceum.com" style="margin-top: 0px!important;
     border: 2px solid #f7f7f7!important;
     background: #363886!important; padding: 2px 4px;">Online lectures</a>
@@ -73,11 +78,11 @@
             </li>
           </ul>
         </li>
-        <li class="sw-menucode-item" id="mn-arts">
+        <!-- <li class="sw-menucode-item" id="mn-arts">
           <a href="{{route('onlineFeeDeposit')}}" class=" sw-menucode-item__link">Feedeposit</a>
 
-        </li>
-       <!--  <li class="sw-menucode-item" id="mn-admissions">
+        </li> -->
+        <li class="sw-menucode-item" id="mn-admissions">
           <a href="{{route('pakistan.life')}}" class=" sw-menucode-item__link">Life</a>
           <ul class="sw-menucode-list">
             <li class="sw-menucode-list__item" id="mn-admission-at-">
@@ -88,7 +93,7 @@
             </li>
 
           </ul>
-        </li> -->
+        </li>
         <li class="sw-menucode-item" id="mn-admissions">
           <a href="{{route('pakistan.life')}}" class=" sw-menucode-item__link">Exam</a>
           <ul class="sw-menucode-list">

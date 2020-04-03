@@ -163,7 +163,8 @@ class FeeDepositController extends Controller
 			$object = new \stdClass;
 			$object->fee_id=rand();
 			$object->std_id=$fee->student->id;
-			$object->name=$fee->student->s_name.' '.$fee->student->s_fatherName;
+			$object->name=$fee->student->s_name;
+			$object->s_fatherName=$fee->student->s_fatherName;
 			$object->branch=$fee->student->branch->branch_name;
 			$object->course=$fee->student->course->course_name;
 			$object->fee_month=$fee->fee_month;
@@ -209,6 +210,9 @@ class FeeDepositController extends Controller
 
 			$students->fee_id=rand();
 			$students->name=$student->s_name.' '.$student->s_fatherName;
+			$students->s_fatherName=$student->s_fatherName;
+
+			
 			$students->branch=isset($student->branch->branch_name)?$student->branch->branch_name:null;
 			$students->course=isset($student->course->course_name)?$student->course->course_name:null;
 			$students->images=$student->images;
@@ -313,7 +317,8 @@ class FeeDepositController extends Controller
 
 		$students = new \stdClass;
 		$students->std_id=$student->id;
-		$students->name=$student->s_name.' '.$student->s_fatherName;
+		$students->name=$student->s_name;
+		$students->s_fatherName=$student->s_fatherName;
 		$students->branch=isset($student->branch->branch_name)?$student->branch->branch_name:null;
 		$students->course=isset($student->course->course_name)?$student->course->course_name:null;
 		$students->images=$student->images;
