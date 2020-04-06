@@ -56,7 +56,6 @@ class JazzCashDepositController extends Controller
 
 	public function jazzcashFileRead($requests,$deposit_date){
 		// $amount=
-		dd($requests);
 
 
 		if(isset($requests[8])  && $requests[8]<=0){
