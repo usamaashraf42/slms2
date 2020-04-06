@@ -214,6 +214,8 @@ Route::prefix('admin')->group(function () {
 			Route::resource('feepost','admins\Student\feepost\FeePostController');
 			Route::resource('individual-feepost','admins\Student\feepost\IndividualFeePostController');
 			Route::resource('fee-deposit','admins\Student\feeDeposit\FeeDepositController');
+
+			Route::resource('jazzcash-file-read','admins\Student\feeDeposit\JazzCashDepositController');
 			Route::resource('manual-fee-deposit','admins\Student\feeDeposit\ManualFeeDepositController');
 
 			Route::resource('edit-student','admins\Student\EditStudent\EditStudentController');
