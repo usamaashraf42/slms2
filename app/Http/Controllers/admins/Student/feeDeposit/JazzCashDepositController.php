@@ -56,13 +56,14 @@ class JazzCashDepositController extends Controller
 
 	public function jazzcashFileRead($requests,$deposit_date){
 		// $amount=
-		// dd($requests);
+		dd($requests);
 
 
 		if(isset($requests[8])  && $requests[8]<=0){
 			return true;
 		}
-		$amount=$requests[8];
+		if(isset($requests[15])&& $requests[15] == '000'||$requests[15] == '121'||$requests[15] == '200'){
+			$amount=$requests[8];
 
 		foreach ($requests as $request) {
 			$depositDatest=$deposit_date?date("Y-m-d", strtotime($deposit_date)):date('Y-m-d');
@@ -189,11 +190,7 @@ class JazzCashDepositController extends Controller
 
 									return true; 
 								}else{
-                          //////////////////////
-                          // end fee deposit...................... ////////////////////////
-                          ///////////////////////// fine Posting
 
-									
 									$std=1;
 									if(!$std){
 										DB::rollBack();
@@ -234,6 +231,9 @@ class JazzCashDepositController extends Controller
 
 			}
 		}
+
+		}
+		
 	}
 	
 
