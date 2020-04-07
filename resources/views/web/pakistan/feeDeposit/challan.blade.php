@@ -710,7 +710,7 @@ function jobFormSubmit(ob){
         $('.pp_Amount').val(response.student.total_payable);
         $('.pp_BillReference').val(response.student.fee_id);
         $('.TxnRefNumber').val(response.student.fee_id);
-        $('.ppmpf_1').val(response.student.fee_id);
+        $('.ppmpf_1').val(response.student.feed_id);
         $('.ppmpf_2').val(std_id);
 
         var content=`<div class="col-md-9">

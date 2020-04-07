@@ -71,9 +71,9 @@ class JazzCashDepositController extends Controller
 			if(isset($requests[11]) && $requests[11]){
 				$transaction=BankTransactionDetail::find($requests[11]);
 
-				if($transaction){
+				if($transaction && $transaction->fee_id && $transaction->status==1){
 					$students=Student::where('id',$transaction->std_id)->first();
-					$stdd=FeePost::orderBy('id','DESC')->with('student')->where('std_id',$transaction->std_id)->first();
+					$stdd=FeePost::orderBy('id','DESC')->with('student')->where('id',$transaction->fee_id)->first();
 					$month=$stdd->fee_month;
 					$year=$stdd->fee_year;
 					DB::beginTransaction();
@@ -83,10 +83,11 @@ class JazzCashDepositController extends Controller
 						return true;
 					}else{
 
+						$effectedAmount=$stdd->paid_amount>0?$stdd->paid_amount+$amount:$amount;
 						$feePosts=FeePost::where('id',$stdd->id)->update([
-							'paid_date'=>date("d-m-Y", strtotime($deposit_date)),
-							'paid_amount'=>$amount,
-							'isPaid'=>($stdd->total_fee<=$amount)?1:2
+							'paid_date'=>date("d-m-Y"),
+							'paid_amount'=>$effectedAmount,
+							'isPaid'=>($stdd->total_fee<=$effectedAmount)?1:2
 						]);
 						if(!$feePosts){
 							DB::rollBack(); 

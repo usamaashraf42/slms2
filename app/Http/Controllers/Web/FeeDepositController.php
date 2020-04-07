@@ -212,6 +212,7 @@ class FeeDepositController extends Controller
 			$students->name=$student->s_name.' '.$student->s_fatherName;
 			$students->s_fatherName=$student->s_fatherName;
 
+
 			
 			$students->branch=isset($student->branch->branch_name)?$student->branch->branch_name:null;
 			$students->course=isset($student->course->course_name)?$student->course->course_name:null;
@@ -227,6 +228,7 @@ class FeeDepositController extends Controller
 				$paid=$fee->paid_amount>0?$fee->paid_amount:0;
 				$total_pending_amount+=$fee->total_fee  -$paid;
 			}
+			$students->feed_id=isset($fee->id)?$fee->id:0;
 			
 
 			if(isset($object->fine) && $object->fine){
@@ -267,9 +269,9 @@ class FeeDepositController extends Controller
 			'std_id'=>$request->std_id,
 			'amount'=>$request->pp_Amount,
 			'bank_id'=>8,
+			'fee_id'=>$fee->id,
+			'status'=>1,
 			'branch_id'=>isset($fee->branch_id)?$fee->branch_id:0,
-
-
 		]);
 		if(!$fees){
 			session()->flash('error_message', __('Something went wrong please try later'));
