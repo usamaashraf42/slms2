@@ -410,6 +410,10 @@ class FeeDepositController extends Controller
 
 	function feeDepositDbEffected($std_id,$fee_id,$amount,$bank){
 
+		$fees=BankTransactionDetail::where('id',$fee_id)->update(['status'=>0]);
+		$transaction=BankTransactionDetail::where('id',$fee_id)->first();
+
+
 		$fee=FeePost::where('std_id',$std_id)->orderBy('id','DESC')->first();
 		$stdd=$fee;
 		$month=isset($stdd->fee_month)?$stdd->fee_month:date('m');
