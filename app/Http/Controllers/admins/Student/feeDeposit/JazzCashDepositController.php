@@ -74,17 +74,20 @@ class JazzCashDepositController extends Controller
 				if(isset($request[11]) && $request[11]){
 					$transaction=BankTransactionDetail::find($request[11]);
 
-					if($transaction && $transaction->fee_id && $transaction->status==1){
+					// if($transaction && $transaction->fee_id && $transaction->status==1){
+					if($transaction ){
 						$students=Student::where('id',$transaction->std_id)->first();
-						$stdd=FeePost::orderBy('id','DESC')->with('student')->where('id',$transaction->fee_id)->first();
-						$month=$stdd->fee_month;
-						$year=$stdd->fee_year;
+						// $stdd=FeePost::orderBy('id','DESC')->with('student')->where('id',$transaction->fee_id)->first();
+						$stdd=FeePost::orderBy('id','DESC')->with('student')->where('std_id',$transaction->std_id)->where('paid_amount','<=',0)->first();
+						
 						DB::beginTransaction();
 
 						if(!$stdd){
 
 
 						}else{
+							$month=$stdd->fee_month;
+						$year=$stdd->fee_year;
 
 							$effectedAmount=$stdd->paid_amount>0?$stdd->paid_amount+$amount:$amount;
 							$feePosts=FeePost::where('id',$stdd->id)->update([
