@@ -218,6 +218,10 @@ class JazzCashDepositController extends Controller
 											]);
 
 											if($banks){
+												if(isset($students->s_phoneNo)){
+						                            $sms= nl2br("Dear Parent,\nThank you for deposited the fee of St No $students->id ,$students->s_name. Rs.($amount) received on Mobi cash for any queries contact (03464292920)",false);
+						                            (SendSms($students->s_phoneNo,$sms));
+						                          }
 												DB::commit();
 
 											}else{
