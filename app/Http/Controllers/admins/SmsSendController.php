@@ -35,6 +35,8 @@ class SmsSendController extends Controller
 
 
     public function store(SmsSendRequest $request){
+        \Artisan::call('cache:clear');
+        \Artisan::call('config:cache');
 // dd($request->all());
         if($request->branch_id && count($request->branch_id)  ){
         	$students=Student::where('is_active',1)->where('status',1);
