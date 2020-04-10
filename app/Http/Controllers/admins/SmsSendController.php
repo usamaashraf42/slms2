@@ -35,6 +35,8 @@ class SmsSendController extends Controller
 
 
     public function store(SmsSendRequest $request){
+        ini_set('max_execution_time', 0); //3 minutes
+
         \Artisan::call('cache:clear');
         \Artisan::call('config:cache');
 // dd($request->all());
