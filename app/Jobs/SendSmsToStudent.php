@@ -2,15 +2,15 @@
 
 namespace App\Jobs;
 
-use Illuminate\Bus\Queueable;
 use App\Jobs\Job;
 
+use Illuminate\Bus\Queueable;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Queue\SerializesModels;
 
-class SendSmsToStudent extends Job implements SelfHandling, ShouldQueue
+class SendSmsToStudent implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -44,6 +44,6 @@ class SendSmsToStudent extends Job implements SelfHandling, ShouldQueue
              ]);
 
 
-                return 1;
+             
     }
 }

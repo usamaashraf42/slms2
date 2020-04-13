@@ -74,7 +74,7 @@ class SmsSendController extends Controller
     			if(isset($std->emergency_mobile) && ($std->emergency_mobile) && $request->sms_body){
     				$sms=strip_tags($request->sms_body);
     				$emergency_mobile[]=$std->emergency_mobile;
-    				$log=SendSms($request->emergency_mobile?$request->emergency_mobile:$std->s_phoneNo,$sms);
+    				$log=SendSms($request->s_phoneNo?$request->s_phoneNo:$std->emergency_mobile,$sms);
     			}
 
         		// SmsSendLog::create([
@@ -116,7 +116,7 @@ class SmsSendController extends Controller
 
     public function outstandingStudents($request){
 
-         $stds=FeePost::where('branch_id',$request->branch_id)->with('student')->orderBy('id','DESC')->where('fee_month',$request->month)->where('fee_year',$request->year)->where('paid_amount','<=',0)->get();
+         $stds=FeePost::where('branch_id',$request->branch_id)->with('student')->orderBy('id','DESC')->where('fee_month',$request->month)->where('fee_year',$request->year)->where('isPaid','<>',1)->get();
 
          foreach ($stds as $std) {
                 $log=null;
@@ -125,7 +125,7 @@ class SmsSendController extends Controller
                     $sms=strip_tags($request->sms_body);
                     $emergency_mobile[]=$std->student->emergency_mobile;
                     if(isset($std->student) && $std->student->emergency_mobile or $std->student->s_phoneNo){
-                        $log=SendSms($std->student->emergency_mobile?$std->student->emergency_mobile:$std->student->s_phoneNo,$sms);
+                        $log=SendSms($std->student->s_phoneNo?$std->student->s_phoneNo:$std->student->emergency_mobile,$sms);
                     }
                     
                 }
