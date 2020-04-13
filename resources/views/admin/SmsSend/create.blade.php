@@ -134,53 +134,141 @@
     													</optgroup>
     												</select> -->
                                                     <select class="form-control branch_id" name="branch_id[]"    id="branch_id" required style="height: 40px; width: 100%;">
-                                                            
-                                                            @if(!empty($branches))
-                                                            @foreach($branches as $branch)
-                                                            <option value={{$branch['id']}}>{{$branch['branch_name']}}</option>
-                                                            @endforeach
-                                                            @endif
+
+                                                        @if(!empty($branches))
+                                                        @foreach($branches as $branch)
+                                                        <option value={{$branch['id']}}>{{$branch['branch_name']}}</option>
+                                                        @endforeach
+                                                        @endif
                                                         
                                                     </select>
 
-    											</div>
-    										</div>
+                                                </div>
+                                            </div>
 
-    										<div class="col-md-3">
-    											<div class="form-group">
-    												<label for="select2">Select Class</label>
-    												<select type="text" class="form-control class_id" id="class_id" onchange="getStudent()"  name="class_id"  placeholder="Name">
-    													<option selected="selected" value="-1">Seclect Class</option>
-    													@if(!empty($classes))
-    													@foreach($classes as $class)
-    													<option value={{$class['id']}}>{{$class['course_name']}}</option>
-    													@endforeach
-    													@endif
+                                            <div class="col-md-3">
+                                               <div class="form-group">
+                                                <label for="select2">Select Class</label>
+                                                <select type="text" class="form-control class_id" id="class_id" onchange="getStudent()"  name="class_id"  placeholder="Name">
+                                                 <option selected="selected" value="-1">Seclect Class</option>
+                                                 @if(!empty($classes))
+                                                 @foreach($classes as $class)
+                                                 <option value={{$class['id']}}>{{$class['course_name']}}</option>
+                                                 @endforeach
+                                                 @endif
 
-    												</select>
+                                             </select>
 
-    											</div>
-    										</div>
+                                         </div>
+                                     </div>
 
-    										<div class="col-md-3">
-    											<div class="form-group">
-    												<label for="sms_title">Sms Title (it will not send in sms ) </label>
-    												<input type="text" class="form-control sms_title" value="{{old('sms_title')}}" id="sms_title"  name="sms_title"  placeholder="Title">
+                                     <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="cat_id">Category</label>
+                                            <select type="text" onchange="outstandingArea(this)" class="form-control cat_id" id="cat_id"  name="cat_id"  placeholder="Name">
+                                                <option selected="selected" value="-1">Seclect category</option>
+                                                <option value="2">Complete Branch</option>
+                                                <option value="3">Outstanding</option>
 
-    											</div>
-    										</div>
+                                            </select>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                       <div class="form-group">
+                                        <label for="sms_title">Sms Title (it will not send in sms ) </label>
+                                        <input type="text" class="form-control sms_title" value="{{old('sms_title')}}" id="sms_title"  name="sms_title"  placeholder="Title">
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="outstandingArea" style="display: none">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                           <label for="month">Month</label>
+                                           <select type="text"  class="form-control cat_id" id="month"   name="month"  placeholder="Name">
+                                            <option selected="selected" value="0">-- Month--</option>
+                                            <option  value='1'@if(date('m')==1){{'selected'}}@endif>Janaury</option>
+                                            <option value='2' @if(date('m')==2){{'selected'}}@endif>February</option>
+                                            <option value='3' @if(date('m')==3){{'selected'}}@endif>March</option>
+                                            <option value='4' @if(date('m')==4){{'selected'}}@endif>April</option>
+                                            <option value='5' @if(date('m')==5){{'selected'}}@endif>May</option>
+                                            <option value='6' @if(date('m')==6){{'selected'}}@endif>June</option>
+                                            <option value='7' @if(date('m')==7){{'selected'}}@endif>July</option>
+                                            <option value='8' @if(date('m')==8){{'selected'}}@endif>August</option>
+                                            <option value='9' @if(date('m')==9){{'selected'}}@endif>September</option>
+                                            <option value='10'@if(date('m')==10){{'selected'}}@endif>October</option>
+                                            <option value='11'@if(date('m')==11){{'selected'}}@endif>November</option>
+                                            <option value='12'@if(date('m')==12){{'selected'}}@endif>December</option>
+
+                                        </select>
+                                        
+                                        @if ($errors->has('month'))
+                                        <label id="month-error" class="error" for="month">
+                                            {{$errors->first('month')}}
+                                        </label>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                       <label for="year">Year</label>
+                                       <select type="text"  class="form-control cat_id" id="year"   name="year"  placeholder="Name">
+                                         <option selected="selected" disabled="disabled">--Select Year--</option>
+                                         <option value="2024" @if(date('Y')==2024){{'selected'}}@endif>2024</option>
+                                         <option value="2023" @if(date('Y')==2023){{'selected'}}@endif>2023</option>
+                                         <option value="2022" @if(date('Y')==2022){{'selected'}}@endif>2022</option>
+                                         <option value="2021" @if(date('Y')==2021){{'selected'}}@endif>2021</option>
+                                         <option value="2020" @if(date('Y')==2020){{'selected'}}@endif>2020</option>
+                                         <option value="2019" @if(date('Y')==2019){{'selected'}}@endif>2019</option>
+                                         <option value="2018" @if(date('Y')==2018){{'selected'}}@endif>2018</option>
+                                         <option value="2017" @if(date('Y')==2017){{'selected'}}@endif>2017</option>
+                                         <option value="2016" @if(date('Y')==2016){{'selected'}}@endif>2016</option>
+                                         <option value="2015" @if(date('Y')==2015){{'selected'}}@endif>2015</option>
+                                         <option value="2014" >2014</option>
+                                         <option value="2013" >2013</option>
+                                         <option value="2012" >2012</option>
+                                         <option value="2011" >2011</option>
+                                         <option value="2010" >2010</option>
+                                         <option value="2009" >2009</option>
+                                         <option value="2008" >2008</option>
+                                         <option value="2007" >2007</option>
+                                         <option value="2006" >2006</option>
+                                         <option value="2005" >2005</option>
+                                         <option value="2004" >2004</option>
+                                         <option value="2003" >2003</option>
+                                         <option value="2002" >2002</option>
+                                         <option value="2001" >2001</option>
+                                         <option value="2000" >2000</option>
+                                     </select>
+                                     
+                                     @if ($errors->has('year'))
+                                     <label id="year-error" class="error" for="year">
+                                        {{$errors->first('year')}}
+                                    </label>
+                                    @endif
+                                </div>
+                            </div>
 
 
+                            
+                        </div>
+                    </div>
 
-    										<div class="col-md-9">
-    											<div class="form-group">
-    												<label for="sms_body">Sms Body</label>
-    												<textarea type="text" class="form-control sms_body_one" id="sms_body"  name="sms_body"  placeholder="Sms Body">{{old('sms_body')}}</textarea>
-    												<span id="remaining1">160 characters remaining</span>
 
-    											</div>
-    										</div>
-    									</div>
+                    <div class="row">
+                        <div class="col-md-9">
+                           <div class="form-group">
+                            <label for="sms_body">Sms Body</label>
+                            <textarea type="text" class="form-control sms_body_one" id="sms_body"  name="sms_body"  placeholder="Sms Body">{{old('sms_body')}}</textarea>
+                            <span id="remaining1">160 characters remaining</span>
+
+                        </div>
+                    </div>
+                </div>
 
     										<!-- <div class="row">
     											<div class="col-md-9">
@@ -347,106 +435,115 @@
 </script>
 <script>
 
+    function outstandingArea(obj){
+        var obj_val=parseInt($(obj).val());
+        console.log(obj_val,'value oustaing');
+        if(obj_val==3){
+            console.log('inder')
+            $('.outstandingArea').css("display", "block");
+            return true;
+        }
+        $('.outstandingArea').css("display", "none");
+    }
+    var $remaining = $('#remaining1'),
+    $messages = $remaining.next();
 
-	var $remaining = $('#remaining1'),
-	$messages = $remaining.next();
+    $('.sms_body_one').keyup(function(){
 
-	$('.sms_body_one').keyup(function(){
+      var chars = this.value.length;
 
-		var chars = this.value.length;
+      console.log('keyup sms body 1',chars);
+      messages = Math.ceil(chars / 160);
+      remaining = messages * 160 - (chars % (messages * 160) || messages * 160);
+      console.log('remaining body 1',remaining);
+      $('#remaining1').text(remaining + ' characters remaining');
+      $messages.text(messages + ' message(s)');
+  });
+    var $remaining = $('#remaining2'),
+    $messages = $remaining.next();
+    $('.sms_body2').keyup(function(){
+      console.log('keyup sms body 2');
+      var chars = this.value.length,
+      messages = Math.ceil(chars / 160),
+      remaining = messages * 160 - (chars % (messages * 160) || messages * 160);
 
-		console.log('keyup sms body 1',chars);
-		messages = Math.ceil(chars / 160);
-		remaining = messages * 160 - (chars % (messages * 160) || messages * 160);
-		console.log('remaining body 1',remaining);
-		$('#remaining1').text(remaining + ' characters remaining');
-		$messages.text(messages + ' message(s)');
-	});
-	var $remaining = $('#remaining2'),
-	$messages = $remaining.next();
-	$('.sms_body2').keyup(function(){
-		console.log('keyup sms body 2');
-		var chars = this.value.length,
-		messages = Math.ceil(chars / 160),
-		remaining = messages * 160 - (chars % (messages * 160) || messages * 160);
+      $remaining.text(remaining + ' characters remaining');
+      $messages.text(messages + ' message(s)');
+  });
 
-		$remaining.text(remaining + ' characters remaining');
-		$messages.text(messages + ' message(s)');
-	});
+    function getClass(obj){
+      $("[name='class_id']").html(` <option selected="selected" value='0'> All Classes  </option>`);
+      var branch_id  = $(".branch_id").val();
+      console.log('branch',$("[name='branch_id']").val());
+      $('.branch').val(branch_id);
+      $.ajax({
+       method:"POST",
+       url:"{{route('branchHasClass')}}",
+       data : {id:branch_id},
+       dataType:"json",
+       success:function(data){
+        data.forEach(function(val,ind){
+         var id = val.course.id;
+         var name = val.course.course_name;
+         var option = `<option value="${id}">${name}</option>`;
+         $("[name='class_id']").append(option);
+     });
+        $('.class_id').select2();
+    }
+});
 
-	function getClass(obj){
-		$("[name='class_id']").html(` <option selected="selected" value='0'> All Classes  </option>`);
-		var branch_id  = $(".branch_id").val();
-		console.log('branch',$("[name='branch_id']").val());
-		$('.branch').val(branch_id);
-		$.ajax({
-			method:"POST",
-			url:"{{route('branchHasClass')}}",
-			data : {id:branch_id},
-			dataType:"json",
-			success:function(data){
-				data.forEach(function(val,ind){
-					var id = val.course.id;
-					var name = val.course.course_name;
-					var option = `<option value="${id}">${name}</option>`;
-					$("[name='class_id']").append(option);
-				});
-				$('.class_id').select2();
-			}
-		});
+  }
 
-	}
+  function getStudent(){
+      console.log('getStudent',$("[name='branch_id']").val(),$("[name='class_id']").val());
 
-	function getStudent(){
-		console.log('getStudent',$("[name='branch_id']").val(),$("[name='class_id']").val());
+      $("#banks-selected-options").html(` <option selected="selected" value='0'> All Students  </option>`);
 
-		$("#banks-selected-options").html(` <option selected="selected" value='0'> All Students  </option>`);
-
-		var branch_id=$("[name='branch_id']").val();
-		var course_id=$("[name='class_id']").val();
-		if(course_id!='' && branch_id!=''){
-			$.ajax({
-				method:"POST",
-				url:"{{route('classHasStudent')}}",
-				data : {branch_id:branch_id,course_id:course_id},
-				dataType:"json",
-				success:function(data){
-					data.forEach(function(val,ind){
-						var id = val.id;
-						var name = val.s_name+' '+val.s_fatherName;
-						var option = `<option value="${id}">${name}</option>`;
-						console.log('students',option);
-						$("#banks-selected-options").append(option);
+      var branch_id=$("[name='branch_id']").val();
+      var course_id=$("[name='class_id']").val();
+      if(course_id!='' && branch_id!=''){
+       $.ajax({
+        method:"POST",
+        url:"{{route('classHasStudent')}}",
+        data : {branch_id:branch_id,course_id:course_id},
+        dataType:"json",
+        success:function(data){
+         data.forEach(function(val,ind){
+          var id = val.id;
+          var name = val.s_name+' '+val.s_fatherName;
+          var option = `<option value="${id}">${name}</option>`;
+          console.log('students',option);
+          $("#banks-selected-options").append(option);
 									// var o = new Option(`${name}`, `${id}`);
 									// 	$("#banks-selected-options").append(o);
 
 								});
 
 
-					$("#banks-selected-options").multiSelect();
-				}
-			});
-		}
+         $("#banks-selected-options").multiSelect();
+     }
+ });
+   }
 
-	}
+}
 
-	$('#account').select2({
-		ajax: {
-			url: "{{route('get_student_search')}}",
-			method:"post",
-			dataType: 'json',
-			processResults: function (_data, params) {
+$('#account').select2({
+  ajax: {
+   url: "{{route('get_student_search')}}",
+   method:"post",
+   dataType: 'json',
+   processResults: function (_data, params) {
 
-				var data1= $.map(_data, function (obj) {
-					var newobj = {};
-					newobj.id = obj.id;
-					newobj.text= `${obj.s_name} - (${obj.id}) `;
-					return newobj;
-				});
-				return { results:data1};
-			}
-		}
-	});
+    var data1= $.map(_data, function (obj) {
+     var newobj = {};
+     newobj.id = obj.id;
+     newobj.text= `${obj.s_name} - (${obj.id}) `;
+     return newobj;
+ });
+    return { results:data1};
+}
+}
+});
 
 </script>
 

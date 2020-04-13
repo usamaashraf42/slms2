@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\SmsSendRequest;
 use App\Models\Branch;
 use App\Models\Course;
+use App\Models\FeePost;
 use App\Models\SmsSendLog;
 use App\Models\Student;
 use Session;
@@ -39,7 +40,14 @@ class SmsSendController extends Controller
 
         \Artisan::call('cache:clear');
         \Artisan::call('config:cache');
-// dd($request->all());
+
+        if($request->cat_id==3){
+            ($this->outstandingStudents($request));
+            session()->flash('success_message', __('Sms send successfully'));
+            return redirect()->back();
+        }
+
+        
         if($request->branch_id && count($request->branch_id)  ){
         	$students=Student::where('is_active',1)->where('status',1);
         	if(count($request->branch_id)){
@@ -97,5 +105,36 @@ class SmsSendController extends Controller
     	session()->flash('success_message', __('Sms send successfully'));
         return redirect()->back();
     	
+    }
+
+
+    public function outstandingStudents($request){
+
+         $stds=FeePost::where('branch_id',$request->branch_id)->with('student')->orderBy('id','DESC')->where('fee_month',$request->month)->where('fee_year',$request->year)->where('paid_amount','<=',0)->get();
+
+         foreach ($stds as $std) {
+                $log=null;
+                
+                if(isset($std->student->emergency_mobile) && ($std->student->emergency_mobile) && $request->sms_body){
+                    $sms=strip_tags($request->sms_body);
+                    $emergency_mobile[]=$std->student->emergency_mobile;
+                    if(isset($std->student) && $std->student->emergency_mobile or $std->student->s_phoneNo){
+                        $log=SendSms($std->student->emergency_mobile?$std->student->emergency_mobile:$std->student->s_phoneNo,$sms);
+                    }
+                    
+                }
+
+                // SmsSendLog::create([
+                //  'std_id'=>$std->id,
+                //  'branch_id'=>$request->branch_id?$request->branch_id:$std->branch_id,
+                //  'class_id'=>$request->class_id?$request->class_id:$std->course_id,
+                //  'created_by'=>Auth::user()->id,
+                //  'sms_title'=>$request->sms_title,
+                //  'sms_body'=>$request->sms_body,
+                //  'phone'=>$request->emergency_mobile?$request->emergency_mobile:$std->s_phoneNo,
+                //  'description'=>isset($log)?$log:null,
+                // ]);
+            }
+            return true;
     }
 }
