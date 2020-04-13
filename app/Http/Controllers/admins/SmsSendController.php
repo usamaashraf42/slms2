@@ -10,6 +10,7 @@ use App\Models\Course;
 use App\Models\FeePost;
 use App\Models\SmsSendLog;
 use App\Models\Student;
+use App\Jobs\SendSmsToStudent;
 use Session;
 use Auth;
 class SmsSendController extends Controller
@@ -39,7 +40,10 @@ class SmsSendController extends Controller
         ini_set('max_execution_time', 0); //3 minutes
 
         \Artisan::call('cache:clear');
-        \Artisan::call('config:cache');
+
+        // \Artisan::call('config:cache');
+
+       
 
         if($request->cat_id==3){
             ($this->outstandingStudents($request));
@@ -88,6 +92,8 @@ class SmsSendController extends Controller
 
     	if($request->phone){
     		if(isset($request->phone) && ($request->phone) && $request->sms_body){
+
+                // SendSmsToStudent::dispatch($request);
 				$sms=strip_tags($request->sms_body);
 				$log=SendSms($request->phone,$sms);
              
