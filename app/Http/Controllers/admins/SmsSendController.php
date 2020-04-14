@@ -10,7 +10,7 @@ use App\Models\Course;
 use App\Models\FeePost;
 use App\Models\SmsSendLog;
 use App\Models\Student;
-use App\Jobs\SendSmsToStudent;
+use App\Jobs\SmsQueueSend;
 use Session;
 use Auth;
 class SmsSendController extends Controller
@@ -37,9 +37,13 @@ class SmsSendController extends Controller
 
 
     public function store(SmsSendRequest $request){
+       
         ini_set('max_execution_time', 0); //3 minutes
 
         \Artisan::call('cache:clear');
+
+        $sms_title=$request->sms_title;
+        $sms=strip_tags($request->sms_body);
 
         // \Artisan::call('config:cache');
 
@@ -72,41 +76,33 @@ class SmsSendController extends Controller
     			$log=null;
         		
     			if(isset($std->emergency_mobile) && ($std->emergency_mobile) && $request->sms_body){
-    				$sms=strip_tags($request->sms_body);
-    				$emergency_mobile[]=$std->emergency_mobile;
-    				$log=SendSms($request->s_phoneNo?$request->s_phoneNo:$std->emergency_mobile,$sms);
+                    $phone=$request->s_phoneNo?$request->s_phoneNo:$std->emergency_mobile;
+                    $std_id=$std->id;
+                    $branch_id=$request->branch_id?$request->branch_id:$std->branch_id;
+                    $class_id=$request->class_id?$request->class_id:$std->course_id;
+
+    				SmsQueueSend::dispatch($phone,$sms,$sms_title,$std_id,$branch_id,$class_id);
     			}
 
-        		// SmsSendLog::create([
-    	    	// 	'std_id'=>$std->id,
-    	    	// 	'branch_id'=>$request->branch_id?$request->branch_id:$std->branch_id,
-    	    	// 	'class_id'=>$request->class_id?$request->class_id:$std->course_id,
-    	    	// 	'created_by'=>Auth::user()->id,
-    	    	// 	'sms_title'=>$request->sms_title,
-    	    	// 	'sms_body'=>$request->sms_body,
-    	    	// 	'phone'=>$request->emergency_mobile?$request->emergency_mobile:$std->s_phoneNo,
-    	    	// 	'description'=>isset($log)?$log:null,
-    	    	// ]);
+        		
         	}
         }
 
     	if($request->phone){
     		if(isset($request->phone) && ($request->phone) && $request->sms_body){
-
-                // SendSmsToStudent::dispatch($request);
 				$sms=strip_tags($request->sms_body);
 				$log=SendSms($request->phone,$sms);
              
-				// SmsSendLog::create([
-		  //   		'created_by'=>Auth::user()->id,
-		  //   		'sms_title'=>$request->sms_title,
-		  //   		'sms_body'=>$request->sms_body,
-		  //   		'phone'=>$request->phone,
-		  //   		'description'=>isset($log)?$log:null,
-		  //   	]);
+				SmsSendLog::create([
+		    		'created_by'=>Auth::user()->id,
+                    'branch_id'=>Auth::user()->branch_id,
+		    		'sms_title'=>$request->sms_title,
+		    		'sms_body'=>$request->sms_body,
+		    		'phone'=>$request->phone,
+		    		'description'=>isset($log)?$log:null,
+		    	]);
 			}
     	}
-
 
     	session()->flash('success_message', __('Sms send successfully'));
         return redirect()->back();
