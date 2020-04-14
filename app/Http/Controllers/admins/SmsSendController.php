@@ -47,7 +47,6 @@ class SmsSendController extends Controller
 
         // \Artisan::call('config:cache');
 
-       dd($request->all());
 
         if($request->cat_id==3){
             ($this->outstandingStudents($request));
