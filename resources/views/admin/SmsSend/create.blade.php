@@ -122,7 +122,7 @@
     												<div class="form-group">
 
     													<label for="branch_id">Select Branch</label>
-    													<!-- <select class="form-control-1 branch_id" name="branch_id[]"   multiple="multiple"  id="branch_id" required style="height: 40px; width: 100%;">
+    													<select class="form-control-1 branch_id" name="branch_id[]"   multiple="multiple"  id="branch_id" required style="height: 40px; width: 40%;">
     														<optgroup label="Select All" style="max-height: 344px;
     														min-height: 300px;
     														overflow-y: scroll;">
@@ -132,16 +132,10 @@
     														@endforeach
     														@endif
     													</optgroup>
-    												</select> -->
-                                                    <select class="form-control branch_id" name="branch_id[]"    id="branch_id" required style="height: 40px; width: 100%;">
+    												</select>
+                                                   
 
-                                                        @if(!empty($branches))
-                                                        @foreach($branches as $branch)
-                                                        <option value={{$branch['id']}}>{{$branch['branch_name']}}</option>
-                                                        @endforeach
-                                                        @endif
-                                                        
-                                                    </select>
+                                                       
 
                                                 </div>
                                             </div>
@@ -409,20 +403,23 @@
 
 
     <script type="text/javascript">
-		// $("#banks-selected-options").multiSelect();
-		// $("#courses-selected-options").multiSelect();
-		// $('#branch_id').selectpicker();
-
-
-		// $(document).ready(function() {
-		// 	// $('#branch_id').multiselect();
-
-		// 	$(document).ready(function() {
-		// 		$('#branch_id').multiselect({
-		// 			enableClickableOptGroups: true
-		// 		});
-		// 	});
-		// });
+		$(document).ready(function() {
+           // $('#branch_id').multiselect();
+      $(document).ready(function() {
+        // $('#branch_id').multiselect();
+ 
+           $(document).ready(function() {
+               $('#branch_id').multiselect({
+                   enableClickableOptGroups: true
+               });
+           });
+       });
+        // $(document).ready(function() {
+        //     $('#branch_id').multiselect({
+        //         enableClickableOptGroups: true
+        //     });
+        // });
+       });
 		function submitForm(btn) {
 
 			console.log('profileFormSubmit');
