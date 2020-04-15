@@ -92,7 +92,7 @@
             <th> Ly No</th>
             <th> FeeId</th>
             <th> <div style="transform: rotate(90deg);max-width: 44px;">Exam Fee</div></th>
-            <th> <div style="transform: rotate(90deg);padding: 0px; max-width: 30px; font-size: 8pt; font-weight: bold;"> Utility</div></th>
+            
             <th> <div style="transform: rotate(90deg);padding: 0px; max-width: 35px; font-size: 8pt; font-weight: bold;"> Stationery</div></th>
             <th> <div style="transform: rotate(90deg);padding: 0px; max-width: 35px; font-size: 8pt; font-weight: bold;"> insurance</div></th>
             <th> <div style="transform: rotate(90deg);padding: 0px; max-width: 54px; font-size: 8pt; font-weight: bold;font-size: 9pt;">Deferred Amount
@@ -110,6 +110,7 @@
             /* font-size: 8pt; */
             font-weight: bold;
             font-size: 8pt;">Outstanding </div></th>
+            <th> <div style="transform: rotate(90deg);padding: 0px; max-width: 30px; font-size: 8pt; font-weight: bold;"> Paid Amount</div></th>
             <th > <div style="transform: rotate(90deg);padding: 0px; max-width: 44px; font-size: 8pt; font-weight: bold;font-size: 9pt;">Fine</div></th>
             <th> <div style="transform: rotate(90deg);padding: 0px; max-width: 38px; font-size: 8pt; font-weight: bold;font-size: 8pt;">Total </div></th>
             <th> <div style="transform: rotate(90deg);padding: 0px; max-width: 38px; font-size: 8pt; font-weight: bold;font-size: 8pt;">Due date </div></th>
@@ -147,7 +148,7 @@
         @endif
         @endforeach
 
-        @if($data->is_active==1 && isset($feeArray[0]) && ($feeArray[0]->isPaid!=1) )
+        @if($data->is_active==1 && isset($feeArray[0]) && ($feeArray[0]->paid_amount<=($feeArray[0]->total_fee)/2)) 
         <tbody>
 
 
@@ -169,7 +170,7 @@
               <td style="text-align: left!important;"><i>@isset($data->id){{$data->id}}@endisset</td>
                <td>@isset($feeArray[0]->id){{$feeArray[0]->id}}@endisset </td>
                <td>@isset($feeArray[0]->examfee){{$feeArray[0]->examfee}}@endisset </td>
-               <td>@isset($feeArray[0]->utility_fee){{$feeArray[0]->utility_fee}}@endisset </td>
+              
                <td>@isset($feeArray[0]->statfee){{$feeArray[0]->statfee}}@endisset </td>
                <td>@isset($feeArray[0]->insurance_of) {{$feeArray[0]->insurance_of}}@endisset </td>
 
@@ -188,9 +189,10 @@
 
               <td>@isset($feeArray[0]->transport_fee){{date($feeArray[0]->transport_fee)}}@endisset</td>
               <td>@isset($feeArray[0]->student->balance->balance)<p @if($feeArray[0]->student->balance->balance<0) style="color:red;font-weight: bold;"@endif >{{($feeArray[0]->student->balance->balance)}} </p>@endisset</td>
+               <td>@isset($feeArray[0]->paid_amount){{$feeArray[0]->paid_amount}}@endisset </td>
               <td>@isset($feeArray[0]->fine){{date($feeArray[0]->fine)}}@endisset</td>
 
-              <td><i>@isset($feeArray[0]->total_fee){{date($feeArray[0]->total_fee)}}@endisset &nbsp;&nbsp;</i> </td>
+              <td><i>@isset($feeArray[0]->total_fee){{($feeArray[0]->total_fee)}}@endisset &nbsp;&nbsp;</i> </td>
               
               <td><i>@isset($feeArray[0]->fee_due_date1)
                @if($feeArray[0]->outstand_lastmonth > 0)
@@ -256,7 +258,7 @@
           @endif
 
 
-          @if($data->is_active==1 && isset($feeArray[0]) && ($feeArray[0]->isPaid!=1))
+          @if($data->is_active==1 && isset($feeArray[0]) && ($feeArray[0]->paid_amount<=($feeArray[0]->total_fee)/2)) 
           @php($outstandStd++)
           @php($totaloutStd++)
 
