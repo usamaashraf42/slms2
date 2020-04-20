@@ -56,6 +56,7 @@ class SmsSendController extends Controller
 
         
         if($request->branch_id && count($request->branch_id)  ){
+
         	$students=Student::where('is_active',1)->where('status',1);
         	if(count($request->branch_id)){
         		$students->whereIn('branch_id',$request->branch_id);
@@ -111,7 +112,7 @@ class SmsSendController extends Controller
 
     public function outstandingStudents($request){
 
-         $stds=FeePost::where('branch_id',$request->branch_id)->with('student')->orderBy('id','DESC')->where('fee_month',$request->month)->where('fee_year',$request->year)->where('isPaid','<>',1)->get();
+         $stds=FeePost::whereIn('branch_id',$request->branch_id)->with('student')->orderBy('id','DESC')->where('fee_month',$request->month)->where('fee_year',$request->year)->where('isPaid','<>',1)->get();
 
          foreach ($stds as $std) {
                 $log=null;
