@@ -104,12 +104,13 @@
               Month with
             Date of</div></th>
             <th ><div style="transform: rotate(90deg);padding: 0px; max-width: 37px; font-size: 8pt; font-weight: bold;"  >Transport </div></th>
-            <th> <div style="    transform: rotate(90deg);
-            padding: 40px 0px;
-            height: -1px;
-            /* font-size: 8pt; */
-            font-weight: bold;
-            font-size: 8pt;">Outstanding </div></th>
+            
+
+            <th> <div style="transform: rotate(90deg);padding: 0px; max-width: 50px; font-size: 8pt; font-weight: bold;"> This Month Outstanding</div></th>
+
+
+            <th> <div style="transform: rotate(90deg);padding: 0px; max-width: 50px; font-size: 8pt; font-weight: bold;"> Previous Outstanding</div></th>
+
             <th> <div style="transform: rotate(90deg);padding: 0px; max-width: 30px; font-size: 8pt; font-weight: bold;"> Paid Amount</div></th>
             <th > <div style="transform: rotate(90deg);padding: 0px; max-width: 44px; font-size: 8pt; font-weight: bold;font-size: 9pt;">Fine</div></th>
             <th> <div style="transform: rotate(90deg);padding: 0px; max-width: 38px; font-size: 8pt; font-weight: bold;font-size: 8pt;">Total </div></th>
@@ -188,7 +189,12 @@
               @endisset</td>
 
               <td>@isset($feeArray[0]->transport_fee){{date($feeArray[0]->transport_fee)}}@endisset</td>
+
               <td>@isset($feeArray[0]->student->balance->balance)<p @if($feeArray[0]->student->balance->balance<0) style="color:red;font-weight: bold;"@endif >{{($feeArray[0]->student->balance->balance)}} </p>@endisset</td>
+
+              <td>@isset($feeArray[0]->outstand_lastmonth){{date($feeArray[0]->outstand_lastmonth)}}@endisset</td>
+
+
                <td>@isset($feeArray[0]->paid_amount){{$feeArray[0]->paid_amount}}@endisset </td>
               <td>@isset($feeArray[0]->fine){{date($feeArray[0]->fine)}}@endisset</td>
 
