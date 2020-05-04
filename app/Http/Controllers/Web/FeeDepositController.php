@@ -17,8 +17,10 @@ use \DB;
 use Auth;
 class FeeDepositController extends Controller
 {
+	
 	public function index(){
-		
+		// $amount=substr(400000, 0, -2);
+		// $this->feeDepositDbEffected(175362,40004,$amount,8);
 		return view('web.pakistan.feeDeposit.challan');
 	}
 
@@ -53,9 +55,10 @@ class FeeDepositController extends Controller
 		if (strtolower($GeneratedSecureHash) == strtolower($ReceivedSecureHash)) 
 		{
 			if($ResponseCode == '000'||$ResponseCode == '121'||$ResponseCode == '200'){
-
+				$amount=substr($request->pp_Amount, 0, -2);
 				
-				$this->feeDepositDbEffected($request->ppmpf_2,$request->ppmpf_1,$request->pp_Amount,8);
+
+				$this->feeDepositDbEffected($request->ppmpf_2,$request->ppmpf_1,$amount,8);
 				session()->flash('success_message', __("Fee deposit successfully"));
 				return redirect()->route('feedeposit.index');
 				
@@ -160,7 +163,8 @@ class FeeDepositController extends Controller
 			$object = new \stdClass;
 			$object->fee_id=rand();
 			$object->std_id=$fee->student->id;
-			$object->name=$fee->student->s_name.' '.$fee->student->s_fatherName;
+			$object->name=$fee->student->s_name;
+			$object->s_fatherName=$fee->student->s_fatherName;
 			$object->branch=$fee->student->branch->branch_name;
 			$object->course=$fee->student->course->course_name;
 			$object->fee_month=$fee->fee_month;
@@ -206,14 +210,26 @@ class FeeDepositController extends Controller
 
 			$students->fee_id=rand();
 			$students->name=$student->s_name.' '.$student->s_fatherName;
+			$students->s_fatherName=$student->s_fatherName;
+
+
+			
 			$students->branch=isset($student->branch->branch_name)?$student->branch->branch_name:null;
 			$students->course=isset($student->course->course_name)?$student->course->course_name:null;
 			$students->images=$student->images;
 
 			$total_pending_amount=0;
-			if(isset($account->LedgerBalance) && $account->LedgerBalance){
-				$total_pending_amount=$account->LedgerBalance->balance;
+			// if(isset($account->LedgerBalance) && $account->LedgerBalance){
+			// 	$total_pending_amount=$account->LedgerBalance->balance;
+			// }
+
+			
+			if(isset($fee) && $fee){
+				$paid=$fee->paid_amount>0?$fee->paid_amount:0;
+				$total_pending_amount+=$fee->total_fee  -$paid;
 			}
+			$students->feed_id=isset($fee->id)?$fee->id:0;
+			
 
 			if(isset($object->fine) && $object->fine){
 				$total_pending_amount+=$object->fine;
@@ -253,9 +269,9 @@ class FeeDepositController extends Controller
 			'std_id'=>$request->std_id,
 			'amount'=>$request->pp_Amount,
 			'bank_id'=>8,
+			'fee_id'=>$fee->id,
+			'status'=>1,
 			'branch_id'=>isset($fee->branch_id)?$fee->branch_id:0,
-
-
 		]);
 		if(!$fees){
 			session()->flash('error_message', __('Something went wrong please try later'));
@@ -303,7 +319,8 @@ class FeeDepositController extends Controller
 
 		$students = new \stdClass;
 		$students->std_id=$student->id;
-		$students->name=$student->s_name.' '.$student->s_fatherName;
+		$students->name=$student->s_name;
+		$students->s_fatherName=$student->s_fatherName;
 		$students->branch=isset($student->branch->branch_name)?$student->branch->branch_name:null;
 		$students->course=isset($student->course->course_name)?$student->course->course_name:null;
 		$students->images=$student->images;
@@ -323,7 +340,7 @@ class FeeDepositController extends Controller
 			session()->flash('error_message', __("Amount Should be Equal or greater then $students->total_pending"));
 			return redirect()->back();
 		}
-		if($request->type_method==2 && $object){
+		if($request->type_method==2 or $request->type_method==3 && $object){
 			$object->desire_amount=($request->pp_Amount).'00';
 			$object->pp_Amount=($request->pp_Amount);
 
@@ -393,24 +410,39 @@ class FeeDepositController extends Controller
 
 	function feeDepositDbEffected($std_id,$fee_id,$amount,$bank){
 
+		
+		$transaction=BankTransactionDetail::where('id',$fee_id)->first();
 		$fee=FeePost::where('std_id',$std_id)->orderBy('id','DESC')->first();
+
+		if($transaction){
+			$fees=BankTransactionDetail::where('id',$transaction->id)->update(['status'=>0]);
+			if($transaction->fee_id){
+				$fee=FeePost::where('id',$transaction->fee_id)->orderBy('id','DESC')->first();
+			}
+			
+		}
+
+
+		
 		$stdd=$fee;
 		$month=isset($stdd->fee_month)?$stdd->fee_month:date('m');
 		$year=isset($stdd->fee_year)?$stdd->fee_year:date('Y');
 		$depositDatest=date('Y-m-d');
 		$students=Student::find($std_id);
-		
+
+	
 		if(!$students){
 			return false;
 		}
 		if($fee){
 			$effectedAmount=$fee->paid_amount>0?$fee->paid_amount+$amount:$amount;
-			$feePosts=FeePost::where('id',$fee_id)->update([
+			$feePosts=FeePost::where('id',$fee->id)->update([
 				'paid_date'=>date("d-m-Y"),
 				'paid_amount'=>$effectedAmount,
 				'isPaid'=>($fee->total_fee<=$effectedAmount)?1:2
 			]);
 		}
+
 		
 		$branch_fine=0;
 		$baranch=Branch::where('id',$students->branch_id)->with('userSetting')->first();
@@ -498,7 +530,7 @@ class FeeDepositController extends Controller
 			'a_debit'=>0,
 			'balance'=>isset($master->balance)?$master->balance-$amount:((isset($master->balance)?$master->balance:0)-$amount),
 			'posting_date'=>$depositDatest,
-			'description'=>"Fee Deposited of".' '.getMonthName($stdd->fee_month). ' '."$year",
+			'description'=>"Fee Deposited of".' '.getMonthName($stdd->fee_month). ' '."$year by jazzcash",
 			'month'=>$month,
 			'year'=>$year,
 			
@@ -517,7 +549,7 @@ class FeeDepositController extends Controller
 				'a_debit'=>isset($amount)?$amount:0,
 				'balance'=>isset($master->balance)?$master->balance+$amount:($amount),
 				'posting_date'=>$depositDatest,
-				'description'=>"Fee Deposited of  $students->s_name($students->id)".' ' .getMonthName($stdd->fee_month).' ' ."$stdd->fee_year",
+				'description'=>"Fee Deposited of  $students->s_name($students->id)".' ' .getMonthName($stdd->fee_month).' ' ."$stdd->fee_year by jazzcash",
 				'month'=>$month,
 				'year'=>$year,
 				
@@ -542,7 +574,7 @@ class FeeDepositController extends Controller
 				'a_debit'=>0,
 				'balance'=>isset($master->balance)?$master->balance-$amount:((isset($master->balance)?$master->balance:0)-$amount),
 				'posting_date'=>$depositDatest,
-				'description'=>"Fee Deposited of".' '.getMonthName($stdd->fee_month). ' '."$year",
+				'description'=>"Fee Deposited of".' '.getMonthName($stdd->fee_month). ' '."$year by jazzcash",
 				'month'=>$month,
 				'year'=>$year,
 				
@@ -573,6 +605,10 @@ class FeeDepositController extends Controller
 
 
 					if($banks){
+						 if(isset($students->s_phoneNo)){
+                            $sms= nl2br("Dear Parent,\nThank you for deposited the fee of St No $students->id ,$students->s_name. Rs.($amount) received on Mobi cash for any queries contact (03464292920)",false);
+                            (SendSms($students->s_phoneNo,$sms));
+                          }
 						DB::commit();
 						return true;
 					}else{

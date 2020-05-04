@@ -76,6 +76,8 @@ Route::get('/event','Web\Pakistan\PublicController@event')->name('pakistan.event
 Route::get('/student_picture','Web\Pakistan\PublicController@student_picture')->name('pakistan.student_picture');
 Route::resource('feedeposit','Web\FeeDepositController');
 
+Route::get('how-to-pay','Web\Pakistan\PublicController@howToPay')->name('pakistan.howToPay');
+
 
 
 Route::POST('feedeposit-status','Web\FeeDepositController@feeDepositstatus')->name('feeDepositstatus');
@@ -214,6 +216,8 @@ Route::prefix('admin')->group(function () {
 			Route::resource('feepost','admins\Student\feepost\FeePostController');
 			Route::resource('individual-feepost','admins\Student\feepost\IndividualFeePostController');
 			Route::resource('fee-deposit','admins\Student\feeDeposit\FeeDepositController');
+
+			Route::resource('jazzcash-file-read','admins\Student\feeDeposit\JazzCashDepositController');
 			Route::resource('manual-fee-deposit','admins\Student\feeDeposit\ManualFeeDepositController');
 
 			Route::resource('edit-student','admins\Student\EditStudent\EditStudentController');

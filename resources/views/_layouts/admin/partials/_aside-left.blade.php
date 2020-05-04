@@ -577,7 +577,16 @@
                      @endif
                      @if(Auth::user()->can('Fee Deposit') )
                      <li class="{{ areActiveRoutes(['fee-deposit.create','fee-deposit.index'])}}"><a href="{{route('fee-deposit.index')}}">Fee Deposit</a></li>
+                      <li class="{{ areActiveRoutes(['jazzcash-file-read.create','jazzcash-file-read.index'])}}"><a href="{{route('jazzcash-file-read.index')}}">Jazzcash File Read</a></li>
+
+
+
+                  
+
+                  
                      @endif
+
+                     
                      @if(Auth::user()->can('Fee Challen')  )
                      <li class="{{ areActiveRoutes(['fee-challan.create','fee-challan.index' ,'fee-challan.store'])}}"><a href="{{route('fee-challan.create')}}">Fee Challan</a></li>
                      @endif

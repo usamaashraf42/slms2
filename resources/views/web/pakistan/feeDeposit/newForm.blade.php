@@ -377,11 +377,12 @@ border-bottom-left-radius: 25px;
     									background: #fff;
     									">
 
-    									<div class="col-md-4">
+    									<div class="col-md-6">
     										<div class="receipt-header" style="border: 1px solid #ccc;
     										padding: 12px;text-align: center; ">
     										<div class="receipt-right" style="text-align: center;">
-    											<div class="box_filed"> <h3><b style="color:red">{{$students->name}}</b></h3>  </div>
+    											<div class="box_filed"> <h4><b style="color:red">{{$students->name}}</b></h4>  </div>
+    											<div class="box_filed"> <h4><b style="color:red">{{$students->s_fatherName}}</b></h4>  </div>
 
     											<div class="box_filed"><STRONG>{{$students->branch}}</STRONG></div>
     											<div class="box_filed"><STRONG>{{$students->course}} </STRONG></div>
@@ -398,11 +399,11 @@ border-bottom-left-radius: 25px;
 
     									</div>
     								</div>
-    								<div class="col-md-8">
+    								<div class="col-md-6">
     									
     									<div style="width: 70%; float: left; text-align: justify;">
     										
-    										<p style="font-size:22px;">
+    										<p style="font-size:20px;">
     											<b> Amount going to be charged from you: </b>
     										</p>
     									</div>

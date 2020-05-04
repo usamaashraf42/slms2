@@ -210,7 +210,6 @@ if (!function_exists('SendSms')) {
   $vear= ('92'.''.$str);
   $message = trim(preg_replace('/\s\s+/', ' ', $message));
   $tokens=$vear;
-// return $tokens;
 
   $type = "json";
   $id = "923224772704";

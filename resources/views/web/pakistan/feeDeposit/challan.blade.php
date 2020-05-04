@@ -361,6 +361,9 @@ border-bottom-left-radius: 25px;
                             </div>
                           </div>
                         </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                           <input type="button"  class="btn btn-info btn-sm validateButton   float-left"   onclick="jobFormSubmit(this)"  value="Search">
+                        </div>
                          
                         </div>
                         <div class="row" style="display: none;">
@@ -408,10 +411,13 @@ border-bottom-left-radius: 25px;
             </div>
             <div class="col-md-12 " >
               <div class="row" >
-                <div class="col-md-9"></div>
-                <div class="col-md-3 float-right" style="float:right">
-                  <input type="button"  class="btn btn-info btn-lg validateButton   float-left"   onclick="jobFormSubmit(this)"  value="Search">
-                  <input class="btn btn-success btn-lg submitButton float-left" onclick="FormSubmit(this)"   style="display: none; "  value="submit">
+                <div class="col-md-8"></div>
+                <div class="col-md-2 float-right" style="float:right">
+                   <input type="button"  class="btn btn-info btn-sm   float-left"   onclick="refreshwindow(this)"  value="back">
+                 </div>
+                  <div class="col-md-2 float-right" style="float:right">
+
+                  <input class="btn btn-success btn-sm submitButton float-left" onclick="FormSubmit(this)"   style="display: none; "  value="submit">
                 </div>
               </div>
 
@@ -585,6 +591,10 @@ crossorigin="anonymous"></script>
   });
 </script>
 <script type="text/javascript">
+
+  function refreshwindow(obj){
+      location.reload(true);
+  }
   function readURL(input) {
     if (input.files && input.files[0]) {
       var reader = new FileReader();
@@ -664,6 +674,8 @@ window.onclick = function(event) {
 function jobFormSubmit(ob){
 
   var valid = true;   
+ 
+
 
   $('.std_id-error').css('display','none');
   $('.fee_id_error').css('display','none');
@@ -693,11 +705,12 @@ function jobFormSubmit(ob){
       console.log('feeChallan', response);
 
       if (response.status) {
+         $('#std_id').prop('readonly', true);
         $('.validateButton').css('display','none');
         $('.pp_Amount').val(response.student.total_payable);
         $('.pp_BillReference').val(response.student.fee_id);
         $('.TxnRefNumber').val(response.student.fee_id);
-        $('.ppmpf_1').val(response.student.fee_id);
+        $('.ppmpf_1').val(response.student.feed_id);
         $('.ppmpf_2').val(std_id);
 
         var content=`<div class="col-md-9">
@@ -706,11 +719,12 @@ function jobFormSubmit(ob){
         background: #fff;
         ">
 
-        <div class="col-md-4">
+        <div class="col-md-6">
         <div class="receipt-header" style="border: 1px solid #ccc;
         padding: 12px;text-align: center; ">
         <div class="receipt-right" style="text-align: center;">
-        <div class="box_filed"><h3 style="color:red;"> ${response.student.name}</h3> </div>
+        <div class="box_filed"><h4 style="color:red;"> ${response.student.name}</h4> </div>
+        <div class="box_filed"><STRONG>${response.student.s_fatherName}</STRONG></div>
 
         <div class="box_filed"><STRONG>${response.student.branch}</STRONG></div>
         <div class="box_filed"><STRONG>${response.student.course} </STRONG></div>
@@ -726,7 +740,7 @@ function jobFormSubmit(ob){
 
         </div>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-6">
         <br>
         
         <div style="width: 50%; float: left; text-align: justify;">
@@ -770,9 +784,18 @@ function jobFormSubmit(ob){
         </li>
 
         <li class="list_radio">
-        <input type="radio" onclick="checkedMethod(this)"  value="1" id="f-option" name="method">
+        <input type="radio" onclick="checkedMethod(this)"  value="3" id="f-option" name="method">
         <label for="f-option"> 
-        <img src="{{asset('assets/img/checkout.png')}}" width="100%" style="max-width: 300px;height: 68px; margin-top: -23px;"></label>
+        <img src="{{asset('assets/img/credit.jpg')}}" width="100%" style="max-width: 300px;height: 68px; margin-top: -23px;"></label>
+
+        <div class="check"></div>
+        </li>
+
+
+        <li class="list_radio">
+        <input type="radio" onclick="checkedMethod(this)" id='paypal' value="1" id="f-option" name="method">
+        <label for="paypal"> 
+        <img src="{{asset('assets/img/paypal.png')}}" width="100%" style="max-width: 300px;height: 68px; margin-top: -23px;"></label>
 
         <div class="check"></div>
         </li>
