@@ -76,6 +76,8 @@ Route::get('/event','Web\Pakistan\PublicController@event')->name('pakistan.event
 Route::get('/student_picture','Web\Pakistan\PublicController@student_picture')->name('pakistan.student_picture');
 Route::resource('feedeposit','Web\FeeDepositController');
 
+Route::get('how-to-pay','Web\Pakistan\PublicController@howToPay')->name('pakistan.howToPay');
+
 
 
 Route::POST('feedeposit-status','Web\FeeDepositController@feeDepositstatus')->name('feeDepositstatus');

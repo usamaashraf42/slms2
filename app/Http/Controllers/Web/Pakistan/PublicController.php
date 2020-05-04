@@ -107,6 +107,13 @@ class PublicController extends Controller
         return view('web.pakistan.internship_job');
     }
 
+     public function howToPay(){
+        return view('web.pakistan.howToPay');
+    }
+
+
+    
+
 
     public function event(){
         return view('web.pakistan.event');
