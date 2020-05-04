@@ -62,12 +62,12 @@
                                     <h3 class="text-dark my-2 text-center d-block font-weight-bold">
                                         Pay Via Meezan Bank                                    </h3>
                                     <figure class="text-center">
-                                        <img class="img-fluid" src="https://www.topgrade.pk/assets/images/payment_logos/xmeezan-bank.jpg.pagespeed.ic.26ybGerJUl.webp" alt="err" data-pagespeed-url-hash="437941469" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+                                        <img class="img-fluid" src="{{asset('assets/frontend/images/mazeen.png')}}" alt="err" data-pagespeed-url-hash="437941469" onload="pagespeed.CriticalImages.checkImageForCriticality(this);" style="max-width: 180px;">
                                     </figure>
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                         <p class="text-center"></p>
                                         <ul class="list-group">
-<li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i> Account Title : <b>TOP GRADE</b></li>
+<li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i> Account Title : <b>American Lyceum School</b></li>
 <li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i> Account Number: <b>21010103155444</b></li>
 <li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i> IBAN: <b>PK58MEZN0021010103155444</b></li>
 </ul>                                    </div>
@@ -81,12 +81,12 @@
                                     <h3 class="text-dark my-2 text-center d-block font-weight-bold">
                                         Pay Via Allied Bank                                    </h3>
                                     <figure class="text-center">
-                                        <img class="img-fluid" src="https://www.topgrade.pk/assets/images/payment_logos/xabl.jpg.pagespeed.ic.snB_TCiHes.webp" alt="err" data-pagespeed-url-hash="3147205725" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+                                        <img class="img-fluid" src="{{asset('assets/frontend/images/allied.jpg')}}" alt="err" data-pagespeed-url-hash="3147205725" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"style="max-width: 180px;">
                                     </figure>
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                         <p class="text-center"></p>
                                         <ul class="list-group">
-<li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i> Account Title : <b>TOP GRADE</b></li>
+<li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i> Account Title : <b>American Lyceum School</b></li>
 <li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i> Account Number: <b>12020010052159300011</b></li>
 <li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i> IBAN: <b>PK57ABPA0010052159300011</b></li>
 </ul>                                    </div>
@@ -185,9 +185,20 @@ h1 {
     padding: .75rem 1.25rem;
     margin-bottom: -1px;
     background-color: #fff;
-    border: 1px solid rgba(0,0,0,.125);
+    font-size: 18px;
+    border-bottom: 1px solid rgba(0,0,0,.125)!important;
 }
-
+.list-group {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+}
 .card {
     position: relative;
     display: -webkit-box;
