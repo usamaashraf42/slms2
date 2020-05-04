@@ -104,11 +104,11 @@
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <p class="text-center"></p>
                             <ul class="list-group">
-                               <li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i> To to any UBL Omn shop
+                               <li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i>Step 1: Go to any UBL Omn shop
                                 </li>
-                                <li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i> tell teh number of your child
+                                <li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i> Step 2: tell teh number of your child
                         </li>
-                        <li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i> deposit amount
+                        <li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i>Step 3: deposit amount
                         </li>
                             </ul>                                    
                         </div>
