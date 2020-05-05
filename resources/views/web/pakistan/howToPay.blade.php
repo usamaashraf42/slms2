@@ -36,6 +36,13 @@
                         </li>
                         <li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i>Step 4: Choose pay by mobile account
                         </li>
+                        <li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i>Step 5: Select Jazz Cash voucher as your payment option, you will receive a voucher code on your mobile and email.
+
+                        </li>
+                        <li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i>Step 6:  Present this voucher code to the nearest Jazz Cash Point or any Jazz/Warid franchise and pay the due amount.
+                        </li>
+                        <li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i>Step 7: Your account will automatically activated as soon as the payment is received.
+                        </li>
 
                         <li class="list-group-item border-center-0 border-right-0"><i class="fa fa-check-square"></i><a href="https://lyceumgroupofschools.com/feedeposit"> <button>Pay Now</button></a>
                         </li>
@@ -63,6 +70,8 @@
                         </li>
                          <li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i>Step 4: Choose pay by card
                         </li>
+                         
+
 
                         <li class="list-group-item border-center-0 border-right-0"><i class="fa fa-check-square"></i><a href="https://lyceumgroupofschools.com/feedeposit"> <button>Pay Now</button></a>
                         </li>
