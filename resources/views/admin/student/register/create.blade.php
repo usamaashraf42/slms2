@@ -1631,7 +1631,7 @@ td, th {
 
       }
 
-      feeChargeFrom('dd');
+      // feeChargeFrom('dd');
     }
 
 
@@ -3109,6 +3109,7 @@ function updateFirstYear(){
       futurfeeCharge=$('.futur_date_month').val();
       var CurrentfeeCharge=$('.current_date_month').val();
       console.log('futurfeeChargeDate',$('.futur_date_month').val(),$('.futur_date_month').val());
+      
       function feeChargeFrom(obj){
 
        console.log('changeSessionPackageChange',$('#session').val(),obj);

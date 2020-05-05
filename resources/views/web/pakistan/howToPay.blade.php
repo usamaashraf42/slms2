@@ -3,118 +3,144 @@
 <div class="header_box" style="margin-top:140px;">
 
 </style>
-	
+
 </div>
 <p class="covid">Facing issue in fee submission in COVID-19 Pandemic?<br> Don't worry. Go to <a href="www.lyceumgroupofschools.com/feedeposit" style="color:white;">
 www.lyceumgroupofschools.com/feedeposit</a>-Enter your child number<strong> choose jazz cash from list.</strong></p>
 <div class="merit-bg p-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center">
-                        <h1 class="text-white"> How to Pay for Your lyceumgroupofschools.com Subscription</h1>
-                    </div>
-                </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center">
+                <h1 class="text-white"> How to Pay for Your lyceumgroupofschools.com Subscription</h1>
             </div>
         </div>
- <section class="how-to-pay">
-            <div class="container">
-                <div class="row  align-items-center">
-                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                                <div class="card my-4 p-3">
-                                    <h3 class="text-dark my-2 text-center d-block font-weight-bold">
-                                        Pay Via Jazz Cash                                    </h3>
-                                    <figure class="text-center">
-                                        <img class="img-fluid" src="https://www.topgrade.pk/assets/images/payment_logos/xjazz-cash.jpg.pagespeed.ic.Ceh81qC9YZ.webp" alt="err" data-pagespeed-url-hash="795418191" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
-                                    </figure>
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                        <p class="text-center"></p>
-                                        <ul class="list-group"><li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i>Go to <a href="https://lyceumgroupofschools.com/feedeposit" >www.lyceumgroupofschools.com/feedeposit</a></li>
-                                            <li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i> Enter your child number</li><li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i> Choose jazz cash from list.</li></ul>                                    </div>
-                                    <!--                                    <video width="200" controls >
-                                        <source width="200" height="200" src="<?//= base_url() ?>assets/videos/how_to_pay_mobi_cash.mp4" type="video/mp4">
-                                    </video>-->
-                                </div>
-                            </div>
-                                     
-                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                                <div class="card my-4 p-3">
-                                    <h3 class="text-dark my-2 text-center d-block font-weight-bold">
-                                        Pay Via hbl konnect App                                    </h3>
-                                    <figure class="text-center"> 
-                                        <img class="img-fluid" src="{{asset('assets/frontend/images/jazz_new.jpg')}}" alt="err" data-pagespeed-url-hash="3944744305" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"style="max-width: 180px;">
-                                    </figure>
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                        <p class="text-center"></p>
-                                        <ul class="list-group">
-<li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i>Go to hbl konnect app and pay should fee.</li>
+    </div>
+</div>
+<section class="how-to-pay">
+    <div class="container">
+        <div class="row  align-items-center">
+         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+            <div class="card my-4 p-3">
+                <h3 class="text-dark my-2 text-center d-block font-weight-bold">
+                Pay Via Jazz Cash                                    </h3>
+                <figure class="text-center">
+                    <img class="img-fluid" src="https://www.topgrade.pk/assets/images/payment_logos/xjazz-cash.jpg.pagespeed.ic.Ceh81qC9YZ.webp" alt="err" data-pagespeed-url-hash="795418191" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+                </figure>
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <p class="text-center"></p>
+                    <ul class="list-group">
+                        <li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i> Step 1: go to <a href="https://lyceumgroupofschools.com/feedeposit">https://lyceumgroupofschools.com/feedeposit</a>
+                        </li>
+                        <li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i>Step 2: Enter your child roll no (std Id)
+                        </li>
+                        <li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i>Step 3: Choose jazz cash from right
+                        </li>
+                        <li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i>Step 4: Choose pay by mobile account
+                        </li>
 
-</ul>                                    </div>
-                                    <!--                                    <video width="200" controls >
-                                        <source width="200" height="200" src="<?//= base_url() ?>assets/videos/how_to_pay_mobi_cash.mp4" type="video/mp4">
-                                    </video>-->
-                                </div>
-                            </div>
-                                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                                <div class="card my-4 p-3">
-                                    <h3 class="text-dark my-2 text-center d-block font-weight-bold">
-                                        Pay Via Credit and Debit Card                         </h3>
-                                    <figure class="text-center">
-                                        <img class="img-fluid" src="{{asset('assets/frontend/images/credit.jpg')}}" alt="err" data-pagespeed-url-hash="2623594503" onload="pagespeed.CriticalImages.checkImageForCriticality(this);" style="max-width: 180px;">
-                                    </figure>
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                        <p class="text-center"></p>
-                                        <ul class="list-group">
-<li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i>Go to <a href="https://lyceumgroupofschools.com/feedeposit">www.lyceumgroupofschools.com/feedeposit</a></li>
-<li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i> Enter your child number</li> 
-<li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i> choose jazz cash from list <b></b></li>
-<li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i> choose pay by card<b></b></li>
-</ul>                                    </div>
-                                    <!--                                    <video width="200" controls >
-                                        <source width="200" height="200" src="<?//= base_url() ?>assets/videos/how_to_pay_mobi_cash.mp4" type="video/mp4">
-                                    </video>-->
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                                <div class="card my-4 p-3">
-                                    <h3 class="text-dark my-2 text-center d-block font-weight-bold">
-                                        Pay Via Alflah Bank                                    </h3>
-                                    <figure class="text-center">
-                                        <img class="img-fluid" src="{{asset('assets/frontend/images/mazeen.png')}}" alt="err" data-pagespeed-url-hash="437941469" onload="pagespeed.CriticalImages.checkImageForCriticality(this);" style="max-width: 180px;">
-                                    </figure>
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                        <p class="text-center"></p>
-                                        <ul class="list-group">
-<li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i> Account Title : <b>American Lyceum international School</b></li>
-<li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i> Account Number: <b>02931006768899</b></li>
-<li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i>In payment reference write the name and student number of your child. </li>
-<li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i>After deposit send snapshot  <b>0346-429292</b></li>
-</ul>                                    </div>
-                                    <!--                                    <video width="200" controls >
-                                        <source width="200" height="200" src="<?//= base_url() ?>assets/videos/how_to_pay_mobi_cash.mp4" type="video/mp4">
-                                    </video>-->
-                                </div>
-                            </div>
-<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                                <div class="card my-4 p-3">
-                                    <h3 class="text-dark my-2 text-center d-block font-weight-bold">
-                                        Pay Via UBL Omni                                    </h3>
-                                    <figure class="text-center">
-                                        <img class="img-fluid" src="{{asset('assets/frontend/images/esypaisa.png')}}" alt="err" data-pagespeed-url-hash="3147205725" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"style="max-width: 180px;">
-                                    </figure>
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                        <p class="text-center"></p>
-                                        <ul class="list-group">
-<li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i> Go to any ubl omni shope </li>
-<li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i> Tell the number of your child.</li>
-<li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i> Deposit Amount</li>
-</ul>                                    </div>
-                                    <!--                                    <video width="200" controls >
-                                        <source width="200" height="200" src="<?//= base_url() ?>assets/videos/how_to_pay_mobi_cash.mp4" type="video/mp4">
-                                    </video>-->
-                                </div>
-                            </div>             
-                 
+                        <li class="list-group-item border-center-0 border-right-0"><i class="fa fa-check-square"></i><a href="https://lyceumgroupofschools.com/feedeposit"> <button>Pay Now</button></a>
+                        </li>
+                    </ul>                                    
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+            <div class="card my-4 p-3">
+                <h3 class="text-dark my-2 text-center d-block font-weight-bold">
+                Pay Via credit card/Debit Card                                 </h3>
+                <figure class="text-center">
+                                <img class="img-fluid" src="https://www.topgrade.pk/assets/images/payment_logos/xcard-payment.jpg.pagespeed.ic.DKm2H91oIb.webp" alt="err" data-pagespeed-url-hash="3903371337" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+                            </figure>
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <p class="text-center"></p>
+                    <ul class="list-group">
+                        <li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i> Step 1: go to <a href="https://lyceumgroupofschools.com/feedeposit">https://lyceumgroupofschools.com/feedeposit</a>
+                        </li>
+                        <li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i>Step 2: Enter your child roll no (std Id)
+                        </li>
+                        <li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i>Step 3: Choose jazz cash from right
+                        </li>
+                         <li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i>Step 4: Choose pay by card
+                        </li>
+
+                        <li class="list-group-item border-center-0 border-right-0"><i class="fa fa-check-square"></i><a href="https://lyceumgroupofschools.com/feedeposit"> <button>Pay Now</button></a>
+                        </li>
+                    </ul>                                    
+                </div>
+
+            </div>
+        </div>
+
+
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="card my-4 p-3">
+                    <h3 class="text-dark my-2 text-center d-block font-weight-bold">
+                    Pay Via Bank Alfalah                                    </h3>
+                    <figure class="text-center">
+                        <img class="img-fluid" src="https://www.bankalfalah.com/wp-content/uploads/2017/08/bafl-logo-home.png" alt="err" data-pagespeed-url-hash="437941469" onload="pagespeed.CriticalImages.checkImageForCriticality(this);" style="max-width: 180px;">
+                    </figure>
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <p class="text-center"></p>
+                        <ul class="list-group">
+                            <li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i> Account Title : <b>American Lyceum International School</b></li>
+                            <li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i> Account Number: <b>02931006768899</b></li>
+                            <li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i> In payment reference write the name and student number of your child
+                        </li>
+                         <li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i> after depositsend snapshot at 0346-429292
+                        </li>
+
                             
+                        </ul>                                    </div>
+
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="card my-4 p-3">
+                        <h3 class="text-dark my-2 text-center d-block font-weight-bold">
+                        Pay Via UBL Omni                                    </h3>
+                        <figure class="text-center">
+                            <img class="img-fluid" src="https://www.ubldirect.com/Corporate/Portals/_default/Skins/DarkKnight/_ui/images/header/logo.png" alt="err" data-pagespeed-url-hash="3147205725" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"style="max-width: 180px;">
+                        </figure>
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <p class="text-center"></p>
+                            <ul class="list-group">
+                               <li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i>Step 1: Go to any UBL Omn shop
+                                </li>
+                                <li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i> Step 2: tell teh number of your child
+                        </li>
+                        <li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i>Step 3: deposit amount
+                        </li>
+                            </ul>                                    
+                        </div>
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="card my-4 p-3">
+                            <h3 class="text-dark my-2 text-center d-block font-weight-bold">
+                            Pay Via HBL-Konnect APP                                   </h3>
+                            <figure class="text-center">
+                                <img class="img-fluid" src="https://www.hbl.com/Style%20Library/assets/HBL/images/hbl-logo.png" alt="err" data-pagespeed-url-hash="2623594503" onload="pagespeed.CriticalImages.checkImageForCriticality(this);" style="max-width: 180px;">
+
+                            </style>
+                        </figure>
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <p class="text-center"></p>
+                            <ul class="list-group">
+                                <li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i> Go to HBL Konnect App and pay school fee.</li>
+                                
+                            </ul>                                    </div>
+
+                        </div>
+                    </div>
+
+                    
+
                 </div>
             </div>
         </section>
@@ -217,6 +243,7 @@ h1 {
 }
 </style>
 
-@endsection
-@push('post-scripts')
-@endpush
+
+            @endsection
+            @push('post-scripts')
+            @endpush
