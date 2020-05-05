@@ -5,7 +5,8 @@
 </style>
 
 </div>
-<p class="covid">Facing issue in fee submission in COVID-19 Pandemic?<br> Don't worry. You can locate your nearest JazzCash retailer by sending <strong>M</strong> in an SMS to <u>2179</u> or by calling <u>4444</u> from any Jazz number.</p>
+<p class="covid">Facing issue in fee submission in COVID-19 Pandemic?<br> Don't worry. Go to <a href="www.lyceumgroupofschools.com/feedeposit" style="color:white;">
+www.lyceumgroupofschools.com/feedeposit</a>-Enter your child number<strong> choose jazz cash from list.</strong></p>
 <div class="merit-bg p-5">
     <div class="container">
         <div class="row">
@@ -80,7 +81,7 @@
 
             </div>
         </div>
-       
+
 
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="card my-4 p-3">
@@ -98,6 +99,7 @@
                         </li>
                          <li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i> after depositsend snapshot at 0346-429292
                         </li>
+
                             
                         </ul>                                    </div>
 
@@ -151,103 +153,105 @@
                 </div>
             </div>
         </section>
-        <style>
-            .how-to-pay .card {
-                box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important;
-            }
-            .p-3 {
-                padding: 1rem!important;
-            }
-            .mt-4, .my-4 {
-                margin-top: 1.5rem!important;
-            }
-            .d-block {
-                display: block!important;
-            }
-            .text-dark {
-                color: #343a40!important;
-            }
-            h3{
-                font-size: 32px;
-                line-height: 28px;}
-                .font-weight-bold {
-                    font-weight: 700!important;
-                }
-                h1 {
-                    font-size: 38px;
-                    line-height: 44px;
-                    color: #282828;
-                    font-family: 'proxima_novasemibold';
-                }
-                .img-fluid {
-                    max-width: 100%;
-                    height: auto;
-                }
-                .text-white {
-                    color: #fff!important;
-                }
-                .list-group-item {
-                    position: relative;
-                    display: block;
-                    padding: .75rem 1.25rem;
-                    margin-bottom: -1px;
-                    background-color: #fff;
-                    font-size: 18px;
-                    border-bottom: 1px solid rgba(0,0,0,.125)!important;
-                }
-                .list-group {
-                    display: -webkit-box;
-                    display: -ms-flexbox;
-                    display: flex;
-                    -webkit-box-orient: vertical;
-                    -webkit-box-direction: normal;
-                    -ms-flex-direction: column;
-                    flex-direction: column;
-                    padding-left: 0;
-                    margin-bottom: 0;
-                }
-                .card {
-                    position: relative;
-                    display: -webkit-box;
-                    display: -ms-flexbox;
-                    display: flex;
-                    -webkit-box-orient: vertical;
-                    -webkit-box-direction: normal;
-                    -ms-flex-direction: column;
-                    flex-direction: column;
-                    min-width: 0;
-                    word-wrap: break-word;
-                    background-color: #fff;
-                    background-clip: border-box;
-                    border: 1px solid rgba(0,0,0,.125);
-                    border-radius: .25rem;
-                }
-                .covid {
-                    background: #3169B9;
-                    color: #fff;
-                    padding: 2px 0;
-                    font-size: 20px;
-                    text-align: center;
-                }
-                .merit-bg {
-                    background: url('{{asset('assets/frontend/images/banner.jpg')}}');
-                    background-repeat: no-repeat;
-                    background-size: cover!important;
-                    position: relative;
-                }
-                .merit-bg:before {
-                    position: absolute;
-                    content: '';
-                    left: 0;
-                    top: 0;
-                    width: 100%;
-                    height: 100%;
-                    background-color: rgba(0, 0, 0, .50);
-                }
-                .p-5 {
-                    padding: 3rem!important;
-                }
-            </style>
+<style>
+.how-to-pay .card {
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important;
+    min-height: 400px;
+}
+.p-3 {
+    padding: 1rem!important;
+}
+.mt-4, .my-4 {
+    margin-top: 1.5rem!important;
+}
+.d-block {
+    display: block!important;
+}
+.text-dark {
+    color: #343a40!important;
+}
+h3{
+    font-size: 32px;
+    line-height: 28px;}
+.font-weight-bold {
+    font-weight: 700!important;
+}
+h1 {
+    font-size: 38px;
+    line-height: 44px;
+    color: #282828;
+    font-family: 'proxima_novasemibold';
+}
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+.text-white {
+    color: #fff!important;
+}
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: .75rem 1.25rem;
+    margin-bottom: -1px;
+    background-color: #fff;
+    font-size: 18px;
+    border-bottom: 1px solid rgba(0,0,0,.125)!important;
+}
+.list-group {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+.card {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+.covid {
+    background: #3169B9;
+    color: #fff;
+    padding: 2px 0;
+    font-size: 20px;
+    text-align: center;
+}
+.merit-bg {
+    background: url('{{asset('assets/frontend/images/banner.jpg')}}');
+    background-repeat: no-repeat;
+    background-size: cover!important;
+    position: relative;
+}
+.merit-bg:before {
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .50);
+}
+.p-5 {
+    padding: 3rem!important;
+}
+</style>
+
 
             @endsection
             @push('post-scripts')
