@@ -192,7 +192,7 @@ class PublicController extends Controller
             $object->pp_Amount=($amount);
 
                 session()->flash('success_message', __('Your application has been submitted Successfully. please submit registration fee, thanks you'));
-                 return view('web.pakistan.AdmissionQuery.checkout',compact('branch','admission','fees','object'));
+                 return view('web.pakistan.admissionQuery.checkout',compact('branch','admission','fees','object'));
             }else{
             session()->flash('error_message', __('Please try again '));
             return redirect()->back()->with('error_message','Please try again');
