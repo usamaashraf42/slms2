@@ -371,6 +371,14 @@
         <li class="submenu">
             <a href="#" class="{{ areActiveRoutes(['student-registration.create','student-registration.index'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Admission</span> <span class="menu-arrow"></span></a>
             <ul class="list-unstyled" style="display: none;">
+
+                <li class="{{ areActiveRoutes(['student-registration.create'])}}">
+                    <a href="{{route('student-registration.create')}}" class="{{ areActiveRoutes(['student-registration.create'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                        <span>Initial Admission</span> 
+                    </a>
+                </li>
+
+
                 <li class="{{ areActiveRoutes(['student-registration.create'])}}">
                     <a href="{{route('student-registration.create')}}" class="{{ areActiveRoutes(['student-registration.create'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
                         <span>Add Student</span> 

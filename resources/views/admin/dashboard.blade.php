@@ -80,15 +80,16 @@
 			</div>
 		</div>
 		@endif
-		<!-- <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+		<div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+			<a href="{{route('initial-admission.index')}}">
 			<div class="dash-widget dash-widget5">
 				<span class="dash-widget-icon bg-success"><i class="fa fa-money" aria-hidden="true"></i></span>
 				<div class="dash-widget-info">
-					<h3>000 .Rs</h3>
-					<span>Total Earnings</span>
+					<h3>{{$initalAdmissionQuery}}</h3>
+					<span>Initial Admission</span>
 				</div>
-			</div>
-		</div> -->
+			</div></a>
+		</div>
 	</div>
 	<!-- ////////////////////////////////////////////  -->
 	<div class="row">

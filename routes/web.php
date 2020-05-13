@@ -240,6 +240,7 @@ Route::prefix('admin')->group(function () {
 			Route::resource('manual-attendance','admins\Student\Attendance\ManualAttendanceController');
 
 			Route::resource('attendance-report','admins\Student\Attendance\AttendanceReportController');
+			Route::resource('initial-admission','admins\Student\InitalAdmissionQueryController');
 
 
 			
