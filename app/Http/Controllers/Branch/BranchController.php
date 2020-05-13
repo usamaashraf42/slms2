@@ -90,6 +90,7 @@ public function store(BranchRequest $request){
        'b_contactPerson'=>$request->b_contactPerson,
        'b_emil'=>$request->b_emil,
        'b_cell'=>$request->b_cell,
+       'b_regFee'=>$request->b_regFee,
        'Rent'=>$request->Rent,
        'utilities'=>$request->utilities,
        'Misc'=>$request->Misc,
@@ -246,6 +247,7 @@ public function update(Request $request, $id)
        'utilities'=>$request->utilities?$request->utilities:$branch->utilities,
        'Misc'=>$request->Misc?$request->Misc:$branch->Misc,
        'b_address'=>$request->address?$request->address:$branch->address,
+       'b_regFee'=>$request->b_regFee?$request->b_regFee:$branch->b_regFee,
 
        'updated_by'=>Auth::id(),
    ]);

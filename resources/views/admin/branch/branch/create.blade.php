@@ -99,10 +99,10 @@
 							<div class="row">
 								<div class="col-md-4">
 									<div class="form-group">
-										<label class="control-label">Salary</label>
-										<input name="slary" min="0"  value="0" class="form-control" placeholder="salary">
-										@if ($errors->has('slary'))
-										<label id="slary-error" class="error" for="slary" style="color: red">{{$errors->first('slary')}}</label>
+										<label class="control-label">Student registration</label>
+										<input name="b_regFee" min="0"  value="0" class="form-control" placeholder="salary">
+										@if ($errors->has('b_regFee'))
+										<label id="b_regFee-error" class="error" for="b_regFee" style="color: red">{{$errors->first('b_regFee')}}</label>
 										@endif
 									</div>
 

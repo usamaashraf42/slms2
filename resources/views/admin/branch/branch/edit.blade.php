@@ -17,7 +17,7 @@
 						<div class="col-md-12">
 							{{csrf_field()}}
 							<div class="row">
-								<div class="col-md-6">
+								<div class="col-md-4">
 									<div class="form-group">
 										<label for="exampleInputPassword1">Branch Name</label>
 										<input type="text" class="form-control branch_name" value="@isset($branch->branch_name){{$branch->branch_name}} @endif" name="branch_name" id="branch_name" placeholder="Account Category Name">
@@ -26,7 +26,7 @@
 										@endif
 									</div>
 								</div>
-								<div class="col-md-3">
+								<div class="col-md-4">
 									<div class="form-group">
 										<label for="exampleInputPassword1">Country</label>
 										<select type="text" class="form-control b_countryCode"  name="b_countryCode" id="b_countryCode" placeholder="Country Code">
@@ -41,7 +41,7 @@
 										@endif
 									</div>
 								</div>
-								<div class="col-md-3">
+								<div class="col-md-4">
 									<div class="form-group">
 										<label class="control-label">Branch Manager</label>
 										<input name="mangerName" type="text" value="@isset($branch->mangerName){{$branch->mangerName}} @endif" class="form-control" placeholder="School Name">
@@ -110,10 +110,10 @@
 							<div class="row">
 								<div class="col-md-4">
 									<div class="form-group">
-										<label class="control-label">Salary</label>
-										<input name="slary" min="0"  value="@isset($branch->slary){{$branch->slary}} @endisset" class="form-control" placeholder="salary">
-										@if ($errors->has('slary'))
-										<label id="slary-error" class="error" for="slary" style="color: red">{{$errors->first('slary')}}</label>
+										<label class="control-label">Student registration</label>
+										<input name="b_regFee" min="0"  value="@isset($branch->b_regFee){{$branch->b_regFee}} @endisset" class="form-control" placeholder="salary">
+										@if ($errors->has('b_regFee'))
+										<label id="b_regFee-error" class="error" for="b_regFee" style="color: red">{{$errors->first('b_regFee')}}</label>
 										@endif
 									</div>
 
