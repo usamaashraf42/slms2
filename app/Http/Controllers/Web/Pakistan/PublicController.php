@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controller\Fran;
 use App\Models\EventApplicant;
+use App\Models\BankTransactionDetail;
+
+
+
+use App\Models\Branch;
+
 use Session;
 use Mail;
 class PublicController extends Controller
@@ -158,23 +164,41 @@ class PublicController extends Controller
 
     public function admission_query(Request $request){
         // `id`, `school_id`, `branch_id`, `name`, `father_name`, `contact_no`, `course_id`, `address`,
+
+        // dd($request->all());
         $admission=\App\Models\AdmissionQuery::create([
-                'school_id'=>$request->school_id,
+                'school_id'=>$request->school_id?$request->school_id:1,
                 'branch_id'=>$request->branch_id,
                 'name'=>$request->name,
-                'father_name'=>$request->father_name,
+                'father_name'=>$request->fname,
+                'email'=>$request->email,
                 'address'=>$request->address,
                 'contact_no'=>$request->phone,
                 'course_id'=>$request->course_id,
         ]);
-
+        $branch=Branch::find($request->branch_id);
+        $amount=isset($branch->b_regFee)?$branch->b_regFee:1000;
         if($admission){
-                session()->flash('success_message', __('Your application has been submitted Successfully. we will contact you soon, thanks you'));
-                return redirect()->back()->with('success_message','Your application has been submitted Successfully. we will contact you soon, thanks you');
+            $object = new \stdClass;
+            $fees=BankTransactionDetail::create([
+                'std_reg_id'=>$admission->id,
+                'amount'=>$amount,
+                'bank_id'=>8,
+                'status'=>1,
+                'branch_id'=>isset($branch->id)?$branch->id:0,
+            ]);
+
+            $object->desire_amount=($amount).'00';
+            $object->pp_Amount=($amount);
+
+                session()->flash('success_message', __('Your application has been submitted Successfully. please submit registration fee, thanks you'));
+                 return view('web.pakistan.admissionQuery.checkout',compact('branch','admission','fees','object'));
             }else{
             session()->flash('error_message', __('Please try again '));
             return redirect()->back()->with('error_message','Please try again');
             }
+
+           
 
             return redirect()->back()->with('success_message','Your application has been submitted Successfully. we will contact you soon, thanks you');
     }

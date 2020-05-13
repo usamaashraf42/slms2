@@ -56,21 +56,37 @@ class FeeDepositController extends Controller
 		{
 			if($ResponseCode == '000'||$ResponseCode == '121'||$ResponseCode == '200'){
 				$amount=substr($request->pp_Amount, 0, -2);
+				if($request->ppmpf_5==2){
+					$this->admissionFeeSubmit($request->ppmpf_1);
+					session()->flash('success_message', __("Fee deposit successfully"));
+				return redirect()->route('pakistan.Apply');
+				}else{
+					$this->feeDepositDbEffected($request->ppmpf_2,$request->ppmpf_1,$amount,8);
+					session()->flash('success_message', __("Fee deposit successfully"));
+					return redirect()->route('feedeposit.index');
+				}
 				
 
-				$this->feeDepositDbEffected($request->ppmpf_2,$request->ppmpf_1,$amount,8);
-				session()->flash('success_message', __("Fee deposit successfully"));
-				return redirect()->route('feedeposit.index');
+				
+				
 				
 			} 
 			else  if($ResponseCode == '124'||$ResponseCode == '210') {
 				session()->flash('error_message', __("Payment Pending. $ResponseMessage"));
-				return redirect()->route('feedeposit.index');
 
+				if($request->ppmpf_5==2){
+					return redirect()->route('pakistan.Apply');
+				}else{
+					return redirect()->route('feedeposit.index');
+				}
 			}
 			else {
 				session()->flash('error_message', __("Payment Failed. $ResponseMessage "));
-				return redirect()->route('feedeposit.index');
+				if($request->ppmpf_5==2){
+					return redirect()->route('pakistan.Apply');
+				}else{
+					return redirect()->route('feedeposit.index');
+				}
 				
 			}
 			$txnrefno = htmlspecialchars($_POST['pp_TxnRefNo']);
@@ -83,7 +99,11 @@ class FeeDepositController extends Controller
 		else {
 			
 			session()->flash('error_message', __("mismatched marked it suspicious or reject it"));
-			return redirect()->route('feedeposit.index');			
+			if($request->ppmpf_5==2){
+					return redirect()->route('pakistan.Apply');
+				}else{
+					return redirect()->route('feedeposit.index');
+				}		
 		}	
 	}
 
@@ -421,8 +441,6 @@ class FeeDepositController extends Controller
 			}
 			
 		}
-
-
 		
 		$stdd=$fee;
 		$month=isset($stdd->fee_month)?$stdd->fee_month:date('m');
@@ -620,6 +638,26 @@ class FeeDepositController extends Controller
 			}
 		}
 		
+	}
+
+	function admissionFeeSubmit($id,$amount,$bank){
+		$bank=BankTransactionDetail::find($id);
+		if($bank){
+			$fees=BankTransactionDetail::where('id',$id)->update(['status'=>0]);
+
+			if($bank->std_reg_id){
+				$admission=\App\Models\AdmissionQuery::find($fees->std_reg_id);
+				$admission->paid=1;
+				$admission->save();
+				return true;
+			}else{
+				return true
+			}
+			
+
+		}else{
+			return false;
+		}
 	}
 
 }
