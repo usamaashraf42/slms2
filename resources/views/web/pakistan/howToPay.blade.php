@@ -103,7 +103,7 @@ www.lyceumgroupofschools.com/feedeposit</a>-Enter your child number<strong> choo
                         <figure class="text-center">
                             <img class="img-fluid" src="https://www.ubldirect.com/Corporate/Portals/_default/Skins/DarkKnight/_ui/images/header/logo.png" alt="err" data-pagespeed-url-hash="3147205725" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"style="max-width: 180px;">
                         </figure>
-                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"> 
                             <p class="text-center"></p>
                             <ul class="list-group">
                                <li class="list-group-item border-left-0 border-right-0"><i class="fa fa-check-square"></i>Step 1: Go to any UBL Omn shop
