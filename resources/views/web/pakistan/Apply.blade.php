@@ -155,14 +155,14 @@
 
 
   <div class="scrollable" style="
-  height: 160px;
-  padding: 56px;
-  width: 200;
-  padding-bottom: 44px;
-  margin-top: 100px;
-  min-height:100%;
-  background:linear-gradient(0deg, rgb(0, 0, 0, 0.6), rgb(0, 0, 0,0.6)),  url('{{asset('images/job_imags.jpg')}}');
-  background-size:cover;"
+ height: 143px;
+    padding: 56px;
+    width: 200;
+    padding-bottom: 44px;
+    margin-top: 128px;
+    min-height: 100%;
+    background: linear-gradient(0deg, rgb(0, 0, 0, 0.6), rgb(0, 0, 0,0.6)), url(http://127.0.0.1:8000/images/job_imags.jpg);
+    background-size: cover;"
   >
   <h2 class="apply_now" style="margin-top: 120px;
   text-align: center;
@@ -177,12 +177,12 @@
 </div>
 
 </div>
-<div class="breadcrumb-container w-100 pa3 pv2-ns ph4-ns relative">
+<div class="breadcrumb-container w-100 pa3 pv2-ns ph4-ns relative" style="padding-top: 0px!important;">
   <div id="ctl00_cphBreadCrumb_BreadcrumbMenu1_pnlControls">
   </div>
 </div>
 <div class="clear-fix"></div>
-<div class="container" style="background-image: url('');">
+<div class="" style="background-image: url('');">
   <?php 
   $branches=\App\Models\Branch::where('status',1)->get();
   $course=\App\Models\Course::where('parentId','>',0)->get();
@@ -200,13 +200,9 @@
 
     </div>
 
-    <div class="flex flex-row-ns flex-column flex-wrap mw8 center relative" style="border: 1px solid #ccc;margin-bottom: 20px;box-shadow: 0px 2px 2px #ccc;">
+    <div class="flex container flex-row-ns flex-column flex-wrap mw8 center relative" style="margin-top: 30px;  border: 1px solid #ccc;margin-bottom: 20px; box-shadow: 0px 2px 2px #ccc;">
 
-      <div class="w-100" style="text-align: center; background-color: aliceblue;margin-bottom: 20px;">
 
-        <h3 class=" pr4-ns hidden-element fade-down element-load" style="color: #656e77;">Register Your Child</h3>
-
-      </div>
       @if(Session::has('error_message'))
       <script type="text/javascript">
         sweetAlert(
@@ -225,9 +221,10 @@
             )
           </script>
           @endif
-          <form action="{{route('admission_query')}}" method="post">
+          <form action="{{route('admission_query')}}" method="post" style="width: 100%;">
             @csrf
             <input type="hidden" name="schoo_id" value="1">
+            <br>
             <div class="col-md-12">
               <div class="row">
                 <div class="col-md-6">
@@ -249,9 +246,6 @@
                </div>
 
 
-             </div>
-
-             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
                  <label for="dob"> Date Of Birth</label>
