@@ -8,6 +8,8 @@ use App\Models\Student;
 use App\Models\StudentTransfer;
 use App\Models\FeeCorrection;
 use App\Models\StudentLeft;
+use App\Models\AdmissionQuery;
+
 use Auth;
 class DashboardController extends Controller
 {
@@ -42,6 +44,8 @@ class DashboardController extends Controller
 		}
 		$lefts=$stdLeft->count();
 
-		return view('admin.dashboard',compact('student','correction','transfers','lefts'));
+		$initalAdmissionQuery=AdmissionQuery::count();
+
+		return view('admin.dashboard',compact('student','correction','transfers','lefts','initalAdmissionQuery'));
 	}
 }
