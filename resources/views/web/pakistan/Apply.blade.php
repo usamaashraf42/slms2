@@ -255,7 +255,15 @@
               <div class="col-md-6">
                 <div class="form-group">
                  <label for="dob"> Date Of Birth</label>
-                 <input type="date" name="dob" class="form-control" id="dob" placeholder="age">
+
+                 <div class="ui calendar" id="example12" style="width: 100%">
+                    <div class="ui input" style="width: -webkit-fill-available!important;">
+                      <input type="text" class="form-control" value="{{old('dob')}}" name="dob" id="dob" autocomplete="off"  placeholder="dob">
+                    </div>
+                  </div>
+
+
+
                </div>                
              </div>
              <div class="col-md-6">
@@ -307,6 +315,21 @@
 
                 </select>
               </div>
+
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="last_school">Last School</label>
+                <input type="text" name="last_school" class="form-control" id="last_school" placeholder="Last School">
+              </div>
+            </div>
+            <div class="col-md-6">
+             <div class="form-group">
+              <label for="last_result">Last Result</label>
+              <input name="last_result" class="form-control" id="last_result" placeholder="Last Result">
+            </div>
 
           </div>
 
@@ -374,3 +397,21 @@
 </div>
 </section>
 @endsection
+
+@push('post-scripts')
+
+    <link href="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.css" rel="stylesheet" type="text/css" />
+
+    <script src="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.js"></script>
+    
+<script>
+  var today = new Date();
+    $('#example12').calendar({
+      monthFirst: false,
+      type: 'date',
+      minDate: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
+  });
+ 
+
+  </script>
+  @endpush

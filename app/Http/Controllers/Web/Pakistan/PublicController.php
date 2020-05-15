@@ -45,38 +45,38 @@ class PublicController extends Controller
     public function why_e_school(){
         return view('web.pakistan.why_e_school');
     }
-  public function Examination(){
+    public function Examination(){
         return view('web.pakistan.Examination');
     }
 
     public function Vision_two(){
         return view('web.pakistan.Vision_two');
     }
-     public function mission_two(){
+    public function mission_two(){
         return view('web.pakistan.mission_two');
     }
-     public function history_two(){
+    public function history_two(){
         return view('web.pakistan.history_two');
     }
-      public function information(){
+    public function information(){
         return view('web.pakistan.Information');
     }
-  public function clubs(){
+    public function clubs(){
         return view('web.pakistan.clubs');
     }
     public function apply(){
         return view('web.pakistan.Apply');
     }
-     public function leader(){
+    public function leader(){
         return view('web.pakistan.leader');
     }
-     public function fee_Structure(){
+    public function fee_Structure(){
         return view('web.pakistan.Fee_Structure');
     }
-       public function life(){
+    public function life(){
         return view('web.pakistan.life');
     }
-          public function explore(){
+    public function explore(){
         return view('web.pakistan.explore');
     }
     public function Jobs_now(){
@@ -86,16 +86,16 @@ class PublicController extends Controller
     public function why_Us(){
         return view('web.pakistan.why_Us');
     }
-      public function Apply_now(){
+    public function Apply_now(){
         return view('web.pakistan.Apply_now');
     }
-      public function branch(){
+    public function branch(){
         return view('web.pakistan.branch');
     }
-      public function Summer(){
+    public function Summer(){
         return view('web.pakistan.Summer');
     }
-      public function Summer_fee(){
+    public function Summer_fee(){
         return view('web.pakistan.Summer_fee');
     }
 
@@ -113,7 +113,7 @@ class PublicController extends Controller
         return view('web.pakistan.internship_job');
     }
 
-     public function howToPay(){
+    public function howToPay(){
         return view('web.pakistan.howToPay');
     }
 
@@ -127,12 +127,13 @@ class PublicController extends Controller
     public function franchise_form(Request $request){
 
       // dd($request->all());
-         $app=\App\Models\FranchiseApplicant::create([
+       $app=\App\Models\FranchiseApplicant::create([
         'first_name'=>$request->first_name?$request->first_name:'',
         'school_id'=>$request->school_id,
         'last_name'=>$request->last_name?$request->last_name:'',
         'email'=>$request->email?$request->email:'',
         'phone'=>$request->phone?$request->phone:'',
+
         'country'=>$request->select_country?$request->select_country:'',
         'country_address'=>$request->country_address?$request->country_address:'',
         'select_area'=>$request->select_area?$request->select_area:'',
@@ -141,17 +142,17 @@ class PublicController extends Controller
         'school_building'=>$request->school_building,
         'number_students'=>$request->number_students
     ]);
-    if($app){
+       if($app){
         $emails=$request->email;
         if($emails){
             Mail::send('emails.wellcome', ['email'=>$request->email], function($message) use ($emails){    
-               $message->to($emails)->subject('Welcome to Royal Lyceum School System');    
-             });
+             $message->to($emails)->subject('Welcome to Royal Lyceum School System');    
+         });
         }
         $emails='tnadeem@americanlyceum.com';
         Mail::send('emails.franchise', ['first_name'=>$request->first_name?$request->first_name:'','phone'=>$request->phone?$request->phone:'','select_country'=>$request->select_country?$request->select_country:'','email'=>$request->email,'country_address'=>$request->country_address?$request->country_address:'','select_area'=>$request->select_area?$request->select_area:'','select_franchise'=>$request->select_franchise?$request->select_franchise:'','exist_school'=>$request->exist_school,'school_building'=>$request->school_building,'number_students'=>$request->number_students], function($message) use ($emails){    
-           $message->to($emails)->subject('New Franchise Applicant Record');    
-         });
+         $message->to($emails)->subject('New Franchise Applicant Record');    
+     });
         session()->flash('success_message', __('Your application has been submitted Successfully. we will contact you soon, thanks you'));
         return redirect()->back()->with('success_message','Your application has been submitted Successfully. we will contact you soon, thanks you');
     }else{
@@ -160,64 +161,79 @@ class PublicController extends Controller
     }
 
     return redirect()->back()->with('success_message','Your application has been submitted Successfully. we will contact you soon, thanks you');
-    }
+}
 
-    public function admission_query(Request $request){
-        // `id`, `school_id`, `branch_id`, `name`, `father_name`, `contact_no`, `course_id`, `address`,
+public function admission_query(Request $request){
+        // `id`, `school_id`, `branch_id`, `name`, `phone`, `contact_no`, `course_id`, `address`,
 
         // dd($request->all());
-        $admission=\App\Models\AdmissionQuery::create([
-                'school_id'=>$request->school_id?$request->school_id:1,
-                'branch_id'=>$request->branch_id,
-                'name'=>$request->name,
-                'father_name'=>$request->fname,
-                'email'=>$request->email,
-                'address'=>$request->address,
-                'contact_no'=>$request->phone,
-                'course_id'=>$request->course_id,
+    $admission=\App\Models\AdmissionQuery::create([
+        'school_id'=>$request->school_id?$request->school_id:1,
+        'branch_id'=>$request->branch_id,
+        'name'=>$request->name,
+        'father_name'=>$request->fname,
+        'last_school'=>$request->last_school,
+        'last_result'=>$request->last_result,
+        'dob'=>date("Y-m-d", strtotime($request->dob)),
+        'email'=>$request->email,
+        'address'=>$request->address,
+        'contact_no'=>$request->phone,
+        'course_id'=>$request->course_id,
+    ]);
+    $branch=Branch::find($request->branch_id);
+    $amount=isset($branch->b_regFee)?$branch->b_regFee:1000;
+    if($admission){
+        $object = new \stdClass;
+        $fees=BankTransactionDetail::create([
+            'std_reg_id'=>$admission->id,
+            'amount'=>$amount,
+            'bank_id'=>8,
+            'status'=>1,
+            'branch_id'=>isset($branch->id)?$branch->id:0,
         ]);
-        $branch=Branch::find($request->branch_id);
-        $amount=isset($branch->b_regFee)?$branch->b_regFee:1000;
-        if($admission){
-            $object = new \stdClass;
-            $fees=BankTransactionDetail::create([
-                'std_reg_id'=>$admission->id,
-                'amount'=>$amount,
-                'bank_id'=>8,
-                'status'=>1,
-                'branch_id'=>isset($branch->id)?$branch->id:0,
-            ]);
 
-            $object->desire_amount=($amount).'00';
-            $object->pp_Amount=($amount);
+        $object->desire_amount=($amount).'00';
+        $object->pp_Amount=($amount);
 
-                session()->flash('success_message', __('Your application has been submitted Successfully. please submit registration fee, thanks you'));
-                 return view('web.pakistan.admissionQuery.checkout',compact('branch','admission','fees','object'));
-            }else{
-            session()->flash('error_message', __('Please try again '));
-            return redirect()->back()->with('error_message','Please try again');
-            }
-
-           
-
-            return redirect()->back()->with('success_message','Your application has been submitted Successfully. we will contact you soon, thanks you');
-    }
-    public function event_posted(Request $request){
-        $app=EventApplicant::create($request->all());
-         if($app){
-            session()->flash('success_message', __('Your application has been submitted Successfully. we will contact you soon, thanks you'));
-        }else{
-            session()->flash('error_message', __('Please try again '));
+        if($request->phone){
+            $sms= strip_tags("Dear $request->fname ,"." <br> "."Initial Online registration of $request->name is in process. "." <br> "."Thank You, "." <br> "."ALIS, ");
+            (SendSms($request->phone,$sms));
         }
-        return redirect()->back();
+        if($request->email){
+            $emails=$request->email;
+                Mail::send('emails.initialAdmission',['user'=>$admission], function($message) use ($emails){    
+                    $message->to($emails)->subject('Initial Online registration');    
+                });
+
+        }
+
+        session()->flash('success_message', __('To Complete Registration Please Deposit Registration Fee'));
+        return view('web.pakistan.admissionQuery.checkout',compact('branch','admission','fees','object'));
+    }else{
+        session()->flash('error_message', __('Please try again '));
+        return redirect()->back()->with('error_message','Please try again');
     }
 
 
-    function job_application(){
-        return view('web.job.job_application');
+
+    return redirect()->back()->with('success_message','Your application has been submitted Successfully. we will contact you soon, thanks you');
+}
+public function event_posted(Request $request){
+    $app=EventApplicant::create($request->all());
+    if($app){
+        session()->flash('success_message', __('Your application has been submitted Successfully. we will contact you soon, thanks you'));
+    }else{
+        session()->flash('error_message', __('Please try again '));
     }
+    return redirect()->back();
+}
 
 
-    
+function job_application(){
+    return view('web.job.job_application');
+}
+
+
+
 
 }

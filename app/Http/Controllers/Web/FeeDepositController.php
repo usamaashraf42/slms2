@@ -649,10 +649,29 @@ class FeeDepositController extends Controller
 				$admission=\App\Models\AdmissionQuery::find($fees->std_reg_id);
 				$admission->paid=1;
 				$admission->save();
+
+
+				if(isset($admission->contact_no) && $admission->contact_no){
+		            $sms= strip_tags("Dear $admission->father_name ,"." <br> "."Congratulations, You $admission->name has been initially registered in school. Your Registration Number is $admission->id. "." <br> "."Thank You, "." <br> "."Our Manager will contact you shortly.Regards, "." <br> "."ALIS ");
+		            SendSms($admission->contact_no,$sms);
+		        }
+		        if($admission->email){
+		        	$emails=$admission->email;
+		            Mail::send('emails.initialAdmissionSuccess',['user'=>$admission], function($message) use ($emails){    
+		                $message->to($emails)->subject('Initial Online registration');    
+		            });
+
+		        }
+
+
 				return true;
 			}else{
 				return true
 			}
+
+
+			
+
 			
 
 		}else{

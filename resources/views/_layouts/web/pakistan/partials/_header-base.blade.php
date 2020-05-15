@@ -73,7 +73,7 @@
               <a href="{{route('pakistan.Information')}}" class="first  sw-menucode-item__link">Information</a>
             </li>
             <li class="sw-menucode-list__item" id="mn-how-to-apply">
-              <a href="{{route('pakistan.Apply')}}" class=" sw-menucode-item__link">Apply
+              <a href="{{route('pakistan.Apply')}}" class=" sw-menucode-item__link">Register
               </a>
             </li>
           </ul>
