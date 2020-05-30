@@ -666,7 +666,7 @@ class FeeDepositController extends Controller
 
 				return true;
 			}else{
-				return true
+				return true;
 			}
 
 
