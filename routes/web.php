@@ -259,6 +259,11 @@ Route::prefix('admin')->group(function () {
 			Route::resource('approval-transfer-student','admins\Student\studentTransfer\StudentTransferApprovalController');
 			Route::resource('student-edit','admins\Student\StudentBulkEditController');
 			Route::resource('student-freeze','admins\Student\studentFreeze\StudentFreezeController');
+			Route::resource('student-unfreeze','admins\Student\studentFreeze\StudentUnFreezeController');
+
+
+
+
 			Route::POST('student-edit_update','admins\Student\StudentBulkEditController@edit_update')->name('student_edit_update');
 			Route::resource('re-admission','admins\Student\StatusChangeController');
 			Route::resource('card','admins\Student\Card\StudentCardController');

@@ -425,6 +425,11 @@
                 <li class="{{ areActiveRoutes(['student-freeze.index'])}}"><a href="{{route('student-freeze.index')}}"> Student-Freeze Report</a></li>
                 @endif
 
+
+                 @if(Auth::user()->can('Student-Freeze') )
+                <li class="{{ areActiveRoutes(['student-unfreeze.index'])}}"><a href="{{route('student-unfreeze.index')}}"> Student-UnFreeze </a></li>
+                @endif
+
             </ul>
         </li>
         @endif
