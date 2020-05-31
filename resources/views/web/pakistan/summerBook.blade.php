@@ -610,7 +610,7 @@ function jobFormSubmit(ob){
 
          </label>
          <div class="controls">
-         <input class="input-md  textinput textInput form-control" id="delivery_charge" readonly  value="85" name="delivery_charge"  vstyle="margin-bottom: 10px;" type="number" >
+         <input class="input-md  textinput textInput form-control" id="delivery_charge" readonly  value="120" name="delivery_charge"  vstyle="margin-bottom: 10px;" type="number" >
 
          </div>
          </div>

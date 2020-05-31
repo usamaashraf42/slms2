@@ -33,7 +33,7 @@ class SummerBookChargeController extends Controller
     		'branch_id'=>$student->branch_id,
     		'std_id'=>$student->id,
     		'price'=>300,
-    		'delivery_charge'=>85,
+    		'delivery_charge'=>120,
     		'email'=>$request->email,
     		'phone'=>$request->phone,
     		'address'=>$request->address,
@@ -52,7 +52,7 @@ class SummerBookChargeController extends Controller
 
     	$fees=BankTransactionDetail::create([
 			'std_id'=>$request->std_id,
-			'amount'=>385,
+			'amount'=>420,
 			'bank_id'=>8,
 			'order_id'=>$order->id,
 			'status'=>1,
@@ -63,8 +63,8 @@ class SummerBookChargeController extends Controller
 			return redirect()->route('pakistan.summerBook');
 		}
 		$object = new \stdClass;
-		$object->desire_amount=('385').'00';
-		$object->pp_Amount=('385');
+		$object->desire_amount=('420').'00';
+		$object->pp_Amount=('420');
 // dd($request->all());
 		return view('web.summerBookCharge',compact('student','fees','object','request'));
 
