@@ -88,9 +88,10 @@ Route::get('feedeposit-paypal-status','Web\PaypalFeeDepositController@getPayment
 Route::GET('feedeposit-status','Web\FeeDepositController@feeDepositstatus')->name('feeDepositstatus');
 
 
-
+Route::get('order', 'Web\Pakistan\PublicController@summerBook')->name('pakistan.summerBook');
 
 Route::POST('feeChallan','Web\FeeDepositController@feeChallan')->name('feeChallan');
+Route::post('summer/book/charge','Web\SummerBookChargeController@summerBookCharge')->name('summerBookCharge');
 
 
 Route::get('job/internship','Web\Pakistan\PublicController@job_internship')->name('job_internship');
@@ -128,6 +129,9 @@ Route::prefix('pakistan')->group(function () {
 	Route::get('/news','Web\Pakistan\PublicController@news')->name('pakistan.news');
 	Route::get('job/internship','Web\Pakistan\PublicController@job_internship')->name('pakistan_job_internship');
 	Route::get('/feedeposit','Web\FeeDepositController@index')->name('onlineFeeDeposit');
+
+
+	Route::get('order', 'Web\Pakistan\PublicController@summerBook')->name('pakistan.summerBook');
 
         // Route::get('/why_Us', 'Web\Pakistan\PublicController@why_Us')->name('pakistan.why_Us');
         // Route::get('/apply_frenchise','Web\Pakistan\PublicController@apply_frenchise')->name('pakistan.apply_frenchise');

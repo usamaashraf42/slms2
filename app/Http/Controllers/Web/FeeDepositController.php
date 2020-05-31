@@ -59,8 +59,15 @@ class FeeDepositController extends Controller
 				if($request->ppmpf_5==2){
 					$this->admissionFeeSubmit($request->ppmpf_1);
 					session()->flash('success_message', __("Fee deposit successfully"));
-				return redirect()->route('pakistan.Apply');
-				}else{
+					return redirect()->route('pakistan.Apply');
+				}elseif ($request->ppmpf_5==3) {
+
+					$this->summerBookCharge($request->ppmpf_1);
+					session()->flash('success_message', __("Fee deposit successfully"));
+					return redirect()->route('pakistan.summerBook');
+
+				}
+				else{
 					$this->feeDepositDbEffected($request->ppmpf_2,$request->ppmpf_1,$amount,8);
 					session()->flash('success_message', __("Fee deposit successfully"));
 					return redirect()->route('feedeposit.index');
@@ -184,9 +191,15 @@ class FeeDepositController extends Controller
 			$object->fee_id=rand();
 			$object->std_id=$fee->student->id;
 			$object->name=$fee->student->s_name;
+
+			$object->phone=$fee->student->s_phoneNo;
+			$object->email=$fee->student->std_mail;
+			$object->home_address=$fee->student->home_address;
+
 			$object->s_fatherName=$fee->student->s_fatherName;
 			$object->branch=$fee->student->branch->branch_name;
 			$object->course=$fee->student->course->course_name;
+
 			$object->fee_month=$fee->fee_month;
 			$object->fee_year=$fee->fee_year;
 			$object->images=$fee->student->images;
@@ -229,8 +242,13 @@ class FeeDepositController extends Controller
 			$students->std_id=$student->id;
 
 			$students->fee_id=rand();
-			$students->name=$student->s_name.' '.$student->s_fatherName;
+			$students->name=$student->s_name;
 			$students->s_fatherName=$student->s_fatherName;
+
+
+			$students->s_phoneNo=$fee->student->s_phoneNo;
+			$students->std_mail=$fee->student->std_mail;
+			$students->home_address=$fee->student->home_address;
 
 
 			
@@ -639,7 +657,59 @@ class FeeDepositController extends Controller
 		}
 		
 	}
+	function summerBookCharge($id){
 
+		$bank=BankTransactionDetail::find($id);
+		if($bank){
+			$fees=BankTransactionDetail::where('id',$id)->update(['status'=>0]);
+
+			if($bank->order_id){
+				$admission=\App\Models\InvOrder::find($bank->order_id);
+				$admission->is_paid=1;
+				$admission->save();
+
+				if(isset($admission->std_id) && $admission->std_id){
+					$student=Student::find($admission->std_id);
+
+					$student->s_phoneNo=$admission->phone;
+					$student->std_mail=$admission->email;
+					$student->home_address=$admission->address;
+
+
+					$student->save();
+				} 
+
+
+				if(isset($admission->phone) && $admission->phone && isset($student) && $student){
+		            $sms= strip_tags("Dear $admission->s_name ,"." <br> "."Your summer book order has been received.You will receive your order within 7 working days. "." <br> "."Regards, "." <br> "."ALIS ");
+		            SendSms($admission->phone,$sms);
+		        }
+		        if($admission->email){
+		        	$emails=$admission->email;
+		        	$address=$admission->address;
+		            Mail::send('emails.summerBookChargeMail',['user'=>$student ,'address'=>$address], function($message) use ($emails){    
+		                $message->to($emails)->subject('Online payment of summer book');    
+		            });
+
+		        }
+
+
+				return true;
+			}else{
+				return true;
+			}
+
+
+			
+
+			
+
+		}else{
+			return false;
+		}
+
+
+	}
 	function admissionFeeSubmit($id,$amount,$bank){
 		$bank=BankTransactionDetail::find($id);
 		if($bank){

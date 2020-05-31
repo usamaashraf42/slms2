@@ -118,6 +118,11 @@ class PublicController extends Controller
     }
 
 
+    public function summerBook(){
+        return view('web.pakistan.summerBook');
+    }
+
+
     
 
 

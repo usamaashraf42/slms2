@@ -677,8 +677,7 @@ function jobFormSubmit(ob){
  
 
 
-  $('.std_id-error').css('display','none');
-  $('.fee_id_error').css('display','none');
+  
   
   var fee_id=parseInt($('#fee_id').val());
   var std_id=parseInt($('#std_id').val());
