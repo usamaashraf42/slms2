@@ -264,6 +264,7 @@
                         <tr>
                           <th>Order Id</th>
                           <th>Branch </th>
+                          
                           <th>Category</th>
                           <th>Sub Category</th>
                           <th>Product </th>

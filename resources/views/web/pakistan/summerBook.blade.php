@@ -560,7 +560,7 @@ function jobFormSubmit(ob){
 
          <div class="col-md-6 col-sm-6 col-xs-12">
          <div id="phone" class="form-group required">
-         <label for="phone" class="control-label requiredField">Phone                        
+         <label for="phone" class="control-label requiredField">Phone (Update Delivery Phone Number)                       
          <span class="required" style="color: red">*</span> 
          </label>
          <div class="controls">
@@ -573,7 +573,7 @@ function jobFormSubmit(ob){
 
          <div class="col-md-6 col-sm-6 col-xs-12">
          <div id="div_id_username" class="form-group required">
-         <label for="email" class="control-label requiredField">Email                        
+         <label for="email" class="control-label requiredField">Email (Update Email)                        
          </label>
          <div class="controls">
          <input class="input-md  textinput textInput form-control" id="std_id" value="${response.student.std_mail?response.student.std_mail:''}"   min="0" name="email"
@@ -585,7 +585,7 @@ function jobFormSubmit(ob){
 
          <div class="col-md-6 col-sm-6 col-xs-12">
          <div id="address" class="form-group required">
-         <label for="address" class="control-label requiredField">Home Address                        
+         <label for="address" class="control-label requiredField">Home Address (Update Delivery Address)                        
          <span class="required" style="color: red">*</span> 
          </label>
          <div class="controls">

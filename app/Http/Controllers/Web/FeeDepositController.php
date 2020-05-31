@@ -83,7 +83,12 @@ class FeeDepositController extends Controller
 
 				if($request->ppmpf_5==2){
 					return redirect()->route('pakistan.Apply');
-				}else{
+				}elseif ($request->ppmpf_5==3) {
+
+					return redirect()->route('pakistan.summerBook');
+
+				}
+				else{
 					return redirect()->route('feedeposit.index');
 				}
 			}
@@ -91,6 +96,10 @@ class FeeDepositController extends Controller
 				session()->flash('error_message', __("Payment Failed. $ResponseMessage "));
 				if($request->ppmpf_5==2){
 					return redirect()->route('pakistan.Apply');
+				}elseif ($request->ppmpf_5==3) {
+
+					return redirect()->route('pakistan.summerBook');
+
 				}else{
 					return redirect()->route('feedeposit.index');
 				}
@@ -108,6 +117,10 @@ class FeeDepositController extends Controller
 			session()->flash('error_message', __("mismatched marked it suspicious or reject it"));
 			if($request->ppmpf_5==2){
 					return redirect()->route('pakistan.Apply');
+				}elseif ($request->ppmpf_5==3) {
+
+					return redirect()->route('pakistan.summerBook');
+
 				}else{
 					return redirect()->route('feedeposit.index');
 				}		
@@ -664,9 +677,9 @@ class FeeDepositController extends Controller
 			$fees=BankTransactionDetail::where('id',$id)->update(['status'=>0]);
 
 			if($bank->order_id){
-				$admission=\App\Models\InvOrder::find($bank->order_id);
-				$admission->is_paid=1;
-				$admission->save();
+				$admission=\App\Models\InvOrder::where('order_id',$bank->order_id)->first();
+				
+				\App\Models\InvOrder::where('order_id',$bank->order_id)->update(['is_paid'=>1]);
 
 				if(isset($admission->std_id) && $admission->std_id){
 					$student=Student::find($admission->std_id);
