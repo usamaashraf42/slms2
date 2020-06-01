@@ -19,7 +19,7 @@ class OrderController extends Controller
 	public function index(){
 		$products=InvProduct::where('status',1)->get();
 		$categories=InvProductCategory::where('parent_id',null)->get();
-		$orders=InvOrder::where('order_status',1)->get();
+		$orders=InvOrder::where('order_status',1)->where('is_paid',1)->get();
 		$branch=Branch::where('status',1);
 
 		if(Auth::user()->branch_id){
