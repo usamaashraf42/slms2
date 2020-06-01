@@ -199,7 +199,7 @@
 
     </div>
 
-    <div class="flex container flex-row-ns flex-column flex-wrap mw8 center relative" style="margin-top: 30px;  border: 1px solid #ccc;margin-bottom: 20px; box-shadow: 0px 2px 2px #ccc;">
+    <div class="flex container flex-row-ns flex-column flex-wrap mw12 center relative" style="margin-top: 30px;  border: 1px solid #ccc;margin-bottom: 20px; box-shadow: 0px 2px 2px #ccc;">
 
 
       @if(Session::has('error_message'))
@@ -214,8 +214,8 @@
         @if(Session::has('success_message'))
         <script type="text/javascript">
           sweetAlert(
-            'thanks you',
-            'Your application has been submitted Successfully . we will contact you soon',
+            'thank you',
+            'Your order has been submitted Successfully . You will receive your order within 7 working days',
             'success'
             )
           </script>
