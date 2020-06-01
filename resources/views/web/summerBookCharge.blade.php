@@ -377,7 +377,7 @@ border-bottom-left-radius: 25px;
     									background: #fff;
     									">
 
-    									<div class="col-md-7">
+    									<div class="col-md-6">
     										<div class="receipt-header" style="border: 1px solid #ccc;
     										padding: 12px;text-align: center; ">
     										<div class="receipt-right" style="text-align: center;">
@@ -387,8 +387,8 @@ border-bottom-left-radius: 25px;
     											<div class="box_filed"><STRONG>@isset($student->branch->branch_name){{$student->branch->branch_name}} @endisset</STRONG></div>
     											<div class="box_filed"><STRONG>@isset($student->s_phoneNo){{$student->course->course_name}} @endisset </STRONG></div>
 
-    											<div class="box_filed"><STRONG>@isset($student->s_phoneNo){{$student->s_phoneNo}} @endisset </STRONG></div>
-    											<div class="box_filed"><STRONG>@isset($student->std_mail){{$student->std_mail}} @endisset </STRONG></div>
+    											<div class="box_filed"><STRONG>@isset($request->phone){{$request->phone}} @endisset</STRONG></div>
+    											<div class="box_filed"><STRONG>@isset($request->email){{$request->email}} @endisset </STRONG></div>
     											<div class="box_filed"><STRONG>@isset($request->address){{$request->address}} @endisset </STRONG></div>
 
     										</div>
@@ -403,11 +403,11 @@ border-bottom-left-radius: 25px;
 
     									</div>
     								</div>
-    								<div class="col-md-5">
+    								<div class="col-md-6">
     									
     									<div style="width: 70%; float: left; text-align: justify;">
     										
-    										<p style="font-size:20px;">
+    										<p style="font-size:16px;">
     											<b> Amount going to be charged from you: </b>
     										</p>
     									</div>

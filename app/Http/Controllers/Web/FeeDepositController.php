@@ -27,7 +27,7 @@ class FeeDepositController extends Controller
 
 	public function feeDepositstatus(Request $request){
 		$HashKey= "txtw58z1x0"; //Your Hash Key
-		if(!(isset($_POST['pp_ResponseCode']))){
+		if(!(isset($_POST['pp_ResponseCode'])) && !(isset($_POST['pp_SecureHash'])) && !(isset($_POST['pp_ResponseMessage'])) ){
 			session()->flash('error_message', __("Something went wrong from bank side, please try later"));
 			return redirect()->route('feedeposit.index');
 		}

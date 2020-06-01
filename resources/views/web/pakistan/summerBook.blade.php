@@ -201,7 +201,7 @@
 
     <div class="flex container flex-row-ns flex-column flex-wrap mw12 center relative" style="margin-top: 30px;  border: 1px solid #ccc;margin-bottom: 20px; box-shadow: 0px 2px 2px #ccc;">
 
-
+ <form  action="{{route('summerBookCharge')}}" id="applicationForm"  method="POST" enctype="multipart/form-data">
       @if(Session::has('error_message'))
       <script type="text/javascript">
         sweetAlert(
@@ -220,7 +220,7 @@
             )
           </script>
           @endif
-          <form   action="{{route('summerBookCharge')}}" id="applicationForm"  method="POST" enctype="multipart/form-data">
+         
             @csrf
             <div class="col-md-12">
               <div class="row"  style="margin-top: 20px;">
@@ -260,7 +260,7 @@
               </div>
               <div class="col-md-2 float-right" style="float:right">
 
-                <button class="btn btn-success btn-sm submitButton float-left" onclick="FormSubmit(this)"   style="display: none; "  value="submit">submit </button>
+                <button class="btn btn-success btn-sm submitButton float-left" type="button" onclick="FormSubmit(this)"   style="display: none; "  value="submit">submit </button>
 
 
               </div>
@@ -270,7 +270,6 @@
 
 
 
-      </form>
     </div>
 
 
@@ -331,8 +330,7 @@
 
 
   function FormSubmit(obj){
-
-   $amount=$('.pp_Amount').val();
+console.log('form submit');
 
    document.getElementById("applicationForm").submit();
  }
@@ -343,6 +341,7 @@
 <script>
 
  function refreshwindow(obj){
+  console.log('reload');
   location.reload(true);
 }
 
@@ -464,8 +463,8 @@
            <label for="email" class="control-label requiredField">Email (Update Email)                        
            </label>
            <div class="controls">
-           <input class="input-md  textinput textInput form-control" id="std_id" value="${response.student.std_mail?response.student.std_mail:''}"   min="0" name="email"
-           placeholder="Please enter the email" value="" style="margin-bottom: 10px;" type="number" />
+           <input class="input-md  textinput textInput form-control" id="std_id" value="${response.student.std_mail?response.student.std_mail:''}"   name="email"
+           placeholder="Please enter the email" value="" style="margin-bottom: 10px;"  />
 
            </div>
            </div>

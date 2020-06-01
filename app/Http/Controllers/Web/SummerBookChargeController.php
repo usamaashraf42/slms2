@@ -20,7 +20,6 @@ use App\Models\Student;
 class SummerBookChargeController extends Controller
 {
     public function summerBookCharge(summerBookChargeRequest $request){
-    	// dd($request->all());
     	$student=Student::find($request->std_id);
 
     	if(!$student){
