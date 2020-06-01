@@ -344,8 +344,8 @@ border-bottom-left-radius: 25px;
                               <span class="required" style="color: red">*</span> 
                             </label>
                             <div class="controls">
-                              <input class="input-md  textinput textInput form-control" id="std_id" value="@if(old('std_id')){{old('std_id')}}@endif"   min="0" name="std_id"
-                              placeholder="Please enter the Roll No" value="" style="margin-bottom: 10px;" type="number" />
+                              <input class=" form-control" id="std_id" value="@if(old('std_id')){{old('std_id')}}@endif"  name="std_id"
+                              placeholder="Please enter the Roll No" value="" style="margin-bottom: 10px;"  />
                               <p class="std_id-error" style="display: none; color:red;"></p>
                               @if ($errors->has('std_id'))
                               <div class="alert alert-danger" role="alert">
