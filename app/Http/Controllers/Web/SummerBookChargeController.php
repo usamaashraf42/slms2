@@ -26,13 +26,19 @@ class SummerBookChargeController extends Controller
     		session()->flash('error_message', __('Something went wrong please try later'));
 			return redirect()->route('pakistan.summerBook');
     	}
+
+        $amount=$student->course_id>4?300:150;
+        $delivery_charge=120;
+
+        $amount_delivery=$amount+$delivery_charge;
+
     	$order=InvOrder::create([
     		'pro_id'=>1,
     		'school_id'=>1,
     		'branch_id'=>$student->branch_id,
     		'std_id'=>$student->id,
-    		'price'=>300,
-    		'delivery_charge'=>120,
+    		'price'=>$amount,
+    		'delivery_charge'=>$delivery_charge,
     		'email'=>$request->email,
     		'phone'=>$request->phone,
     		'address'=>$request->address,
@@ -46,12 +52,12 @@ class SummerBookChargeController extends Controller
     		'order_id'=>$order->id,
     		'pro_id'=>1,
     		'qty'=>1,
-    		'pro_total_price'=>300
+    		'pro_total_price'=>$amount
     	]);
 
     	$fees=BankTransactionDetail::create([
 			'std_id'=>$request->std_id,
-			'amount'=>420,
+			'amount'=>$amount_delivery,
 			'bank_id'=>8,
 			'order_id'=>$order->id,
 			'status'=>1,
@@ -62,8 +68,8 @@ class SummerBookChargeController extends Controller
 			return redirect()->route('pakistan.summerBook');
 		}
 		$object = new \stdClass;
-		$object->desire_amount=('420').'00';
-		$object->pp_Amount=('420');
+		$object->desire_amount=($amount_delivery).'00';
+		$object->pp_Amount=($amount_delivery);
 // dd($request->all());
 		return view('web.summerBookCharge',compact('student','fees','object','request'));
 

@@ -396,6 +396,8 @@ console.log('form submit');
            $('.ppmpf_1').val(response.student.feed_id);
            $('.ppmpf_2').val(std_id);
 
+           var amount=response.student.course_id>4?300:150;
+
            var content=`<div class="col-md-9">
            <div style="margin: 0 0 2em 0;
            padding: 1em 1em 1.5em 1em;
@@ -486,7 +488,7 @@ console.log('form submit');
            <label for="book_charge" class="control-label requiredField"> Summer Book Charge                   
            </label>
            <div class="controls">
-           <input class="input-md  textinput textInput form-control" id="book_charge" readonly value="300" name="book_charge"  vstyle="margin-bottom: 10px;" type="number" >
+           <input class="input-md  textinput textInput form-control" id="book_charge" readonly value="${amount}" name="book_charge"  vstyle="margin-bottom: 10px;" type="number" >
 
            </div>
            </div>

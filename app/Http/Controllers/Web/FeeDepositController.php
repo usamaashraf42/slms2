@@ -212,6 +212,7 @@ class FeeDepositController extends Controller
 			$object->s_fatherName=$fee->student->s_fatherName;
 			$object->branch=$fee->student->branch->branch_name;
 			$object->course=$fee->student->course->course_name;
+			$object->course_id=$fee->student->course_id;
 
 			$object->fee_month=$fee->fee_month;
 			$object->fee_year=$fee->fee_year;
@@ -257,6 +258,7 @@ class FeeDepositController extends Controller
 			$students->fee_id=rand();
 			$students->name=$student->s_name;
 			$students->s_fatherName=$student->s_fatherName;
+			$students->course_id=$student->course_id;
 
 
 			$students->s_phoneNo=$fee->student->s_phoneNo;
