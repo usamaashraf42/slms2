@@ -265,6 +265,7 @@
                           <th>Order Id</th>
                           <th>Branch </th>
                           <th>Student Name (id)</th>  
+                          <th>Class</th>
                           <th>Phone</th>  
                           <th>address</th>             
                           <th>Product </th>
@@ -281,7 +282,7 @@
                           <td>{{$query->order_id}}</td>
                           <td>@isset($query->branch) {{$query->branch->branch_name}} @endisset </td>
                           <td>@isset($query->student) {{$query->student->s_name}} ({{$query->std_id}}) @endisset </td>
-
+                          <td>@isset($query->student->course) {{$query->student->course->course_name}} @endisset </td>
                           <td> @isset($query->phone) {{$query->phone}} @endisset</td>
                           <td> @isset($query->address) {{$query->address}} @endisset</td>
                         
