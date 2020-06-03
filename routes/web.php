@@ -43,6 +43,11 @@ Route::prefix('muscat')->group(function () {
 	Route::get('/faq', 'Web\Muscat\PublicController@faq')->name('muscat.faq');
     Route::get('/contact', 'Web\Muscat\PublicController@contact')->name('muscat.contact');
     Route::get('/contact_school', 'Web\Muscat\PublicController@contact_school')->name('muscat.contact_school');
+
+    Route::get('/admission', 'Web\Muscat\PublicController@admission')->name('muscat.admission');
+    Route::post('/admission/fee/deposit', 'Web\Muscat\PublicController@admission_query')->name('muscat.admission_query');
+
+
 });
 Route::post('admission/query','Web\Pakistan\PublicController@admission_query')->name('admission_query');
 Route::get('/about', 'Web\Pakistan\PublicController@about')->name('pakistan.about');
@@ -95,7 +100,6 @@ Route::post('summer/book/charge','Web\SummerBookChargeController@summerBookCharg
 
 
 Route::get('job/internship','Web\Pakistan\PublicController@job_internship')->name('job_internship');
-
 Route::get('job/application/','Web\Pakistan\PublicController@job_application')->name('job_application');
 
 

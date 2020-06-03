@@ -126,7 +126,7 @@ class OrderController extends Controller
 			'created_by'=>Auth::id(),
 		]);
 
-		if($order && isset(($order->id))){
+		if($order && isset(($order->id) && isset($request->pro_id) && is_array($request->pro_id) )){
 			for($i=0; $i<count($request->pro_id); $i++){
 				if(isset($request->pro_id[$i])){
 					InvOrderDetail::create([
