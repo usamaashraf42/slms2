@@ -419,7 +419,7 @@
   $course=\App\Models\Course::where('parentId','>',0)->get();
   ?>
 
-
+ <h2 >1 OMR ={{currencyCnv(1,'OMR','USD')}} Dollar</h2>
 
   @if(Session::has('error_message'))
       <script type="text/javascript">

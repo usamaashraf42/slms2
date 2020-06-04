@@ -116,6 +116,12 @@ class PublicController extends Controller
 
             }
 
+            if(!$fees){
+                 session()->flash('error_message', __('Please try again '));
+                return redirect()->back()->with('error_message','Please try again');
+            }
+
+
             session()->flash('success_message', __('To Complete Registration Please Deposit Registration Fee'));
             return view('web.muscat.admissionQuery.checkout',compact('branch','admission','fees','object'));
         }else{

@@ -365,47 +365,17 @@
 </nav>
 
 
-<div id="layerslider" class="ls-container ls-fullwidth" style="visibility: visible;">
- <div class="ls-inner" style="background-color: transparent; width: 100%;height: 100%;">
-  <div class="ls-lt-container ls-overflow-hidden" style="width: 100%;height: 100%; display: block;">
-   <
-   <div class="ls-nexttiles">
-    <div class="ls-lt-tile" style="width: 100%;height: 100%; overflow: visible;">
-     <div class="ls-nexttile" style="top: 0px; left: 0px; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);"></div></div></div></div>
+<br>
+<br>
 
+<br>
 
+<br>
+<br>
+<br>
+<br>
+<br>
 
-     <div class="ls-circle-timer" style="display: none;">
-
-      <div class="ls-ct-left">
-
-       <div class="ls-ct-rotate" style="transform: matrix(1, 0, 0, 1, 0, 0);">
-
-        <div class="ls-ct-hider">
-
-         <div class="ls-ct-half">
-         </div>
-       </div>
-     </div>
-   </div>
-
-   <div class="ls-ct-right">
-
-     <div class="ls-ct-rotate" style="transform: matrix(1, 0, 0, 1, 0, 0);">
-
-      <div class="ls-ct-hider">
-
-       <div class="ls-ct-half">
-
-       </div>
-     </div>
-   </div>
- </div>
- <div class="ls-ct-center">
- </div>
-</div>
-</div> 
-</div>
 <div class="clear-fix"></div>
 <div class="container">
   <div class="col-md-12" style="text-align: center;">
@@ -413,52 +383,20 @@
  </div>
 </div>
 
-<?php
 
-    $MerchantID ="00168054"; //Your Merchant from transaction Credentials
-    $Password   ="55589342s0"; //Your Password from transaction Credentials
-    $ReturnURL  ="https://lyceumgroupofschools.com/feedeposit-status"; //Your Return URL 
-    $HashKey    ="txtw58z1x0";//Your HashKey from transaction Credentials
-    $PostURL = "https://payments.jazzcash.com.pk/CustomerPortal/transactionmanagement/merchantform";
-    //"http://testpayments.jazzcash.com.pk/PayAxisCustomerPortal/transactionmanagement/merchantform"; 
-    date_default_timezone_set("Asia/karachi");
-    $Amount = $object->desire_amount; //Last two digits will be considered as Decimal
-    $BillReference = $fees->id;
-    $Description = "Thank you for using Jazz Cash";
-    $Language = "EN";
-    $TxnCurrency = "OMR";
-    $TxnDateTime = date('YmdHis') ;
-    $TxnExpiryDateTime = date('YmdHis', strtotime('+8 Days'));
-    $TxnRefNumber = $fees->id;
-    $TxnType = "";
-    $Version = '1.1';
-    $SubMerchantID = "";
-    $DiscountedAmount = "";
-    $DiscountedBank = "";
-    $ppmpf_1=$fees->id;
-    $ppmpf_2="";
-    $ppmpf_3="";
-    $ppmpf_4=isset($admission->id)?$admission->id:0;
-    $ppmpf_5="2";
-// dd($TxnRefNumber);
-    $HashArray=[$Amount,$BillReference,$Description,$DiscountedAmount,$DiscountedBank,$Language,$MerchantID,$Password,$ReturnURL,$TxnCurrency,$TxnDateTime,$TxnExpiryDateTime,$TxnRefNumber,$TxnType,$Version,$ppmpf_1,$ppmpf_2,$ppmpf_3,$ppmpf_4,$ppmpf_5];
-
-    $SortedArray=$HashKey;
-    for ($i = 0; $i < count($HashArray); $i++) { 
-      if($HashArray[$i] != 'undefined' AND $HashArray[$i]!= null AND $HashArray[$i]!="" )
-      {
-
-        $SortedArray .="&".$HashArray[$i];
-      } }
-      $Securehash = hash_hmac('sha256', $SortedArray, $HashKey);  
-      ?>
       <div class="container" style="margin-top: 40px; border: 1px solid #ccc;padding-top: 20px;">
         @component('_components.alerts-default')
         @endcomponent
+
+        <h2 >1 OMR ={{currencyCnv(1,'OMR','USD')}} Dollar</h2>
         <div id="signupbox"  class="mainbox col-md-12  col-sm-12 col-xs-12">
           <div>
-            <form   action="https://payments.jazzcash.com.pk/CustomerPortal/transactionmanagement/merchantform" id="applicationForm"  method="POST" enctype="multipart/form-data">
+            <form   action="{{route('admission.payWithpaypal')}}" id="applicationForm"  method="POST" enctype="multipart/form-data">
               @csrf
+
+              <input type="hidden" name="amount" value=" @isset($object->pp_Amount) {{currencyCnv($object->pp_Amount,'OMR','USD')}}  @endisset">
+
+              <input type="hidden" name="transaction_id" value="{{$fees->id}}">
               <div class="panel-body" style="border:1px solid #ccc; margin-bottom: 20px;">
                 <div class="row">
                   <div class="col-md-12 col-sm-12 col-xs-12">
@@ -466,28 +404,7 @@
 
 
 
-                    <input type="hidden" name="pp_Version" value="<?php echo $Version; ?>" />
-                    <input type="hidden" name="pp_TxnType" value="<?php echo $TxnType; ?>" />
-                    <input type="hidden" name="pp_Language" value="<?php echo $Language; ?>" />
-                    <input type="hidden" name="pp_MerchantID" value="<?php echo $MerchantID; ?>" />
-                    <input type="hidden" name="pp_SubMerchantID" value="<?php echo $SubMerchantID; ?>" />
-                    <input type="hidden" name="pp_Password" value="<?php echo $Password; ?>" />
-                    <input type="hidden" name="pp_TxnRefNo" class="TxnRefNumber" value="<?php echo $TxnRefNumber; ?>"/>
-                    <input type="hidden" name="pp_Amount" class="pp_Amount" value="<?php echo $Amount; ?>" />
-                    <input type="hidden" name="pp_TxnCurrency" value="<?php echo $TxnCurrency; ?>"/>
-                    <input type="hidden" name="pp_TxnDateTime" value="<?php echo $TxnDateTime; ?>" />
-                    <input type="hidden" name="pp_BillReference" class="pp_BillReference" value="<?php echo $BillReference ?>" />
-                    <input type="hidden" name="pp_Description" value="<?php echo $Description; ?>" />
-                    <input type="hidden" id="pp_DiscountedAmount" name="pp_DiscountedAmount" value="<?php echo $DiscountedAmount ?>">
-                    <input type="hidden" id="pp_DiscountBank" name="pp_DiscountBank" value="<?php echo $DiscountedBank ?>">
-                    <input type="hidden" name="pp_TxnExpiryDateTime" value="<?php echo  $TxnExpiryDateTime; ?>" />
-                    <input type="hidden" name="pp_ReturnURL" value="<?php echo $ReturnURL; ?>" />
-                    <input type="hidden" name="pp_SecureHash" value="<?php echo $Securehash; ?>" />
-                    <input type="hidden" name="ppmpf_1" class="ppmpf_1" value="<?php echo $ppmpf_1; ?>" />
-                    <input type="hidden" name="ppmpf_2" class="ppmpf_2" value="<?php echo $ppmpf_2; ?>" />
-                    <input type="hidden" name="ppmpf_3" value="<?php echo $ppmpf_3; ?>" />
-                    <input type="hidden" name="ppmpf_4" value="<?php echo $ppmpf_4; ?>" />
-                    <input type="hidden" name="ppmpf_5" value="<?php echo $ppmpf_5; ?>" />
+          
 
 
                   </div>
@@ -536,7 +453,7 @@
                   </div>
                   <div style="width: 30%;float: right; text-align: right;padding-right: 15px; ">
 
-                    <h2 style="font-size:32px;"><strong><i class="fa fa-inr"></i> {{$object->pp_Amount}}/-</strong></h2>
+                    <h2 style="font-size:32px;"><strong><i class="fa fa-OMR"></i> @isset($object->pp_Amount) {{currencyCnv($object->pp_Amount,'OMR','USD')}}$  @endisset/-</strong></h2>
 
                   </div>
                 </div>
@@ -551,8 +468,7 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="col-md-12">
+       <div class="col-md-12">
       <div class="row">
         <div class="col-md-10"></div>
         <div class="col-md-2">
@@ -564,30 +480,12 @@
     </div>
   </form>
   
+    </div>
+   
 
 </div>
 <!-- The Modal -->
-<div class="modal" id="myModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
 
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h1 class="modal-title">Heading</h1>
-        <button type="button" class="close" data-dismiss="modal">×</button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-        <h3>Some text to enable scrolling..</h3>
-        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 </div>
 </section>
 

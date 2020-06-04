@@ -23,8 +23,6 @@ Route::get('/easypaisa/token', function () { return view('web.easypaisa.get_toke
 Route::post('easypaisa/store','Web\EasypaisaController@store')->name('easypaisaStore');
 Route::get('/unauthorized/user', function () { return view('error.401'); })->name('401');
 
-
-
 Route::prefix('muscat')->group(function () {
 	Route::get('/', 'Web\Muscat\PublicController@index')->name('muscat.index');
 	Route::get('/nursery', 'Web\Muscat\PublicController@nursery')->name('muscat.nursery');    
@@ -46,6 +44,9 @@ Route::prefix('muscat')->group(function () {
 
     Route::get('/admission', 'Web\Muscat\PublicController@admission')->name('muscat.admission');
     Route::post('/admission/fee/deposit', 'Web\Muscat\PublicController@admission_query')->name('muscat.admission_query');
+
+    Route::post('paypal', 'Web\Muscat\PaymentPaypalController@payWithpaypal')->name('admission.payWithpaypal');
+	Route::get('admission/paypal/status', 'Web\Muscat\PaymentPaypalController@getPaymentStatus')->name('admission.payWithpaypalStatus');
 
 
 });

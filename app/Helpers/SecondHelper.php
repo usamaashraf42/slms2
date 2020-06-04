@@ -1,4 +1,7 @@
 <?php
+    use \Carbon\Carbon;
+
+
 
 
 if (!function_exists('class_attendance_by_date')) {
@@ -75,6 +78,18 @@ function currencyCnv( $amount, $from, $to){
   $json_a = json_decode($string, true);
   return $amount * round($json_a[$conv_id], 4);
 }
+
+
+
+
+function currencyConverter($amount, $from, $to){
+
+    $response = Currency::convert($from,$to,$amount);
+        return response()->json($response);
+        
+}
+
+
 
 
 ?>

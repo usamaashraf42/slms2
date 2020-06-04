@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
+        "akibtanjim/currency-converter": "^1.0",
         "barryvdh/laravel-dompdf": "^0.8.6",
         "elibyy/tcpdf-laravel": "6.0.*",
         "fideloper/proxy": "^4.0",
@@ -18,9 +19,10 @@
         "laravel/tinker": "^2.0",
         "maatwebsite/excel": "^3.1.0",
         "milon/barcode": "^6.0",
+        "paypal/rest-api-sdk-php": "^1.14",
         "simplesoftwareio/simple-qrcode": "^2.0",
-        "spatie/laravel-permission": "^3.4",
-        "spatie/db-dumper": "^2.16"
+        "spatie/db-dumper": "^2.16",
+        "spatie/laravel-permission": "^3.4"
     },
     "require-dev": {
         "facade/ignition": "^1.4",
