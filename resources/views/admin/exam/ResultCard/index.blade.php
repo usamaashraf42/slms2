@@ -159,6 +159,16 @@
 										</select>
 									</div>
 								</div> 
+
+								 <div class="col-md-3">
+									<div class="form-group">
+										<label for="start_status">Star show</label>
+										<select type="text" class="form-control start_status" id="start_status"   name="start_status">
+											<option value="1">Yes</option>
+											<option value="0">No</option>
+										</select>
+									</div>
+								</div> 
 							</div>
 							
 						</div>

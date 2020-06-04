@@ -40,6 +40,7 @@ class ResultCardController extends Controller
 	public function store(Request $request){
 		
 		$markPost=0;
+		$star_status=$request->start_status;
 
 		$marks=StudentExamMark::where('branch_id',$request->branch_id)->orderBy('course_id','ASC')->where('exam_id',$request->exam_id?$request->exam_id:$request->exam_type_id)->where('exam_month',$request->month)->where('exam_year',$request->year);
 		
@@ -59,7 +60,7 @@ class ResultCardController extends Controller
 		$data=$marks->get();
 
 		if (isset($data) && !empty($data)) {
-			return view('admin.exam.ResultCard.store',compact('data'));
+			return view('admin.exam.ResultCard.store',compact('data','star_status'));
 		} else {
 
 			Session::flash('error_message', __('Record Not Found'));

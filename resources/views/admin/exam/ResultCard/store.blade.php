@@ -332,7 +332,11 @@
 												<div class="fill-ratings">
 													<span style="
 													font-size: 15px;
-													font-weight: bold; color:#{{MarksColor((($record->class_participation)/10) * 100)}};">★</span>
+													font-weight: bold; color:#{{MarksColor((($record->class_participation)/10) * 100)}};">
+													@if(isset($star_status) && $star_status)
+														★
+													@endif
+													</span>
 												</div>
 											</td>
 											<!-- <td> {{MarksColor(round(round($class_participation)/round($totalSubject)) * 100)}}</td> -->
@@ -343,7 +347,11 @@
 												<div class="fill-ratings">
 													<span style="
 													font-size: 15px;
-													font-weight: bold; color:#{{MarksColor((($record->social_integration)/10) * 100)}};">★</span>
+													font-weight: bold; color:#{{MarksColor((($record->social_integration)/10) * 100)}};">
+														@if(isset($star_status) && $star_status)
+															★
+														@endif
+													</span>
 												</div>
 											</td>
 											<!-- <td>{{marksGrade(round(round($social_integration)/round($totalSubject))*100)}}</td> -->
@@ -354,7 +362,11 @@
 												<div class="fill-ratings">
 													<span style="
 													font-size: 15px;
-													font-weight: bold; color:#{{MarksColor((($record->accept_to_suggestion)/10) * 100)}};">★</span>
+													font-weight: bold; color:#{{MarksColor((($record->accept_to_suggestion)/10) * 100)}};">
+														@if(isset($star_status) && $star_status)
+														★
+														@endif
+													</span>
 												</div>
 											</td>
 											<!-- <td>{{marksGrade(round(round($accept_to_suggestion)/round($totalSubject))*100)}}</td> -->
@@ -366,7 +378,11 @@
 												<div class="fill-ratings">
 													<span style="
 													font-size: 15px;
-													font-weight: bold; color:#{{MarksColor((($record->share_with)/10) * 100)}};">★</span>
+													font-weight: bold; color:#{{MarksColor((($record->share_with)/10) * 100)}};">
+													@if(isset($star_status) && $star_status)
+													★
+													@endif
+												</span>
 												</div>
 											</td>
 											<!-- <td>{{marksGrade(round(round($share_with)/round($totalSubject))*100)}} / {{marksGrade(round(round($helping_other/$totalSubject))*100)}}</td> -->
@@ -378,7 +394,11 @@
 												<div class="fill-ratings">
 													<span style="
 													font-size: 15px;
-													font-weight: bold; color:#{{MarksColor((($record->helping_other)/10) * 100)}};">★</span>
+													font-weight: bold; color:#{{MarksColor((($record->helping_other)/10) * 100)}};">
+												@if(isset($star_status) && $star_status)
+													★
+												@endif
+												</span>
 												</div>
 											</td>
 										</tr>
@@ -388,7 +408,11 @@
 												<div class="fill-ratings">
 													<span style="
 													font-size: 15px;
-													font-weight: bold; color:#{{MarksColor((($record->confidence)/10) * 100)}};">★</span>
+													font-weight: bold; color:#{{MarksColor((($record->confidence)/10) * 100)}};">
+													@if(isset($star_status) && $star_status)
+														★
+													@endif
+													</span>
 												</div>
 											</td>
 											<!-- <td>{{marksGrade(round($spoken_eng/$totalSubject)*100)}}</td> -->
@@ -399,7 +423,11 @@
 												<div class="fill-ratings">
 													<span style="
 													font-size: 15px;
-													font-weight: bold; color: #{{MarksColor((($record->motivation)/10) * 100)}};">★</span>
+													font-weight: bold; color: #{{MarksColor((($record->motivation)/10) * 100)}};">
+													@if(isset($star_status) && $star_status)
+														★
+													@endif
+													</span>
 												</div>
 											</td>
 											<!-- <td>{{marksGrade(round($motivation/$totalSubject)*100)}}</td> -->
