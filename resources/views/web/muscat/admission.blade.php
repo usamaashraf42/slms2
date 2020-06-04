@@ -694,7 +694,6 @@
     $('#example12').calendar({
       monthFirst: false,
       type: 'date',
-      minDate: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
   });
  
 
