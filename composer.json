@@ -23,7 +23,8 @@
         "paypal/rest-api-sdk-php": "^1.14",
         "simplesoftwareio/simple-qrcode": "^2.0",
         "spatie/db-dumper": "^2.16",
-        "spatie/laravel-permission": "^3.4"
+        "spatie/laravel-permission": "^3.4",
+        "stripe/stripe-php": "^7.36"
     },
     "require-dev": {
         "facade/ignition": "^1.4",

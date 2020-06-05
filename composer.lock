@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2fb93fcd7f68882949c9082d9c508d36",
+    "content-hash": "0bb934e78f61771a40ea74de4bf887bc",
     "packages": [
         {
             "name": "akibtanjim/currency-converter",

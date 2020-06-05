@@ -24,40 +24,21 @@
 
     @section('styles')
 
-    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png">
     <title> @yield('title','Admission Fee Deposit') - American Lyceum Group of School</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-    <!-- Icon fonts -->
- <!--  <link href="{{asset('web/muscat/fonts/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
-  <link href="{{asset('web/muscat/fonts/flaticons/flaticon.css')}}" rel="stylesheet" type="text/css">
-  <link href="{{asset('web/muscat/fonts/glyphicons/bootstrap-glyphicons.css')}}" rel="stylesheet" type="text/css"> -->
-  <!-- Google fonts -->
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,800' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans:700,900' rel='stylesheet' type='text/css'>
-  <!-- Theme CSS -->
-  <link href="{{asset('web/muscat/css/style.css')}}" rel="stylesheet">
-  <!-- Color Style CSS -->
-  <link href="{{asset('web/muscat/styles/funtime.css')}}" rel="stylesheet">
-  <!-- Owl Slider & Prettyphoto -->
-  <link rel="stylesheet" href="{{asset('web/muscat/css/owl.carousel.css')}}">
-  <link rel="stylesheet" href="{{asset('web/muscat/css/prettyPhoto.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('web/muscat/styles/style_1.css')}}">
-  <link rel="stylesheet" href="{{asset('web/muscat/layerslider/css/layerslider.css')}}">
-  <link rel="apple-touch-icon" sizes="72x72" href="{{asset('web/muscat/img/favicon.png')}}">
-  <link rel="apple-touch-icon" sizes="114x114" href="{{asset('web/muscat/img/favicon.png')}}">
-  <link rel="shortcut icon" href="{{asset('web/muscat/img/favicon.png')}}" type="image/x-icon">
-  <link rel="stylesheet" id="switcher-css" type="text/css" href="{{asset('web/muscat/switcher/css/switcher.css')}}" media="all" />
-  <link rel="alternate stylesheet" type="text/css" href="{{asset('web/muscat/styles/funtime.css')}}" title="funtime" media="all" />
-  <link rel="alternate stylesheet" type="text/css" href="{{asset('web/muscat/styles/playground.css')}}" title="playground" media="all" />
-  <link rel="alternate stylesheet" type="text/css" href="{{asset('web/muscat/styles/games.css')}}" title="games" media="all" />
-  <link rel="alternate stylesheet" type="text/css" href="{{asset('web/muscat/styles/childhood.css')}}" title="childhood" media="all" />
-  <link rel="alternate stylesheet" type="text/css" href="{{asset('web/muscat/styles/school.css')}}" title="school" media="all" />
-  <link rel="alternate stylesheet" type="text/css" href="{{asset('web/muscat/switcher/css/boxed.css')}}" title="boxed" media="all" />
-  <link rel="alternate stylesheet" type="text/css" href="{{asset('web/muscat/switcher/css/full.css')}}" title="full" media="all" />
-  @show
-  @stack('post-styles')
-  <style>
+      <link rel="stylesheet" type="text/css" href="{{asset('web/muscat/styles/style_1.css')}}">
+
+
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans:700,900' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    @show
+    @stack('post-styles')
+
+    <script type="text/javascript">
+      var BASE_URL = "{{ url('/')}}";
+    </script>
+    <style>
     .blog-preview img{ width: 100%!important;
       height: 300px;
     }
@@ -331,9 +312,6 @@
   height: 531px!important;
 }
 </style>
-<script type="text/javascript">
-  var BASE_URL = "{{ url('/')}}";
-</script>
 
 </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom" style="overflow-x: hidden;">
@@ -365,252 +343,100 @@
 </nav>
 
 
-<br>
-<br>
-
-<br>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<div class="clear-fix"></div>
-<div class="container">
-  <div class="col-md-12" style="text-align: center;">
-   <h2 style="padding: 25px 28px;">Verify</h2>
- </div>
-</div>
-
-
-      <div class="container" style="margin-top: 40px; border: 1px solid #ccc;padding-top: 20px;">
-        @component('_components.alerts-default')
-        @endcomponent
-
-        <h2 >1 OMR ={{currencyCnv(1,'OMR','USD')}} Dollar</h2>
-        <div id="signupbox"  class="mainbox col-md-12  col-sm-12 col-xs-12">
-          <div>
-            <form   action="{{route('admission.payWithpaypal')}}" id="applicationForm"  method="POST" enctype="multipart/form-data">
-              @csrf
-
-              <input type="hidden" name="amount" value=" @isset($object->pp_Amount) {{currencyCnv($object->pp_Amount,'OMR','USD')}}  @endisset">
-
-              <input type="hidden" name="transaction_id" value="{{$fees->id}}">
-              <div class="panel-body" style="border:1px solid #ccc; margin-bottom: 20px;">
-                <div class="row">
-                  <div class="col-md-12 col-sm-12 col-xs-12">
-
-
-
-
-          
-
-
-                  </div>
-                </div>
-
-                <!-- //////////////////???????????????????? start ????????????????????????????????? -->
-                <div class="row" id="feeChallan">
-
-                  <div style="margin: 0 0 2em 0;
-                  padding: 1em 1em 1.5em 1em;
-                  background: #fff;
-                  ">
-
-                  <div class="col-md-6">
-                    <div class="receipt-header" style="border: 1px solid #ccc;
-                    padding: 12px;text-align: center; ">
-                    <div class="receipt-right" style="text-align: center;">
-                      <div class="box_filed"> <h4><b style="color:red">{{$admission->name}}</b></h4>  </div>
-                      <div class="box_filed"> <h4><b style="color:red">{{$admission->father_name}}</b></h4>  </div>
-
-                      <div class="box_filed"><STRONG>@isset($admission->branch->branch_name){{$admission->branch->branch_name}}
-                        @endisset
-                      </STRONG></div>
-                      <div class="box_filed"><STRONG>
-                        @isset($admission->grade->course_name){{$admission->grade->course_name}}
-                        @endisset
-
-                      </STRONG></div>
-
-                    </div>
-
-
-                    <div class="clearfix"></div>
-
-
-
-                  </div>
-                </div>
-                <div class="col-md-6">
-
-                  <div style="width: 70%; float: left; text-align: justify;">
-
-                    <p style="font-size:20px;">
-                      <b> Amount going to be charged from you: </b>
-                    </p>
-                  </div>
-                  <div style="width: 30%;float: right; text-align: right;padding-right: 15px; ">
-
-                    <h2 style="font-size:32px;"><strong><i class="fa fa-OMR"></i> @isset($object->pp_Amount) {{currencyCnv($object->pp_Amount,'OMR','USD')}}$  @endisset/-</strong></h2>
-
-                  </div>
-                </div>
-
-
-              </div>
-
-            </div>
-
-
-            <!-- /////////////////////////////  end display none????????????????????????????????? -->
-          </div>
-        </div>
+   <form action="/charge" method="post" id="payment-form">
+     <div class="form-row">
+      <label for="card-element">
+        Credit or debit card
+      </label>
+      <div id="card-element">
+        <!-- a Stripe Element will be inserted here. -->
       </div>
-       <div class="col-md-12">
-      <div class="row">
-        <div class="col-md-10"></div>
-        <div class="col-md-2">
-
-          <!--    <input type="button" class="btn btn-info btn-lg validateButton "   onclick="jobFormSubmit(this)"  id="updateDataBtn" value="Submit"> -->
-          <input type="submit" class="btn btn-success btn-lg submitButton"   style="display: block;"  id="updateDataBtn" value="OK">
-        </div>
-      </div>
+      <!-- Used to display form errors -->
+      <div id="card-errors"></div>
     </div>
+    <button>Submit Payment</button>
   </form>
-  
-    </div>
-   
 
 </div>
 <!-- The Modal -->
 
-</div>
-</section>
 
 
-</div>
-<!-- #siteWrapper End -->
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+    // Create a Stripe client.
+    var stripe = Stripe('pk_test_51GqIueGEnqFtoeJkkLkfVAerzKllY8s5wX4EisT9ZvZFmUgHlj5fdAXpGm1Mt21XQ6glC8jSdAjnerghQyP3zQPe00gud3FKPl');
 
-<!-- Shadowbox -->
-<!-- ShadowBox Markup -->
-<div id="toTop"><a title="Back to Top"><span class="icon icon-chevron-up"></span></a></div>
-<div class="student modal fade" id="student-modal" tabindex="-1" role="dialog" aria-labelledby="Student Modal">
-  <div class="modal-dialog center" role="document">
-    <div class="modal-content">
-      <div class="modal-header pa2 flex flex-row justify-between">
-        <h4 class="modal-title dark-blue" id="studentLabel"></h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="icon icon-x"></span></button>
-      </div>
-      <div class="modal-body tl">
+// Create an instance of Elements.
+var elements = stripe.elements();
 
-      </div>
-    </div>
-  </div>
-</div>
-<footer>
-  <div class="container-fluid">
-   <div class="col-lg-4 col-md-6 text-center res-margin">
-    <h6 class="text-light">Sign our Newsletter</h6>
-    <p>We will send updates once a week.</p>
-    <!-- Form -->       
-    <div id="mc_embed_signup">
-     <form action="//yourlist.us12.list-manage.com/subscribe/post?u=04e646927a196552aaee78a7b&id=111" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-      <div id="mc_embed_signup_scroll">
-       <div class="mc-field-group">
-        <div class="input-group">
-         <input class="form-control input-lg required email" type="email" value="" name="EMAIL" placeholder="Your email here" id="mce-EMAIL">
-         <span class="input-group-btn">
-          <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn">
-        </span>
-      </div>
-      <!-- Subscription results -->
-      <div id="mce-responses" class="mailchimp">
-       <div class="alert alert-danger response" id="mce-error-response"></div>
-       <div class="alert alert-success response" id="mce-success-response"></div>
-     </div>
-   </div>
-   <!-- /mc-fiel-group -->                  
- </div>
- <!-- /mc_embed_signup_scroll -->
-</form>
-<!-- /form ends -->
-</div>
-<!-- /mc_embed_signup -->               
-</div>
-<div class="col-lg-4 col-md-6 res-margin">
+// Custom styling can be passed to options when creating an Element.
+// (Note that this demo uses a wider set of styles than the guide below.)
+var style = {
+  base: {
+    color: '#32325d',
+    lineHeight: '18px',
+    fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+    fontSmoothing: 'antialiased',
+    fontSize: '16px',
+    '::placeholder': {
+      color: '#aab7c4'
+    }
+  },
+  invalid: {
+    color: '#fa755a',
+    iconColor: '#fa755a'
+  }
+};
 
-</div>
-<div class="col-lg-4 col-md-12 text-center">
-  <h6 class="text-light">Opening Hours:</h6>
-  <table class="table">
+// Create an instance of the card Element.
+var card = elements.create('card', {style: style});
 
-   <tbody>
-    <tr>
-     <td class="text-left"> Sunday to Thursday </td>
-     <td class="text-right">07:00 AM to  - 4:00 PM </td> 
-   </tr>
-   <tr>
-     <td class="text-left">Weekends / Holidays</td>
-     <td class="text-right"><span class="label label-danger">Closed</span></td>
-   </tr>
- </tbody>
-</table>
+// Add an instance of the card Element into the `card-element` <div>.
+card.mount('#card-element');
 
-</div>
-<hr>
-{{-- <p>Copyright © 2018 - 2019 </p> --}}
-<div class="page-scroll hidden-sm hidden-xs">
- <a href="#page-top" class="back-to-top"><i class="fa fa-angle-up"></i></a>
-</div>
-</footer>
-<script type="text/javascript">
-  $(document).ready(function() {
-    $.fn.randomize = function(selector){
-      (selector ? this.find(selector) : this).parent().each(function(){
-        $(this).children(selector).sort(function(){
-          return Math.random() - 0.5;
-        }).detach().appendTo(this);
-      });
+// Handle real-time validation errors from the card Element.
+card.addEventListener('change', function(event) {
+  var displayError = document.getElementById('card-errors');
+  if (event.error) {
+    displayError.textContent = event.error.message;
+  } else {
+    displayError.textContent = '';
+  }
+});
 
-      return this;
-    };
-    $('div.hats-container').randomize('div.hat');
+// Handle form submission.
+var form = document.getElementById('payment-form');
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
 
+  stripe.createToken(card).then(function(result) {
+    if (result.error) {
+      // Inform the user if there was an error.
+      var errorElement = document.getElementById('card-errors');
+      errorElement.textContent = result.error.message;
+    } else {
+      // Send the token to your server.
+      stripeTokenHandler(result.token);
+    }
   });
-</script>
-<script>
-  /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
-  !function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};
-  if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),
-    e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&
-    t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())
-      for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||
-        o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();
-    var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&
-    t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS
-  }("undefined"!=typeof global?global:this);
-</script></form>
+});
 
-<script src="http://www.lyceumgroupofschools.com/web/pakistan/sitefiles/2532/js/helper-minfe78.js?cache=0001"></script>
-<script>
-  jQ171(document).ready(function($) {
-    Shadowbox.init({
-      language: 'en', players:
-      ['img', 'html', 'iframe', 'qt', 'wmp', 'swf', 'flv']});
+// Submit the form with the token ID.
+function stripeTokenHandler(token) {
+  // Insert the token ID into the form so it gets submitted to the server
+  var form = document.getElementById('payment-form');
+  var hiddenInput = document.createElement('input');
+  hiddenInput.setAttribute('type', 'hidden');
+  hiddenInput.setAttribute('name', 'stripeToken');
+  hiddenInput.setAttribute('value', token.id);
+  form.appendChild(hiddenInput);
 
-  });
+  // Submit the form
+  form.submit();
+}
 </script>
 
-
-
-<script src="http://www.lyceumgroupofschools.com/web/muscat/js/jquery.min.js"></script>
-
-
-<!-- Swicther -->
-
-<script src="http://www.lyceumgroupofschools.com/web/muscat/switcher/js/dmss.js"></script>
 <script type="text/javascript">
   $.ajaxSetup({
     headers: {
