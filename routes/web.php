@@ -45,6 +45,8 @@ Route::prefix('muscat')->group(function () {
     Route::get('/admission', 'Web\Muscat\PublicController@admission')->name('muscat.admission');
     Route::post('/admission/fee/deposit', 'Web\Muscat\PublicController@admission_query')->name('muscat.admission_query');
 
+    Route::post('strip/payment', 'Web\Muscat\StripController@stripPayment')->name('muscat.stripPayment');
+
     Route::post('paypal', 'Web\Muscat\PaymentPaypalController@payWithpaypal')->name('admission.payWithpaypal');
 	Route::get('admission/paypal/status', 'Web\Muscat\PaymentPaypalController@getPaymentStatus')->name('admission.payWithpaypalStatus');
 

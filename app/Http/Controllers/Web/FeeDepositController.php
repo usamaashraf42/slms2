@@ -12,7 +12,7 @@ use App\Models\Student;
 use App\Models\Bank;
 use App\Models\BankFeeDeposit;
 use App\Models\BankTransactionDetail;
-
+use Illuminate\Support\Facades\Mail;
 use \DB;
 use Auth;
 class FeeDepositController extends Controller
