@@ -141,6 +141,7 @@ class IndividualFeePostController extends Controller
                 $feeRecord['feeId']=$feeid;
                 $feeRecord['std_id']=$stduentsi->id;
                 $feeRecord['branch_id']=$stduentsi->branch_id;
+                $feeRecord['course_id']=$stduentsi->course_id;
                 $feeRecord['fee_month']=$request->month;
                 $feeRecord['fee_year']=$request->year;
                 $feeRecord['fee_date']=date('Y-m-d');

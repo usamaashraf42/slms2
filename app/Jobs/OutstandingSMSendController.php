@@ -8,6 +8,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Auth;
+use App\Models\SmsSendLog;
 
 class OutstandingSMSendController implements ShouldQueue
 {
@@ -37,11 +38,12 @@ class OutstandingSMSendController implements ShouldQueue
      */
     public function handle()
     {
-         foreach ($stds as $std) {
+        $sms=strip_tags($this->sms);
+         foreach ($this->stds as $std) {
                 $log='outstanding sms';
                 
-                if(isset($std->student->emergency_mobile) && ($std->student->emergency_mobile) && $request->sms_body){
-                    $sms=strip_tags($sms_body);
+                if(isset($std->student->emergency_mobile) && $std->student->status && && $std->student->is_active  && ($std->student->emergency_mobile)){
+                    
                     if(isset($std->student) && $std->student->emergency_mobile or $std->student->s_phoneNo){
                         $phone=$std->student->s_phoneNo?$std->student->s_phoneNo:$std->student->emergency_mobile;
                         $std_id=$std->student->id;
@@ -49,7 +51,7 @@ class OutstandingSMSendController implements ShouldQueue
                         $class_id=$std->student->course_id;
 
                         $sms=strip_tags($this->sms);
-                        // $log=SendSms($phone,$sms);
+                        $log=SendSms($phone,$sms);
                              
                           
 

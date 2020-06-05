@@ -113,8 +113,9 @@ class SmsSendController extends Controller
 
     public function outstandingStudents($request){
         $sms_title=$request->sms_title;
+        $sms=$request->sms_body;
          $stds=FeePost::whereIn('branch_id',$request->branch_id)->with('student')->orderBy('id','DESC')->where('fee_month',$request->month)->where('fee_year',$request->year)->where('isPaid','<>',1)->get();
-         OutstandingSMSendController($stds,$sms,$sms_title);
+         OutstandingSMSendController::dispatch($stds,$sms,$sms_title);
          return true;
 
         
