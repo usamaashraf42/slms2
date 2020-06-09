@@ -422,7 +422,7 @@
           <label for="card-element">
             Credit or debit card
           </label>
-          <div id="card-element">
+          <div id="card-element" class="form-control" style='height: 2.4em; padding-top: .7em;'>
             <!-- a Stripe Element will be inserted here. -->
           </div>
           <!-- Used to display form errors -->

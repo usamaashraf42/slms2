@@ -4,63 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0bb934e78f61771a40ea74de4bf887bc",
+    "content-hash": "f078e3df245f17363b175251beb001c6",
     "packages": [
-        {
-            "name": "akibtanjim/currency-converter",
-            "version": "1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/akibtanjim/currency-converter.git",
-                "reference": "a7f22df8d050fbf4d5ce5a7c4365366d02e5002f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/akibtanjim/currency-converter/zipball/a7f22df8d050fbf4d5ce5a7c4365366d02e5002f",
-                "reference": "a7f22df8d050fbf4d5ce5a7c4365366d02e5002f",
-                "shasum": ""
-            },
-            "require": {
-                "ixudra/curl": "6.*",
-                "php": ">=7.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "AkibTanjim\\Currency\\CurrencyServiceProvider"
-                    ],
-                    "aliases": {
-                        "Currency": "AkibTanjim\\Currency\\Facades\\CurrencyConverter"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "AkibTanjim\\Currency\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Akib Tanjim",
-                    "email": "akibtanjim@gmail.com"
-                }
-            ],
-            "description": "This package provides currency rates as well as single and multiple currency for Laravel app by using https://openexchangerates.org  API",
-            "keywords": [
-                "conversion",
-                "currency",
-                "currency conversion",
-                "exchange",
-                "laravel",
-                "laravel 5"
-            ],
-            "time": "2018-08-13T16:34:09+00:00"
-        },
         {
             "name": "bacon/bacon-qr-code",
             "version": "1.0.3",
@@ -877,60 +822,6 @@
                 "watermark"
             ],
             "time": "2019-11-02T09:15:47+00:00"
-        },
-        {
-            "name": "ixudra/curl",
-            "version": "6.19.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ixudra/curl.git",
-                "reference": "08cb70241ae9ce26f5cb3e4f18366d11fa8a279b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ixudra/curl/zipball/08cb70241ae9ce26f5cb3e4f18366d11fa8a279b",
-                "reference": "08cb70241ae9ce26f5cb3e4f18366d11fa8a279b",
-                "shasum": ""
-            },
-            "require": {
-                "ext-curl": "*",
-                "illuminate/support": ">=4.0",
-                "php": ">=5.4.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Ixudra\\Curl\\CurlServiceProvider"
-                    ],
-                    "aliases": {
-                        "Curl": "Ixudra\\Curl\\Facades\\Curl"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Ixudra\\Curl\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jan Oris",
-                    "email": "jan.oris@ixudra.be"
-                }
-            ],
-            "description": "Custom PHP Curl library for the Laravel 5 framework - developed by Ixudra",
-            "homepage": "http://ixudra.be",
-            "keywords": [
-                "Ixudra",
-                "curl",
-                "laravel"
-            ],
-            "time": "2020-03-03T19:08:05+00:00"
         },
         {
             "name": "laravel/cashier",
