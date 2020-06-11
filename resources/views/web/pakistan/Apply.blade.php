@@ -221,7 +221,7 @@
             )
           </script>
           @endif
-          <form action="{{route('admission_query')}}" method="post" style="width: 100%;">
+          <form action="{{route('admission_query')}}"  method="post" style="width: 100%;">
             @csrf
             <input type="hidden" name="schoo_id" value="1">
             <br>
@@ -240,7 +240,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                    <label for="fname">Father Name</label>
-                   <input type="text" name="fname" class="form-control" id="fname" placeholder="Father name">
+                   <input type="text" name="fname" class="form-control" id="fname" placeholder="Father name" required>
                    <div class="alert alert-danger fname-error" style="display:none">
                       <p style="color: red">Name is required</p>
                     </div>
@@ -261,7 +261,7 @@
                   </div>
 
 <div class="alert alert-danger dob-error" style="display:none">
-                      <p style="color: red">Name is required</p>
+                      <p style="color: red">DOB is required</p>
                     </div>
 
                </div>                
@@ -281,7 +281,7 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label for="phone">Cell No#</label>
-                <input type="text" name="phone" class="form-control" id="phone" placeholder="Phone No">
+                <input type="text" name="phone" class="form-control" id="phone" placeholder="Phone No" required>
                
               </div>
                <div class="alert alert-danger phone-error" style="display:none">
@@ -291,7 +291,7 @@
             <div class="col-md-6">
              <div class="form-group">
               <label for="address">Address</label>
-              <input name="address" class="form-control" id="address" placeholder="address">
+              <input name="address" class="form-control" id="address" placeholder="address" required>
               <div class="alert alert-danger address-error" style="display:none">
                       <p style="color: red">address is required</p>
                     </div>
@@ -349,7 +349,7 @@
 
 
       <div class="col-md-12">
-        <button  class="btn btn-success  btn-md"  onclick="jobFormSubmit(this)" style="float: right;">NEXT </button>
+        <button  class="btn btn-success  btn-md" type="submit" id="addmissionForm"  style="float: right;">NEXT </button>
       </div>
     </form>
   </div>
@@ -423,8 +423,7 @@
 
 
 
-  function jobFormSubmit(ob){
-
+  $("#addmissionForm").click(function(ob) {
   var valid = true;   
 
    $('.name-error').css('display','none');
@@ -484,11 +483,10 @@
 
    if(valid){
      ob.disabled = true;
-          // submit the form    
-          ob.form.submit();
-          return true;
-        }
+      ob.form.submit();
+      return true;
+    }
       
-      }
+  });
     </script>
   @endpush
