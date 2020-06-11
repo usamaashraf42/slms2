@@ -229,8 +229,8 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Name</label>
-                    <input type="text" name="name" class="form-control" id="exampleInputEmail1"  placeholder="Enter Name" required="">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" class="form-control" id="name"  placeholder="Enter Name" required="">
                     <div class="alert alert-danger name-error" style="display:none">
                       <p style="color: red">Name is required</p>
                     </div>
@@ -241,6 +241,9 @@
                   <div class="form-group">
                    <label for="fname">Father Name</label>
                    <input type="text" name="fname" class="form-control" id="fname" placeholder="Father name">
+                   <div class="alert alert-danger fname-error" style="display:none">
+                      <p style="color: red">Name is required</p>
+                    </div>
                  </div>
 
                </div>
@@ -252,11 +255,14 @@
 
                  <div class="ui calendar" id="example12" style="width: 100%">
                     <div class="ui input" style="width: -webkit-fill-available!important;">
-                      <input type="text" class="form-control" value="{{old('dob')}}" name="dob" id="dob" autocomplete="off"  placeholder="dob">
+                      <input type="text" class="form-control" value="{{old('dob')}}" name="dob" id="dob" autocomplete="off"  placeholder="dob" required="">
+                      
                     </div>
                   </div>
 
-
+<div class="alert alert-danger dob-error" style="display:none">
+                      <p style="color: red">Name is required</p>
+                    </div>
 
                </div>                
              </div>
@@ -264,6 +270,7 @@
               <div class="form-group">
                 <label for="email">Email</label>
                 <input type="text" name="email" class="form-control" id="email" placeholder="Email Address">
+              
               </div>
 
             </div>
@@ -275,12 +282,19 @@
               <div class="form-group">
                 <label for="phone">Cell No#</label>
                 <input type="text" name="phone" class="form-control" id="phone" placeholder="Phone No">
+               
               </div>
+               <div class="alert alert-danger phone-error" style="display:none">
+                      <p style="color: red">Phone is required</p>
+                    </div>
             </div>
             <div class="col-md-6">
              <div class="form-group">
               <label for="address">Address</label>
               <input name="address" class="form-control" id="address" placeholder="address">
+              <div class="alert alert-danger address-error" style="display:none">
+                      <p style="color: red">address is required</p>
+                    </div>
             </div>
 
           </div>
@@ -335,7 +349,7 @@
 
 
       <div class="col-md-12">
-        <button  class="btn btn-success  btn-md" style="float: right;">NEXT </button>
+        <button  class="btn btn-success  btn-md"  onclick="jobFormSubmit(this)" style="float: right;">NEXT </button>
       </div>
     </form>
   </div>
@@ -406,5 +420,75 @@
   });
  
 
-  </script>
+
+
+
+  function jobFormSubmit(ob){
+
+  var valid = true;   
+
+   $('.name-error').css('display','none');
+   $('.fname-error').css('display','none');
+   $('.phone-error').css('display','none');
+   $('.address-error').css('display','none');
+ 
+
+
+  if ($('#name').val() == '') {
+    console.log('name',$('#name').val());
+      $('.name-error').text('name field is required');
+      $('.name-error').css('display','block','color','red','border-color','red');
+
+      valid = false;
+    }
+
+
+    if ($('#fname').val() == '') {
+     console.log('fname',$('#fname').val());
+     $('.fname-error').text('father name field is required');
+     $('.fname-error').css('display','block','color','red','border-color','red');
+   
+     valid = false;
+   }
+
+
+   if ($('#dob').val() == '') {
+     console.log('dob',$('#dob').val());
+     $('.dob-error').text('date field is required');
+     $('.dob-error').css('display','block','color','red','border-color','red');
+ 
+     valid = false;
+   }
+
+  
+   if ($('#phone').val() == '') {
+     console.log('phone',$('#phone').val());
+     $('.phone-error').text('phone field is required');
+     $('.phone-error').css('display','block','color','red','border-color','red');
+  
+     valid = false;
+   }
+   if ($('#address').val() == '') {
+     console.log('address',$('#address').val());
+     $('.address-error').text('address field is required');
+     $('.address-error').css('display','block','color','red','border-color','red');
+   
+
+     valid = false;
+   }
+
+   
+
+
+
+
+   if(valid){
+     ob.disabled = true;
+          // submit the form    
+          ob.form.submit();
+          return true;
+        }
+      
+      }
+    </script>
   @endpush
