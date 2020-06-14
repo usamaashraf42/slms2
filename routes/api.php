@@ -16,7 +16,8 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+Route::get('prepon/bank-transaction/{amount}/{user_id}/{project_id}/{package_id}','Api\ApiBankTransactionController@bankTransactionApi');
+// $amount,$user_id,$project_id,$package_id
 Route::post('sms4connect','Api\ApiQueryLogController@sms4connect');
 // Route::get('correction/reverse','Api\ApiQueryLogController@correctionApproved');
 // Route::get('studentStructureChange','Api\ApiSecondQueryController@studentStructureChange');

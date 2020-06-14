@@ -17,7 +17,25 @@ use \DB;
 use Auth;
 class FeeDepositController extends Controller
 {
-	
+
+	/*
+	slms
+	ppmpf_5 define method and ppmpf_4 define project
+	ppmpf_4=null and ppmpf_5=2 admission fee deposit
+	ppmpf_4=null and ppmpf_5= summer book charge
+
+
+	else fee deposit in slms
+
+
+
+
+	prepon
+	ppmpf_4=2 and ppmpf_5=11 define package buy in prepon
+
+
+
+	*/
 	public function index(){
 		// $amount=substr(400000, 0, -2);
 		// $this->feeDepositDbEffected(175362,40004,$amount,8);
@@ -67,6 +85,19 @@ class FeeDepositController extends Controller
 					return redirect()->route('pakistan.summerBook');
 
 				}
+				elseif ($request->ppmpf_4==2 && $request->ppmpf_5==11) {
+
+					$url=$this->preponPackageBuy($request->ppmpf_1);
+					if($url){
+						return redirect($url);
+					}
+					else{
+						session()->flash('success_message', "Package buy successfully, thanks to subscribe prepon package" );
+              			return redirect('http://prepon.org/user/pricing');
+					}
+
+
+				}
 				else{
 					$this->feeDepositDbEffected($request->ppmpf_2,$request->ppmpf_1,$amount,8);
 					session()->flash('success_message', __("Fee deposit successfully"));
@@ -87,6 +118,10 @@ class FeeDepositController extends Controller
 
 					return redirect()->route('pakistan.summerBook');
 
+				}elseif ($request->ppmpf_4==2 && $request->ppmpf_5==11) {
+
+					return redirect('http://prepon.org/user/pricing');
+
 				}
 				else{
 					return redirect()->route('feedeposit.index');
@@ -99,6 +134,11 @@ class FeeDepositController extends Controller
 				}elseif ($request->ppmpf_5==3) {
 
 					return redirect()->route('pakistan.summerBook');
+
+				
+				}elseif ($request->ppmpf_4==2 && $request->ppmpf_5==11) {
+
+					return redirect('http://prepon.org/user/pricing');
 
 				}else{
 					return redirect()->route('feedeposit.index');
@@ -120,6 +160,10 @@ class FeeDepositController extends Controller
 				}elseif ($request->ppmpf_5==3) {
 
 					return redirect()->route('pakistan.summerBook');
+
+				}elseif ($request->ppmpf_4==2 && $request->ppmpf_5==11) {
+
+					return redirect('http://prepon.org/user/pricing');
 
 				}else{
 					return redirect()->route('feedeposit.index');
@@ -723,6 +767,18 @@ class FeeDepositController extends Controller
 			return false;
 		}
 
+
+	}
+
+	function preponPackageBuy($id){
+		$bank=BankTransactionDetail::find($id);
+		if($bank){
+			$fees=BankTransactionDetail::where('id',$id)->update(['status'=>0]);
+			$url="http://prepon.org/user/pricing/user/package-status/$bank->prepon_user_id/$bank->prepon_package_id/$bank->id/$bank->amount";
+			return $url;
+		}else{
+			return false;
+		}
 
 	}
 	function admissionFeeSubmit($id,$amount,$bank){
