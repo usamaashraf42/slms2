@@ -38,7 +38,6 @@ class FeeDepositController extends Controller
 	*/
 	public function index(){
 		// $amount=substr(400000, 0, -2);
-		// $this->feeDepositDbEffected(175362,40004,$amount,8);
 		return view('web.pakistan.feeDeposit.challan');
 	}
 
@@ -69,7 +68,7 @@ class FeeDepositController extends Controller
 			}
 		}	
 		$GeneratedSecureHash= hash_hmac('sha256', $Response, $HashKey);		
-					
+
 		if (strtolower($GeneratedSecureHash) == strtolower($ReceivedSecureHash)) 
 		{
 			if($ResponseCode == '000'||$ResponseCode == '121'||$ResponseCode == '200'){
@@ -93,7 +92,7 @@ class FeeDepositController extends Controller
 					}
 					else{
 						session()->flash('success_message', "Package buy successfully, thanks to subscribe prepon package" );
-              			return redirect('http://prepon.org/user/pricing');
+						return redirect('http://prepon.org/user/pricing');
 					}
 
 
@@ -135,7 +134,7 @@ class FeeDepositController extends Controller
 
 					return redirect()->route('pakistan.summerBook');
 
-				
+
 				}elseif ($request->ppmpf_4==2 && $request->ppmpf_5==11) {
 
 					return redirect('http://prepon.org/user/pricing');
@@ -156,18 +155,18 @@ class FeeDepositController extends Controller
 			
 			session()->flash('error_message', __("mismatched marked it suspicious or reject it"));
 			if($request->ppmpf_5==2){
-					return redirect()->route('pakistan.Apply');
-				}elseif ($request->ppmpf_5==3) {
+				return redirect()->route('pakistan.Apply');
+			}elseif ($request->ppmpf_5==3) {
 
-					return redirect()->route('pakistan.summerBook');
+				return redirect()->route('pakistan.summerBook');
 
-				}elseif ($request->ppmpf_4==2 && $request->ppmpf_5==11) {
+			}elseif ($request->ppmpf_4==2 && $request->ppmpf_5==11) {
 
-					return redirect('http://prepon.org/user/pricing');
+				return redirect('http://prepon.org/user/pricing');
 
-				}else{
-					return redirect()->route('feedeposit.index');
-				}		
+			}else{
+				return redirect()->route('feedeposit.index');
+			}		
 		}	
 	}
 
@@ -525,7 +524,7 @@ class FeeDepositController extends Controller
 		$depositDatest=date('Y-m-d');
 		$students=Student::find($std_id);
 
-	
+
 		if(!$students){
 			return false;
 		}
@@ -700,10 +699,10 @@ class FeeDepositController extends Controller
 
 
 					if($banks){
-						 if(isset($students->s_phoneNo)){
-                            $sms= nl2br("Dear Parent,\nThank you for deposited the fee of St No $students->id ,$students->s_name. Rs.($amount) received on Mobi cash for any queries contact (03464292920)",false);
-                            (SendSms($students->s_phoneNo,$sms));
-                          }
+						if(isset($students->s_phoneNo)){
+							$sms= nl2br("Dear Parent,\nThank you for deposited the fee of St No $students->id ,$students->s_name. Rs.($amount) received on Mobi cash for any queries contact (03464292920)",false);
+							(SendSms($students->s_phoneNo,$sms));
+						}
 						DB::commit();
 						return true;
 					}else{
@@ -719,6 +718,8 @@ class FeeDepositController extends Controller
 	function summerBookCharge($id){
 
 		$bank=BankTransactionDetail::find($id);
+		$amount=$bank->amount;
+
 		if($bank){
 			$fees=BankTransactionDetail::where('id',$id)->update(['status'=>0]);
 
@@ -736,21 +737,41 @@ class FeeDepositController extends Controller
 
 
 					$student->save();
+
+					$bankAc=Account::where('bank_id',8)->first();
+					if($bankAc){
+						$master=Master::where('account_id',$bankAc->id)->orderBy('id','DESC')->first();
+						$ledger=[
+							'account_id'=>$bankAc->id,
+							'a_credit'=>isset($amount)?$amount:0,
+							'a_debit'=>0,
+							'balance'=>isset($master->balance)?$master->balance-$amount:((isset($master->balance)?$master->balance:0)-$amount),
+							'posting_date'=>date('Y-m-d'),
+							'description'=>"summer book charged $amount by jazzcash",
+							'month'=>date('m'),
+							'year'=>date('Y'),
+							
+						];
+						$std=Master::insert($ledger);
+
+					}
+					
+
 				} 
 
 
 				if(isset($admission->phone) && $admission->phone && isset($student) && $student){
-		            $sms= strip_tags("Dear $admission->s_name ,"." <br> "."Your summer book order has been received.You will receive your order within 7 working days. "." <br> "."Regards, "." <br> "."ALIS ");
-		            SendSms($admission->phone,$sms);
-		        }
-		        if($admission->email){
-		        	$emails=$admission->email;
-		        	$address=$admission->address;
-		            Mail::send('emails.summerBookChargeMail',['user'=>$student ,'address'=>$address], function($message) use ($emails){    
-		                $message->to($emails)->subject('Online payment of summer book');    
-		            });
+					$sms= strip_tags("Dear $admission->s_name ,"." <br> "."Your summer book order has been received.You will receive your order within 7 working days. "." <br> "."Regards, "." <br> "."ALIS ");
+					SendSms($admission->phone,$sms);
+				}
+				if(isset($admission->email) && $admission->email && isset($student) && $student){
+					$emails=$admission->email;
+					$address=$admission->address;
+					Mail::send('emails.summerBookChargeMail',['user'=>$student ,'address'=>$address], function($message) use ($emails){    
+						$message->to($emails)->subject('Online payment of summer book');    
+					});
 
-		        }
+				}
 
 
 				return true;
@@ -772,8 +793,28 @@ class FeeDepositController extends Controller
 
 	function preponPackageBuy($id){
 		$bank=BankTransactionDetail::find($id);
+
 		if($bank){
+			$amount=$bank->amount;
 			$fees=BankTransactionDetail::where('id',$id)->update(['status'=>0]);
+			$bankAc=Account::where('bank_id',8)->first();
+			if($bankAc){
+				$master=Master::where('account_id',$bankAc->id)->orderBy('id','DESC')->first();
+				$ledger=[
+					'account_id'=>$bankAc->id,
+					'a_credit'=>isset($amount)?$amount:0,
+					'a_debit'=>0,
+					'balance'=>isset($master->balance)?$master->balance-$amount:((isset($master->balance)?$master->balance:0)-$amount),
+					'posting_date'=>date('Y-m-d'),
+					'description'=>"prepon Package subscribed by jazzcash",
+					'month'=>date('m'),
+					'year'=>date('Y'),
+
+				];
+				$std=Master::insert($ledger);
+
+			}
+
 			$url="http://prepon.org/user/pricing/user/package-status/$bank->prepon_user_id/$bank->prepon_package_id/$bank->id/$bank->amount";
 			return $url;
 		}else{
@@ -781,28 +822,48 @@ class FeeDepositController extends Controller
 		}
 
 	}
-	function admissionFeeSubmit($id,$amount,$bank){
+	function admissionFeeSubmit($id){
 		$bank=BankTransactionDetail::find($id);
 		if($bank){
+			$amount=$bank->amount;
+
 			$fees=BankTransactionDetail::where('id',$id)->update(['status'=>0]);
 
 			if($bank->std_reg_id){
-				$admission=\App\Models\AdmissionQuery::find($fees->std_reg_id);
+				$admission=\App\Models\AdmissionQuery::find($bank->std_reg_id);
 				$admission->paid=1;
 				$admission->save();
 
+				$bankAc=Account::where('bank_id',8)->first();
+				if($bankAc){
+					$master=Master::where('account_id',$bankAc->id)->orderBy('id','DESC')->first();
+					$ledger=[
+						'account_id'=>$bankAc->id,
+						'a_credit'=>isset($amount)?$amount:0,
+						'a_debit'=>0,
+						'balance'=>isset($master->balance)?$master->balance-$amount:((isset($master->balance)?$master->balance:0)-$amount),
+						'posting_date'=>date('Y-m-d'),
+						'description'=>"intial addmission fee paid by jazzcash",
+						'month'=>date('m'),
+						'year'=>date('Y'),
+
+					];
+					$std=Master::insert($ledger);
+
+				}
+
 
 				if(isset($admission->contact_no) && $admission->contact_no){
-		            $sms= strip_tags("Dear $admission->father_name ,"." <br> "."Congratulations, You $admission->name has been initially registered in school. Your Registration Number is $admission->id. "." <br> "."Thank You, "." <br> "."Our Manager will contact you shortly.Regards, "." <br> "."ALIS ");
-		            SendSms($admission->contact_no,$sms);
-		        }
-		        if($admission->email){
-		        	$emails=$admission->email;
-		            Mail::send('emails.initialAdmissionSuccess',['user'=>$admission], function($message) use ($emails){    
-		                $message->to($emails)->subject('Initial Online registration');    
-		            });
+					$sms= strip_tags("Dear $admission->father_name ,"." <br> "."Congratulations, You $admission->name has been initially registered in school. Your Registration Number is $admission->id. "." <br> "."Thank You, "." <br> "."Our Manager will contact you shortly.Regards, "." <br> "."ALIS ");
+					SendSms($admission->contact_no,$sms);
+				}
+				if($admission->email){
+					$emails=$admission->email;
+					Mail::send('emails.initialAdmissionSuccess',['user'=>$admission], function($message) use ($emails){    
+						$message->to($emails)->subject('Initial Online registration');    
+					});
 
-		        }
+				}
 
 
 				return true;
