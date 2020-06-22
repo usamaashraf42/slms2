@@ -42,6 +42,7 @@
 			                          @else
 			                          	<button class="btn  btn-danger btn-sm">unpaid </button>
 			                          @endif
+			                           <a href="{{route('student.NewAdmission',$query->id)}}"  class="btn btn-success btn-sm">New Admission</a>
 			                        </td>
 
 

@@ -14,7 +14,8 @@
 include('Ajax/customRoute.php');
 Route::get('/', function () { return view('welcome'); });
 
-Route::get('/checkout', function () { return view('web.checkout'); });
+// Route::get('/checkout', function () { return view('web.checkout'); });
+Route::get('/checkout', function () { return view('checkout'); });
 
 
 Route::get('/easypaisa', function () { return view('web.easypaisa.index'); });
@@ -44,9 +45,7 @@ Route::prefix('muscat')->group(function () {
 
     Route::get('/admission', 'Web\Muscat\PublicController@admission')->name('muscat.admission');
     Route::post('/admission/fee/deposit', 'Web\Muscat\PublicController@admission_query')->name('muscat.admission_query');
-
     Route::post('strip/payment', 'Web\Muscat\StripController@stripPayment')->name('muscat.stripPayment');
-
     Route::post('paypal', 'Web\Muscat\PaymentPaypalController@payWithpaypal')->name('admission.payWithpaypal');
 	Route::get('admission/paypal/status', 'Web\Muscat\PaymentPaypalController@getPaymentStatus')->name('admission.payWithpaypalStatus');
 
@@ -230,7 +229,6 @@ Route::prefix('admin')->group(function () {
 
 			Route::resource('jazzcash-file-read','admins\Student\feeDeposit\JazzCashDepositController');
 			Route::resource('manual-fee-deposit','admins\Student\feeDeposit\ManualFeeDepositController');
-
 			Route::resource('edit-student','admins\Student\EditStudent\EditStudentController');
 			Route::post('EditStudentProfile','admins\Student\EditStudent\EditStudentController@EditStudentProfile')->name('EditStudentProfile');
 
@@ -271,6 +269,9 @@ Route::prefix('admin')->group(function () {
 			Route::resource('student-edit','admins\Student\StudentBulkEditController');
 			Route::resource('student-freeze','admins\Student\studentFreeze\StudentFreezeController');
 			Route::resource('student-unfreeze','admins\Student\studentFreeze\StudentUnFreezeController');
+
+
+			Route::get('register/{id}','admins\Student\StudentRegister\InitialStudentRegisterController@NewAdmission')->name('student.NewAdmission');
 
 
 
