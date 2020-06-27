@@ -1856,6 +1856,8 @@ data-center-center="transform:translatex(380%);">
                                                <div class="col-lg-7 col-lg-offset-1">
                                                  
                                                  <h4>Write us</h4>
+                                                 <form method="post" action="post" id="contactUs">
+                                                  @csrf
                                                  <div id="contact_form">
                                                   <div class="form-group">
                                                    <input type="text" name="name" class="form-control input-field" placeholder="Name" required="">                    
@@ -1863,7 +1865,8 @@ data-center-center="transform:translatex(380%);">
                                                    <input type="text" name="subject" class="form-control input-field" placeholder="Subject" required="">                     
                                                  </div>
                                                  <textarea name="message" id="message" class="textarea-field form-control" rows="4" placeholder="Enter your message" required=""></textarea>
-                                                 <button type="submit" id="submit_btn" value="Submit" class="btn center-block">Send message</button>
+                                                 <button type="submit" id="contactUsBtn" value="Submit" class="btn center-block" >Send message</button>
+                                               </form>
                                                </div>
                                                <div id="contact_results"></div>
                                              </div>
@@ -2035,6 +2038,10 @@ data-center-center="transform:translatex(380%);">
                       <!-- Swicther -->
 
                       <script src="{{asset('web/muscat/switcher/js/dmss.js')}}"></script>
+
+                      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
                       <script type="text/javascript">
                         $.ajaxSetup({
                           headers: {
@@ -2043,6 +2050,11 @@ data-center-center="transform:translatex(380%);">
                        });
 
                         var searchRequest = null;
+
+
+                        function contactUs(obj){
+
+                        }
 
                         $(function () {
                           var minlength = 3;
@@ -2062,14 +2074,67 @@ data-center-center="transform:translatex(380%);">
                                 },
                                 dataType: "text",
                                 success: function(msg){
-                    //we need to check if the value is the same
-                    if (value==$(that).val()) {
-                    //Receiving the result of search here
-                  }
-                }
-              });
+                                    //we need to check if the value is the same
+                                    if (value==$(that).val()) {
+                                    //Receiving the result of search here
+                                  }
+                                }
+                              });
                             }
                           });
                         });
 
-                      </script>
+
+
+
+                     $("#contactUsBtn").click(function (e) {
+
+
+            var form = $('#contactUs')[0]; // You need to use standard javascript object here
+            var formData = new FormData(form);
+            console.log('formData', formData);
+            console.log('form', form);
+            $.ajax({
+              url: "{{route('ContactFom')}}",
+              type: "POST",
+              enctype: 'multipart/form-data',
+                processData: false,  // Important!
+                contentType: false,
+                cache: false,
+                data: formData,
+              
+                success: function (response) {
+                  console.log('response', response);
+                  if (response.status) {
+
+                    
+
+
+                    $("#contactUs")[0].reset();
+
+                    swal(
+                      'Success!',
+                      'Your query has been submitted , We contact with you very soon',
+                      'success'
+                      );
+                  } else {
+                    console.log('error blank', response.message);
+                    swal(
+                      'Warning!',
+                      response.message,
+                      'warning'
+                      );
+                  }
+                }, error: function (e) {
+                  console.log('error', e);
+                  swal(
+                    'Oops...',
+                    'Something went wrong!',
+                    'error'
+                    )
+                }
+            });
+            e.preventDefault();
+        });
+
+    </script>
