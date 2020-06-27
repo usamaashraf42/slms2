@@ -67,9 +67,10 @@ class HomeController extends Controller
     
         if($data){
             // Session::flash('success_message', 'Record added successfully.');
-             // Mail::send('emails.wellcome', ['email'=>$request->email], function($message) use ($emails){    
-             //     $message->to($emails)->subject('Welcome to Royal Lyceum School System');    
-             // });
+            $emails=$request->email;
+             Mail::send('emails.wellcome', ['email'=>$request->email], function($message) use ($emails){    
+                 $message->to($emails)->subject('Welcome to Royal Lyceum School System');    
+             });
               return response()->json(['status'=>1]);
         }else{
            return response()->json(['status'=>0]);

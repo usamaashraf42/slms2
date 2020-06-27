@@ -27,7 +27,6 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
     <title> @yield('title','Muscat') - American Lyceum Group of School</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
     <!-- Icon fonts -->
  <!--  <link href="{{asset('web/muscat/fonts/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
   <link href="{{asset('web/muscat/fonts/flaticons/flaticon.css')}}" rel="stylesheet" type="text/css">
@@ -37,25 +36,22 @@
 
   <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans:700,900' rel='stylesheet' type='text/css'>
   <!-- Theme CSS -->
-  <link href="{{asset('web/muscat/css/style.css')}}" rel="stylesheet">
+  <!-- <link href="{{asset('web/muscat/css/style.css')}}" rel="stylesheet"> -->
   <!-- Color Style CSS -->
   <link href="{{asset('web/muscat/styles/funtime.css')}}" rel="stylesheet">
   <!-- Owl Slider & Prettyphoto -->
-  <link rel="stylesheet" href="{{asset('web/muscat/css/owl.carousel.css')}}">
-  <link rel="stylesheet" href="{{asset('web/muscat/css/prettyPhoto.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('web/muscat/styles/style_1.css')}}">
-  <link rel="stylesheet" href="{{asset('web/muscat/layerslider/css/layerslider.css')}}">
   <link rel="apple-touch-icon" sizes="72x72" href="{{asset('web/muscat/img/favicon.png')}}">
   <link rel="apple-touch-icon" sizes="114x114" href="{{asset('web/muscat/img/favicon.png')}}">
   <link rel="shortcut icon" href="{{asset('web/muscat/img/favicon.png')}}" type="image/x-icon">
-  <link rel="stylesheet" id="switcher-css" type="text/css" href="{{asset('web/muscat/switcher/css/switcher.css')}}" media="all" />
+  <!-- <link rel="stylesheet" id="switcher-css" type="text/css" href="{{asset('web/muscat/switcher/css/switcher.css')}}" media="all" /> -->
   <link rel="alternate stylesheet" type="text/css" href="{{asset('web/muscat/styles/funtime.css')}}" title="funtime" media="all" />
   <link rel="alternate stylesheet" type="text/css" href="{{asset('web/muscat/styles/playground.css')}}" title="playground" media="all" />
   <link rel="alternate stylesheet" type="text/css" href="{{asset('web/muscat/styles/games.css')}}" title="games" media="all" />
   <link rel="alternate stylesheet" type="text/css" href="{{asset('web/muscat/styles/childhood.css')}}" title="childhood" media="all" />
   <link rel="alternate stylesheet" type="text/css" href="{{asset('web/muscat/styles/school.css')}}" title="school" media="all" />
-  <link rel="alternate stylesheet" type="text/css" href="{{asset('web/muscat/switcher/css/boxed.css')}}" title="boxed" media="all" />
-  <link rel="alternate stylesheet" type="text/css" href="{{asset('web/muscat/switcher/css/full.css')}}" title="full" media="all" />
+  <!-- <link rel="alternate stylesheet" type="text/css" href="{{asset('web/muscat/switcher/css/boxed.css')}}" title="boxed" media="all" /> -->
+  <!-- <link rel="alternate stylesheet" type="text/css" href="{{asset('web/muscat/switcher/css/full.css')}}" title="full" media="all" /> -->
   @show
   @stack('post-styles')
   <style>
@@ -2023,18 +2019,18 @@ data-center-center="transform:translatex(380%);">
                       <script src="{{asset('web/muscat/js/plugins.js')}}"></script>
                       <!-- Contact -->
 
-                      <script src="{{asset('web/muscat/js/contact.js')}}"></script>
+                      <!-- <script src="{{asset('web/muscat/js/contact.js')}}"></script> -->
                       <!-- Prefix free CSS -->
 
-                      <script src="{{asset('web/muscat/js/prefixfree.js')}}"></script>        
+                      <!-- <script src="{{asset('web/muscat/js/prefixfree.js')}}"></script>         -->
                       <!-- GreenSock -->
 
-                      <script src="{{asset('web/muscat/layerslider/js/greensock.js')}}" ></script>
+                      <!-- <script src="{{asset('web/muscat/layerslider/js/greensock.js')}}" ></script> -->
                       <!-- LayerSlider script files -->
 
-                      <script src="{{asset('web/muscat/layerslider/js/layerslider.transitions.js')}}" ></script>
+                      <!-- <script src="{{asset('web/muscat/layerslider/js/layerslider.transitions.js')}}" ></script> -->
 
-                      <script src="{{asset('web/muscat/layerslider/js/layerslider.kreaturamedia.jquery.js')}}" ></script>
+                      <!-- <script src="{{asset('web/muscat/layerslider/js/layerslider.kreaturamedia.jquery.js')}}" ></script> -->
                       <!-- Swicther -->
 
                       <script src="{{asset('web/muscat/switcher/js/dmss.js')}}"></script>
