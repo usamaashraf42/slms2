@@ -67,7 +67,6 @@ class EmployeeSalaryPostController extends Controller
 			$salary=(isset($emplo->Employeesalary->monthly_salary)?$emplo->Employeesalary->monthly_salary:$emplo->salary);
 			$daily=round($salary/$days);
 
-			dd($emplo->department);
 
 			$total_present=0;
 			$total_absent=0;
@@ -100,7 +99,6 @@ class EmployeeSalaryPostController extends Controller
 
 
 			}
-			dd($EmployeeDateByMonth[0]->attendance);
 
 			$object = new \stdClass;
 
@@ -140,7 +138,6 @@ class EmployeeSalaryPostController extends Controller
 			
 		}
 
-		dd($data);
 
 		
 		

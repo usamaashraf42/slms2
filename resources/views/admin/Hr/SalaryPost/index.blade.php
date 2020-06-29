@@ -56,7 +56,6 @@
                 $leave_ids=0;
                 $holiday_ids=0;
                 $employeeDate=$admin->EmployeeDateByMonth($month,$year);
-                // dd($employeeDate);
                 $monthly_salary=isset($admin->Employeesalary->monthly_salary)?$admin->Employeesalary->monthly_salary:0;
                 $ta=isset($admin->Employeesalary->ta)?$admin->Employeesalary->ta:0;
                 $oneDay=$monthly_salary/$days;
@@ -86,7 +85,6 @@
                 $carry_forward=isset($admin->Employeesalary->carry_forward)?$admin->Employeesalary->carry_forward:0;
 
                 $annual_salary=$monthly_salary*12;
-                // dd($annual_salary);
 
                 $incomeTax=\App\Models\IncomeTax::where('annual_start_amount','<=',$annual_salary)->where('annual_end_amount','>=',$annual_salary)->first();
                 $fixTax=isset($incomeTax->fix_tax)?$incomeTax->fix_tax:0;

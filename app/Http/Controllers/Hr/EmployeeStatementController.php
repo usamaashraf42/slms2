@@ -38,4 +38,14 @@ class EmployeeStatementController extends Controller
   			$employee=Employee::where('emp_id',$request->employee_id)->first();
         return view('admin.Hr.statement.index',compact('salaries','pfs','employee'));
     }
+
+
+
+    public function show($id){
+      // dd($id);
+        $salaries=EmployeeSalaryPost::where('emp_id',$id)->get();
+        $pfs=EmployeeProfidentFund::where('emp_id',$id)->get();
+        $employee=Employee::where('emp_id',$id)->first();
+        return view('admin.Hr.statement.index',compact('salaries','pfs','employee'));
+    }
 }
