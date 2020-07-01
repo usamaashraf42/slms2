@@ -308,6 +308,9 @@ Route::prefix('admin')->group(function () {
 		Route::resource('department-shift','Hr\DepartmentShiftController');
 
 
+
+
+
 		Route::resource('advance-request','Hr\Advance\AdvanceRequestController');
 		Route::resource('advance-approval','Hr\Advance\AdvanceApprovalController');
 		Route::resource('advance','Hr\Advance\AdvanceController');
@@ -318,6 +321,8 @@ Route::prefix('admin')->group(function () {
 		Route::resource('employee-statement','Hr\EmployeeStatementController');
 		Route::resource('income-tax','admins\IncomeTaxController');
 		Route::post('salaryPosted','Hr\EmployeeSalaryPostController@salaryPosted')->name('salaryPosted');
+
+		Route::post('temp-salary-posted','Hr\EmployeeSalaryPostController@EmployeeSalaryPostTemp')->name('emp.EmployeeSalaryPostTemp');
 
 
 		Route::prefix('performance')->group(function () {

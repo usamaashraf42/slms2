@@ -36,6 +36,10 @@ class Employee extends Model
     	return $this->belongsTo(Branch::class,'branch_id');
     }
 
+    public function salaryinfo(){
+      return $this->hasOne(EmployeeSalary::class,'employee_id','emp_id');
+    }
+
 
     public function Employeesalary(){
       return $this->hasOne(EmployeeSalary::class,'employee_id','emp_id');
