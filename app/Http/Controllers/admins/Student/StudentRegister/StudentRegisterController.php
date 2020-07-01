@@ -611,7 +611,7 @@ class StudentRegisterController extends Controller
                 }       
             }
 
-            if($branchAccount){
+            if(ksset($branchAccount)&& $branchAccount){
                 DB::commit();
                 $response=$feeEffected;
             }else{

@@ -23,22 +23,13 @@
                 <tr>
                   <th></th>
                   <th>EmployeeId</th>
-                  <th>Name</th>
-                  <th>Monthly Salary</th>
                   <th>Total Days</th>
                   <th>Absent</th>
                   <th>Leaves</th>
                   <th>holiday</th>
+                  
                   <th>Total Present</th>
-                  <th>Paid Days</th>
-                  <th>EOBI</th>
-                  <th>Advance</th>
-                  <th>Security</th>
-                  <th>Tax</th>
-                  <th>T.A</th>
-                  <th>PF rate</th>
-                  <th>PF</th>
-                  <th>Given Salary</th>
+                
                 </tr>
               </thead>
               <tbody>
@@ -47,65 +38,13 @@
 
 
                 
-                @isset($employees)
-                @php($counter=1)
-                @foreach($employees as $admin)
-                <?php
-                $presents=0;
-                $absents=0;
-                $leave_ids=0;
-                $holiday_ids=0;
-                $employeeDate=$admin->EmployeeDateByMonth($month,$year);
-                $monthly_salary=isset($admin->Employeesalary->monthly_salary)?$admin->Employeesalary->monthly_salary:0;
-                $ta=isset($admin->Employeesalary->ta)?$admin->Employeesalary->ta:0;
-                $oneDay=$monthly_salary/$days;
-                foreach ($employeeDate as $emp_day) {
-                  if($emp_day->present){
-                    $presents++;
-                  }
-                  if($emp_day->absent){
-                    $absents++;
-                  }
-                  if($emp_day->leave_id){
-                    $leave_ids++;
-                  }
-                  if($emp_day->holiday_id){
-                    $holiday_ids++;
-                  }
-                }
-
-                $pf=isset($payroll->pf)?$payroll->pf:0;
-                $eobi=isset($payroll->eobi)?$payroll->eobi:0;
-                $tax=isset($payroll->tax)?$payroll->tax:0;
-                $paidDays=$presents + $leave_ids + $holiday_ids;
-                $paidAmount=$paidDays * $oneDay;
-                $pfAmount=$pf*$paidAmount/100;
-                $advance=0;
-                $security=0;
-                $carry_forward=isset($admin->Employeesalary->carry_forward)?$admin->Employeesalary->carry_forward:0;
-
-                $annual_salary=$monthly_salary*12;
-
-                $incomeTax=\App\Models\IncomeTax::where('annual_start_amount','<=',$annual_salary)->where('annual_end_amount','>=',$annual_salary)->first();
-                $fixTax=isset($incomeTax->fix_tax)?$incomeTax->fix_tax:0;
-                $total_amount=$annual_salary - (isset($incomeTax->after_amount_percentage)?$incomeTax->after_amount_percentage:0);
-                $per_amount_afterPrice=0;
-                if($total_amount>0){
-                  $per_amount_afterPrice= ($total_amount * (isset($incomeTax->per_tax)?$incomeTax->per_tax:0))/100;
-                }
-                $total_tax_amount_df=$per_amount_afterPrice + $fixTax;
-                $eobi_deduction= ($eobi * $paidAmount/100);
-                $total_given_salary=$paidAmount - $pfAmount - $total_tax_amount_df - $eobi_deduction - $security - $advance + $ta;
-                
-                ?>
+              
                 <tr>
                   <input type="hidden" name="emp_ids[]" value="@isset($admin->emp_id){{$admin->emp_id}}@endisset">
                   <input type="hidden" name="month" value="{{$month}}">
                   <input type="hidden" name="year" value="{{$year}}">
                   <td>{{$counter++}}</td>
-                  <td>@isset($admin->emp_id){{$admin->emp_id}}@endisset</td>
-                  <td>@isset($admin->name){{$admin->name}}@endisset</td>
-                  <td>@isset($monthly_salary){{$monthly_salary}}@endisset</td>
+                  <td>@isset($admin->emp_id){{$admin->emp_id}}@endisset  @isset($admin->name){{$admin->name}}@endisset</td>
 
                   <td>{{$days}}</td>
                   <td>{{$days-$presents}}</td>
