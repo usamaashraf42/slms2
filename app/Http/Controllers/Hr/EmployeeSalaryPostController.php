@@ -75,7 +75,6 @@ class EmployeeSalaryPostController extends Controller
 			$holidays=0;
 
 			$EmployeeDateByMonth=EmployeeDate::where('emp_id',$employees[0]->emp_id)->with('attendance')->whereMonth('attendance_date',$month)->whereYear('attendance_date',$year)->get();
-// dd($EmployeeDateByMonth);
 			foreach ($EmployeeDateByMonth as $emp_attandance) {
 				// dd($emp_attandance);
 				if($emp_attandance->absent){
@@ -127,11 +126,6 @@ class EmployeeSalaryPostController extends Controller
 			$object->pf=$emplo->name;
 			$object->pf_amount=$emplo->name;
 			$object->net_salary=$emplo->name;
-
-
-
-
-
 
 			$data[]=$object;
 
