@@ -359,6 +359,9 @@ class EmployeeSalaryPostController extends Controller
 			$holiday_ids=0;
 			$late=0;
 			$e_off=0;
+			$given_salary=$monthly_salary;
+			$today_salary=$monthly_salary/$days;
+			$one_fourth_salary=$today_salary/4;
 
 
 			foreach ($employeeDate as $emp_day) {
@@ -381,6 +384,24 @@ class EmployeeSalaryPostController extends Controller
 					$e_off++;
 				}
 			}
+			$absent_fine=0;
+			if($absents && $absents ){
+				$absent_fine=($absents)*$today_salary;
+			}
+			$late_fine=0;
+			if($late && $late>2 ){
+				$late_fine=($late-2)*$one_fourth_salary;
+			}
+			$e_off_fine=0;
+			if($e_off && $e_off>2 ){
+				$e_off_fine=($e_off-2)*$one_fourth_salary;
+			}
+			
+			// $late_fine=$late*$one_fourth_salary;
+			// $e_off_fine=$e_off*$one_fourth_salary;
+
+			$given_salary=$given_salary-$absent_fine-$late_fine-$e_off_fine;
+
 			$pf_deduction=((isset($emp->Employeesalary->monthly_salary)?$emp->Employeesalary->monthly_salary:0)*$pf )/100;
 
 			$data=EmployeeSalaryPostTemp::where([
@@ -401,6 +422,7 @@ class EmployeeSalaryPostController extends Controller
 					'late'=>$late,
 					'pf'=>$pf,
 					'pf_deduction'=>$pf_deduction,
+					'given_salary'=>$given_salary,
 
 					'branch_id'=>$emp->branch_id,
 					'requested_comment'=>$request->comment
@@ -425,6 +447,7 @@ class EmployeeSalaryPostController extends Controller
 					'e_off'=>$e_off,
 					'late'=>$late,
 					'branch_id'=>$emp->branch_id,
+					'given_salary'=>$given_salary,
 					'requested_comment'=>$request->comment
 
 				]);

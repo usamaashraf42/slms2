@@ -35,7 +35,6 @@
                   <th>Late</th>
                   <th>App late</th>
 
-                  <th>Total Present</th>
 
                   <th>Advance</th>
                   <th>Security</th>
@@ -80,12 +79,9 @@
                   <td>{{$admin->late}} </td>
                   <td> <input class="late_emp_id_{{$admin->emp_id}} late" name="late_emp_id_{{$admin->emp_id}}" data-ids="{{$admin->emp_id}}" value="{{$admin->late}}" style="max-width: 51px"></td>
 
-                  <td>{{$admin->present_days}}  <input class="present_emp_id_{{$admin->emp_id}} absent" name="present_emp_id_{{$admin->emp_id}}" data-ids="{{$admin->emp_id}}"  value="{{$admin->present_days}}" style="max-width: 51px"></td>
-
-
                   <td>{{$admin->advance_deduction}}  <input  name="advance_emp_id_{{$admin->emp_id}}" class="advance_emp_id_{{$admin->emp_id}} absent" value="{{$admin->advance_deduction}}" data-ids="{{$admin->emp_id}}" style="max-width: 51px"></td>
 
-                  <td>{{$admin->security}}  <input class="security_emp_id_{{$admin->emp_id}} security" name="security_emp_id_{{$admin->emp_id}}" data-ids="{{$admin->emp_id}}" value="{{$admin->security}}" style="max-width: 51px"></td>
+                  <td>{{$admin->security}}  <input class="security_emp_id_{{$admin->emp_id}} security" name="security_emp_id_{{$admin->emp_id}}" data-ids="{{$admin->emp_id}}" value="{{$admin->security?$admin->security:0}}" style="max-width: 51px"></td>
 
                   <td>{{$admin->tax}}  <input class="tax_emp_id_{{$admin->emp_id}} tax" name="tax_emp_id_{{$admin->emp_id}}" data-ids="{{$admin->emp_id}}" value="{{$admin->tax}}" style="max-width: 51px"></td>
 
@@ -96,7 +92,7 @@
 
                   <td>{{round($admin->pf_deduction,2)}}</td>
 
-                  <td class="emp_given_salary_{{$admin->emp_id}}">{{ round(($admin->actualSalaryGiven ),2) }}</td>
+                  <td class="emp_given_salary_{{$admin->emp_id}}">{{ round(($admin->given_salary ),2) }}</td>
                   <td><button class="btn btn-success" data-ids="{{$admin->emp_id}}" onclick="RealSalaryPost({{$admin->emp_id}})">Post</button></td>
                 </tr>
                 @endforeach
@@ -163,16 +159,41 @@
 
       var ids=parseInt($(this).attr('data-ids'));
       var days=parseInt($('.days').val());
-      var present= parseInt($('.present_emp_id_'+ids).val());
       var monthly=parseFloat($('.salary_emp_'+ids).val());
-      var salary=parseFloat(monthly/days);
+      var salary=parseFloat($('.salary_emp_'+ids).val());
+      var today_salary=parseFloat(monthly/days);
+      var fourth_salary=parseFloat(today_salary/4);
+
+      var ta= parseFloat($('.ta_emp_id_'+ids).val());
+      var tax= parseFloat($('.tax_emp_id_'+ids).val());
+      var security= parseInt($('.security_emp_id_'+ids).val());
+      var leave= parseInt($('.leave_emp_id_'+ids).val());
+      var absent= parseInt($('.absent_emp_id_'+ids).val());
+
+      var late= parseInt($('.late_emp_id_'+ids).val());
+      var e_off= parseInt($('.e_off_emp_id_'+ids).val());
+
+
+      
+
+
+
+      var absent_fine=absent*today_salary;
+      var late_fine=0;
+      if(late && late>2){
+        late_fine=(late-2)*fourth_salary;
+      }
+     var e_off_fine=0;
+      if(e_off && e_off>2){
+        e_off_fine=(e_off-2)*fourth_salary;
+      }
 
 
 
 
-      var monthly_salary=parseInt(salary*present);
+      var monthly_salary=parseInt(today_salary*days)+ta-tax-security-absent_fine-late_fine-e_off_fine;
 
-      console.log('ids',ids,'salary',salary,'days',days,'present',present,'monthly_salary',monthly_salary);
+      console.log('ids',ids,'salary',salary,'days',days,'monthly_salary',monthly_salary,'ta',ta,'tax',tax,'security',security,'absent',absent_fine);
       $('.emp_given_salary_'+ids).text('');
       $('.emp_given_salary_'+ids).text(monthly_salary);
   });
@@ -188,19 +209,18 @@
       var pf=4;
       var ta=0;
       var security=parseInt($('.security_emp_id_'+ids).val());
-      var presents= parseInt($('.present_emp_id_'+ids).val());
       var absents=parseInt($('.absent_emp_id_'+ids).val());
       var leaves=parseInt($('.leave_emp_id_'+ids).val());
       var lates=parseInt($('.late_emp_id_'+ids).val());
       var e_offs=parseInt($('.e_off_emp_id_'+ids).val());
 
-      var total_given_salary=1500;
+      var total_given_salary=parseFloat($('.emp_given_salary_'+ids).text());
   
       $.ajax({
         url: "{{route('realSalaryPosted')}}",
         type: 'post',
         data: {
-          'emp_id': id,'month':month,'year':year,'holidays':holidays,'security':security,'pf':pf,'days':days,'ta':ta,'leaves':leaves,'absents':absents,'lates':lates,'e_offs':e_offs,'presents':presents,'total_given_salary':total_given_salary
+          'emp_id': id,'month':month,'year':year,'holidays':holidays,'security':security,'pf':pf,'days':days,'ta':ta,'leaves':leaves,'absents':absents,'lates':lates,'e_offs':e_offs,'total_given_salary':total_given_salary
 
         },
         dataType: 'json',
