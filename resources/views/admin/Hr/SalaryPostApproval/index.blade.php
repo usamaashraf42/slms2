@@ -90,7 +90,7 @@
            
                   <td>{{$admin->pf}}  <input class="pf_emp_id_{{$admin->emp_id}} pf" name="pf_emp_id_{{$admin->emp_id}}" data-ids="{{$admin->emp_id}}" value="{{$admin->pf}}" style="max-width: 51px"></td>
 
-                  <td>{{round($admin->pf_deduction,2)}}</td>
+                  <td class="pf_{{$admin->emp_id}}">{{round($admin->pf_deduction,2)}}</td>
 
                   <td class="emp_given_salary_{{$admin->emp_id}}">{{ round(($admin->given_salary ),2) }}</td>
                   <td><button class="btn btn-success" data-ids="{{$admin->emp_id}}" onclick="RealSalaryPost({{$admin->emp_id}})">Post</button></td>
@@ -155,7 +155,7 @@
  <script>
 
 
- $('.absent').add('.leave').add('.tax').add('.e_off').add('.late').add('.present_days').add('.advance_deduction').add('.security').add('.ta').on('keyup keypress blur change',function(obj) {
+ $('.absent').add('.leave').add('.tax').add('.e_off').add('.late').add('.present_days').add('.advance_deduction').add('.security').add('.pf').add('.ta').on('keyup keypress blur change',function(obj) {
 
       var ids=parseInt($(this).attr('data-ids'));
       var days=parseInt($('.days').val());
@@ -172,6 +172,10 @@
 
       var late= parseInt($('.late_emp_id_'+ids).val());
       var e_off= parseInt($('.e_off_emp_id_'+ids).val());
+
+      var pf=parseInt($('.pf_emp_id_'+ids).val());
+
+
 
 
       
@@ -193,7 +197,16 @@
 
       var monthly_salary=parseInt(today_salary*days)+ta-tax-security-absent_fine-late_fine-e_off_fine;
 
+      var pf_amount=(monthly_salary*pf)/100;
+
+      monthly_salary=monthly_salary-pf_amount;
+
       console.log('ids',ids,'salary',salary,'days',days,'monthly_salary',monthly_salary,'ta',ta,'tax',tax,'security',security,'absent',absent_fine);
+
+      $('.pf_'+ids).text('');
+      $('.pf_'+ids).text(pf_amount);
+
+      
       $('.emp_given_salary_'+ids).text('');
       $('.emp_given_salary_'+ids).text(monthly_salary);
   });
@@ -206,13 +219,13 @@
          var days=parseInt($('.days').val());
 
       var holidays=4;
-      var pf=4;
       var ta=0;
       var security=parseInt($('.security_emp_id_'+ids).val());
       var absents=parseInt($('.absent_emp_id_'+ids).val());
       var leaves=parseInt($('.leave_emp_id_'+ids).val());
       var lates=parseInt($('.late_emp_id_'+ids).val());
       var e_offs=parseInt($('.e_off_emp_id_'+ids).val());
+      var pf=parseInt($('.pf_emp_id_'+ids).val());
 
       var total_given_salary=parseFloat($('.emp_given_salary_'+ids).text());
   

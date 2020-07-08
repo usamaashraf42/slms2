@@ -60,6 +60,11 @@ class SalaryPostApprovalController extends Controller
 		if(!$tempSalary or !$emp){
 			return response()->json(['status','Please Refresh Your window and try again']);
 		}
+		$pf_amount=0;
+		if($request->pf){
+			$pf_amount=(($total_given_salary*$request->pf)/100);
+		}
+
 
 		$salaries=EmployeeSalaryPost::where([
 			'emp_id'=>$request->emp_id,
@@ -87,8 +92,8 @@ class SalaryPostApprovalController extends Controller
 				// 'total_insurance'=>$total_insurance,
 				// 'total_insurance_install'=>$total_insurance_install,
 			'security'=>$request->security,
-			'pf'=>$request->pf,
-			'pf_rate'=>$request->pf_rate,
+			'pf'=>$pf_amount,
+			'pf_rate'=>$request->pf,
 			// 'tbPF'=>$pfAmount,
 
 			// 'totalpaydays'=>$paidDays,
