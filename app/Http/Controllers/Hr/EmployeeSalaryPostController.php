@@ -342,8 +342,11 @@ class EmployeeSalaryPostController extends Controller
 			$employeeDate=EmployeeDate::where('emp_id',$request->emp_id)->whereMonth('attendance_date',$month)->whereYear('attendance_date',$year)->get();
 
 
-				$monthly_salary=isset($emp->Employeesalary->monthly_salary)?$emp->Employeesalary->monthly_salary:0;
+			$monthly_salary=isset($emp->Employeesalary->monthly_salary)?$emp->Employeesalary->monthly_salary:0;
 			$ta=isset($emp->Employeesalary->ta)?$emp->Employeesalary->ta:0;
+
+			$pf=round(isset($emp->Employeesalary->pf)?$emp->Employeesalary->pf:0);
+			
 
 			$medical=isset($emp->Employeesalary->medical)?$emp->Employeesalary->medical:0;
 			$house_rent=isset($emp->Employeesalary->house_rent)?$emp->Employeesalary->house_rent:0;
@@ -378,27 +381,57 @@ class EmployeeSalaryPostController extends Controller
 					$e_off++;
 				}
 			}
+			$pf_deduction=((isset($emp->Employeesalary->monthly_salary)?$emp->Employeesalary->monthly_salary:0)*$pf )/100;
 
-
-
-			$data=EmployeeSalaryPostTemp::create([
+			$data=EmployeeSalaryPostTemp::where([
 				'emp_id'=>$request->emp_id,
 				'month'=>$request->month,
-				'year'=>$request->year,
-				'monthly_salary'=>$monthly_salary,
-				'total_days'=>$days,
-				'present_days'=>$presents,
-				'absent'=>$absents,
-				'leaves'=>$leave_ids,
-				'e_off'=>$e_off,
-				'late'=>$late,
-				'requested_comment'=>$request->comment
+				'year'=>$request->year])->first();
+			if(!$data){
+				$data=EmployeeSalaryPostTemp::create([
+					'emp_id'=>$request->emp_id,
+					'month'=>$request->month,
+					'year'=>$request->year,
+					'monthly_salary'=>$monthly_salary,
+					'total_days'=>$days,
+					'present_days'=>$presents,
+					'absent'=>$absents,
+					'leaves'=>$leave_ids,
+					'e_off'=>$e_off,
+					'late'=>$late,
+					'pf'=>$pf,
+					'pf_deduction'=>$pf_deduction,
 
-			]);
+					'branch_id'=>$emp->branch_id,
+					'requested_comment'=>$request->comment
+
+				]);
+
+			}else{
+				$data=EmployeeSalaryPostTemp::where([
+					'emp_id'=>$request->emp_id,
+					'month'=>$request->month,
+					'year'=>$request->year])->update([
+					'emp_id'=>$request->emp_id,
+					'month'=>$request->month,
+					'year'=>$request->year,
+					'monthly_salary'=>$monthly_salary,
+					'total_days'=>$days,
+					'present_days'=>$presents,
+					'pf'=>$pf,
+					'pf_deduction'=>$pf_deduction,
+					'absent'=>$absents,
+					'leaves'=>$leave_ids,
+					'e_off'=>$e_off,
+					'late'=>$late,
+					'branch_id'=>$emp->branch_id,
+					'requested_comment'=>$request->comment
+
+				]);
+			}
+
+			
 		}
-
-
-		
 
 		if(isset($data) && $data){
 			return response()->json(['data'=>$data,'status'=>1]);

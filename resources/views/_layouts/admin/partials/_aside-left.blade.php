@@ -325,14 +325,11 @@
          </li>
 
          <li class="submenu">
-           <a href="#"><i class="la la-money"></i>  <span> Payroll  </span>  <span class="menu-arrow"></span></a>
+           <a href="#"><i class="la la-money"></i>  <span> Salary Management  </span>  <span class="menu-arrow"></span></a>
            <ul style="display: none;">
               <li><a href="{{route('salary-post.index')}}">Salary Post</a></li>
-              <li><a href="{{route('employee-salary.index')}}"> Employee Salary  </a></li>
               <li><a href="{{route('salary-post-approval.index')}}"> Employee Salary Approval  </a></li>
-
-
-
+              <li><a href="{{route('salary-sheet.index')}}"> Salary Sheet </a></li>
               <li><a href="{{route('pay-slip.index')}}"> Payslip  </a></li>
 
 

@@ -303,12 +303,15 @@ Route::prefix('admin')->group(function () {
 		Route::resource('designation','Hr\DesignationController');
 		Route::resource('payroll-item','Hr\PayrollItemController');
 		Route::resource('salary-post-approval','Hr\SalaryPostApprovalController');
+
+
+		
 		Route::resource('employee-list','Hr\EmployeeListController');
 		Route::resource('employee-salary-list','Hr\EmployeeSalaryListController');
 		Route::resource('department-shift','Hr\DepartmentShiftController');
 
 
-
+		Route::post('realSalaryPosted','Hr\SalaryPostApprovalController@realSalaryPosted')->name('realSalaryPosted');
 
 
 		Route::resource('advance-request','Hr\Advance\AdvanceRequestController');

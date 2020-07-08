@@ -1,15 +1,15 @@
 @extends('_layouts.admin.default')
-@section('title', 'Salary Post')
+@section('title', 'Salary Sheet')
 @section('content')
 <div class="content container-fluid">
 	<div class="row">
 		<div class="col-md-12 col-sm-12 col-lg-12 col-xl-12">
-			<h4 class="card-title">Salary Post</h4>
+			<h4 class="card-title">Salary Sheet</h4>
 			<div class="card-box">
 				<div class="card-block">
 					@component('_components.alerts-default')
 					@endcomponent
-					<form method="POST" action="{{ route('salary-post.store') }}" enctype = "multipart/form-data" id="upload_new_form">
+					<form method="POST" action="{{ route('salary-sheet.store') }}" enctype = "multipart/form-data" id="upload_new_form">
 						<div class="col-md-12">
 							{{csrf_field()}}
 							<div class="row">
@@ -17,6 +17,9 @@
 									<div class="form-group">
 										<label for="select_branch">Select Branch</label>
 										<select class="branch_id" name="branch_id" onchange="getEmployee(this)"  id="select_branch" required style="width: 100%;height: 40px;">
+
+											<option selected="selected" value="0">All Branches</option>
+
 											@if(!empty($branches))
 											@foreach($branches as $branch)
 											<option value={{$branch['id']}}>{{$branch['branch_name']}}</option>
@@ -27,19 +30,7 @@
 										</select>
 									</div>
 								</div>
-								<!-- <div class="col-md-3">
-									<div class="form-group">
-										<label for="employee_id">Select Employee</label>
-										<select type="text" class="form-control employee_id" id="employee_id"  name="employee_id"  placeholder="Name">
-											<option selected="selected" value="0" >All Employee</option>
-											@if(!empty($users))
-											@foreach($users as $user)
-											<option value={{$user['id']}}>{{$user['name']}}</option>
-											@endforeach
-											@endif
-										</select>
-									</div>
-								</div> -->
+								
 								<div class="col-md-4">
 									<div class="form-group">
 										<label for="select2">Month</label>
@@ -94,93 +85,8 @@
 									</div>
 								</div>
 							</div>
-							<!-- <div class=" form-group row">
-								<div class="col-md-3">
-									<div class="form-group">
-										<label for="misc1_desc">Misc 1 Desc </label>
-										<input type="text" class="form-control misc1_desc" id="misc1_desc" value="{{old('misc1_desc')}}"   name="misc1_desc"  placeholder="Misc 1 description (Bonus)">
-									</div>
-								</div>
-
-								<div class="col-md-3">
-									<div class="form-group">
-										<label for="misc1_desc">Misc 1 amount </label>
-										<input type="number" class="form-control misc1" value="{{old('misc1')}}"  name="misc1"  placeholder="Misc 2 amount "> 
-									</div>
-								</div>
-								<div class="col-md-3">
-									<div class="form-group">
-										<label for="misc2_desc">Misc 2 Desc </label>
-										<input type="text" class="form-control misc2_desc" id="misc2_desc" value="{{old('misc2_desc')}}"   name="misc2_desc"  placeholder="Misc 1 description (Bonus)">
-									</div>
-								</div>
-
-								<div class="col-md-3">
-									<div class="form-group">
-										<label for="misc2">Misc 2 amount </label>
-										<input type="number" class="form-control misc2" value="{{old('misc2')}}"  name="misc2"  placeholder="Misc 2 amount">
-									</div>
-								</div>
-
-
-
-								
-							</div> -->
 							
 
-
-							<!-- <div class="form-group row">
-								<div class="col-md-3">
-									<div class="form-group">
-										<label for="outType">Outstanding </label>
-										<select id="input-group-icon-email" id="outType" name="outType" type="text" class="form-control" placeholder="">
-											<option selected="selected" value="1"> with outstanding</option>
-											<option  value='0'>Without outstanding</option>
-										</select>
-									</div>
-								</div>
-								
-							</div>
-							
-							<div class="form-group row">
-								<label for="" class="col-sm-2 form-control-label">Salary Configuration </label>					
-								<div class="col-sm-2">
-									<div class="checkbox">
-										<input type="checkbox" class="checkbox_1" id="monthly_salary" name="monthly_salary" value="1" checked><label for="monthly_salary"> Current Month Salary </label>
-									</div>
-								</div>
-								<div class="col-sm-2">
-									<div class="checkbox">
-										<input type="checkbox" class="checkbox_1" name="medical" value="1" id="medical" > 	<label for="medical"> Medical </label>
-									</div>
-								</div>
-								<div class="col-sm-2">
-									<div class="checkbox">
-										<input type="checkbox" class="checkbox_1" name="house_rent" value="1" id="house_rent" >  <label for="house_rent">House Rent </label>
-									</div>
-								</div>
-								<div class="col-sm-2">
-									<div class="checkbox">
-										<input type="checkbox" class="checkbox_1" name="transport" value="1" id="transport" > <label for="transport">  Transport </label>
-									</div>
-								</div>
-								<div class="col-sm-2">
-								</div>
-								<div class="col-sm-2">
-								</div>
-								<div class="col-sm-2">
-									<div class="checkbox">
-										<input type="checkbox" class="checkbox_1" name="mobile" value="1"> <label for="mobile" >  Mobile Load </label>
-									</div>
-								</div>
-								<div class="col-sm-2">
-									<div class="checkbox">
-										<input type="checkbox" class="checkbox_1" name="ta" id="ta" value="1" checked> <label for="ta" >  TA </label>
-									</div>
-								</div>
-								<div class="col-sm-1"></div>
-							</div> -->
-							
 							
 							<div class="form-group row">
 								<div class="card" style="width:100%">

@@ -40,7 +40,7 @@ width: 150px;
 <p>Dear {{$user->father_name}},</p>
 
 <br>
-<p>Congratulations, You {{$user->name}} has been initially registered in schoo</p>
+<p>Congratulations, You {{$user->name}} has been initially registered in school</p>
 <p>Your Registration Number is ({{$user->id}})
 </p>
 
