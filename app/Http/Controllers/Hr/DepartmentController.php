@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\EmployeeDepartmentRequest;
 use App\Models\EmployeeDepartment;
+use App\Models\DepartmentDesignation;
+
+
 use App\Models\Branch;
 use App\Models\BranchEmployeeDepartment;
 use Auth;
@@ -66,8 +69,9 @@ class DepartmentController extends Controller
 
 	public function create(Request $request){
 		$branches=Branch::where('status',1)->get();
+		$designs=DepartmentDesignation::where('status',1)->get();
 
-		return view('admin.Hr.department.create',compact('branches'));
+		return view('admin.Hr.department.create',compact('branches','designs'));
 
 	}
 	public function store(EmployeeDepartmentRequest $request){

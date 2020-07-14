@@ -1,4 +1,4 @@
 {
-	"curVersion" : "2.18"
+	"curVersion" : "2.19"
 }
  
