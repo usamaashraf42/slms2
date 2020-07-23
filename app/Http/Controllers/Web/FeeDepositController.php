@@ -88,11 +88,12 @@ class FeeDepositController extends Controller
 
 					$url=$this->preponPackageBuy($request->ppmpf_1);
 					if($url){
+						session()->flash('error_message', __("Payment Pending. $ResponseMessage"));
 						return redirect($url);
 					}
 					else{
 						session()->flash('success_message', "Package buy successfully, thanks to subscribe prepon package" );
-						return redirect('http://prepon.org/user/pricing');
+						return redirect('https://prepon.org/user/pricing');
 					}
 
 
@@ -815,7 +816,7 @@ class FeeDepositController extends Controller
 
 			}
 
-			$url="http://prepon.org/user/pricing/user/package-status/$bank->prepon_user_id/$bank->prepon_package_id/$bank->id/$bank->amount";
+			$url="https://prepon.org/user/pricing/user/package-status/$bank->prepon_user_id/$bank->prepon_package_id/$bank->id/$bank->amount";
 			return $url;
 		}else{
 			return false;
