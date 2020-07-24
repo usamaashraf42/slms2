@@ -119,8 +119,7 @@ class FeeDepositController extends Controller
 					return redirect()->route('pakistan.summerBook');
 
 				}elseif ($request->ppmpf_4==2 && $request->ppmpf_5==11) {
-					session()->flash('error_message', __("Payment Failed. $ResponseMessage "));
-					return redirect('http://prepon.org/user/pricing');
+					return redirect("https://prepon.org/user/package-failed/$ResponseMessage");
 
 				}
 				else{
@@ -137,8 +136,7 @@ class FeeDepositController extends Controller
 
 
 				}elseif ($request->ppmpf_4==2 && $request->ppmpf_5==11) {
-					session()->flash('error_message', __("Payment Failed. $ResponseMessage "));
-					return redirect('http://prepon.org/user/pricing');
+					return redirect("https://prepon.org/user/package-failed/$ResponseMessage");
 
 				}else{
 					return redirect()->route('feedeposit.index');
@@ -162,8 +160,7 @@ class FeeDepositController extends Controller
 				return redirect()->route('pakistan.summerBook');
 
 			}elseif ($request->ppmpf_4==2 && $request->ppmpf_5==11) {
-				session()->flash('error_message', __("Payment Failed. $ResponseMessage "));
-				return redirect('http://prepon.org/user/pricing');
+				return redirect("https://prepon.org/user/package-failed/$ResponseMessage");
 
 			}else{
 				return redirect()->route('feedeposit.index');
