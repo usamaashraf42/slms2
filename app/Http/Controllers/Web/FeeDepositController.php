@@ -811,7 +811,32 @@ class FeeDepositController extends Controller
 				];
 				$std=Master::insert($ledger);
 
+
+
 			}
+
+			$projectAcc=Account::where('id',10076)->first();
+			if($projectAcc){
+				$master=Master::where('account_id',$projectAcc->id)->orderBy('id','DESC')->first();
+				$ledger=[
+					'account_id'=>$projectAcc->id,
+					'a_credit'=>isset($amount)?$amount:0,
+					'a_debit'=>0,
+					'balance'=>isset($master->balance)?$master->balance-$amount:((isset($master->balance)?$master->balance:0)-$amount),
+					'posting_date'=>date('Y-m-d'),
+					'description'=>"prepon Package subscribed by jazzcash",
+					'month'=>date('m'),
+					'year'=>date('Y'),
+
+				];
+				$std=Master::insert($ledger);
+
+
+
+			}
+
+
+			
 
 			$url="https://prepon.org/user/pricing/user/package-status/$bank->prepon_user_id/$bank->prepon_package_id/$bank->id/$bank->amount";
 			return $url;
