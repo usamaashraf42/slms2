@@ -84,7 +84,7 @@
 
        <div class="search-lists">
          <ul class="nav nav-tabs nav-tabs-solid">
-           <li class="nav-item"><a class="nav-link active" href="#results_projects" data-toggle="tab">Salaries </a></li>
+           <!-- <li class="nav-item"><a class="nav-link active" href="#results_projects" data-toggle="tab">Salaries </a></li> -->
            <!-- <li class="nav-item"><a class="nav-link" href="#results_clients" data-toggle="tab">Profident Fund </a></li> -->
 
          </ul>

@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Employee;
-
+use App\Models\ContactUs;
+use Mail;
 class HomeController extends Controller
 {
     /**
@@ -53,4 +54,27 @@ class HomeController extends Controller
 
         return view('admin.preimer',compact('employees'));
     }
+
+
+     public function ContactFom(Request $request){
+
+        $data=ContactUs::create([
+            'name'=>$request->namem,
+            'email'=>$request->email,
+            'subject'=>$request->subject,
+            'message'=>$request->message
+        ]);
+    
+        if($data){
+            // Session::flash('success_message', 'Record added successfully.');
+            $emails=$request->email;
+             Mail::send('emails.wellcome', ['email'=>$request->email], function($message) use ($emails){    
+                 $message->to($emails)->subject('Welcome to Royal Lyceum School System');    
+             });
+              return response()->json(['status'=>1]);
+        }else{
+           return response()->json(['status'=>0]);
+        }
+    }
+
 }

@@ -8,12 +8,15 @@ use App\Http\Requests\salaryPostedRequest;
 use App\Models\EmployeeSalaryPost;
 use App\Models\EmployeeDate;
 use App\Models\EmployeeProfidentFund;
+use App\Models\EmployeeSalaryPostTemp;
 use App\Models\User;
 use App\Models\Employee;
 use App\Models\PayrollItem;
 use App\Models\Account;
 use App\Models\Branch;
 use App\Models\Master;
+use App\Models\EmployeeSalary;
+
 use Session;
 use Auth;
 use DB;
@@ -67,7 +70,6 @@ class EmployeeSalaryPostController extends Controller
 			$salary=(isset($emplo->Employeesalary->monthly_salary)?$emplo->Employeesalary->monthly_salary:$emplo->salary);
 			$daily=round($salary/$days);
 
-			dd($emplo->department);
 
 			$total_present=0;
 			$total_absent=0;
@@ -76,7 +78,6 @@ class EmployeeSalaryPostController extends Controller
 			$holidays=0;
 
 			$EmployeeDateByMonth=EmployeeDate::where('emp_id',$employees[0]->emp_id)->with('attendance')->whereMonth('attendance_date',$month)->whereYear('attendance_date',$year)->get();
-// dd($EmployeeDateByMonth);
 			foreach ($EmployeeDateByMonth as $emp_attandance) {
 				// dd($emp_attandance);
 				if($emp_attandance->absent){
@@ -100,7 +101,6 @@ class EmployeeSalaryPostController extends Controller
 
 
 			}
-			dd($EmployeeDateByMonth[0]->attendance);
 
 			$object = new \stdClass;
 
@@ -130,17 +130,11 @@ class EmployeeSalaryPostController extends Controller
 			$object->pf_amount=$emplo->name;
 			$object->net_salary=$emplo->name;
 
-
-
-
-
-
 			$data[]=$object;
 
 			
 		}
 
-		dd($data);
 
 		
 		
@@ -331,6 +325,142 @@ class EmployeeSalaryPostController extends Controller
 			session()->flash('error_message', __('Failed! To Insert Record'));
 		}
 		return redirect()->back();
+	}
+
+
+	public function EmployeeSalaryPostTemp(Request $request){
+
+		// return $request->all();
+
+		$emp=Employee::where('emp_id',$request->emp_id)->first();
+		$days=cal_days_in_month(CAL_GREGORIAN, $request->month, $request->year);
+		$month=$request->month;
+		$year=$request->year;
+
+		if(isset($emp) && ($emp)){
+
+			$employeeDate=EmployeeDate::where('emp_id',$request->emp_id)->whereMonth('attendance_date',$month)->whereYear('attendance_date',$year)->get();
+
+
+			$monthly_salary=isset($emp->Employeesalary->monthly_salary)?$emp->Employeesalary->monthly_salary:0;
+			$ta=isset($emp->Employeesalary->ta)?$emp->Employeesalary->ta:0;
+
+			$pf=round(isset($emp->Employeesalary->pf)?$emp->Employeesalary->pf:0);
+			
+
+			$medical=isset($emp->Employeesalary->medical)?$emp->Employeesalary->medical:0;
+			$house_rent=isset($emp->Employeesalary->house_rent)?$emp->Employeesalary->house_rent:0;
+			$transport=isset($emp->Employeesalary->transport)?$emp->Employeesalary->transport:0;
+			$mobile=isset($emp->Employeesalary->mobile)?$emp->Employeesalary->mobile:0;
+
+			$presents=0;
+			$absents=0;
+			$leave_ids=0;
+			$holiday_ids=0;
+			$late=0;
+			$e_off=0;
+			$given_salary=$monthly_salary;
+			$today_salary=$monthly_salary/$days;
+			$one_fourth_salary=$today_salary/4;
+
+
+			foreach ($employeeDate as $emp_day) {
+				if($emp_day->present){
+					$presents++;
+				}
+				if($emp_day->absent){
+					$absents++;
+				}
+				if($emp_day->leave_id){
+					$leave_ids++;
+				}
+				if($emp_day->holiday_id){
+					$holiday_ids++;
+				}
+				if($emp_day->late){
+					$late++;
+				}
+				if($emp_day->e_off){
+					$e_off++;
+				}
+			}
+			$absent_fine=0;
+			if($absents && $absents ){
+				$absent_fine=($absents)*$today_salary;
+			}
+			$late_fine=0;
+			if($late && $late>2 ){
+				$late_fine=($late-2)*$one_fourth_salary;
+			}
+			$e_off_fine=0;
+			if($e_off && $e_off>2 ){
+				$e_off_fine=($e_off-2)*$one_fourth_salary;
+			}
+			
+			// $late_fine=$late*$one_fourth_salary;
+			// $e_off_fine=$e_off*$one_fourth_salary;
+
+			$given_salary=$given_salary-$absent_fine-$late_fine-$e_off_fine;
+
+			$pf_deduction=((isset($emp->Employeesalary->monthly_salary)?$emp->Employeesalary->monthly_salary:0)*$pf )/100;
+
+			$data=EmployeeSalaryPostTemp::where([
+				'emp_id'=>$request->emp_id,
+				'month'=>$request->month,
+				'year'=>$request->year])->first();
+			if(!$data){
+				$data=EmployeeSalaryPostTemp::create([
+					'emp_id'=>$request->emp_id,
+					'month'=>$request->month,
+					'year'=>$request->year,
+					'monthly_salary'=>$monthly_salary,
+					'total_days'=>$days,
+					'present_days'=>$presents,
+					'absent'=>$absents,
+					'leaves'=>$leave_ids,
+					'e_off'=>$e_off,
+					'late'=>$late,
+					'pf'=>$pf,
+					'pf_deduction'=>$pf_deduction,
+					'given_salary'=>$given_salary,
+
+					'branch_id'=>$emp->branch_id,
+					'requested_comment'=>$request->comment
+
+				]);
+
+			}else{
+				$data=EmployeeSalaryPostTemp::where([
+					'emp_id'=>$request->emp_id,
+					'month'=>$request->month,
+					'year'=>$request->year])->update([
+					'emp_id'=>$request->emp_id,
+					'month'=>$request->month,
+					'year'=>$request->year,
+					'monthly_salary'=>$monthly_salary,
+					'total_days'=>$days,
+					'present_days'=>$presents,
+					'pf'=>$pf,
+					'pf_deduction'=>$pf_deduction,
+					'absent'=>$absents,
+					'leaves'=>$leave_ids,
+					'e_off'=>$e_off,
+					'late'=>$late,
+					'branch_id'=>$emp->branch_id,
+					'given_salary'=>$given_salary,
+					'requested_comment'=>$request->comment
+
+				]);
+			}
+
+			
+		}
+
+		if(isset($data) && $data){
+			return response()->json(['data'=>$data,'status'=>1]);
+		}else{
+			return response()->json(['status'=>0]);
+		}
 	}
 
 }

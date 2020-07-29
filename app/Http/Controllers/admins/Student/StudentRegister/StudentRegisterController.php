@@ -151,7 +151,7 @@ class StudentRegisterController extends Controller
             'session'=>$request->session?$request->session:null, 
             'nationality'=>$request->nationality,
             'is_active'=>$request->is_active?$request->is_active:1, 
-            'is_freeze'=>$request->is_freeze, 
+            'is_freeze'=>$request->is_freeze?$request->is_freeze:1, 
             'freeze_till_date' => $request->freeze_till_date?date("Y-m-d", strtotime($request->freeze_till_date)):null,
 
             'religion'=>$request->religion?$request->religion:null,
@@ -611,7 +611,7 @@ class StudentRegisterController extends Controller
                 }       
             }
 
-            if($branchAccount){
+            if(isset($branchAccount) && $branchAccount){
                 DB::commit();
                 $response=$feeEffected;
             }else{

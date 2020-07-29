@@ -26,4 +26,9 @@ class InvOrder extends Model
     public function details(){
         return $this->hasMany(InvOrderDetail::class,'order_id','order_id');
     }
+
+
+    public function student(){
+        return $this->belongsTo(Student::class,'std_id');
+    }
 }

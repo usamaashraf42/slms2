@@ -12,22 +12,39 @@ use App\Models\Student;
 use App\Models\Bank;
 use App\Models\BankFeeDeposit;
 use App\Models\BankTransactionDetail;
-
+use Illuminate\Support\Facades\Mail;
 use \DB;
 use Auth;
 class FeeDepositController extends Controller
 {
-	
+
+	/*
+	slms
+	ppmpf_5 define method and ppmpf_4 define project
+	ppmpf_4=null and ppmpf_5=2 admission fee deposit
+	ppmpf_4=null and ppmpf_5= summer book charge
+
+
+	else fee deposit in slms
+
+
+
+
+	prepon
+	ppmpf_4=2 and ppmpf_5=11 define package buy in prepon
+
+
+
+	*/
 	public function index(){
 		// $amount=substr(400000, 0, -2);
-		// $this->feeDepositDbEffected(175362,40004,$amount,8);
 		return view('web.pakistan.feeDeposit.challan');
 	}
 
 
 	public function feeDepositstatus(Request $request){
 		$HashKey= "txtw58z1x0"; //Your Hash Key
-		if(!(isset($_POST['pp_ResponseCode']))){
+		if(!(isset($_POST['pp_ResponseCode'])) && !(isset($_POST['pp_SecureHash'])) && !(isset($_POST['pp_ResponseMessage'])) ){
 			session()->flash('error_message', __("Something went wrong from bank side, please try later"));
 			return redirect()->route('feedeposit.index');
 		}
@@ -51,7 +68,7 @@ class FeeDepositController extends Controller
 			}
 		}	
 		$GeneratedSecureHash= hash_hmac('sha256', $Response, $HashKey);		
-					
+
 		if (strtolower($GeneratedSecureHash) == strtolower($ReceivedSecureHash)) 
 		{
 			if($ResponseCode == '000'||$ResponseCode == '121'||$ResponseCode == '200'){
@@ -59,8 +76,29 @@ class FeeDepositController extends Controller
 				if($request->ppmpf_5==2){
 					$this->admissionFeeSubmit($request->ppmpf_1);
 					session()->flash('success_message', __("Fee deposit successfully"));
-				return redirect()->route('pakistan.Apply');
-				}else{
+					return redirect()->route('pakistan.Apply');
+				}elseif ($request->ppmpf_5==3) {
+
+					$this->summerBookCharge($request->ppmpf_1);
+					session()->flash('success_message', __("Fee deposit successfully"));
+					return redirect()->route('pakistan.summerBook');
+
+				}
+				elseif ($request->ppmpf_4==2 && $request->ppmpf_5==11) {
+
+					$url=$this->preponPackageBuy($request->ppmpf_1);
+					if($url){
+						session()->flash('error_message', __("Payment Pending. $ResponseMessage"));
+						return redirect($url);
+					}
+					else{
+						session()->flash('success_message', "Package buy successfully, thanks to subscribe prepon package" );
+						return redirect('https://prepon.org/user/pricing');
+					}
+
+
+				}
+				else{
 					$this->feeDepositDbEffected($request->ppmpf_2,$request->ppmpf_1,$amount,8);
 					session()->flash('success_message', __("Fee deposit successfully"));
 					return redirect()->route('feedeposit.index');
@@ -76,7 +114,15 @@ class FeeDepositController extends Controller
 
 				if($request->ppmpf_5==2){
 					return redirect()->route('pakistan.Apply');
-				}else{
+				}elseif ($request->ppmpf_5==3) {
+
+					return redirect()->route('pakistan.summerBook');
+
+				}elseif ($request->ppmpf_4==2 && $request->ppmpf_5==11) {
+					return redirect("https://prepon.org/user/package-failed/$ResponseMessage");
+
+				}
+				else{
 					return redirect()->route('feedeposit.index');
 				}
 			}
@@ -84,6 +130,14 @@ class FeeDepositController extends Controller
 				session()->flash('error_message', __("Payment Failed. $ResponseMessage "));
 				if($request->ppmpf_5==2){
 					return redirect()->route('pakistan.Apply');
+				}elseif ($request->ppmpf_5==3) {
+
+					return redirect()->route('pakistan.summerBook');
+
+
+				}elseif ($request->ppmpf_4==2 && $request->ppmpf_5==11) {
+					return redirect("https://prepon.org/user/package-failed/$ResponseMessage");
+
 				}else{
 					return redirect()->route('feedeposit.index');
 				}
@@ -100,10 +154,17 @@ class FeeDepositController extends Controller
 			
 			session()->flash('error_message', __("mismatched marked it suspicious or reject it"));
 			if($request->ppmpf_5==2){
-					return redirect()->route('pakistan.Apply');
-				}else{
-					return redirect()->route('feedeposit.index');
-				}		
+				return redirect()->route('pakistan.Apply');
+			}elseif ($request->ppmpf_5==3) {
+
+				return redirect()->route('pakistan.summerBook');
+
+			}elseif ($request->ppmpf_4==2 && $request->ppmpf_5==11) {
+				return redirect("https://prepon.org/user/package-failed/$ResponseMessage");
+
+			}else{
+				return redirect()->route('feedeposit.index');
+			}		
 		}	
 	}
 
@@ -184,9 +245,16 @@ class FeeDepositController extends Controller
 			$object->fee_id=rand();
 			$object->std_id=$fee->student->id;
 			$object->name=$fee->student->s_name;
+
+			$object->phone=$fee->student->s_phoneNo;
+			$object->email=$fee->student->std_mail;
+			$object->home_address=$fee->student->home_address;
+
 			$object->s_fatherName=$fee->student->s_fatherName;
 			$object->branch=$fee->student->branch->branch_name;
 			$object->course=$fee->student->course->course_name;
+			$object->course_id=$fee->student->course_id;
+
 			$object->fee_month=$fee->fee_month;
 			$object->fee_year=$fee->fee_year;
 			$object->images=$fee->student->images;
@@ -229,8 +297,14 @@ class FeeDepositController extends Controller
 			$students->std_id=$student->id;
 
 			$students->fee_id=rand();
-			$students->name=$student->s_name.' '.$student->s_fatherName;
+			$students->name=$student->s_name;
 			$students->s_fatherName=$student->s_fatherName;
+			$students->course_id=$student->course_id;
+
+
+			$students->s_phoneNo=$fee->student->s_phoneNo;
+			$students->std_mail=$fee->student->std_mail;
+			$students->home_address=$fee->student->home_address;
 
 
 			
@@ -448,7 +522,7 @@ class FeeDepositController extends Controller
 		$depositDatest=date('Y-m-d');
 		$students=Student::find($std_id);
 
-	
+
 		if(!$students){
 			return false;
 		}
@@ -623,10 +697,10 @@ class FeeDepositController extends Controller
 
 
 					if($banks){
-						 if(isset($students->s_phoneNo)){
-                            $sms= nl2br("Dear Parent,\nThank you for deposited the fee of St No $students->id ,$students->s_name. Rs.($amount) received on Mobi cash for any queries contact (03464292920)",false);
-                            (SendSms($students->s_phoneNo,$sms));
-                          }
+						if(isset($students->s_phoneNo)){
+							$sms= nl2br("Dear Parent,\nThank you for deposited the fee of St No $students->id ,$students->s_name. Rs.($amount) received on Mobi cash for any queries contact (03464292920)",false);
+							(SendSms($students->s_phoneNo,$sms));
+						}
 						DB::commit();
 						return true;
 					}else{
@@ -639,20 +713,190 @@ class FeeDepositController extends Controller
 		}
 		
 	}
+	function summerBookCharge($id){
 
-	function admissionFeeSubmit($id,$amount,$bank){
 		$bank=BankTransactionDetail::find($id);
+		$amount=$bank->amount;
+
 		if($bank){
 			$fees=BankTransactionDetail::where('id',$id)->update(['status'=>0]);
 
-			if($bank->std_reg_id){
-				$admission=\App\Models\AdmissionQuery::find($fees->std_reg_id);
-				$admission->paid=1;
-				$admission->save();
+			if($bank->order_id){
+				$admission=\App\Models\InvOrder::where('order_id',$bank->order_id)->first();
+				
+				\App\Models\InvOrder::where('order_id',$bank->order_id)->update(['is_paid'=>1]);
+
+				if(isset($admission->std_id) && $admission->std_id){
+					$student=Student::find($admission->std_id);
+
+					$student->s_phoneNo=$admission->phone;
+					$student->std_mail=$admission->email;
+					$student->home_address=$admission->address;
+
+
+					$student->save();
+
+					$bankAc=Account::where('bank_id',8)->first();
+					if($bankAc){
+						$master=Master::where('account_id',$bankAc->id)->orderBy('id','DESC')->first();
+						$ledger=[
+							'account_id'=>$bankAc->id,
+							'a_credit'=>isset($amount)?$amount:0,
+							'a_debit'=>0,
+							'balance'=>isset($master->balance)?$master->balance-$amount:((isset($master->balance)?$master->balance:0)-$amount),
+							'posting_date'=>date('Y-m-d'),
+							'description'=>"summer book charged $amount by jazzcash",
+							'month'=>date('m'),
+							'year'=>date('Y'),
+							
+						];
+						$std=Master::insert($ledger);
+
+					}
+					
+
+				} 
+
+
+				if(isset($admission->phone) && $admission->phone && isset($student) && $student){
+					$sms= strip_tags("Dear $admission->s_name ,"." <br> "."Your summer book order has been received.You will receive your order within 7 working days. "." <br> "."Regards, "." <br> "."ALIS ");
+					SendSms($admission->phone,$sms);
+				}
+				if(isset($admission->email) && $admission->email && isset($student) && $student){
+					$emails=$admission->email;
+					$address=$admission->address;
+					Mail::send('emails.summerBookChargeMail',['user'=>$student ,'address'=>$address], function($message) use ($emails){    
+						$message->to($emails)->subject('Online payment of summer book');    
+					});
+
+				}
+
+
 				return true;
 			}else{
-				return true
+				return true;
 			}
+
+
+			
+
+			
+
+		}else{
+			return false;
+		}
+
+
+	}
+
+	function preponPackageBuy($id){
+		$bank=BankTransactionDetail::find($id);
+
+		if($bank){
+			$amount=$bank->amount;
+			$fees=BankTransactionDetail::where('id',$id)->update(['status'=>0]);
+			$bankAc=Account::where('bank_id',8)->first();
+			if($bankAc){
+				$master=Master::where('account_id',$bankAc->id)->orderBy('id','DESC')->first();
+				$ledger=[
+					'account_id'=>$bankAc->id,
+					'a_credit'=>isset($amount)?$amount:0,
+					'a_debit'=>0,
+					'balance'=>isset($master->balance)?$master->balance-$amount:((isset($master->balance)?$master->balance:0)-$amount),
+					'posting_date'=>date('Y-m-d'),
+					'description'=>"prepon Package subscribed by jazzcash",
+					'month'=>date('m'),
+					'year'=>date('Y'),
+
+				];
+				$std=Master::insert($ledger);
+
+
+
+			}
+
+			$projectAcc=Account::where('id',10076)->first();
+			if($projectAcc){
+				$master=Master::where('account_id',$projectAcc->id)->orderBy('id','DESC')->first();
+				$ledger=[
+					'account_id'=>$projectAcc->id,
+					'a_credit'=>isset($amount)?$amount:0,
+					'a_debit'=>0,
+					'balance'=>isset($master->balance)?$master->balance-$amount:((isset($master->balance)?$master->balance:0)-$amount),
+					'posting_date'=>date('Y-m-d'),
+					'description'=>"prepon Package subscribed by jazzcash",
+					'month'=>date('m'),
+					'year'=>date('Y'),
+
+				];
+				$std=Master::insert($ledger);
+
+
+
+			}
+
+
+			
+
+			$url="https://prepon.org/user/pricing/user/package-status/$bank->prepon_user_id/$bank->prepon_package_id/$bank->id/$bank->amount";
+			return $url;
+		}else{
+			return false;
+		}
+
+	}
+	function admissionFeeSubmit($id){
+		$bank=BankTransactionDetail::find($id);
+		if($bank){
+			$amount=$bank->amount;
+
+			$fees=BankTransactionDetail::where('id',$id)->update(['status'=>0]);
+
+			if($bank->std_reg_id){
+				$admission=\App\Models\AdmissionQuery::find($bank->std_reg_id);
+				$admission->paid=1;
+				$admission->save();
+
+				$bankAc=Account::where('bank_id',8)->first();
+				if($bankAc){
+					$master=Master::where('account_id',$bankAc->id)->orderBy('id','DESC')->first();
+					$ledger=[
+						'account_id'=>$bankAc->id,
+						'a_credit'=>isset($amount)?$amount:0,
+						'a_debit'=>0,
+						'balance'=>isset($master->balance)?$master->balance-$amount:((isset($master->balance)?$master->balance:0)-$amount),
+						'posting_date'=>date('Y-m-d'),
+						'description'=>"intial addmission fee paid by jazzcash",
+						'month'=>date('m'),
+						'year'=>date('Y'),
+
+					];
+					$std=Master::insert($ledger);
+
+				}
+
+
+				if(isset($admission->contact_no) && $admission->contact_no){
+					$sms= strip_tags("Dear $admission->father_name ,"." <br> "."Congratulations, You $admission->name has been initially registered in school. Your Registration Number is $admission->id. "." <br> "."Thank You, "." <br> "."Our Manager will contact you shortly.Regards, "." <br> "."ALIS ");
+					SendSms($admission->contact_no,$sms);
+				}
+				if($admission->email){
+					$emails=$admission->email;
+					Mail::send('emails.initialAdmissionSuccess',['user'=>$admission], function($message) use ($emails){    
+						$message->to($emails)->subject('Initial Online registration');    
+					});
+
+				}
+
+
+				return true;
+			}else{
+				return true;
+			}
+
+
+			
+
 			
 
 		}else{

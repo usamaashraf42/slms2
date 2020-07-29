@@ -1,4 +1,7 @@
 <?php
+    use \Carbon\Carbon;
+
+
 
 
 if (!function_exists('class_attendance_by_date')) {
@@ -70,11 +73,28 @@ if (!function_exists('lastAbsentFromDay')) {
 
 
 function currencyCnv( $amount, $from, $to){
+
+
+
+
+
   $conv_id = "{$from}_{$to}";
   $string = file_get_contents("https://free.currencyconverterapi.com/api/v6/convert?q=$conv_id&compact=ultra&apiKey=6cc4b09b7a1dff05a1d9");
   $json_a = json_decode($string, true);
   return $amount * round($json_a[$conv_id], 4);
 }
+
+
+
+
+function currencyConverter($amount, $from, $to){
+
+    $response = Currency::convert($from,$to,$amount);
+        return response()->json($response);
+        
+}
+
+
 
 
 ?>

@@ -10,7 +10,7 @@ class EmployeeSalary extends Model
     protected $guarded=[''];
 
     public function employee(){
-    	return $this->belongsTo(User::class,'employee_id');
+    	return $this->belongsTo(Employee::class,'employee_id','emp_id');
     }
 
     public function EmployeeDate(){

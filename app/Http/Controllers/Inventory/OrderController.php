@@ -19,7 +19,7 @@ class OrderController extends Controller
 	public function index(){
 		$products=InvProduct::where('status',1)->get();
 		$categories=InvProductCategory::where('parent_id',null)->get();
-		$orders=InvOrder::where('order_status',1)->get();
+		$orders=InvOrder::where('order_status',1)->where('is_paid',1)->get();
 		$branch=Branch::where('status',1);
 
 		if(Auth::user()->branch_id){
@@ -126,7 +126,7 @@ class OrderController extends Controller
 			'created_by'=>Auth::id(),
 		]);
 
-		if($order && isset(($order->id))){
+		if($order && isset($order->id) && isset($request->pro_id) && is_array($request->pro_id) ){
 			for($i=0; $i<count($request->pro_id); $i++){
 				if(isset($request->pro_id[$i])){
 					InvOrderDetail::create([

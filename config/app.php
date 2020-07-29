@@ -175,6 +175,10 @@ return [
         Spatie\Permission\PermissionServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
 
+
+
+        // Spatie\Backup\BackupServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -237,6 +241,7 @@ return [
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'DOMPDF' => Barryvdh\DomPDF\Facade::class,
         'Image' => Intervention\Image\Facades\Image::class
+
 
 
     ],

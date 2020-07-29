@@ -182,6 +182,8 @@ class FeePostController extends Controller
                 
                 $feeRecord['std_id']=$stduents[$i]->id;
                 $feeRecord['branch_id']=$stduents[$i]->branch_id;
+                $feeRecord['course_id']=$stduents[$i]->course_id;
+                
                 $feeRecord['fee_month']=$request->month;
                 $feeRecord['fee_year']=$request->year;
                 $feeRecord['fee_date']=date('Y-m-d');

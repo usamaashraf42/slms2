@@ -9,13 +9,13 @@ class Employee extends Model
     protected $guarded=[''];
 
     public function salaryPost(){
-    	return $this->hasMany(EmployeeSalaryPost::class,'employee_id','emp_id');
+    	return $this->hasMany(EmployeeSalaryPost::class,'emp_id','emp_id');
     }
 
 
 
     public function profident_fund(){
-    	return $this->hasMany(EmployeeProfidentFund::class,'employee_id','emp_id');
+    	return $this->hasMany(EmployeeProfidentFund::class,'emp_id','emp_id');
     }
 
     public function department(){
@@ -24,7 +24,7 @@ class Employee extends Model
 
 
     public function EmployeeAccount(){
-    	return $this->hasMany(EmployeeAccount::class,'employee_id','emp_id');
+    	return $this->hasMany(EmployeeAccount::class,'emp_id','emp_id');
     }
 
 
@@ -34,6 +34,10 @@ class Employee extends Model
 
     public function branch(){
     	return $this->belongsTo(Branch::class,'branch_id');
+    }
+
+    public function salaryinfo(){
+      return $this->hasOne(EmployeeSalary::class,'employee_id','emp_id');
     }
 
 

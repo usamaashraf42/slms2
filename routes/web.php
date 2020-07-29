@@ -14,16 +14,16 @@
 include('Ajax/customRoute.php');
 Route::get('/', function () { return view('welcome'); });
 
-Route::get('/checkout', function () { return view('web.checkout'); });
+// Route::get('/checkout', function () { return view('web.checkout'); });
+Route::get('/checkout', function () { return view('checkout'); });
 
+Route::post('contactus','HomeController@ContactFom')->name('ContactFom');
 
 Route::get('/easypaisa', function () { return view('web.easypaisa.index'); });
 Route::get('/easypaisa/token', function () { return view('web.easypaisa.get_token'); });
 
 Route::post('easypaisa/store','Web\EasypaisaController@store')->name('easypaisaStore');
 Route::get('/unauthorized/user', function () { return view('error.401'); })->name('401');
-
-
 
 Route::prefix('muscat')->group(function () {
 	Route::get('/', 'Web\Muscat\PublicController@index')->name('muscat.index');
@@ -43,6 +43,14 @@ Route::prefix('muscat')->group(function () {
 	Route::get('/faq', 'Web\Muscat\PublicController@faq')->name('muscat.faq');
     Route::get('/contact', 'Web\Muscat\PublicController@contact')->name('muscat.contact');
     Route::get('/contact_school', 'Web\Muscat\PublicController@contact_school')->name('muscat.contact_school');
+
+    Route::get('/admission', 'Web\Muscat\PublicController@admission')->name('muscat.admission');
+    Route::post('/admission/fee/deposit', 'Web\Muscat\PublicController@admission_query')->name('muscat.admission_query');
+    Route::post('strip/payment', 'Web\Muscat\StripController@stripPayment')->name('muscat.stripPayment');
+    Route::post('paypal', 'Web\Muscat\PaymentPaypalController@payWithpaypal')->name('admission.payWithpaypal');
+	Route::get('admission/paypal/status', 'Web\Muscat\PaymentPaypalController@getPaymentStatus')->name('admission.payWithpaypalStatus');
+
+
 });
 Route::post('admission/query','Web\Pakistan\PublicController@admission_query')->name('admission_query');
 Route::get('/about', 'Web\Pakistan\PublicController@about')->name('pakistan.about');
@@ -88,13 +96,13 @@ Route::get('feedeposit-paypal-status','Web\PaypalFeeDepositController@getPayment
 Route::GET('feedeposit-status','Web\FeeDepositController@feeDepositstatus')->name('feeDepositstatus');
 
 
-
+Route::get('order', 'Web\Pakistan\PublicController@summerBook')->name('pakistan.summerBook');
 
 Route::POST('feeChallan','Web\FeeDepositController@feeChallan')->name('feeChallan');
+Route::post('summer/book/charge','Web\SummerBookChargeController@summerBookCharge')->name('summerBookCharge');
 
 
 Route::get('job/internship','Web\Pakistan\PublicController@job_internship')->name('job_internship');
-
 Route::get('job/application/','Web\Pakistan\PublicController@job_application')->name('job_application');
 
 
@@ -128,6 +136,9 @@ Route::prefix('pakistan')->group(function () {
 	Route::get('/news','Web\Pakistan\PublicController@news')->name('pakistan.news');
 	Route::get('job/internship','Web\Pakistan\PublicController@job_internship')->name('pakistan_job_internship');
 	Route::get('/feedeposit','Web\FeeDepositController@index')->name('onlineFeeDeposit');
+
+
+	Route::get('order', 'Web\Pakistan\PublicController@summerBook')->name('pakistan.summerBook');
 
         // Route::get('/why_Us', 'Web\Pakistan\PublicController@why_Us')->name('pakistan.why_Us');
         // Route::get('/apply_frenchise','Web\Pakistan\PublicController@apply_frenchise')->name('pakistan.apply_frenchise');
@@ -219,7 +230,6 @@ Route::prefix('admin')->group(function () {
 
 			Route::resource('jazzcash-file-read','admins\Student\feeDeposit\JazzCashDepositController');
 			Route::resource('manual-fee-deposit','admins\Student\feeDeposit\ManualFeeDepositController');
-
 			Route::resource('edit-student','admins\Student\EditStudent\EditStudentController');
 			Route::post('EditStudentProfile','admins\Student\EditStudent\EditStudentController@EditStudentProfile')->name('EditStudentProfile');
 
@@ -259,6 +269,14 @@ Route::prefix('admin')->group(function () {
 			Route::resource('approval-transfer-student','admins\Student\studentTransfer\StudentTransferApprovalController');
 			Route::resource('student-edit','admins\Student\StudentBulkEditController');
 			Route::resource('student-freeze','admins\Student\studentFreeze\StudentFreezeController');
+			Route::resource('student-unfreeze','admins\Student\studentFreeze\StudentUnFreezeController');
+
+
+			Route::get('register/{id}','admins\Student\StudentRegister\InitialStudentRegisterController@NewAdmission')->name('student.NewAdmission');
+
+
+
+
 			Route::POST('student-edit_update','admins\Student\StudentBulkEditController@edit_update')->name('student_edit_update');
 			Route::resource('re-admission','admins\Student\StatusChangeController');
 			Route::resource('card','admins\Student\Card\StudentCardController');
@@ -285,9 +303,15 @@ Route::prefix('admin')->group(function () {
 		Route::resource('designation','Hr\DesignationController');
 		Route::resource('payroll-item','Hr\PayrollItemController');
 		Route::resource('salary-post-approval','Hr\SalaryPostApprovalController');
+
+
+		
 		Route::resource('employee-list','Hr\EmployeeListController');
 		Route::resource('employee-salary-list','Hr\EmployeeSalaryListController');
 		Route::resource('department-shift','Hr\DepartmentShiftController');
+
+
+		Route::post('realSalaryPosted','Hr\SalaryPostApprovalController@realSalaryPosted')->name('realSalaryPosted');
 
 
 		Route::resource('advance-request','Hr\Advance\AdvanceRequestController');
@@ -300,6 +324,8 @@ Route::prefix('admin')->group(function () {
 		Route::resource('employee-statement','Hr\EmployeeStatementController');
 		Route::resource('income-tax','admins\IncomeTaxController');
 		Route::post('salaryPosted','Hr\EmployeeSalaryPostController@salaryPosted')->name('salaryPosted');
+
+		Route::post('temp-salary-posted','Hr\EmployeeSalaryPostController@EmployeeSalaryPostTemp')->name('emp.EmployeeSalaryPostTemp');
 
 
 		Route::prefix('performance')->group(function () {

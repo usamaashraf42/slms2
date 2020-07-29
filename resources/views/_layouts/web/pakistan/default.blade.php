@@ -22,7 +22,7 @@
   @section('styles')
   <link rel="stylesheet" type="text/css" href="">
   <title> @yield('title','Pakistan') - American Lyceum Group of School</title>
-  <link href="{{asset('web/muscat/fonts/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+  <!-- <link href="{{asset('web/muscat/fonts/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css"> -->
   <script type="text/javascript" src="{{asset('web/pakistan/javascripts/swfobject.js')}}"></script>
   <script type="text/javascript" src="{{asset('web/pakistan/sitefiles/global/js/jquery/1.4.2/jquery.min.js')}}"></script>
   <script type="text/javascript">
@@ -104,34 +104,7 @@
         @section('header-base')
         @include('_layouts.web.pakistan.partials._header-base')
         @show
-        <div id="search-container" class="bg-dark-blue invert">
-          <a id="search-close" class="close-location pull-right no-style f7">CLOSE <span class="icon icon-x f5 ml1 relative white dib bg-gold"></span></a>
-          <div class="pv3">
-            <script type="text/javascript">
-              $(document).ready(function() {
-                $("#searchButton").click(function() { return send(); });
-                $("#searchField").keypress(function(evt) {
-                  if (evt.keyCode == 13) {
-                    return send();
-                  }
-                });
-                $("#searchField").click(function() { $(this).val(""); });
-                function send() {
-                  val = $("#searchField").val();
-                  if (val != "") window.location = "/searchresults.aspx?s=" + escape(val);
-                  return false;
-                }
-              });
-            </script>
-            <div class="searchPanel">
-              <label style="position: absolute;width: 1px;height: 1px;padding: 0;margin: -1px;overflow: hidden;clip: rect(0,0,0,0);border: 0;" class="sw-site-search-label sr-only" for="searchField">Search</label>
-              <input type="text" id="searchField" class="searchField" value="Search" title="Search the Site" />
-              <input type="button" id="searchButton" class="searchButton" value="Go" />
-            </div>
 
-            <span class="light-gray pt2 ph3 dib f6">Enter your search term and press enter. Press Esc or X to close.</span>
-          </div>
-        </div>
 
         @yield('content')
 

@@ -325,14 +325,11 @@
          </li>
 
          <li class="submenu">
-           <a href="#"><i class="la la-money"></i>  <span> Payroll  </span>  <span class="menu-arrow"></span></a>
+           <a href="#"><i class="la la-money"></i>  <span> Salary Management  </span>  <span class="menu-arrow"></span></a>
            <ul style="display: none;">
               <li><a href="{{route('salary-post.index')}}">Salary Post</a></li>
-              <li><a href="{{route('employee-salary.index')}}"> Employee Salary  </a></li>
               <li><a href="{{route('salary-post-approval.index')}}"> Employee Salary Approval  </a></li>
-
-
-
+              <li><a href="{{route('salary-sheet.index')}}"> Salary Sheet </a></li>
               <li><a href="{{route('pay-slip.index')}}"> Payslip  </a></li>
 
 
@@ -372,8 +369,8 @@
             <a href="#" class="{{ areActiveRoutes(['student-registration.create','student-registration.index'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Admission</span> <span class="menu-arrow"></span></a>
             <ul class="list-unstyled" style="display: none;">
 
-                <li class="{{ areActiveRoutes(['student-registration.create'])}}">
-                    <a href="{{route('student-registration.create')}}" class="{{ areActiveRoutes(['student-registration.create'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                <li class="{{ areActiveRoutes(['initial-admission.index'])}}">
+                    <a href="{{route('initial-admission.index')}}" class="{{ areActiveRoutes(['initial-admission.index'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
                         <span>Initial Admission</span> 
                     </a>
                 </li>
@@ -423,6 +420,11 @@
                 @endif
                 @if(Auth::user()->can('Student-Freeze Report') )
                 <li class="{{ areActiveRoutes(['student-freeze.index'])}}"><a href="{{route('student-freeze.index')}}"> Student-Freeze Report</a></li>
+                @endif
+
+
+                 @if(Auth::user()->can('Student-Freeze') )
+                <li class="{{ areActiveRoutes(['student-unfreeze.index'])}}"><a href="{{route('student-unfreeze.index')}}"> Student-UnFreeze </a></li>
                 @endif
 
             </ul>
@@ -889,6 +891,12 @@
         <li class="{{ areActiveRoutes(['marks-list.create','marks-list.index','marks-list.edit'])}}">
             <a href="{{route('marks-list.index')}}" class="{{ areActiveRoutes(['marks-list.create','marks-list.index','marks-list.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
                 <span> Marks List</span> 
+            </a>
+        </li>
+
+         <li class="{{ areActiveRoutes(['discipline-marks.create','discipline-marks.index','discipline-marks.edit'])}}">
+            <a href="{{route('discipline-marks.index')}}" class="{{ areActiveRoutes(['discipline-marks.create','discipline-marks.index','discipline-marks.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
+                <span> discipline Marks</span> 
             </a>
         </li>
         @endif

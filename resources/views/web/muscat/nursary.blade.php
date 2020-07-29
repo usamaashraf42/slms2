@@ -27,7 +27,6 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
     <title> @yield('title','Muscat') - American Lyceum Group of School</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
     <!-- Icon fonts -->
  <!--  <link href="{{asset('web/muscat/fonts/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
   <link href="{{asset('web/muscat/fonts/flaticons/flaticon.css')}}" rel="stylesheet" type="text/css">
@@ -37,25 +36,22 @@
 
   <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans:700,900' rel='stylesheet' type='text/css'>
   <!-- Theme CSS -->
-  <link href="{{asset('web/muscat/css/style.css')}}" rel="stylesheet">
+  <!-- <link href="{{asset('web/muscat/css/style.css')}}" rel="stylesheet"> -->
   <!-- Color Style CSS -->
   <link href="{{asset('web/muscat/styles/funtime.css')}}" rel="stylesheet">
   <!-- Owl Slider & Prettyphoto -->
-  <link rel="stylesheet" href="{{asset('web/muscat/css/owl.carousel.css')}}">
-  <link rel="stylesheet" href="{{asset('web/muscat/css/prettyPhoto.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('web/muscat/styles/style_1.css')}}">
-  <link rel="stylesheet" href="{{asset('web/muscat/layerslider/css/layerslider.css')}}">
   <link rel="apple-touch-icon" sizes="72x72" href="{{asset('web/muscat/img/favicon.png')}}">
   <link rel="apple-touch-icon" sizes="114x114" href="{{asset('web/muscat/img/favicon.png')}}">
   <link rel="shortcut icon" href="{{asset('web/muscat/img/favicon.png')}}" type="image/x-icon">
-  <link rel="stylesheet" id="switcher-css" type="text/css" href="{{asset('web/muscat/switcher/css/switcher.css')}}" media="all" />
+  <!-- <link rel="stylesheet" id="switcher-css" type="text/css" href="{{asset('web/muscat/switcher/css/switcher.css')}}" media="all" /> -->
   <link rel="alternate stylesheet" type="text/css" href="{{asset('web/muscat/styles/funtime.css')}}" title="funtime" media="all" />
   <link rel="alternate stylesheet" type="text/css" href="{{asset('web/muscat/styles/playground.css')}}" title="playground" media="all" />
   <link rel="alternate stylesheet" type="text/css" href="{{asset('web/muscat/styles/games.css')}}" title="games" media="all" />
   <link rel="alternate stylesheet" type="text/css" href="{{asset('web/muscat/styles/childhood.css')}}" title="childhood" media="all" />
   <link rel="alternate stylesheet" type="text/css" href="{{asset('web/muscat/styles/school.css')}}" title="school" media="all" />
-  <link rel="alternate stylesheet" type="text/css" href="{{asset('web/muscat/switcher/css/boxed.css')}}" title="boxed" media="all" />
-  <link rel="alternate stylesheet" type="text/css" href="{{asset('web/muscat/switcher/css/full.css')}}" title="full" media="all" />
+  <!-- <link rel="alternate stylesheet" type="text/css" href="{{asset('web/muscat/switcher/css/boxed.css')}}" title="boxed" media="all" /> -->
+  <!-- <link rel="alternate stylesheet" type="text/css" href="{{asset('web/muscat/switcher/css/full.css')}}" title="full" media="all" /> -->
   @show
   @stack('post-styles')
   <style>
@@ -1856,6 +1852,8 @@ data-center-center="transform:translatex(380%);">
                                                <div class="col-lg-7 col-lg-offset-1">
                                                  
                                                  <h4>Write us</h4>
+                                                 <form method="post" action="post" id="contactUs">
+                                                  @csrf
                                                  <div id="contact_form">
                                                   <div class="form-group">
                                                    <input type="text" name="name" class="form-control input-field" placeholder="Name" required="">                    
@@ -1863,7 +1861,8 @@ data-center-center="transform:translatex(380%);">
                                                    <input type="text" name="subject" class="form-control input-field" placeholder="Subject" required="">                     
                                                  </div>
                                                  <textarea name="message" id="message" class="textarea-field form-control" rows="4" placeholder="Enter your message" required=""></textarea>
-                                                 <button type="submit" id="submit_btn" value="Submit" class="btn center-block">Send message</button>
+                                                 <button type="submit" id="contactUsBtn" value="Submit" class="btn center-block" >Send message</button>
+                                               </form>
                                                </div>
                                                <div id="contact_results"></div>
                                              </div>
@@ -2020,21 +2019,25 @@ data-center-center="transform:translatex(380%);">
                       <script src="{{asset('web/muscat/js/plugins.js')}}"></script>
                       <!-- Contact -->
 
-                      <script src="{{asset('web/muscat/js/contact.js')}}"></script>
+                      <!-- <script src="{{asset('web/muscat/js/contact.js')}}"></script> -->
                       <!-- Prefix free CSS -->
 
-                      <script src="{{asset('web/muscat/js/prefixfree.js')}}"></script>        
+                      <!-- <script src="{{asset('web/muscat/js/prefixfree.js')}}"></script>         -->
                       <!-- GreenSock -->
 
-                      <script src="{{asset('web/muscat/layerslider/js/greensock.js')}}" ></script>
+                      <!-- <script src="{{asset('web/muscat/layerslider/js/greensock.js')}}" ></script> -->
                       <!-- LayerSlider script files -->
 
-                      <script src="{{asset('web/muscat/layerslider/js/layerslider.transitions.js')}}" ></script>
+                      <!-- <script src="{{asset('web/muscat/layerslider/js/layerslider.transitions.js')}}" ></script> -->
 
-                      <script src="{{asset('web/muscat/layerslider/js/layerslider.kreaturamedia.jquery.js')}}" ></script>
+                      <!-- <script src="{{asset('web/muscat/layerslider/js/layerslider.kreaturamedia.jquery.js')}}" ></script> -->
                       <!-- Swicther -->
 
                       <script src="{{asset('web/muscat/switcher/js/dmss.js')}}"></script>
+
+                      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
                       <script type="text/javascript">
                         $.ajaxSetup({
                           headers: {
@@ -2043,6 +2046,11 @@ data-center-center="transform:translatex(380%);">
                        });
 
                         var searchRequest = null;
+
+
+                        function contactUs(obj){
+
+                        }
 
                         $(function () {
                           var minlength = 3;
@@ -2062,14 +2070,67 @@ data-center-center="transform:translatex(380%);">
                                 },
                                 dataType: "text",
                                 success: function(msg){
-                    //we need to check if the value is the same
-                    if (value==$(that).val()) {
-                    //Receiving the result of search here
-                  }
-                }
-              });
+                                    //we need to check if the value is the same
+                                    if (value==$(that).val()) {
+                                    //Receiving the result of search here
+                                  }
+                                }
+                              });
                             }
                           });
                         });
 
-                      </script>
+
+
+
+                     $("#contactUsBtn").click(function (e) {
+
+
+            var form = $('#contactUs')[0]; // You need to use standard javascript object here
+            var formData = new FormData(form);
+            console.log('formData', formData);
+            console.log('form', form);
+            $.ajax({
+              url: "{{route('ContactFom')}}",
+              type: "POST",
+              enctype: 'multipart/form-data',
+                processData: false,  // Important!
+                contentType: false,
+                cache: false,
+                data: formData,
+              
+                success: function (response) {
+                  console.log('response', response);
+                  if (response.status) {
+
+                    
+
+
+                    $("#contactUs")[0].reset();
+
+                    swal(
+                      'Success!',
+                      'Your query has been submitted , We contact with you very soon',
+                      'success'
+                      );
+                  } else {
+                    console.log('error blank', response.message);
+                    swal(
+                      'Warning!',
+                      response.message,
+                      'warning'
+                      );
+                  }
+                }, error: function (e) {
+                  console.log('error', e);
+                  swal(
+                    'Oops...',
+                    'Something went wrong!',
+                    'error'
+                    )
+                }
+            });
+            e.preventDefault();
+        });
+
+    </script>

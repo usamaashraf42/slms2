@@ -55,7 +55,7 @@
               <a href="{{route('pakistan.history')}}" class="first  sw-menucode-ite__link">Information</a>
           </li>
           <li class="sw-menucode-list__item" id="mn-how-to-apply">
-             <a href="{{route('pakistan.history')}}" class=" sw-menucode-ite__link">Apply
+             <a href="{{route('pakistan.history')}}" class=" sw-menucode-ite__link">Register
              </a>
          </li>
          <li class="sw-menucode-list__item" id="mn-admission-calendar">

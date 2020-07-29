@@ -23,40 +23,32 @@
                 <tr>
                   <th></th>
                   <th>EmployeeId</th>
-                  <th>Name</th>
-                  <th>Monthly Salary</th>
                   <th>Total Days</th>
                   <th>Absent</th>
                   <th>Leaves</th>
                   <th>holiday</th>
-                  <th>Total Present</th>
-                  <th>Paid Days</th>
-                  <th>EOBI</th>
-                  <th>Advance</th>
-                  <th>Security</th>
-                  <th>Tax</th>
-                  <th>T.A</th>
-                  <th>PF rate</th>
-                  <th>PF</th>
-                  <th>Given Salary</th>
+                  <th>E-off </th>
+                  <th>Late</th>
+                  <th>Comment</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
-                <form method="POST" action="{{route('salaryPosted')}}"  enctype = "multipart/form-data">
-                  @csrf
-
-
-                
+                 
                 @isset($employees)
                 @php($counter=1)
                 @foreach($employees as $admin)
+
                 <?php
                 $presents=0;
                 $absents=0;
                 $leave_ids=0;
                 $holiday_ids=0;
+
+                $early_off=0;
+                $late=0;
+
                 $employeeDate=$admin->EmployeeDateByMonth($month,$year);
-                // dd($employeeDate);
                 $monthly_salary=isset($admin->Employeesalary->monthly_salary)?$admin->Employeesalary->monthly_salary:0;
                 $ta=isset($admin->Employeesalary->ta)?$admin->Employeesalary->ta:0;
                 $oneDay=$monthly_salary/$days;
@@ -75,70 +67,33 @@
                   }
                 }
 
-                $pf=isset($payroll->pf)?$payroll->pf:0;
-                $eobi=isset($payroll->eobi)?$payroll->eobi:0;
-                $tax=isset($payroll->tax)?$payroll->tax:0;
-                $paidDays=$presents + $leave_ids + $holiday_ids;
-                $paidAmount=$paidDays * $oneDay;
-                $pfAmount=$pf*$paidAmount/100;
-                $advance=0;
-                $security=0;
-                $carry_forward=isset($admin->Employeesalary->carry_forward)?$admin->Employeesalary->carry_forward:0;
-
-                $annual_salary=$monthly_salary*12;
-                // dd($annual_salary);
-
-                $incomeTax=\App\Models\IncomeTax::where('annual_start_amount','<=',$annual_salary)->where('annual_end_amount','>=',$annual_salary)->first();
-                $fixTax=isset($incomeTax->fix_tax)?$incomeTax->fix_tax:0;
-                $total_amount=$annual_salary - (isset($incomeTax->after_amount_percentage)?$incomeTax->after_amount_percentage:0);
-                $per_amount_afterPrice=0;
-                if($total_amount>0){
-                  $per_amount_afterPrice= ($total_amount * (isset($incomeTax->per_tax)?$incomeTax->per_tax:0))/100;
-                }
-                $total_tax_amount_df=$per_amount_afterPrice + $fixTax;
-                $eobi_deduction= ($eobi * $paidAmount/100);
-                $total_given_salary=$paidAmount - $pfAmount - $total_tax_amount_df - $eobi_deduction - $security - $advance + $ta;
-                
+              
+            
                 ?>
-                <tr>
+                
+              
+                <tr class="salaryPostedRow{{$admin->emp_id}}">
                   <input type="hidden" name="emp_ids[]" value="@isset($admin->emp_id){{$admin->emp_id}}@endisset">
                   <input type="hidden" name="month" value="{{$month}}">
                   <input type="hidden" name="year" value="{{$year}}">
                   <td>{{$counter++}}</td>
-                  <td>@isset($admin->emp_id){{$admin->emp_id}}@endisset</td>
-                  <td>@isset($admin->name){{$admin->name}}@endisset</td>
-                  <td>@isset($monthly_salary){{$monthly_salary}}@endisset</td>
+                  <td>@isset($admin->emp_id){{$admin->emp_id}}@endisset  @isset($admin->name){{$admin->name}}@endisset</td>
 
                   <td>{{$days}}</td>
                   <td>{{$days-$presents}}</td>
                   <td>{{$leave_ids}}</td>
                   <td>{{$holiday_ids}}</td>
-                  <td>{{$presents}}</td>
-                  <td>{{ $presents + $leave_ids + $holiday_ids}}</td>
-                  
-                  <td>{{$eobi_deduction}}</td>
-                  <td>{{$advance}}</td>
-                  <td>{{$security}}</td>
-                  <td>{{$total_tax_amount_df}}</td>
-                  <td>{{$ta}}</td>
-                  <td>{{round($pf,2)}}</td>
-                  <td>{{round($pfAmount,2)}}</td>
-                  <td>{{ round(($total_given_salary ),2) }}</td>
+                  <td>{{$early_off}}</td>
+                  <td>{{$late}}</td>
+                  <td><textarea class="form-control employee_comment_{{$admin->emp_id}}" name="employee_comment_{{$admin->emp_id}}"></textarea></td>
+                  <td><button class="btn btn-success" data-ids="{{$admin->emp_id}}" onclick="salaryPost({{$admin->emp_id}})">Send</button></td>
                 </tr>
                 @endforeach
                 @endisset
               </tbody>
               
             </table>
-            <div class="card" style="width:100%">
-              <div class="card-block">
-                <div class="ks-items-block float-center" style="align-items: center;margin-left: 40%">
-                  <button class="btn btn-primary ks-rounded" type="submit"> Salary Post </button>
-                </div>
-
-              </div>
-            </div>
-            </form>
+            
           </div>
         </div>
       </div>
@@ -165,6 +120,11 @@
 <script src="{{asset('assets/bootstrap-datatable/js/buttons.print.min.js')}}"></script>
 <script src="{{asset('assets/bootstrap-datatable/js/buttons.colVis.min.js')}}"></script>
 
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
 <script>
   $(document).ready(function() {
      //Default data table
@@ -185,31 +145,34 @@
  <script>
 
 
-  /*showing confirm cancel popup box*/
-  function showConfirm() {
-    return confirm("Are You Sure You Want To Update This Account?");
-  }
 
-  function resend(id) {
-    var val = showConfirm();
-    if (val) {
+
+  function salaryPost(obj) {
+    var id=parseInt(obj);
+    var  comment=$('.employee_comment_'+id).val();
+    var month=<?php echo $month; ?>;
+    var year=<?php echo $year; ?>;
+
+    console.log('comment',comment,'id',id);
+      
       $.ajax({
-        url: "#",
+        url: "{{route('emp.EmployeeSalaryPostTemp')}}",
         type: 'post',
         data: {
-          'id': id
+          'emp_id': id,
+          'comment':comment,
+
+          'month':month,
+          'year':year
         },
         dataType: 'json',
         success: function (response) {
-          console.log('id', response);
+          console.log('EmployeeSalaryPostTemp', response);
 
-          if (response.status == "200") {
+          if (response.status) {
 
-            swal(
-              'Success!',
-              'Notification Sent Successfully',
-              'success'
-              );
+            $('.salaryPostedRow'+id).remove();
+                toastr.success('Record Update Successfully');
 
           } else {
             alert(response.message);
@@ -223,146 +186,10 @@
             )
         }
       });
-    }
+    
   }
 
 
-  /*showing confirm cancel popup box*/
-  function showConfirmDelete() {
-    return confirm("Are You Sure You Want To Delete This Data?");
-  }
-
-  /*delete item */
-  function deleteItem(id) {
-    var val = showConfirmDelete();
-    if (val) {
-      $.ajax({
-        url: "#",
-        type: 'post',
-        data: {
-          'id': id
-        },
-        dataType: 'json',
-        success: function (response) {
-          console.log('id', response);
-
-          if (response.status == "200") {
-
-            swal(
-              'Success!',
-              'Shed Deleted Successfully',
-              'success'
-              );
-
-            location.reload(true);
-
-          } else {
-            swal(
-              'Warning!',
-              response.message,
-              'warning'
-              );
-          }
-        },
-        error: function () {
-          swal(
-            'Oops...',
-            'Something went wrong!',
-            'error'
-            )
-        }
-      });
-    }
-  }
-
-  /*showing update item modal on click*/
-  function editItem(id) {
-    $.ajax({
-      url: 'admin/class/'+id+'/edit',
-      type: 'get',
-      data: {
-        'id': id
-      },
-      success: function (response) {
-
-        $("#show_edit_modal").html(response);
-        jQuery("#updateCourse").modal('show');
-      },
-      error: function (e) {
-        console.log('error', e);
-      }
-    });
-  }
-
-  /* On-click function to view  detail */
-  function detail(id) {
-    window.location = baseurl + '/shed/' + id;
-  }
-
-
-
-  $('.loader-img').hide();
-  $("#addDataBtn").click(function (e) {
-
-
-            var form = $('#addDataForm')[0]; // You need to use standard javascript object here
-            var formData = new FormData(form);
-            console.log('formData', formData);
-            console.log('form', form);
-            $.ajax({
-              url: "#",
-              type: "POST",
-              enctype: 'multipart/form-data',
-                processData: false,  // Important!
-                contentType: false,
-                cache: false,
-                data: formData,
-                beforeSend: function () {
-                  $('.loader-img').show();
-                  $('#preloader').show();
-                },
-                complete: function () {
-                  $('#preloader').fadeOut('slow', function () {
-                    $(this).remove();
-                  });
-                  $('.loader-img').hide();
-                },
-                success: function (response) {
-                  console.log('response', response);
-                  if (response.status == '200') {
-
-
-
-                    $('#add_shed').modal('hide');
-
-                    $("#addDataForm")[0].reset();
-                    $(".slim-btn-remove").click();
-
-                    swal(
-                      'Success!',
-                      'Shed Added Successfully',
-                      'success'
-                      );
-                    location.reload(true);
-                  } else {
-                    console.log('error blank', response.message);
-                    swal(
-                      'Warning!',
-                      response.message,
-                      'warning'
-                      );
-                  }
-                }, error: function (e) {
-                  console.log('error', e);
-                  swal(
-                    'Oops...',
-                    'Something went wrong!',
-                    'error'
-                    )
-                }
-              });
-            e.preventDefault();
-          });
 
         </script>
 

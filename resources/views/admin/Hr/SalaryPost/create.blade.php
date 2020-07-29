@@ -13,7 +13,7 @@
 						<div class="col-md-12">
 							{{csrf_field()}}
 							<div class="row">
-								<div class="col-md-3">
+								<div class="col-md-4">
 									<div class="form-group">
 										<label for="select_branch">Select Branch</label>
 										<select class="branch_id" name="branch_id" onchange="getEmployee(this)"  id="select_branch" required style="width: 100%;height: 40px;">
@@ -27,7 +27,7 @@
 										</select>
 									</div>
 								</div>
-								<div class="col-md-3">
+								<!-- <div class="col-md-3">
 									<div class="form-group">
 										<label for="employee_id">Select Employee</label>
 										<select type="text" class="form-control employee_id" id="employee_id"  name="employee_id"  placeholder="Name">
@@ -39,8 +39,8 @@
 											@endif
 										</select>
 									</div>
-								</div>
-								<div class="col-md-3">
+								</div> -->
+								<div class="col-md-4">
 									<div class="form-group">
 										<label for="select2">Month</label>
 										<select type="text" class="form-control month" id="month"   name="month">
@@ -60,7 +60,7 @@
 										</select>
 									</div>
 								</div>
-								<div class="col-md-3">
+								<div class="col-md-4">
 									<div class="form-group">
 										<label for="select2">Years</label>
 										<select type="text" class="form-control year" id="year"   name="year"  placeholder="Student Name">

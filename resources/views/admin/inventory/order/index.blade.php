@@ -264,8 +264,10 @@
                         <tr>
                           <th>Order Id</th>
                           <th>Branch </th>
-                          <th>Category</th>
-                          <th>Sub Category</th>
+                          <th>Student Name (id)</th>  
+                          <th>Class</th>
+                          <th>Phone</th>  
+                          <th>address</th>             
                           <th>Product </th>
                           <th>Qty</th>
                           <th>Price</th>
@@ -279,9 +281,13 @@
                         <tr class="order_{{$query->order_id}}">
                           <td>{{$query->order_id}}</td>
                           <td>@isset($query->branch) {{$query->branch->branch_name}} @endisset </td>
-                          <td>@isset($query->category) {{$query->category->pro_cat_name}} @endisset </td>
-                          <td>@isset($query->sub_category) {{$query->sub_category->pro_cat_name}} @endisset </td>
+                          <td>@isset($query->student) {{$query->student->s_name}} ({{$query->std_id}}) @endisset </td>
+                          <td>@isset($query->student->course) {{$query->student->course->course_name}} @endisset </td>
+                          <td> @isset($query->phone) {{$query->phone}} @endisset</td>
+                          <td> @isset($query->address) {{$query->address}} @endisset</td>
+                        
                           <td>@isset($query->products) {{implode_product($query->products)}} @endisset </td>
+
                           <td> @isset($query->qty) {{$query->qty}} @endisset</td>
                           <td>@isset($query->price) {{$query->price}} @endisset </td>
                           <td>@isset($query->created_at) {{date("d M Y", strtotime($query->created_at))}} @endisset</td>

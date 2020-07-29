@@ -92,16 +92,14 @@
 
             <tr>
               <th></th>
-              <th>Fee Month</th>
-              <th> Campus</th>
+              
               <th> Roll Number</th>
               <th> Challan Number</th>
               <th> Student Name</th>
-              <th> Father Name</th>
+
               <th>Standard</th>
-              <th> Monthly/Quarterly</th>
+              <th> Campus</th>
               <th>Tution Fee</th>
-              <th>FeeBeforeRedDate</th>
               <th>Due Date</th>
 
 
@@ -138,15 +136,16 @@
 
             <tr>
               <td>{{$counter++}}</td>
-              <td>@isset($feeArray[0]){{getMonthName($feeArray[0]->fee_month).'/ '. $feeArray[0]->fee_year}}@endif</td>
-              <td>@isset($data->branch->branch_name){{$data->branch->branch_name}}@endisset</td>
+          
+              
               <td>{{$data->id}}</td>
               <td>@isset($feeArray[0]->id){{$feeArray[0]->id}}@endisset </td>
               <td >{{$data->s_name}}</td>
-              <td >{{$data->s_fatherName}}</td>
+             
               <td>@isset($data->course->course_name){{$data->course->course_name}}@endisset</td>
-              <td>Monthly</td>
-              <td>@isset($feeArray[0]->total_fee){{round($feeArray[0]->total_fee)}}@endisset </td>
+              <td>@isset($data->branch->branch_name){{$data->branch->branch_name}}@endisset</td>
+
+
               <td>@isset($feeArray[0]->total_fee){{round($feeArray[0]->total_fee)}}@endisset </td>
 
               <td>@if($feeArray[0]->outstand_lastmonth > 0)
