@@ -138,10 +138,11 @@ h1 {
     color: aliceblue;">International  Schools</h6>
                 <p>  
                  <div class="links">
-                    <a href="{{route('muscat.index')}}">OMAN</a>
-                    <a href="{{route('pakistan.index')}}">PAKISTAN</a>
                     <a href="{{route('muscat.index')}}">USA</a>
                     <a href="{{route('muscat.index')}}">UK</a>
+                    <a href="{{route('muscat.index')}}">OMAN</a>
+                    <a href="{{route('pakistan.index')}}">PAKISTAN</a>
+                  
                 </div>
               </p>
             </div>
