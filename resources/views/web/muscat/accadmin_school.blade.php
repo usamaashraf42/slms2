@@ -374,7 +374,7 @@ color: #000;
                         <p class="subtitle hidden-xs"> American Lyceum International School</p>
                         <!-- Button -->
                         <div class="page-scroll hidden-xs">
-                           <a class="btn" href="#contact">Contact us</a>
+                           <!-- <a class="btn" href="#contact">Contact us</a> -->
                         </div>
                      </div>
                      <!-- Parallax Image -->

@@ -677,7 +677,7 @@
           <h1>Welcome to American Lyceum</h1>
           <p class="subtitle hidden-xs"> American Lyceum International School</p>
           <div class="page-scroll hidden-xs">
-           <a class="btn" href="#contact">Contact us</a>
+        <!--    <a class="btn" href="#contact">Contact us</a> -->
          </div>
        </div>
        <img src="{{asset('web/muscat/img/web/star.png')}}" class="ls-l img-responsive hidden-xs hidden-sm parallax2 ls-preloaded" alt="" data-ls="delayin:1500;easingin:fadeIn;parallaxlevel:6;" style="margin-left: 0px; margin-top: 0px; width: 120px; height: 112px; padding: 0px; border-width: 0px; left: 311.5px; top: 0px; transform-origin: 50% 50% 0px; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 63.7959, 0, 0, 1); opacity: 0.502551; visibility: visible; filter: none;">

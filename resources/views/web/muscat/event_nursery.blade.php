@@ -3,7 +3,7 @@
  * Project:Muscat American Lyceum school.
  * User: SHAFQAT GHAFOOR
  * Phone: 03076110561
- * Date: 6/13/2019
+ * Date: 6/13/2020
  * Time: 12:30 PM
  */
  --}}
@@ -386,11 +386,11 @@ color: #000;
 
                      <div class="ls-l header-text" data-ls="offsetxin:0;durationin:2000;delayin:1500;easingin:easeOutElastic;rotatexin:-90;transformoriginin:50% top 0;offsetxout:-200;durationout:1000;parallaxlevel:2;" style="margin-left: 0px; margin-top: 0px; width: auto; height: auto; font-size: 14px; padding: 30px; border-width: 0px; left: 311.5px; top: 0px; filter: none; background-color: rgb(245, 245, 245,0.5);">
                         <h1>Welcome to American Lyceum</h1>
-                        <p class="subtitle hidden-xs"> American Lyceum International Nursary   </p>
+                        <p class="subtitle hidden-xs"> American Lyceum International Nursery   </p>
                         <!-- Button -->
 
                         <div class="page-scroll hidden-xs">
-                           <a class="btn" href="#contact">Contact us</a>
+                        <!--    <a class="btn" href="#contact">Contact us</a> -->
                         </div>
                      </div>
                      <!-- Parallax Image -->
@@ -445,30 +445,30 @@ color: #000;
               <br>
            
 <div id="accad" style="border: 1px solid #bbb; padding: 5px;box-shadow: 0px 2px 3px #bbb; margin-top: 20px; text-align: center;">
-<h1>EVENT 2019-2020</h1>
+<h1>EVENT 2020-2021</h1>
 <ol>
     <li class="box">
-        <p class="event-date">August 31, 2019 </p>
+        <p class="event-date">August 31, 2020 </p>
         <p class="event-description">Islamic New Year (holiday subject to Government announcement).</p>
     </li>
     <li class="box">
-        <p class="event-date">September 1,2019</p>
+        <p class="event-date">September 1,2020</p>
         <p class="event-description">Beginning of the 1st Term.</p>
     </li>
     <li class="box">
-        <p class="event-date">November 9, 2019</p>
+        <p class="event-date">November 9, 2020</p>
         <p class="event-description">Prophet Mohammad’s Birthday (holiday subject to Gov. announcement).</p>
     </li>
     <li class="box">
-        <p class="event-date">November 18-19, 2019</p>
+        <p class="event-date">November 18-19, 2020</p>
         <p class="event-description">National Day (Holiday subject to Gov. announcement). </p>
     </li>
     <li class="box">
-        <p class="event-date">December 25,26 2019</p>
+        <p class="event-date">December 25,26 2020</p>
         <p class="event-description">Christmas Day nursery is closed) </p>
     </li>
     <li class="box">
-        <p class="event-date">December 22,2019</p>
+        <p class="event-date">December 22,2020</p>
         <p class="event-description">End of 1st Term</p>
     </li>
     <li class="box">
@@ -484,7 +484,7 @@ color: #000;
         <p class="event-description">First Day of Second Semester</p>
     </li>
     <li class="box">
-        <p class="event-date">March 22, 2019</p>
+        <p class="event-date">March 22, 2020</p>
         <p class="event-description">Isra Al Miraj (holiday subject to Gov. announcement)</p>
     </li>
     <li class="box">
@@ -582,7 +582,7 @@ color: #000;
 
                                           </div>
                                           <hr>
-                                          {{-- <p>Copyright © 2018 - 2019 </p> --}}
+                                          {{-- <p>Copyright © 2018 - 2020 </p> --}}
                                           <div class="page-scroll hidden-sm hidden-xs">
                                              <a href="#page-top" class="back-to-top"><i class="fa fa-angle-up"></i></a>
                                           </div>
