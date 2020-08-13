@@ -154,7 +154,7 @@ class PublicController extends Controller
              $message->to($emails)->subject('Welcome to Royal Lyceum School System');    
          });
         }
-        $emails='tnadeem@americanlyceum.com';
+        $emails=['tnadeem@americanlyceum.com','franchise@americanlyceum.com'];
         Mail::send('emails.franchise', ['first_name'=>$request->first_name?$request->first_name:'','phone'=>$request->phone?$request->phone:'','select_country'=>$request->select_country?$request->select_country:'','email'=>$request->email,'country_address'=>$request->country_address?$request->country_address:'','select_area'=>$request->select_area?$request->select_area:'','select_franchise'=>$request->select_franchise?$request->select_franchise:'','exist_school'=>$request->exist_school,'school_building'=>$request->school_building,'number_students'=>$request->number_students], function($message) use ($emails){    
          $message->to($emails)->subject('New Franchise Applicant Record');    
      });
