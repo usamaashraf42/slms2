@@ -23,7 +23,7 @@ class BankOutstandingController extends Controller
     public function store(Request $request){
     	$month=$request->month;
     	$year=$request->year;
-    	$student=Student::where('status',1)->orderBy('branch_id','ASC');
+    	$student=Student::where('status',1)->orderBy('course_id','ASC')->orderBy('branch_id','ASC');
     	if($request->branch_id){
     		$student->where('branch_id',$request->branch_id);
     	}

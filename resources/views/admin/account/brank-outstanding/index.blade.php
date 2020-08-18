@@ -96,7 +96,7 @@
               <th> Roll Number</th>
               <th> Challan Number</th>
               <th> Student Name</th>
-
+              <th> Contact No</th>
               <th>Standard</th>
               <th> Campus</th>
               <th>Tution Fee</th>
@@ -140,7 +140,8 @@
               
               <td>{{$data->id}}</td>
               <td>@isset($feeArray[0]->id){{$feeArray[0]->id}}@endisset </td>
-              <td >{{$data->s_name}}</td>
+              <td >{{$data->s_name .' / '. $data->s_fatherName}}</td>
+              <td >{{$data->s_phoneNo}}</td>
              
               <td>@isset($data->course->course_name){{$data->course->course_name}}@endisset</td>
               <td>@isset($data->branch->branch_name){{$data->branch->branch_name}}@endisset</td>
