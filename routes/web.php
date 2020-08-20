@@ -209,6 +209,8 @@ Route::prefix('admin')->group(function () {
 		Route::resource('branch-performance','Branch\BranchPerformanceController');
 		Route::resource('net-admission-status','Branch\NetAdmissionStatusController');
 		Route::resource('branch-class-student','Branch\BranchStudentDetailController');
+
+		Route::resource('bank-student-list','Account\Bank\BankStudentListController');
 		
 
 
