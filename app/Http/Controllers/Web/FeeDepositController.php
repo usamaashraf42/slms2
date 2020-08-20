@@ -112,6 +112,15 @@ class FeeDepositController extends Controller
 
 
 				}
+				elseif ($request->ppmpf_4==4 && $request->ppmpf_5==22) {
+
+					$url=$this->britishlyceumPackageBuy($request->ppmpf_1);
+
+					$url="https://britishlyceum.com/teacher/pricing/user/package-status/$bank->britishlyceum_user_id/$bank->prepon_transaction_id/$bank->id/$bank->amount";
+					return redirect($url);
+					
+
+				}
 				else{
 					$this->feeDepositDbEffected($request->ppmpf_2,$request->ppmpf_1,$amount,8);
 					session()->flash('success_message', __("Fee deposit successfully"));
@@ -139,6 +148,10 @@ class FeeDepositController extends Controller
 					return redirect("https://britishlyceum.org/user/package-failed/$ResponseMessage");
 
 				}
+				elseif ($request->ppmpf_4==4 && $request->ppmpf_5==22) {
+					return redirect("https://britishlyceum.com/user/package-failed/$ResponseMessage");
+
+				}
 				else{
 					return redirect()->route('feedeposit.index');
 				}
@@ -157,6 +170,9 @@ class FeeDepositController extends Controller
 
 				}elseif ($request->ppmpf_4==3 && $request->ppmpf_5==21) {
 					return redirect("https://britishlyceum.org/user/package-failed/$ResponseMessage");
+
+				}elseif ($request->ppmpf_4==4 && $request->ppmpf_5==22) {
+					return redirect("https://britishlyceum.com/user/package-failed/$ResponseMessage");
 
 				}else{
 					return redirect()->route('feedeposit.index');
@@ -185,7 +201,10 @@ class FeeDepositController extends Controller
 			}elseif ($request->ppmpf_4==3 && $request->ppmpf_5==21) {
 					return redirect("https://britishlyceum.org/user/package-failed/$ResponseMessage");
 
-			}else{
+			}elseif ($request->ppmpf_4==4 && $request->ppmpf_5==22) {
+					return redirect("https://britishlyceum.com/user/package-failed/$ResponseMessage");
+
+				}else{
 				return redirect()->route('feedeposit.index');
 			}		
 		}	
