@@ -953,7 +953,7 @@ class FeeDepositController extends Controller
 
 			
 
-			$url="https://britishlyceum.org/teacher/pricing/user/package-status/$bank->britishlyceum_user_id/$bank->prepon_transaction_id/$bank->id/$bank->amount";
+			$url="https://britishlyceum.org/teacher/pricing/user/package-status/$bank->britishlyceum_user_id/$bank->prepon_transaction_id/$bank->amount";
 			return $url;
 		}else{
 			return false;
