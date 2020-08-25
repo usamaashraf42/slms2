@@ -38,6 +38,9 @@ class FeeDepositController extends Controller
 	*/
 	public function index(){
 		// $amount=substr(400000, 0, -2);
+		// dd($this->britishlyceumPackageBuy(4003));
+		// dd('hello');
+
 		return view('web.pakistan.feeDeposit.challan');
 	}
 
@@ -98,6 +101,40 @@ class FeeDepositController extends Controller
 
 
 				}
+				elseif ($request->ppmpf_4==3 && $request->ppmpf_5==21) {
+
+					$url=$this->britishlyceumPackageBuy($request->ppmpf_1);
+					if($url){
+						session()->flash('error_message', __("Payment Pending. $ResponseMessage"));
+						return redirect($url);
+					}
+					else{
+						session()->flash('success_message', "Package buy successfully, thanks to subscribe prepon package" );
+						return redirect('https://britishlyceum.org/teacher/teacher-panel');
+					}
+
+
+				}
+				elseif ($request->ppmpf_4==4 && $request->ppmpf_5==22) {
+
+					$url=$this->britishlyceumComPackageBuy($request->ppmpf_1);
+
+					if($url){
+						session()->flash('success_message', "Package buy successfully, thanks to subscribe Britishlyceum package" );
+						return redirect($url);
+					}
+					else{
+						session()->flash('success_message', "Package buy successfully, thanks to subscribe Britishlyceum package" );
+						return redirect('https://britishlyceum.org/teacher/teacher-panel');
+					}
+
+
+
+					
+					return redirect($url);
+					
+
+				}
 				else{
 					$this->feeDepositDbEffected($request->ppmpf_2,$request->ppmpf_1,$amount,8);
 					session()->flash('success_message', __("Fee deposit successfully"));
@@ -121,6 +158,13 @@ class FeeDepositController extends Controller
 				}elseif ($request->ppmpf_4==2 && $request->ppmpf_5==11) {
 					return redirect("https://prepon.org/user/package-failed/$ResponseMessage");
 
+				}elseif ($request->ppmpf_4==3 && $request->ppmpf_5==21) {
+					return redirect("https://britishlyceum.org/user/package-failed/$ResponseMessage");
+
+				}
+				elseif ($request->ppmpf_4==4 && $request->ppmpf_5==22) {
+					return redirect("https://britishlyceum.com/user/package-failed/$ResponseMessage");
+
 				}
 				else{
 					return redirect()->route('feedeposit.index');
@@ -137,6 +181,12 @@ class FeeDepositController extends Controller
 
 				}elseif ($request->ppmpf_4==2 && $request->ppmpf_5==11) {
 					return redirect("https://prepon.org/user/package-failed/$ResponseMessage");
+
+				}elseif ($request->ppmpf_4==3 && $request->ppmpf_5==21) {
+					return redirect("https://britishlyceum.org/user/package-failed/$ResponseMessage");
+
+				}elseif ($request->ppmpf_4==4 && $request->ppmpf_5==22) {
+					return redirect("https://britishlyceum.com/user/package-failed/$ResponseMessage");
 
 				}else{
 					return redirect()->route('feedeposit.index');
@@ -162,7 +212,13 @@ class FeeDepositController extends Controller
 			}elseif ($request->ppmpf_4==2 && $request->ppmpf_5==11) {
 				return redirect("https://prepon.org/user/package-failed/$ResponseMessage");
 
-			}else{
+			}elseif ($request->ppmpf_4==3 && $request->ppmpf_5==21) {
+					return redirect("https://britishlyceum.org/user/package-failed/$ResponseMessage");
+
+			}elseif ($request->ppmpf_4==4 && $request->ppmpf_5==22) {
+					return redirect("https://britishlyceum.com/user/package-failed/$ResponseMessage");
+
+				}else{
 				return redirect()->route('feedeposit.index');
 			}		
 		}	
@@ -788,6 +844,124 @@ class FeeDepositController extends Controller
 
 
 	}
+
+
+	public function britishlyceumComPackageBuy($id){
+
+		$bank=BankTransactionDetail::find($id);
+
+		if($bank){
+			$amount=$bank->amount;
+			$fees=BankTransactionDetail::where('id',$id)->update(['status'=>0]);
+			$bankAc=Account::where('bank_id',8)->first();
+			if($bankAc){
+				$master=Master::where('account_id',$bankAc->id)->orderBy('id','DESC')->first();
+				$ledger=[
+					'account_id'=>$bankAc->id,
+					'a_credit'=>isset($amount)?$amount:0,
+					'a_debit'=>0,
+					'balance'=>isset($master->balance)?$master->balance-$amount:((isset($master->balance)?$master->balance:0)-$amount),
+					'posting_date'=>date('Y-m-d'),
+					'description'=>"britishlyceum Package subscribed by jazzcash",
+					'month'=>date('m'),
+					'year'=>date('Y'),
+
+				];
+				$std=Master::insert($ledger);
+
+
+
+			}
+
+			$projectAcc=Account::where('id',10081)->first();
+			if($projectAcc){
+				$master=Master::where('account_id',$projectAcc->id)->orderBy('id','DESC')->first();
+				$ledger=[
+					'account_id'=>$projectAcc->id,
+					'a_credit'=>isset($amount)?$amount:0,
+					'a_debit'=>0,
+					'balance'=>isset($master->balance)?$master->balance-$amount:((isset($master->balance)?$master->balance:0)-$amount),
+					'posting_date'=>date('Y-m-d'),
+					'description'=>"britishlyceum Package subscribed by jazzcash",
+					'month'=>date('m'),
+					'year'=>date('Y'),
+
+				];
+				$std=Master::insert($ledger);
+
+
+
+			}
+
+
+			$url="https://britishlyceum.com/teacher/pricing/user/package-status/$bank->britishlyceum_user_id/$bank->prepon_transaction_id/$bank->id/$bank->amount";
+
+			return $url;
+		}else{
+			return false;
+		}
+
+	}
+
+	
+	public function britishlyceumPackageBuy($id){
+		$bank=BankTransactionDetail::find($id);
+
+		if($bank){
+			$amount=$bank->amount;
+			$fees=BankTransactionDetail::where('id',$id)->update(['status'=>0]);
+			$bankAc=Account::where('bank_id',8)->first();
+			if($bankAc){
+				$master=Master::where('account_id',$bankAc->id)->orderBy('id','DESC')->first();
+				$ledger=[
+					'account_id'=>$bankAc->id,
+					'a_credit'=>isset($amount)?$amount:0,
+					'a_debit'=>0,
+					'balance'=>isset($master->balance)?$master->balance-$amount:((isset($master->balance)?$master->balance:0)-$amount),
+					'posting_date'=>date('Y-m-d'),
+					'description'=>"britishlyceum Package subscribed by jazzcash",
+					'month'=>date('m'),
+					'year'=>date('Y'),
+
+				];
+				$std=Master::insert($ledger);
+
+
+
+			}
+
+			$projectAcc=Account::where('id',10081)->first();
+			if($projectAcc){
+				$master=Master::where('account_id',$projectAcc->id)->orderBy('id','DESC')->first();
+				$ledger=[
+					'account_id'=>$projectAcc->id,
+					'a_credit'=>isset($amount)?$amount:0,
+					'a_debit'=>0,
+					'balance'=>isset($master->balance)?$master->balance-$amount:((isset($master->balance)?$master->balance:0)-$amount),
+					'posting_date'=>date('Y-m-d'),
+					'description'=>"britishlyceum Package subscribed by jazzcash",
+					'month'=>date('m'),
+					'year'=>date('Y'),
+
+				];
+				$std=Master::insert($ledger);
+
+
+
+			}
+
+
+			
+
+			$url="https://britishlyceum.org/teacher/pricing/user/package-status/$bank->britishlyceum_user_id/$bank->prepon_transaction_id/$bank->amount";
+			return $url;
+		}else{
+			return false;
+		}
+
+	}
+
+
 
 	function preponPackageBuy($id){
 		$bank=BankTransactionDetail::find($id);

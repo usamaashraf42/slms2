@@ -1,5 +1,5 @@
 @extends('_layouts.admin.default')
-@section('title', 'Bank Outstanding')
+@section('title', 'Bank Student List')
 @section('content')
 @php($classss=0)
 <div class="content container-fluid" style="background-color: #fff;">

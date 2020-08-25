@@ -749,6 +749,12 @@
         <span> Accounts</span> 
     </a>
 </li>
+
+<li class="{{ areActiveRoutes(['bank-student-list.store','bank-student-list.index'])}}">
+    <a href="{{route('bank-student-list.index')}}" class=""><i class="fa fa-user" aria-hidden="true"></i> 
+        <span> Bank Student List</span> 
+    </a>
+</li>
 @endif
 
 @if(Auth::user()->can('Checque Book Add') )

@@ -1,26 +1,23 @@
 <?php
 
-namespace App\Http\Controllers\Account;
+namespace App\Http\Controllers\Account\Bank;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Branch;
-class BankOutstandingController extends Controller
+
+use Auth;
+use Session;
+class BankStudentListController extends Controller
 {
-
-	function __construct()
-	{
-         // $this->middleware('role_or_permission:Bank Outstanding', ['only' => ['create','store','index']]);
-
-	}
-
     public function index(){
     	$branches=Branch::get();
-    	return view('admin.account.brank-outstanding.create',compact('branches'));
+    	return view('admin.account.bank.studentList.index',compact('branches'));
     }
 
     public function store(Request $request){
+    	// dd($request->all());
     	$month=$request->month;
     	$year=$request->year;
     	$student=Student::where('status',1)->orderBy('course_id','ASC')->orderBy('branch_id','ASC');
@@ -32,6 +29,5 @@ class BankOutstandingController extends Controller
     	return view('admin.account.brank-outstanding.index',compact('students','month','year'));
     
     }
-
 
 }

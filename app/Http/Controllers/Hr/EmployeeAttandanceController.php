@@ -81,6 +81,8 @@ class EmployeeAttandanceController extends Controller
         $users=$employee->get();
         $month= $request->month;
         $year=$request->year;
+
+        $branches=Branch::find($request->branch_id);
 // dd($users);
         // $emp_dates=EmployeeAttendance::where('emp_id',$employees)->where('attendance_date',$request->month)->where('year',$request->year)->get();
         $month_days = cal_days_in_month(CAL_GREGORIAN, $request->month, $request->year); // 31
