@@ -282,6 +282,17 @@ Route::prefix('admin')->group(function () {
 			Route::resource('card','admins\Student\Card\StudentCardController');
 			
 			Route::get('challan/{id}','admins\Student\feepost\FeePostController@challen')->name('student.challen');
+
+
+
+			Route::prefix('academic')->group(function () {
+				Route::prefix('dairy')->group(function () {
+					Route::resource('home-work','admins\Student\Academics\Dairy\HomeWorkController');
+					Route::resource('dairy-manage','admins\Student\Academics\Dairy\DairyManageController');
+					Route::resource('dairy-manage','admins\Student\Academics\Dairy\DairyManageController');
+				});
+
+			});
 		});
 	        /////////////// HR Routes ///////////////////////
 		Route::resource('application','Hr\ApplicationController');
