@@ -545,10 +545,11 @@
       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Academics <b class="caret"></b></a>
       <ul class="dropdown-menu">
        <li><a href="{{route('muscat.curriculum')}}" style="background-color: #4a47ab;">Curriculum</a></li>
-       <li><a href="{{route('muscat.academy')}}" style="background-color: #4a47ab;">Activity</a></li>
+       <li><a href="{{route('muscat.nursery_activity')}}" style="background-color: #4a47ab;">Activity</a></li>
        <li><a href="{{route('muscat.academy')}}" style="background-color: #4a47ab;">Academic</a></li>
      </ul>
    </li>
+    <li><a href="{{route('muscat.jobs')}}">Vacancies</a></li>
    <li class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Branches <b class="caret"></b></a>
     <ul class="dropdown-menu">
@@ -558,11 +559,17 @@
   </li>
 </ul>
 <ul class="nav navbar-nav page-scroll navbar-right">
- <li><a href="{{route('muscat.jobs')}}">Vacancies</a></li>
+
  <li><a href="{{route('muscat.news_nursery')}}">News</a></li>      
  <li><a href="{{route('muscat.event_nursery')}}">Events</a></li>          
  <li><a href="#gallery">Gallery</a></li>    
- 
+ <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Partner <b class="caret"></b></a>
+    <ul class="dropdown-menu">
+      <li><a href="https://britishlyceum.org/" style="background-color: #4a47ab;">British Lyceum International</a></li>
+      <li><a href="https://britishlyceum.com/" style="background-color: #4a47ab;">British Lyceum Pakistan</a></li>
+    </ul>
+  </li>
  <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Prospectus <b class="caret"></b></a>
   <ul class="dropdown-menu">

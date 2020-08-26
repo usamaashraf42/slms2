@@ -446,16 +446,15 @@ color: #000;
             <div class="text-center col-md-12">
               <br>
                <ul class="nav nav-pills cat text-center" role="tablist" id="gallerytab">
-                  <li><a href="#" data-toggle="tab" data-filter=".events" class="active">Academic Calendar</a></li>
+                  <li><a href="#" data-toggle="tab" data-filter=".facilities">Activity Calendar </a></li>
                   <li><a href="#" data-toggle="tab" data-filter=".facilities1">Permotion</a></li>
-                  </ul>
+                </ul>
                </div>
                <!-- Gallery -->
                <div class="row">
                   <div class="col-md-12">
                      <div id="lightbox" class="isotope" style="position: relative; overflow: hidden; height: 960px;">
                         <!-- Image 1 -->
-  
 <div class="col-sm-12 col-md-12 col-lg-12 facilities isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(379px, 245px, 0px) scale3d(1, 1, 1); opacity: 1;">
 <div class="row">
 <div class="col-md-4">
@@ -656,40 +655,83 @@ color: #000;
   <div id="calendar">
   <h1>November -2019</h1>
   <table>
-    <tr><td class="lastmonth">30</td><td>1</td><td>2</td><td>3</td><td class="hastask">4</td><td>5</td><td>6</td></tr>
-    <tr><td>7</td><td>8</td><td class="current">9</td><td>10</td><td>11</td><td class="hastask">12</td><td>13</td></tr>
-    <tr><td>14</td><td class="hastask">15</td><td>16</td><td>17</td><td class="current">18</td><td class="current">19</td><td>20</td></tr>
-    <tr><td class="hastask">21</td><td>22</td><td>23</td><td>24</td><td>25</td><td class="hastask">26</td><td>27</td></tr>
-    <tr><td>28</td><td>29</td><td class="hastask">30</td><td>31</td><td class="nextmonth">1</td><td>2</td><td>3</td></tr>
+    <tr>
+      <td class="lastmonth">30</td>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+    <td class="hastask">4</td>
+    <td>5</td>
+    <td>6</td></tr>
+    <tr>
+      <td>7</td>
+    <td>8</td>
+    <td class="current">9</td>
+    <td>10</td>
+    <td>11</td>
+    <td class="hastask">12</td>
+    <td>13</td></tr>
+    <tr>
+      <td>14</td>
+    <td class="hastask">15</td>
+    <td>16</td>
+    <td>17</td>
+    <td class="current">18</td>
+    <td class="current">19</td>
+    <td>20</td></tr>
+    <tr>
+      <td class="hastask">21</td>
+    <td>22</td>
+    <td>23</td>
+    <td>24</td>
+    <td>25</td>
+    <td class="hastask">26</td>
+    <td>27</td></tr>
+    <tr>
+      <td>28</td>
+    <td>29</td>
+    <td class="hastask">30</td>
+    <td>31</td>
+    <td class="nextmonth">1</td>
+    <td>2</td>
+    <td>3</td></tr>
   </table>
 </div></div>
   <div class="col-md-8">
     <table  class="table table-bordered" width="0">
 <tbody>
 <tr class="bg_blue">
+
 <td >
 <p><strong>Date</strong></p>
 </td>
+
 <td >
 <p><strong>Section</strong></p>
 </td>
+
 <td >
 <p><strong>Activity</strong></p>
 </td>
+
 <td>
 <p><strong>Explanation/Instruction</strong></p>
 </td>
+
 <td >
 <p><strong>Ck</strong></p>
 </td>
 </tr>
 <tr>
+
 <td>
 <p>24 Oct</p>
 </td>
+
 <td >
 <p>Panda, Leopard</p>
 </td>
+
 <td >
 <p>Fruit Salad Day!</p>
 </td>
