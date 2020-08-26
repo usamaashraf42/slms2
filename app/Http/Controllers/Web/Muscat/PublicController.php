@@ -27,6 +27,9 @@ class PublicController extends Controller
     public function academy(){
     	return view('web.muscat.accadmin_nursery');
     }
+    public function activity(){
+        return view('web.muscat.nursery_activity');
+    }
      public function academys(){
         return view('web.muscat.accadmin_school');
     }
