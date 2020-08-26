@@ -3,7 +3,7 @@
  * Project:Muscat American Lyceum school.
  * User: SHAFQAT GHAFOOR
  * Phone: 03076110561
- * Date: 6/13/2019
+ * Date: 6/13/2020
  * Time: 12:30 PM
  */
  --}}
@@ -399,11 +399,11 @@ color: #000;
 
                      <div class="ls-l header-text" data-ls="offsetxin:0;durationin:2000;delayin:1500;easingin:easeOutElastic;rotatexin:-90;transformoriginin:50% top 0;offsetxout:-200;durationout:1000;parallaxlevel:2;" style="margin-left: 0px; margin-top: 0px; width: auto; height: auto; font-size: 14px; padding: 30px; border-width: 0px; left: 311.5px; top: 0px; filter: none; background-color: rgb(245, 245, 245,0.5);">
                         <h1>Welcome to American Lyceum</h1>
-                        <p class="subtitle hidden-xs"> American Lyceum International Nursary   </p>
+                        <p class="subtitle hidden-xs"> American Lyceum International Nursery   </p>
                         <!-- Button -->
 
                         <div class="page-scroll hidden-xs">
-                           <a class="btn" href="#contact">Contact us</a>
+                         <!--   <a class="btn" href="#contact">Contact us</a> -->
                         </div>
                      </div>
                      <!-- Parallax Image -->
@@ -460,7 +460,7 @@ color: #000;
 
                      </li><li><a href="#" data-toggle="tab" data-filter=".events" class="active">Academic Calendar</a></li>
                      <li><a href="#" data-toggle="tab" data-filter=".facilities">Activity Calendar </a></li>
-                   <li><a href="#" data-toggle="tab" data-filter=".facilities1">Permotion</a></li>
+                   <li><a href="#" data-toggle="tab" data-filter=".facilities1">Promotion</a></li>
                   </ul>
                </div>
                <!-- Gallery -->
@@ -470,30 +470,30 @@ color: #000;
                         <!-- Image 1 -->
                         <div class="col-sm-12 col-md-12 col-lg-12 events isotope-item isotope-hidden" style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px) scale3d(0.001, 0.001, 1); opacity: 0;">
             <div id="accad" style="border: 1px solid #bbb; padding: 5px;box-shadow: 0px 2px 3px #bbb; margin-top: 180px; text-align: center;">
-<h1>ACADEMIC CALENDAR SESSION 2019-2020</h1>
+<h1>ACADEMIC CALENDAR SESSION 2020-2021</h1>
 <ol>
     <li class="box">
-        <p class="event-date">August 31, 2019 </p>
+        <p class="event-date">August 31, 2020 </p>
         <p class="event-description">Islamic New Year (holiday subject to Government announcement).</p>
     </li>
     <li class="box">
-        <p class="event-date">September 1,2019</p>
+        <p class="event-date">September 1,2020</p>
         <p class="event-description">Beginning of the 1st Term.</p>
     </li>
     <li class="box">
-        <p class="event-date">November 9, 2019</p>
+        <p class="event-date">November 9, 2020</p>
         <p class="event-description">Prophet Mohammad’s Birthday (holiday subject to Gov. announcement).</p>
     </li>
     <li class="box">
-        <p class="event-date">November 18-19, 2019</p>
+        <p class="event-date">November 18-19, 2020</p>
         <p class="event-description">National Day (Holiday subject to Gov. announcement). </p>
     </li>
     <li class="box">
-        <p class="event-date">December 25,26 2019</p>
+        <p class="event-date">December 25,26 2020</p>
         <p class="event-description">Christmas Day nursery is closed) </p>
     </li>
     <li class="box">
-        <p class="event-date">December 22,2019</p>
+        <p class="event-date">December 22,2020</p>
         <p class="event-description">End of 1st Term</p>
     </li>
     <li class="box">
@@ -509,7 +509,7 @@ color: #000;
         <p class="event-description">First Day of Second Semester</p>
     </li>
     <li class="box">
-        <p class="event-date">March 22, 2019</p>
+        <p class="event-date">March 22, 2020</p>
         <p class="event-description">Isra Al Miraj (holiday subject to Gov. announcement)</p>
     </li>
     <li class="box">
@@ -552,7 +552,7 @@ color: #000;
 <div class="row">
 <div class="col-md-4">
   <div id="calendar">
-  <h1>September -2019</h1>
+  <h1>September -2020</h1>
   <table>
     <tr><td class="lastmonth">30</td><td>1</td><td>2</td><td>3</td><td class="hastask">4</td><td>5</td><td>6</td></tr>
     <tr><td>7</td><td>8</td><td class="hastask">9</td><td>10</td><td>11</td><td class="hastask">12</td><td>13</td></tr>
@@ -562,7 +562,7 @@ color: #000;
   </table>
 </div>
 <div id="calendar">
-  <h1>October-2019</h1>
+  <h1>October-2020</h1>
 <table>
     <tr><td class="lastmonth">30</td><td>1</td><td>2</td><td>3</td><td class="hastask">4</td><td>5</td><td>6</td></tr>
     <tr><td>7</td><td>8</td><td class="hastask">9</td><td>10</td><td>11</td><td class="hastask">12</td><td>13</td></tr>
@@ -746,7 +746,7 @@ color: #000;
 <div class="row">
   <div class="col-md-4">
   <div id="calendar">
-  <h1>November -2019</h1>
+  <h1>November -2020</h1>
   <table>
     <tr><td class="lastmonth">30</td><td>1</td><td>2</td><td>3</td><td class="hastask">4</td><td>5</td><td>6</td></tr>
     <tr><td>7</td><td>8</td><td class="current">9</td><td>10</td><td>11</td><td class="hastask">12</td><td>13</td></tr>
@@ -955,7 +955,7 @@ color: #000;
 <div class="row">
   <div class="col-md-4">
   <div id="calendar">
-  <h1>December -2019</h1>
+  <h1>December -2020</h1>
   <table>
     <tr><td class="lastmonth">30</td><td>1</td><td>2</td><td>3</td><td class="hastask">4</td><td>5</td><td>6</td></tr>
     <tr><td>7</td><td>8</td><td class="hastask">9</td><td>10</td><td>11</td><td class="hastask">12</td><td>13</td></tr>
@@ -1180,7 +1180,7 @@ color: #000;
 
                                           </div>
                                           <hr>
-                                          {{-- <p>Copyright © 2018 - 2019 </p> --}}
+                                          {{-- <p>Copyright © 2018 - 2020 </p> --}}
                                           <div class="page-scroll hidden-sm hidden-xs">
                                              <a href="#page-top" class="back-to-top"><i class="fa fa-angle-up"></i></a>
                                           </div>

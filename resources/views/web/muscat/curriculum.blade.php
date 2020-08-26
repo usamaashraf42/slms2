@@ -490,11 +490,11 @@ background-color: #800205;
 
                      <div class="ls-l header-text" data-ls="offsetxin:0;durationin:2000;delayin:1500;easingin:easeOutElastic;rotatexin:-90;transformoriginin:50% top 0;offsetxout:-200;durationout:1000;parallaxlevel:2;" style="margin-left: 0px; margin-top: 0px; width: auto; height: auto; font-size: 14px; padding: 30px; border-width: 0px; left: 311.5px; top: 0px; filter: none; background-color: rgb(245, 245, 245,0.5);">
                         <h1>Welcome to American Lyceum</h1>
-                        <p class="subtitle hidden-xs"> American Lyceum International Nursary   </p>
+                        <p class="subtitle hidden-xs"> American Lyceum International Nursery   </p>
                         <!-- Button -->
 
                         <div class="page-scroll hidden-xs">
-                           <a class="btn" href="#contact">Contact us</a>
+                          <!--  <a class="btn" href="#contact">Contact us</a> -->
                         </div>
                      </div>
                      <!-- Parallax Image -->
