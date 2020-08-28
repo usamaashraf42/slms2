@@ -10,10 +10,8 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-
   <base href="{{ url('/')}}">
   <meta name="csrf-token" content="{{ csrf_token() }}">
-
   @section('metas')
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -21,9 +19,7 @@
   <meta name="author" content="">
   @show
   @stack('pre-styles')
-
   @section('styles')
-
   <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png">
   <title> @yield('title','Muscat') - American Lyceum Group of School</title>
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -79,16 +75,6 @@ h2, .btn, .btn-primary, .owl-theme .owl-dots .owl-dot span, .owl-theme .owl-dots
 .img_bx {
     border: 2px solid #353794;
 }
-.team-item img, .elements h5, #layerslider, .btn:hover, .btn:focus, .blog.jumbotron, .comment, .header-text, .open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover {
-    border-color: #00047d;
-}
-#layerslider {
-    padding-top: 68px;
-    border-bottom: 0px dashed;
-    width: 100% !important;
-    height: 598px!important;
-    margin-bottom: 15px;
-}
 .gallery-thumb {
     display: block;
     position: relative;
@@ -141,144 +127,7 @@ border: 4px solid #353794;  margin: auto;
     font-size: 16px;
     display: inline;
 }
-h2:before, #about .media i:hover, footer i, .smaller.social-media a i:hover, footer a, .post-info i, .breadcrumb>.active, .gallery-thumb i:hover {
-    color: #34327c;
-    background: #c1c1c1;
-    display: none!important;
-}
-@media (max-width: 576px) {
-  /* line 53, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_about_us.scss */
-  .about_us .about_us_text p {
-    margin-bottom: 10px;
-  }
-}
 
-@media only screen and (min-width: 576px) and (max-width: 767px) {
-  /* line 53, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_about_us.scss */
-  .about_us .about_us_text p {
-    margin-bottom: 20px;
-  }
-}
-
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  /* line 53, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_about_us.scss */
-  .about_us .about_us_text p {
-    margin-bottom: 20px;
-  }
-}
-
-/* line 68, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_about_us.scss */
-.about_us .about_us_text ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  margin-bottom: 30px;
-}
-
-@media (max-width: 576px) {
-  /* line 68, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_about_us.scss */
-  .about_us .about_us_text ul {
-    margin-bottom: 10px;
-  }
-}
-
-@media only screen and (min-width: 576px) and (max-width: 767px) {
-  /* line 68, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_about_us.scss */
-  .about_us .about_us_text ul {
-    margin-bottom: 20px;
-  }
-}
-
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  /* line 68, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_about_us.scss */
-  .about_us .about_us_text ul {
-    margin-bottom: 20px;
-  }
-}
-
-/* line 88, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_about_us.scss */
-.about_us .about_us_text ul li {
-  display: inline-block;
-  margin-bottom: 20px;
-  font-size: 16px;
-  padding-right: 33px;
-  padding-top: 12px;
-  color: #242429;
-  width: 50%;
-  float: left;
-  font-family: "Playfair Display", serif;
-  position: relative;
-  padding-left: 29px;
-}
-
-@media (max-width: 991px) {
-  /* line 88, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_about_us.scss */
-  .about_us .about_us_text ul li {
-    padding-top: 5px;
-    padding-right: 15px;
-  }
-}
-
-/* line 106, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_about_us.scss */
-.about_us .about_us_text ul li span {
-  margin-right: 10px;
-  color: #0065e1;
-  position: absolute;
-  top: 16px;
-  left: 0;
-}
-
-@media (max-width: 991px) {
-  /* line 106, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_about_us.scss */
-  .about_us .about_us_text ul li span {
-    top: 10px;
-  }
-}
-
-/* line 120, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_about_us.scss */
-.about_us .about_us_text .btn_2 {
-  margin-top: 13px;
-}
-h3 {
-    font-family: 'Alegreya sans',serif;
-    color: #e6383d!important
-    font-weight: 800;
-    font-size: 46px;
-    margin-top: 0px;
-    position: relative;
-}
-.blog-preview {
-    position: relative;
-    float: left;
-    overflow: hidden;
-    margin: 10px 1%;
-    min-height: 270px;
-  }
-.blog-preview p{
-      text-align: justify;
-}
-.nav.nav-tabs > li > a {
-
-    color: #fff !important;
-    font-size: 18px!important;
-}
-.img-circle {
-    box-shadow: 6px 6px 0px rgba(103, 102, 102, 0.2);
-    height: 286px!important;
-}
-.blog-preview img{ width: 100%!important;
-height: 280px;
-}
-.images_boxs{
-  margin: 30px;
-}
-.media-body p{
-  min-height: 225px;
-  padding: 10px;
-}
-.images_boxs img{
- width: 90%;
-}
 .navbar-custom ul.nav li a {
     font-size: 15px!important;
     text-align: center;
@@ -299,7 +148,7 @@ height: 280px;
 
 }
 .navbar-custom ul.nav li a {
-    font-size: 23px!important;
+    font-size: 15px!important;
     text-align: center;
     transition: background .2s ease-in-out;
     font-family: 'Lato',sans-serif;
@@ -308,31 +157,112 @@ height: 280px;
     font-weight: 600;
     background: transparent;
 }
-.navbar-nav > li > a {
-    line-height: 58px;
-    padding: 8px 16px;
-    transition: background .2s ease-in-out;
+.box{
+width: 320px;
+border: 1px solid #bbb;
+padding: 14px;
+min-height: 140px;
+margin: 10px;
+float: left;
+background-image: url('{{asset('web/muscat/img/Konfest.PNG')}}');
+height: 100%;
+background-color: #e4e4f3;
+background-size: cover;
+display: inline-block;
+text-align: justify;
+box-shadow: 0px 3px 3px #353794;
+color: #fff;
 }
-.slide1 img{
-  max-height:550px;
-    border: 25px solid #353794;
-    border-radius: 5px;
+.box p{
+  text-align: center;
 }
-.slide1 :hover{
-transform: scale(1.1); 
+.event-date{
+  font-weight: bold;
+  color: #e6383d;
 }
-.form-control {
-    display: block;
-    width: 100%;
-    height: 40px;
-border: 1px solid #000;
-    font-size: 15px;
-    outline: 0;
-    box-shadow: none;
-    background: #fff;
-    border-radius: 10px;
-    margin-top: 15px;
-    padding: 4px 15px;
+.event-description{
+color: #000;
+}
+
+
+#calendar{
+  width:358px;
+  margin:0 auto;
+  margin-top:2%;
+  margin-bottom:2%;
+  border-radius:5px;
+  font-family:'Open Sans',sans-serif;
+  text-align:center;
+  color:#555;
+  box-shadow:0 0 50px -14px rgba(0,0,0,.8);
+}
+
+#calendar h1{
+  background: #353794;
+  border-radius:5px 5px 0 0;
+  padding:20px;
+  font-size:140%;
+  font-weight:300;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  color:#fff;
+  cursor:default;
+  text-shadow:0 0 10px rgba(0,0,0,.8);
+}
+
+#calendar table{
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-spacing: 0;
+    width: 95%;
+    margin: 0 auto;
+    border-radius: 0 0 5px 5px;
+}
+#calendar td{
+  width:38px;
+  height:38px;
+  background:#eee;
+  border-right:1px solid #ddd;
+  border-bottom:1px solid #ddd;
+  padding:6px;
+  cursor:pointer;
+  transition:background .3s;
+  -webkit-transition:background .3s;
+}
+
+#calendar td:hover:not(.current){
+  background:#ddd;
+}
+
+#calendar .lastmonth,#calendar .nextmonth,#calendar .nextmonth ~ *{
+  background:#fff;
+  color:#999;
+}
+
+#calendar .current{
+  background:#ee3333;
+  font-weight:700;
+  color:#fff;
+  text-shadow:0 0 10px rgba(0,0,0,.5);
+}
+.box_imgs{
+  width: 100%;
+
+  border: 2px solid #000;
+}
+.box_imgs img{
+  height: 100%;
+  width: 100%;
+}
+#calendar .hastask{
+  font-weight:700;
+}
+
+#calendar tr:last-of-type td:first-of-type{border-radius:0 0 0 5px;}
+#calendar tr:last-of-type td:last-of-type{border-radius:0 0 5px 0;}
+.bg_blue{
+  background: #353794;
+    color: aliceblue;
 }
 .header-top{padding:8px 0}
 .header-area .header-top .header-contact a{color:#bebebe;display:inline-block;padding-right:55px;font-weight:300;font-size:14px}
@@ -449,26 +379,27 @@ border: 1px solid #000;
          </div>
       </nav>
       <div id="layerslider" class="ls-container ls-fullwidth" style="visibility: visible;">
-         <div class="ls-inner" style="background-color: transparent; width: 100%;height: 100%;">
-          <div class="ls-lt-container ls-overflow-hidden" style="width: 100%;height: 600px; display: block;">
-             <div class="ls-curtiles" style="overflow: hidden;"><img src="{{asset('web/muscat/img/images_ceo.jpg')}}" width="100%" height="700px"></div>
+         <div class="ls-inner" style="background-color: transparent; width: 100%; height: 100%;">
+          <div class="ls-lt-container ls-overflow-hidden" style="width: 100%; height: 100%; display: block;">
+             <div class="ls-curtiles" style="overflow: hidden;"><img src="{{asset('web/muscat/img/web/img_4.jpg')}}" width="100%" height="140%"></div>
              <div class="ls-nexttiles">
-                <div class="ls-lt-tile" style="width: 100%;height: 100%; overflow: visible;">
+                <div class="ls-lt-tile" style="width: 100%; height: 100%; overflow: visible;">
                    <div class="ls-nexttile" style="top: 0px; left: 0px; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);"></div></div></div></div>
          
               
-                  <div class="ls-slide ls-slide-4 ls-animating" data-ls="transition2d:104;timeshift:-2000;" style="width: 100%;height: 100%; visibility: visible; display: none; left: auto; right: 0px; top: 0px; bottom: auto;">
-                     <img class="ls-bg ls-preloaded" alt="Slide background" style="padding: 0px; border-width: 0px; width: 1903px; height: 600px; margin-left: 0px; margin-top: -166px; visibility: visible; opacity: 0.484476;">
-           
+                  <div class="ls-slide ls-slide-4 ls-animating" data-ls="transition2d:104;timeshift:-2000;" style="width: 100%; height: 100%; visibility: visible; display: none; left: auto; right: 0px; top: 0px; bottom: auto;">
+                     <img class="ls-bg ls-preloaded" alt="Slide background" style="padding: 0px; border-width: 0px; width: 100%;height: 100%; margin-left: 0px; margin-top: -166px; visibility: visible; opacity: 0.484476;">
+                     <div class="ls-gpuhack" style="width: auto; height: auto; padding: 0px; border-width: 0px; left: 311.5px; top: 0px;"></div>
+                     <img src="{{asset('web/muscat/img/bee.png')}}" class="ls-l img-responsive hidden-xs hidden-sm parallax1 ls-preloaded" alt="" data-ls="delayin:1500;easingin:fadeIn;parallaxlevel:7;" style="margin-left: 0px; margin-top: 0px; width: 180px; height: 169px; padding: 0px; border-width: 0px; left: 311.5px; top: 0px; transform-origin: 50% 50% 0px; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 63.7959, 0, 0, 1); opacity: 0.202551; visibility: visible; filter: none;">
                      <!-- Text -->
 
                      <div class="ls-l header-text" data-ls="offsetxin:0;durationin:2000;delayin:1500;easingin:easeOutElastic;rotatexin:-90;transformoriginin:50% top 0;offsetxout:-200;durationout:1000;parallaxlevel:2;" style="margin-left: 0px; margin-top: 0px; width: auto; height: auto; font-size: 14px; padding: 30px; border-width: 0px; left: 311.5px; top: 0px; filter: none; background-color: rgb(245, 245, 245,0.5);">
                         <h1>Welcome to American Lyceum</h1>
-                        <p class="subtitle hidden-xs"> American Lyceum International <br> Nursary & School  </p>
+                        <p class="subtitle hidden-xs"> American Lyceum International Nursary   </p>
                         <!-- Button -->
 
                         <div class="page-scroll hidden-xs">
-                         <!--   <a class="btn" href="#contact">Contact us</a> -->
+                           <a class="btn" href="#contact">Contact us</a>
                         </div>
                      </div>
                      <!-- Parallax Image -->
@@ -488,15 +419,10 @@ border: 1px solid #000;
                         </div>
                      </div>
                   </div>
-
                   <div class="ls-ct-right">
-
                      <div class="ls-ct-rotate" style="transform: matrix(1, 0, 0, 1, 0, 0);">
-
                       <div class="ls-ct-hider">
-
                        <div class="ls-ct-half">
-
                        </div>
                     </div>
                  </div>
@@ -505,241 +431,655 @@ border: 1px solid #000;
               </div>
            </div>
         </div> 
-     </div>
-    <div class="clear-fix"></div>
+        <div class="ls-loading-container" style="z-index: -1; display: none;">
+           <div class="ls-loading-indicator"></div></div>
+           <a class="ls-nav-prev" href="#" style="visibility: hidden;"></a><a class="ls-nav-next" href="#" style="visibility: hidden;"></a>
+           <div class="ls-bottom-nav-wrapper" style="visibility: hidden;"><a class="ls-nav-start ls-nav-start-active" href="#"></a><span class="ls-bottom-slidebuttons"><a href="#" class=""></a><a href="#" class=""></a><a href="#" class="ls-nav-active"></a><a href="#" class=""></a><a href="#" class=""></a>
+              <div class="ls-thumbnail-hover" style="width: 100px; height: 60px;">
+                 <div class="ls-thumbnail-hover-inner" style="visibility: hidden; display: block;">
+                    <div class="ls-thumbnail-hover-bg"></div>
+                    <div class="ls-thumbnail-hover-img" style="width: 100px; height: 60px;"><img style="height: 60px;"></div><span></span></div></div></span><a class="ls-nav-stop" href="#"></a></div>
+                    <div class="ls-shadow"></div>
+                 </div>
+             <div class="container-fluid">
+            <!-- Navigation -->
+            <div class="text-center col-md-12">
+              <br>
+               <ul class="nav nav-pills cat text-center" role="tablist" id="gallerytab">
+                  <li><a href="#" data-toggle="tab" data-filter=".facilities">Activity Calendar </a></li>
+                  <li><a href="#" data-toggle="tab" data-filter=".facilities1">Permotion</a></li>
+                </ul>
+               </div>
+               <!-- Gallery -->
+               <div class="row">
+                  <div class="col-md-12">
+                     <div id="lightbox" class="isotope" style="position: relative; overflow: hidden; height: 960px;">
+                        <!-- Image 1 -->
+<div class="col-sm-12 col-md-12 col-lg-12 facilities isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(379px, 245px, 0px) scale3d(1, 1, 1); opacity: 1;">
+<div class="row">
+<div class="col-md-4">
+  <div id="calendar">
+  <h1>September -2019</h1>
+  <table>
+    <tr><td class="lastmonth">30</td><td>1</td><td>2</td><td>3</td><td class="hastask">4</td><td>5</td><td>6</td></tr>
+    <tr><td>7</td><td>8</td><td class="hastask">9</td><td>10</td><td>11</td><td class="hastask">12</td><td>13</td></tr>
+    <tr><td>14</td><td class="hastask">15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td></tr>
+    <tr><td class="hastask">21</td><td>22</td><td>23</td><td>24</td><td>25</td><td class="hastask">26</td><td>27</td></tr>
+    <tr><td>28</td><td>29</td><td class="hastask">30</td><td>31</td><td class="nextmonth">1</td><td>2</td><td>3</td></tr>
+  </table>
+</div>
+<div id="calendar">
+  <h1>October-2019</h1>
+<table>
+    <tr><td class="lastmonth">30</td><td>1</td><td>2</td><td>3</td><td class="hastask">4</td><td>5</td><td>6</td></tr>
+    <tr><td>7</td><td>8</td><td class="hastask">9</td><td>10</td><td>11</td><td class="hastask">12</td><td>13</td></tr>
+    <tr><td>14</td><td class="hastask">15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td></tr>
+    <tr><td class="hastask">21</td><td>22</td><td>23</td><td>24</td><td>25</td><td class="hastask">26</td><td>27</td></tr>
+    <tr><td>28</td><td>29</td><td class="hastask">30</td><td>31</td><td class="nextmonth">1</td><td>2</td><td>3</td></tr>
+  </table>
+</div>
+</div>
+<div class="col-md-8">
+  <table   class="table table-bordered" width="0">
+<tbody>
+<tr class="bg_blue">
+<td >
+<p><strong>Date</strong></p>
+</td>
+<td  >
+<p><strong>Section</strong></p>
+</td>
+<td  >
+<p><strong>Activity</strong></p>
+</td>
+<td >
+<p><strong>Explanation/Instruction</strong></p>
+</td>
 
-    <div class="container">
-<div class="col-md-12" style="margin-bottom: 40px;">
-  <div class="col-md-4"></div>
+</tr>
+<tr>
+<td >
+<p>1 Sep</p>
+</td>
+<td  >
+<p>All</p>
+</td>
+<td  >
+<p>Start of the 1<sup>st</sup> term</p>
+</td>
+<td>
+<p>Distribution of New Syllabus and Topic Plan for Penguin, Panda and Leopard Class</p>
+<p>Children to create &ldquo;My First day at School&rdquo; cards</p>
+</td>
+
+</tr>
+<tr>
+  <td><p>5 sep</p></td>
+<td>
+<p>All</p>
+</td>
+<td  >
+<p>Splash Day</p>
+</td>
+<td>
+<p>Children to participate in fun and joyful swimming activities.</p>
+</td>
+
+</tr>
+<tr>
+<td >
+<p>12 Sep</p>
+</td>
+<td  >
+<p>All</p>
+</td>
+<td  >
+<p>Colour Bag Mixing</p>
+</td>
+<td>
+<p>Children to mix colours in Zipped plastic bags through various hand manipulations</p>
+</td>
+</tr>
+<tr>
+<td >
+<p>19 Sep</p>
+</td>
+<td  >
+<p>Penguin, Panda, Leopards</p>
+</td>
+<td  >
+<p>Muffin Man Day!</p>
+</td>
+<td>
+<p>Children to decorate readymade muffins with confectionary decoration items.</p>
+</td>
+
+</tr>
+<tr>
+<td >
+<p>26 Sep</p>
+</td>
+<td  >
+<p>All</p>
+</td>
+<td  >
+<p>Movie &amp; Pop Corn</p>
+</td>
+<td>
+<p>Children to enjoy favourite</p>
+</td>
+
+</tr>
+<tr>
+<td >
+<p>5/12/19/26 Sep</p>
+</td>
+<td  >
+<p>All</p>
+</td>
+<td  >
+<p>Weekly Circle Time</p>
+</td>
+<td>
+<p>Star of the week and additional special behaviour announcement.</p>
+</td>
+
+</tr>
+<tr>
+<td >
+<p>6/13/20/27 Oct</p>
+</td>
+<td  >
+<p>All</p>
+</td>
+<td  >
+<p>Weekly Circe Time</p>
+</td>
+<td>
+<p>Beginning of School Week Circle Time, Singing Songs, Dancing, Recycling Poems</p>
+</td>
+
+</tr>
+<tr>
+
+
+<td  >
+<p>&nbsp;&nbsp;</p>
+</td>
+<td>
+<p>&nbsp;</p>
+</td>
+
+
+</tr>
+<tr>`
+<td >
+<p>3 Oct</p>
+</td>
+<td  >
+<p>Panda, Leopard</p>
+</td>
+<td  >
+<p>Play Traffic Cop</p>
+</td>
+<td>
+<p>Children will have a blast taking turns playing the role of a traffic cope of the classic game Red Light, Green Light involved Ambulance and Firefighters roles explaining what happens to those particular vehicles in traffic light &ndash;children express their unlimited imagination during play/</p>
+</td>
+
+
+</tr>
+<tr>
+<td >
+<p>17 Oct</p>
+</td>
+<td  >
+<p>Panda,</p>
+<p>Leopard</p>
+</td>
+<td  >
+<p>Splash Day!</p>
+<p>Paint&nbsp; with ice(alternative activity)</p>
+</td>
+<td>
+<p>Children to discover a new cool way to paint a masterpiece with frozen cubes of paint.</p>
+</td>
+
+
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="row">
   <div class="col-md-4">
-    <h2 style="margin: 0 auto; padding: 20px;">
+  <div id="calendar">
+  <h1>November -2019</h1>
+  <table>
+    <tr>
+      <td class="lastmonth">30</td>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+    <td class="hastask">4</td>
+    <td>5</td>
+    <td>6</td></tr>
+    <tr>
+      <td>7</td>
+    <td>8</td>
+    <td class="current">9</td>
+    <td>10</td>
+    <td>11</td>
+    <td class="hastask">12</td>
+    <td>13</td></tr>
+    <tr>
+      <td>14</td>
+    <td class="hastask">15</td>
+    <td>16</td>
+    <td>17</td>
+    <td class="current">18</td>
+    <td class="current">19</td>
+    <td>20</td></tr>
+    <tr>
+      <td class="hastask">21</td>
+    <td>22</td>
+    <td>23</td>
+    <td>24</td>
+    <td>25</td>
+    <td class="hastask">26</td>
+    <td>27</td></tr>
+    <tr>
+      <td>28</td>
+    <td>29</td>
+    <td class="hastask">30</td>
+    <td>31</td>
+    <td class="nextmonth">1</td>
+    <td>2</td>
+    <td>3</td></tr>
+  </table>
+</div></div>
+  <div class="col-md-8">
+    <table  class="table table-bordered" width="0">
+<tbody>
+<tr class="bg_blue">
 
-Message from CEO
-</h2>
+<td >
+<p><strong>Date</strong></p>
+</td>
+
+<td >
+<p><strong>Section</strong></p>
+</td>
+
+<td >
+<p><strong>Activity</strong></p>
+</td>
+
+<td>
+<p><strong>Explanation/Instruction</strong></p>
+</td>
+
+<td >
+<p><strong>Ck</strong></p>
+</td>
+</tr>
+<tr>
+
+<td>
+<p>24 Oct</p>
+</td>
+
+<td >
+<p>Panda, Leopard</p>
+</td>
+
+<td >
+<p>Fruit Salad Day!</p>
+</td>
+<td >
+<p>Children to cut (plastic cutlery) and mix fruits into salad and enjoy afterwords.</p>
+</td>
+
+</tr>
+<tr>
+<td>
+<p>30 Oct</p>
+</td>
+<td >
+<p>Penguin, Panda, Leopards</p>
+</td>
+<td >
+<p>&nbsp;&nbsp;Pumpkin Day!</p>
+</td>
+<td >
+<p>Children to create different collages, pictures for upcoming Dress up Party.</p>
+<p>&nbsp;</p>
+</td>
+
+</tr>
+<tr>
+<td>
+<p>31 Oct</p>
+</td>
+<td >
+<p>All</p>
+</td>
+<td >
+<p><strong>Dress Up Party!</strong></p>
+</td>
+<td >
+<p>Children to come dressed up in costumes and have fun during the small party.</p>
+</td>
+
+</tr>
+<tr>
+<td>
+<p>3/10/17/24/31 Oct</p>
+</td>
+<td >
+<p>Penguin, Panda, leopards</p>
+</td>
+<td >
+<p>Weekly Circle time</p>
+</td>
+<td >
+<p>Star of the week and additional special behaviour announcement.</p>
+</td>
+
+</tr>
+<tr>
+<td>
+<p>3/10/17/24 Nov</p>
+</td>
+<td >
+<p>All</p>
+</td>
+<td >
+<p>Weekly Circle Time</p>
+</td>
+<td >
+<p>Beginning of School Week Circle Time, Singing Songs, Dancing, Recycling Poems</p>
+</td>
+
+</tr>
+<tr>
+<td>
+<p>7 Nov</p>
+</td>
+<td >
+<p>All</p>
+</td>
+<td >
+<p>Sun catcher Craft</p>
+</td>
+<td >
+<p>Children to create colourful, eye-popping sun catchers from Card Sparkling Paper &nbsp;and Glitters.</p>
+</td>
+
+</tr>
+<tr>
+<td>
+<p>14 Nov</p>
+</td>
+<td >
+<p>All</p>
+</td>
+<td >
+<p>National Day Art &amp; Craft!</p>
+</td>
+<td >
+<p>Children to create cards and decorations for the upcoming celebration</p>
+</td>
+
+</tr>
+<tr>
+<td>
+<p>17 Nov</p>
+</td>
+<td >
+<p>All</p>
+</td>
+<td >
+<p>National Day Party!</p>
+</td>
+<td >
+<p>TBA as per government regulations,</p>
+<p>Children to come dressed up in traditional clothes.</p>
+</td>
+
+</tr>
+<tr>
+<td>
+<p>21 Nov</p>
+</td>
+<td >
+<p>Penguin, Panda, Leopards</p>
+</td>
+<td >
+<p><strong>Field Trip to Ghubrah Park &ldquo;Picnic Day</strong>&rdquo;</p>
+<p>&nbsp;Autumn Wreath (alternative activity)</p>
+</td>
+<td >
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Children to make wreathes made from carton and decorated with premade dry tree leaves.</p>
+</td>
+
+</tr>
+<tr>
+<td>
+<p>28 Nov</p>
+</td>
+<td >
+<p>Panda, Leopards</p>
+</td>
+<td >
+<p>Splash Day!</p>
+<p>Spaghetti Sinner Art(alternative activity)</p>
+</td>
+<td >
+<p>&nbsp;&nbsp;Children to create various art collages with manipulating spaghetti on the glued paper and colour them afterwards</p>
+</td>
+
+</tr>
+<tr>
+<td>
+<p>9 Nov</p>
+<p>18-19 Nov</p>
+</td>
+<td >
+<p>All</p>
+</td>
+<td>
+<p>The Prophet&rsquo;s Birthday National Day/Birthday of HM Sultan Qaboos</p>
+
+</td>
+<td > 
+<p>TBA as per government</p>
+</td>
+
+</tr>
+</tbody>
+</table>
   </div>
 </div>
+<div class="row">
+  <div class="col-md-4">
+  <div id="calendar">
+  <h1>December -2019</h1>
+  <table>
+    <tr><td class="lastmonth">30</td><td>1</td><td>2</td><td>3</td><td class="hastask">4</td><td>5</td><td>6</td></tr>
+    <tr><td>7</td><td>8</td><td class="hastask">9</td><td>10</td><td>11</td><td class="hastask">12</td><td>13</td></tr>
+    <tr><td>14</td><td class="hastask">15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td></tr>
+    <tr><td class="hastask">21</td><td>22</td><td>23</td><td>24</td><td class="current">25</td><td class="current">26</td><td>27</td></tr>
+    <tr><td>28</td><td>29</td><td class="hastask">30</td><td>31</td><td class="nextmonth">1</td><td>2</td><td>3</td></tr>
+  </table>
+</div></div>
+  <div class="col-md-8">
+        <table  class="table table-bordered" width="0">
+<tbody>
+<tr>
+<td>
+<p>7/14/21/28 Nov</p>
+</td>
+<td >
+<p>All</p>
+</td>
+<td >
+<p>Weekly Circle Time</p>
+</td>
+<td >
+<p>Star of the week and additional special behaviour announcement.</p>
+</td>
 
+</tr>
+<tr>
+<td>
+<p>1/8/15 Dec</p>
+</td>
+<td >
+<p>All</p>
+</td>
+<td >
+<p>Weekly Circle Time</p>
+</td>
+<td >
+<p>Beginning of School Week Circle Time, Singing Songs, Dancing, Recycling Poems</p>
+</td>
 
-    <div class="row"> 
-    <div class=" col-md-5">
-      <div class="" style="border: 5px solid #d6d6d6;
-    box-shadow: 0px 4px 4px #6b6767;">
-        <img width="100%" height="400" src="{{asset('web/muscat/img/Capture_2.jpg')}}" class="vc_single_image-img attachment-full" >
-      </div>
+</tr>
+<tr>
+<td>
+<p>5 Dec</p>
+</td>
+<td >
+<p>Panda, Leopards</p>
+</td>
+<td >
+<p>Draw, Spray, Air Dry</p>
+</td>
+<td >
+<p>Children to colour old T-shirts or piece of light colour cloth with markers and paint.</p>
+</td>
+
+</tr>
+<tr>
+<td>
+<p>12 Dec</p>
+</td>
+<td >
+<p>Penguin, Panda, Leopards</p>
+</td>
+<td >
+<p>Dancing Starch Worms</p>
+</td>
+<td >
+<p>Children to mix starch, water and food colours; place it on thin metal baking tray &lsquo;put tray on speaker, teacher to put music and observe the Starch mixture moving with rhythm of music.</p>
+</td>
+
+</tr>
+<tr>
+<td>
+<p>19 Dec</p>
+</td>
+<td >
+<p>All</p>
+</td>
+<td >
+<p>Snowflakes Wreath</p>
+</td>
+<td >
+<p>Children to create wreathes made of snowflakes and decorated with glitters.</p>
+</td>
+
+</tr>
+<tr>
+<td>
+<p>23 Dec</p>
+</td>
+<td >
+<p>All</p>
+</td>
+<td >
+<p>White Snowflake/&rdquo;&nbsp;&nbsp; Frozen&rdquo; Dress up Party!</p>
+</td>
+<td >
+<p>Children to perform Role play from favourite story&rdquo; Frozen&rdquo;</p>
+</td>
+
+</tr>
+<tr>
+
+<td>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>22 Dec-5 Jan</p>
+</td>
+<td >
+<p>All</p>
+</td>
+<td >
+<p>Academic Break</p>
+</td>
+<td >
+<p>No Academic Lessons only Day Care programs for Dolphin and Penguin Classes: Free play, Group play, Outdoor Physical Activities</p>
+</td>
+
+</tr>
+<tr>
+<td>
+<p>29 Dec-2 Jan</p>
+</td>
+<td >
+<p>Penguin, Panda, Leopards</p>
+</td>
+<td >
+<p>PTM</p>
+</td>
+<td >
+<p>Invite Parents for Conference, Teacher to prepare necessary information.</p>
+</td>
+
+</tr>
+</tbody>
+</table>
     </div>
+                                                   </div>
+                                     
+                                                         </div>
+                                    <div class="col-sm-12 col-md-12 col-lg-12 facilities1 isotope-hidden isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(379px, 245px, 0px) scale3d(1, 1, 1); opacity: 1;">
 
-
-    <div class="col-md-6">
-      <p style="text-align: justify;    text-align: justify;
-    font-size: 18px;
-    font-style: italic;
-    font-family: sans-serif;">
-       Since our founding in 1984 ALIS has continually evolved for the better  But our founders’ emphasis on challenging the status quo, commitment to middle class, inspiring teachers and highly individualized instruction are values we hold dear today
-
-This is an exciting time for American Lyceum International School. In December 2018, American Lyceum International School got the International Award of the Best School in Dubai, UAE. In 2018 we also got the ISO certification and got our SOPs standardized against international Standards.
-
-We’ve graduated generations of alumni empowered to forge their own path. And our students learn to respect and consider the viewpoints of others as they work through complex problems. That desire for different thoughts and opinions has steadily grown the diversity of our campus over the decades, giving our students the ability to form meaningful relationships across stereotypical, socio-economic and global divides.
-</p>
-     
+  <div class="col-md-6">
+    <div class="box_imgs">
+      <img src="{{asset('web/muscat/img/banner.jpg')}}">
     </div>
-</div>
-  <div class="wpb_text_column wpb_content_element ">
-    <div class="wpb_wrapper">
     <br>
-  <p style="    text-align: justify;
-    font-size: 18px;
-      font-style: italic;
-    font-family: sans-serif;"> 
-While we are proud of the history that we’ve built together, we challenge ourselves to be better tomorrow than we are today, and are constantly looking for ways to further serve our students and community. Lyceum will continue to adjust to fully prepare our graduates for college and for life in a global environment, but our consistent core values will continue to guide us into the future just as they have for the past 90 years.
-
-Our school has an incredible history. It’s long been a place that helps students find their passion in an environment of not only of tolerance and empathy but of true commitment</p>
-
+     <div class="box_imgs">
+      <img src="{{asset('web/muscat/img/banner2.jpg')}}">
     </div>
   </div>
-<div class="vc_wp_text wpb_content_element"><div class="widget widget_text"><br><h4 class="widget__title"  style="margin: 0 0 36px 0;
-    font-size: 22px;
-    font-weight: 300;
-    color: #584036;">Tahir Nadeem. Kadri
-    <br>  
------------CEO---------
-  </h4>   
-
-    </div></div></div></div></div></div>
-      </div>
-</article>
-      </main><!-- /main -->
+  <div class="col-md-6">
+    <div class="box_imgs">
+      <img src="{{asset('web/muscat/img/banner1.jpg')}}" height="100%" style="max-height: 810px;">
+        <br>
     </div>
+      <br>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
   </div>
+<div style="clear:both;">
 </div>
-</div>
-</div>
-</div>
-</div>
-      </section>
-     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-
-      <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-      <link href="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.1.60/inputmask/jquery.inputmask.js"></script>
-      <script type="text/javascript" src="http://www.lyceumgroupofschools.com/assets/chosen/chosen.jquery.js"></script>
-      <script type="text/javascript" src="http://www.lyceumgroupofschools.com/assets/chosen/init.js"></script>
-      <link rel="stylesheet" type="text/css" href="http://www.lyceumgroupofschools.com/assets/chosen/chosen.css">
-      <script type="text/javascript">
-        $('.nationality').select2();
-        $('.residence').select2();
-        $(".chosen-select").chosen({max_selected_options: 3});
-        $(".chosen-select-branch").chosen({max_selected_options: 3});
-
-      </script>
-      <script>
-
-        $("#phone").inputmask({"mask": "99999999999"});
-
-        function countryHasBranch(obj){
-
-          var country  = $(obj).val();
-
-          console.log('country',country);
-          if(parseInt(country)==92){
-            console.log('pakistanBranches');
-            $('.otherBranches').css('display','none');
-            $('.omanBranches').css('display','none');
-            $('.pakistanBranches').show();
-          }
-          else{
-            console.log('omanBranches');
-            $('.otherBranches').css('display','none');
-            $('.omanBranches').show();
-            $('.pakistanBranches').css('display','none');
-          }
-        }
-
-       
-
-          var today = new Date();
-    $('#example12').calendar({
-      monthFirst: false,
-      type: 'date',
-      maxDate: new Date(today.getFullYear()-16, today.getMonth(), today.getDate()),
-  });
-</script>
-      <script type="text/javascript">
-        $('.city').select2();
-          $('.addRow').on('click', function(e) {
-            console.log('sweetalert');
-            var htmlContent=`<tr class="">
-            <td><input type="text" class="form-control" name="org[]"></td>
-            <td><input type="date" class="form-control" name="job_start[]"></td>
-            <td><input type="date" name="job_end[]" class="form-control"></td>
-            <td><input type="text" class="form-control"></td>
-            <td><input type="text" class="form-control" name="leave_of_reason[]"></td><td><div class="btn btn-danger pull-right deleteRow">-</div></td>
-            </tr>`;
-            $('#inputRows').append(htmlContent);
-          });
-        $('.deleteRow').on('click', function(e) {
-          console.log('remove tr');
-          $(this).parent().parent('tr').remove();
-        });
-        $('#addQualification').on('click', function(e) {
-          console.log('click for qualification add');
-          var htmlContent=`<tr>
-          <td><input type="text" class="form-control" name="qualification[]"></td>
-          <td><input type="text" class="form-control" name="institude[]"></td>
-          <td><input type="text" class="form-control" name="degree[]"></td>
-          <td><input type="text" class="form-control" name="duration[]"></td>
-          <td><input type="text" class="form-control" name="marks[]"></td>
-          <td><input type="text" class="form-control" name="passing_date[]"></td>
-          <td><label for="images" class="btn btn-primary" style="position: relative;left: 0px;top: 5px;">Upload Profile</label>
-          <input type="file" onchange="readURL(this);" value="" name="document[]" class="hide" style="opacity: 0; max-width: 100px!important;"></td>
-          <td><div class="btn btn-danger pull-right deleteQualification">-</div></td>
-          </tr>`;
-
-          $('#qualificationRows').append(htmlContent);
-        });
-
-        $('.deleteQualification').on('click', function(e) {
-          var rowCount = $('#qualificationRows tr').length;
-          console.log('row count',rowCount);
-          if(rowCount==1){
-
-            return false;
-          }
-          console.log('remove tr');
-          $(this).parent().parent('tr').remove();
-
-        });
-
-        $('input[name=martial_status]').on('change', function() {
-          InputShow();
-        });
-        $('input[name=gender]').on('change', function() {
-          InputShow();
-        });
-      </script>
-      <script type="text/javascript">
-        function readURL(input) {
-          if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
-              $('#profile-img-tag').attr('src', e.target.result);
-            }
-            reader.readAsDataURL(input.files[0]);
-          }
-        }
-        $("#images").change(function(){
-          console.log('images','update');
-          readURL(this);
-        }); 
-      </script>
-      <script>
-        var input = document.getElementById( 'file-upload' );
-        var infoArea = document.getElementById( 'file-upload-filename' );
-
-        input.addEventListener( 'change', showFileName );
-
-        function showFileName( event ) {
-
-          var input = event.srcElement;
-
-          var fileName = input.files[0].name;
-
-          infoArea.textContent = 'File name: ' + fileName;
-        }
-        $("#applicationForm").on("submit", function(event) {
-          event.preventDefault();
-          $(this).off("submit");
-          this.submit();
-        });
-      </script>
-      
-
-</div>
-<!-- #siteWrapper End -->
-
-<!-- Shadowbox -->
-<!-- ShadowBox Markup -->
-<div id="toTop"><a title="Back to Top"><span class="icon icon-chevron-up"></span></a></div>
-<div class="student modal fade" id="student-modal" tabindex="-1" role="dialog" aria-labelledby="Student Modal">
-  <div class="modal-dialog center" role="document">
-    <div class="modal-content">
-      <div class="modal-header pa2 flex flex-row justify-between">
-        <h4 class="modal-title dark-blue" id="studentLabel"></h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="icon icon-x"></span></button>
-      </div>
-      <div class="modal-body tl">
-
-      </div>
-    </div>
-  </div>
-</div>
-  <footer>
-                                          <div class="container-fluid">
-                                             <div class="col-lg-4 col-md-6 text-center res-margin">
-                                                <h6 class="text-light">Sign our Newsletter</h6>
+<footer>
+      <div class="container-fluid">
+                          <div class="col-lg-4 col-md-6 text-center res-margin">
+                               <h6 class="text-light">Sign our Newsletter</h6>
                                                 <p>We will send updates once a week.</p>
                                                 <!-- Form -->       
                                                 <div id="mc_embed_signup">
@@ -773,12 +1113,15 @@ Our school has an incredible history. It’s long been a place that helps studen
                                                 <h6 class="text-light">Opening Hours:</h6>
                                                 <table class="table">
 
-                                                   <tbody>
+                                                   <tbody class="bg_blue">
                                                       <tr>
+                                                         
                                                          <td class="text-left"> Sunday to Thursday </td>
+                                                         
                                                          <td class="text-right">07:00 AM to  - 4:00 PM </td> 
                                                       </tr>
                                                       <tr>
+                                                         
                                                          <td class="text-left">Weekends / Holidays</td>
                                                          <td class="text-right"><span class="label label-danger">Closed</span></td>
                                                       </tr>
@@ -792,62 +1135,53 @@ Our school has an incredible history. It’s long been a place that helps studen
                                              <a href="#page-top" class="back-to-top"><i class="fa fa-angle-up"></i></a>
                                           </div>
                                        </footer>
-<script type="text/javascript">
-  $(document).ready(function() {
-    $.fn.randomize = function(selector){
-      (selector ? this.find(selector) : this).parent().each(function(){
-        $(this).children(selector).sort(function(){
-          return Math.random() - 0.5;
-        }).detach().appendTo(this);
-      });
+                                    </div>
+<style>
+  h6 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-family: 'Lato',sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    color: #000261;
+}
+</style>
+ <script src="{{asset('web/muscat/js/jquery.min.js')}}"></script>
+  <script src="{{asset('web/muscat/js/bootstrap.min.js')}}"></script>
+  <!-- Google maps -->
+  <script src="https://maps.googleapis.com/maps/api/js?v=3"></script>
+  <!-- Main Js -->
+  <script src="{{asset('web/muscat/js/main.js')}}"></script>
+  <!-- Isotope -->    
+  <script src="{{asset('web/muscat/js/jquery.isotope.js')}}"></script>
+  <!--Mail Chimp validator -->
 
-      return this;
-    };
-    $('div.hats-container').randomize('div.hat');
+  <script src="{{asset('web/muscat/js/mc-validate.js')}}"></script>
+  <!--Other Plugins -->
 
-  });
-</script>
-<script>
-  /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
-  !function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};
-  if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),
-    e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&
-    t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())
-      for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||
-        o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();
-    var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&
-    t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS
-  }("undefined"!=typeof global?global:this);
-</script></form>
+  <script src="{{asset('web/muscat/js/plugins.js')}}"></script>
+  <!-- Contact -->
 
-<script src="http://www.lyceumgroupofschools.com/web/pakistan/sitefiles/2532/js/helper-minfe78.js?cache=0001"></script>
-<script>
-  jQ171(document).ready(function($) {
-    Shadowbox.init({
-      language: 'en', players:
-      ['img', 'html', 'iframe', 'qt', 'wmp', 'swf', 'flv']});
+  <script src="{{asset('web/muscat/js/contact.js')}}"></script>
+  <!-- Prefix free CSS -->
 
-  });
-</script>
-        
-        
-        
-        <script src="http://www.lyceumgroupofschools.com/web/muscat/js/jquery.min.js"></script>
+  <script src="{{asset('web/muscat/js/prefixfree.js')}}"></script>        
+  <!-- GreenSock -->
 
+  <script src="{{asset('web/muscat/layerslider/js/greensock.js')}}" ></script>
+  <!-- LayerSlider script files -->
 
-        <!-- Swicther -->
+  <script src="{{asset('web/muscat/layerslider/js/layerslider.transitions.js')}}" ></script>
 
-        <script src="http://www.lyceumgroupofschools.com/web/muscat/switcher/js/dmss.js"></script>
-        <script type="text/javascript">
-          $.ajaxSetup({
-            headers: {
-             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-           }
-         });
+  <script src="{{asset('web/muscat/layerslider/js/layerslider.kreaturamedia.jquery.js')}}" ></script>
+  <!-- Swicther -->
 
-
-
-       </script>
-              
-     </body>
-     </html>
+  <script src="{{asset('web/muscat/switcher/js/dmss.js')}}"></script>
+  <script type="text/javascript">
+    $.ajaxSetup({
+      headers: {
+       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+     }
+   });
+ </script>

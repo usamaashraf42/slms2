@@ -396,7 +396,7 @@ color: #000;
                         <!-- Button -->
 
                         <div class="page-scroll hidden-xs">
-                           <a class="btn" href="#contact">Contact us</a>
+                         <!--   <a class="btn" href="#contact">Contact us</a> -->
                         </div>
                      </div>
                      <!-- Parallax Image -->

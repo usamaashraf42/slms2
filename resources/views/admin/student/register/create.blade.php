@@ -41,7 +41,8 @@
           @component('_components.alerts-default')
           @endcomponent
           <div class="tab-content">
-            <div class="tab-pane active" id="home-v" style="background-color: #fff!important;">  
+            <div class="tab-pane active" 
+            id="home-v" style="background-color: #fff!important;">
               <div class="col-md-12">
                 <div class="row">
                   <div class="col-lg-5 col-md-12 col-sm-5 col-xs-5">
@@ -208,6 +209,7 @@
                               </div>
                             </div>
                           </div>
+
                           <div class="col-md-12" style="margin-top: 30px;">
                             <div class="row footer_btn">
                               <div class="col-md-10 col-xs-2"></div>

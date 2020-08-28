@@ -118,6 +118,18 @@
             </li>
           </ul>
         </li>
+         <li class="sw-menucode-item" id="mn-alumni">
+          <a href="javascript:;" class=" sw-menucode-item__link">Partner</a>
+          <ul class="sw-menucode-list">
+            <li class="sw-menucode-list__item" id="mn-core-values">
+              <a href="https://britishlyceum.org/" class="first  sw-menucode-item__link">British Lyceum International</a>
+            </li>
+            <li class="sw-menucode-list__item" id="mn-core-values">
+              <a href="https://britishlyceum.com/" class="first  sw-menucode-item__link">British Lyceum Pakistan</a>
+            </li>
+          
+          </ul>
+        </li>
         <li class="sw-menucode-item" id="mn-arts">
           <a href="{{route('pakistan.branch')}}" class=" sw-menucode-item__link">Branches</a>
 

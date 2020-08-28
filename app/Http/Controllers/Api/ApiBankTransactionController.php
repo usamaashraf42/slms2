@@ -44,4 +44,17 @@ class ApiBankTransactionController extends Controller
 			return response()->json(['data'=>0]);
 		}
     }
+
+
+    public function transactionDetail($transaction_id){
+
+    	$transaction=BankTransactionDetail::find($transaction_id);
+
+		if($transaction){
+			return response()->json(['data'=>$transaction]);
+		}else{
+			return response()->json(['data'=>0]);
+		}
+
+    }
 }

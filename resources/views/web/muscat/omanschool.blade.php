@@ -628,6 +628,7 @@
        <li><a href="{{route('muscat.academys')}}" style="background-color: #4a47ab;">Academic</a></li>
      </ul>
    </li>
+    <li><a href="{{route('muscat.jobs')}}">Vacancies</a></li>
    <li class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Branches <b class="caret"></b></a>
     <ul class="dropdown-menu">
@@ -637,10 +638,17 @@
   </li>
 </ul>
 <ul class="nav navbar-nav page-scroll navbar-right">
- <li><a href="{{route('muscat.jobs')}}">Vacancies</a></li>
+
  <li><a href="{{route('muscat.news_school')}}">News</a></li>      
  <li><a href="{{route('muscat.event_school')}}">Events</a></li>          
- <li><a href="#gallery">Gallery</a></li>    
+ <li><a href="#gallery">Gallery</a></li> 
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Partner <b class="caret"></b></a>
+    <ul class="dropdown-menu">
+      <li><a href="https://britishlyceum.org/" style="background-color: #4a47ab;">British Lyceum International</a></li>
+      <li><a href="https://britishlyceum.com/" style="background-color: #4a47ab;">British Lyceum Pakistan</a></li>
+    </ul>
+  </li>   
  <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Prospects <b class="caret"></b></a>
   <ul class="dropdown-menu">
@@ -677,7 +685,7 @@
           <h1>Welcome to American Lyceum</h1>
           <p class="subtitle hidden-xs"> American Lyceum International School</p>
           <div class="page-scroll hidden-xs">
-           <a class="btn" href="#contact">Contact us</a>
+        <!--    <a class="btn" href="#contact">Contact us</a> -->
          </div>
        </div>
        <img src="{{asset('web/muscat/img/web/star.png')}}" class="ls-l img-responsive hidden-xs hidden-sm parallax2 ls-preloaded" alt="" data-ls="delayin:1500;easingin:fadeIn;parallaxlevel:6;" style="margin-left: 0px; margin-top: 0px; width: 120px; height: 112px; padding: 0px; border-width: 0px; left: 311.5px; top: 0px; transform-origin: 50% 50% 0px; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 63.7959, 0, 0, 1); opacity: 0.502551; visibility: visible; filter: none;">

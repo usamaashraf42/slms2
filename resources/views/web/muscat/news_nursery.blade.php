@@ -3,7 +3,7 @@
  * Project:Muscat American Lyceum school.
  * User: SHAFQAT GHAFOOR
  * Phone: 03076110561
- * Date: 6/13/2019
+ * Date: 6/13/2020
  * Time: 12:30 PM
  */
  --}}
@@ -400,11 +400,11 @@ color: #000;
 
                      <div class="ls-l header-text" data-ls="offsetxin:0;durationin:2000;delayin:1500;easingin:easeOutElastic;rotatexin:-90;transformoriginin:50% top 0;offsetxout:-200;durationout:1000;parallaxlevel:2;" style="margin-left: 0px; margin-top: 0px; width: auto; height: auto; font-size: 14px; padding: 30px; border-width: 0px; left: 311.5px; top: 0px; filter: none; background-color: rgb(245, 245, 245,0.5);">
                         <h1>Welcome to American Lyceum</h1>
-                        <p class="subtitle hidden-xs"> American Lyceum International Nursary   </p>
+                        <p class="subtitle hidden-xs"> American Lyceum International Nursery   </p>
                         <!-- Button -->
 
                         <div class="page-scroll hidden-xs">
-                           <a class="btn" href="#contact">Contact us</a>
+                        <!--    <a class="btn" href="#contact">Contact us</a> -->
                         </div>
                      </div>
                      <!-- Parallax Image -->
@@ -480,7 +480,7 @@ color: #000;
                                                         <img src="http://127.0.0.1:8000/web/muscat/img/Birthday.jpg" width="100%" height="100%" style="background-size: cover;">
                                                             <div class="latest-caption text-center">
                                                                <a href="blog-post.html">
-                                                                  <h4>November 9, 2019</h4>
+                                                                  <h4>November 9, 2020</h4>
                                                                </a>
                                                          
 
@@ -493,7 +493,7 @@ color: #000;
                                             <img src="http://127.0.0.1:8000/web/muscat/img/oman-national.jpg" width="100%" height="100%">
                                                             <div class="latest-caption text-center">
                                                                <a href="blog-post.html">
-                                                                  <h4>November 18-19, 2019</h4>
+                                                                  <h4>November 18-19, 2020</h4>
                                                                </a>
                                                                <p>
 National Day (Holiday subject to Gov. announcement).
@@ -507,7 +507,7 @@ National Day (Holiday subject to Gov. announcement).
                                                   <img src="http://127.0.0.1:8000/web/muscat/img/closed_1.jpg" width="80%">
                                                             <div class="latest-caption text-center">
                                                                <a href="blog-post.html">
-                                                                  <h4>December 25,26 2019</h4>
+                                                                  <h4>December 25,26 2020</h4>
                                                                </a>
                                                       
                                                                <p>School Closure (Christmas Day school holiday for staff)
@@ -600,7 +600,7 @@ National Day (Holiday subject to Gov. announcement).
 
                                           </div>
                                           <hr>
-                                          {{-- <p>Copyright © 2018 - 2019 </p> --}}
+                                          {{-- <p>Copyright © 2018 - 2020 </p> --}}
                                           <div class="page-scroll hidden-sm hidden-xs">
                                              <a href="#page-top" class="back-to-top"><i class="fa fa-angle-up"></i></a>
                                           </div>

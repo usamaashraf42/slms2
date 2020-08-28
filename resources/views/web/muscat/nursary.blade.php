@@ -545,10 +545,11 @@
       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Academics <b class="caret"></b></a>
       <ul class="dropdown-menu">
        <li><a href="{{route('muscat.curriculum')}}" style="background-color: #4a47ab;">Curriculum</a></li>
-       <li><a href="{{route('muscat.academy')}}" style="background-color: #4a47ab;">Activity</a></li>
+       <li><a href="{{route('muscat.nursery_activity')}}" style="background-color: #4a47ab;">Activity</a></li>
        <li><a href="{{route('muscat.academy')}}" style="background-color: #4a47ab;">Academic</a></li>
      </ul>
    </li>
+    <li><a href="{{route('muscat.jobs')}}">Vacancies</a></li>
    <li class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Branches <b class="caret"></b></a>
     <ul class="dropdown-menu">
@@ -558,16 +559,22 @@
   </li>
 </ul>
 <ul class="nav navbar-nav page-scroll navbar-right">
- <li><a href="{{route('muscat.jobs')}}">Vacancies</a></li>
+
  <li><a href="{{route('muscat.news_nursery')}}">News</a></li>      
  <li><a href="{{route('muscat.event_nursery')}}">Events</a></li>          
  <li><a href="#gallery">Gallery</a></li>    
- 
  <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Prospects <b class="caret"></b></a>
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Partner <b class="caret"></b></a>
+    <ul class="dropdown-menu">
+      <li><a href="https://britishlyceum.org/" style="background-color: #4a47ab;">British Lyceum International</a></li>
+      <li><a href="https://britishlyceum.com/" style="background-color: #4a47ab;">British Lyceum Pakistan</a></li>
+    </ul>
+  </li>
+ <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Prospectus <b class="caret"></b></a>
   <ul class="dropdown-menu">
-    <li><a href="franchisbooklet.pdf" style="background-color: #4a47ab;">View</a></li>
-    <li><a href="franchisbooklet.pdf"  download="franchisbooklet.pdf" style="background-color: #4a47ab;">Download</a></li>
+    <li><a href="prospectus.pdf" style="background-color: #4a47ab;">View</a></li>
+    <li><a href="prospectus.pdf"  download="prospectus.pdf" style="background-color: #4a47ab;">Download</a></li>
   </ul>
 </li>
 <li><div class="topnav" style="margin-right: -140px; margin-top: 22px;">
@@ -603,7 +610,7 @@
         <!-- Button -->
 
         <div class="page-scroll hidden-xs">
-         <a class="btn" href="#contact">Contact us</a>
+       <!--   <a class="btn" href="#contact">Contact us</a> -->
        </div>
      </div>
      <!-- Parallax Image -->
@@ -901,7 +908,7 @@
           <div class="images_boxs"><img src="{{asset('web/muscat/img/web/servic4.jpg')}}" width="100%" height="260px"></div>
 
           <div class="media-body">
-            <h5 class="media-heading">RESPONSIBILITY</h5>
+            <h5 class="media-heading">Responsibility</h5>
             <p>We want proactive personalities. Students: Must be responsible for whatever they are getting. Teachers : Must be responsible for the results of the students. Parents : Must be responsible for the grooming of the children.</p>
           </div>
         </div>
@@ -934,7 +941,7 @@
     <div class="col-md-8  quote-test">
       <!-- quote -->
       <p style="text-align: left;">
-        <h5 style="color: #ffeacb;">Because Every Child can be successfull </h5>
+        <h5 style="color: #ffeacb;">Because Every Child can be successful </h5>
         <p>• Leadership Development.</p><br>
         <p>• International Recognition.</p><br>
         <p>• Whole brain Teaching (WBT)/ Power Teaching .</p><br>
@@ -1081,7 +1088,7 @@ data-center-center="transform:translatey(-180%);">
   <ul class="nav nav-tabs" id="myTab">
     <li class="active"><a href="#tab1" data-toggle="tab">Music Classes </a></li>
     <li><a href="#tab2" data-toggle="tab">Playground </a></li>
-    <li><a href="#tab3" data-toggle="tab">SIGNATURE PRACTICES</a></li>
+    <li><a href="#tab3" data-toggle="tab">Signature Practices</a></li>
     <li><a href="#tab4" data-toggle="tab">Art & Craft</a></li>
   </ul>
   <div class="tabbable">

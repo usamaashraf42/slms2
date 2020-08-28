@@ -30,6 +30,7 @@ Route::prefix('muscat')->group(function () {
 	Route::get('/nursery', 'Web\Muscat\PublicController@nursery')->name('muscat.nursery');    
 	Route::get('/school', 'Web\Muscat\PublicController@school')->name('muscat.school');
 	Route::get('/academic', 'Web\Muscat\PublicController@academy')->name('muscat.academy');
+	Route::get('/nursery_activity', 'Web\Muscat\PublicController@nursery_activity')->name('muscat.nursery_activity');
 	Route::get('/academics', 'Web\Muscat\PublicController@academys')->name('muscat.academys');
 	Route::get('/jobs', 'Web\Muscat\PublicController@jobs')->name('muscat.jobs');
 	Route::get('/ceo_messege', 'Web\Muscat\PublicController@ceo_messege')->name('muscat.ceo_messege');
