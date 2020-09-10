@@ -96,12 +96,14 @@ class ApplicationController extends Controller
 
 
     public function updateStatus(ApplicationStatusUpdateRequest $request){
-
+// dd($request->all());
       $status=ApplicationStatus::find($request->statusId);
       $schedule="10:00";
 
+ 
+
       $application_ids=$request->application_ids;
-      $schedule=date('Y-m-d H:i:s', strtotime($request->schedule)); 
+      
       $start_date=$request->start_date; 
       $till_date=$request->till_date; 
       $start_time=$request->start_time; 
@@ -115,14 +117,19 @@ class ApplicationController extends Controller
       $email_send=$request->email_send; 
       $address=$request->address;
       $duration=$request->duration;
+      $scheduleDate = date('Y-m-d', strtotime("$start_date "));
+      $schedule = date('Y-m-d H:i:s', strtotime("$scheduleDate $start_time"));
+
       for($i=0; $i<count($application_ids); $i++ ){
         $schedule=$this->schedule($start_date,$till_date,$start_time,$till_time,$schedule,$duration);
-// dd($schedule);
-        if(!($schedule)){
+
+        if(!($schedule) || $schedule <= now()){
           session()->flash('error_message', __('Time Schedule is complete not further to shortlist'));
           return redirect()->back();
           break;
         }
+
+        // dd($schedule);
         $application=Application::find($application_ids[$i]);
         $application->status=$request->statusId;
         $application->updated_by=Auth::user()->id;
@@ -148,7 +155,7 @@ class ApplicationController extends Controller
 
           if(isset($request->sms_send) && $request->sms_send){
             if(isset($application->applicant->phone)){
-              (SendSms($application->applicant->phone,$message));
+              (SendSms('03076110561',$message));
             }
 
           }
@@ -188,7 +195,7 @@ class ApplicationController extends Controller
 
     $finalDate = date('Y-m-d H:i:s', strtotime("$till_date $till_time"));
     $startDate = date('Y-m-d H:i:s', strtotime("$start_date $start_time"));
- // dd($finalDate);
+ // dd($startDate);
     $time = date("H:i:s",strtotime($startDate));
       $endTime = date('Y-m-d H:i:s',strtotime("+$duration minutes", strtotime($startDate)));
       return $schedule=(date('Y-m-d h:i:s', strtotime($endTime)));

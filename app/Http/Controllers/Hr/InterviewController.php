@@ -81,7 +81,7 @@ class InterviewController extends Controller
     }
 
     public function updateStatus(ApplicationStatusUpdateRequest $request){
-        // dd($request->all());
+        
         $status=ApplicationStatus::find($request->statusId);
         $schedule=$request->schedule;
         for($i=0; $i<count($request->application_ids); $i++ ){
