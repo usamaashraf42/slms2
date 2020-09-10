@@ -125,7 +125,7 @@ class FeeDepositController extends Controller
 					}
 					else{
 						session()->flash('success_message', "Package buy successfully, thanks to subscribe Britishlyceum package" );
-						return redirect('https://britishlyceum.org/teacher/teacher-panel');
+						return redirect($url);
 					}
 
 
@@ -894,7 +894,7 @@ class FeeDepositController extends Controller
 			}
 
 
-			$url="http://britishlyceum.com/teacher/pricing/user/package-status/$bank->britishlyceum_user_id/$bank->prepon_transaction_id/$bank->id/$bank->amount";
+			$url="https://britishlyceum.com/teacher/pricing/user/package-status/$bank->britishlyceum_user_id/$bank->prepon_transaction_id/$bank->amount";
 
 			return $url;
 		}else{
