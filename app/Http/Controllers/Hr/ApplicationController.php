@@ -155,7 +155,7 @@ class ApplicationController extends Controller
 
           if(isset($request->sms_send) && $request->sms_send){
             if(isset($application->applicant->phone)){
-              (SendSms('03076110561',$message));
+              (SendSms($application->applicant->phone,$message));
             }
 
           }
@@ -165,10 +165,19 @@ class ApplicationController extends Controller
           $message=("Dear $name"." <br> ".$email_body."Venue: $Venue"." <br> "."Address: $address"." <br> "."Time: ".date('h:i: A', strtotime($schedule))." <br>"."Date: ".date('d F Y', strtotime($schedule)) ." <br> "."Regards: HR Manager"." <br> "."Contact No: $contact_no");
           $emails = [$application->applicant->email];
           if(isset($request->email_send) && $request->email_send){
-            Mail::send('emails.interviewCall', ['data'=>$message], function($message) use ($emails,$email_subject) 
-            {    
-              $message->to($emails)->subject($email_subject);    
-            });
+
+            try{
+             Mail::send('emails.interviewCall', ['data'=>$message], function($message) use ($emails,$email_subject) 
+              {    
+                $message->to($emails)->subject($email_subject);    
+              });
+          }
+          catch(\Exception $e){
+
+          }
+
+          
+           
           }
         }
 
