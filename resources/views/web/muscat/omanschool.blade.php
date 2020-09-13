@@ -1037,6 +1037,22 @@
     </div>
   </div>
 </div>
+<div class="row">
+ <div class="col-md-4 col-sm-6 col-xs-12 col wow fadeInUp" data-wow-delay=".1s" style="visibility: visible; animation-delay: 0.1s;">
+    <div class="service-wrap">
+      <div class="service-img">
+        <img src="https://britishlyceum.com/web_assets/wp-content/themes/academy/images/logo.png" width="100%" alt="">
+      </div>
+      <div class="service-content">
+        <h3>Exclusive Rights to British Lyceum</h3>
+        <p>American Lyceum, Muscat Oman has signed an MOU with British Lyceum to provide Online Teaching to the students of American Lyceum. British Lyceum has been granted the exclusive rights to provide online teachers to the students
+        </p>
+        <p><a href="www.britishlyceum.com">learn more</a></p>
+      </div>
+    </div>
+  </div>
+
+</div>
 </div>
 </div>
 </section>

@@ -415,6 +415,15 @@
 
             <p class="mb0"><a class="btn mb0" href="javascript:;">Learn More</a></p>
 
+
+            <h4 class="mt0">Joining Hands with British Lyceum</h4>
+
+            <p>American Lyceum has made an arrangement with British Lyceum to provide online Teaching Facilities to the Students of American Lyceum. American Lyceum has given the exclusive status to British Lyceum to provide Online Teaching. 
+            </p>
+
+            <p class="mb0"><a class="btn mb0" href="www.britishlyceu.com">Learn More</a></p>
+
+
         </div>
 
     </div>
