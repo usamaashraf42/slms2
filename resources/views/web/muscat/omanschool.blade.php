@@ -564,7 +564,7 @@
          <div class="header-contact" style="padding-top: 5px;">
            <a href="#" style="padding-right: 40px;color: #fff">
              <i class="fa fa-phone" style="padding-right: 5px;"></i> +968-90856281</a>
-             <a href="#" style="color: #fff;"><i class="fa fa-envelope"style="padding-right: 5px;"></i>kg @ americanlyceum.com</a>
+             <a href="#" style="color: #fff;"><i class="fa fa-envelope"style="padding-right: 5px;"></i>info@americanlyceum.com</a>
            </div>
          </div>
          <div class="col-xl-6 col-md-6 col-lg-6" style="text-align: center;color: #fff">
