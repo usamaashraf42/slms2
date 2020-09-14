@@ -746,7 +746,7 @@
    <div class="col-md-12 col-lg-7 text-center">
     <h3 class="text-center">American Lyceum International School</h3>
     <p>American Lyceum International School will provide a stimulating and safe
-      environment for children ages 0.6 months to 3 years. Run by a former elementary
+      environment for children ages 0.6 months to 7 years. Run by a former elementary
       school teacher (Ms.Mildret), ALIS will be the fun, affordable alternative daycare with
       the best quality you can find in town. We seek to stimulate and develop children&#39;s
       problem-solving and reactive thinking skills through staff and child directed activities
