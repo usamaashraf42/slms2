@@ -628,7 +628,7 @@
        <li><a href="{{route('muscat.academys')}}" style="background-color: #4a47ab;">Academic</a></li>
      </ul>
    </li>
-    <li><a href="{{route('muscat.jobs')}}">Vacancies</a></li>
+   <li><a href="{{route('muscat.jobs')}}">Vacancies</a></li>
    <li class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Branches <b class="caret"></b></a>
     <ul class="dropdown-menu">
@@ -642,14 +642,14 @@
  <li><a href="{{route('muscat.news_school')}}">News</a></li>      
  <li><a href="{{route('muscat.event_school')}}">Events</a></li>          
  <li><a href="#gallery">Gallery</a></li> 
-  <li class="dropdown">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Partner <b class="caret"></b></a>
-    <ul class="dropdown-menu">
-      <li><a href="https://britishlyceum.org/" style="background-color: #4a47ab;">British Lyceum International</a></li>
-      <li><a href="https://britishlyceum.com/" style="background-color: #4a47ab;">British Lyceum Pakistan</a></li>
-    </ul>
-  </li>   
  <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Partner <b class="caret"></b></a>
+  <ul class="dropdown-menu">
+    <li><a href="https://britishlyceum.org/" style="background-color: #4a47ab;">British Lyceum International</a></li>
+    <li><a href="https://britishlyceum.com/" style="background-color: #4a47ab;">British Lyceum Pakistan</a></li>
+  </ul>
+</li>   
+<li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Prospects <b class="caret"></b></a>
   <ul class="dropdown-menu">
     <li><a href="franchisbooklet.pdf" style="background-color: #4a47ab;">View</a></li>
@@ -685,41 +685,41 @@
           <h1>Welcome to American Lyceum</h1>
           <p class="subtitle hidden-xs"> American Lyceum International School</p>
           <div class="page-scroll hidden-xs">
-        <!--    <a class="btn" href="#contact">Contact us</a> -->
+            <!--    <a class="btn" href="#contact">Contact us</a> -->
+          </div>
+        </div>
+        <img src="{{asset('web/muscat/img/web/star.png')}}" class="ls-l img-responsive hidden-xs hidden-sm parallax2 ls-preloaded" alt="" data-ls="delayin:1500;easingin:fadeIn;parallaxlevel:6;" style="margin-left: 0px; margin-top: 0px; width: 120px; height: 112px; padding: 0px; border-width: 0px; left: 311.5px; top: 0px; transform-origin: 50% 50% 0px; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 63.7959, 0, 0, 1); opacity: 0.502551; visibility: visible; filter: none;">
+      </div>
+
+      <div class="ls-circle-timer" style="display: none;">
+
+        <div class="ls-ct-left">
+
+         <div class="ls-ct-rotate" style="transform: matrix(1, 0, 0, 1, 0, 0);">
+
+          <div class="ls-ct-hider">
+
+           <div class="ls-ct-half">
+           </div>
          </div>
        </div>
-       <img src="{{asset('web/muscat/img/web/star.png')}}" class="ls-l img-responsive hidden-xs hidden-sm parallax2 ls-preloaded" alt="" data-ls="delayin:1500;easingin:fadeIn;parallaxlevel:6;" style="margin-left: 0px; margin-top: 0px; width: 120px; height: 112px; padding: 0px; border-width: 0px; left: 311.5px; top: 0px; transform-origin: 50% 50% 0px; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 63.7959, 0, 0, 1); opacity: 0.502551; visibility: visible; filter: none;">
      </div>
 
-     <div class="ls-circle-timer" style="display: none;">
-
-      <div class="ls-ct-left">
+     <div class="ls-ct-right">
 
        <div class="ls-ct-rotate" style="transform: matrix(1, 0, 0, 1, 0, 0);">
 
         <div class="ls-ct-hider">
 
          <div class="ls-ct-half">
+
          </div>
        </div>
      </div>
    </div>
-
-   <div class="ls-ct-right">
-
-     <div class="ls-ct-rotate" style="transform: matrix(1, 0, 0, 1, 0, 0);">
-
-      <div class="ls-ct-hider">
-
-       <div class="ls-ct-half">
-
-       </div>
-     </div>
+   <div class="ls-ct-center">
    </div>
  </div>
- <div class="ls-ct-center">
- </div>
-</div>
 </div> 
 
 <div class="ls-loading-container" style="z-index: -1; display: none;">
@@ -744,14 +744,9 @@
   </div>
   <div class="row">
    <div class="col-md-12 col-lg-7 text-center">
-    <h3 class="text-center">American Lyceum International School</h3>
-    <p>American Lyceum International School will provide a stimulating and safe
-      environment for children ages 0.6 months to 7 years. Run by a former elementary
-      school teacher (Ms.Mildret), ALIS will be the fun, affordable alternative daycare with
-      the best quality you can find in town. We seek to stimulate and develop children&#39;s
-      problem-solving and reactive thinking skills through staff and child directed activities
+    <h3 class="text-center">We are American Lyceum International School</h3>
+    <p>We are a private, co educational preparatory day school serving Pre-School students in grades KG1,KG2, Grade1 and Grade2 located in Azaiba North,Muscat Oman. American Lyceum International School will provide a stimulating and safe environment for children.
 
-      in our daily actions.
     </p>
   </div>
   <div class="col-md-12 col-lg-5">
@@ -763,16 +758,14 @@
  <div class="col-md-4 col-sm-12">
   <div class="service float">
     <img src="{{asset('web/muscat/img/web/service1.jpg')}}" alt="" class="img-circle center-block img-responsive" height="100%;">
-    <h4>Infants</h4>
-    <p>It doesn’t take long to develop the confidence and calm of an experienced parent.
-      Your baby will give you the most important information—how they like to be treated,
-      talked to, held, and comforted. This section addresses the most common questions
+    <h4>Kindergarten</h4>
+    <p>Highly-trained faculty, state-of-the-art resources and innovative curriculum have resulted in distinctive experiences that make The American Lyceum School's opportunities unique.
+      We believe that children's lives change when their natural passion for learning is nurtured and transformed into habits of life-long learning and reflection. We believe that the world changes as these children learn to serve their country and community with wisdom, conviction, and compassion.
 
-      and concerns that arise during the first months of life.
     </p>
   </div>
 </div>
-<div class="col-md-4 col-sm-12 res-margin">
+<!-- <div class="col-md-4 col-sm-12 res-margin">
   <div class="service float">
    <img src="{{asset('web/muscat/img/web/service2.jpg')}}" alt="" class="img-circle center-block  img-responsive" height="100%">
    <h4>Toddlers</h4>
@@ -781,17 +774,17 @@
     to see some tremendous intellectual, social, and emotional changes.
   </p>
 </div>
-</div>
+</div> -->
 <!-- /col-md-3-->
 <!-- item 3-->
 <div class="col-md-4 col-sm-12">
   <div class="service float">
    <img src="{{asset('web/muscat/img/web/service3.jpg')}}" alt="" class="img-circle center-block img-responsive" height="100%">
    <h4>PRESCHOOL</h4>
-   <p>Your child is advancing from infancy toward and into the preschool years. During this
-    time, his physical growth and motor development will slow, but you can expect to see
+   <p>The American Lyceum International School has been a beacon of excellence in education.
+    Children in grades 1-4 thrive in an experiential environment designed to leverage their natural curiosity and joy of learning. Empowered problem solvers and collaborators are encouraged to think big, synthesize and test ideas and celebrate the learning process.  Academics integrated with movement, fine arts, character- based leadership and faith formation are woven together into a seamless experience of personalized growth.
+    As an independent school, we continue our founding traditions as an International community. The heart of our mission is to educate leaders of character who will value and improve the world they inherit. Here in a warm, inclusive culture, every child is known, their God-given talents are valued and relationships flourish.
 
-    some tremendous intellectual, social, and emotional changes.
   </p>
 </div>
 </div>
@@ -893,8 +886,8 @@
 
           <div id="owl-abot" class="owl-">
             <h4>Vision</h4>
-            <p>“By cultivating the crop of enlightened leaders become the name of trust pride and
-              performance.”
+            <p>“By cultivating the crop of enlightened leaders become the name of trust, pride and performance.”
+
             </p>
             <h4 style="margin-top: -15px;">Mission</h4>
             <p>“To Enable Primary and Secondary Greatness in People”
@@ -917,29 +910,24 @@
    <div class="row">
     <div class="col-lg-12 col-sm-12">
 
-     <p style="color: #fff;">American Lyceum Private School  strives to be preschool of choice by providing learning environment suitable for child development and offers unique curriculum
+     <p style="color: #fff;">American Lyceum Private School strives to be a preschool of choice by providing a learning environment suitable for child development and offers a unique curriculum combined with Montessori and EYFS concepts.
 
-      combined with Montessori and EYFS concept.
-    </p><p style="color: #fff;"> By providing safe, fun and stimulating learning environment, creative ways of
-      teaching, personal hands-on attention, and top level play-based education,
-      American Lyceum Private School students can explore and develop their full
-    potential and be prepared to be good citizens and leaders of the 21st century.</p>
-    <p style="color: #fff;"> 
+     </p><p style="color: #fff;"> By providing a safe, fun and stimulating learning environment, creative ways of teaching, personal hands-on attention, and top level play-based education, American Lyceum Private School students can explore and develop their full potential and be prepared to be good citizens and leaders of the 21st century.
+     </p>
+     <p style="color: #fff;"> 
 
-      A combination of EYFS &amp; International Curriculum (Cambridge) is aimed to
-      establish acceleration inchildren&#39;s intellectual development and prepare our
+       A combination of EYFS & International Curriculum (Cambridge) is aimed to establish acceleration in children's intellectual development and prepare our students with strong foundation for lifelong learning.
 
-      students with strong foundation for lifelong learning.
-    </p>
-  </div>
-  <div class="col-sm-12 col-lg-5">
+     </p>
+   </div>
+   <div class="col-sm-12 col-lg-5">
 
 
-  </div>
-  <!-- text -->
+   </div>
+   <!-- text -->
 
-  <!-- /col-lg-8 -->
-</div>
+   <!-- /col-lg-8 -->
+ </div>
 </div>
 </section>
 <section class="service-area pb-140">
@@ -976,7 +964,21 @@
           </div>
         </div>
       </div>
-      <div class="col-md-6 col-sm-6 col-xs-12 col wow fadeInUp" data-wow-delay=".1s" style="visibility: visible; animation-delay: 0.1s;">
+      <div class="col-md-6 col-sm-6 col-xs-12 col wow fadeInUp" data-wow-delay=".3s" style="visibility: visible; animation-delay: 0.3s;">
+        <div class="service-wrap">
+          <div class="service-img">
+            <img src="{{asset('web/muscat/img/web/careerplay3.jpg')}}" width="100%" alt="">
+          </div>
+          <div class="service-content">
+            <h3>Safety First </h3>
+            <p>Safe and stimulating environment that children can explore and discover, that
+              encourages creativity, and collaboration, independence.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="col-md-6 col-sm-6 col-xs-12 col wow fadeInUp" data-wow-delay=".1s" style="visibility: visible; animation-delay: 0.1s;">
         <div class="service-wrap">
          <div class="service-img">
           <img src="{{asset('web/muscat/img/web/careerplay7.jpg')}}" width="100%" alt="">
@@ -992,37 +994,26 @@
           </p>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
+  <br>
   <div class="row">
-    <div class="col-md-4 col-sm-6 col-xs-12 col wow fadeInUp" data-wow-delay=".3s" style="visibility: visible; animation-delay: 0.3s;">
+    <div class="col-md-4 col-sm-6 col-xs-12 col wow fadeInUp" data-wow-delay=".1s" style="visibility: visible; animation-delay: 0.1s;">
       <div class="service-wrap">
         <div class="service-img">
-          <img src="{{asset('web/muscat/img/web/careerplay3.jpg')}}" width="100%" alt="">
+          <img src="{{asset('web/muscat/img/web/careerplay4.jpg')}}" width="100%" alt="">
         </div>
         <div class="service-content">
-          <h3>Safety First </h3>
-          <p>Safe and stimulating environment that children can explore and discover, that
-            encourages creativity, and collaboration, independence.
+          <h3>Certified Tutors</h3>
+          <p>American Lyceum’s highly qualified staff is committed to provide personal
+            attention and professional education to preschool, along with continuous
+            improvement, growth, and achievement of every student.
           </p>
         </div>
       </div>
     </div>
-    <div class="col-md-4 col-sm-6 col-xs-12 col wow fadeInUp" data-wow-delay=".1s" style="visibility: visible; animation-delay: 0.1s;">
-      <div class="service-wrap">
-       <div class="service-img">
-        <img src="{{asset('web/muscat/img/web/careerplay4.jpg')}}" width="100%" alt="">
-      </div>
-      <div class="service-content">
-        <h3>Certified Tutors</h3>
-        <p>American Lyceum’s highly qualified staff is committed to provide personal
-          attention and professional education to preschool, along with continuous
-          improvement, growth, and achievement of every student.
-        </p>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-4 col-sm-6 col-xs-12 col wow fadeInUp" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s;">
+
+     <div class="col-md-4 col-sm-6 col-xs-12 col wow fadeInUp" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.1s;">
     <div class="service-wrap">
       <div class="service-img">
         <img src="{{asset('web/muscat/img/web/careerplay1.jpg')}}" width="100%" alt="">
@@ -1036,8 +1027,8 @@
       </div>
     </div>
   </div>
-</div>
-<div class="row">
+
+
  <div class="col-md-4 col-sm-6 col-xs-12 col wow fadeInUp" data-wow-delay=".1s" style="visibility: visible; animation-delay: 0.1s;">
     <div class="service-wrap">
       <div class="service-img">
@@ -1051,9 +1042,7 @@
       </div>
     </div>
   </div>
-
-</div>
-</div>
+  </div>
 </div>
 </section>
 <section id="about">
@@ -1934,207 +1923,207 @@ data-center-center="transform:translatex(380%);">
                                              <div id="contact_form1"></div>
                                              <div class="col-lg-7 col-lg-offset-1">
                                                <h4>Write us</h4>
-                                                <div id="contact_form">
-                                                  <div class="form-group">
-                                                   <input type="text" name="name" class="form-control input-field" placeholder="Name" required="">                    
-                                                   <input type="email" name="email" class="form-control input-field" placeholder="Email ID" required="">           
-                                                   <input type="text" name="subject" class="form-control input-field" placeholder="Subject" required="">                     
-                                                 </div>
-                                                 <textarea name="message" id="message" class="textarea-field form-control" rows="4" placeholder="Enter your message" required=""></textarea>
-                                                 <button type="submit" id="contactUsBtn" value="Submit" class="btn center-block" >Send message</button>
-                                               </form>
+                                               <div id="contact_form">
+                                                <div class="form-group">
+                                                 <input type="text" name="name" class="form-control input-field" placeholder="Name" required="">                    
+                                                 <input type="email" name="email" class="form-control input-field" placeholder="Email ID" required="">           
+                                                 <input type="text" name="subject" class="form-control input-field" placeholder="Subject" required="">                     
                                                </div>
-                                             </div>
-                                             <div id="contact_results"></div>
+                                               <textarea name="message" id="message" class="textarea-field form-control" rows="4" placeholder="Enter your message" required=""></textarea>
+                                               <button type="submit" id="contactUsBtn" value="Submit" class="btn center-block" >Send message</button>
+                                             </form>
                                            </div>
                                          </div>
-                                       </section>
-                                       <div class="container-fluid cloud-divider">
-                                         <svg id="deco-clouds" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" viewBox="0 0 100 100" preserveAspectRatio="none">
-                                          <path d="M-5 100 Q 0 20 5 100 Z
-                                          M0 100 Q 5 0 10 100
-                                          M5 100 Q 10 30 15 100
-                                          M10 100 Q 15 10 20 100
-                                          M15 100 Q 20 30 25 100
-                                          M20 100 Q 25 -10 30 100
-                                          M25 100 Q 30 10 35 100
-                                          M30 100 Q 35 30 40 100
-                                          M35 100 Q 40 10 45 100
-                                          M40 100 Q 45 50 50 100
-                                          M45 100 Q 50 20 55 100
-                                          M50 100 Q 55 40 60 100
-                                          M55 100 Q 60 60 65 100
-                                          M60 100 Q 65 50 70 100
-                                          M65 100 Q 70 20 75 100
-                                          M70 100 Q 75 45 80 100
-                                          M75 100 Q 80 30 85 100
-                                          M80 100 Q 85 20 90 100
-                                          M85 100 Q 90 50 95 100
-                                          M90 100 Q 95 25 100 100
-                                          M95 100 Q 100 15 105 100 Z">
-                                        </path>
-                                      </svg>
-                                    </div>
-                                    <div class="v-parallax v-bg-stylish v-bg-stylish-v10" id="download" style="background-image: url('{{asset('web/muscat/img/calltoactionbg1.jpg')}}');background-size: cover;   background-size:cover;
-                                    background-blend-mode: multiply; background-color: rgb(51, 49, 124, 0.9);">
-
-                                    <div class="container">
-                                      <div class="row center">
-
-                                        <div class="col-sm-12">
-
-                                          <div class="v-content-wrapper">
-
-
-                                            <div class="v-spacer col-sm-12 v-height-standard"></div>
-
-                                            <div id="intro_stores" style="text-align: center;">
-                                              <h3 class="v-smash-text-large-2x" style="
-                                              border-radius: 0px;
-                                              height: 50px;
-                                              font-size: 22px;
-                                              margin-top: 40px;
-                                              color: #fff;
-                                              letter-spacing: 1.5;
-                                              line-height: 1;}">
-                                              <span>Download American Lyceum App!
-                                              </span>
-                                            </h3>
-                                            <a href="https://play.google.com/store/apps/details?id=com.lyceum.eschool">
-                                              <img src="http://eschoolforall.com/assets/img/landing/download.png" class="img-responsive" alt="google_icon" width="300px" style="margin:0 auto;border-radius:15px;"></a>
-
-                                            </div>
-
-
-
-                                          </div>
-
-                                        </div>
-
-                                        <div class="v-bg-overlay overlay-colored"></div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <footer>
-                                    <div class="container-fluid">
-                                     <!-- Newsletter -->
-                                     <div class="col-lg-4 col-md-6 text-center res-margin">
-                                      <h6 class="text-light">SIGN UP FOR OUR NEWSLETTER</h6>
-                                      <p>We will send updates once a week.</p>
-                                      <!-- Form -->       
-                                      <div id="mc_embed_signup">
-                                       <form action="#" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                                        <div id="mc_embed_signup_scroll">
-                                         <div class="mc-field-group">
-                                          <div class="input-group">
-                                           <input class="form-control input-lg required email" type="email" value="" name="EMAIL" placeholder="Your email here" id="mce-EMAIL">
-                                           <span class="input-group-btn">
-                                            <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn">
-                                          </span>
-                                        </div>
-                                        <!-- Subscription results -->
-                                        <div id="mce-responses" class="mailchimp">
-                                         <div class="alert alert-danger response" id="mce-error-response"></div>
-                                         <div class="alert alert-success response" id="mce-success-response"></div>
+                                         <div id="contact_results"></div>
                                        </div>
                                      </div>
-                                     <!-- /mc-fiel-group -->                  
-                                   </div>
-                                   <!-- /mc_embed_signup_scroll -->
-                                 </form>
-                                 <!-- /form ends -->
-                               </div>
-                               <!-- /mc_embed_signup -->               
-                             </div>
-                             <!-- /col-lg-4 -->
-                             <!-- Bottom Credits -->
-                             <div class="col-lg-4 col-md-6 res-margin">
+                                   </section>
+                                   <div class="container-fluid cloud-divider">
+                                     <svg id="deco-clouds" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" viewBox="0 0 100 100" preserveAspectRatio="none">
+                                      <path d="M-5 100 Q 0 20 5 100 Z
+                                      M0 100 Q 5 0 10 100
+                                      M5 100 Q 10 30 15 100
+                                      M10 100 Q 15 10 20 100
+                                      M15 100 Q 20 30 25 100
+                                      M20 100 Q 25 -10 30 100
+                                      M25 100 Q 30 10 35 100
+                                      M30 100 Q 35 30 40 100
+                                      M35 100 Q 40 10 45 100
+                                      M40 100 Q 45 50 50 100
+                                      M45 100 Q 50 20 55 100
+                                      M50 100 Q 55 40 60 100
+                                      M55 100 Q 60 60 65 100
+                                      M60 100 Q 65 50 70 100
+                                      M65 100 Q 70 20 75 100
+                                      M70 100 Q 75 45 80 100
+                                      M75 100 Q 80 30 85 100
+                                      M80 100 Q 85 20 90 100
+                                      M85 100 Q 90 50 95 100
+                                      M90 100 Q 95 25 100 100
+                                      M95 100 Q 100 15 105 100 Z">
+                                    </path>
+                                  </svg>
+                                </div>
+                                <div class="v-parallax v-bg-stylish v-bg-stylish-v10" id="download" style="background-image: url('{{asset('web/muscat/img/calltoactionbg1.jpg')}}');background-size: cover;   background-size:cover;
+                                background-blend-mode: multiply; background-color: rgb(51, 49, 124, 0.9);">
 
-                             </div>
-                             <!-- /col-lg-4 -->
-                             <!-- Opening Hours -->
-                             <div class="col-lg-4 col-md-12 text-center">
-                              <!-- Sign-->
-                              <h6 class="text-light">Opening Hours:</h6>
-                              <!-- Table-->
-                              <table class="table">
-                               <tbody>
-                                <tr>
-                                 <td class="text-left"> Sunday to Thursday </td>
-                                 <td class="text-right">07:00 AM to  - 03:00 PM </td> 
-                               </tr>
-                               <tr>
-                                 <td class="text-left">Friday & Saturday / Holidays</td>
-                                 <td class="text-right"><span class="label label-danger">Closed</span></td>
-                               </tr>
-                             </tbody>
-                           </table>
+                                <div class="container">
+                                  <div class="row center">
+
+                                    <div class="col-sm-12">
+
+                                      <div class="v-content-wrapper">
+
+
+                                        <div class="v-spacer col-sm-12 v-height-standard"></div>
+
+                                        <div id="intro_stores" style="text-align: center;">
+                                          <h3 class="v-smash-text-large-2x" style="
+                                          border-radius: 0px;
+                                          height: 50px;
+                                          font-size: 22px;
+                                          margin-top: 40px;
+                                          color: #fff;
+                                          letter-spacing: 1.5;
+                                          line-height: 1;}">
+                                          <span>Download American Lyceum App!
+                                          </span>
+                                        </h3>
+                                        <a href="https://play.google.com/store/apps/details?id=com.lyceum.eschool">
+                                          <img src="http://eschoolforall.com/assets/img/landing/download.png" class="img-responsive" alt="google_icon" width="300px" style="margin:0 auto;border-radius:15px;"></a>
+
+                                        </div>
+
+
+
+                                      </div>
+
+                                    </div>
+
+                                    <div class="v-bg-overlay overlay-colored"></div>
+                                  </div>
+                                </div>
+                              </div>
+                              <footer>
+                                <div class="container-fluid">
+                                 <!-- Newsletter -->
+                                 <div class="col-lg-4 col-md-6 text-center res-margin">
+                                  <h6 class="text-light">SIGN UP FOR OUR NEWSLETTER</h6>
+                                  <p>We will send updates once a week.</p>
+                                  <!-- Form -->       
+                                  <div id="mc_embed_signup">
+                                   <form action="#" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                                    <div id="mc_embed_signup_scroll">
+                                     <div class="mc-field-group">
+                                      <div class="input-group">
+                                       <input class="form-control input-lg required email" type="email" value="" name="EMAIL" placeholder="Your email here" id="mce-EMAIL">
+                                       <span class="input-group-btn">
+                                        <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn">
+                                      </span>
+                                    </div>
+                                    <!-- Subscription results -->
+                                    <div id="mce-responses" class="mailchimp">
+                                     <div class="alert alert-danger response" id="mce-error-response"></div>
+                                     <div class="alert alert-success response" id="mce-success-response"></div>
+                                   </div>
+                                 </div>
+                                 <!-- /mc-fiel-group -->                  
+                               </div>
+                               <!-- /mc_embed_signup_scroll -->
+                             </form>
+                             <!-- /form ends -->
+                           </div>
+                           <!-- /mc_embed_signup -->               
                          </div>
                          <!-- /col-lg-4 -->
-                       </div>
-                       <!-- / container -->
-                       <hr>
-                       {{-- <p>Copyright © 2018 - 2019 </p> --}}
-                       <!-- /container -->
-                       <!-- Go To Top Link -->
-                       <div class="page-scroll hidden-sm hidden-xs">
-                         <a href="#page-top" class="back-to-top"><i class="fa fa-angle-up"></i></a>
-                       </div>
-                     </footer>
-                     <!-- /footer ends -->
+                         <!-- Bottom Credits -->
+                         <div class="col-lg-4 col-md-6 res-margin">
+
+                         </div>
+                         <!-- /col-lg-4 -->
+                         <!-- Opening Hours -->
+                         <div class="col-lg-4 col-md-12 text-center">
+                          <!-- Sign-->
+                          <h6 class="text-light">Opening Hours:</h6>
+                          <!-- Table-->
+                          <table class="table">
+                           <tbody>
+                            <tr>
+                             <td class="text-left"> Sunday to Thursday </td>
+                             <td class="text-right">07:00 AM to  - 03:00 PM </td> 
+                           </tr>
+                           <tr>
+                             <td class="text-left">Friday & Saturday / Holidays</td>
+                             <td class="text-right"><span class="label label-danger">Closed</span></td>
+                           </tr>
+                         </tbody>
+                       </table>
+                     </div>
+                     <!-- /col-lg-4 -->
                    </div>
-                   <style>
-                    h6 {
-                      font-size: 22px;
-                      margin-bottom: 10px;
-                      text-transform: uppercase;
-                      font-family: 'Lato',sans-serif;
-                      font-weight: 800;
-                      letter-spacing: 0.8px;
-                      color: #000261;
-                    }
-                  </style>
-                  <script src="{{asset('web/muscat/js/jquery.min.js')}}"></script>
-                  <script src="{{asset('web/muscat/js/bootstrap.min.js')}}"></script>
-                  <!-- Google maps -->
-                  <script src="https://maps.googleapis.com/maps/api/js?v=3"></script>
-                  <!-- Main Js -->
-                  <script src="{{asset('web/muscat/js/main_1.js')}}"></script>
-                  <!-- Isotope -->    
-                  <script src="{{asset('web/muscat/js/jquery.isotope.js')}}"></script>
-                  <!--Mail Chimp validator -->
+                   <!-- / container -->
+                   <hr>
+                   {{-- <p>Copyright © 2018 - 2019 </p> --}}
+                   <!-- /container -->
+                   <!-- Go To Top Link -->
+                   <div class="page-scroll hidden-sm hidden-xs">
+                     <a href="#page-top" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+                   </div>
+                 </footer>
+                 <!-- /footer ends -->
+               </div>
+               <style>
+                h6 {
+                  font-size: 22px;
+                  margin-bottom: 10px;
+                  text-transform: uppercase;
+                  font-family: 'Lato',sans-serif;
+                  font-weight: 800;
+                  letter-spacing: 0.8px;
+                  color: #000261;
+                }
+              </style>
+              <script src="{{asset('web/muscat/js/jquery.min.js')}}"></script>
+              <script src="{{asset('web/muscat/js/bootstrap.min.js')}}"></script>
+              <!-- Google maps -->
+              <script src="https://maps.googleapis.com/maps/api/js?v=3"></script>
+              <!-- Main Js -->
+              <script src="{{asset('web/muscat/js/main_1.js')}}"></script>
+              <!-- Isotope -->    
+              <script src="{{asset('web/muscat/js/jquery.isotope.js')}}"></script>
+              <!--Mail Chimp validator -->
 
-                  <script src="{{asset('web/muscat/js/mc-validate.js')}}"></script>
-                  <!--Other Plugins -->
+              <script src="{{asset('web/muscat/js/mc-validate.js')}}"></script>
+              <!--Other Plugins -->
 
-                  <script src="{{asset('web/muscat/js/plugins.js')}}"></script>
-                  <!-- Contact -->
+              <script src="{{asset('web/muscat/js/plugins.js')}}"></script>
+              <!-- Contact -->
 
-                  <!-- <script src="{{asset('web/muscat/js/contact.js')}}"></script> -->
-                  <!-- Prefix free CSS -->
+              <!-- <script src="{{asset('web/muscat/js/contact.js')}}"></script> -->
+              <!-- Prefix free CSS -->
 
-                  <!-- <script src="{{asset('web/muscat/js/prefixfree.js')}}"></script>         -->
-                  <!-- GreenSock -->
+              <!-- <script src="{{asset('web/muscat/js/prefixfree.js')}}"></script>         -->
+              <!-- GreenSock -->
 
-                  <!-- <script src="{{asset('web/muscat/layerslider/js/greensock.js')}}" ></script> -->
-                  <!-- LayerSlider script files -->
+              <!-- <script src="{{asset('web/muscat/layerslider/js/greensock.js')}}" ></script> -->
+              <!-- LayerSlider script files -->
 
-                  <!-- <script src="{{asset('web/muscat/layerslider/js/layerslider.transitions.js')}}" ></script> -->
+              <!-- <script src="{{asset('web/muscat/layerslider/js/layerslider.transitions.js')}}" ></script> -->
 
-                  <!-- <script src="{{asset('web/muscat/layerslider/js/layerslider.kreaturamedia.jquery.js')}}" ></script> -->
-                  <!-- Swicther -->
+              <!-- <script src="{{asset('web/muscat/layerslider/js/layerslider.kreaturamedia.jquery.js')}}" ></script> -->
+              <!-- Swicther -->
 
-                  <script src="{{asset('web/muscat/switcher/js/dmss.js')}}"></script>
-                     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+              <script src="{{asset('web/muscat/switcher/js/dmss.js')}}"></script>
+              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
-                      <script type="text/javascript">
-                    $.ajaxSetup({
-                      headers: {
-                       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                     }
-                   });
-                    $("#contactUsBtn").click(function (e) {
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+              <script type="text/javascript">
+                $.ajaxSetup({
+                  headers: {
+                   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                 }
+               });
+                $("#contactUsBtn").click(function (e) {
 
 
             var form = $('#contactUs')[0]; // You need to use standard javascript object here
