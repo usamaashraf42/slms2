@@ -1201,7 +1201,7 @@ data-center-center="transform:translatey(-180%);">
 
     <div class="col-md-6" style="text-align: center;">
      <div class="img_bx">
-       <img src="http://127.0.0.1:8000/web/muscat/img/admtion.jpg" alt="New York" height="200px" style="background-size: cover; width: 100%; height: 320px;">
+       <img src="{{asset('web/muscat/img/notify-bg.jpg')}}" alt="New York" height="200px" style="background-size: cover; width: 100%; height: 320px;">
        <button type="button" class="btn btn-info btn-xl" data-toggle="modal" data-target="#myModal" style="width: 200px;margin: 10px;"> Apply </button>
      </div>  
    </div>
@@ -1236,8 +1236,8 @@ data-center-center="transform:translatey(-180%);">
 
               </div>
               <div class="col-md-12">
-                <form action="http://localhost:8000/pakistan/registeration" method="post">
-                  <input type="hidden" name="_token" value="uUdvRNYXsTVBSZyFwa45lcjuKN2DOBlVEYGaqKHN">
+                <form action="{{route('registeration')}}" method="post">
+                  @csrf
                   <div class="col-md-6">
 
                     <div class="form-group">
