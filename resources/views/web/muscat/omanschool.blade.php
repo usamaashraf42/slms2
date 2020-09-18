@@ -1172,7 +1172,7 @@ data-center-center="transform:translatey(-180%);">
 <!--/container -->
 </section>
 <section id="admission">
- <section style="background-image: url('http://127.0.0.1:8000/web/muscat/img/notify-bg.jpg'); height: 100%; width: 100%;background-size: cover;">
+ <section style="background-image: url("{{asset('web/muscat/img/notify-bg.jpg')}}"); height: 100%; width: 100%;background-size: cover;">
   <div class="container">
    <div class="col-lg-12 col-lg-offset-2">
      <h3 style="color: #ffb86e;
