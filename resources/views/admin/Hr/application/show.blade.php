@@ -115,7 +115,7 @@
 
       @isset($application->applicant->cv)
 
-      <iframe src="http://docs.google.com/gview?url=http://lyceumgroupofschools.com/images/applicant/cv/{{$application->applicant->cv}}&embedded=true"
+      <iframe src="http://docs.google.com/gview?url=https://lyceumgroupofschools.com/images/applicant/cv/{{$application->applicant->cv}}&embedded=true"
         frameborder="0" width="200px" height="250px">
       </iframe>
 
