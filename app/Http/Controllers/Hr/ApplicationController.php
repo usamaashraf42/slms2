@@ -267,7 +267,7 @@ class ApplicationController extends Controller
     public function show($id){
         
         $application=Application::where('id',$id)->with('applicant.preferenceBranch1','applicant.preferenceBranch2','applicant.preferenceBranch3','applicant.preferenceSubject3')->first();
-
+// dd($application);
         if(!$application){
             session()->flash('error_message', __('Record not found'));
             return redirect()->back();

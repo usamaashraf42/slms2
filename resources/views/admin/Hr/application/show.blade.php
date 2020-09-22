@@ -34,9 +34,10 @@
              <!-- sidebar info -->
              <div class="ort-info sidebar-item">
               <br><!-- text -->
-              <div class="row">                               
-                <div class="icon col-md-2"> <!-- icon -->
-                 <i class="fa fa-user"></i>
+              <!-- <div class="row">                               
+                <div class="icon col-md-2"> 
+                <i class="fa fa-file-o" aria-hidden="true"></i>
+
                </div>                                
                <div class="info wow fadeIn a1 col-md-10" > 
 
@@ -45,7 +46,7 @@
                   dolore magna aliqua . Ld do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
                 </div>             
               </div>
-            </div>         
+            </div>   -->       
             <br>
             <!-- MOBILE NUMBER -->
             <div class="mobile sidebar-item">
@@ -115,17 +116,17 @@
       @isset($application->applicant->cv)
 
       <iframe src="http://docs.google.com/gview?url=http://lyceumgroupofschools.com/images/applicant/cv/{{$application->applicant->cv}}&embedded=true"
-                frameborder="0" width="200px" height="250px">
-                </iframe>
+        frameborder="0" width="200px" height="250px">
+      </iframe>
 
 
 
-     
-     @endisset
-     <h3>Branch Preference </h3>
 
-     @isset($application->applicant->preferenceBranch1->branch_name)
-     <div class="progress">
+      @endisset
+      <h3>Branch Preference </h3>
+
+      @isset($application->applicant->preferenceBranch1->branch_name)
+      <div class="progress">
        <div class="determinate"> {{$application->applicant->preferenceBranch1->branch_name}} </div>
      </div>
 
@@ -173,60 +174,40 @@
  </div>                            
 </div>
 
-                        <!-- ========================================
-                         Education 
-                         ==========================================-->
 
-                        <!-- ========================================
-                              Intertests 
-                              ==========================================-->
-                              <div class="section-wrapper row">
-                                <div class="section-icon col-md-2">
-                                  <i class="fa fa-graduation-cap"></i>
-                                </div>
-                                <div class="custom-content col-md-10 wow fadeIn a1">
-                                  <h2>Education </h2>
+<div class="section-wrapper row">
+  <div class="section-icon col-md-2">
+    <i class="fa fa-graduation-cap"></i>
+  </div>
+  <div class="custom-content col-md-10 wow fadeIn a1">
+    <h2>Education </h2>
 
-                                  <div class="custom-content-wrapper" style="border-bottom: none;">
-                                    <table style="width: 100%;">
-                                      <tbody><tr id="heading">
-                                        <td>Qualification</td>
-                                        <td>Board</td>
-                                        <td>Percentage / Grades</td>
-                                        <td>Year</td>
-                                      </tr>
+    <div class="custom-content-wrapper" style="border-bottom: none;">
+      <table style="width: 100%;">
+        <tbody><tr id="heading">
+          <td>Qualification</td>
+          <td>Board</td>
+          <td>Percentage / Grades</td>
+          <td>Year</td>
+        </tr>
 
-                                      @if(isset($application->applicant->degrees) && $application->applicant->degrees)
-                                        @foreach($application->applicant->degrees as $degree)
-                                        <tr>
-                                        <td>{{$degree->degree}}</td>
-                                        <td>{{$degree->institude}}</td>
-                                        <td>{{$degree->marks}}</td>
-                                        <td>{{$degree->duration}}</td>
-                                      </tr>
-                                        @endforeach
-                                      @endif
+        @if(isset($application->applicant->degrees) && $application->applicant->degrees)
+        @foreach($application->applicant->degrees as $degree)
+        <tr>
+          <td>{{$degree->degree}}</td>
+          <td>{{$degree->institude}}</td>
+          <td>{{$degree->marks}}</td>
+          <td>{{$degree->duration}}</td>
+        </tr>
+        @endforeach
+        @endif
 
 
-                                     
-                                    </tbody>
-                                  </table>
-                                </div>
-                                <!-- <div class="custom-content-wrapper">
-                                  <h3><strong>Skill</strong></h3>
-                                  <span>JAN 2013 - DEC 2013 </span>
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                </div>
-                                <div class="custom-content-wrapper">
-                                  <h3>Hobbies</h3>
-                                  <span>JAN 2013 - DEC 2013 </span>
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                </div>
-                                <div class="custom-content-wrapper">
-                                  <h3>Language</h3>
-                                  <span>JAN 2013 - DEC 2013 </span>
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                </div> -->
+
+      </tbody>
+    </table>
+  </div>
+                               
                               </div>
                             </div>
 
