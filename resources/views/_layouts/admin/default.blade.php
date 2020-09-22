@@ -19,6 +19,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="">
+
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="block-all-mixed-content">
+
   @show
   @stack('pre-styles')
 
