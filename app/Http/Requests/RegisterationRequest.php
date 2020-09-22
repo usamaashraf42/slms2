@@ -30,7 +30,7 @@ class RegisterationRequest extends FormRequest
             's_sex'=>'required',
             'course_id'=>'required',
             'section_id'=>'required',
-            'total_annual_fee'=>'required|numeric|min:0|not_in:0',
+            'total_annual_fee'=>'required|numeric|min:0',
             'father_cnic'=>'required',
             // 'feeStruture'=>'required',
             
