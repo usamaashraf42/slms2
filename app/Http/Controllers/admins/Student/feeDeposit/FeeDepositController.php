@@ -344,9 +344,18 @@ if(isset($missedFeeIdArray)&& count($missedFeeIdArray)>0){
         $emails = ['web@americanlyceum.com', 'accounts@americanlyceum.com', 'tnadeem@americanlyceum.com'];
       // $emails = ['web@americanlyceum.com'];
       // $emails=['waleedraza39@gmail.com','shafqatghafoor99@gmail.com'];
-      Mail::send('emails.missedMail', ['data'=>$missedFeeIdArray,'sheet'=>$sheedName], function($message) use ($emails){    
-       $message->to($emails)->subject('Fee Deposited');    
-     });
+
+              try {
+                  Mail::send('emails.missedMail', ['data'=>$missedFeeIdArray,'sheet'=>$sheedName], function($message) use ($emails){    
+                 $message->to($emails)->subject('Fee Deposited');    
+               });
+
+              } catch (\Exception $e) {
+                
+              }
+
+
+    
 }
 if(isset($repeatedArray)&& count($repeatedArray)>0){
   Session::push('alreadyUploaded',$repeatedArray);
