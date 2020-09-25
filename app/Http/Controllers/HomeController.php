@@ -27,6 +27,15 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+
+
+    public function feeChalan()
+    {
+        return view('fee-chalan');
+    }
+
+    
     public function premier(){
         $correction=array();
         $students=\App\Models\Student::where('is_active',1)->where('status',1)->where('branch_id',10)->orderBy('course_id','ASC')->get();

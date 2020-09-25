@@ -17,7 +17,11 @@ Route::get('/', function () { return view('welcome'); });
 // Route::get('/checkout', function () { return view('web.checkout'); });
 Route::get('/checkout', function () { return view('checkout'); });
 
+
 Route::post('contactus','HomeController@ContactFom')->name('ContactFom');
+Route::get('fees-chalan','HomeController@ContactFom')->name('fee.chalan');
+
+
 
 Route::get('/easypaisa', function () { return view('web.easypaisa.index'); });
 Route::get('/easypaisa/token', function () { return view('web.easypaisa.get_token'); });
