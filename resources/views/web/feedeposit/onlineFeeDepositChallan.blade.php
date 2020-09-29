@@ -248,10 +248,10 @@
                                 <div class="amnt_sec">                                
                                     <div class="trms_sec">
                                         <div class="checkbox " style="margin-top: 8px;">
-                                            <input id="terms_conditions" type="checkbox">
+                                            <input id="terms_conditions" type="checkbox" checked>
                                             <label for="terms_conditions"></label>
                                         </div>
-                                        <p>I have read and agreed to the 
+                                        <p for="terms_conditions">I have read and agreed to the 
                                             <!-- <a href="javascript:;" data-target="javascript:;" data-toggle="modal">Terms &amp; Conditons</a> -->
                                             <a href="javascript:;" >Terms &amp; Conditons</a>
                                         </p> 
@@ -287,7 +287,7 @@
 
                                             <input type="hidden" id="std_id" value="{{$data->std_id}}"   name="std_id" />
                                         <div class="pay_sec">                                           
-                                            <button type="submit" id="" class=" btn common-blue-btn">
+                                            <button type="submit"  id="btn_s" class=" btn common-blue-btn">
                                                 Pay Now
                                             </button>
 
@@ -317,3 +317,19 @@
         </div>
     </div>
 
+
+
+<script>
+    
+
+    document.getElementById('terms_conditions').onchange = function() {
+
+    if ( document.getElementById('terms_conditions').checked === false ) {
+        console.log('checkd');
+        document.getElementById('btn_s').setAttribute('disabled', 'disabled');
+    }else{
+        console.log('unchedk');
+         document.getElementById('btn_s').removeAttribute('disabled');
+    }
+};
+</script>
