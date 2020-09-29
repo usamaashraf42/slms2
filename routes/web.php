@@ -29,7 +29,7 @@ Route::get('/easypaisa/token', function () { return view('web.easypaisa.get_toke
 Route::post('easypaisa/store','Web\EasypaisaController@store')->name('easypaisaStore');
 Route::get('/unauthorized/user', function () { return view('error.401'); })->name('401');
 
-Route::get('billing/{fee_id}','Web\OnlineFeeDepositChallanController@onlineChallan')->name('fee.billing');
+Route::get('challan/{fee_id}','Web\OnlineFeeDepositChallanController@onlineChallan')->name('fee.billing');
 Route::get('fee','Web\OnlineFeeDepositChallanController@feees');
 
 
