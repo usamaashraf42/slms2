@@ -68,7 +68,7 @@
     $PostURL = "https://sandbox.jazzcash.com.pk/CustomerPortal/transactionmanagement/merchantform";
     //"http://testpayments.jazzcash.com.pk/PayAxisCustomerPortal/transactionmanagement/merchantform"; 
     date_default_timezone_set("Asia/karachi");
-    $Amount = $data->total_fee*100; //Last two digits will be considered as Decimal
+    $Amount = $data->total_fee; //Last two digits will be considered as Decimal
     $BillReference = "11111";
     $Description = "Thank you for using Jazz Cash";
     $Language = "EN";
