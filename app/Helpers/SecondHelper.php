@@ -1,5 +1,5 @@
 <?php
-    use \Carbon\Carbon;
+use \Carbon\Carbon;
 
 
 
@@ -50,13 +50,13 @@ if (!function_exists('lastAbsentDay')) {
 
     $attendance=\App\Models\StudentDate::where('branch_id',$branch_id);
     foreach($dates as $date){
-        $attendance->where('attendance_date',$date);
+      $attendance->where('attendance_date',$date);
     }
 
-   return $attendance->where('absent',1)->groupBy('std_id')->with('student')->get();
+    return $attendance->where('absent',1)->groupBy('std_id')->with('student')->get();
 
     
- }
+  }
 }
 
 
@@ -89,12 +89,19 @@ function currencyCnv( $amount, $from, $to){
 
 function currencyConverter($amount, $from, $to){
 
-    $response = Currency::convert($from,$to,$amount);
-        return response()->json($response);
-        
+  $response = Currency::convert($from,$to,$amount);
+  return response()->json($response);
+
 }
 
 
+function ReferenceDecrypt($string) {
+ return Crypt::decryptString($string);
+}
 
+function ReferenceEncrypt($string) {
+  return  Crypt::encryptString($string);
+  
+}
 
-?>
+ 

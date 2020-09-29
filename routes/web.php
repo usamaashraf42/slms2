@@ -29,6 +29,10 @@ Route::get('/easypaisa/token', function () { return view('web.easypaisa.get_toke
 Route::post('easypaisa/store','Web\EasypaisaController@store')->name('easypaisaStore');
 Route::get('/unauthorized/user', function () { return view('error.401'); })->name('401');
 
+Route::get('billing/{fee_id}','Web\OnlineFeeDepositChallanController@onlineChallan')->name('fee.billing');
+Route::get('fee','Web\OnlineFeeDepositChallanController@feees');
+
+
 Route::prefix('muscat')->group(function () {
 	Route::get('/', 'Web\Muscat\PublicController@index')->name('muscat.index');
 	Route::get('/nursery', 'Web\Muscat\PublicController@nursery')->name('muscat.nursery');    
@@ -88,6 +92,10 @@ Route::get('/news','Web\Pakistan\PublicController@news')->name('pakistan.news');
 Route::get('/event','Web\Pakistan\PublicController@event')->name('pakistan.event');
 Route::get('/student_picture','Web\Pakistan\PublicController@student_picture')->name('pakistan.student_picture');
 Route::resource('feedeposit','Web\FeeDepositController');
+
+Route::get('/student_picture','Web\Pakistan\PublicController@student_picture')->name('pakistan.student_picture');
+
+
 
 Route::get('how-to-pay','Web\Pakistan\PublicController@howToPay')->name('pakistan.howToPay');
 
