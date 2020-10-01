@@ -239,7 +239,7 @@ class EmployeeController extends Controller
       'DOB'=>$request->dob?date("Y-m-d", strtotime($request->dob)):date("Y-m-d"),
       'date_join'=>$request->joiningdate?date("Y-m-d", strtotime($request->joiningdate)):date("Y-m-d"),
       'degreein_education' => $request->qualification,
-      'designation_Code' => $request->designation,
+      'designation_Code' => $request->designation_Code,
       'address' => $request->address,
       'salary'=>$request->salary,
       'status'=>1,
@@ -366,7 +366,7 @@ return redirect()->route('employee.index');
 
         $input['DOB']=$request->dob?date("Y-m-d", strtotime($request->dob)):$user->DOB;
         $input['degreein_education'] = $request->qualification?$request->qualification:$user->degreein_education;
-        $input['designation_Code'] = $request->designation?$request->designation:$user->designation_Code;
+        $input['designation_Code'] = $request->designation_Code?$request->designation_Code:$user->designation_Code;
         $input['address'] = $request->address?$request->address:$user->address;
         $input['updated_by'] = Auth::user()->id;
         $input['salary'] = $request->salary?$request->salary:$user->salary;
