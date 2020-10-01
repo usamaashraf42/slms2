@@ -2,6 +2,14 @@
 @section('title', 'Employee Card')
 @section('content')
 <style>
+
+	.multiselect-container{
+		height:350px;overflow-y:scroll;
+	}
+	select[multiple], select[size] {
+		height: 40px!important;
+		padding: 7px;
+	}
 	table{
 		border-spacing: 0px!important;
 		border-collapse: unset;!important;
@@ -23,6 +31,7 @@
 			background: initial;
 			page-break-after: always;
 		}
+
 		table{
 			border-spacing: 0px!important;
 			border-collapse: collapse!important;
@@ -61,173 +70,194 @@
 								<div class="col-md-4">
 									<div class="form-group">
 										<label for="employee_id">Select Employee</label>
-										<select type="text" class="form-control employee_id" id="employee_id"  name="employee_id"  placeholder="Name">
-											<option selected="selected" disabled="disabled">Seclect Employee</option>
+
+										<select  class="form-control employee_id" id="employee_id" size='8'  multiple="employee_id" name="employee_id[]"  placeholder="Name">
 											@if(!empty($users))
 											@foreach($users as $user)
-											<option value={{$user['emp_id']}}>{{$user['name']}}</option>
+											<option value="{{$user['emp_id']}}"> {{$user['name']}} </option>
 											@endforeach
 											@endif
-
 										</select>
-
 									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="form-group">
-										<label for="emp_id">Employee Id</label>
-										<select type="text" class="category" value="{{old('emp_id')}}" name="emp_id" id="account" placeholder="cat_id" style="width: 100%;min-height: 40px;">
-											<option disabled="disabled" selected>Seclect Employee</option>
-										</select>
-
-
-									</div>                       
-								</div>
-							</div>
-
-							<div class="row">
-
-								<div class="col-md-4">
-									<div class="form-group">
-										<label for="from_date">From Date</label>
-										<input type="text" readonly class="from_date" autocomplete="off"  value="{{old('from_date')}}" name="from_date" id="from_date" placeholder="from_date" style="width: 100%;min-height: 40px;">
-
-										@if ($errors->has('from_date'))
-										<div class="alert alert-danger" role="alert">
-											<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-												<span aria-hidden="true">×</span>
-												<span class="sr-only">Close</span>
-											</button>
-											<strong>Warning!</strong> {{$errors->first('from_date')}}
-										</div>
+								<!-- 	<select type="text" class="form-control employee_id" id="employee_id"  multiple="multiple" name="employee_id"  placeholder="Name">
+										<option selected="selected" disabled="disabled">Seclect Employee</option>
+										@if(!empty($users))
+										@foreach($users as $user)
+										<option value={{$user['emp_id']}}>{{$user['name']}}</option>
+										@endforeach
 										@endif
 
-									</div>                       
+									</select> -->
+
 								</div>
-
-								<div class="col-md-4">
-									<div class="form-group">
-										<label for="valid_date">Valid Till</label>
-										<input type="text" class="valid_date" value="{{old('valid_date')}}" autocomplete="off" name="valid_date" id="valid_date" placeholder="valid_date" style="width: 100%;min-height: 40px;">
-
-										@if ($errors->has('valid_date'))
-										<div class="alert alert-danger" role="alert">
-											<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-												<span aria-hidden="true">×</span>
-												<span class="sr-only">Close</span>
-											</button>
-											<strong>Warning!</strong> {{$errors->first('valid_date')}}
-										</div>
-										@endif
-
-									</div>                       
-								</div>
-
-								
 							</div>
-							
-							<div class="form-group row">
+							<div class="col-md-4">
+								<div class="form-group">
+									<label for="emp_id">Employee Id</label>
+									<select type="text" class="category form-control" value="{{old('emp_id')}}" name="emp_id" id="account" placeholder="cat_id" style="width: 100%;min-height: 40px;">
+										<option disabled="disabled" selected>Seclect Employee</option>
+									</select>
 
-								<div class="card" style="width:100%">
-									<div class="card-block">
-										<div class="ks-items-block float-center" style="align-items: center;margin-left: 40%">
-											<button class="btn btn-primary ks-rounded"> Submit </button>
-											<button class="btn btn-success ks-rounded">Cancel</button>
-										</div>
 
+								</div>                       
+							</div>
+						</div>
+
+						<div class="row">
+
+							<div class="col-md-4">
+								<div class="form-group">
+									<label for="from_date">From Date</label>
+									<input type="text" readonly class="from_date" autocomplete="off"  value="{{old('from_date')}}" name="from_date" id="from_date" placeholder="from_date" style="width: 100%;min-height: 40px;">
+
+									@if ($errors->has('from_date'))
+									<div class="alert alert-danger" role="alert">
+										<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+											<span aria-hidden="true">×</span>
+											<span class="sr-only">Close</span>
+										</button>
+										<strong>Warning!</strong> {{$errors->first('from_date')}}
 									</div>
+									@endif
+
+								</div>                       
+							</div>
+
+							<div class="col-md-4">
+								<div class="form-group">
+									<label for="valid_date">Valid Till</label>
+									<input type="text" class="valid_date" value="{{old('valid_date')}}" autocomplete="off" name="valid_date" id="valid_date" placeholder="valid_date" style="width: 100%;min-height: 40px;">
+
+									@if ($errors->has('valid_date'))
+									<div class="alert alert-danger" role="alert">
+										<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+											<span aria-hidden="true">×</span>
+											<span class="sr-only">Close</span>
+										</button>
+										<strong>Warning!</strong> {{$errors->first('valid_date')}}
+									</div>
+									@endif
+
+								</div>                       
+							</div>
+
+
+						</div>
+
+						<div class="form-group row">
+
+							<div class="card" style="width:100%">
+								<div class="card-block">
+									<div class="ks-items-block float-center" style="align-items: center;margin-left: 40%">
+										<button class="btn btn-primary ks-rounded"> Submit </button>
+										<button class="btn btn-success ks-rounded">Cancel</button>
+									</div>
+
 								</div>
 							</div>
-						</form>
-					</div>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
-		@endsection
+	</div>
+	@endsection
 
-		@push('post-styles')
-
-
-
-		@endpush
-		@push('post-scripts')
-
-		
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
-
-		<link rel="stylesheet" type="text/css" href="{{asset('js/datepickerScroll/src/anypicker-font.css')}}" />
-		<link rel="stylesheet" type="text/css" href="{{asset('js/datepickerScroll/src/anypicker.css')}}" />
-
-		<link rel="stylesheet" type="text/css" href="{{asset('js/datepickerScroll/src/anypicker-ios.css')}}" />
-		<link rel="stylesheet" type="text/css" href="{{asset('js/datepickerScroll/src/anypicker-android.css')}}" />
-		<link rel="stylesheet" type="text/css" href="{{asset('js/datepickerScroll/src/anypicker-windows.css')}}" /> 
-
-		<script type="text/javascript" src="{{asset('js/datepickerScroll/src/anypicker.js')}}"></script>
-
-		<script type="text/javascript">
+	@push('post-styles')
 
 
 
-			$(".from_date").AnyPicker({
-				mode: "datetime",
-				dateTimeFormat: " dd-MMM-yyyy",
-			});
-			$(".valid_date").AnyPicker({
-				mode: "datetime",
-				dateTimeFormat: " dd-MMM-yyyy",
-			});
+	@endpush
+	@push('post-scripts')
 
-		</script>
-		<script>
-			
 
-			function getClass(obj){
-				$("[name='employee_id']").html(` <option selected="selected" value='0'> All Employee  </option>`);
-				var branch_id  = $(".branch_id").val();
-				console.log('branch',$("[name='branch_id']").val());
-				$('.branch').val(branch_id);
-				$.ajax({
-					method:"POST",
-					url:"{{route('branchHasEmployee')}}",
-					data : {branch_id:branch_id},
-					dataType:"json",
-					success:function(res){
-						console.log('data',res);
-						if(res.status){
-							res.data.forEach(function(val,ind){
-								var id = val.emp_id;
-								var name = val.name;
-								var option = `<option value="${id}">${name} (${id})</option>`;
-								$("[name='employee_id']").append(option);
-							});
-						}
-						
-					}
-				});
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 
-			}
+	<link rel="stylesheet" type="text/css" href="{{asset('js/datepickerScroll/src/anypicker-font.css')}}" />
+	<link rel="stylesheet" type="text/css" href="{{asset('js/datepickerScroll/src/anypicker.css')}}" />
+
+	<link rel="stylesheet" type="text/css" href="{{asset('js/datepickerScroll/src/anypicker-ios.css')}}" />
+	<link rel="stylesheet" type="text/css" href="{{asset('js/datepickerScroll/src/anypicker-android.css')}}" />
+	<link rel="stylesheet" type="text/css" href="{{asset('js/datepickerScroll/src/anypicker-windows.css')}}" /> 
+
+	<link rel="stylesheet" href="{{asset('assets/multi/dist/css/bootstrap-multiselect.css')}}" type="text/css">
+	<script type="text/javascript" src="{{asset('assets/multi/dist/js/bootstrap-multiselect.js')}}"></script>
+
+	<script type="text/javascript" src="{{asset('js/datepickerScroll/src/anypicker.js')}}"></script>
+
+	<script type="text/javascript">
 
 
 
-			$('#account').select2({
-				ajax: {
-					url: "{{route('get_employee')}}",
-					method:"post",
-					dataType: 'json',
-					processResults: function (_data, params) {
-						console.log('_data',_data);
-						var data1= $.map(_data, function (obj) {
-							var newobj = {};
-							newobj.id = obj.emp_id;
-							newobj.text= `${obj.name} - (${obj.emp_id}) `;
-							return newobj;
+		$(".from_date").AnyPicker({
+			mode: "datetime",
+			dateTimeFormat: " dd-MMM-yyyy",
+		});
+		$(".valid_date").AnyPicker({
+			mode: "datetime",
+			dateTimeFormat: " dd-MMM-yyyy",
+		});
+
+	</script>
+	<script>
+
+		$('#employee_id').multiselect({
+			buttonWidth : '100%',
+			includeSelectAllOption : true,
+			nonSelectedText: 'Select Employee'
+		});
+		function getClass(obj){
+			var branch_id  = $(".branch_id").val();
+			console.log('branch',$("[name='branch_id']").val());
+			$('.branch').val(branch_id);
+			$.ajax({
+				method:"POST",
+				url:"{{route('branchHasEmployee')}}",
+				data : {branch_id:branch_id},
+				dataType:"json",
+				success:function(res){
+					$('#employee_id').html('');
+					console.log('data',res);
+					if(res.status){
+						res.data.forEach(function(val,ind){
+							var id = val.emp_id;
+							var name = val.name;
+							var option = `<option value="${id}">${name} (${id})</option>`;
+							$("[name='employee_id[]']").append(option);
 						});
-						return { results:data1};
+
+						$('#employee_id').multiselect('rebuild');
+
 					}
+
 				}
 			});
 
-		</script>
+		}
 
-		@endpush
+
+
+		$('#account').select2({
+			ajax: {
+				url: "{{route('get_employee')}}",
+				method:"post",
+				dataType: 'json',
+				processResults: function (_data, params) {
+					console.log('_data',_data);
+					var data1= $.map(_data, function (obj) {
+						var newobj = {};
+						newobj.id = obj.emp_id;
+						newobj.text= `${obj.name} - (${obj.emp_id}) `;
+						return newobj;
+					});
+					return { results:data1};
+				}
+			}
+		});
+
+	</script>
+
+
+
+	@endpush

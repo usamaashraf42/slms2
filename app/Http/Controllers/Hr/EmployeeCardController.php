@@ -24,6 +24,7 @@ class EmployeeCardController extends Controller
 
 
     public function store(Request $request){
+        // dd($request->employee_id);
     	$records=Employee::where('status',1);
 
          if(isset($request->branch_id) && !empty($request->branch_id) && ($request->branch_id)>0){
@@ -32,7 +33,7 @@ class EmployeeCardController extends Controller
        
 
         if(isset($request->employee_id) && !empty($request->employee_id) && ($request->employee_id)>0){
-              $records->where('emp_id',$request->employee_id);
+              $records->whereIn('emp_id',$request->employee_id);
         }
 
         if(isset($request->emp_id) && !empty($request->emp_id) && ($request->emp_id)>0){
