@@ -915,9 +915,9 @@ function maintaince_approval(){
     columns:[
     {"data":"images","render":function(status,type,row){
 
-        return row.images?`<a class="example-image-link" href="http://lyceumgroupofschools.com/images/staff/${row.images}" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="http://lyceumgroupofschools.com/images/staff/${row.images}"  alt="${row.category?row.category?row.category.main_name:'':''}" height="60" width="60" style="border-radius: 50%!important;" />
+        return row.images?`<a class="example-image-link" href="images/staff/${row.images}" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="images/staff/${row.images}"  alt="${row.category?row.category?row.category.main_name:'':''}" height="60" width="60" style="border-radius: 50%!important;" />
         </a>`:
-        `<a class="example-image-link" href="http://lyceumgroupofschools.com/images/staff/no-image.png" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="http://lyceumgroupofschools.com/images/staff/no-image.png"  alt="''" height="60" width="60" style="border-radius: 50%!important;" />`;
+        `<a class="example-image-link" href="images/staff/no-image.png" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="images/staff/no-image.png"  alt="''" height="60" width="60" style="border-radius: 50%!important;" />`;
 
     }},
     {"data":"emp_id","render":function(status,type,row){
@@ -994,9 +994,9 @@ function maintaince_new(){
 
     {"data":"images","render":function(status,type,row){
 
-        return row.images?`<a class="example-image-link" href="http://lyceumgroupofschools.com/images/staff/${row.images}" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="http://lyceumgroupofschools.com/images/staff/${row.images}"  alt="${row.category?row.category?row.category.main_name:'':''}" height="60" width="60" style="border-radius: 50%!important;" />
+        return row.images?`<a class="example-image-link" href="images/staff/${row.images}" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="images/staff/${row.images}"  alt="${row.category?row.category?row.category.main_name:'':''}" height="60" width="60" style="border-radius: 50%!important;" />
         </a>`:
-        `<a class="example-image-link" href="http://lyceumgroupofschools.com/images/staff/no-image.png" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="http://lyceumgroupofschools.com/images/staff/no-image.png"  alt="''" height="60" width="60" style="border-radius: 50%!important;" />`;
+        `<a class="example-image-link" href="images/staff/no-image.png" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="images/staff/no-image.png"  alt="''" height="60" width="60" style="border-radius: 50%!important;" />`;
 
     }},
 

@@ -30,10 +30,7 @@ class HomeController extends Controller
 
 
 
-    public function feeChalan()
-    {
-        return view('fee-chalan');
-    }
+   
 
     
     public function premier(){

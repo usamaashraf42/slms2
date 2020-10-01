@@ -173,15 +173,15 @@
       }
     </style>
     @foreach($record as $std)
-    <div class="bcardw" style="background-image: url('{{asset('images/school/student_3.jpg')}}'); background-size: cover;">
-      <div class="logo_heading" style="margin: 0 auto; max-width: 64px;    padding-top: 5px;">
-       <img src="{{asset('images/school/logo.png')}}" width="100%" >
+    <div class="bcardw" style="background-image: url('{{asset('images/staff/niyyar-card_1_1.jpg')}}'); background-size: cover;">
+      <div class="logo_heading" style="margin: 0 auto; max-width: 170px;    padding-top: 5px;">
+       <img src="{{asset('images/ALIS logo white.png')}}" width="100%" >
      </div>
      <div class="pad_let">
        <img src="@if($std->images) {{asset('images/staff/'.$std->images)}} @else {{asset('images/student/pics/no-image.png')}} @endif" class="rounded-circle"  style="border-radius: 50%; 
        width: 100px;
        height: 100px;
-       border: 3px solid red;" >
+       border: 3px solid #3375a3;" >
      </div>
      <div class="phone" style="text-align: center;
      font-size: 12px;margin-bottom: 2px;

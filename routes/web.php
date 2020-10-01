@@ -19,7 +19,9 @@ Route::get('/checkout', function () { return view('checkout'); });
 
 
 Route::post('contactus','HomeController@ContactFom')->name('ContactFom');
-Route::get('fees-chalan','HomeController@ContactFom')->name('fee.chalan');
+
+
+	Route::get('fees-chalan','NewApplicationController@feeChalan')->name('fee.chalan');
 
 
 
@@ -174,6 +176,9 @@ Auth::routes();
 
 
 Route::prefix('admin')->group(function () {
+
+
+
 	Route::get('/login', function () { return view('_layouts.admin.login'); })->name('admin.login');
 	Route::get('/register', function () { return view('_layouts.admin.register'); })->name('admin.register');
 	Route::post('registeration','Auth\RegisterController@admin_register')->name('admin_register');
