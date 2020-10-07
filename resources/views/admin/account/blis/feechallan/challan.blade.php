@@ -118,6 +118,11 @@ border-right: 2px solid #000;
     $total_amount=3 * $amount;
   }
 
+  if(!$data->course_id){
+    $amount=0;
+    $total_amount=3 * $amount;
+  }
+
 
 
 ?>
