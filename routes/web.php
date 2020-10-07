@@ -255,6 +255,10 @@ Route::prefix('admin')->group(function () {
 
 
 			Route::resource('fee-challan','admins\Student\feeChallen\FeeChallenController');
+
+			Route::resource('blis-fee-challan','Account\Blis\BlisFeeChallanController');
+
+
 			Route::get('fee/challan/pdf/{branch_id}/{class_id}/{ly_no}','admins\Student\feeChallen\FeeChallenController@fee_challan_pdf')->name('fee_challan_pdf');
 
 
