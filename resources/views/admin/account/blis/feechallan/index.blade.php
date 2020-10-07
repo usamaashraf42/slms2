@@ -47,6 +47,7 @@
 
 										<label for="branch_id">Select Branch</label>
 										<select class="form-control-1 branch_id" name="branch_id" onchange="getClass(this)"   id="branch_id" required style="height: 40px; width: 100%;">
+											<option value="0">All branches</option>
 											@foreach($branchs as $branch)
 											<option value={{$branch['id']}}>{{$branch['branch_name']}}</option>
 											@endforeach
