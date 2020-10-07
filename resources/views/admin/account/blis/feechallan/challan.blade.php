@@ -88,6 +88,11 @@ border-right: 2px solid #000;
 
 <?php 
 
+ $amount=0;
+    $total_amount=3 * $amount;
+
+    
+
   if($data->course_id>=183 && $data->course_id<=193){
     $amount=1400;
     $total_amount=3 * $amount;
@@ -118,10 +123,7 @@ border-right: 2px solid #000;
     $total_amount=3 * $amount;
   }
 
-  if(!$data->course_id){
-    $amount=0;
-    $total_amount=3 * $amount;
-  }
+
 
 
 
