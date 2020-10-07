@@ -42,7 +42,7 @@ class BlisFeeChallanController extends Controller
 
 		$data=Student::where('status',1);
 
-		if($request->branch_id){
+		if($request->branch_id>0){
 			$data->where('branch_id',$request->branch_id);
 		}
 
