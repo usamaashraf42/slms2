@@ -253,7 +253,7 @@
                                         </div>
                                         <p for="terms_conditions">I have read and agreed to the 
                                             <!-- <a href="javascript:;" data-target="javascript:;" data-toggle="modal">Terms &amp; Conditons</a> -->
-                                            <a href="javascript:;" >Terms &amp; Conditons</a>
+                                            <a href="{{asset('alisFee.pdf')}}"  target="_blank">Terms &amp; Conditons</a>
                                         </p> 
                                     </div>
                                     
