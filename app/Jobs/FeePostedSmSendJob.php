@@ -47,7 +47,7 @@ class FeePostedSmSendJob implements ShouldQueue
                         $year=$std->fee_year;
 
                          $message=strip_tags("Dear Parent,\nToday is the last day to pay the fee for the month of $month-$year. To pay online,\nplease click $route \nPlease pay now to avoid fine.\nRegards,\nAmerican Lyceum");
-                        (SendSms('03076110561',$message));
+                        (SendSms('03004449626',$message));
 
                     }
                     
