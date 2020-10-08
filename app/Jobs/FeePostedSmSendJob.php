@@ -35,7 +35,8 @@ class FeePostedSmSendJob implements ShouldQueue
     public function handle()
     {
         foreach ($this->stds as $std) {
-                if(isset($std->student->emergency_mobile) && $std->student->status && $std->student->is_active  && ($std->student->emergency_mobile) ){
+                if(isset($std->student->status) && $std->student->status && $std->student->is_active ){
+                    
                     
                     if(isset($std->student) && $std->student->emergency_mobile or $std->student->s_phoneNo){
                         $phone=$std->student->s_phoneNo?$std->student->s_phoneNo:$std->student->emergency_mobile;
@@ -47,7 +48,7 @@ class FeePostedSmSendJob implements ShouldQueue
                         $year=$std->fee_year;
 
                          $message=strip_tags("Dear Parent,\nToday is the last day to pay the fee for the month of $month-$year. To pay online,\nplease click $route \nPlease pay now to avoid fine.\nRegards,\nAmerican Lyceum");
-                        (SendSms('03004449626',$message));
+                        (SendSms($phone,$message));
 
                     }
                     

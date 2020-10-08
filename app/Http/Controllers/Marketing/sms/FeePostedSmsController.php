@@ -44,9 +44,9 @@ class FeePostedSmsController extends Controller
         \Artisan::call('cache:clear');
 
 
-        $stds=FeePost::whereIn('branch_id',$request->branch_id)->with('student')->orderBy('id','DESC')->where('fee_month',$request->month)->where('fee_year',$request->year)->where('isPaid','<>',1)->where('id',1025112)->get();
+        $stds=FeePost::whereIn('branch_id',$request->branch_id)->with('student')->orderBy('id','DESC')->where('fee_month',$request->month)->where('fee_year',$request->year)->where('isPaid','<>',1)->get();
 
-// dd($stds[0]);
+// dd($stds);
         if(count($stds)){
 
          (FeePostedSmSendJob::dispatch($stds));
