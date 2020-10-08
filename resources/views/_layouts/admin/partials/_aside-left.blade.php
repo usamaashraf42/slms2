@@ -555,6 +555,14 @@
                 <span>SMS Alert</span> 
             </a>
         </li>
+
+        <li class="{{ areActiveRoutes(['fee-posted-sms.create','fee-posted-sms.index'])}}">
+            <a href="{{route('fee-posted-sms.create')}}" class=""><i class="fa fa-user" aria-hidden="true"></i> 
+                <span>Fee Posted SMS</span> 
+            </a>
+        </li>
+
+
         @endif
     </ul>
 </li>

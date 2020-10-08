@@ -9,9 +9,8 @@ class OnlineFeeDepositChallanController extends Controller
 {
     public function onlineChallan($fee_id){
 
-    	$id=ReferenceDecrypt($fee_id);
     
-    	$data=FeePost::find($id);
+    	$data=FeePost::find($fee_id);
 
     	return view('web.feedeposit.onlineFeeDepositChallan',compact('data'));
 

@@ -42,7 +42,7 @@ class OutstandingSMSendController implements ShouldQueue
          foreach ($this->stds as $std) {
                 $log='outstanding sms';
                 
-                if(isset($std->student->emergency_mobile) && $std->student->status && && $std->student->is_active  && ($std->student->emergency_mobile)){
+                if(isset($std->student->emergency_mobile) && $std->student->status  && $std->student->is_active  && ($std->student->emergency_mobile)){
                     
                     if(isset($std->student) && $std->student->emergency_mobile or $std->student->s_phoneNo){
                         $phone=$std->student->s_phoneNo?$std->student->s_phoneNo:$std->student->emergency_mobile;

@@ -19,7 +19,7 @@
 			<tr>
 				<td>@isset($record->id){{$record->id}}@endisset  </td>
 				<td>@isset($record->student){{$record->student->s_name}}@endisset  </td>
-				<td><a href="{{route('fee.billing',ReferenceEncrypt($record->id))}}"> {{route('fee.billing',ReferenceEncrypt($record->id))}}</a></td>
+				<td><a href="{{route('fee.billing',($record->id))}}"> {{route('fee.billing',($record->id))}}</a></td>
 			</tr>
 			@endforeach
 		</tbody>

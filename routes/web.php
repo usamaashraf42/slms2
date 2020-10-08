@@ -205,6 +205,9 @@ Route::prefix('admin')->group(function () {
 		Route::get('/profile', function () { return view('_layouts.admin.profile'); })->name('admin.profile');
 		Route::resource('class','admins\CourseController');
 		Route::resource('sms-send','admins\SmsSendController');
+
+		Route::resource('fee-posted-sms','Marketing\sms\FeePostedSmsController');
+
 		Route::resource('branch','Branch\BranchController');
 		Route::resource('subject','admins\SubjectController');
 		Route::resource('certifcation','admins\CertificationController');
