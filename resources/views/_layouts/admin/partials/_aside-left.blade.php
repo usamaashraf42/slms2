@@ -524,11 +524,22 @@
 
 
 
-    <li class="{{ areActiveRoutes(['re-admission.index.index','re-admission.index.edit','re-admission.create'])}}">
-        <a href="{{route('re-admission.index')}}" class="{{ areActiveRoutes(['re-admission.index.index','re-admission.store'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
-            <span>Re-Admission</span> 
-        </a>
-    </li>
+ 
+
+
+    <li class="submenu">
+            <a href="#" class="{{ areActiveRoutes(['re-admission.index.index','re-admission.index.edit','re-admission.create'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Re-Admission</span> <span class="menu-arrow"></span></a>
+            <ul class="list-unstyled" style="display: none;">
+                <li class="{{ areActiveRoutes(['re-admission.index.index','re-admission.store'])}}"><a href="{{route('re-admission.index')}}"> Re-Admission</a></li>
+
+                <li class="{{ areActiveRoutes(['transfer.index','branch_student_transfer_report'])}}"><a href="{{route('transfer.index')}}"> Re-Admission Record</a></li>
+
+                <li class="{{ areActiveRoutes(['approval-transfer-student.index','approval-transfer-student.edit'])}}"><a href="{{route('approval-transfer-student.index')}}"> Re-Admission Approval</a></li>
+                <li class="{{ areActiveRoutes(['approval-transfer-student.create'])}}"><a href="{{route('approval-transfer-student.create')}}">Re-Admission Approval Record</a></li>
+            </ul>
+        </li>
+
+
 
     @if(Auth::user()->can('Student Fee Structure')  )
 
