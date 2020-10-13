@@ -306,6 +306,12 @@ Route::prefix('admin')->group(function () {
 
 			Route::POST('student-edit_update','admins\Student\StudentBulkEditController@edit_update')->name('student_edit_update');
 			Route::resource('re-admission','admins\Student\StatusChangeController');
+			
+			Route::resource('re-admission-report','admins\Student\ReAdmission\StudentReAdmissionReportController');
+
+			Route::resource('approval-re-admission','admins\Student\ReAdmission\StudentReAdmissionApprovalController');
+			
+
 			Route::resource('card','admins\Student\Card\StudentCardController');
 			
 			Route::get('challan/{id}','admins\Student\feepost\FeePostController@challen')->name('student.challen');

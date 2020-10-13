@@ -143,7 +143,7 @@ border-right: 2px solid #000;
           <span class="ommni"> Account title: British Lyceum (PVT) Ltd </span> <br>
         
           <span class="ommni">  <strong>DIB A/C# &nbsp; 0630050001</strong></span></p><br>
-            <span class="ommni">For queries contact: 0346-4292920 </span> <br>
+            <span class="ommni">For queries contact: 03-111-444492 </span> <br>
 
        </div>
       </th>
@@ -158,7 +158,7 @@ border-right: 2px solid #000;
           <span class="ommni"> Account title: British Lyceum (PVT) Ltd </span> <br>
         
           <span class="ommni">  <strong>DIB A/C# &nbsp; 0630050001</strong></span></p><br>
-            <span class="ommni">For queries contact: 0346-4292920 </span> <br>
+            <span class="ommni">For queries contact: 03-111-444492 </span> <br>
 
        </div>
       </th>
@@ -173,7 +173,7 @@ border-right: 2px solid #000;
           <span class="ommni"> Account title: British Lyceum (PVT) Ltd </span> <br>
         
           <span class="ommni">  <strong>DIB A/C# &nbsp; 0630050001</strong></span></p><br>
-            <span class="ommni">For queries contact: 0346-4292920 </span> <br>
+            <span class="ommni">For queries contact: 03-111-444492 </span> <br>
 
        </div>
       </th>

@@ -1,10 +1,10 @@
 @extends('_layouts.admin.default')
-@section('title', 'Student Readdmission')
+@section('title', 'Student Re-admission')
 @section('content')
 <div class="content container-fluid">
 	<div class="row">
 		<div class="col-md-12 col-sm-12 col-lg-12 col-xl-12">
-						<h4 class="card-title">Student Readdmission</h4>
+						<h4 class="card-title">Student Re-admission</h4>
 			<div class="card-box">
 				<div class="card-block">
 
@@ -22,6 +22,17 @@
 								@if ($errors->has('ly_no'))
 								<label id="ly_no-error" class="error" for="ly_no">
 									{{$errors->first('ly_no')}}
+								</label>
+								@endif
+							</div>
+
+							<label for="description" class="col-sm-2 form-control-label">Description</label>
+							<div class="col-sm-4">
+								<textarea type="text" name="description" id="description" class="form-control" ></textarea>
+
+								@if ($errors->has('description'))
+								<label id="description-error" class="error" for="description">
+									{{$errors->first('description')}}
 								</label>
 								@endif
 							</div>

@@ -532,10 +532,11 @@
             <ul class="list-unstyled" style="display: none;">
                 <li class="{{ areActiveRoutes(['re-admission.index.index','re-admission.store'])}}"><a href="{{route('re-admission.index')}}"> Re-Admission</a></li>
 
-                <li class="{{ areActiveRoutes(['transfer.index','branch_student_transfer_report'])}}"><a href="{{route('transfer.index')}}"> Re-Admission Record</a></li>
+                <li class="{{ areActiveRoutes(['re-admission-report.index','re-admission-report.store'])}}"><a href="{{route('re-admission-report.index')}}"> Re-Admission Record</a></li>
 
-                <li class="{{ areActiveRoutes(['approval-transfer-student.index','approval-transfer-student.edit'])}}"><a href="{{route('approval-transfer-student.index')}}"> Re-Admission Approval</a></li>
-                <li class="{{ areActiveRoutes(['approval-transfer-student.create'])}}"><a href="{{route('approval-transfer-student.create')}}">Re-Admission Approval Record</a></li>
+                <li class="{{ areActiveRoutes(['approval-re-admission.index','approval-re-admission.edit'])}}"><a href="{{route('approval-re-admission.index')}}"> Re-Admission Approval</a></li>
+                
+                <!-- <li class="{{ areActiveRoutes(['approval-re-admission.create'])}}"><a href="{{route('approval-re-admission.create')}}">Re-Admission Approval Report</a></li> -->
             </ul>
         </li>
 
