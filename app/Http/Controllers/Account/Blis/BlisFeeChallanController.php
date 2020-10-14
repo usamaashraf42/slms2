@@ -66,16 +66,41 @@ class BlisFeeChallanController extends Controller
       // dd($records);
 
 		view()->share('employee',$records);
-		$pdf = DOMPDF::loadView('admin.account.blis.feechallan.challan', $records);
 
-      // download PDF file with download method
 
-		$pdf=DOMPDF::setOptions([
-			'logOutputFile' => storage_path('logs/log.htm'),
-			'tempDir' => storage_path('logs/')
-		])->loadView('admin.account.blis.feechallan.challan', $records);
-		$pdf->setPaper('A4', 'landscape');
+
+		 $pdf = DOMPDF::setOptions([
+    	 	'isHtml5ParserEnabled' => true, 
+    	 	'isRemoteEnabled' => true,
+    	 	'isJavascriptEnabled'=>true,
+    	 	'debugCss'=>true,
+    	 	'logOutputFile' => storage_path('logs/log.html'),
+	        'tempDir' => storage_path('logs/'),
+    	 	'isPhpEnabled'=>true])->loadView('admin.account.blis.feechallan.challan',$records);
+	      $pdf->setPaper('A4', 'landscape');
+
+        $pdf->getDomPDF()->setHttpContext(
+            stream_context_create([
+                'ssl' => [
+                    'allow_self_signed'=> true,
+                    'verify_peer' => false,
+                    'verify_peer_name' => false,
+                ]
+            ])
+        );  
+
 		return $pdf->stream('BLIS-fee-challan.pdf');
+
+		// $pdf = DOMPDF::loadView('admin.account.blis.feechallan.challan', $records);
+
+  //     // download PDF file with download method
+
+		// $pdf=DOMPDF::setOptions([
+		// 	'logOutputFile' => storage_path('logs/log.htm'),
+		// 	'tempDir' => storage_path('logs/')
+		// ])->loadView('admin.account.blis.feechallan.challan', $records);
+		// $pdf->setPaper('A4', 'landscape');
+		// return $pdf->stream('BLIS-fee-challan.pdf');
 
 
 	}
