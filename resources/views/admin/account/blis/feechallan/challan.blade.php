@@ -8,6 +8,26 @@
   <title>Fee Challan</title>
 </head>
 <style>
+   .Row {
+      display: table;
+      width: 100%; /*Optional*/
+      table-layout: fixed; /*Optional*/
+      border-spacing: 2px; /*Optional*/
+  }
+  .Column {
+      display: table-cell;
+  }
+
+  *{
+    margin: 2px;
+    padding: 2px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  html, body {
+    height: 100%;
+  }
+
   li{
     list-style: circle;
   }
@@ -70,7 +90,7 @@
 .table_box{
  width: 80%;
  border-radius: 22px;
- padding: 16px;
+ padding: 1px;
  margin: 0 auto;
  margin-bottom: 18px!important;
  background: whitesmoke;
@@ -126,82 +146,141 @@ if($data->course_id>=194 && $data->course_id<=196){
 
 ?>
 <body>
-  <table  class="myTable" cellspacing="0" style="margin-top: -10px;">
-    <tbody><tr>
-      <th  class="border_r"colspan="3">
-        <div style="padding-left: 10px;">
-        <p  style="padding: 12px!important; margin-top: 5px;">
+  <table  class="myTable" cellspacing="0" style="margin-top:2px;">
+    <tbody>
+      <tr>
+      <th  class="border_r" colspan="3">
 
-          <div style="text-align: right;font-weight: normal;font-size: 14px;padding-right: 5px;"> BLIS  </div> 
-          <span class="" style="float: center!important;text-align: center !important;"> <img src="{{public_path('images/blis.png')}}" height="25" width="25" > <strong>British Lyceum (PVT) Ltd</strong></span></p><br>
-          <span class="" style="float: center!important;text-align: center !important"> Online Fee</span></p><br>
+        <p style="padding: 12px!important; margin-top: 5px;"> <div style="text-align: right;font-weight: normal;font-size: 14px;"> BLIS  </div></p>
 
-          <span class="ommni"> Account title: British Lyceum (PVT) Ltd </span> <br>
-
-          <span class="ommni"> <img src="{{public_path('images/dib.png')}}" height="10" width="30" > <strong>DIB A/C# &nbsp; 0630050001</strong></span></p><br>
-          <span class="ommni">For queries contact: 03-111-444492 </span> <br>
-
-        </div>
-
+        <div style=" display: inline-block;margin-top: 0px;">
+           <img src="{{public_path('images/blis.png')}}" style="" height="80" width="80" >
+         </div>
+          <div style=" display: inline-block;text-align: left">
+              <p style="font-size: 18px;font-weight: 700;">British Lyceum (PVT) Ltd</p>
+              <p style="font-size: 16px;">Online Fee</p>
+          </div>
 
       </th>
-      <th  class="border_r"colspan="3">
-       <div style="padding-left: 10px;">
-        <p  style="padding: 12px!important; margin-top: 5px;">
+      <th  class="border_r" colspan="3">
+       <p style="padding: 12px!important; margin-top: 5px;"> <div style="text-align: right;font-weight: normal;font-size: 14px;"> Candidate  </div></p>
 
-          <div style="text-align: right;font-weight: normal;font-size: 14px;padding-right: 5px;"> Condidate  </div> 
-          <span class="" style="float: center!important;text-align: center !important;"> <img src="{{public_path('images/blis.png')}}" height="25" width="25" > <strong>British Lyceum (PVT) Ltd</strong></span></p><br>
-          <span class="" style="float: center!important;text-align: center !important"> Online Fee</span></p><br>
-
-          <span class="ommni"> Account title: British Lyceum (PVT) Ltd </span> <br>
-
-          <span class="ommni"> <img src="{{public_path('images/dib.png')}}" height="10" width="30" > <strong>DIB A/C# &nbsp; 0630050001</strong></span></p><br>
-          <span class="ommni">For queries contact: 03-111-444492 </span> <br>
-
-        </div>
+        <div style=" display: inline-block;margin-top: 0px;">
+           <img src="{{public_path('images/blis.png')}}" style="" height="80" width="80" >
+         </div>
+          <div style=" display: inline-block;text-align: left">
+              <p style="font-size: 18px;font-weight: 700;">British Lyceum (PVT) Ltd</p>
+              <p style="font-size: 16px;">Online Fee</p>
+          </div>
       </th>
-      <th  class="border_r"colspan="3">
-      <div style="padding-left: 10px;">
-        <p  style="padding: 12px!important; margin-top: 5px;">
+      <th  class="border_r" colspan="3">
+     <p style="padding: 12px!important; margin-top: 5px;"> <div style="text-align: right;font-weight: normal;font-size: 14px;"> Bank  </div></p>
 
-          <div style="text-align: right;font-weight: normal;font-size: 14px;padding-right: 5px;"> Bank  </div> 
-          <span class="" style="float: center!important;text-align: center !important;"> <img src="{{public_path('images/blis.png')}}" height="25" width="25" > <strong>British Lyceum (PVT) Ltd</strong></span></p><br>
-          <span class="" style="float: center!important;text-align: center !important"> Online Fee</span></p><br>
-
-          <span class="ommni"> Account title: British Lyceum (PVT) Ltd </span> <br>
-
-          <span class="ommni"> <img src="{{public_path('images/dib.png')}}" height="10" width="30" > <strong>DIB A/C# &nbsp; 0630050001</strong></span></p><br>
-          <span class="ommni">For queries contact: 03-111-444492 </span> <br>
-
-        </div>
+        <div style=" display: inline-block;margin-top: 0px;">
+           <img src="{{public_path('images/blis.png')}}" style="" height="80" width="80" >
+         </div>
+          <div style=" display: inline-block;text-align: left">
+              <p style="font-size: 18px;font-weight: 700;">British Lyceum (PVT) Ltd</p>
+              <p style="font-size: 16px;">Online Fee</p>
+          </div>
       </th>
     </tr>
     <tr>
-      <th  class="border_r"colspan="3" style="padding: 10px;">
-
-        <span style="float: left;"> Name:  {{$data->s_name}} </span>
-        <br>
-        <br>
-        <span style="float: left;"> ID: {{$data->id}} </span>
-        <br>      
+      <th  class="border_r"colspan="3" style="text-align: left;">
+          <div style="display: inline-block;">
+             <p style="font-size: 14px;"><strong style="font-size: 16px; font-weight: 700">Account Title:</strong> British Lyceum (PVT) Ltd</p>
+          </div>
+            
       </th>
-      <th  class="border_r"colspan="3" style="padding: 10px;">
+      <th  class="border_r"colspan="3"  style="text-align: left;">
 
-        <span style="float: left;"> Name:  {{$data->s_name}}</span>
-        <br>
-        <br>
-
-        <span style="float: left;"> <!-- {{$data->s_name}}  -->ID: {{$data->id}} </span>
-        <br>
+       <div style="display: inline-block;">
+             <p style="font-size: 14px;"><strong style="font-size: 16px; font-weight: 700">Account Title:</strong> British Lyceum (PVT) Ltd</p>
+          </div>
+            
       </th>
-      <th  class="border_r"colspan="3" style="padding: 10px;">
+      <th  class="border_r"colspan="3"  style="text-align: left;">
 
-        <span style="float: left;"> Name:  {{$data->s_name}}</span>
-        <br>
-        <br>
+        <div style="display: inline-block;">
+             <p style="font-size: 14px;"><strong style="font-size: 16px; font-weight: 700">Account Title:</strong> British Lyceum (PVT) Ltd</p>
+          </div>
+      </th>
+    </tr>
 
-        <span style="float: left;"> <!-- {{$data->s_name}}  -->ID: {{$data->id}} </span>
 
+     <tr>
+      <th  class="border_r"colspan="3" style="text-align: left;">
+         <div style="display: inline-block;">
+              <img src="{{public_path('images/dib.png')}}" style="" height="35" width="90" > 
+          </div>
+           <div style=" display: inline-block;text-align: left">
+            <p style="font-size: 14px;"><strong style="font-size: 16px; font-weight: 700">DIB A/C:</strong> 0630050001</p>
+          </div>
+            
+      </th>
+      <th  class="border_r"colspan="3"  style="text-align: left;">
+
+          <div style="display: inline-block;">
+              <img src="{{public_path('images/dib.png')}}" style="" height="35" width="90" > 
+          </div>
+           <div style=" display: inline-block;text-align: left">
+            <p style="font-size: 14px;"><strong style="font-size: 16px; font-weight: 700">DIB A/C:</strong> 0630050001</p>
+          </div>
+            
+      </th>
+      <th  class="border_r"colspan="3"  style="text-align: left;">
+
+       <div style="display: inline-block;">
+              <img src="{{public_path('images/dib.png')}}" style="" height="35" width="90" > 
+          </div>
+           <div style=" display: inline-block;text-align: left">
+            <p style="font-size: 14px;"><strong style="font-size: 16px; font-weight: 700">DIB A/C:</strong> 0630050001</p>
+          </div>
+
+      </th>
+    </tr>
+     <tr>
+      <th  class="border_r"colspan="3" style="text-align: left;">
+          <div style="display: inline-block;">
+             <p style="font-size: 14px;"><strong style="font-size: 16px; font-weight: 700">For Any Query:</strong> 03-111-4444-92</p>
+          </div>
+            
+      </th>
+      <th  class="border_r"colspan="3"  style="text-align: left;">
+
+       <div style="display: inline-block;">
+              <p style="font-size: 14px;"><strong style="font-size: 16px; font-weight: 700">For Any Query:</strong> 03-111-4444-92</p>
+          </div>
+            
+      </th>
+      <th  class="border_r"colspan="3"  style="text-align: left;">
+
+        <div style="display: inline-block;">
+             <p style="font-size: 14px;"><strong style="font-size: 16px; font-weight: 700">For Any Query:</strong> 03-111-4444-92</p>
+          </div>
+      </th>
+    </tr>
+
+
+
+    <tr>
+      <th  class="border_r" colspan="3" style="text-align: left;">
+
+        <p > Name:  {{$data->s_name}} </p>
+      
+        <p > ID: {{$data->id}} </p>
+      </th>
+      <th  class="border_r" colspan="3" style="text-align: left;">
+
+        <p > Name:  {{$data->s_name}} </p>
+      
+        <p > ID: {{$data->id}} </p>
+      </th>
+      <th  class="border_r" colspan="3" style="text-align: left;">
+
+        <p > Name:  {{$data->s_name}} </p>
+      
+        <p > ID: {{$data->id}} </p>
       </th>
     </tr>
     <tr>
