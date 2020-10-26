@@ -127,13 +127,22 @@ class FeeDepositController extends Controller
 						session()->flash('success_message', "Package buy successfully, thanks to subscribe Britishlyceum package" );
 						return redirect($url);
 					}
-
-
-
-					
 					return redirect($url);
-					
+				}
+				elseif ($request->ppmpf_4==4 && $request->ppmpf_5==23) {
 
+					$this->britishlyceumComPackageBuy($request->ppmpf_1);
+					$url="https://britishlyceum.com/student/fee-payment/$bank->britishlyceum_user_id/$bank->prepon_transaction_id/$bank->amount";
+
+					if($url){
+						session()->flash('success_message', "Package buy successfully, thanks to subscribe Britishlyceum package" );
+						return redirect($url);
+					}
+					else{
+						session()->flash('success_message', "Package buy successfully, thanks to subscribe Britishlyceum package" );
+						return redirect($url);
+					}
+					return redirect($url);
 				}
 				else{
 					$this->feeDepositDbEffected($request->ppmpf_2,$request->ppmpf_1,$amount,8);
@@ -165,6 +174,9 @@ class FeeDepositController extends Controller
 				elseif ($request->ppmpf_4==4 && $request->ppmpf_5==22) {
 					return redirect("http://britishlyceum.com/user/package-failed/$ResponseMessage");
 
+				}elseif ($request->ppmpf_4==4 && $request->ppmpf_5==23) {
+					return redirect("http://britishlyceum.com/student/package-failed/$ResponseMessage");
+
 				}
 				else{
 					return redirect()->route('feedeposit.index');
@@ -187,6 +199,9 @@ class FeeDepositController extends Controller
 
 				}elseif ($request->ppmpf_4==4 && $request->ppmpf_5==22) {
 					return redirect("http://britishlyceum.com/user/package-failed/$ResponseMessage");
+
+				}elseif ($request->ppmpf_4==4 && $request->ppmpf_5==23) {
+					return redirect("http://britishlyceum.com/student/package-failed/$ResponseMessage");
 
 				}else{
 					return redirect()->route('feedeposit.index');
@@ -215,10 +230,13 @@ class FeeDepositController extends Controller
 			}elseif ($request->ppmpf_4==3 && $request->ppmpf_5==21) {
 					return redirect("https://britishlyceum.org/user/package-failed/$ResponseMessage");
 
+			}elseif ($request->ppmpf_4==4 && $request->ppmpf_5==23) {
+					return redirect("http://britishlyceum.com/student/package-failed/$ResponseMessage");
+
 			}elseif ($request->ppmpf_4==4 && $request->ppmpf_5==22) {
 					return redirect("http://britishlyceum.com/user/package-failed/$ResponseMessage");
 
-				}else{
+			}else{
 				return redirect()->route('feedeposit.index');
 			}		
 		}	
