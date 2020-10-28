@@ -131,8 +131,8 @@ class FeeDepositController extends Controller
 				}
 				elseif ($request->ppmpf_4==4 && $request->ppmpf_5==23) {
 
-					$this->britishlyceumComPackageBuy($request->ppmpf_1);
-					$url="https://britishlyceum.com/student/fee-payment/$bank->britishlyceum_user_id/$bank->prepon_transaction_id/$bank->amount";
+					$url=$this->britishlyceumComStudentFeePayment($request->ppmpf_1);
+				
 
 					if($url){
 						session()->flash('success_message', "Package buy successfully, thanks to subscribe Britishlyceum package" );
@@ -1091,6 +1091,63 @@ class FeeDepositController extends Controller
 
 			
 
+		}else{
+			return false;
+		}
+	}
+
+
+	public function britishlyceumComStudentFeePayment($id){
+		$bank=BankTransactionDetail::find($id);
+
+		if($bank){
+			$amount=$bank->amount;
+			$fees=BankTransactionDetail::where('id',$id)->update(['status'=>0]);
+			$bankAc=Account::where('bank_id',8)->first();
+			if($bankAc){
+				$master=Master::where('account_id',$bankAc->id)->orderBy('id','DESC')->first();
+				$ledger=[
+					'account_id'=>$bankAc->id,
+					'a_credit'=>isset($amount)?$amount:0,
+					'a_debit'=>0,
+					'balance'=>isset($master->balance)?$master->balance-$amount:((isset($master->balance)?$master->balance:0)-$amount),
+					'posting_date'=>date('Y-m-d'),
+					'description'=>"britishlyceum Package subscribed by jazzcash",
+					'month'=>date('m'),
+					'year'=>date('Y'),
+
+				];
+				$std=Master::insert($ledger);
+
+
+
+			}
+
+			$projectAcc=Account::where('id',10081)->first();
+			if($projectAcc){
+				$master=Master::where('account_id',$projectAcc->id)->orderBy('id','DESC')->first();
+				$ledger=[
+					'account_id'=>$projectAcc->id,
+					'a_credit'=>isset($amount)?$amount:0,
+					'a_debit'=>0,
+					'balance'=>isset($master->balance)?$master->balance-$amount:((isset($master->balance)?$master->balance:0)-$amount),
+					'posting_date'=>date('Y-m-d'),
+					'description'=>"britishlyceum Package subscribed by jazzcash",
+					'month'=>date('m'),
+					'year'=>date('Y'),
+
+				];
+				$std=Master::insert($ledger);
+
+
+
+			}
+
+
+			
+
+			$url="https://britishlyceum.com/student/fee-payment/$bank->britishlyceum_user_id/$bank->prepon_transaction_id/$bank->amount";
+			return $url;
 		}else{
 			return false;
 		}
