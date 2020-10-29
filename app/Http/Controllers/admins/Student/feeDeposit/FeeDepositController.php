@@ -93,7 +93,7 @@ class FeeDepositController extends Controller
               for($i=1; $i<count($data); $i++){
                 $record=$data[$i];
               $feeIds=isset($feeId)?$record[$feeId]:null;
-              $firstInsertamount=$record[$amount];
+              $firstInsertamount=(double)($record[$amount]);
               $studentName=null;
               $std=false;
               $tranId=((isset($student)?$record[$student]:(isset($feeIds)?$feeIds:'')?(isset($feeIds)?$feeIds:''):''));
