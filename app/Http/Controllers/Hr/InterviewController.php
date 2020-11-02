@@ -184,7 +184,7 @@ class InterviewController extends Controller
             if(isset($application->applicant->email) && !empty(isset($application->applicant->email))){
                 $name=$application->applicant->name;
                 $message=("Dear $name"." <br> ".$email_body);
-                $emails = [$application->applicant->email,'web@americanlyceum.com'];
+                $emails = [$application->applicant->email];
                 if(isset($request->email_send) && $request->email_send){
                     Mail::send('emails.interviewCall', ['data'=>$message], function($message) use ($emails,$email_subject) {    
                         $message->to($emails)->subject($email_subject);    

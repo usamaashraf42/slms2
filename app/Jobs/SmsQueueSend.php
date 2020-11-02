@@ -51,15 +51,15 @@ class SmsQueueSend implements ShouldQueue
              
           
 
-             SmsSendLog::create([
-                 'std_id'=>$this->std_id,
-                 'branch_id'=>$this->branch_id,
-                 'class_id'=>$this->class_id,
-                 'created_by'=>Auth::user()->id,
-                 'sms_title'=>$this->sms_title,
-                 'sms_body'=>$this->sms,
-                 'phone'=>$this->phone,
-                 'description'=>isset($log)?$log:null,
-                ]);
+            SmsSendLog::create([
+                'std_id'=>$this->std_id,
+                'branch_id'=>$this->branch_id,
+                'class_id'=>$this->class_id,
+                'created_by'=>Auth::user()->id,
+                'sms_title'=>$this->sms_title,
+                'sms_body'=>$this->sms,
+                'phone'=>$this->phone,
+                'description'=>isset($log)?$log:null,
+            ]);
     }
 }

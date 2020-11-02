@@ -46,7 +46,7 @@ class FeePostedSmsController extends Controller
 
         $stds=FeePost::whereIn('branch_id',$request->branch_id)->with('student')->orderBy('id','DESC')->where('fee_month',$request->month)->where('fee_year',$request->year)->where('isPaid','<>',1)->get();
 
-// dd($stds);
+
         if(count($stds)){
 
          (FeePostedSmSendJob::dispatch($stds));
