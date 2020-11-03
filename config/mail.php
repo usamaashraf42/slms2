@@ -17,7 +17,7 @@ return [
     */
 
     // 'driver' => env('MAIL_DRIVER', 'smtp'),
-    'driver'=>'sendmail',
+    'driver'=>'smtp',
 
     /*
     |--------------------------------------------------------------------------
@@ -31,7 +31,7 @@ return [
     */
 
     // 'host' => env('MAIL_HOST', 'smtp.gmail.com'),
-    'host'=>'smtp.googlemail.com',
+    'host'=>'smtp.gmail.com',
 
     /*
     |--------------------------------------------------------------------------
