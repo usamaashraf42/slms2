@@ -378,21 +378,27 @@ class StudentRegisterController extends Controller
                     $feePost=($this->feePost($request, $newUser));
                     if($feePost){
                         DB::commit();
-                        $branch=Branch::find($request->branch_id);
-                        $emails = ['web@americanlyceum.com', 'accounts@americanlyceum.com', 'tnadeem@americanlyceum.com',isset($branch)?$branch->b_emil:'web@americanlyceum.com'];
+
+                        try{
+                            $branch=Branch::find($request->branch_id);
+
+                            $emails = ['web@americanlyceum.com', 'accounts@americanlyceum.com', 'tnadeem@americanlyceum.com',isset($branch)?$branch->b_emil:'web@americanlyceum.com'];
                             // $emails = ['web@americanlyceum.com','shafqatghafoor99@gmail.com'];
                         
-                        Mail::send('emails.admission_manager', ['data'=>$newUser], function($message) use ($emails){    
-                            $message->to($emails)->subject('New Admission');    
-                        });
+                            Mail::send('emails.admission_manager', ['data'=>$newUser], function($message) use ($emails){    
+                                $message->to($emails)->subject('New Admission');    
+                            });
 
-                        if($newUser->std_mail){
-                            $emails = $newUser->std_mail;
-                            if (filter_var($emails, FILTER_VALIDATE_EMAIL)) {
-                                Mail::send('emails.admission_parent', ['data'=>$newUser], function($message) use ($emails){    
-                                    $message->to($emails)->subject('Welcome to American Lyceum International School');    
-                                });
+                            if($newUser->std_mail){
+                                $emails = $newUser->std_mail;
+                                if (filter_var($emails, FILTER_VALIDATE_EMAIL)) {
+                                    Mail::send('emails.admission_parent', ['data'=>$newUser], function($message) use ($emails){    
+                                        $message->to($emails)->subject('Welcome to American Lyceum International School');    
+                                    });
+                                }
+                                
                             }
+                        }catch(\Exception $e){
                             
                         }
 
