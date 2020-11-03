@@ -180,7 +180,7 @@ class StudentRegisterController extends Controller
 
         if($newUser){
             $account=Account::create([
-                'name'=>$newUser->s_name,' '.$newUser->s_fatherName,
+                'name'=>$newUser->s_name,.' '.$newUser->s_fatherName,
                 'c_balance'=>0,
                 'opening_balance'=>0,
                 'type'=>'student',
