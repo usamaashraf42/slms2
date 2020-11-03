@@ -68,9 +68,9 @@ class Handler extends ExceptionHandler
         $guard = array($exception->guards(),0);
         switch ($guard) {
 
-            case 'api':
-            return response()->json(['status'=>false,'message' => 'Unauthenticated user access deny.'], 200);
-            break;
+            // case 'api':
+            // return response()->json(['status'=>false,'message' => 'Unauthenticated user access deny.'], 200);
+            // break;
 
             default:
             $login = 'admin.login';
