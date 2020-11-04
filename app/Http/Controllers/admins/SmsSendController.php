@@ -45,7 +45,7 @@ class SmsSendController extends Controller
 
         $sms_title=$request->sms_title;
         $sms=strip_tags($request->sms_body);
-dd($request->all());
+
         // \Artisan::call('config:cache');
 
 
@@ -71,6 +71,7 @@ dd($request->all());
 
 
         	$stds=$students->get();
+            dd($stds);
         
         	foreach ($stds as $std) {
     			$log=null;
