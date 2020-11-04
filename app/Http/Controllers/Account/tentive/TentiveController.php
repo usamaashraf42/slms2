@@ -31,6 +31,7 @@ class TentiveController extends Controller
     public function store(Request $request){
     	// dd($request->all());
         $month=$request->month;
+        $year=$request->year;
         $misc1=$request->misc1;
         $misc2=$request->misc2;
         $tutionFee=$request->tutionFee;
