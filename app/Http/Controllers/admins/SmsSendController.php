@@ -71,7 +71,7 @@ dd($request->all());
 
 
         	$stds=$students->get();
-        dd($stds);
+        
         	foreach ($stds as $std) {
     			$log=null;
         		
