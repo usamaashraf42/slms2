@@ -45,6 +45,7 @@ class OutstandingSMSendController implements ShouldQueue
             if(isset($std->student->emergency_mobile) && $std->student->status  && $std->student->is_active  && ($std->student->emergency_mobile)){
                 
                 if(isset($std->student) && $std->student->emergency_mobile or $std->student->s_phoneNo){
+                    
                     $phone=$std->student->s_phoneNo?$std->student->s_phoneNo:$std->student->emergency_mobile;
                     $std_id=$std->student->id;
                     $branch_id=$std->student->branch_id;
@@ -55,16 +56,16 @@ class OutstandingSMSendController implements ShouldQueue
                     
                     
 
-                    SmsSendLog::create([
-                       'std_id'=>$std_id,
-                       'branch_id'=>$branch_id,
-                       'class_id'=>$class_id,
-                       'created_by'=>Auth::user()->id,
-                       'sms_title'=>$this->sms_title,
-                       'sms_body'=>$this->sms,
-                       'phone'=>$phone,
-                       'description'=>isset($log)?$log:null,
-                   ]);
+                   //  SmsSendLog::create([
+                   //     'std_id'=>$std_id,
+                   //     'branch_id'=>$branch_id,
+                   //     'class_id'=>$class_id,
+                   //     'created_by'=>Auth::user()->id,
+                   //     'sms_title'=>$this->sms_title,
+                   //     'sms_body'=>$this->sms,
+                   //     'phone'=>$phone,
+                   //     'description'=>isset($log)?$log:null,
+                   // ]);
 
 
 

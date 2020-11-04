@@ -71,7 +71,7 @@ class SmsSendController extends Controller
 
 
         	$stds=$students->get();
-            dd($stds);
+            
         
         	foreach ($stds as $std) {
     			$log=null;
