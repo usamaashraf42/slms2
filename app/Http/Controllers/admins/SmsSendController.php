@@ -75,12 +75,13 @@ class SmsSendController extends Controller
         
         	foreach ($stds as $std) {
     			$log=null;
-        		dd($std);
+        		
     			if(isset($std->s_phoneNo) && ($std->s_phoneNo) && $request->sms_body){
-                    $phone=$request->s_phoneNo?$request->s_phoneNo:$std->emergency_mobile;
+
+                    $phone=$std->s_phoneNo?$std->s_phoneNo:$std->emergency_mobile;
                     $std_id=$std->id;
-                    $branch_id=$request->branch_id?$request->branch_id:$std->branch_id;
-                    $class_id=$request->class_id?$request->class_id:$std->course_id;
+                    $branch_id=$std->branch_id;
+                    $class_id=$std->course_id;
 
     				SmsQueueSend::dispatch($phone,$sms,$sms_title,$std_id,$branch_id,$class_id);
     			}
