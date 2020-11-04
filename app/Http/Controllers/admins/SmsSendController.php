@@ -71,11 +71,11 @@ class SmsSendController extends Controller
 
 
         	$stds=$students->get();
-            
+
         
         	foreach ($stds as $std) {
     			$log=null;
-        		
+        		dd($std);
     			if(isset($std->s_phoneNo) && ($std->s_phoneNo) && $request->sms_body){
                     $phone=$request->s_phoneNo?$request->s_phoneNo:$std->emergency_mobile;
                     $std_id=$std->id;
