@@ -13,6 +13,9 @@
 
 include('Ajax/customRoute.php');
 Route::get('/', function () { return view('welcome'); });
+Route::get('/home', function () { return redirect('admin'); });
+
+
 
 // Route::get('/checkout', function () { return view('web.checkout'); });
 Route::get('/checkout', function () { return view('checkout'); });
