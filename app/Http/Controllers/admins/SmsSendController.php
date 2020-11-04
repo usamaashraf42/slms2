@@ -45,7 +45,7 @@ class SmsSendController extends Controller
 
         $sms_title=$request->sms_title;
         $sms=strip_tags($request->sms_body);
-
+dd($request->all());
         // \Artisan::call('config:cache');
 
 
@@ -71,12 +71,11 @@ class SmsSendController extends Controller
 
 
         	$stds=$students->get();
-        
-            
+        dd($stds);
         	foreach ($stds as $std) {
     			$log=null;
         		
-    			if(isset($std->emergency_mobile) && ($std->emergency_mobile) && $request->sms_body){
+    			if(isset($std->s_phoneNo) && ($std->s_phoneNo) && $request->sms_body){
                     $phone=$request->s_phoneNo?$request->s_phoneNo:$std->emergency_mobile;
                     $std_id=$std->id;
                     $branch_id=$request->branch_id?$request->branch_id:$std->branch_id;
