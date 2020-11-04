@@ -11,6 +11,7 @@ use App\Models\FeePost;
 use App\Models\SmsSendLog;
 use App\Models\Student;
 use App\Jobs\SmsQueueSend;
+use App\Jobs\StudentSmsSendLog;
 use App\Jobs\OutstandingSMSendController;
 use Session;
 use Auth;
@@ -69,25 +70,10 @@ class SmsSendController extends Controller
         		$students->whereIn('id',$request->student_ids);
         	}
 
-
         	$stds=$students->get();
 
-        
-        	foreach ($stds as $std) {
-    			$log=null;
-        		
-    			if(isset($std->s_phoneNo) && ($std->s_phoneNo) && $request->sms_body){
-
-                    $phone=$std->s_phoneNo?$std->s_phoneNo:$std->emergency_mobile;
-                    $std_id=$std->id;
-                    $branch_id=$std->branch_id;
-                    $class_id=$std->course_id;
-
-    				SmsQueueSend::dispatch($phone,$sms,$sms_title,$std_id,$branch_id,$class_id);
-    			}
-
-        		
-        	}
+            StudentSmsSendLog::dispatch($stds,$sms,$sms_title);
+        	
         }
 
     	if($request->phone){
