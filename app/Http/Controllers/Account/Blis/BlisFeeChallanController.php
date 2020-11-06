@@ -63,22 +63,22 @@ class BlisFeeChallanController extends Controller
 
 		$records=['records'=>$records];
 
-      // dd($records);
 
 		view()->share('employee',$records);
 
 
 
-		 $pdf = DOMPDF::setOptions([
-    	 	'isHtml5ParserEnabled' => true, 
-    	 	'isRemoteEnabled' => true,
-    	 	'isJavascriptEnabled'=>true,
-    	 	'debugCss'=>true,
-    	 	'logOutputFile' => storage_path('logs/log.html'),
-	        'tempDir' => storage_path('logs/'),
-    	 	'isPhpEnabled'=>true])->loadView('admin.account.blis.feechallan.challan',$records);
-	      $pdf->setPaper('A4', 'landscape');
+		$pdf = DOMPDF::setOptions([
+	    	 	'isHtml5ParserEnabled' => true, 
+	    	 	'isRemoteEnabled' => true,
+	    	 	'isJavascriptEnabled'=>true,
+	    	 	'debugCss'=>true,
+	    	 	'logOutputFile' => storage_path('logs/log.html'),
+		        'tempDir' => storage_path('logs/'),
+	    	 	'isPhpEnabled'=>true
+	    	])->loadView('admin.account.blis.feechallan.challan',$records);
 
+	    $pdf->setPaper('A4', 'landscape');
         $pdf->getDomPDF()->setHttpContext(
             stream_context_create([
                 'ssl' => [
