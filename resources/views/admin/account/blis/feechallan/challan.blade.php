@@ -461,15 +461,15 @@ else{
 <tr >
 
   <th  class="border_r" colspan="3" style="padding: 5px;">
-   Due date  <span>10-{{date('m')}}-2020</span>
+   Due date  <span>10-{{date('M')}}-2020</span>
  </th>
 
  <th  class="border_r" colspan="3" style="padding: 5px;">
-  Due date <span>10-{{date('m')}}-2020</span>
+  Due date <span>10-{{date('M')}}-2020</span>
 </th>
 
 <th  class="border_r" colspan="3" style="padding: 5px;">
-  Due date <span>10-{{date('m')}}-2020</span>
+  Due date <span>10-{{date('M')}}-2020</span>
 </th>
 
 </tr>
