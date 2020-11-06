@@ -110,35 +110,46 @@ $total_amount=3 * $amount;
 
 
 
-if($data->course_id>=183 && $data->course_id<=193){
-  $amount=1400;
-  $total_amount=3 * $amount;
-}
+// if($data->course_id>=183 && $data->course_id<=193){
+//   $amount=1400;
+//   $total_amount=3 * $amount;
+// }
 
-if($data->course_id>=176 && $data->course_id<=179){
-  $amount=1200;
-  $total_amount=3 * $amount;
-}
+// if($data->course_id>=176 && $data->course_id<=179){
+//   $amount=1200;
+//   $total_amount=3 * $amount;
+// }
 
-if($data->course_id>=163 && $data->course_id<=166){
-  $amount=700;
-  $total_amount=3 * $amount;
-}
+// if($data->course_id>=163 && $data->course_id<=166){
+//   $amount=700;
+//   $total_amount=3 * $amount;
+// }
 
-if($data->course_id>=163 && $data->course_id<=166 && $data->course_id>=15 && $data->course_id<=18){
-  $amount=700;
-  $total_amount=3 * $amount;
-}
+// if($data->course_id>=163 && $data->course_id<=166 && $data->course_id>=15 && $data->course_id<=18){
+//   $amount=700;
+//   $total_amount=3 * $amount;
+// }
 
-if($data->course_id>=1 && $data->course_id<=15 ){
-  $amount=400;
-  $total_amount=3 * $amount;
-}
-
-if($data->course_id>=194 && $data->course_id<=196){
+if($data->course_id>=1 && $data->course_id<=11 ){
   $amount=990;
+  $books=3;
   $total_amount=3 * $amount;
 }
+
+else if($data->course_id>=12 && $data->course_id<=15 ){
+  $amount=990;
+  $books=2;
+  $total_amount=2 * $amount;
+}
+else{
+  $amount=990;
+  $books=1;
+  $total_amount=1 * $amount;
+}
+// if($data->course_id>=194 && $data->course_id<=196){
+//   $amount=990;
+//   $total_amount=3 * $amount;
+// }
 
 
 
@@ -285,20 +296,20 @@ if($data->course_id>=194 && $data->course_id<=196){
     </tr>
     <tr>
       <td class="border_r" colspan="2" style="border-bottom:none;padding: 15px;height: 80px;">
-        Course studied 3 X {{$amount}}
+        Course studied {{$books}} X {{$amount}}
 
       </td>
       <td class="border_r" colspan="1" style="border-bottom:none;padding: 15px;height: 80px;">
         {{$total_amount}}/-
       </td>
       <td class="border_r" colspan="2" style="border-bottom:none;padding: 15px;height: 80px;">
-       Course studied 3 X {{$amount}}
+       Course studied {{$books}} X {{$amount}}
      </td>
      <td class="border_r" colspan="1" style="border-bottom:none;padding: 15px;height: 80px;">
       {{$total_amount}}/-
     </td>
     <td class="border_r" colspan="2" style="border-bottom:none;padding: 15px;height: 80px;">
-     Course studied 3 X {{$amount}}
+     Course studied {{$books}} X {{$amount}}
    </td>
    <td class="border_r" colspan="1" style="border-bottom:none;padding: 15px;height: 80px;">
     {{$total_amount}}/-
