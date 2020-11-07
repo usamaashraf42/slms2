@@ -1165,7 +1165,7 @@ class FeeDepositController extends Controller
 
 			
 
-			$url="https://britishlyceum.com/student/fee-payment/$bank->britishlyceum_user_id/$bank->prepon_transaction_id/$bank->amount";
+			$url="https://britishlyceum.com/online-school/student/fee-payment/$bank->britishlyceum_user_id/$bank->prepon_transaction_id/$bank->amount";
 			return $url;
 		}else{
 			return false;
