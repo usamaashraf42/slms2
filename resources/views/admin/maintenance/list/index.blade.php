@@ -71,6 +71,56 @@
 								<br>
 								
 							</div>
+							<form method="POST" action="{{route('list.store')}}">
+								@csrf
+							<div class="row">
+								<div class="col-md-3">
+									<label>Branch</label>
+									<select  class=" branch_id" id="branch_id"  name="branch_id"  placeholder="branch_id" style="height: 40px; width: 100%;">
+
+										<option selected="selected" disabled="disabled">Seclect Branch</option>
+										@if(!empty($branches))
+										@foreach($branches as $branch)
+										<option value={{$branch->id}} >{{$branch->branch_name}}</option>
+										@endforeach
+										@endif
+									</select>
+								</div>
+
+								<div class="col-md-3">
+									<label>Category</label>
+									<select  class=" cat_id" id="cat_id"  name="cat_id"  placeholder="cat_id" style="height: 40px; width: 100%;">
+
+										<option selected="selected" disabled="disabled">Seclect Category</option>
+										@if(!empty($categories))
+										@foreach($categories as $data)
+										<option value={{$data->id}} >{{$data->main_name}}</option>
+										@endforeach
+										@endif
+									</select>
+								</div>
+
+								<div class="col-md-3">
+									<label>Assign To</label>
+									<select  class=" emp_id" id="emp_id"  name="emp_id"  placeholder="emp_id" style="height: 40px; width: 100%;">
+
+										<option selected="selected" disabled="disabled">Seclect Employee</option>
+										@if(!empty($employees))
+										@foreach($employees as $data)
+										<option value={{$data->id}} >{{$data->name}}</option>
+										@endforeach
+										@endif
+									</select>
+								</div>
+								<div class="col-md-3">
+									<label>&nbsp;&nbsp;&nbsp;</label>
+									<button type="submit" class="btn btn-md btn-success" style="margin-top: 25px;">Print</button>
+								</div>
+
+
+							</div>
+							<br><br>
+							</form>
 							<div class="table-responsive">
 							<table class="table table_1">
 								<thead>
@@ -81,6 +131,7 @@
 										<th> Main Category</th>
 										<th> Category</th>
 										<th> Posted Date </th>
+										<th> Resolve time </th>
 										<th> Description</th>
 										<th> Remarks</th>
 										<th> Resolved Proof</th>
@@ -101,6 +152,14 @@
 											<td>@isset($main->category->maintain_category) {{$main->category->maintain_category->main_name}} @endisset</td>
 											<td>@isset($main->category) {{ $main->category->main_name }} @endisset</td>
 											<td>@isset($main->posted_date) {{$main->posted_date}} @endisset</td>
+											<td>
+												@if(isset($main->category->maintain_category)) 													{{$main->category->maintain_category->avg_time}} 
+												@else
+													@isset($main->category) {{ $main->category->avg_time }} @endisset
+												@endif
+											</td>
+
+
 											<td>@isset($main->description) {{$main->description}} @endisset</td>
 											<td><textarea name="remarks" class="form-control" placeholder="Remarks"></textarea></td>
 											<td><input type="file" name="resolved_proof"></td>

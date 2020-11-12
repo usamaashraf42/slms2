@@ -302,7 +302,7 @@
                 <!-- ////////////////////////???????????????????????????????? -->
 
                 <div role="tabpanel" class="tab-pane " id="needApproval">      <div class="nav_bva" style="margin-top: -20px;">
-                  Need Approval from Higher level Maintaince<span>&nbsp;&nbsp;  </span>
+                  Need Approval from Higher level Maintenance<span>&nbsp;&nbsp;  </span>
                 </div>
                 <br>
 
@@ -313,7 +313,7 @@
                     <thead>
 
                       <tr>
-                        <th> Maintaince Image</th>
+                        <th> Maintenance Image</th>
                         <th>Resolved Proof</th>
                         <th>Branch</th>
                         <th style="max-width: 100px!important;"><strong><h4> Maintenance Assign </h4></strong></th>
@@ -343,7 +343,7 @@
               <!-- ?///////////////////////////////////////// here need approval tab /////////////////////////////////////////////////////// -->
 
                 <div role="tabpanel" class="tab-pane " id="home">      <div class="nav_bva" style="margin-top: -20px;">
-                  Approval Pending Maintaince<span>&nbsp;&nbsp;  </span>
+                  Approval Pending Maintenance<span>&nbsp;&nbsp;  </span>
                 </div>
                 <br>
 
@@ -354,7 +354,7 @@
                     <thead>
 
                       <tr>
-                        <th> Maintaince Image</th>
+                        <th> Maintenance Image</th>
                         <th>Resolved Proof</th>
                         <th>Branch</th>
                         <th style="max-width: 100px!important;"><strong><h4> Maintenance Assign </h4></strong></th>
@@ -385,7 +385,7 @@
               <div role="tabpanel" class="tab-pane" id="profile">
                @php($counter=1)
                <div role="tabpanel" class="tab-pane " id="home">      <div class="nav_bva" style="margin-top: -20px;">
-                Resolved Maintaince <span>&nbsp;&nbsp; {{date('M')}}/{{date('Y')}} </span>
+                Resolved Maintenance  <span>&nbsp;&nbsp; {{date('M')}}/{{date('Y')}} </span>
               </div>
               <br>
 
@@ -397,7 +397,7 @@
                   <thead>
 
                     <tr>
-                      <th> Maintaince Image</th>
+                      <th> Maintenance Image</th>
                       <th>Resolved Proof</th>
                       <th>Branch</th>
                       <th style="max-width: 100px!important;"><strong><h4> Maintenance Assign </h4></strong></th>
