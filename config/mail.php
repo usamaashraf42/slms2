@@ -31,8 +31,8 @@ return [
     */
 
     // 'host' => env('MAIL_HOST', 'smtp.gmail.com'),
-    // 'host'=>'smtp.gmail.com',
-    'host'=>'email-smtp.us-east-1.amazonaws.com',
+    'host'=>'smtp.gmail.com',
+    // 'host'=>'email-smtp.us-east-1.amazonaws.com',
 
     /*
     |--------------------------------------------------------------------------
@@ -93,10 +93,10 @@ return [
     */
 
     // 'username' => env('admin@americanlyceum.com'),
-    // 'username'=>'admin@americanlyceum.com',
-    // 'password'=>'drali78692',
-    'username'=>'AKIA3PK3Y6D2BCGDF5HB',
-    'password'=>'BNAGTNoApClj++ALZnFiqxlarwq/xrDPIH+/kmHT/wLo',
+    'username'=>'admin@americanlyceum.com',
+    'password'=>'drali78692',
+    // 'username'=>'AKIA3PK3Y6D2BCGDF5HB',
+    // 'password'=>'BNAGTNoApClj++ALZnFiqxlarwq/xrDPIH+/kmHT/wLo',
 
     // 'password' => env('drali78692'),
 
