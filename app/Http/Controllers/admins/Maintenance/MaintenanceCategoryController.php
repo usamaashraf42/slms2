@@ -26,13 +26,14 @@ class MaintenanceCategoryController extends Controller
     {
         $categories=MaintenanceCategory::orderBy('id','DESC')->with('maintain_category','main_users')->get();
         $mains=MaintenanceCategory::orderBy('id','DESC')->get();
-        $users=User::orderBy('id','ASC');
+        $users=User::orderBy('id','ASC')->where('maintain_type',1)->where('status',1)->where('activity',1);
         if(Auth::user()->branch_id){
             $users->where('branch_id',Auth::user()->branch_id);
         }
 
+
         $employees=$users->get();
-        // dd($employees);
+      
         return view('admin.maintenance.category.index',compact('categories','mains','employees'));
     }
 
@@ -71,9 +72,12 @@ class MaintenanceCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        // return $request->all();
 
-            $savemain = MaintenanceCategory::create($request->except('_token','users'));
+            $savemain = MaintenanceCategory::create([
+                'main_name'=>$request->main_name,
+                'avg_time'=>$request->avg_time,
+                'parent_id'=>$request->parent_id,
+            ]);
             if ($savemain) {
             	if(isset($request->users)){
             		foreach ($request->users as $user) {
@@ -101,7 +105,7 @@ class MaintenanceCategoryController extends Controller
         try {
 
             $mains=MaintenanceCategory::orderBy('id','DESC')->get();
-            $users=User::orderBy('id','DESC');
+            $users=User::orderBy('id','ASC')->where('maintain_type',1)->where('status',1)->where('activity',1);
             if(Auth::user()->branch_id){
                 $users->where('branch_id',Auth::user()->branch_id);
             }
@@ -127,7 +131,7 @@ class MaintenanceCategoryController extends Controller
     {
         //
     }
-    public function deleteMaintenanceCategory(Request $request)
+    public function categoryStatusChange(Request $request)
     {
         try {
             $allInputs = $request->all();
@@ -139,12 +143,15 @@ class MaintenanceCategoryController extends Controller
             if ($validation->fails()) {
                 $response = (new ApiMessageController())->validatemessage($validation->errors()->first());
             } else {
-               
-                $deleteItem =MaintenanceCategory::where('id', $id)->update([
-                    'status' => 0
-                ]);
+                $maintenance =MaintenanceCategory::where('id', $id)->first();
 
-                if ($deleteItem) {
+                
+
+                if ($maintenance) {
+                    MaintenanceCategory::where('id', $id)->update([
+                        'status' => $maintenance->status?1:0
+                    ]);
+
                     $response = (new ApiMessageController())->saveresponse("Data Deleted Successfully");
                 } else {
                     $response = (new ApiMessageController())->failedresponse("Failed to delete Data");

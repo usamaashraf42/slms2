@@ -71,20 +71,21 @@
 								<br>
 								
 							</div>
-							<table class="table_1">
+							<div class="table-responsive">
+							<table class="table table_1">
 								<thead>
 									<tr style="border-top: 1px solid #000!important;border-bottom:1px solid #000!important;">
-										<th>Maintaince Proof</th>>
-										<th>Branch</th>
-										<th > Maintenance Assign </th>
-										<th>Main Category</th>
+										<th> Maintaince Proof</th>
+										<th> Branch</th>
+										<th> Maintenance Assign </th>
+										<th> Main Category</th>
 										<th> Category</th>
 										<th> Posted Date </th>
 										<th> Description</th>
 										<th> Remarks</th>
-										<th>Resolved Proof</th>
+										<th> Resolved Proof</th>
 
-										<th>Action</th>
+										<th> Action</th>
 									</tr>
 								</thead>
 
@@ -94,7 +95,7 @@
 									<tr>
 										<td>@if($main->images)<a class="example-image-link" href="{{asset('images/maintenance/',$main->images)}}" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="{{asset('images/maintenance/',$main->images)}}"   height="60" width="60" style="border-radius: 50%!important;" />
 										</a>@else
-										<a class="example-image-link" href="http://lyceumgroupofschools.com/images/maintenance/no-image.png" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="http://lyceumgroupofschools.com/images/maintenance/no-image.png"  alt="''" height="60" width="60" style="border-radius: 50%!important;" />@endif</td>
+										<a class="example-image-link" href="{{asset('images/maintenance/no-image.png')}}" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="http://lyceumgroupofschools.com/images/maintenance/no-image.png"  alt="''" height="60" width="60" style="border-radius: 50%!important;" /></a>@endif</td>
 											<td>@isset($main->branch) {{$main->branch->branch_name}} @endisset</td>
 											<td>@isset($main->assignUser) {{$main->assignUser->name}} @endisset</td>
 											<td>@isset($main->category->maintain_category) {{$main->category->maintain_category->main_name}} @endisset</td>
@@ -104,12 +105,17 @@
 											<td><textarea name="remarks" class="form-control" placeholder="Remarks"></textarea></td>
 											<td><input type="file" name="resolved_proof"></td>
 											
-											<td><button data-ids="{{$main->id}}" onclick="resolved(this)" class="btn-sm btn-success">Resolved</button></td>
+											<td>
+												<button data-ids="{{$main->id}}" onclick="resolved(this)" class="btn-sm btn-success">Resolved</button>
+
+												<button data-ids="{{$main->id}}" onclick="referToHigher(this)" class="btn-sm btn-warning">Refer to Higher</button>
+											</td>
 										</tr>
 										@endforeach
 									</tbody>
 
 								</table>
+							</div>
 							</div>
 						</div>
 					</div>
@@ -123,7 +129,41 @@
 				function printDivs(eve,obj)
 				{
 					$("#"+$(obj).attr('id')).print();
+				}
 
+				function referToHigher(ids){
+					console.log('ids',$(ids).attr('data-ids'),ids);
+
+					var idd=$(ids).attr('data-ids');
+					$.ajax({
+						url: "{{route('maintenanceTransferToHigherLevel')}}", 
+						method:"POST",
+						data:{id:idd},
+						success: function(response){
+
+							console.log('ajax call',response);
+							if(response.status){
+								if(response.status==1){
+									$(ids).parent().parent('tr').remove();
+									maintaince_new();
+									maintaince_approval();
+									maintaince_resolved();
+									toastr.success('Record Update Successfully');
+								}else{
+									$(ids).parent().parent('tr').remove();
+									maintaince_new();
+									maintaince_approval();
+									maintaince_resolved();
+									toastr.warning('Failed to update');
+								}
+
+							}
+							else{
+								toastr.danger('Record not update');
+
+							}
+						}
+					});
 				}
 				function resolved(ids){
 					console.log('ids',$(ids).attr('data-ids'),ids);

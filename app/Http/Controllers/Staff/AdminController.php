@@ -103,6 +103,7 @@ class AdminController extends Controller
       'status'=>1,
       'userType'=>'admin',
       'password' => Hash::make($request->input('password')),
+      'maintain_type'=>$request->maintain_type?$request->maintain_type:0
   ]);
 
      if (isset($request->roles) && !empty($request->roles))
@@ -192,7 +193,9 @@ return redirect()->route('staff.index');
         if($request->password){
           $input['pwd']=$request->password;
           $input['password'] = Hash::make($request->input('password'));
+
         }
+        $input['maintain_type']=$request->maintain_type?$request->maintain_type:$user->maintain_type;
         $newUser=User::where('id',$id)->update($input);
 
         $permissions = $user->getDirectPermissions();

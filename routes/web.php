@@ -463,6 +463,9 @@ Route::prefix('admin')->group(function () {
 
 		Route::prefix('maintenance')->group(function () {
 			Route::resource('category','admins\Maintenance\MaintenanceCategoryController');
+
+			Route::post('category-status-change','admins\Maintenance\MaintenanceCategoryController@categoryStatusChange')->name('category-status-change');
+
 			Route::resource('resolved','admins\Maintenance\ResolvedMaintenanceController');
 			Route::resource('pending','admins\Maintenance\PendingMaintenanceController');
 			Route::resource('list','admins\Maintenance\MaintenanceListController');
@@ -566,8 +569,11 @@ Route::prefix('admin')->group(function () {
 		Route::post('maintain/Sub-Category-users','admins\Maintenance\MaintenanceController@maintainceUser')->name('maintainceUser');
 		Route::post('get/issued/checque','admins\AjaxSecondCallController@get_issue_checque')->name('get_issue_checque');
 		Route::post('get/checque/detail','admins\AjaxSecondCallController@checqueDetail')->name('checqueDetail');
+
 		Route::post('maintain/resolved','admins\Maintenance\MaintenanceController@maintainceResolved')->name('maintainceResolved');
 		Route::post('maintain/approval','admins\Maintenance\MaintenanceController@approvedMaintaince')->name('approvedMaintaince');
+		Route::post('maintain/approval/high/level','admins\Maintenance\MaintenanceController@approvedMaintainceHighLevel')->name('approvedMaintainceHighLevel');
+		Route::post('maintain/approval/transfer/high/level','admins\Maintenance\MaintenanceController@maintenanceTransferToHigherLevel')->name('maintenanceTransferToHigherLevel');
 
 		
 
@@ -599,6 +605,8 @@ Route::prefix('admin')->group(function () {
 		Route::post('maintainceSearch','admins\Maintenance\MaintenanceController@maintainceSearch')->name('maintainceSearch');
 		Route::post('maintainceApprovedSearch','admins\Maintenance\MaintenanceController@maintainceApprovedSearch')->name('maintainceApprovedSearch');
 		Route::post('maintainceResolvedSearch','admins\Maintenance\MaintenanceController@maintainceResolvedSearch')->name('maintainceResolvedSearch');
+		Route::post('maintainceNeedApprovalSearch','admins\Maintenance\MaintenanceController@maintainceNeedApprovalSearch')->name('maintainceNeedApprovalSearch');
+
 		Route::post('branchHasSectionStudent','admins\AjaxSecondCallController@branchHasSectionStudent')->name('branchHasSectionStudent');
 
 

@@ -1026,14 +1026,14 @@
 
 @endif
 
-@if(Auth::user()->can('Maintaince Category Record') || Auth::user()->can('Maintaince Category-Create') || Auth::user()->can('Maintaince Category-Edit')  )
+@if(Auth::user()->can('Maintaince Category Record') || Auth::user()->can('Maintaince Category-Create') || Auth::user()->can('Maintaince Category-Edit')  || Auth::user()->can('Maintaince Users') || Auth::user()->can('Pending Maintainces') || Auth::user()->can('Resolved Maintainces') || Auth::user()->can('Maintaince-lists') )
 <li class="submenu ">
     <a href="javascript:;" class="{{ areActiveRoutes(['category.index','category.create','category.edit','role.index','role.create','role.edit','permission.index','permission.create','permission.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Maintenance Management</span> <span class="menu-arrow"></span></a>
     <ul class="list-unstyled" style="display: none;">
         @if(Auth::user()->can('Maintaince Category Record') || Auth::user()->can('Maintaince Category-Create') || Auth::user()->can('Maintaince Category-Edit')  )
         <li class="{{ areActiveRoutes(['category.index','category.create','category.edit'])}}">
             <a href="{{route('category.index')}}" class="{{ areActiveRoutes(['category.index','category.create','category.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
-                <span> Maintenance Category</span> 
+                <span> maintenance Category</span> 
             </a>
         </li>
         @endif
@@ -1042,14 +1042,14 @@
         @if(Auth::user()->can('Maintaince Users')  )
         <li class="{{ areActiveRoutes(['maintenance-user.index','maintenance-user.create','maintenance-user.edit'])}}">
             <a href="{{route('maintenance-user.index')}}" class="{{ areActiveRoutes(['maintenance-user.index','maintenance-user.create','maintenance-user.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> 
-                <span> Maintenance Users</span> 
+                <span> maintenance Users</span> 
             </a>
         </li>
         @endif
         @if(Auth::user()->can('Maintaince-Requests') || Auth::user()->can('Maintainces Create') || Auth::user()->can('Pending Maintainces') || Auth::user()->can('Resolved Maintainces') || Auth::user()->can('Approval Maintainces')  )
         <li class="{{ areActiveRoutes(['maintenance.index','maintenance.create','maintenance.edit'])}}">
             <a href="{{route('maintenance.index')}}" class="{{ areActiveRoutes(['maintenance.index','maintenance.create','maintenance.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i>
-                <span> Branch Maintenance </span> 
+                <span> Branch maintenance </span> 
             </a>
         </li>
         @endif

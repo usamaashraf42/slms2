@@ -73,7 +73,7 @@
                                 </div>
                             </div>
                             <div class="row" style="margin: 10px 0px;">
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <label class="control-label"> Name</label>
                                     <input name="name" value="{{ $user->name }}" type="text" placeholder="First Name" class="form-control">
                                     @if ($errors->has('name'))
@@ -86,6 +86,26 @@
                                     </div>
                                     @endif
                                 </div>
+
+                                <div class="col-md-6">
+                                    <label class="control-label"> Maintenance</label>
+                                    <select name="maintain_type"  type="text" placeholder="maintain_type" class="form-control">
+                                        <option value="">Choose Type </option>
+                                        <option value="1" @if($user->maintain_type==1) selected @endif >Yes</option>
+                                        <option value="0" @if($user->maintain_type==0) selected @endif >No</option>
+                                        
+                                    </select>
+                                    @if ($errors->has('maintain_type'))
+                                    <div class="alert alert-danger" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                            <span class="sr-only">Close</span>
+                                        </button>
+                                        <strong>Warning!</strong> {{$errors->first('maintain_type')}}
+                                    </div>
+                                    @endif
+                                </div>
+
                             </div>
                             <div class="row" style="margin: 10px 0px;">
                                 <div class="col-md-6">

@@ -101,10 +101,31 @@
 
               <div class="card">
                 <ul class="nav nav-tabs" role="tablist">
-                  <li role="presentation" ><a href="#maintain" class="active" aria-controls="maintain" role="tab" data-toggle="tab"><i class="fa fa-home"></i>  <span>Add Request</span></a></li>
-                  <li role="presentation"><a href="#detail" aria-controls="detail" role="tab" data-toggle="tab"><i class="fa fa-home"></i>  <span>Pending Maintaince</span></a></li>
-                  <li role="presentation" ><a href="#home" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-home"></i>  <span>Approval Resolved Maintaince</span></a></li>
-                  <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab"><i class="fa fa-user"></i>  <span>Resolved Maintaince</span></a></li>
+                  <li role="presentation" >
+                    <a href="#maintain" class="active" aria-controls="maintain" role="tab" data-toggle="tab">
+                      <i class="fa fa-home"></i>  <span>Add Request</span>
+                    </a>
+                  </li>
+                  <li role="presentation">
+                    <a href="#detail" aria-controls="detail" role="tab" data-toggle="tab">
+                      <i class="fa fa-home"></i>  <span>Pending Maintenance</span>
+                    </a>
+                  </li>
+                  <li role="presentation">
+                    <a href="#needApproval" aria-controls="needApproval" role="tab" data-toggle="tab">
+                      <i class="fa fa-home"></i>  <span>Need Approval</span>
+                    </a>
+                  </li>
+                  <li role="presentation" >
+                    <a href="#home" aria-controls="home" role="tab" data-toggle="tab">
+                      <i class="fa fa-home"></i>  <span>Approval Resolved Maintenance</span>
+                    </a>
+                  </li>
+                  <li role="presentation">
+                    <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">
+                      <i class="fa fa-user"></i>  <span>Resolved Maintenance</span>
+                    </a>
+                  </li>
                   
                 </ul>
 
@@ -280,6 +301,47 @@
 
                 <!-- ////////////////////////???????????????????????????????? -->
 
+                <div role="tabpanel" class="tab-pane " id="needApproval">      <div class="nav_bva" style="margin-top: -20px;">
+                  Need Approval from Higher level Maintaince<span>&nbsp;&nbsp;  </span>
+                </div>
+                <br>
+
+                <br>
+
+                <div class="table-responsive">
+                  <table class="table table-bordered" id="maintaince_needApproval">
+                    <thead>
+
+                      <tr>
+                        <th> Maintaince Image</th>
+                        <th>Resolved Proof</th>
+                        <th>Branch</th>
+                        <th style="max-width: 100px!important;"><strong><h4> Maintenance Assign </h4></strong></th>
+                        <th>Main Category</th>
+                        <th> Category</th>
+                        <th> Description</th>
+                        <th> Remarks</th>
+                        <th> Posted Date </th>
+
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+
+
+
+
+                  </table>
+
+
+                </div>
+              </div>
+
+
+
+
+
+              <!-- ?///////////////////////////////////////// here need approval tab /////////////////////////////////////////////////////// -->
+
                 <div role="tabpanel" class="tab-pane " id="home">      <div class="nav_bva" style="margin-top: -20px;">
                   Approval Pending Maintaince<span>&nbsp;&nbsp;  </span>
                 </div>
@@ -288,7 +350,7 @@
                 <br>
 
                 <div class="table-responsive">
-                  <table class="table" id="maintaince_approval">
+                  <table class="table table-bordered" id="maintaince_approval">
                     <thead>
 
                       <tr>
@@ -331,7 +393,7 @@
               <br>
 
               <div class="table-responsive">
-                <table class="table" id="maintaince_resolved">
+                <table class="table table-bordered" id="maintaince_resolved">
                   <thead>
 
                     <tr>
@@ -383,51 +445,21 @@
 @endsection
 
 @push('post-scripts')
-<link href="{{asset('assets/multi-select/css/bootstrap-select.css')}}" rel="stylesheet" type="text/css" />
-<link href="{{asset('assets/multi-select/css/multi-select.css')}}" rel="stylesheet" type="text/css" />
-
-<link href="{{asset('assets/multi-select/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
-<link href="{{asset('assets/multi-select/css/select2-bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
 
 
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jQuery.print/1.6.0/jQuery.print.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
-<link href="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.css" rel="stylesheet" type="text/css" />
 
-<script src="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.js"></script>
-<link href="{{asset('assets/multi-select/css/bootstrap-select.css')}}" rel="stylesheet" type="text/css" />
-<link href="{{asset('assets/multi-select/css/multi-select.css')}}" rel="stylesheet" type="text/css" />
-<link href="{{asset('assets/multi-select/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
-<link href="{{asset('assets/multi-select/css/select2-bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
-<script src="{{asset('assets/multi-select/bootstrap-select.min.js')}}" type="text/javascript"></script>
-<script src="{{asset('assets/multi-select/jquery.multi-select.js')}}" type="text/javascript"></script>
-<script src="{{asset('assets/multi-select/select2.full.min.js')}}" type="text/javascript"></script>
-
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 
 <script src="{{asset('assets/bootstrap-datatable/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('assets/bootstrap-datatable/js/dataTables.bootstrap4.min.js')}}"></script>
 <link href="{{asset('assets/bootstrap-datatable/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" type="text/css">
 
-<script type="text/javascript">
-  $("#banks-selected-options").multiSelect();
-  $("#courses-selected-options").multiSelect();
-</script>
+
 <script>
-  var today = new Date();
-  $('#posting_date').calendar({
-    monthFirst: false,
-    type: 'date',
-    minDate: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
-  });
-  $('#example1').calendar({
-    monthFirst: false,
-    type: 'date',
-    minDate: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
-  });
+ 
 
   function maintainCategory(obj){
     maintainceUser('obh');
@@ -535,12 +567,14 @@
             maintaince_new();
             maintaince_approval();
             maintaince_resolved();
+            need_approval_maintenance();
             toastr.success('Record Update Successfully');
           }else{
             $(ids).parent().parent('tr').remove();
             maintaince_new();
             maintaince_approval();
             maintaince_resolved();
+            need_approval_maintenance();
             toastr.warning('Failed to update');
           }
 
@@ -552,14 +586,15 @@
      }});
   }
 
-  function approvedMaintaince(ids){
+  function approvedMaintainceHighLevel(ids){
     console.log('ids',$(ids).attr('data-ids'),ids);
 
     var idd=$(ids).attr('data-ids');
+    var remarks=$('.remarks_'+idd).val();
     $.ajax({
-      url: "{{route('approvedMaintaince')}}", 
+      url: "{{route('approvedMaintainceHighLevel')}}", 
       method:"POST",
-      data:{id:idd},
+      data:{id:idd,remarks:remarks},
       success: function(response){
 
         console.log('ajax call',response);
@@ -570,11 +605,53 @@
             maintaince_new();
             maintaince_approval();
             maintaince_resolved();
+            need_approval_maintenance();
             toastr.success('Record Update Successfully');
           }else{
             maintaince_new();
             maintaince_approval();
             maintaince_resolved();
+            need_approval_maintenance();
+            $(ids).parent().parent('tr').remove();
+            toastr.warning('Failed to update');
+          }
+
+        }
+        else{
+         toastr.danger('Record not update');
+         
+       }
+     }});
+
+  }
+
+  function approvedMaintaince(ids){
+    console.log('ids',$(ids).attr('data-ids'),ids);
+
+    var idd=$(ids).attr('data-ids');
+    var remarks=$('.remarks_'+idd).val();
+    console.log('remarks',remarks);
+    $.ajax({
+      url: "{{route('approvedMaintaince')}}", 
+      method:"POST",
+      data:{id:idd,remarks:remarks},
+      success: function(response){
+
+        console.log('ajax call',response);
+        if(response.status){
+          if(response.status==1){
+            $(ids).parent().parent('tr').remove();
+ 
+            maintaince_new();
+            maintaince_approval();
+            maintaince_resolved();
+            need_approval_maintenance();
+            toastr.success('Record Update Successfully');
+          }else{
+            maintaince_new();
+            maintaince_approval();
+            maintaince_resolved();
+            need_approval_maintenance();
             $(ids).parent().parent('tr').remove();
             toastr.warning('Failed to update');
           }
@@ -604,6 +681,92 @@
   maintaince_new();
   maintaince_approval();
   maintaince_resolved();
+  need_approval_maintenance();
+
+  function need_approval_maintenance(){
+    $('#maintaince_needApproval').DataTable().clear().destroy();
+    var table = $('#maintaince_needApproval').DataTable();
+
+    table.destroy();
+
+    $('#maintaince_needApproval').DataTable( {
+      "processing": true,
+      "serverSide": true,
+
+      "pageLength": 30,
+      ajax: {
+
+        "url":"<?= route('maintainceNeedApprovalSearch') ?>",
+        "dataType":"json",
+        "type":"POST"
+      },
+      columns:[
+
+      {"data":"images","render":function(status,type,row){
+
+        return row.images?`<a class="example-image-link" href="http://lyceumgroupofschools.com/images/maintenance/${row.images}" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="http://lyceumgroupofschools.com/images/maintenance/${row.images}"  alt="${row.category?row.category?row.category.main_name:'':''}" height="60" width="60" style="border-radius: 50%!important;" />
+        </a>`:
+        `<a class="example-image-link" href="http://lyceumgroupofschools.com/images/maintenance/no-image.png" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="http://lyceumgroupofschools.com/images/maintenance/no-image.png"  alt="''" height="60" width="60" style="border-radius: 50%!important;" />`;
+
+      }},
+      {"data":"resolved_images","render":function(status,type,row){
+
+        return row.resolved_images?`<a class="example-image-link" href="http://lyceumgroupofschools.com/images/maintenance/${row.resolved_images}" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="http://lyceumgroupofschools.com/images/maintenance/${row.resolved_images}"  alt="${row.category?row.category?row.category.main_name:'':''}" height="60" width="60" style="border-radius: 50%!important;" />
+        </a>`:
+        `<a class="example-image-link" href="http://lyceumgroupofschools.com/images/maintenance/no-image.png" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="http://lyceumgroupofschools.com/images/maintenance/no-image.png"  alt="''" height="60" width="60" style="border-radius: 50%!important;" />`;
+
+      }},
+      {"data":"branch_id","render":function(status,type,row){
+
+        return row.branch?row.branch.branch_name:'';
+
+      }},
+      {"data":"user_id","render":function(status,type,row){
+
+        return row.assign_user?row.assign_user.name:'';
+
+      }},
+      {"data":"main_id","render":function(status,type,row){
+
+        return row.category?row.category.maintain_category?row.category.maintain_category.main_name:'':'';
+
+      }},
+      {"data":"main_id","render":function(status,type,row){
+
+        return row.category?row.category?row.category.main_name:'':'';
+
+      }},
+
+      {"data":"description","render":function(status,type,row){
+
+        return row.description?row.description:'';
+
+      }},
+      {"data":"remarks","render":function(status,type,row){
+
+        return row.remarks?row.remarks:'';
+
+      }},
+      {"data":"posted_date","render":function(status,type,row){
+
+        return row.posted_date?row.posted_date:'';
+
+      }},
+
+
+      {"data":"type","render":function(status,type,row){
+
+      var buttons = `<a href="javascript:;" class="btn btn-sm btn-success" data-ids="${row.id}" onclick="approvedMaintainceHighLevel(this)"> Approval </a>`;
+      console.log('type_maintaince',buttons);
+      return buttons;
+      },"searchable":false,"orderable":false}
+
+
+
+      ]
+    } );
+  }
+
   function maintaince_resolved(){
     $('#maintaince_resolved').DataTable().clear().destroy();
     var table = $('#maintaince_resolved').DataTable();
@@ -743,7 +906,8 @@ function maintaince_approval(){
     }},
     {"data":"remarks","render":function(status,type,row){
 
-      return row.remarks?row.remarks:'';
+      // return row.remarks?row.remarks:'';
+      return `<textarea name="remarks_${row.id}" class="form-control remarks_${row.id}" placeholder="Remarks">${row.remarks}</textarea>`
 
     }},
     {"data":"posted_date","render":function(status,type,row){
@@ -756,7 +920,7 @@ function maintaince_approval(){
 
     {"data":"type","render":function(status,type,row){
 
-      var buttons = `<a href="javascript:;" class="btn-sm btn-successs" data-ids="${row.id}" onclick="approvedMaintaince(this)"> Satisfy </a>`;
+      var buttons = `<a href="javascript:;" class="btn btn-sm btn-success" data-ids="${row.id}" onclick="approvedMaintaince(this)"> Satisfy </a>`;
       console.log('type_maintaince',buttons);
       return buttons;
     },"searchable":false,"orderable":false}

@@ -155,6 +155,38 @@ class MaintenanceController extends Controller
 
     }
 
+    public function maintainceNeedApprovalSearch(Request $request){
+           $limit = $request->input('length');
+        $start = $request->input('start');
+        $start = $start?$start+1:$start;
+        $search = $request->input('search.value');
+        $order_column_no = $request->input('order.0.column');
+        $order_dir = $request->input('order.0.dir');
+        $order_column_name = $request->input("columns.$order_column_no.data");
+        $records = Maintenance::where('main_status',5)->with('assignUser','category.maintain_category','branch')->offset($start)->limit($limit)->orderBy($order_column_name,$order_dir);
+        if(!empty($search)){
+
+            $records->where('main_id', 'like', "%{$search}%")
+            ->orWhere('status','like',"%{$search}%")
+            ->orWhere('description','like',"%{$search}%")
+            ->orWhere('id','like',"%{$search}%")
+            ->orWhere('user_id','like',"%{$search}%")
+            ->orWhere('branch_id','like',"%{$search}%");
+
+        }
+        $data = $records->get();
+            // return $data;
+        $totalFiltered = Maintenance::where('main_status',5)->count();
+        $json_data = array(
+            "draw"      => intval($request->input('draw')),
+            "recordsTotal"  => count($data),
+            "recordsFiltered" => intval($totalFiltered),
+            "data"      => $data
+        );
+
+        return response()->json($json_data, 200);
+    }
+
     public function maintainceResolvedSearch(Request $request){
         $limit = $request->input('length');
         $start = $request->input('start');
@@ -197,6 +229,16 @@ class MaintenanceController extends Controller
     	}
     }
 
+    public function maintenanceTransferToHigherLevel(Request $request){
+        $cats=Maintenance::where('id',$request->id)->first();
+        if($cats){
+            Maintenance::where('id',$request->id)->update(['main_status'=>5,'updated_by'=>Auth::user()->id]);
+            return response()->json(['status'=>1,'message'=>'Record found']);
+        }else{
+            return response()->json(['status'=>0,'message'=>'Record not found']);
+        }
+    }
+
     public function maintainceResolved(Request $request ){
         $cats=Maintenance::where('id',$request->id)->first();
         if($cats){
@@ -207,13 +249,25 @@ class MaintenanceController extends Controller
         }
     }
     public function approvedMaintaince(Request $request){
+        // return $request->all();
         $cats=Maintenance::where('id',$request->id)->first();
         if($cats){
-            Maintenance::where('id',$request->id)->update(['main_status'=>0,'updated_by'=>Auth::user()->id]);
+            Maintenance::where('id',$request->id)->update(['main_status'=>0,'remarks'=>$request->remarks,'updated_by'=>Auth::user()->id]);
             return response()->json(['status'=>1,'message'=>'Record found']);
         }else{
             return response()->json(['status'=>0,'message'=>'Record not found']);
         }
+    }
+
+    public function approvedMaintainceHighLevel(Request $request){
+        $cats=Maintenance::where('id',$request->id)->first();
+        if($cats){
+            Maintenance::where('id',$request->id)->update(['main_status'=>1,'updated_by'=>Auth::user()->id]);
+            return response()->json(['status'=>1,'message'=>'Record found']);
+        }else{
+            return response()->json(['status'=>0,'message'=>'Record not found']);
+        }
+
     }
 
 
