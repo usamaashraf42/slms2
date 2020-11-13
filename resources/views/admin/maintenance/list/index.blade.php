@@ -74,9 +74,21 @@
 							<form method="POST" action="{{route('list.store')}}">
 								@csrf
 							<div class="row">
-								<div class="col-md-3">
+								<div class="col-md-2">
+									<label>Type</label>
+									<select  class="form-control type_id" id="type_id"  name="type_id"  placeholder="type_id" style="height: 40px; width: 100%;">
+
+										<option value="1">Pending</option>
+										<option value="0">Resolved</option>
+										<option value="2">Approval for Resolve</option>
+										<option value="5">Need Approval</option>
+										
+									</select>
+								</div>
+
+								<div class="col-md-2">
 									<label>Branch</label>
-									<select  class=" branch_id" id="branch_id"  name="branch_id"  placeholder="branch_id" style="height: 40px; width: 100%;">
+									<select  class="form-control branch_id" id="branch_id"  name="branch_id"  placeholder="branch_id" style="height: 40px; width: 100%;">
 
 										<option selected="selected" disabled="disabled">Seclect Branch</option>
 										@if(!empty($branches))
@@ -87,9 +99,9 @@
 									</select>
 								</div>
 
-								<div class="col-md-3">
+								<div class="col-md-2">
 									<label>Category</label>
-									<select  class=" cat_id" id="cat_id"  name="cat_id"  placeholder="cat_id" style="height: 40px; width: 100%;">
+									<select  class="form-control cat_id" id="cat_id"  name="cat_id"  placeholder="cat_id" style="height: 40px; width: 100%;">
 
 										<option selected="selected" disabled="disabled">Seclect Category</option>
 										@if(!empty($categories))
@@ -100,9 +112,9 @@
 									</select>
 								</div>
 
-								<div class="col-md-3">
+								<div class="col-md-2">
 									<label>Assign To</label>
-									<select  class=" emp_id" id="emp_id"  name="emp_id"  placeholder="emp_id" style="height: 40px; width: 100%;">
+									<select  class="form-control emp_id" id="emp_id"  name="emp_id"  placeholder="emp_id" style="height: 40px; width: 100%;">
 
 										<option selected="selected" disabled="disabled">Seclect Employee</option>
 										@if(!empty($employees))
@@ -115,14 +127,33 @@
 								<div class="col-md-3">
 									<label>&nbsp;&nbsp;&nbsp;</label>
 									<button type="submit" class="btn btn-md btn-success" style="margin-top: 25px;">Print</button>
+									</form>
+									<button  class="btn btn-md btn-info" style="margin-top: 25px;max-width: 65px;">Excel</button>
 								</div>
 
 
 							</div>
 							<br><br>
-							</form>
+							
 							<div class="table-responsive">
-							<table class="table table_1">
+								<table class="table table_1">
+								<thead>
+									<tr style="border-top: 1px solid #000!important;border-bottom:1px solid #000!important;">
+										<th> Maintaince Proof</th>
+										<th> Branch</th>
+										<th> Maintenance Assign </th>
+										<th> Main Category</th>
+										<th> Category</th>
+										<th> Posted Date </th>
+										<th> Resolve time </th>
+										<th> Description</th>
+										<th> Remarks</th>
+										<th> Resolved Proof</th>
+										<th> Action</th>
+									</tr>
+								</thead>
+							</table>
+							<!-- <table class="table table_1">
 								<thead>
 									<tr style="border-top: 1px solid #000!important;border-bottom:1px solid #000!important;">
 										<th> Maintaince Proof</th>
@@ -144,13 +175,15 @@
 								<tbody>
 									@foreach($maintenances as $main)
 									<tr>
-										<td>@if($main->images)<a class="example-image-link" href="{{asset('images/maintenance/',$main->images)}}" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="{{asset('images/maintenance/',$main->images)}}"   height="60" width="60" style="border-radius: 50%!important;" />
-										</a>@else
+										<td>@if($main->images)
+											<img class="example-image" src="{{$main->images}}"  alt="" height="60" width="60" style="border-radius: 50%!important;" />
+
+											@else
 										<a class="example-image-link" href="{{asset('images/maintenance/no-image.png')}}" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="http://lyceumgroupofschools.com/images/maintenance/no-image.png"  alt="''" height="60" width="60" style="border-radius: 50%!important;" /></a>@endif</td>
 											<td>@isset($main->branch) {{$main->branch->branch_name}} @endisset</td>
 											<td>@isset($main->assignUser) {{$main->assignUser->name}} @endisset</td>
-											<td>@isset($main->category->maintain_category) {{$main->category->maintain_category->main_name}} @endisset</td>
-											<td>@isset($main->category) {{ $main->category->main_name }} @endisset</td>
+											<td>@isset($main->category) {{$main->category->main_name}} @endisset</td>
+											<td>@isset($main->subcategory) {{ $main->subcategory->main_name }} @endisset</td>
 											<td>@isset($main->posted_date) {{$main->posted_date}} @endisset</td>
 											<td>
 												@if(isset($main->category->maintain_category)) 													{{$main->category->maintain_category->avg_time}} 
@@ -173,7 +206,7 @@
 										@endforeach
 									</tbody>
 
-								</table>
+								</table> -->
 							</div>
 							</div>
 						</div>

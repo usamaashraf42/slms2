@@ -15,6 +15,10 @@ class Maintenance extends Model
     public function category(){
     	return $this->belongsTo(MaintenanceCategory::class,'main_id');
     }
+
+     public function subcategory(){
+        return $this->belongsTo(MaintenanceCategory::class,'sub_cat_id');
+    }
     public function branch(){
     	return $this->belongsTo(Branch::class,'branch_id');
     }
