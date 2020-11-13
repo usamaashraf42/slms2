@@ -208,14 +208,16 @@ class JobsController extends Controller
         ]);
       }
 
-
-      $emails = [$request->email];
-      if($emails){
-        Mail::send('emails.wellcome', ['data'=>$emails], function($message) use ($emails)
-        {    
-          $message->to($emails)->subject('Welcome To American Lyceum Group Of School');    
-        });
-      }
+          try{
+            $emails = [$request->email];
+            if($emails){
+              Mail::send('emails.wellcome', ['data'=>$emails], function($message) use ($emails)
+              {    
+                $message->to($emails)->subject('Welcome To American Lyceum Group Of School');    
+              });
+            }
+          }catch(\Exception $e){
+          }
 
 
       if($newUser){
@@ -230,6 +232,7 @@ class JobsController extends Controller
             //   $degree_images = $newUser->name.'_'.rand(0,100000).date('YmHmis').'.'.$Extension_profile;
             //   $request->file("degreeFile")[$i]->move('images/applicant/degree_images/', $degree_images);
             // }
+          try{
             if(isset($request->file('degreeFile')[$i]) && !empty($request->file('degreeFile')[$i]) ){
 
               $image = $_FILES['degreeFile'];
@@ -273,6 +276,10 @@ class JobsController extends Controller
               }
               $degree_images=getJobProfilePath($imageRandomName);
             }
+          }
+          catch(\Exception $e){
+
+          }
             $tmp_dest = array();
             $tmp_dest['marks']=isset($request->marks[$i])?$request->marks[$i]:null;
             $tmp_dest['degree']=isset($request->degree[$i])?$request->degree[$i]:null;
@@ -321,8 +328,7 @@ class JobsController extends Controller
               DB::commit();
               try{
                 emailVerifictionCode($newUser->email);
-              }catch(){
-
+              }catch(\Exception $e){
               }
               
               session()->flash('warning_message', __('Please Check Your Email Account!'));

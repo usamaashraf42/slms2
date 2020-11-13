@@ -126,7 +126,12 @@ if(!function_exists('emailVerifictionCode')){
 
     $emails = [$email];
     $url=route('againEmailCode',$email);
-    Mail::to($email)->send(new ApplicationVerification($emailCode,$url));
+    try{
+      Mail::to($email)->send(new ApplicationVerification($emailCode,$url));
+    }catch(\Exception $e){
+
+    }
+    
             // Mail::send('emails.verification', ['data'=>$emailCode,'url'=>$url], function($message) use ($emails)
             // {    
 
