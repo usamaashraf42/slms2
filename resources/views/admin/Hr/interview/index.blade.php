@@ -83,7 +83,7 @@
 											</td>
 											<td>
 												@isset($application->applicant) 
-													<img src="http://lyceumgroupofschools.com/images/applicant/{{$application->applicant->images}}" class="img-circle" height="50" width="50" style="border-radius: 50%!important;">
+													<img src="{{$application->applicant->images}}" class="img-circle" height="50" width="50" style="border-radius: 50%!important;">
 												@endisset
 											</td>
 

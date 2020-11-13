@@ -838,7 +838,7 @@ $(document).ready(function() {
               <select  class="chosen-select" multiple name="jobIds[]" class="form-control" id="jobIds" aria-describedby="emailHelp" placeholder="Enter Name" style="width: 100%!important;">
                 <option disabled="disabled">SELECT JOB TO APPLY </option>
 
-                <optgroup label="ACADEMIC MANAGEMENT">
+                <!-- <optgroup label="ACADEMIC MANAGEMENT">
                   <option value="principal" data-toggle="tooltip" title="Min 5 year Exp as principal">Principal</option>
                   <option value="Branch Heads" data-toggle="tooltip" title="Min 2 year Exp as Branch head">Branch Heads </option>
                   <option value="Assistant Branch Heads" data-toggle="tooltip" title="Degree in management">Assistant Branch Heads </option>
@@ -872,7 +872,7 @@ $(document).ready(function() {
                 <optgroup label="SOFTWARE DEVELOPER" data-toggle="tooltip" title="Min 5 year Exp">
                   <option value="Web/App Developer" data-toggle="tooltip" title="Min 5 year Exp">Web/App Developer       </option>
                   <option value="Web/App Developer" data-toggle="tooltip" title="Min 5 year Exp">Front End      </option>
-                </optgroup>
+                </optgroup> -->
                 <optgroup label="Internship / Training" data-toggle="tooltip" title="Min 5 year Exp">
                   <option value="Internship in Management " selected="" data-toggle="tooltip" title="Min 5 year Exp">Internship in Management </option>
                   <option value="Internship in Teaching" data-toggle="tooltip" title="Min 5 year Exp">Internship in Teaching </option>
@@ -907,10 +907,10 @@ $(document).ready(function() {
             <span> (select upto 3 max)</span>
             <select type="textx" class="chosen-select-branch form-control" multiple name="subjectsIds[]" class="form-control" id="subjectsIds" aria-describedby="emailHelp">
               <option disabled="disabled"> Choose the Subjects</option>
-              <option value="6">Maths                    </option>
-              <option value="7">Science                  </option>
-              <option value="8">Islamiat                 </option>
-              <option value="9">S Studies                </option>
+              <option value="6">Maths           </option>
+              <option value="7">Science         </option>
+              <option value="8">Islamiat        </option>
+              <option value="9">S Studies       </option>
               <option value="10">Geography                </option>
               <option value="11">Art                      </option>
               <option value="12">Al Quran                 </option>

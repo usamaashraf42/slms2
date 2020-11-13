@@ -74,16 +74,32 @@ if (!function_exists('lastAbsentFromDay')) {
 
 function currencyCnv( $amount, $from, $to){
 
-
-
-
-
   $conv_id = "{$from}_{$to}";
   $string = file_get_contents("https://free.currencyconverterapi.com/api/v6/convert?q=$conv_id&compact=ultra&apiKey=6cc4b09b7a1dff05a1d9");
   $json_a = json_decode($string, true);
   return $amount * round($json_a[$conv_id], 4);
 }
 
+
+function getJobProfilePath($filename = '29-09-2020-1601355172'){
+
+
+    $dir = '/';
+    $recursive = false;
+    $contents = collect(Storage::disk('job')->listContents($dir, $recursive));
+
+    $file = $contents
+              ->where('type', '=', 'file')
+              ->where('filename', '=', pathinfo($filename, PATHINFO_FILENAME))
+              ->where('extension', '=', pathinfo($filename, PATHINFO_EXTENSION))
+              ->first(); 
+
+
+    $rawData = Storage::disk('job')->url($file['path']);
+
+    return ($rawData);
+    
+}
 
 
 

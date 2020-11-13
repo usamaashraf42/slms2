@@ -20,7 +20,7 @@
                   <div class="feature-img" style="max-height: 250px;">
                    <a href="#">
                     @if(isset($application->applicant->images))
-                    <img src="{{asset('images/applicant/'.$application->applicant->images)}}" class="responsive-img" alt="" height="250" width="100%">
+                    <img src="{{$application->applicant->images}}" class="responsive-img" alt="" height="250" width="100%">
                     @else
                     <img src="{{asset('http://lyceumgroupofschools.com/images/applicant/no-image.png')}}" class="responsive-img" alt="" height="100%" width="100%">
                     @endif
@@ -115,7 +115,7 @@
 
       @isset($application->applicant->cv)
 
-      <iframe src="http://docs.google.com/gview?url=https://lyceumgroupofschools.com/images/applicant/cv/{{$application->applicant->cv}}&embedded=true"
+      <iframe src="http://docs.google.com/gview?url={{$application->applicant->cv}}&embedded=true"
         frameborder="0" width="200px" height="250px">
       </iframe>
 

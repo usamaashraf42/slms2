@@ -64,6 +64,14 @@ return [
             'url' => env('AWS_URL'),
         ],
 
+        'job' => [
+            'driver' => 'google',
+            'clientId' => '597784772012-p8qkplbfb51ki7ilu8q218rg5kl83apf.apps.googleusercontent.com',
+            'clientSecret' => 'n1bj6fy8UIM2-9J7fFJvK5Ua',
+            'refreshToken' => '1//046Wmj7TTQaTqCgYIARAAGAQSNwF-L9IrNVRMNbtkheDkDBUzHphg7-4WcJEBVqTH8_arsKZKIpz6lli9_5oast2-r2g1pgw0YSE',
+            'folderId' => '1qzkzSZQ6gf_mPsiGkYwmM5Ep8wssfZsU',
+        ],
+
     ],
 
 ];
