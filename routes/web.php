@@ -40,7 +40,7 @@ Route::get('fee','Web\OnlineFeeDepositChallanController@feees');
 
 Route::prefix('muscat')->group(function () {
 	Route::get('/', 'Web\Muscat\PublicController@index')->name('muscat.index');
-	Route::get('/nursery', 'Web\Muscat\PublicController@nursery')->name('muscat.nursery');    
+	Route::get('/nursery', 'Web\Muscat\PublicController@nursery')->name('muscat.nursery');
 	Route::get('/school', 'Web\Muscat\PublicController@school')->name('muscat.school');
 	Route::get('/academic', 'Web\Muscat\PublicController@academy')->name('muscat.academy');
 	Route::get('/nursery_activity', 'Web\Muscat\PublicController@nursery_activity')->name('muscat.nursery_activity');
@@ -195,7 +195,7 @@ Route::prefix('admin')->group(function () {
 	Route::post('registeration','Auth\RegisterController@admin_register')->name('admin_register');
 	Route::get('/verify/{email}', 'Auth\RegisterController@verifyUser')->name('verifyUser');
 	Route::post('VerifyMailUser','Auth\RegisterController@VerifyMailUser')->name('VerifyMailUser');
-	
+
 	Route::post('password/request/email', 'Auth\UserFortgotPasswordController@token_create')->name('admin.create_token');
 	Route::get('/password/reset/{token}', 'Auth\UserFortgotPasswordController@showResetForm')->name('admin.password.reset');
 	Route::post('/password/reset', 'Auth\UserFortgotPasswordController@reset')->name('admin.reset');
@@ -235,7 +235,7 @@ Route::prefix('admin')->group(function () {
 		Route::resource('branch-class-student','Branch\BranchStudentDetailController');
 
 		Route::resource('bank-student-list','Account\Bank\BankStudentListController');
-		
+
 
 
 	        /////////////////// Staff mangement//////
@@ -247,7 +247,7 @@ Route::prefix('admin')->group(function () {
 		Route::resource('student-category','admins\Student\StudentCategoryController');
 		Route::resource('student-registration','admins\Student\StudentRegister\StudentRegisterController');
 		Route::resource('franchise-applicant','Account\FranchiseApplicantController');
-		
+
 
 		Route::prefix('student')->group(function () {
 			Route::resource('feepost','admins\Student\feepost\FeePostController');
@@ -283,7 +283,7 @@ Route::prefix('admin')->group(function () {
 			Route::resource('initial-admission','admins\Student\InitalAdmissionQueryController');
 
 
-			
+
 
 
 			Route::get('manual-attendance-class-wise/{branch_id}/{class_id}/{date_id}','admins\Student\Attendance\ManualAttendanceController@manualAttendance')->name('manual-attendance-class-wise');
@@ -292,7 +292,7 @@ Route::prefix('admin')->group(function () {
 			Route::post('marked-manual-attendance','admins\Student\Attendance\ManualAttendanceController@attendanceMarked')->name('attendanceMarked');
 
 
-			
+
 
 			Route::post('get_student_attandence','admins\AttandanceController@get_student_attandence')->name('get_student_attandence');
 			Route::resource('attendance-list','admins\Student\attandanceSheet\StudentAttandanceListController');
@@ -309,14 +309,14 @@ Route::prefix('admin')->group(function () {
 
 			Route::POST('student-edit_update','admins\Student\StudentBulkEditController@edit_update')->name('student_edit_update');
 			Route::resource('re-admission','admins\Student\StatusChangeController');
-			
+
 			Route::resource('re-admission-report','admins\Student\ReAdmission\StudentReAdmissionReportController');
 
 			Route::resource('approval-re-admission','admins\Student\ReAdmission\StudentReAdmissionApprovalController');
-			
+
 
 			Route::resource('card','admins\Student\Card\StudentCardController');
-			
+
 			Route::get('challan/{id}','admins\Student\feepost\FeePostController@challen')->name('student.challen');
 
 
@@ -352,7 +352,7 @@ Route::prefix('admin')->group(function () {
 		Route::resource('salary-post-approval','Hr\SalaryPostApprovalController');
 
 
-		
+
 		Route::resource('employee-list','Hr\EmployeeListController');
 		Route::resource('employee-salary-list','Hr\EmployeeSalaryListController');
 		Route::resource('department-shift','Hr\DepartmentShiftController');
@@ -418,7 +418,7 @@ Route::prefix('admin')->group(function () {
 		Route::post('sendSmsEmail','Hr\InterviewController@sendSmsEmail')->name('sendSmsEmail');
 
 
-		
+
 
 		Route::post('rejectApp','Hr\ApplicationController@rejectApp')->name('rejectApp');
 		Route::post('shortlistApp','Hr\ApplicationController@shortlistApp')->name('shortlistApp');
@@ -496,7 +496,7 @@ Route::prefix('admin')->group(function () {
 		Route::resource('inventory','Inventory\InventoryController');
 
 
-		
+
 
 		Route::resource('maintenance-user','admins\Maintenance\MaintenanceUserController');
 		Route::resource('maintenance','admins\Maintenance\MaintenanceController');
@@ -512,6 +512,15 @@ Route::prefix('admin')->group(function () {
 		///////////////////// Event Applicants////////////////////
 		Route::get('admission-inquiry','Event\EventApplicantController@admission_inquiry')->name('admission_inquiry');
 		Route::get('camp-applicant','Event\EventApplicantController@camp_applicant')->name('camp_applicant');
+//		Survey tab
+        Route::prefix('survey')->group(function () {
+            Route::resource('survey_questions','admins\survey\SurveyQuestionController');
+            Route::post('survey_question_update','admins\survey\SurveyQuestionController@update')->name('survey_question_update');
+            Route::post('survey_question_status_change','admins\survey\SurveyQuestionController@Statuschange')->name('survey_question_status_change');
+            Route::resource('survey_category','admins\survey\SurveyController');
+            Route::post('survey_category_update','admins\survey\SurveyController@update')->name('survey_category_update');
+            Route::post('survey_category_status_change','admins\survey\SurveyController@Statuschange')->name('survey_category_status_change');
+        });
 
 	         //////////////////////MarkPostController /
 		Route::prefix('exam')->group(function () {
@@ -552,12 +561,12 @@ Route::prefix('admin')->group(function () {
 		Route::post('account/get_employee','admins\AjaxSecondCallController@get_employee')->name('get_employee');
 		Route::post('account/get_student_search','Account\AccountController@get_student_search')->name('get_student_search');
 		Route::post('branch-has-employee','admins\AjaxSecondCallController@branchHasEmployee')->name('branchHasEmployee');
-		
+
 		Route::post('exam-type/exame','admins\AjaxCallController@ExamTypeHastExam')->name('ExamTypeHastExam');
 		Route::post('marksPostingData','admins\AjaxCallController@marksPostingData')->name('marksPostingData');
 		Route::post('get/student','admins\AjaxCallController@getStudent')->name('getStudent');
 
-		
+
 		Route::post('get/correctionRecord','admins\AjaxCallController@correctionRecord')->name('correctionRecord');
 		Route::post('correction/approval/','Account\correction\ApproveCorrectionController@approveBranchWise')->name('approveBranchWise');
 		Route::post('correction-approved/report','Account\correction\ApproveCorrectionController@correctionReport')->name('correctionReport');
@@ -575,7 +584,7 @@ Route::prefix('admin')->group(function () {
 		Route::post('maintain/approval/high/level','admins\Maintenance\MaintenanceController@approvedMaintainceHighLevel')->name('approvedMaintainceHighLevel');
 		Route::post('maintain/approval/transfer/high/level','admins\Maintenance\MaintenanceController@maintenanceTransferToHigherLevel')->name('maintenanceTransferToHigherLevel');
 
-		
+
 
 	        /////////////////// Ajax Controller Call/////////////////////
 

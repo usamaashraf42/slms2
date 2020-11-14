@@ -30,7 +30,7 @@
 
   <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png">
   <title> @yield('title','Dashboard')-School Mangement System</title>
-  
+
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.min.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/font-awesome.min.css')}}">
@@ -41,11 +41,11 @@
   <link rel="stylesheet" type="text/css" href="{{asset('assets/plugins/morris/morris.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('js/sweetalert2/sweetalert2.min.css')}}">
-
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
   <link rel="icon" type="image/png" href="{{asset('web/pakistan/sitefiles/2532/css/images/favicon-16x16.png')}}" sizes="16x16" />
   <link rel="icon" type="image/png" href="{{asset('web/pakistan/sitefiles/2532/css/images/favicon-32x32.png')}}" sizes="32x32" />
   <link rel="icon" type="image/png" href="{{asset('web/pakistan/sitefiles/2532/css/images/favicon-96x96.png')}}" sizes="96x96" />
-  <link rel="icon" type="image/png" href="{{asset('web/pakistan/sitefiles/2532/css/images/android-chrome-192x192.png')}}" sizes="192x192" /> 
+  <link rel="icon" type="image/png" href="{{asset('web/pakistan/sitefiles/2532/css/images/android-chrome-192x192.png')}}" sizes="192x192" />
 
   @show
 
@@ -97,6 +97,7 @@
   <!-- <script type="text/javascript" src="{{asset('assets/js/chart.js')}}"></script> -->
   <script type="text/javascript" src="{{asset('assets/js/app.js')}}"></script>
   <script src="{{asset('js/sweetalert2/sweetalert2.min.js')}}"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
   <link data-require="sweet-alert@*" data-semver="0.4.2" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
