@@ -689,9 +689,9 @@ function interviewTab(tob){
             },"searchable":false,"orderable":false},
 
             {"data":"user_id","render":function(status,type,row){
-                return row.applicant?`<a class="example-image-link" href="http://lyceumgroupofschools.com/images/applicant/${row.applicant.images}" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="http://lyceumgroupofschools.com/images/applicant/${row.applicant.images}"  alt="${row.applicant.name}" height="60" width="60" style="border-radius: 50%!important;" />
+                return row.applicant?`<a class="example-image-link" href="${row.applicant.images}" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="${row.applicant.images}"  alt="${row.applicant.name}" height="60" width="60" style="border-radius: 50%!important;" />
                 </a>`:
-                `<a class="example-image-link" href="http://lyceumgroupofschools.com/images/applicant/no-image.png" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="http://lyceumgroupofschools.com/images/applicant/no-image.png"  alt="''" height="60" width="60" style="border-radius: 50%!important;" />`;
+                `<a class="example-image-link" href="no-image.png" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="no-image.png"  alt="''" height="60" width="60" style="border-radius: 50%!important;" />`;
 
             }},
 
@@ -799,9 +799,9 @@ function RejectedApp(){
             },"searchable":false,"orderable":false},
 
             {"data":"user_id","render":function(status,type,row){
-                return row.applicant?`<a class="example-image-link" href="http://lyceumgroupofschools.com/images/applicant/${row.applicant.images}" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="http://lyceumgroupofschools.com/images/applicant/${row.applicant.images}"  alt="${row.applicant.name}" height="60" width="60" style="border-radius: 50%!important;" />
+                return row.applicant?`<a class="example-image-link" href="${row.applicant.images}" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="${row.applicant.images}"  alt="${row.applicant.name}" height="60" width="60" style="border-radius: 50%!important;" />
                 </a>`:
-                `<a class="example-image-link" href="http://lyceumgroupofschools.com/images/applicant/no-image.png" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="http://lyceumgroupofschools.com/images/applicant/no-image.png"  alt="''" height="60" width="60" style="border-radius: 50%!important;" />`;
+                `<a class="example-image-link" href="no-image.png" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="no-image.png"  alt="''" height="60" width="60" style="border-radius: 50%!important;" />`;
 
             }},
 
@@ -902,9 +902,9 @@ function RejectedApp(){
             },"searchable":false,"orderable":false},
 
             {"data":"user_id","render":function(status,type,row){
-                return row.applicant?`<a class="example-image-link" href="http://lyceumgroupofschools.com/images/applicant/${row.applicant.images}" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="http://lyceumgroupofschools.com/images/applicant/${row.applicant.images}"  alt="${row.applicant.name}" height="60" width="60" style="border-radius: 50%!important;" />
+                return row.applicant?`<a class="example-image-link" href="${row.applicant.images}" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="${row.applicant.images}"  alt="${row.applicant.name}" height="60" width="60" style="border-radius: 50%!important;" />
                 </a>`:
-                `<a class="example-image-link" href="http://lyceumgroupofschools.com/images/applicant/no-image.png" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="http://lyceumgroupofschools.com/images/applicant/no-image.png"  alt="''" height="60" width="60" style="border-radius: 50%!important;" />`;
+                `<a class="example-image-link" href="no-image.png" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="no-image.png"  alt="''" height="60" width="60" style="border-radius: 50%!important;" />`;
 
             }},
 
@@ -1016,9 +1016,9 @@ function RejectedApp(){
 
 
             {"data":"user_id","render":function(status,type,row){
-                return row.applicant?`<a class="example-image-link" href="http://lyceumgroupofschools.com/images/applicant/${row.applicant.images}" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="http://lyceumgroupofschools.com/images/applicant/${row.applicant.images}"  alt="${row.applicant.name}" height="60" width="60" style="border-radius: 50%!important;" />
+                return row.applicant?`<a class="example-image-link" href="${row.applicant.images}" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="${row.applicant.images}"  alt="${row.applicant.name}" height="60" width="60" style="border-radius: 50%!important;" />
                 </a>`:
-                `<a class="example-image-link" href="http://lyceumgroupofschools.com/images/applicant/no-image.png" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="http://lyceumgroupofschools.com/images/applicant/no-image.png"  alt="''" height="60" width="60" style="border-radius: 50%!important;" />`;
+                `<a class="example-image-link" href="no-image.png" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="no-image.png"  alt="''" height="60" width="60" style="border-radius: 50%!important;" />`;
 
             }},
 
@@ -1143,9 +1143,9 @@ function RejectedApp(){
 
 
             {"data":"user_id","render":function(status,type,row){
-                return row.applicant?`<a class="example-image-link" href="http://lyceumgroupofschools.com/images/applicant/${row.applicant.images}" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="http://lyceumgroupofschools.com/images/applicant/${row.applicant.images}"  alt="${row.applicant.name}" height="60" width="60" style="border-radius: 50%!important;" />
+                return row.applicant?`<a class="example-image-link" href="${row.applicant.images}" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="${row.applicant.images}"  alt="${row.applicant.name}" height="60" width="60" style="border-radius: 50%!important;" />
                 </a>`:
-                `<a class="example-image-link" href="http://lyceumgroupofschools.com/images/applicant/no-image.png" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="http://lyceumgroupofschools.com/images/applicant/no-image.png"  alt="''" height="60" width="60" style="border-radius: 50%!important;" />`;
+                `<a class="example-image-link" href="no-image.png" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="no-image.png"  alt="''" height="60" width="60" style="border-radius: 50%!important;" />`;
 
             }},
 
@@ -1255,7 +1255,7 @@ function RejectedApp(){
 
             {"data":"user_id","render":function(status,type,row){
 
-                return row.applicant?`<a class="example-image-link" href="http://lyceumgroupofschools.com/images/applicant/${row.applicant.images}" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="http://lyceumgroupofschools.com/images/applicant/${row.applicant.images}"  alt="${row.applicant.name}" height="60" width="60" style="border-radius: 50%!important;" />
+                return row.applicant?`<a class="example-image-link" href="${row.applicant.images}" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="${row.applicant.images}"  alt="${row.applicant.name}" height="60" width="60" style="border-radius: 50%!important;" />
                 </a>`:
                 ``;
 

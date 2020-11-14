@@ -14,6 +14,8 @@ use App\Models\Maintenance;
 use App\Models\Branch;
 use App\Models\User;
 use Auth;
+use Storage;
+use File;
 
 class MaintenanceController extends Controller
 {
@@ -60,16 +62,66 @@ class MaintenanceController extends Controller
     }
 
     public function store(Request $request){
-    	// dd($request->all());
+    	
 // main_id`, `branch_id`, `user_id`, `type`, `description`, `remarks`, `created_by`, images
         
+        // if($request->hasfile('images')){
+        //     $Extension_profile = $request->file('images')->getClientOriginalExtension();
+        //     $profile = 'maintenance'.'_'.date('YmdHis').'.'.$Extension_profile;
+        //     $request->file('images')->move('images/maintenance/', $profile);
+        // }
         if($request->hasfile('images')){
+            $image = $_FILES['images'];
+
             $Extension_profile = $request->file('images')->getClientOriginalExtension();
-            $profile = 'maintenance'.'_'.date('YmdHis').'.'.$Extension_profile;
-            $request->file('images')->move('images/maintenance/', $profile);
+            $imageRandomName = $request->name.'_'.'profile'.'_'.date('YmdHis').'.'.$Extension_profile;
+            $imageType = $_FILES['images']['type'];
+
+            $target_dir = 'images/maintenance/';
+            if ( !file_exists( $target_dir ) ) {
+              mkdir( $target_dir, 0777, true );
+            }
+            $target_file = $target_dir . basename( $imageRandomName );
+            $input['image']=$imageRandomName;
+
+            if ( move_uploaded_file($image["tmp_name"], $target_file ) ) {
+              $filesizeonserver = filesize($target_file);
+              $times = 0;
+              if($filesizeonserver > 350000){
+                do{
+                  clearstatcache(); 
+                  $resized = $this->resizeImage($target_file, 0.05, $imageType);
+                  $filesizeonserver = filesize($target_file);
+
+                  $times++;    
+                } while ($filesizeonserver > 350000);
+
+              }
+            }
+
+            $fullPathToTeacherProfile = public_path('images/maintenance/');
+            $fullPathToTeacherProfile=$fullPathToTeacherProfile.$imageRandomName;
+            $filename = $imageRandomName;
+            $fileData = File::get($fullPathToTeacherProfile);
+            Storage::disk('job')->put($filename, $fileData);
+
+            if (is_file($fullPathToTeacherProfile)){
+              unlink($fullPathToTeacherProfile);
+            }
+            $profile=getJobProfilePath($imageRandomName);
         }
 
-    	$maintaince=Maintenance::create(['user_id'=>$request->user_id,'branch_id'=>$request->branch_id,'description'=>$request->description,'type'=>$request->type,'posted_date'=>date('Y-m-d'),'created_by'=>Auth::user()->id,'main_id'=>$request->sub_id?$request->sub_id:$request->cat_id,'images'=>isset($profile)?$profile:'no-image.png']);
+
+    	$maintaince=Maintenance::create([
+            'user_id'=>$request->user_id,
+            'branch_id'=>$request->branch_id,
+            'description'=>$request->description,
+            'type'=>$request->type,
+            'posted_date'=>date('Y-m-d'),'created_by'=>Auth::user()->id,
+            'main_id'=>$request->cat_id,
+            'sub_cat_id'=>$request->sub_id,
+            'images'=>isset($profile)?$profile:'no-image.png',
+        ]);
     	if(!$maintaince){
             Session::flash('error_message', 'Request not register please try again ');
            
