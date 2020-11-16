@@ -68,7 +68,7 @@ class ApiBankTransactionController extends Controller
     		$records->where('created_at','>=',$start_date)->where('created_at','<=',$till_data);
     	}
 
-    	$transaction=$records->count();
+    	$transaction=$records->get();
 
 		if($transaction){
 			return response()->json(['data'=>$transaction]);
