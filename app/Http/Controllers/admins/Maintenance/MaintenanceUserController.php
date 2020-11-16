@@ -14,7 +14,7 @@ class MaintenanceUserController extends Controller
 {
     public function index(){
     	$categories=MaintenanceCategory::with('main_users','maintain_childrens')->where('parent_id',null)->get();
-    	// dd($categories);
+//    	 dd($categories);
 
     	 $mains=MaintenanceCategory::orderBy('id','DESC')->get();
 
@@ -24,7 +24,7 @@ class MaintenanceUserController extends Controller
         }
 
         $employees=$users->get();
-        
+
     	return view('admin.maintenance.userMaintain.index',compact('categories','mains','employees'));
     }
 }
