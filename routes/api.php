@@ -19,6 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('prepon/bank-transaction/{amount}/{user_id}/{project_id}/{package_id}','Api\ApiBankTransactionController@bankTransactionApi');
 Route::get('britishlyceum/bank-transaction/{amount}/{user_id}/{project_id}/{transaction_id}','Api\ApiBankTransactionController@britishLyceumTransactionApi');
 Route::get('britishlyceum/transaction-details/{transaction_id}','Api\ApiBankTransactionController@transactionDetail');
+Route::get('students/{status?}/{start_at?}/{end_date?}','Api\ApiBankTransactionController@StudentRecord');
 
 
 

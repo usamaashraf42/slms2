@@ -57,4 +57,24 @@ class ApiBankTransactionController extends Controller
 		}
 
     }
+
+    public function StudentRecord($status=null,$start_date=null,$till_data=null){
+
+    	$records=\App\Models\Student::orderBy('id','ASC');
+    	if($status){
+    		$records->where('status',$status);
+    	}
+    	if($start_date){
+    		$records->where('created_at','>=',$start_date)->where('created_at','<=',$till_data);
+    	}
+
+    	$transaction=$records->count();
+
+		if($transaction){
+			return response()->json(['data'=>$transaction]);
+		}else{
+			return response()->json(['data'=>0]);
+		}
+
+    }
 }
