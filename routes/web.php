@@ -469,6 +469,7 @@ Route::prefix('admin')->group(function () {
 			Route::resource('resolved','admins\Maintenance\ResolvedMaintenanceController');
 			Route::resource('pending','admins\Maintenance\PendingMaintenanceController');
 			Route::resource('list','admins\Maintenance\MaintenanceListController');
+			Route::post('maintenance-list','admins\Maintenance\MaintenanceListController@maintenceList')->name('maintenance-list');
 
 
 		});
