@@ -60,7 +60,7 @@ class ApiBankTransactionController extends Controller
 
     public function StudentRecord($status=null,$start_date=null,$till_data=null){
 
-    	$records=\App\Models\Student::orderBy('id','ASC');
+    	$records=\App\Models\Student::select('id','s_name','s_phoneNo','std_mail');
     	if($status){
     		$records->where('status',$status);
     	}
