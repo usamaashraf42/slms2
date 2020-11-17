@@ -4,6 +4,9 @@ namespace App\Http\Controllers\admins\Maintenance;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
+
+
 use App\Http\Controllers\ApiMessageController;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\MaintainceRequest;
@@ -284,7 +287,32 @@ class MaintenanceController extends Controller
     public function maintenanceTransferToHigherLevel(Request $request){
         $cats=Maintenance::where('id',$request->id)->first();
         if($cats){
+            
+
             Maintenance::where('id',$request->id)->update(['main_status'=>5,'updated_by'=>Auth::user()->id]);
+
+
+            try{
+                
+                $emailsData=['mmanager@americanlyceum.edu.pk','tnadeem@americanlyceum.com'];
+
+                if(isset($cats->assignUser->email) && $cats->assignUser->email){
+                    if(filter_var($emails, FILTER_VALIDATE_EMAIL)){
+                        array_push($emailsData,$cats->assignUser->email);
+                    }
+                }
+
+                $dataRecord=  Mail::send('emails.maintenance.maintenanceRequestApproval', ['data'=>$cats], function($message) use ($emailsData) {
+                    $message->to($emailsData)->subject('Maintenance request for approval');
+                });
+
+            }
+         
+            catch(\Exception $e){
+
+            }
+       
+
             return response()->json(['status'=>1,'message'=>'Record found']);
         }else{
             return response()->json(['status'=>0,'message'=>'Record not found']);
@@ -295,6 +323,26 @@ class MaintenanceController extends Controller
         $cats=Maintenance::where('id',$request->id)->first();
         if($cats){
             Maintenance::where('id',$request->id)->update(['main_status'=>2,'updated_by'=>Auth::user()->id]);
+            try{
+                
+                $emailsData=['mmanager@americanlyceum.edu.pk','tnadeem@americanlyceum.com'];
+
+                if(isset($cats->branch->email) && $cats->branch->email){
+                    if(filter_var($emails, FILTER_VALIDATE_EMAIL)){
+                        array_push($emailsData,$cats->branch->email);
+                    }
+                }
+
+                $dataRecord=  Mail::send('emails.maintenance.maintenanceResolved', ['data'=>$cats], function($message) use ($emailsData) {
+                    $message->to($emailsData)->subject('Maintenance issue has been resolved');
+                });
+
+            }
+         
+            catch(\Exception $e){
+
+            }
+
             return response()->json(['status'=>1,'message'=>'Record found']);
         }else{
             return response()->json(['status'=>0,'message'=>'Record not found']);
@@ -315,6 +363,25 @@ class MaintenanceController extends Controller
         $cats=Maintenance::where('id',$request->id)->first();
         if($cats){
             Maintenance::where('id',$request->id)->update(['main_status'=>1,'updated_by'=>Auth::user()->id]);
+            try{
+                
+                $emailsData=['mmanager@americanlyceum.edu.pk','tnadeem@americanlyceum.com'];
+
+                if(isset($cats->branch->email) && $cats->branch->email){
+                    if(filter_var($emails, FILTER_VALIDATE_EMAIL)){
+                        array_push($emailsData,$cats->branch->email);
+                    }
+                }
+
+                $dataRecord=  Mail::send('emails.maintenance.maintenanceApproved', ['data'=>$cats], function($message) use ($emailsData) {
+                    $message->to($emailsData)->subject('Maintenance approval request approved');
+                });
+
+            }
+         
+            catch(\Exception $e){
+
+            }
             return response()->json(['status'=>1,'message'=>'Record found']);
         }else{
             return response()->json(['status'=>0,'message'=>'Record not found']);
