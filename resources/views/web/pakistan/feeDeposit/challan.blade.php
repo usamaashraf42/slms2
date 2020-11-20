@@ -67,7 +67,7 @@
       background: aliceblue;
       margin-bottom: 10px;
       padding: 8px 2px;
-      text-align: center;  
+      text-align: center;
     }
     .dropbtn {
       background-color: #ececec;
@@ -216,14 +216,14 @@
     }
 
 
-/* Styles for alert... 
+/* Styles for alert...
 by the way it is so weird when you look at your code a couple of years after you wrote it XD */
 
 .alert {
   box-sizing: border-box;
   background-color: #BDFFE1;
   width: 100%;
-  position: relative; 
+  position: relative;
   top: 0;
   left: 0;
   z-index: 300;
@@ -279,10 +279,10 @@ border-bottom-left-radius: 25px;
 
     $MerchantID ="MC35662"; //Your Merchant from transaction Credentials
     $Password   ="hv920evz9v"; //Your Password from transaction Credentials
-    $ReturnURL  ="http://lyceumgroupofschools.com/feedeposit-status"; //Your Return URL 
+    $ReturnURL  ="http://lyceumgroupofschools.com/feedeposit-status"; //Your Return URL
     $HashKey    ="y14yb32g8s";//Your HashKey from transaction Credentials
     $PostURL = "https://sandbox.jazzcash.com.pk/CustomerPortal/transactionmanagement/merchantform";
-    //"http://testpayments.jazzcash.com.pk/PayAxisCustomerPortal/transactionmanagement/merchantform"; 
+    //"http://testpayments.jazzcash.com.pk/PayAxisCustomerPortal/transactionmanagement/merchantform";
     date_default_timezone_set("Asia/karachi");
     $Amount = 1*100; //Last two digits will be considered as Decimal
     $BillReference = "11111";
@@ -306,13 +306,13 @@ border-bottom-left-radius: 25px;
     $HashArray=[$Amount,$BillReference,$Description,$DiscountedAmount,$DiscountedBank,$Language,$MerchantID,$Password,$ReturnURL,$TxnCurrency,$TxnDateTime,$TxnExpiryDateTime,$TxnRefNumber,$TxnType,$Version,$ppmpf_1,$ppmpf_2,$ppmpf_3,$ppmpf_4,$ppmpf_5];
 
     $SortedArray=$HashKey;
-    for ($i = 0; $i < count($HashArray); $i++) { 
+    for ($i = 0; $i < count($HashArray); $i++) {
       if($HashArray[$i] != 'undefined' AND $HashArray[$i]!= null AND $HashArray[$i]!="" )
       {
 
         $SortedArray .="&".$HashArray[$i];
       } }
-      $Securehash = hash_hmac('sha256', $SortedArray, $HashKey);  
+      $Securehash = hash_hmac('sha256', $SortedArray, $HashKey);
       ?>
 
       <div class="breadcrumb-container w-100 pa3 pv2-ns ph4-ns relative">
@@ -342,8 +342,8 @@ border-bottom-left-radius: 25px;
                       <div class="row">
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <div id="div_id_username" class="form-group required">
-                            <label for="std_id" class="control-label requiredField">Student Id                         
-                              <span class="required" style="color: red">*</span> 
+                            <label for="std_id" class="control-label requiredField">Student Id
+                              <span class="required" style="color: red">*</span>
                             </label>
                             <div class="controls">
                               <input class="input-md  textinput textInput form-control" id="std_id" value="@if(old('std_id')){{old('std_id')}}@endif"   min="0" name="std_id"
@@ -364,7 +364,7 @@ border-bottom-left-radius: 25px;
                         <div class="col-md-6 col-sm-6 col-xs-12">
                            <input type="button"  class="btn btn-info btn-sm validateButton   float-left"   onclick="jobFormSubmit(this)"  value="Search">
                         </div>
-                         
+
                         </div>
                         <div class="row" style="display: none;">
 
@@ -440,7 +440,7 @@ crossorigin="anonymous"></script>
 
 <link rel="stylesheet" type="text/css" href="{{asset('js/datepickerScroll/src/anypicker-ios.css')}}" />
 <link rel="stylesheet" type="text/css" href="{{asset('js/datepickerScroll/src/anypicker-android.css')}}" />
-<link rel="stylesheet" type="text/css" href="{{asset('js/datepickerScroll/src/anypicker-windows.css')}}" /> 
+<link rel="stylesheet" type="text/css" href="{{asset('js/datepickerScroll/src/anypicker-windows.css')}}" />
 
 <script type="text/javascript" src="{{asset('js/datepickerScroll/src/anypicker.js')}}"></script>
 
@@ -485,7 +485,7 @@ crossorigin="anonymous"></script>
   function FormSubmit(obj){
 
      $amount=$('.pp_Amount').val();
-    
+
     document.getElementById("applicationForm").submit();
   }
 
@@ -608,7 +608,7 @@ crossorigin="anonymous"></script>
   $("#images").change(function(){
     console.log('images','update');
     readURL(this);
-  }); 
+  });
 </script>
 <script>
   var input = document.getElementById( 'file-upload' );
@@ -632,9 +632,9 @@ crossorigin="anonymous"></script>
 </script>
 <script>
   $(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();   
+    $('[data-toggle="tooltip"]').tooltip();
   });
-/* When the user clicks on the button, 
+/* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
 function my_drowpdown() {
   document.getElementById("myDropdown").classList.toggle("whr-drop-hide");
@@ -673,12 +673,12 @@ window.onclick = function(event) {
 
 function jobFormSubmit(ob){
 
-  var valid = true;   
- 
+  var valid = true;
 
 
-  
-  
+
+
+
   var fee_id=parseInt($('#fee_id').val());
   var std_id=parseInt($('#std_id').val());
   if ($('#std_id').val() == '') {
@@ -692,9 +692,9 @@ function jobFormSubmit(ob){
 
  if(valid){
 
-  
 
-  
+
+
   $.ajax({
     method:"POST",
     url: "{{route('feeChallan')}}",
@@ -741,7 +741,7 @@ function jobFormSubmit(ob){
         </div>
         <div class="col-md-6">
         <br>
-        
+
         <div style="width: 50%; float: left; text-align: justify;">
         <p>
         <strong> Pending Amount: </strong>
@@ -768,7 +768,7 @@ function jobFormSubmit(ob){
         </div>
 
 
-        </div>    
+        </div>
         </div>
         <div class="col-md-3">
         <div style="width: 100%; border-left: 2px solid #ddd;">
@@ -784,7 +784,7 @@ function jobFormSubmit(ob){
 
         <li class="list_radio">
         <input type="radio" onclick="checkedMethod(this)"  value="3" id="f-option" name="method">
-        <label for="f-option"> 
+        <label for="f-option">
         <img src="{{asset('assets/img/credit.jpg')}}" width="100%" style="max-width: 300px;height: 68px; margin-top: -23px;"></label>
 
         <div class="check"></div>
@@ -793,7 +793,7 @@ function jobFormSubmit(ob){
 
         <li class="list_radio">
         <input type="radio" onclick="checkedMethod(this)" id='paypal' value="1" id="f-option" name="method">
-        <label for="paypal"> 
+        <label for="paypal">
         <img src="{{asset('assets/img/paypal.png')}}" width="100%" style="max-width: 300px;height: 68px; margin-top: -23px;"></label>
 
         <div class="check"></div>
@@ -855,7 +855,7 @@ function checkedMethod(obj){
 
     var method=parseInt($(obj).val());
     $('.type_method').val(method);
-    
+
   }
 
 

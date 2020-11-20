@@ -14,35 +14,42 @@
                     <div class="modal-body">
                         <fieldset class="form-group floating-label-form-group">
                             <label for="cat_name">Question Name</label>
-                            <input type="text" class="form-control" id="question" name="question" value="{{$questions->question}}" >
+                            <input type="text" class="form-control" id="question" name="parent_question" value="{{$parent_question->question}}" >
+                            <p style="color: red;margin-top: 3px" id="cat_name_error"></p>
+                        </fieldset>
+                        @foreach($child_questions as $question)
+                        <fieldset class="form-group floating-label-form-group">
+                            <label for="cat_name">Child Question Name</label>
+                            <input type="text" class="form-control" id="question" name="child_question[{{$question->id}}]" value="{{$question->question}}" >
                             <p style="color: red;margin-top: 3px" id="cat_name_error"></p>
                         </fieldset>
 
                         <fieldset class="form-group floating-label-form-group">
-                            <label for="cat_type">Question Type</label>
-                            <select name="question_type" class="form-control">
+                            <label for="cat_type">Child Question Type</label>
+                            <select name="question_type[{{$question->id}}]" class="form-control">
                                 <option value=" " selected>choose..</option>
-                                <option value="1" @if(isset($questions) && @$questions->question_type == 1){{'selected'}} @endif >Yes</option>
-                                <option value="2"  @if(isset($questions) && @$questions->question_type == 2){{'selected'}} @endif>No</option>
-                                <option value="3"  @if(isset($questions) && @$questions->question_type == 3){{'selected'}} @endif>May be</option>
+                                <option value="1" @if(isset($question) && @$question->question_type == 1){{'selected'}} @endif >Yes</option>
+                                <option value="2"  @if(isset($question) && @$question->question_type == 2){{'selected'}} @endif>No</option>
+                                <option value="3"  @if(isset($question) && @$question->question_type == 3){{'selected'}} @endif>May be</option>
                             </select>
                             <p style="color: red;margin-top: 3px" id="cat_type_error"></p>
                         </fieldset>
+                        @endforeach
 
-                        <fieldset class="form-group floating-label-form-group">
-                            <label for="month">Category Type</label>
-                            <select name="category_id" class="form-control">
-                                @foreach($categorys as $category)
-                                    <option value="{{$category->id}}" @if(isset($questions) && @$questions->category_id == $category->id){{'selected'}} @endif >{{$category->category_name}}</option>
-                                @endforeach
-                            </select>
-                            <p style="color: red;margin-top: 3px" id="month_error"></p>
-                        </fieldset>
+{{--                        <fieldset class="form-group floating-label-form-group">--}}
+{{--                            <label for="month">Category Type</label>--}}
+{{--                            <select name="category_id" class="form-control">--}}
+{{--                                @foreach($categorys as $category)--}}
+{{--                                    <option value="{{$category->id}}" @if(isset($questions) && @$questions->category_id == $category->id){{'selected'}} @endif >{{$category->category_name}}</option>--}}
+{{--                                @endforeach--}}
+{{--                            </select>--}}
+{{--                            <p style="color: red;margin-top: 3px" id="month_error"></p>--}}
+{{--                        </fieldset>--}}
                         <br>
                     </div>
 
 
-                    <input type="hidden" name="question_id" value="{{$questions->id}}">
+                    <input type="hidden" name="question_id" value="{{$parent_question->id}}">
 
                 </div>
                 <div class="modal-footer">

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class surveyQuestionValidation extends FormRequest
+class SurveyAnswerValidation extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,15 +24,15 @@ class surveyQuestionValidation extends FormRequest
     public function rules()
     {
         return [
-            'question'=>'required',
-            'question_type'=>'required',
+            'branch_id'=>'required',
+            'section_type'=>'required'
         ];
     }
     public function messages()
     {
         return [
-            'question.required' => 'A question field  is required',
-            'question_type.required' => 'A question type is required',
+            'branch_id.required' => 'Branch Name is required',
+            'section_type.required'=>'Section Name is required',
         ];
     }
 }

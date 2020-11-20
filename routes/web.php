@@ -100,8 +100,9 @@ Route::resource('feedeposit','Web\FeeDepositController');
 
 Route::get('/student_picture','Web\Pakistan\PublicController@student_picture')->name('pakistan.student_picture');
 
-
-
+Route::get('/survey/staff','Web\Pakistan\PublicController@surveryStaff')->name('pakistan.survey.staff');
+Route::get('/survey/staff/questions','Web\Pakistan\PublicController@surveryStaffquestions')->name('pakistan_survey_staff_questions');
+Route::post('/survey/staff/ans','admins\survey\SurveyAnswerController@surveryStaffanswers')->name('pakistan_survey_staff_answers');
 Route::get('how-to-pay','Web\Pakistan\PublicController@howToPay')->name('pakistan.howToPay');
 
 

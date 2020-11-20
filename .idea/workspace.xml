@@ -20,28 +20,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0dce947e-f517-4a99-8fb8-d039794490bb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Providers/GoogleDriveAdapter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Providers/GoogleDriveServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Providers/HorizonServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_13_113602_create_sub_cat_id_to_maintenances.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/applicant/Winifred Kirkland_profile_20201113100726.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/applicant/Winifred Kirkland_profile_20201113100945.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/survey/question/add_question.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/web/pakistan/survey/surveryStaff.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helpers/Helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/Helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helpers/SecondHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/SecondHelper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Web/Pakistan/JobsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Web/Pakistan/JobsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admins/Maintenance/MaintenanceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admins/Maintenance/MaintenanceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Maintenance.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Maintenance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/filesystems.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/filesystems.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/Hr/application/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/Hr/application/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/Hr/application/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/Hr/application/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/Hr/interview/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/Hr/interview/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/maintenance/list/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/maintenance/list/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/web/pakistan/internship_job.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/web/pakistan/internship_job.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Web/Pakistan/PublicController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Web/Pakistan/PublicController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admins/survey/SurveyQuestionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admins/survey/SurveyQuestionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/surveyQuestionValidation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/surveyQuestionValidation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/SurveyAns.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/SurveyAns.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/SurveyTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/SurveyTable.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_12_230555_create_survey_tables_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_12_230555_create_survey_tables_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_12_230812_create_survey_questions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_12_230812_create_survey_questions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/_layouts/web/pakistan/default.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/_layouts/web/pakistan/default.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/survey/question/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/survey/question/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/survey/question/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/survey/question/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/web/pakistan/feeDeposit/challan.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/web/pakistan/feeDeposit/challan.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,6 +210,13 @@
       <workItem from="1605205822148" duration="2426000" />
       <workItem from="1605217419029" duration="15539000" />
       <workItem from="1605296062865" duration="19532000" />
+      <workItem from="1605462169939" duration="26502000" />
+      <workItem from="1605555041941" duration="3660000" />
+      <workItem from="1605559747139" duration="15434000" />
+      <workItem from="1605637459621" duration="25967000" />
+      <workItem from="1605721359061" duration="737000" />
+      <workItem from="1605723242258" duration="16180000" />
+      <workItem from="1605808565101" duration="19890000" />
     </task>
     <servers />
   </component>
@@ -240,18 +240,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="665" y="54" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605232451399" />
-    <state x="690" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1605311470068">
+    <state x="690" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1605658333139">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605311470068" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1605300457817">
+    <state x="690" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605658333139" />
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1605737953496">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1605300457817" />
-    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1605314768448">
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1605737953496" />
+    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1605483191106">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605314768448" />
+    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605483191106" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1605811375566">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1605811375566" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

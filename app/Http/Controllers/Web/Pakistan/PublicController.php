@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Web\Pakistan;
 
+use App\SurveyCategory;
+use App\SurveyQuestion;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controller\Fran;
@@ -18,6 +20,21 @@ class PublicController extends Controller
 {
     public function index(){
     	return view('web.pakistan.index');
+    }
+    public function surveryStaff(){
+        $questions =SurveyQuestion::all();
+        $categorys =SurveyCategory::all();
+        $branches =Branch::all();
+        return view('web.pakistan.survey.surveryStaff',compact('questions','categorys','branches'));
+    }
+    public function surveryStaffquestions(Request  $request){
+//        dd($request->question_id,$request->answer_id);
+        $answers =SurveyQuestion::where('parent_id',$request->question_id)->where('question_type',$request->answer_id)->first();
+
+        $childerns =SurveyQuestion::where('parent_id',$request->question_id)->get('id');
+//dd($childerns);
+
+        return response()->json(['status'=>200,'answer'=>$answers,'childerns'=>$childerns]);
     }
 
     public function about(){
@@ -123,7 +140,7 @@ class PublicController extends Controller
     }
 
 
-    
+
 
 
     public function event(){
@@ -150,13 +167,13 @@ class PublicController extends Controller
        if($app){
         $emails=$request->email;
         if($emails){
-            Mail::send('emails.wellcome', ['email'=>$request->email], function($message) use ($emails){    
-             $message->to($emails)->subject('Welcome to Royal Lyceum School System');    
+            Mail::send('emails.wellcome', ['email'=>$request->email], function($message) use ($emails){
+             $message->to($emails)->subject('Welcome to Royal Lyceum School System');
          });
         }
         $emails=['tnadeem@americanlyceum.com','franchise@americanlyceum.com'];
-        Mail::send('emails.franchise', ['first_name'=>$request->first_name?$request->first_name:'','phone'=>$request->phone?$request->phone:'','select_country'=>$request->select_country?$request->select_country:'','email'=>$request->email,'country_address'=>$request->country_address?$request->country_address:'','select_area'=>$request->select_area?$request->select_area:'','select_franchise'=>$request->select_franchise?$request->select_franchise:'','exist_school'=>$request->exist_school,'school_building'=>$request->school_building,'number_students'=>$request->number_students], function($message) use ($emails){    
-         $message->to($emails)->subject('New Franchise Applicant Record');    
+        Mail::send('emails.franchise', ['first_name'=>$request->first_name?$request->first_name:'','phone'=>$request->phone?$request->phone:'','select_country'=>$request->select_country?$request->select_country:'','email'=>$request->email,'country_address'=>$request->country_address?$request->country_address:'','select_area'=>$request->select_area?$request->select_area:'','select_franchise'=>$request->select_franchise?$request->select_franchise:'','exist_school'=>$request->exist_school,'school_building'=>$request->school_building,'number_students'=>$request->number_students], function($message) use ($emails){
+         $message->to($emails)->subject('New Franchise Applicant Record');
      });
         session()->flash('success_message', __('Your application has been submitted Successfully. we will contact you soon, thanks you'));
         return redirect()->back()->with('success_message','Your application has been submitted Successfully. we will contact you soon, thanks you');
@@ -206,8 +223,8 @@ public function admission_query(Request $request){
         }
         if($request->email){
             $emails=$request->email;
-                Mail::send('emails.initialAdmission',['user'=>$admission], function($message) use ($emails){    
-                    $message->to($emails)->subject('Initial Online registration');    
+                Mail::send('emails.initialAdmission',['user'=>$admission], function($message) use ($emails){
+                    $message->to($emails)->subject('Initial Online registration');
                 });
 
         }

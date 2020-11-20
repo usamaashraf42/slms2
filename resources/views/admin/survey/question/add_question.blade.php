@@ -11,124 +11,54 @@
                         <div class="heading-elements float-right">
                             <a type="button" class="btn btn-success btn-min-width mr-1 mb-1" href="{{route('survey_questions.create')}}" ><i class="la la-plus">&nbsp;Add Question</i></a>
                         </div>
-                        <div class="table-responsive">
-                            <table id="example" class="table border table-bordered " style="text-align: center">
-                                <thead>
-                                <tr>
-                                    <th></th>
-                                    <th>Question</th>
-{{--                                    <th>Question Type</th>--}}
-{{--                                    <th>Category type</th>--}}
-                                    <th>Status</th>
-                                    <th>Action</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @isset($categorys)
-                                    @php
-                                        $i =1;
-                                    @endphp
-                                    @foreach($survey_questions as $survey_question)
-                                        <tr>
-                                            <td>{{$i++}}</td>
-                                            <td>@isset($survey_question->question){{$survey_question->question}}@endisset</td>
-{{--                                            <td>--}}
-{{--                                                @if($survey_question->question_type==1)--}}
-{{--                                                    <h2 class="badge badge-primary">Yes</h2>--}}
-{{--                                                @elseif($survey_question->question_type==2)--}}
-{{--                                                    <h2 class="badge badge-secondary">No</h2>--}}
-{{--                                                @elseif($survey_question->question_type==3)--}}
-{{--                                                    <h2 class="badge badge-default">May be</h2>--}}
-{{--                                                @endif--}}
-{{--                                            </td>--}}
-{{--                                            <td>--}}
+                        <div class="">
+                                <h3  id="myModalLabel35"> Add New Question</h3>
+                                <form action="" id="addDataForm" method="post" enctype="multipart/form-data">
+                                    {{ csrf_field() }}
+                                    <div class="modal-body">
+                                        <fieldset class="form-group floating-label-form-group">
+                                            <div class="col-md-12">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <label for="cat_name">Question Name</label>
+                                                        <textarea type="text" class="form-control" id="question" name="question"></textarea>
+                                                        <p style="color: red;margin-top: 3px" id="question_error"></p>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <br>
 
-{{--                                                @isset($survey_question->category){{$survey_question->category->category_name}}@endisset--}}
-{{--                                            </td>--}}
+                                                        <div class="btn btn-primary pull-right addquestion" style="text-align: center;">+</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <fieldset class="form-group floating-label-form-group" id="addrows">
 
-                                            @if($survey_question->status ==1)
-                                                <td><button class="btn btn-success" onclick="change_status(this,'{{$survey_question->id}}',0)">Active</button></td>
-                                            @else
-                                                <td><button class="btn btn-danger" onclick="change_status(this,'{{$survey_question->id}}',1)">Deactive</button></td>
-                                            @endif
-                                            <td><a href="javascript:;" onclick="editItem({{$survey_question->id}})" class="btn btn-primary btn-sm">Edit</a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                @endisset
-                                </tbody>
-                            </table>
+                                        </fieldset>
+
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <img class="loader-img" src="{{asset('images/ajax-loader.gif')}}" width="50"
+                                             height="50"/>
+                                        &nbsp;&nbsp;&nbsp;
+                                        <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal"
+                                               value="Dismiss">
+                                        <input type="submit" class="btn btn-outline-success btn-lg"  id="addDataBtn" value="Add Question">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+
     <div class="col-md-12">
 
-    </div>
+
     <div id="show_edit_modal"></div>
-    <div class="modal fade text-left" id="add_shed" tabindex="-1"
-         role="dialog" aria-labelledby="myModalLabel35" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header bg-success">
-                    <h3 class="modal-title" id="myModalLabel35"> Add New Question</h3>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <form action="" id="addDataForm" method="post" enctype="multipart/form-data">
-                    {{ csrf_field() }}
-                    <div class="modal-body">
-                        <fieldset class="form-group floating-label-form-group">
-                            <div class="col-md-12">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <label for="cat_name">Question Name</label>
-                                    <textarea type="text" class="form-control" id="question" name="question"></textarea>
-                                    <p style="color: red;margin-top: 3px" id="question_error"></p>
-                                </div>
-                                    <div class="col-md-2">
-                                        <div class="btn btn-primary pull-right addQualification" style="text-align: center;">+</div>
-                                    </div>
-                            </div>
-                            </div>
-                        </fieldset>
-                        <fieldset class="form-group floating-label-form-group">
-                            <label for="cat_type">Question Type</label>
-                            <select name="question_type" class="form-control">
-                                <option value=" " selected>choose..</option>
-                                <option value="1">Yes</option>
-                                <option value="2">No</option>
-                                <option value="3">May be</option>
-                            </select>
-                            <p style="color: red;margin-top: 3px" id="question_type_error"></p>
-                        </fieldset>
-                        <fieldset class="form-group floating-label-form-group">
-                            <label for="month">Category Type</label>
-                            <select name="category_id" class="form-control">
-                                <option value=" " selected>choose..</option>
-                                @foreach($categorys as $category)
-                                    <option value="{{$category->id}}">{{$category->category_name}}</option>
-                                @endforeach
-                            </select>
-                            <p style="color: red;margin-top: 3px" id="category_id_error"></p>
-                        </fieldset>
-                        <br>
-                    </div>
-                    <div class="modal-footer">
-                        <img class="loader-img" src="{{asset('images/ajax-loader.gif')}}" width="50"
-                             height="50"/>
-                        &nbsp;&nbsp;&nbsp;
-                        <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal"
-                               value="Dismiss">
-                        <input type="submit" class="btn btn-outline-success btn-lg"  id="addDataBtn" value="Add Question">
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+
     <div id="question_edit"></div>
 @endsection
 @push('post-styles')
@@ -150,6 +80,7 @@
         $(document).ready(function() {
             //Default data table
             $('#default-datatable').DataTable();
+
         });
         //     var table = $('#example').DataTable( {
         //         "order": [[ 0, "desc" ]],
@@ -162,6 +93,47 @@
         // } );
     </script>
     <script>
+
+        $('.addquestion').on('click', function(e) {
+
+            var increment =`  <div class="col-md-12 remove">
+                                                <div class="row">
+                                            <div class="col-md-4">
+                                                <label for="cat_type">Question</label>
+                                                <textarea type="text" class="form-control" id="question" name="child_questions[]"></textarea>
+                                            </div>
+                                                    <div class="col-md-2">
+
+                                                        <label for="cat_type">Question type </label>
+                                                <select name="question_type[]" class="form-control">
+                                                    <option value=" " selected>choose..</option>
+                                                    <option value="1">Yes</option>
+                                                    <option value="2">No</option>
+                                                    <option value="3">May be</option>
+                                                </select>
+                                                <p style="color: red;margin-top: 3px" id="question_type_error"></p>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <br>
+{{--                                                        <div class="btn btn-primary   " style="text-align: center;">+</div>--}}
+            <div class="btn btn-danger deletequestion " style="text-align: center;">-</div>
+        </div>
+            </div>
+            </div>
+`;
+
+            $("#addrows").append(increment);
+            console.log('increment',increment);
+        });
+        $(document).on('click', '.deletequestion', function(e) {
+            // var rowCount = $('#qualificationRows tr').length;
+            // console.log('row count',rowCount);
+            // if(rowCount==1){
+            //     return false;
+            // }
+            // console.log('remove tr');
+            $(this).closest('.remove').remove();
+        });
         /*showing confirm cancel popup box*/
         function showConfirm() {
             return confirm("Are You Sure You Want To Resend This Notification?");
@@ -201,6 +173,7 @@
                 });
             }
         }
+
         {{--/*showing confirm cancel popup box*/--}}
         {{--function showConfirmDelete() {--}}
         {{--    return confirm("Are You Sure You Want To Delete This Data?");--}}
@@ -327,7 +300,7 @@
                         $(".slim-btn-remove").click();
                         swal(
                             'Success!',
-                            'Category Added Successfully',
+                            'Survey Question added successfully',
                             'success'
                         );
                         location.reload(true);
@@ -340,19 +313,19 @@
                         );
                     }
                 },
-                // error: function (e) {
-                //     console.log('error', e);
-                //     swal(
-                //         'Oops...',
-                //         'Something went wrong!',
-                //         'error'
-                //     )
-                // }
-                error: function (response) {
-                    $('#question_error').text(response.responseJSON.errors.question);
-                    $('#question_type_error').text(response.responseJSON.errors.question_type);
-                    $('#category_id_error').text(response.responseJSON.errors.category_id);
+                error: function (e) {
+                    console.log('error', e);
+                    swal(
+                        'Oops...',
+                        'Plz fill all fields',
+                        'error'
+                    )
                 }
+                // error: function (response) {
+                //     $('#question_error').text(response.responseJSON.errors.question);
+                //     $('#question_type_error').text(response.responseJSON.errors.question_type);
+                //     $('#category_id_error').text(response.responseJSON.errors.category_id);
+                // }
             });
             e.preventDefault();
         });

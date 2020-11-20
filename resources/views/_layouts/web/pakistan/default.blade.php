@@ -1,4 +1,4 @@
-{{-- 
+{{--
 /**
  * Project:Pakistan American Lyceum school.
  * User: SHAFQAT GHAFOOR
@@ -23,6 +23,7 @@
   <link rel="stylesheet" type="text/css" href="">
   <title> @yield('title','Pakistan') - American Lyceum Group of School</title>
   <!-- <link href="{{asset('web/muscat/fonts/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css"> -->
+         <link rel="stylesheet" type="text/css" href="{{asset('js/sweetalert2/sweetalert2.min.css')}}">
   <script type="text/javascript" src="{{asset('web/pakistan/javascripts/swfobject.js')}}"></script>
   <script type="text/javascript" src="{{asset('web/pakistan/sitefiles/global/js/jquery/1.4.2/jquery.min.js')}}"></script>
   <script type="text/javascript">
@@ -41,7 +42,7 @@
   <link rel="icon" type="image/png" href="{{asset('web/pakistan/sitefiles/2532/css/images/favicon-16x16.png')}}" sizes="16x16" />
   <link rel="icon" type="image/png" href="{{asset('web/pakistan/sitefiles/2532/css/images/favicon-32x32.png')}}" sizes="32x32" />
   <link rel="icon" type="image/png" href="{{asset('web/pakistan/sitefiles/2532/css/images/favicon-96x96.png')}}" sizes="96x96" />
-  <link rel="icon" type="image/png" href="{{asset('web/pakistan/sitefiles/2532/css/images/android-chrome-192x192.png')}}" sizes="192x192" /> 
+  <link rel="icon" type="image/png" href="{{asset('web/pakistan/sitefiles/2532/css/images/android-chrome-192x192.png')}}" sizes="192x192" />
   <noscript id="deferred-styles">
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,400i,700|Open+Sans+Condensed:700|Open+Sans:400,700" rel="stylesheet" />
   </noscript>
@@ -118,6 +119,7 @@
         @section('scripts')
 
         <script src="{{asset('web/muscat/js/jquery.min.js')}}"></script>
+              <script src="{{asset('js/sweetalert2/sweetalert2.min.js')}}"></script>
 
 
         <!-- Swicther -->

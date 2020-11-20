@@ -18,7 +18,7 @@ class SurveyQuestionController extends Controller
         $categorys =SurveyCategory::all();
         $months =Month::all();
         $years =Year::all();
-       $survey_questions= SurveyQuestion::all();
+       $survey_questions= SurveyQuestion::where('parent_id',0)->get();
         return view('admin\survey\question\index',compact('categorys','survey_questions'));
     }
 
@@ -29,7 +29,11 @@ class SurveyQuestionController extends Controller
      */
     public function create()
     {
-        //
+        $categorys =SurveyCategory::all();
+        $months =Month::all();
+        $years =Year::all();
+        $survey_questions= SurveyQuestion::all();
+        return view('admin\survey\question\add_question',compact('categorys','survey_questions'));
     }
 
     /**
@@ -39,19 +43,41 @@ class SurveyQuestionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(surveyQuestionValidation $request){
-//dd($request->month);
+//dd($request->child_questions);
+        //dd($request->question)
+        //$child_questions=json_encode($request->child_questions);
+//dd($request->question_type);
         $categories=SurveyQuestion::create([
             'question'=>$request->question?$request->question:null,
-            'category_id'=>$request->category_id?$request->category_id:null,
-            'question_type'=>$request->question_type?$request->question_type:null,
-            'parent_id'=>Auth::user()->id,
+            'category_id'=>$request->category_id?$request->category_id:'null',
+            'question_type' => 'null',
             'created_by'=>Auth::user()->id,
             'updated_by'=>Auth::user()->id,
         ]);
-        if($categories)
-            return response()->json(['status'=>200]);
+        //$child_questions = implode(',', $request->child_questions);
+       //dd($child_questions);
+//        $implode_questions =implode(',',$request->child_questions);
+//        $implode_questions_type =implode(',',$request->question_type);
+//        dd($implode_questions,$implode_questions_type);
+//      dd(count($request->child_questions));
+        if($categories) {
+            for ($i=0;$i< count($request->child_questions);$i++) {
+                $child_questions = implode(',', $request->child_questions);
+                $questions_type = implode(',', $request->question_type);
+                $categories_1 = SurveyQuestion::create([
+                    'question' => $request->child_questions ?$request->child_questions[$i] : null,
+                    'category_id' => $request->category_id ? $questions_type : 'null',
+                    'question_type' => $request->question_type ? $request->question_type[$i]: null,
+                    'parent_id' => $categories->id,
+                    'created_by' => Auth::user()->id,
+                    'updated_by' => Auth::user()->id,
+                ]);
+            }
+            return response()->json(['status' => 200]);
+        }
+
         else
-            return response()->json(['message'=>'Category not added']);
+            return response()->json(['message'=>'Plz fill all fields']);
 
 
 //        return redirect()->route('survey_category.index');
@@ -77,15 +103,15 @@ class SurveyQuestionController extends Controller
      */
     public function edit($id)
     {
-        $months =Month::all();
-        $years =Year::all();
-        $questions = SurveyQuestion::find($id);
+        $parent_question = SurveyQuestion::where('id',$id)->first();
+        $child_questions =SurveyQuestion::where('parent_id',$id)->get();
+//            dd($child_questions);
         $categorys =SurveyCategory::all();
-        if(!$questions){
+        if(!$child_questions ){
             return response()->json(['status'=>false,'message'=>'data not found']);
         }
 //        return view('admin.OnlineSchool.TimeTablePeriods.edit_new',compact('periods'));
-        $html=view('admin.survey.question.edit',compact('questions','categorys'))->render();
+        $html=view('admin.survey.question.edit',compact('parent_question','child_questions','categorys'))->render();
         return response()->json(['status'=>true,'contentHtml'=>$html,'message'=>'data not found']);
     }
     public function update(Request $request)
@@ -103,13 +129,23 @@ class SurveyQuestionController extends Controller
 //        }
 //        else {
         $question = SurveyQuestion::where('id', $request->question_id)->first();
-        $question->question = $request->question;
-        $question->question_type = $request->question_type;
-        $question->category_id = $request->category_id;
+        $question->question = $request->parent_question;
+        $question->question_type = 'null';
+        $question->category_id ='null';
         $question->created_by = Auth::user()->id;
         $question->updated_by = Auth::user()->id;
-        $question_updated= $question->save();
-        if($question_updated)
+        $question= $question->save();
+        $child_questions= SurveyQuestion::where('parent_id', $request->question_id)->get();
+//        $implode_questions =implode(' ',$request->child_question);
+//        dd($implode_questions);
+        foreach($child_questions as $child_question)
+        {
+            //dd($request->child_question);
+            $child_question->question =$request->child_question[$child_question->id];
+            $child_question->question_type =$request->question_type[$child_question->id];
+           $child_question_updated = $child_question->save();
+        }
+        if($child_question_updated)
         {
             return response()->json(['status'=>true, 'message'=>'Question update Successfully'], 200);
         }

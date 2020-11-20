@@ -15,10 +15,10 @@ class CreateSurveyQuestionsTable extends Migration
     {
         Schema::create('survey_questions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('category_id');
+            $table->string('category_id');
             $table->Integer('parent_id')->nullable();
-            $table->integer('question')->nullable();
-            $table->Integer('question_type')->nullable();
+            $table->longText('question')->nullable();
+            $table->string('question_type')->nullable();
             $table->boolean('status')->default(1);
             $table->integer('created_by');
             $table->integer('updated_by');
