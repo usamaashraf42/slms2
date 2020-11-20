@@ -22,7 +22,7 @@ class SurveyController extends Controller
     {
         $categorys =SurveyCategory::all();
         $months =Month::all();
-        $years =Year::all();
+        $years =Year::orderBy('id','DESC')->get();
         return view('admin.survey.category.index',compact('categorys','months','years'));
     }
 
