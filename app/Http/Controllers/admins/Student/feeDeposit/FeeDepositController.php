@@ -96,7 +96,12 @@ class FeeDepositController extends Controller
               $firstInsertamount=(double)($record[$amount]);
               $studentName=null;
               $std=false;
-              $tranId=((isset($student)?$record[$student]:(isset($feeIds)?$feeIds:'')?(isset($feeIds)?$feeIds:''):''));
+
+              if(isset($student)){
+                $tranId=$record[$student];
+              }else{
+                 $tranId=$feeIds;
+              }
               $feeIdd=isset($feeIds)?$feeIds:null;
               $lyu=isset($student)?$record[$student]:null;
               $depositDatest=$record[$depositDate]?date("Y-m-d", strtotime($record[$depositDate])):date('Y-m-d');

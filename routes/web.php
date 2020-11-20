@@ -325,8 +325,8 @@ Route::prefix('admin')->group(function () {
 			Route::prefix('academic')->group(function () {
 				Route::prefix('dairy')->group(function () {
 					Route::resource('home-work','admins\Student\Academics\Dairy\HomeWorkController');
-					Route::resource('dairy-manage','admins\Student\Academics\Dairy\DairyManageController');
-					Route::resource('dairy-manage','admins\Student\Academics\Dairy\DairyManageController');
+					// Route::resource('dairy-manage','admins\Student\Academics\Dairy\DairyManageController');
+					// Route::resource('dairy-manage','admins\Student\Academics\Dairy\DairyManageController');
 				});
 
 			});
@@ -470,6 +470,7 @@ Route::prefix('admin')->group(function () {
 			Route::resource('resolved','admins\Maintenance\ResolvedMaintenanceController');
 			Route::resource('pending','admins\Maintenance\PendingMaintenanceController');
 			Route::resource('list','admins\Maintenance\MaintenanceListController');
+			Route::post('maintenance-list','admins\Maintenance\MaintenanceListController@maintenceList')->name('maintenance-list');
 
 
 		});

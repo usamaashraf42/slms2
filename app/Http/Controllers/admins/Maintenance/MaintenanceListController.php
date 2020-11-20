@@ -16,8 +16,7 @@ use App\Models\User;
 use Auth;
 use DOMPDF;
 
-class MaintenanceListController extends Controller
-{
+class MaintenanceListController extends Controller{
 	
 	function __construct()
     {
@@ -45,16 +44,23 @@ class MaintenanceListController extends Controller
 
     public function store(Request $request){
 
-        $maintenance=Maintenance::orderBy('branch_id','ASC')->with('assignUser','category.maintain_category')->where('main_status',1);
+        $maintenance=Maintenance::orderBy('branch_id','ASC')->with('assignUser','category.maintain_category');
+
         if($request->branch_id){
             $maintenance->where('branch_id',$request->branch_id);
         }
-
-        // if($request->cat_id){
-        //     $maintenance->where('main_id',$request->cat_id);
-        // }
         if($request->emp_id){
             $maintenance->where('user_id',$request->emp_id);
+        }
+
+
+        if(isset($request->type_id) ){
+            $maintenance->where('main_status',$request->type_id);
+        }
+        
+
+        if($request->cat_id){
+            $maintenance->where('main_id',$request->cat_id);
         }
 
         $records=$maintenance->get();
@@ -93,5 +99,70 @@ class MaintenanceListController extends Controller
         return $pdf->stream('BLIS-fee-challan.pdf');
 
 
+    }
+
+
+    public function maintenceList(Request $request){
+// return $request->all();
+        $limit = $request->input('length');
+        $start = $request->input('start');
+        $start = $start?$start+1:$start;
+        $search = $request->input('search.value');
+        $order_column_no = $request->input('order.0.column');
+        $order_dir = $request->input('order.0.dir');
+        $order_column_name = $request->input("columns.$order_column_no.data");
+        $records = Maintenance::with('assignUser','subcategory','category','branch')->offset($start)->limit($limit)->orderBy($order_column_name,$order_dir);
+        if(isset($request->type_id) ){
+            $records->where('main_status',$request->type_id);
+        }
+         if($request->branch_id){
+            $records->where('branch_id',$request->branch_id);
+        }
+        if($request->emp_id){
+            $records->where('user_id',$request->emp_id);
+        }
+
+        if($request->cat_id){
+            $records->where('main_id',$request->cat_id);
+        }
+
+        if(!empty($search)){
+
+            $records->where('main_id', 'like', "%{$search}%")
+            ->orWhere('status','like',"%{$search}%")
+            ->orWhere('description','like',"%{$search}%")
+            ->orWhere('id','like',"%{$search}%")
+            ->orWhere('user_id','like',"%{$search}%")
+            ->orWhere('branch_id','like',"%{$search}%");
+
+        }
+        $data = $records->get();
+            // return $data;
+        $totalFiltereds= Maintenance::orderBy('id','DESC');
+       
+         if(isset($request->type_id) ){
+            $records->where('main_status',$request->type_id);
+        }
+         if($request->branch_id){
+            $records->where('branch_id',$request->branch_id);
+        }
+        if($request->emp_id){
+            $records->where('user_id',$request->emp_id);
+        }
+
+        if($request->cat_id){
+            $records->where('main_id',$request->cat_id);
+        }
+
+
+        $totalFiltered =$totalFiltereds->count();
+        $json_data = array(
+            "draw"      => intval($request->input('draw')),
+            "recordsTotal"  => count($data),
+            "recordsFiltered" => intval($totalFiltered),
+            "data"      => $data
+        );
+
+        return response()->json($json_data, 200);
     }
 }
