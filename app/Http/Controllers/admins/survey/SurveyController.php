@@ -10,7 +10,7 @@ use App\SurveyCategory;
 use App\SurveyTable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\surveyCategoryValidation;
+use App\Http\Requests\SurveyCategoryValidation;
 class SurveyController extends Controller
 {
     /**
@@ -42,7 +42,7 @@ class SurveyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(surveyCategoryValidation $request){
+    public function store(SurveyCategoryValidation $request){
 //dd($request->month);
         $categories=SurveyCategory::create([
             'category_name'=>$request->category_name?$request->category_name:null,

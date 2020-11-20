@@ -24,7 +24,7 @@ class surveyCategoryValidation extends FormRequest
     public function rules()
     {
         return [
-            'cat_name'=>'required',
+            'category_name'=>'required',
             'cat_type'=>'required',
             'month'=>'required',
             'year'=>'required'
@@ -33,7 +33,7 @@ class surveyCategoryValidation extends FormRequest
     public function messages()
     {
         return [
-            'cat_name.required' => 'A category field  is required',
+            'category_name.required' => 'A category field  is required',
             'cat_type.required' => 'A category type is required',
         ];
     }
