@@ -16,8 +16,6 @@ class SurveyQuestionController extends Controller
     public function index()
     {
         $categorys =SurveyCategory::all();
-        $months =Month::all();
-        $years =Year::all();
        $survey_questions= SurveyQuestion::where('parent_id',0)->get();
         return view('admin.survey.question.index',compact('categorys','survey_questions'));
     }

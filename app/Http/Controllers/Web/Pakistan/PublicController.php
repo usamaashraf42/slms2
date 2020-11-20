@@ -27,10 +27,21 @@ class PublicController extends Controller
         $branches =Branch::all();
         return view('web.pakistan.survey.surveryStaff',compact('questions','categorys','branches'));
     }
-    public function surveryStaffquestions(Request  $request){
+    public function surveryStaffquestions(Request $request){
 //        dd($request->question_id,$request->answer_id);
+//        dd($request->question_id);
         $answers =SurveyQuestion::where('parent_id',$request->question_id)->where('question_type',$request->answer_id)->first();
-
+//        if(!$answers)
+//        {
+//            $answers='';
+//            $childerns =SurveyQuestion::where('parent_id',$request->question_id)->get('id');
+////            $array_childrens =explode(' ',$childerns);
+////            dd($array_childrens);
+////           array_push($array_childrens,'');
+////            dd($array_childrens);
+//            return response()->json(['status'=>200,'answer'=>$answers,'childerns'=>$childerns]);
+//        }
+//dd($answers);
         $childerns =SurveyQuestion::where('parent_id',$request->question_id)->get('id');
 //dd($childerns);
 

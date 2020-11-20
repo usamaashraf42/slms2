@@ -24,7 +24,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @isset($categorys)
+                                @isset($survey_questions)
                                     @php
                                         $i =1;
                                     @endphp

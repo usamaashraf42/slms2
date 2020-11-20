@@ -434,8 +434,9 @@ border-bottom-left-radius: 25px;
                                                 $i =1;
                                             @endphp
                                             @foreach($questions as $question)
+                                                @if($question->question_type =='null')
                                                 <tr id="row_{{$question->id}}">
-                                                    @if($question->question_type =='null')
+
                                                     <td>{{$i++}}</td>
                                                     <td style="text-align: left;font-family: Noto Serif;">
                                                         {{$question->question}}
@@ -459,8 +460,9 @@ border-bottom-left-radius: 25px;
                                                         </div>
 
                                                     </td>
-                                                    @endif
+
                                                 </tr>
+                                                @endif
                                             @endforeach
                                         @endisset
                                         </tbody>
@@ -557,7 +559,7 @@ border-bottom-left-radius: 25px;
             if(second == 0){
                 zeroPlaceholder = 0;
             }
-            console.log(min+':'+zeroPlaceholder+second)
+            // console.log(min+':'+zeroPlaceholder+second)
 
             document.getElementById("count-up").innerText = min+':'+zeroPlaceholder+second;
         }
@@ -602,10 +604,11 @@ border-bottom-left-radius: 25px;
                             console.log('child',chids[i].id);
                             $('#row_'+chids[i].id).css('display','none');
                         }
+                    console.log(response.answer);
                         // for (var i = 0; i < tabcontent.length; i++) {
                         //     tabcontent[i].style.display = "none";
                         // }
-                        html =`<tr  id="row_${response.answer.id?response.answer.id:''}">
+                        html =`<tr id="row_${response.answer.id?response.answer.id:''}">
                                   <td></td>
                                     <input type="hidden" name="questions[]" value="${response.answer.id?response.answer.id:''}">
                                   <td style="text-align: left; font-family: "Noto Serif", Garamond, "Times New Roman", Times, sans-serif;">
