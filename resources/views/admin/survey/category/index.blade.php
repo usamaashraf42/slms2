@@ -337,8 +337,11 @@
                                 'Success!',
                                 'Category Added Successfully',
                                 'success'
-                            );
-                            location.reload(true);
+                            ).then(function(){
+                                // location.reload();
+                                 setTimeout(location.reload(),1000);
+                            });
+                            // location.reload(true);
                         } else {
                             // console.log('error blank', response.message);
                             swal(
@@ -357,7 +360,7 @@
                     //     )
                     // }
                     error: function (response) {
-                        $('#cat_name_error').text(response.responseJSON.errors.cat_name);
+                        $('#cat_name_error').text(response.responseJSON.errors.category_name);
                         $('#cat_type_error').text(response.responseJSON.errors.cat_type);
                         $('#year_error').text(response.responseJSON.errors.year);
                         $('#month_error').text(response.responseJSON.errors.month);

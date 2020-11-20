@@ -302,8 +302,11 @@
                             'Success!',
                             'Survey Question added successfully',
                             'success'
-                        );
-                        location.reload(true);
+                        ).then(function(){
+                            //location.reload();
+                             setTimeout(location.reload(),1000);
+                        });
+                        // location.reload(true);
                     } else {
                         // console.log('error blank', response.message);
                         swal(
