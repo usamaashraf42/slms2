@@ -561,17 +561,6 @@ border-bottom-left-radius: 25px;
 
             document.getElementById("count-up").innerText = min+':'+zeroPlaceholder+second;
         }
-        // function count() {
-        //     // alert(1);
-        //
-        //      setInterval(counter(), 1000);
-        //     function counter() {
-        //         var count = 1;
-        //        console.log(count++);
-        //        count++;
-        //         document.getElementById('counter').innerHTML = count;
-        //     }
-        // }
         $(document).ready(function(){
             $('#check_1').click(function(){
                 console.log($(this).val());

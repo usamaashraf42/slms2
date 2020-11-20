@@ -23,7 +23,7 @@ class SurveyController extends Controller
         $categorys =SurveyCategory::all();
         $months =Month::all();
         $years =Year::all();
-        return view('admin\survey\category\index',compact('categorys','months','years'));
+        return view('admin.survey.category.index',compact('categorys','months','years'));
     }
 
     /**

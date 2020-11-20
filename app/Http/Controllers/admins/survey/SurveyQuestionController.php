@@ -19,7 +19,7 @@ class SurveyQuestionController extends Controller
         $months =Month::all();
         $years =Year::all();
        $survey_questions= SurveyQuestion::where('parent_id',0)->get();
-        return view('admin\survey\question\index',compact('categorys','survey_questions'));
+        return view('admin.survey.question.index',compact('categorys','survey_questions'));
     }
 
     /**
@@ -33,7 +33,7 @@ class SurveyQuestionController extends Controller
         $months =Month::all();
         $years =Year::all();
         $survey_questions= SurveyQuestion::all();
-        return view('admin\survey\question\add_question',compact('categorys','survey_questions'));
+        return view('admin.survey.question.add_question',compact('categorys','survey_questions'));
     }
 
     /**
