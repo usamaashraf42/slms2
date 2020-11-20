@@ -42,7 +42,7 @@ class SurveyQuestionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(surveyQuestionValidation $request){
+    public function store(Request $request){
 //dd($request->child_questions);
         //dd($request->question)
         //$child_questions=json_encode($request->child_questions);
