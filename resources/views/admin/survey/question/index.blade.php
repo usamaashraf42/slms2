@@ -149,6 +149,7 @@
     <script>
         $(document).ready(function() {
             //Default data table
+
             $('#default-datatable').DataTable();
         });
         //     var table = $('#example').DataTable( {

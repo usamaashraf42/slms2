@@ -506,9 +506,17 @@ border-bottom-left-radius: 25px;
 {{--                    <div class="col-md-2 float-right" style="float:right">--}}
 {{--                        <input type="button"  class="btn btn-info btn-sm   float-left"   onclick="refreshwindow(this)"  value="back">--}}
 {{--                    </div>--}}
-                    <div class="col-md-2 float-right" style="float:right">
 
-                        <input class="btn btn-success btn-sm submitButton float-left" id="addDataBtn"    value="submit">
+                    <div class="col-md-2 float-right" style="float:right;display: flex">
+                        <div style="     width: 40%;margin-top: 20px;">
+                            <img class="loader-img" src="{{asset('images/ajax-loader.gif')}}" width="50"
+                                 height="50"/>
+                        </div>
+                        <div style="    width: 60%;">
+                            <input class="btn btn-success btn-sm submitButton" id="addDataBtn"    value="submit">
+                        </div>
+
+
                     </div>
                 </div>
 
@@ -566,6 +574,7 @@ border-bottom-left-radius: 25px;
             document.getElementById("count-up").innerText = min+':'+zeroPlaceholder+second;
         }
         $(document).ready(function(){
+            $('.loader-img').hide();
             $('#check_1').click(function(){
                 console.log($(this).val());
                 $('#hide2').toggle();
