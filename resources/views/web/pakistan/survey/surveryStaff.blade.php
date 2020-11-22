@@ -477,7 +477,7 @@ border-bottom-left-radius: 25px;
                                         </div>
                                         <div class="form-check form-check-inline" id="hide2">
                                             <input class="form-check-input" type="checkbox"  name="check_2" id="check_2" value="add my name" >
-                                            <label class="form-check-label" for="checkbox" style="display: inline" >I am saving my name </label>
+                                            <label class="form-check-label" for="checkbox" style="display: inline" >I am saving my name </label>:
                                             <input  id="checkbox" type="text" name="name">
                                         </div>
                                             <div class="footer">
