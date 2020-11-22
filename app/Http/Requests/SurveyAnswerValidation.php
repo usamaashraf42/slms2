@@ -26,6 +26,7 @@ class SurveyAnswerValidation extends FormRequest
         return [
             'branch_id'=>'required',
             'section_type'=>'required',
+            'check'=>'required',
 
         ];
     }
@@ -34,6 +35,7 @@ class SurveyAnswerValidation extends FormRequest
         return [
             'branch_id.required' => 'Branch Name is required',
             'section_type.required'=>'Section Name is required',
+            'check.required'=>'Please check one of them',
         ];
     }
 }

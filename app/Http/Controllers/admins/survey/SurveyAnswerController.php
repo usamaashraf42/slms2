@@ -46,10 +46,11 @@ class SurveyAnswerController extends Controller
 //        implode(',',$request->answer);
         //dd(count($request->questions));
 //        dd($request->all());
+//        dd($request->name);
         $survey = SurveyTable::create([
             'branch_id' => $request->branch_id,
             'section_id' => $request->section_type,
-            'name' => $request->check_1?'Not Added name': $request->name,
+            'name' => $request->name?$request->name:'Not want to add name',
             'email' => Auth::user()->email,
             'phone' =>Auth::user()->phone,
         ]);

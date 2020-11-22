@@ -468,18 +468,20 @@ border-bottom-left-radius: 25px;
                                     </table>
                                         <div class="container" style="margin-top: 20px;">
                                             <div class="form-check form-check-inline" id="hide1">
-                                                <input class="form-check-input" type="checkbox" name="check_1"
+                                                <input class="form-check-input" type="checkbox" name="check"
                                                        id="check_1">
                                                 <label class="form-check-label" for="inlineRadio1"
                                                        style="display: inline">I do not want to mention my name</label>
+{{--                                                <input type="hidden" name="name" value="1">--}}
                                             </div>
                                             <div class="form-check form-check-inline" id="hide2">
-                                                <input class="form-check-input" type="checkbox" name="check_2"
+                                                <input class="form-check-input" type="checkbox" name="check"
                                                        id="check_2">
                                                 <label class="form-check-label" for="checkbox" style="display: inline">I
                                                     am saving my name </label>:
-                                                <input id="checkbox" type="text" name="name" autocomplete="off">
+                                                <input id="checkbox" type="text" name="name" autocomplete="off"  >
                                             </div>
+                                            <p style="color: red;margin-top: 3px" id="check_error"></p>
                                             <div class="footer">
                                                 <div class="flex_1">
                                                     <b>Date :</b> <span>{{ date('Y-m-d') }}</span></div>
@@ -741,6 +743,12 @@ border-bottom-left-radius: 25px;
                                 else{
                                     $('#section_error').html(' ');
                                 }
+                            if(response.responseJSON.errors.check) {
+                                $('#check_error').text(response.responseJSON.errors.check);
+                            }
+                            else{
+                                $('#check_error').html(' ');
+                            }
                         }
                     });
                     e.preventDefault();
