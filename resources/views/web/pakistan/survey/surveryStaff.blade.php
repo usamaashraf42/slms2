@@ -435,7 +435,8 @@ border-bottom-left-radius: 25px;
                                             @endphp
                                             @foreach($questions as $question)
                                                 @if($question->question_type =='null')
-                                                <tr id="row_{{$question->id}}">
+                                                    <div class="question">
+                                                <tr id="rows_{{$question->id}}">
 
                                                     <td>{{$i++}}</td>
                                                     <td style="text-align: left;font-family: Noto Serif;">
@@ -462,6 +463,7 @@ border-bottom-left-radius: 25px;
                                                     </td>
 
                                                 </tr>
+                                                    </div>
                                                 @endif
                                             @endforeach
                                         @endisset
@@ -599,6 +601,7 @@ border-bottom-left-radius: 25px;
                         // console.log(tabcontent.length);
                         // response.childerns.foreach($)
                         var chids=response.childerns;
+                        console.log(chids);
                         console.log(chids.length)
                         for(var i=0; i<chids.length; i++){
                             console.log('child',chids[i].id);
@@ -650,63 +653,101 @@ border-bottom-left-radius: 25px;
         $(document).ready(function(){
             $("#addDataBtn").click(function (e) {
                 var form = $('#addDataForm')[0]; // You need to use standard javascript object here
+                // console.log('form',form);
                 var formData = new FormData(form);
                 console.log('formData', formData);
+                // return false;
                 console.log('form', form);
-                $.ajax({
-                    url: "{{route('pakistan_survey_staff_answers')}}",
-                    type: "POST",
-                    enctype: 'multipart/form-data',
-                    processData: false,  // Important!
-                    contentType: false,
-                    cache: false,
-                    data: formData,
-                    beforeSend: function () {
-                        $('.loader-img').show();
-                        $('#preloader').show();
-                    },
-                    complete: function () {
-                        $('#preloader').fadeOut('slow', function () {
-                            $(this).remove();
-                        });
-                        $('.loader-img').hide();
-                    },
-                    success: function (response) {
-                        console.log('response', response);
-                        if (response.status == '200') {
-                            // $('#add_shed').modal('hide');
-                            // $("#addDataForm")[0].reset();
-                            // $(".slim-btn-remove").click();
-                            swal({title: "Success", text: "Survey filled  Successfully!", type:
-                                    "success"}).then(function(){
-                                    location.reload();
-                                    setTimeout(location.reload(),4000);
-                                }
-                            );
-                        } else {
-                            // console.log('error blank', response.message);
-                            swal(
-                                'Warning!',
-                                response.message,
-                                'warning'
-                            );
-                        }
-                    },
-                    // error: function (e) {
-                    //     console.log('error', e);
-                    //     swal(
-                    //         'Oops...',
-                    //         'Something went wrong!',
-                    //         'error'
-                    //     )
-                    // }
-                    error: function (response) {
-                        $('#branch_id_error').text(response.responseJSON.errors.branch_id);
-                        $('#section_error').text(response.responseJSON.errors.section_type);
-
-                    }
+                var names = {};
+                $(':radio').each(function() {
+                    names[$(this).attr('name')] = true;
                 });
-                e.preventDefault();
+                var count = 0;
+                $.each(names, function() {
+                    count++;
+                });
+                if ($(':radio:checked').length !== count) {
+                    swal({
+                        title:"warning",
+                        text:"Please fill all questions",
+                        type:"warning"
+                    })
+                    // swal(
+                    //     'Warning!',
+                    //    'djndj',
+                    //     'warning'
+                    // );
+                }
+                // if ($('input[type="radio"]:checked').length == 0) {
+                //     alert('please...');
+                //     return false; }
+                else {
+                    $.ajax({
+                        url: "{{route('pakistan_survey_staff_answers')}}",
+                        type: "POST",
+                        enctype: 'multipart/form-data',
+                        processData: false,  // Important!
+                        contentType: false,
+                        cache: false,
+                     data:formData,
+                        beforeSend: function () {
+                            $('.loader-img').show();
+                            $('#preloader').show();
+                        },
+                        complete: function () {
+                            $('#preloader').fadeOut('slow', function () {
+                                $(this).remove();
+                            });
+                            $('.loader-img').hide();
+                        },
+                        success: function (response) {
+                            console.log('response', response);
+                            if (response.status == '200') {
+                                // $('#add_shed').modal('hide');
+                                // $("#addDataForm")[0].reset();
+                                // $(".slim-btn-remove").click();
+                                swal({title: "Success", text: "Survey filled  Successfully!", type:
+                                        "success"}).then(function(){
+                                        // location.reload();
+                                        setTimeout(location.reload(),1000);
+                                    }
+                                );
+                            } else {
+                                // console.log('error blank', response.message);
+                                swal(
+                                    'Warning!',
+                                    response.message,
+                                    'warning'
+                                );
+                            }
+                        },
+                        // error: function (e) {
+                        //     console.log('error', e);
+                        //     swal(
+                        //         'Oops...',
+                        //         'Something went wrong!',
+                        //         'error'
+                        //     )
+                        // }
+                        error: function (response) {
+                            if(response.responseJSON.errors.branch_id)
+                            {
+                                $('#branch_id_error').text(response.responseJSON.errors.branch_id);
+                            }
+                            else{
+                                $('#branch_id_error').html(' ');
+                            }
+                            if(response.responseJSON.errors.section_type) {
+                                $('#section_error').text(response.responseJSON.errors.section_type);
+                            }
+                                else{
+                                    $('#section_error').html(' ');
+                                }
+                        }
+                    });
+                    e.preventDefault();
+                }
+
             });
         })
     </script>

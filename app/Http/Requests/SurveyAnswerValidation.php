@@ -25,7 +25,8 @@ class SurveyAnswerValidation extends FormRequest
     {
         return [
             'branch_id'=>'required',
-            'section_type'=>'required'
+            'section_type'=>'required',
+
         ];
     }
     public function messages()
