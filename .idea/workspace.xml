@@ -19,7 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0dce947e-f517-4a99-8fb8-d039794490bb" name="Default Changelist" comment="" />
+    <list default="true" id="0dce947e-f517-4a99-8fb8-d039794490bb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/web/pakistan/survey/surveryStaff.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/web/pakistan/survey/surveryStaff.blade.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -202,7 +205,7 @@
       <workItem from="1605723242258" duration="16180000" />
       <workItem from="1605808565101" duration="22685000" />
       <workItem from="1605897070920" duration="13529000" />
-      <workItem from="1606068060685" duration="12363000" />
+      <workItem from="1606068060685" duration="14108000" />
     </task>
     <servers />
   </component>
@@ -230,10 +233,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605658333139" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1606078784209">
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1606085590787">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1606078784209" />
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1606085590787" />
     <state x="794" y="443" key="NewPhpFileDialog" timestamp="1605483191106">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

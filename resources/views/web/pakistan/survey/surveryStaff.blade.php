@@ -435,9 +435,7 @@ border-bottom-left-radius: 25px;
                                             @endphp
                                             @foreach($questions as $question)
                                                 @if($question->question_type =='null')
-                                                    <div class="question">
                                                 <tr id="rows_{{$question->id}}">
-
                                                     <td>{{$i++}}</td>
                                                     <td style="text-align: left;font-family: Noto Serif;">
                                                         {{$question->question}}
@@ -463,32 +461,32 @@ border-bottom-left-radius: 25px;
                                                     </td>
 
                                                 </tr>
-                                                    </div>
                                                 @endif
                                             @endforeach
                                         @endisset
                                         </tbody>
-
                                     </table>
                                         <div class="container" style="margin-top: 20px;">
                                             <div class="form-check form-check-inline" id="hide1">
-                                            <input class="form-check-input" type="checkbox" name="check_1"  id="check_1" value="not added name" >
-                                            <label  class="form-check-label" for="inlineRadio1" style="display: inline">I do not want to mention my name</label>
-                                        </div>
-                                        <div class="form-check form-check-inline" id="hide2">
-                                            <input class="form-check-input" type="checkbox"  name="check_2" id="check_2" value="add my name" >
-                                            <label class="form-check-label" for="checkbox" style="display: inline" >I am saving my name </label>:
-                                            <input  id="checkbox" type="text" name="name">
-                                        </div>
+                                                <input class="form-check-input" type="checkbox" name="check_1"
+                                                       id="check_1">
+                                                <label class="form-check-label" for="inlineRadio1"
+                                                       style="display: inline">I do not want to mention my name</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" id="hide2">
+                                                <input class="form-check-input" type="checkbox" name="check_2"
+                                                       id="check_2">
+                                                <label class="form-check-label" for="checkbox" style="display: inline">I
+                                                    am saving my name </label>:
+                                                <input id="checkbox" type="text" name="name" autocomplete="off">
+                                            </div>
                                             <div class="footer">
-                                                <div class="flex_1" >
-                                                    <b>Date :</b>   <span>{{ date('Y-m-d') }}</span></div>
-                                                <div class="flex_2">Time taken by Survey <span id="count-up"> 0:00</span></div>
+                                                <div class="flex_1">
+                                                    <b>Date :</b> <span>{{ date('Y-m-d') }}</span></div>
+                                                <div class="flex_2">Time taken by Survey <span
+                                                        id="count-up"> 0:00</span></div>
                                             </div>
-
-
-
-                                            </div>
+                                        </div>
                                                                   </div>
 
 
