@@ -701,12 +701,12 @@ border-bottom-left-radius: 25px;
                      data:formData,
                         beforeSend: function () {
                             $('.loader-img').show();
-                            $('#preloader').show();
+                            // $('#preloader').show();
                         },
                         complete: function () {
-                            $('#preloader').fadeOut('slow', function () {
-                                $(this).remove();
-                            });
+                            // $('#preloader').fadeOut('slow', function () {
+                            //     $(this).remove();
+                            // });
                             $('.loader-img').hide();
                         },
                         success: function (response) {
