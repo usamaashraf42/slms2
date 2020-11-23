@@ -58,7 +58,7 @@ class SurveyQuestionController extends Controller
 //        $implode_questions_type =implode(',',$request->question_type);
 //        dd($implode_questions,$implode_questions_type);
 //      dd(count($request->child_questions));
-        if($categories) {
+        if($request->child_questions) {
             for ($i=0;$i< count($request->child_questions);$i++) {
                 $child_questions = implode(',', $request->child_questions);
                 $questions_type = implode(',', $request->question_type);
@@ -74,8 +74,8 @@ class SurveyQuestionController extends Controller
             return response()->json(['status' => 200]);
         }
 
-        else
-            return response()->json(['message'=>'Plz fill all fields']);
+
+        return response()->json(['status' => 200]);
 
 
 //        return redirect()->route('survey_category.index');
