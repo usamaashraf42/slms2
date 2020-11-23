@@ -51,8 +51,8 @@ class SurveyAnswerController extends Controller
             'branch_id' => $request->branch_id,
             'section_id' => $request->section_type,
             'name' => $request->name?$request->name:'Not want to add name',
-            'email' => Auth::user()->email,
-            'phone' =>Auth::user()->phone,
+            'email' => Auth::user()?Auth::user()->email:'null',
+            'phone' =>Auth::user()?Auth::user()->phone:'null',
         ]);
         foreach ($request->questions as $data) {
 //    dd($request['question_ans_'.$data]);

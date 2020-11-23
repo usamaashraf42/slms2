@@ -32,7 +32,7 @@
                                     @foreach($survey_questions as $survey_question)
                                         <tr>
                                             <td>{{$i++}}</td>
-                                            <td>@isset($survey_question->question){{$survey_question->question}}@endisset</td>
+                                            <td style="text-align: left;width: 40%;">@isset($survey_question->question){{$survey_question->question}}@endisset</td>
 {{--                                            <td>--}}
 {{--                                                @if($survey_question->question_type==1)--}}
 {{--                                                    <h2 class="badge badge-primary">Yes</h2>--}}

@@ -435,7 +435,7 @@ border-bottom-left-radius: 25px;
                                             @endphp
                                             @foreach($questions as $question)
                                                 @if($question->question_type =='null')
-                                                <tr id="rows_{{$question->id}}">
+                                                <tr id="rows_{{$question->id}}" style="height: 50px;">
                                                     <td>{{$i++}}</td>
                                                     <td style="text-align: left;font-family: Noto Serif;">
                                                         {{$question->question}}
