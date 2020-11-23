@@ -16,7 +16,7 @@ class SurveyQuestionController extends Controller
     public function index()
     {
         $categorys =SurveyCategory::all();
-       $survey_questions= SurveyQuestion::where('parent_id',0)->get();
+       $survey_questions= SurveyQuestion::where('parent_id',null)->get();
         return view('admin.survey.question.index',compact('categorys','survey_questions'));
     }
 
