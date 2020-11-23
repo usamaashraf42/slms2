@@ -7,7 +7,7 @@
                 <div class="card-box">
 
                     <div class="card-block">
-                        <h4 class="card-title">Survey Categories</h4>
+                        <h4 class="card-title">Survey Questions</h4>
                         <div class="heading-elements float-right">
                             <a type="button" class="btn btn-success btn-min-width mr-1 mb-1" href="{{route('survey_questions.create')}}" ><i class="la la-plus">&nbsp;Add Question</i></a>
                         </div>
@@ -24,7 +24,8 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @isset($survey_questions)
+{{--                                @dd($survey_questions)--}}
+{{--                                @isset($survey_questions)--}}
                                     @php
                                         $i =1;
                                     @endphp
@@ -55,7 +56,7 @@
                                             </td>
                                         </tr>
                                     @endforeach
-                                @endisset
+{{--                                @endisset--}}
                                 </tbody>
                             </table>
                         </div>

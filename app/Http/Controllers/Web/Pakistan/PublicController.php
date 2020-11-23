@@ -22,7 +22,7 @@ class PublicController extends Controller
     	return view('web.pakistan.index');
     }
     public function surveryStaff(){
-        $questions =SurveyQuestion::all();
+        $questions =SurveyQuestion::where('status',1)->get();
         $categorys =SurveyCategory::all();
         $branches =Branch::all();
         return view('web.pakistan.survey.surveryStaff',compact('questions','categorys','branches'));
