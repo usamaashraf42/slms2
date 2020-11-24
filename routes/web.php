@@ -570,6 +570,7 @@ Route::prefix('admin')->group(function () {
 		Route::post('marksPostingData','admins\AjaxCallController@marksPostingData')->name('marksPostingData');
 		Route::post('get/student','admins\AjaxCallController@getStudent')->name('getStudent');
 
+		Route::post('get/studentCorrection','admins\AjaxCallController@correctionStudentCorrection')->name('correctionStudentCorrection');
 
 		Route::post('get/correctionRecord','admins\AjaxCallController@correctionRecord')->name('correctionRecord');
 		Route::post('correction/approval/','Account\correction\ApproveCorrectionController@approveBranchWise')->name('approveBranchWise');

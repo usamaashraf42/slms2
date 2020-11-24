@@ -54,13 +54,15 @@ class CorrectionController extends Controller
 		// }
 
 		$year=date('Y');
+
 		
 		$deffered=isset($request->deffered)?$request->deffered:0;
 		$request->correctionAmount=$request->correctionAmount!=null?$request->correctionAmount:0;
 		
 		$stdFee=StudentFeeStructure::where('std_id',$request->ly_no)->orderBy('id','DESC')->first();
 		$stdent=Student::where('id',$request->ly_no)->first();
-		$Net_AnnualFee=$stdFee->annual_fee- $stdFee->insurance_of;
+		$Net_AnnualFee=$stdFee->annual_fee - $stdFee->insurance_of;
+
 		if(isset($stdFee)){
 			$currenMonth=date('m');
 			if(substr($currenMonth, 0, 1)=='0'){
