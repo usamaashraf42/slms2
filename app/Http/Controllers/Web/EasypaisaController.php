@@ -10,4 +10,9 @@ class EasypaisaController extends Controller
     public function store(Request $request){
     	dd($request->all());
     }
+
+
+    public function easypaisaCallback(Request $request){
+    	dd($request->all());
+    }
 }

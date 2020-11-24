@@ -31,6 +31,8 @@ Route::post('contactus','HomeController@ContactFom')->name('ContactFom');
 Route::get('/easypaisa', function () { return view('web.easypaisa.index'); });
 Route::get('/easypaisa/token', function () { return view('web.easypaisa.get_token'); });
 
+Route::get('easypaisa/payment/status','Web\EasypaisaController@easypaisaCallback')->name('easypaisaCallback');
+
 Route::post('easypaisa/store','Web\EasypaisaController@store')->name('easypaisaStore');
 Route::get('/unauthorized/user', function () { return view('error.401'); })->name('401');
 
