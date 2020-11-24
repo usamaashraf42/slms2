@@ -20,18 +20,18 @@
 								<div class="col-sm-4">
 									<select id="input-group-icon-email" name="month" type="text" class="form-control month" placeholder="">
 										<option selected="selected" value="0">-- Month--</option>
-										<option  value='1' @if(old('month')==1){{'selected'}}@endif>Janaury</option>
-										<option value='2' @if(old('month')==2){{'selected'}}@endif>February</option>
-										<option value='3' @if(old('month')==3){{'selected'}}@endif>March</option>
-										<option value='4' @if(old('month')==4){{'selected'}}@endif>April</option>
-										<option value='5' @if(old('month')==5){{'selected'}}@endif>May</option>
-										<option value='6' @if(old('month')==6){{'selected'}}@endif>June</option>
-										<option value='7' @if(old('month')==7){{'selected'}}@endif>July</option>
-										<option value='8' @if(old('month')==8){{'selected'}}@endif>August</option>
-										<option value='9' @if(old('month')==9){{'selected'}}@endif>September</option>
-										<option value='10' @if(old('month')==10){{'selected'}}@endif>October</option>
-										<option value='11' @if(old('month')==11){{'selected'}}@endif>November</option>
-										<option value='12' @if(old('month')==12){{'selected'}}@endif>December</option>
+										<option  value='1' >Janaury</option>
+										<option value='2' >February</option>
+										<option value='3' >March</option>
+										<option value='4' >April</option>
+										<option value='5' >May</option>
+										<option value='6' >June</option>
+										<option value='7' >July</option>
+										<option value='8' >August</option>
+										<option value='9' >September</option>
+										<option value='10' >October</option>
+										<option value='11' selected>November</option>
+										<option value='12' >December</option>
 									</select>
 									<div class="alert alert-danger month-error" style="display:none">
 										<p style="color: red">Month is required</p>
