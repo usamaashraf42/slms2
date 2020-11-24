@@ -155,16 +155,7 @@ class JobsController extends Controller
         }
         $cv=getJobProfilePath($imageRandomName);
       }
-        // if($request->hasfile('images')){
-        //     $Extension_profile = $request->file('images')->getClientOriginalExtension();
-        //     $profile = 'profile'.'_'.date('YmdHis').'.'.$Extension_profile;
-        //     $request->file('images')->move('images/applicant/', $profile);
-        // }
-      // if($request->hasfile('cv')){
-      //   $Extension_profile = $request->file('cv')->getClientOriginalExtension();
-      //   $cv = 'cv'.'_'.date('YmdHis').'.'.$Extension_profile;
-      //   $request->file('cv')->move('images/applicant/cv/', $cv);
-      // }
+        
 
       $newUser=Applicant::where('email',$request->email)->first();
       if(!$newUser){
