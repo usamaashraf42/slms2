@@ -22,9 +22,9 @@ class CorrectionController extends Controller
          $this->middleware('role_or_permission:Correction Report', ['only' => ['index']]);
 
 	}
-	
 
-/////////////////////////////// 
+
+///////////////////////////////
 	// correction pending=0
 	// correction approval=1
 	// correctoin upaprroval=2
@@ -53,18 +53,20 @@ class CorrectionController extends Controller
 		// 	return redirect()->back();
 		// }
 
-		$year=date('Y');
+        // $year=date('Y');
+        $year=$request->year;
 
-		
+
 		$deffered=isset($request->deffered)?$request->deffered:0;
 		$request->correctionAmount=$request->correctionAmount!=null?$request->correctionAmount:0;
-		
+
 		$stdFee=StudentFeeStructure::where('std_id',$request->ly_no)->orderBy('id','DESC')->first();
 		$stdent=Student::where('id',$request->ly_no)->first();
 		$Net_AnnualFee=$stdFee->annual_fee - $stdFee->insurance_of;
 
 		if(isset($stdFee)){
-			$currenMonth=date('m');
+            // $currenMonth=date('m');
+            $currenMonth=$request->month;
 			if(substr($currenMonth, 0, 1)=='0'){
 				$currenMonth=substr($currenMonth, 1, 2);
 			}
@@ -106,9 +108,9 @@ class CorrectionController extends Controller
 				$master=Master::where('account_id',$student->id)->orderBy('id','DESC')->first();
 				if(!$student){
 					$student=Account::create([
-						'name'=>$stdent->s_name.' '.$stdent->s_fatherName, 
-						'std_id'=>$stdent->id, 
-						'type'=>'student', 
+						'name'=>$stdent->s_name.' '.$stdent->s_fatherName,
+						'std_id'=>$stdent->id,
+						'type'=>'student',
 					]);
 				}
 				$ledger=[
@@ -135,9 +137,9 @@ class CorrectionController extends Controller
 				if(!$branch){
 					$baranch=Branch::find($stdent->branch_id);
 					$branch=Account::create([
-						'name'=>$baranch->branch_name, 
+						'name'=>$baranch->branch_name,
 						'branch_id'=>$baranch->id,
-						'type'=>'Branch', 
+						'type'=>'Branch',
 					]);
 				}
 				$master=Master::where('account_id',$branch->id)->orderBy('id','DESC')->first();
@@ -183,7 +185,7 @@ class CorrectionController extends Controller
 						'updated_by'=>Auth::user()->id,
 					];
 					$st['a_credit']=$student->a_credit-$request->deffered;
-					
+
 					$std=Master::create($ledger);
 
 
@@ -315,7 +317,7 @@ class CorrectionController extends Controller
         $correction=$records->get();
 
 
-        
+
 
         return view('admin.account.correction.report',compact('correction'));
 
