@@ -222,7 +222,7 @@ class ApproveCorrectionController extends Controller
 					Account::where('std_id',$student->id)->update($st);
                 }
 
-                    $feeCorrection=FeePost::where('std_id',$correction->std_id)->orderBy('id','DESC')->first();
+                    $feeCorrection=FeePost::where('std_id',$correction->feeId)->orderBy('id','DESC')->first();
                     if($feeCorrection){
                         $approve=isset($request->approveAmount)?$request->approveAmount:$correction->amount;
                         $upto['correction_approv']=($feeCorrection->correction_approv + $approve);
@@ -233,7 +233,7 @@ class ApproveCorrectionController extends Controller
                         //      $upto['total_fee']=$feeCorrection->total_fee-$approve;
                         // }
 
-                        $feeCorrection=FeePost::where('std_id',$correction->std_id)->orderBy('id','DESC')->update($upto);
+                        $feeCorrection=FeePost::where('id',$correction->feeId)->orderBy('id','DESC')->update($upto);
                     }
 
 
