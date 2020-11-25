@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Tashkent',
 
     /*
     |--------------------------------------------------------------------------
@@ -166,7 +166,7 @@ return [
         App\Providers\GoogleDriveServiceProvider::class,
 
 
-        
+
 
 
         /*

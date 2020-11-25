@@ -34,6 +34,8 @@ Route::get('/easypaisa/token', function () { return view('web.easypaisa.get_toke
 Route::get('easypaisa/payment/status','Web\EasypaisaController@easypaisaCallback')->name('easypaisaCallback');
 
 Route::post('easypaisa/store','Web\EasypaisaController@store')->name('easypaisaStore');
+Route::post('easypaisa/encriptHasKey','Web\EasypaisaController@EncriptHashedKey')->name('EncriptHashedKey');
+
 Route::get('/unauthorized/user', function () { return view('error.401'); })->name('401');
 
 Route::get('challan/{fee_id}','Web\OnlineFeeDepositChallanController@onlineChallan')->name('fee.billing');

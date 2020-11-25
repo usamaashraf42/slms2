@@ -55,16 +55,17 @@ class FeeDepositController extends Controller
       $fileName=$request->name;
       $bank=$request->bank;
       $month=$request->month;
-      $year=date('Y');
+      $year=$request->year;
+    //   $year=date('Y');
       $entry=0;
       $excelData=array();
       $repeatedArray=[];
       $missedFeeIdArray=[];
 
-      $month=date('m');
-      if(substr($month, 0, 1)=='0'){
-        $month=substr($month, 1, 2);
-      }
+    //   $month=date('m');
+    //   if(substr($month, 0, 1)=='0'){
+    //     $month=substr($month, 1, 2);
+    //   }
 
       DB::beginTransaction();
 
@@ -83,7 +84,7 @@ class FeeDepositController extends Controller
 
 
           $path = $request->mis->getRealPath();
-          $excelData = Excel::toArray(new CsvDataImport, $request->file('mis')); 
+          $excelData = Excel::toArray(new CsvDataImport, $request->file('mis'));
           $data=(array)$excelData[0];
           $entry=count($data);
 
@@ -106,7 +107,7 @@ class FeeDepositController extends Controller
               $lyu=isset($student)?$record[$student]:null;
               $depositDatest=$record[$depositDate]?date("Y-m-d", strtotime($record[$depositDate])):date('Y-m-d');
               $smsdepositDatest=$record[$depositDate]?date("d-M-Y", strtotime($record[$depositDate])):date('Y-m-d');
-              
+
               if('1970-01-01'==$depositDatest){
                  session()->flash('error_message', __('Date format should be in text. please correct it'));
                  return redirect()->back();
@@ -158,7 +159,7 @@ class FeeDepositController extends Controller
                     $stdName=$students->s_name;
                     $temp=$this->missedFeeId($tranId,$feeIds,$status,$stdName,$fileName,$entry,'Fee post not update');
                     array_push($missedFeeIdArray,$temp);
-                    DB::rollBack(); 
+                    DB::rollBack();
                   }else{
                     $baranch=Branch::where('id',$request->branch_id)->with('userSetting')->first();
                     $branch_fine=isset($baranch->userSetting->fine)?$baranch->userSetting->fine:40;
@@ -167,9 +168,9 @@ class FeeDepositController extends Controller
                     $master=Master::where('account_id',$studentAc->id)->orderBy('id','DESC')->first();
                     if(!$studentAc){
                       $studentAc=Account::create([
-                        'name'=>$students->s_name.' '.$students->s_fatherName, 
-                        'std_id'=>$students->id, 
-                        'type'=>'student', 
+                        'name'=>$students->s_name.' '.$students->s_fatherName,
+                        'std_id'=>$students->id,
+                        'type'=>'student',
                       ]);
                     }
                     $ledger=[
@@ -179,8 +180,8 @@ class FeeDepositController extends Controller
                       'a_credit'=>isset($firstInsertamount)?$firstInsertamount:0,
                       'a_debit'=>0,
                       'balance'=>isset($master->balance)?$master->balance-$firstInsertamount:((isset($master->balance)?$master->balance:0)-$firstInsertamount),
-                      
-                      
+
+
                       'posting_date'=>$depositDatest,
                       'description'=>"Fee Deposited of".' '.getMonthName($stdd->fee_month). ' '."$year",
                       'month'=>$month,
@@ -190,14 +191,14 @@ class FeeDepositController extends Controller
                     ];
                     $std=Master::insert($ledger);
                     if(!$std){
-                      DB::rollBack(); 
+                      DB::rollBack();
                     }else{
                       $branch=Account::where('branch_id',$students->branch_id)->first();
                       if(!$branch){
                         $branch=Account::create([
-                          'name'=>$baranch->branch_name, 
+                          'name'=>$baranch->branch_name,
                           'branch_id'=>$baranch->id,
-                          'type'=>'Branch', 
+                          'type'=>'Branch',
                         ]);
                       }
                       $master=Master::where('account_id',$branch->id)->orderBy('id','DESC')->first();
@@ -220,17 +221,17 @@ class FeeDepositController extends Controller
                         $stdName=$studentName;
                         $temp=$this->missedFeeId($tranId,$feeIds,$status,$stdName,$fileName,$entry);
                         array_push($missedFeeIdArray,$temp);
-                        
-                        
-                        DB::rollBack(); 
+
+
+                        DB::rollBack();
                       }else{
                           //////////////////////
                           // end fee deposit...................... ////////////////////////
                           ///////////////////////// fine Posting
-                        $now = strtotime(date( 'Y-m-d', strtotime( $record[$depositDate] ) )); 
+                        $now = strtotime(date( 'Y-m-d', strtotime( $record[$depositDate] ) ));
 
                         $your_date = strtotime($stdd->fee_due_date1);
-                        
+
                         if($stdd->outstand_lastmonth > 0){
                          $your_date = strtotime($stdd->fee_due_date2);
                        }else{
@@ -282,7 +283,7 @@ class FeeDepositController extends Controller
                         $stdName=$studentName;
                         $temp=$this->missedFeeId($tranId,$feeIds,$status,$stdName,$fileName,$entry);
                         array_push($missedFeeIdArray,$temp);
-                        DB::rollBack(); 
+                        DB::rollBack();
                       }else{
                        $firstInsert=1;
                           ///////////////// end fine post
@@ -316,8 +317,8 @@ class FeeDepositController extends Controller
                           //   SendSms($students->s_phoneNo,$sms);
                           // }
                           // if($students->std_mail){
-                          //   Mail::send('emails.depositMail',['data'=>$students,'amount'=>$firstInsertamount,'smsdepositDatest'=>$smsdepositDatest,'bankName'=>$bankName], function($message){    
-                          //           $message->to($students->std_mail)->subject('Fee Deposited');    
+                          //   Mail::send('emails.depositMail',['data'=>$students,'amount'=>$firstInsertamount,'smsdepositDatest'=>$smsdepositDatest,'bankName'=>$bankName], function($message){
+                          //           $message->to($students->std_mail)->subject('Fee Deposited');
                           //   });
 
                           // }
@@ -340,7 +341,7 @@ class FeeDepositController extends Controller
 
 if($request->hasfile('mis')){
   $name = $request->file('mis')->getClientOriginalName();
-  $request->file('mis')->move('images/FeeDepositMis', $name); 
+  $request->file('mis')->move('images/FeeDepositMis', $name);
 }
 if(isset($missedFeeIdArray)&& count($missedFeeIdArray)>0){
 
@@ -351,16 +352,16 @@ if(isset($missedFeeIdArray)&& count($missedFeeIdArray)>0){
       // $emails=['waleedraza39@gmail.com','shafqatghafoor99@gmail.com'];
 
               try {
-                  Mail::send('emails.missedMail', ['data'=>$missedFeeIdArray,'sheet'=>$sheedName], function($message) use ($emails){    
-                 $message->to($emails)->subject('Fee Deposited');    
+                  Mail::send('emails.missedMail', ['data'=>$missedFeeIdArray,'sheet'=>$sheedName], function($message) use ($emails){
+                 $message->to($emails)->subject('Fee Deposited');
                });
 
               } catch (\Exception $e) {
-                
+
               }
 
 
-    
+
 }
 if(isset($repeatedArray)&& count($repeatedArray)>0){
   Session::push('alreadyUploaded',$repeatedArray);
