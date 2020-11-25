@@ -1186,7 +1186,7 @@
 
 <li class="menu-title">Academics</li>
 <li class="submenu">
-    <a href="javascript:void(0);"><i class="fa fa-share-alt" aria-hidden="true"></i> <span>Dairy</span> <span class="menu-arrow"></span></a>
+    <a href="javascript:void(0);"><i class="fa fa-share-alt" aria-hidden="true"></i> <span>Diary</span> <span class="menu-arrow"></span></a>
     <ul style="display: none;">
         <li>
             <a href="{{route('home-work.index')}}"> Home Work</a>
