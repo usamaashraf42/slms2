@@ -20,8 +20,9 @@ class EasypaisaController extends Controller
     public function EncriptHashedKey(Request $request){
 
         $sampleString ="amount=".$request->amount."&emailAddress=".$request->emailAddr."&expiryDate=".$request->expiryDate.
-                        "&merchantPaymentMethod=".$request->paymentMethod."&mobileNum=".$request->mobileNum."&orderRefNum=".$request->orderRefNum."&paymentMethod=".
-                        $request->paymentMethod."&postBackURL=".$request->postBackURL."&storeId=".$request->storeId."&timeStamp=".$request->timeStamp;
+                        "&merchantPaymentMethod=MA_PAYMENT_METHOD"."&mobileNum=".$request->mobileNum."&orderRefNum=".$request->orderRefNum.
+                        "&paymentMethod=InitialRequest"."&postBackURL=".$request->postBackURL."&storeId=".$request->storeId."&timeStamp=".$request->timeStamp;
+
 
         $hashKey='8JZVPIU6MPD6H4GH';
         $cipher = "aes-128-ecb";

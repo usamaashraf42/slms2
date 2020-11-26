@@ -11,10 +11,10 @@ if (!function_exists('find_row_in_array_by_key')) {
 
       if($row->{$key}==$val)
 
-        return $row;     
+        return $row;
     }
 
-    return false; 
+    return false;
 
   }
 }
@@ -29,34 +29,34 @@ if (!function_exists('get_month_name_by_no')) {
       break;
       case 2:
       $month_name = "Feb";
-      break;   
+      break;
       case 3:
       $month_name = "Mar";
-      break;  
+      break;
       case 4:
       $month_name = "Apr";
-      break; 
+      break;
       case 5:
       $month_name = "May";
-      break; 
+      break;
       case 6:
       $month_name = "Jun";
       break;
       case 7:
       $month_name = "Jul";
-      break; 
+      break;
       case 8:
       $month_name = "Aug";
-      break; 
+      break;
       case 9:
       $month_name = "Sep";
-      break; 
+      break;
       case 10:
       $month_name = "Oct";
-      break; 
+      break;
       case 11:
       $month_name = "Nov";
-      break; 
+      break;
       case 12:
       $month_name = "Dec";
       break;
@@ -131,11 +131,11 @@ if(!function_exists('emailVerifictionCode')){
     }catch(\Exception $e){
 
     }
-    
-            // Mail::send('emails.verification', ['data'=>$emailCode,'url'=>$url], function($message) use ($emails)
-            // {    
 
-            //     $message->to($emails)->subject('Email Verification');    
+            // Mail::send('emails.verification', ['data'=>$emailCode,'url'=>$url], function($message) use ($emails)
+            // {
+
+            //     $message->to($emails)->subject('Email Verification');
             // });
     return '1';
   }
@@ -244,10 +244,10 @@ if (!function_exists('jazzcash_deposit')) {
 
      $MerchantID ="MC35662"; //Your Merchant from transaction Credentials
     $Password   ="hv920evz9v"; //Your Password from transaction Credentials
-    $ReturnURL  ="http://lyceumgroupofschools.com/feedeposit-status"; //Your Return URL 
+    $ReturnURL  ="http://lyceumgroupofschools.com/feedeposit-status"; //Your Return URL
     $HashKey    ="y14yb32g8s";//Your HashKey from transaction Credentials
     $PostURL = "https://sandbox.jazzcash.com.pk/CustomerPortal/transactionmanagement/merchantform";
-    //"http://testpayments.jazzcash.com.pk/PayAxisCustomerPortal/transactionmanagement/merchantform"; 
+    //"http://testpayments.jazzcash.com.pk/PayAxisCustomerPortal/transactionmanagement/merchantform";
     date_default_timezone_set("Asia/karachi");
     $Amount = $request->pp_Amount; //Last two digits will be considered as Decimal
     $BillReference = $request->pp_BillReference;
@@ -271,16 +271,16 @@ if (!function_exists('jazzcash_deposit')) {
     $HashArray=[$Amount,$BillReference,$Description,$DiscountedAmount,$DiscountedBank,$Language,$MerchantID,$Password,$ReturnURL,$TxnCurrency,$TxnDateTime,$TxnExpiryDateTime,$TxnRefNumber,$TxnType,$Version,$ppmpf_1,$ppmpf_2,$ppmpf_3,$ppmpf_4,$ppmpf_5];
 
     $SortedArray=$HashKey;
-    for ($i = 0; $i < count($HashArray); $i++) { 
+    for ($i = 0; $i < count($HashArray); $i++) {
       if($HashArray[$i] != 'undefined' AND $HashArray[$i]!= null AND $HashArray[$i]!="" )
       {
 
         $SortedArray .="&".$HashArray[$i];
       } }
-      $Securehash = hash_hmac('sha256', $SortedArray, $HashKey); 
+      $Securehash = hash_hmac('sha256', $SortedArray, $HashKey);
 
 
-// 
+//
     // dd($request->all());
       $data = "pp_Version=".$Version."&pp_TxnType=".$TxnType."&pp_Language=".$Language."&pp_MerchantID=".$MerchantID."&pp_SubMerchantID=".$SubMerchantID."&pp_Password=".$Password."&pp_TxnRefNo=".$request->pp_TxnRefNo."&pp_Amount=".$request->pp_Amount."&pp_TxnCurrency=".$TxnCurrency."&pp_TxnDateTime=".$TxnDateTime."&pp_BillReference=".$request->pp_BillReference."&pp_Description=".$Description."&pp_DiscountedAmount=".$DiscountedAmount."&pp_DiscountBank=".$DiscountedBank."&pp_TxnExpiryDateTime=".$TxnExpiryDateTime."&pp_ReturnURL=".$ReturnURL."&pp_SecureHash=".$Securehash."&ppmpf_1=".$request->ppmpf_1."&ppmpf_2=".$request->ppmpf_2."&ppmpf_3=".$request->ppmpf_3."&ppmpf_4=".$request->ppmpf_4."&ppmpf_5=".$request->ppmpf_5;
 // dd($data);
@@ -293,7 +293,7 @@ if (!function_exists('jazzcash_deposit')) {
         $data);
 
 // In real life you should use something like:
-// curl_setopt($ch, CURLOPT_POSTFIELDS, 
+// curl_setopt($ch, CURLOPT_POSTFIELDS,
 //          http_build_query(array('postvar1' => 'value1')));
 
 // Receive server response ...
@@ -304,9 +304,9 @@ if (!function_exists('jazzcash_deposit')) {
       curl_close ($ch);
 
 // Further processing ...
-      if ($server_output == "OK") { 
+      if ($server_output == "OK") {
         return $server_output;
-      } else { 
+      } else {
         return $server_output;
       }
     }
@@ -478,7 +478,7 @@ if (!function_exists('jazzcash_deposit')) {
   }
   else if ($grad  >= 50 && $grad <=54.99)
   {
-    return  'C -'; 
+    return  'C -';
   }
 // else if ($grad  >= 50 && $grad <=54.99)
 // {
@@ -494,7 +494,7 @@ if (!function_exists('jazzcash_deposit')) {
 }
 else if ($grad  >= 65 && $grad <=69.99)
 {
-  return  'B-'; 
+  return  'B-';
 }
 else if ($grad  >= 70 && $grad <=74.99)
 {
@@ -523,22 +523,65 @@ function MarksColor($grad){
    return  'ffd53b;';
  }
 
- else if ($grad > 50 && $grad <=64.99){
 
-  return  'ff558f';
-}
-else if ($grad  >= 65 && $grad <=79.99)
+
+
+
+
+else if ($grad  >= 50 && $grad <=54.9)
 {
-  return  'ff7743'; 
+ return  'ecb7b7';
 }
 
-else if ($grad  >= 80 && $grad <=100)
+
+else if ($grad  >= 55 && $grad <=59.9)
 {
- return  '35ac46';
+ return  'fa5b5b';
 }
+
+
+else if ($grad  >= 60 && $grad <=64.9)
+{
+ return  'f30909';
+}
+
+
+else if ($grad  >= 65 && $grad <=69.9)
+{
+ return  'f3cbbb';
+}
+
+
+else if ($grad  >= 70 && $grad <=74.9)
+{
+ return  'f38356';
+}
+
+else if ($grad  >= 75 && $grad <=79.9)
+{
+ return  'f04704';
+}
+
+
+else if ($grad  >= 80 && $grad <=84.9)
+{
+ return  'c7f0cd';
+}
+
+else if ($grad  >= 85 && $grad <=89.9)
+{
+ return  '87ee97';
+}
+
+else if ($grad  >= 90 && $grad <=100)
+{
+ return  '09f82d';
+}
+
 
 return 'fff';
 }
+
 
 function colorCode($grad,$sub_id=null){
 
@@ -587,7 +630,7 @@ function colorCode($grad,$sub_id=null){
 }
 else if ($grad == 3)
 {
-  return  '35ac46'; 
+  return  '35ac46';
 }
 else if ($grad ==4)
 {
@@ -603,7 +646,7 @@ else if ($grad==6 )
 }
 else if ($grad ==7)
 {
-  return  '6bf8ab'; 
+  return  '6bf8ab';
 }
 else if ($grad ==8)
 {

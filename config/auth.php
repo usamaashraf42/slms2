@@ -40,6 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'JobApplicant' => [
+            'driver' => 'session',
+            'provider' => 'JobApplicant',
+        ],
 
         'api' => [
             'driver' => 'token',
@@ -69,6 +73,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
+        'JobApplicant'=>[
+            'driver' => 'eloquent',
+            'model' => App\Models\Applicant::class,
+        ],
 
         // 'users' => [
         //     'driver' => 'database',
@@ -95,6 +103,11 @@ return [
         'users' => [
             'provider' => 'users',
             'table' => 'password_resets',
+            'expire' => 60,
+        ],
+        'JobApplicant' => [
+            'provider' => 'JobApplicant',
+            'table' => 'job_applicant_password_resets',
             'expire' => 60,
         ],
     ],

@@ -65,15 +65,22 @@ class Handler extends ExceptionHandler
         if ($request->expectsJson()) {
             return response()->json(['status'=>false,'message' => 'Unauthenticated.'], 200);
         }
-        $guard = array($exception->guards(),0);
+        $guard = array($exception->guards());
+
+
+        $guard=isset($guard[0][0])?$guard[0][0]:null;
         switch ($guard) {
 
-            // case 'api':
-            // return response()->json(['status'=>false,'message' => 'Unauthenticated user access deny.'], 200);
-            // break;
+            case 'api':
+                return response()->json(['status'=>false,'message' => 'Unauthenticated user access deny.'], 200);
+            break;
+
+            case 'JobApplicant':
+                $login = 'JobApplicant.login';
+             break;
 
             default:
-            $login = 'admin.login';
+                $login = 'admin.login';
             break;
         }
         return redirect()->guest(route($login));

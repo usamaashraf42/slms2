@@ -11,7 +11,6 @@
 	<! – Expiry Date from merchant’s website (Optional) -- >
 	<input type ="hidden" name="expiryDate" id="token" value="{{ date('Ymd His', strtotime('+8 Days'))}}">
 	<! – Merchant Hash Value (Optional) -- >
-	<!-- <input type ="hidden" name="merchantHashedReq" value="8JZVPIU6MPD6H4GH"> -->
 	<! – If Merchant wants to redirect to Merchant website after payment completion (Optional) -- >
 	<input type ="hidden" name="autoRedirect" value="1">
 	<! – If merchant wants to post specific Payment Method (Optional) -- >
@@ -24,29 +23,28 @@
 	<! – If merchant wants to post specific Bank Identifier (Optional) -- >
      <input type ="hidden" name="bankIdentifier" id="bankId" value="">
     <input type="hidden" name="signature" id="signature" value="">
-<input type="hidden" name="timeStamp" id="timeStamp" value="{{date("Y-m-d\TH:i:s", strtotime(now()))}}">
+    <input type="hidden" name="timeStamp" id="timeStamp" value="{{date("Y-m-d\TH:i:s", strtotime(now()))}}">
 
 	<! – This is the button of the form which submits the form -- >
-    {{-- <input type ="submit" id="submitPaymentMethod" src="checkout-button-with-logo.png border" name= "pay"> --}}
-    <button type="submit" name="pay" class="btn btn-primary" id="submitPaymentMethod"
-onClick="loadIframe();">Continue to Easypay Portal</button>
+    <button type="submit" name="pay" class="btn btn-primary" id="submitPaymentMethod">Continue to Easypay Portal</button>
 
 </form>
 
+<div id="iframe-class">
 <iframe id="easypay-iframe" name="easypay-iframe" src="about:blank" width="100%"
 height="500px"></iframe>
+</div>
 
-
-<!-- https://easypaystg.easypaisa.com.pk/easypay/Index.jsf -->
-<script type="text/javascript" src="{{asset('assets/js/jquery-3.2.1.min.js')}}"></script>
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
 
 <script>
-	function getValues() {
 
-	}
+    $(document).ready (function (){
 	function loadIframe(iframeName) {
-        $.noConflict();
-
+        // $.noConflict();
 		var storeID = document.getElementById("storeId").value;
 		var amount = document.getElementById("amount").value;
 		var orderID = document.getElementById("orderId").value;
@@ -56,7 +54,7 @@ height="500px"></iframe>
 		var bankId = document.getElementById("bankId").value;
 		var postBackURL = document.getElementById("postBackURL").value;
 		var merchantPaymentMethod =document.getElementById("merchantPaymentMethod").value;
-        var encryptedHashRequest;
+
         $.when(getHashedKey()).done(function(result){
             console.log(' encryptedHashRequest',result);
             var encryptedHashRequest=result;
@@ -64,12 +62,11 @@ height="500px"></iframe>
             var url="https://easypaystg.easypaisa.com.pk/tpg/";
 
             var signature = document.getElementById("signature").value;
-            // var params = { storeId: storeID, orderId: orderID, transactionAmount: amount,
-            // 	mobileAccountNo: cellNo, emailAddress: email, transactionType: "InitialRequest", tokenExpiry: token,
-            // 	bankIdentificationNumber: bankId, encryptedHashRequest:
-            // 	encryptedHashRequest,merchantPaymentMethod : merchantPaymentMethod,
-            // 	postBackURL:postBackURL,signature:signature};
-            var params = { storeId: storeID, orderId: orderID, transactionAmount: amount,mobileAccountNo: cellNo, emailAddress: email, transactionType: "InitialRequest", tokenExpiry: token,bankIdentificationNumber: bankId, encryptedHashRequest:encryptedHashRequest};
+
+            var params= { storeId: storeID, orderId: orderID, transactionAmount: amount,mobileAccountNo: cellNo,
+                            emailAddress: email, transactionType: "InitialRequest", tokenExpiry: token,bankIdentificationNumber: bankId,
+                            encryptedHashRequest:encryptedHashRequest
+                        };
 
                 console.log('params',params,'encryptedHashRequest',encryptedHashRequest);
 
@@ -91,8 +88,11 @@ height="500px"></iframe>
 
 
 	}
+
+
 	$( "#submitPaymentMethod" ).click(function() {
 		$("#iframe-class").addClass("show-iframe");
+
 		return loadIframe('easypay-iframe');
 	});
 
@@ -110,16 +110,15 @@ height="500px"></iframe>
                     data: formData,
                     success: function (response) {
                         console.log(' HashKey', response);
-
                         return response;
 
                     }, error: function (e) {
-                        // console.log('signup-form error', e);
                         return false;
 
                     }
             });
 
     }
+});
 
 	</script>

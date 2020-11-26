@@ -190,7 +190,6 @@ Auth::routes();
 
 
 
-
 Route::prefix('admin')->group(function () {
 
 
@@ -635,6 +634,22 @@ Route::prefix('admin')->group(function () {
 	});
 
 });
+
+Route::prefix('job/applicant')->group(function () {
+
+    Route::get('login','Auth\JobApplicantLoginController@showLoginForm')->name('JobApplicant.login');
+    Route::post('login','Auth\JobApplicantLoginController@login')->name('JobApplicant.login.submit');
+
+    Route::group(['middleware' => ['auth:JobApplicant']], function () {
+
+        Route::group(['namespace' => 'JobApplicant'], function () {
+            Route::get('/', 'JobApplicantDashboardController@dashboard')->name('jobApplicant.dashboard');
+        });
+    });
+});
+
+
+
 
 Route::post('countryHasBranch','admins\AjaxCallController@countryHasBranch')->name('countryHasBranch');
 Route::post('schoolHasBranch','admins\AjaxCallController@schoolHasBranch')->name('schoolHasBranch');
