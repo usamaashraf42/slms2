@@ -501,16 +501,16 @@
 								<br>
 								<div style="width:100%;">
 									<div class="block_name">Grading Key</div>
-									<div class="block_name"><span class="box_color_fill" style="background-color: #09f82d;"> </span> <p>A + 90% to 100%</p></div>
-									<div class="block_name"><span class="box_color_fill" style="background-color: #87ee97;"> </span> <p>A 85 % to 89.9%</p></div>
-									<div class="block_name"><span class="box_color_fill" style="background-color: #c7f0cd;"> </span> <p>A - 80% to 84.9%</p></div>
-									<div class="block_name"><span class="box_color_fill" style="background-color: #f04704;"> </span> <p>B + 75% to 79.9%; </p></div>
-									<div class="block_name"><span class="box_color_fill" style="background-color: #f38356;"> </span> <p>B  70% to 74.9%; </p></div>
+									<div class="block_name"><span class="box_color_fill" style="background-color: #055631;"> </span> <p>A + 90% to 100%</p></div>
+									<div class="block_name"><span class="box_color_fill" style="background-color: #09f82d;"> </span> <p>A 85 % to 89.9%</p></div>
+									<div class="block_name"><span class="box_color_fill" style="background-color: #87ee97;"> </span> <p>A - 80% to 84.9%</p></div>
+									<div class="block_name"><span class="box_color_fill" style="background-color: #fa0909;"> </span> <p>B + 75% to 79.9%; </p></div>
+									<div class="block_name"><span class="box_color_fill" style="background-color: #f34f4f;"> </span> <p>B  70% to 74.9%; </p></div>
 									<div class="block_name"></div>
-									<div class="block_name"><span class="box_color_fill" style="background-color: #f3cbbb;"> </span> <p>B - 65% to 69.9%</p></div>
-									<div class="block_name"><span class="box_color_fill" style="background-color: #f30909;"> </span> <p>C + 60 % to 64.9%</p></div>
-									<div class="block_name"><span class="box_color_fill" style="background-color: #fa5b5b;"> </span> <p>C  55% to 59.9%</p></div>
-									<div class="block_name"><span class="box_color_fill" style="background-color: #ecb7b7;"> </span> <p>C - 50% to 54.9%; </p></div>
+									<div class="block_name"><span class="box_color_fill" style="background-color: #f79696;"> </span> <p>B - 65% to 69.9%</p></div>
+									<div class="block_name"><span class="box_color_fill" style="background-color: #01285c;"> </span> <p>C + 60 % to 64.9%</p></div>
+									<div class="block_name"><span class="box_color_fill" style="background-color: #365f9a;"> </span> <p>C  55% to 59.9%</p></div>
+									<div class="block_name"><span class="box_color_fill" style="background-color: #7ba6e6;"> </span> <p>C - 50% to 54.9%; </p></div>
 									<div class="block_name"><span class="box_color_fill" style="background-color: #ffd53b;"> </span> <p>D 33% to 49.9%; </p></div>
 								</div>
 								<br>

@@ -530,52 +530,52 @@ function MarksColor($grad){
 
 else if ($grad  >= 50 && $grad <=54.9)
 {
- return  'ecb7b7';
+ return  '7ba6e6';
 }
 
 
 else if ($grad  >= 55 && $grad <=59.9)
 {
- return  'fa5b5b';
+ return  '365f9a';
 }
 
 
 else if ($grad  >= 60 && $grad <=64.9)
 {
- return  'f30909';
+ return  '01285c';
 }
 
 
 else if ($grad  >= 65 && $grad <=69.9)
 {
- return  'f3cbbb';
+ return  'f79696';
 }
 
 
 else if ($grad  >= 70 && $grad <=74.9)
 {
- return  'f38356';
+ return  'f34f4f';
 }
 
 else if ($grad  >= 75 && $grad <=79.9)
 {
- return  'f04704';
+ return  'fa0909';
 }
 
 
 else if ($grad  >= 80 && $grad <=84.9)
 {
- return  'c7f0cd';
+ return  '87ee97';
 }
 
 else if ($grad  >= 85 && $grad <=89.9)
 {
- return  '87ee97';
+ return  '09f82d';
 }
 
 else if ($grad  >= 90 && $grad <=100)
 {
- return  '09f82d';
+ return  '055631';
 }
 
 
