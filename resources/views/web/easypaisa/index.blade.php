@@ -9,7 +9,7 @@
 	<! – Order Reference Number from merchant’s website -- >
 	<input name="orderRefNum" id="orderId" value="1111" hidden = "true"/>
 	<! – Expiry Date from merchant’s website (Optional) -- >
-	<input type ="hidden" name="expiryDate" id="token" value="{{ date('Ymd His', strtotime('+8 Days'))}}">
+	<input type ="hidden" name="expiryDate" id="token" value="{{ date('Ymd His', strtotime(now()))}}">
 	<! – Merchant Hash Value (Optional) -- >
 	<! – If Merchant wants to redirect to Merchant website after payment completion (Optional) -- >
 	<input type ="hidden" name="autoRedirect" value="1">
@@ -30,10 +30,10 @@
 
 </form>
 
-<div id="iframe-class">
+{{-- <div id="iframe-class"> --}}
 <iframe id="easypay-iframe" name="easypay-iframe" src="about:blank" width="100%"
 height="500px"></iframe>
-</div>
+{{-- </div> --}}
 
 <script
   src="https://code.jquery.com/jquery-3.5.1.min.js"
@@ -63,8 +63,12 @@ height="500px"></iframe>
 
             var signature = document.getElementById("signature").value;
 
-            var params= { storeId: storeID, orderId: orderID, transactionAmount: amount,mobileAccountNo: cellNo,
-                            emailAddress: email, transactionType: "InitialRequest", tokenExpiry: token,bankIdentificationNumber: bankId,
+            // var params= { storeId: storeID, orderId: orderID, transactionAmount: amount,mobileAccountNo: cellNo,
+            //                 emailAddress: email, transactionType: "InitialRequest", tokenExpiry: token,bankIdentificationNumber: bankId,
+            //                 encryptedHashRequest:encryptedHashRequest
+            //             };
+            var params= { storeId: storeID, orderId: orderID, transactionAmount: amount,
+                            transactionType: "InitialRequest", tokenExpiry: token,
                             encryptedHashRequest:encryptedHashRequest
                         };
 

@@ -33,7 +33,7 @@
                     <a href="{{route('forgot-password')}}" style="width: 60%;">Forgot your password?</a>
                 </div>
                 <div style="float: right;margin-top: -25px;color: #fff; width: 40%;">
-                    <a class="text-white" href="{{route('admin.register')}}">Create Account</a>
+                    <a class="text-white" href="{{route('JobApplicant.register')}}">Create Account</a>
                 </div>
             </form>
         </div>

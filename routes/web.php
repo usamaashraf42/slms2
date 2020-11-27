@@ -624,8 +624,6 @@ Route::prefix('admin')->group(function () {
 
 		Route::post('branchHasSectionStudent','admins\AjaxSecondCallController@branchHasSectionStudent')->name('branchHasSectionStudent');
 
-
-
 		//////////////////////????????????????????? UpdateStudentStatementController??????????????
 		Route::resource('update-student-statement','Account\UpdateStudentStatementController');
 		Route::post('updateStdStatementMaster','Account\UpdateStudentStatementController@updateStdStatementMaster')->name('updateStdStatementMaster');
@@ -639,10 +637,14 @@ Route::prefix('job/applicant')->group(function () {
 
     Route::get('login','Auth\JobApplicantLoginController@showLoginForm')->name('JobApplicant.login');
     Route::post('login','Auth\JobApplicantLoginController@login')->name('JobApplicant.login.submit');
+    Route::get('register','Auth\JobApplicantLoginController@registerForm')->name('JobApplicant.register');
+    Route::post('register','Auth\JobApplicantLoginController@registerSubmit')->name('JobApplicant.register.submit');
+
 
     Route::group(['middleware' => ['auth:JobApplicant']], function () {
-
+        Route::get('logout','Auth\JobApplicantLoginController@logout')->name('JobApplicant.logout');
         Route::group(['namespace' => 'JobApplicant'], function () {
+
             Route::get('/', 'JobApplicantDashboardController@dashboard')->name('jobApplicant.dashboard');
         });
     });

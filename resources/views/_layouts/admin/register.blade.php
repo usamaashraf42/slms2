@@ -7,26 +7,26 @@
         <div class="account-box col-md-11" style="margin: 0 auto;">
             <div class="account-logo">
                 <a href="index.html">
-                    <img src="{{asset('assets/img/logo.png')}}" alt="SchoolAdmin" width="200px" height="50px" 
+                    <img src="{{asset('assets/img/logo.png')}}" alt="SchoolAdmin" width="200px" height="50px"
                     style="    min-width: 392px;
                     padding: 6px;
                     height: 74px;">
                 </a>
             </div>
-            <form action="{{route('admin_register')}}" method="POST">
+            <form action="{{route('admin_register')}}" method="POST" enctype="multipart/form-data">
                 @csrf
 
                 @component('_components.alerts-default')
                 @endcomponent
 
                 <div class="row" style="background-color: rgba(0,0,0,0.1);padding: 4px;padding-top: 10px;">
-            
+
 
                     <div class="col-md-9" style="margin-bottom: 20px;">
                         <div class="row" style="margin-left: 0px; margin-right: 0px;">
 
                             <div class="col-md-6">
-                                <label class="control-label" style="width: 100%; padding-left: 13px;">Country 
+                                <label class="control-label" style="width: 100%; padding-left: 13px;">Country
                                     <span style="color: red">*</span></label>
                                     <select class="s_countryCode" name="s_countryCode"  id="s_countryCode" onchange="countryHasBranch(this)"   style="height: 48px;width: 100%; border-radius: 7px;float: right;">
 
@@ -38,7 +38,7 @@
                                   <p class="alert alert-danger branch_id1_error" style="display: none"></p>
                               </div>
                               <div class="col-md-6">
-                                <label class="control-label" style="width: 100%;">Branch 
+                                <label class="control-label" style="width: 100%;">Branch
                                     <span style="color: red">*</span></label>
                                     <select class="branch_id" name="branch_id"  id="branch_id" style="     height: 48px; width: 100%;border-radius: 7px;float: left;">
 
@@ -89,7 +89,7 @@
                                 </div>
                                 @endif
                             </div>
-                        </div> 
+                        </div>
                         <div class="row" style="margin: 10px 0px;">
                             <div class="col-md-6">
                                 <label class="control-label">Password</label>
@@ -109,7 +109,7 @@
                                 <label class="control-label">Confirm Password</label>
                                 <input name="password_confirmation" type="password" placeholder="******" class="form-control">
                             </div>
-                        </div> 
+                        </div>
                         @php($roles=\Spatie\Permission\Models\Role::get())
                         <div class="row" style="margin: 10px 0px;">
                             <div class="col-md-6 col-sm-6">
@@ -119,7 +119,7 @@
                                 <label class="control-label">Roles Sought/given (click role to remove)</label>
                             </div>
                             <div class="col-md-12 col-sm-12">
-                               
+
                                 <select id='pre-selected-options' multiple='multiple' name="roles[]">
                                     @foreach($roles as $role)
                                     <option value="{{$role->id}}">{{$role->name}}</option>
@@ -164,7 +164,7 @@
                             </div>
                         </div>
                     </div>
-                </div> 
+                </div>
             </form>
         </div>
     </div>
@@ -233,7 +233,7 @@
     }
     $("#images").change(function(){
         readURL(this);
-    }); 
+    });
 
 </script>
 <script type="text/javascript">
@@ -254,7 +254,7 @@
      }else{
          $("#branch_id").html(` <option selected="selected" disabled='disabled'> Select Branch  </option>`);
      }
-    
+
      $.ajax({
         method:"POST",
         url:"{{route('countryHasBranch')}}",
