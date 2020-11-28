@@ -56,9 +56,12 @@
         <link href="{{ asset('job_assets/css/themes/layout/aside/lightd1cf.css?v=7.1.6') }}" rel="stylesheet"
             type="text/css" />
         <!--end::Layout Themes-->
-        <link rel="shortcut icon"
-            href="https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/media/logos/favicon.ico" />
-        <!-- Hotjar Tracking Code for keenthemes.com -->
+        {{-- <link rel="shortcut icon"
+            href="{{asset('assets/img/logo.png')}}" /> --}}
+            <link rel="icon" type="image/png" href="{{asset('web/pakistan/sitefiles/2532/css/images/favicon-16x16.png')}}" sizes="16x16" />
+  <link rel="icon" type="image/png" href="{{asset('web/pakistan/sitefiles/2532/css/images/favicon-32x32.png')}}" sizes="32x32" />
+  <link rel="icon" type="image/png" href="{{asset('web/pakistan/sitefiles/2532/css/images/favicon-96x96.png')}}" sizes="96x96" />
+  <link rel="icon" type="image/png" href="{{asset('web/pakistan/sitefiles/2532/css/images/android-chrome-192x192.png')}}" sizes="192x192" />
         <script>
             (function(h, o, t, j, a, r) {
                 h.hj = h.hj || function() {
@@ -93,8 +96,8 @@
 
     <div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
         <!--begin::Logo-->
-        <a href="../../index.html">
-            <img alt="Logo" src="../../../theme/html/demo1/dist/assets/media/logos/logo-dark.png" />
+        <a href="javascript:;">
+            <img alt="Logo" src="{{asset('assets/img/logo.png')}}" />
         </a>
         <!--end::Logo-->
         <!--begin::Toolbar-->

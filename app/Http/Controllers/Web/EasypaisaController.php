@@ -23,7 +23,7 @@ class EasypaisaController extends Controller
         //                 "&merchantPaymentMethod=MA_PAYMENT_METHOD"."&mobileNum=".$request->mobileNum."&orderRefNum=".$request->orderRefNum.
         //                 "&paymentMethod=InitialRequest"."&postBackURL=".$request->postBackURL."&storeId=".$request->storeId."&timeStamp=".$request->timeStamp;
         $sampleString ="amount=".$request->amount."&expiryDate=".$request->expiryDate."&orderRefNum=".$request->orderRefNum.
-                        "&paymentMethod=InitialRequest"."&storeId=".$request->storeId."&timeStamp=".$request->timeStamp;
+                        "&paymentMethod=InitialRequest&storeId=".$request->storeId."&timeStamp=".$request->timeStamp;
 
 
         $hashKey='8JZVPIU6MPD6H4GH';

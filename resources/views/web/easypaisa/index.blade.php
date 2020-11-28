@@ -41,19 +41,24 @@ height="500px"></iframe>
   crossorigin="anonymous"></script>
 
 <script>
-
+    var token;
     $(document).ready (function (){
 	function loadIframe(iframeName) {
         // $.noConflict();
 		var storeID = document.getElementById("storeId").value;
 		var amount = document.getElementById("amount").value;
 		var orderID = document.getElementById("orderId").value;
-		var email = document.getElementById("email").value;
-		var cellNo = document.getElementById("cellNo").value;
-		var token = document.getElementById("token").value;
-		var bankId = document.getElementById("bankId").value;
-		var postBackURL = document.getElementById("postBackURL").value;
-		var merchantPaymentMethod =document.getElementById("merchantPaymentMethod").value;
+		// var email = document.getElementById("email").value;
+		// var cellNo = document.getElementById("cellNo").value;
+		// var token = document.getElementById("token").value;
+		// var bankId = document.getElementById("bankId").value;
+		// var postBackURL = document.getElementById("postBackURL").value;
+        var email;
+        var postBackURL;
+        var cellNo;
+        var bankId;
+        var merchantPaymentMethod;
+		// var merchantPaymentMethod =document.getElementById("merchantPaymentMethod").value;
 
         $.when(getHashedKey()).done(function(result){
             console.log(' encryptedHashRequest',result);
@@ -61,16 +66,20 @@ height="500px"></iframe>
             console.log(' encryptedHashRequest2',encryptedHashRequest);
             var url="https://easypaystg.easypaisa.com.pk/tpg/";
 
-            var signature = document.getElementById("signature").value;
+            // var signature = document.getElementById("signature").value;
+            var signature;
 
-            // var params= { storeId: storeID, orderId: orderID, transactionAmount: amount,mobileAccountNo: cellNo,
-            //                 emailAddress: email, transactionType: "InitialRequest", tokenExpiry: token,bankIdentificationNumber: bankId,
+            var params= { storeId: storeID, orderId: orderID, transactionAmount: amount,mobileAccountNo: cellNo,
+                            emailAddress: email, transactionType: "InitialRequest", tokenExpiry: token,bankIdentificationNumber: bankId,merchantPaymentMethod:merchantPaymentMethod,
+                            postBackURL:postBackURL,signature:signature,encryptedHashRequest:encryptedHashRequest
+                        };
+
+            // var params= { storeId: storeID, orderId: orderID, transactionAmount: amount,
+            //                 transactionType: "InitialRequest", tokenExpiry: token,
             //                 encryptedHashRequest:encryptedHashRequest
             //             };
-            var params= { storeId: storeID, orderId: orderID, transactionAmount: amount,
-                            transactionType: "InitialRequest", tokenExpiry: token,
-                            encryptedHashRequest:encryptedHashRequest
-                        };
+
+
 
                 console.log('params',params,'encryptedHashRequest',encryptedHashRequest);
 
@@ -101,6 +110,7 @@ height="500px"></iframe>
 	});
 
     function getHashedKey(){
+        token = document.getElementById("token").value;
             var form = $('#easyPaisaForm')[0];
         var formData = new FormData(form);
 
