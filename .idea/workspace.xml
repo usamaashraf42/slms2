@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="0dce947e-f517-4a99-8fb8-d039794490bb" name="Default Changelist" comment="">
+    <list default="true" id="8d37d798-8708-483e-8f95-5a8c97fa1cb3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/_layouts/admin/fpdf.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/ChallanForm/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/survey/attempt/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/survey/attempt/modal.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/slms.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/slms.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Web/Pakistan/PublicController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Web/Pakistan/PublicController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admins/survey/SurveyAnswerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admins/survey/SurveyAnswerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/survey/question/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/survey/question/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admins/survey/SurveyQuestionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admins/survey/SurveyQuestionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/SurveyAns.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/SurveyAns.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/SurveyAns.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/SurveyCategory.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/SurveyQuestion.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/SurveyTable.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/_layouts/admin/partials/_aside-left.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/_layouts/admin/partials/_aside-left.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/web/pakistan/survey/surveryStaff.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/web/pakistan/survey/surveryStaff.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,9 +159,21 @@
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
       <path value="$PROJECT_DIR$/vendor/simplesoftwareio/simple-qrcode" />
       <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/codedge/laravel-fpdf" />
+      <path value="$PROJECT_DIR$/vendor/phpseclib/phpseclib" />
+      <path value="$PROJECT_DIR$/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/vendor/nao-pon/flysystem-google-drive" />
+      <path value="$PROJECT_DIR$/vendor/nao-pon/flysystem-cached-extra" />
+      <path value="$PROJECT_DIR$/vendor/google/auth" />
+      <path value="$PROJECT_DIR$/vendor/google/apiclient-services" />
+      <path value="$PROJECT_DIR$/vendor/google/apiclient" />
+      <path value="$PROJECT_DIR$/vendor/firebase/php-jwt" />
+      <path value="$PROJECT_DIR$/vendor/league/flysystem-cached-adapter" />
+      <path value="$PROJECT_DIR$/vendor/league/oauth1-client" />
+      <path value="$PROJECT_DIR$/vendor/laravel/socialite" />
     </include_path>
   </component>
-  <component name="ProjectId" id="1kCTrmdrDwqscZqJlA3EpE403MW" />
+  <component name="ProjectId" id="1kyWDVpmDl95orwiZNCIumL13pM" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -170,7 +181,6 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../britishlyceumpk" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -189,75 +199,23 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0dce947e-f517-4a99-8fb8-d039794490bb" name="Default Changelist" comment="" />
-      <created>1605203774621</created>
+      <changelist id="8d37d798-8708-483e-8f95-5a8c97fa1cb3" name="Default Changelist" comment="" />
+      <created>1606673192160</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1605203774621</updated>
-      <workItem from="1605203775685" duration="891000" />
-      <workItem from="1605205822148" duration="2426000" />
-      <workItem from="1605217419029" duration="15539000" />
-      <workItem from="1605296062865" duration="19532000" />
-      <workItem from="1605462169939" duration="26502000" />
-      <workItem from="1605555041941" duration="3660000" />
-      <workItem from="1605559747139" duration="15434000" />
-      <workItem from="1605637459621" duration="25967000" />
-      <workItem from="1605721359061" duration="737000" />
-      <workItem from="1605723242258" duration="16180000" />
-      <workItem from="1605808565101" duration="22685000" />
-      <workItem from="1605897070920" duration="13529000" />
-      <workItem from="1606068060685" duration="17760000" />
-      <workItem from="1606153753117" duration="657000" />
-      <workItem from="1606156090588" duration="2625000" />
+      <updated>1606673192160</updated>
+      <workItem from="1606673193288" duration="566000" />
+      <workItem from="1606673902649" duration="5842000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
   <component name="WindowStateProjectService">
-    <state x="665" y="54" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1605232451399">
+    <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1606676205754">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="665" y="54" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605232451399" />
-    <state x="690" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1605658333139">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="690" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605658333139" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1606085590787">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1606085590787" />
-    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1605483191106">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605483191106" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1605811375566">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1605811375566" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/resources/views/admin/survey/category/edit.blade.php</url>
-          <line>74</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1606676205754" />
   </component>
 </project>

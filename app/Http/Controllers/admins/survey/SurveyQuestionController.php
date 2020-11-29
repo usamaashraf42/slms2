@@ -5,9 +5,9 @@ namespace App\Http\Controllers\admins\survey;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\surveyQuestionValidation;
 use App\Models\Month;
+use App\Models\SurveyCategory;
+use App\Models\SurveyQuestion;
 use App\Models\Year;
-use App\SurveyCategory;
-use App\SurveyQuestion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 

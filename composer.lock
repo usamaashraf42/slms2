@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f6a6d485d77681d125d6b68ecd086182",
+    "content-hash": "be016b8dd615880fb2d4a7d726b5c633",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -110,13 +110,10 @@
                 "laravel",
                 "pdf"
             ],
-<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/barryvdh/laravel-dompdf/issues",
                 "source": "https://github.com/barryvdh/laravel-dompdf/tree/master"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://github.com/barryvdh",
@@ -124,6 +121,72 @@
                 }
             ],
             "time": "2020-09-07T11:50:18+00:00"
+        },
+        {
+            "name": "codedge/laravel-fpdf",
+            "version": "1.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/codedge/laravel-fpdf.git",
+                "reference": "3e14a913cd00652334c3870f380f1aa834a30a0f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/codedge/laravel-fpdf/zipball/3e14a913cd00652334c3870f380f1aa834a30a0f",
+                "reference": "3e14a913cd00652334c3870f380f1aa834a30a0f",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^6.0|^7.0|^8.0",
+                "php": ">=7.3|^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^4.0|^5.0",
+                "phpunit/phpunit": "^8.0|^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Codedge\\Fpdf\\FpdfServiceProvider"
+                    ],
+                    "aliases": {
+                        "Fpdf": "Codedge\\Fpdf\\Facades\\Fpdf"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Codedge\\Fpdf\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Holger Lösken",
+                    "email": "holger.loesken@codedge.de"
+                }
+            ],
+            "description": "Laravel package to include Fpdf. It ships with Fpdf 1.82.",
+            "keywords": [
+                "fpdf",
+                "laravel",
+                "pdf"
+            ],
+            "support": {
+                "issues": "https://github.com/codedge/laravel-fpdf/issues",
+                "source": "https://github.com/codedge/laravel-fpdf"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/codedge",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-11-24T11:00:42+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -237,13 +300,10 @@
                 "uppercase",
                 "words"
             ],
-<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/doctrine/inflector/issues",
                 "source": "https://github.com/doctrine/inflector/tree/2.0.x"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://www.doctrine-project.org/sponsorship.html",
@@ -320,13 +380,10 @@
                 "parser",
                 "php"
             ],
-<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/doctrine/lexer/issues",
                 "source": "https://github.com/doctrine/lexer/tree/1.2.1"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://www.doctrine-project.org/sponsorship.html",
@@ -1565,15 +1622,12 @@
                 "md",
                 "parser"
             ],
-<<<<<<< HEAD
             "support": {
                 "docs": "https://commonmark.thephpleague.com/",
                 "issues": "https://github.com/thephpleague/commonmark/issues",
                 "rss": "https://github.com/thephpleague/commonmark/releases.atom",
                 "source": "https://github.com/thephpleague/commonmark"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://enjoy.gitstore.app/repositories/thephpleague/commonmark",
@@ -1600,11 +1654,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2020-10-31T13:49:32+00:00"
-=======
             "time": "2020-09-13T14:44:46+00:00"
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
         },
         {
             "name": "league/flysystem",
@@ -1689,13 +1739,10 @@
                 "sftp",
                 "storage"
             ],
-<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem/issues",
                 "source": "https://github.com/thephpleague/flysystem/tree/1.x"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://offset.earth/frankdejonge",
@@ -1790,13 +1837,10 @@
                 }
             ],
             "description": "Mime-type detection for Flysystem",
-<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/thephpleague/mime-type-detection/issues",
                 "source": "https://github.com/thephpleague/mime-type-detection/tree/1.5.1"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://github.com/frankdejonge",
@@ -1807,11 +1851,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2020-10-18T11:50:25+00:00"
-=======
             "time": "2020-09-21T18:10:53+00:00"
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
         },
         {
             "name": "league/oauth1-client",
@@ -1946,13 +1986,10 @@
                 "php",
                 "phpspreadsheet"
             ],
-<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/Maatwebsite/Laravel-Excel/issues",
                 "source": "https://github.com/Maatwebsite/Laravel-Excel/tree/3.1.24"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://laravel-excel.com/commercial-support",
@@ -1963,11 +2000,7 @@
                     "type": "github"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2020-10-28T09:10:05+00:00"
-=======
             "time": "2020-09-08T15:29:50+00:00"
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
         },
         {
             "name": "maennchen/zipstream-php",
@@ -2028,13 +2061,10 @@
                 "stream",
                 "zip"
             ],
-<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/maennchen/ZipStream-PHP/issues",
                 "source": "https://github.com/maennchen/ZipStream-PHP/tree/master"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://opencollective.com/zipstream",
@@ -2274,13 +2304,10 @@
                 "qr code",
                 "qrcode"
             ],
-<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/milon/barcode/issues",
                 "source": "https://github.com/milon/barcode/tree/version-6"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://paypal.me/tomilon",
@@ -2458,13 +2485,10 @@
                 "logging",
                 "psr-3"
             ],
-<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/Seldaek/monolog/issues",
                 "source": "https://github.com/Seldaek/monolog/tree/2.1.1"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://github.com/Seldaek",
@@ -2694,13 +2718,10 @@
                 "datetime",
                 "time"
             ],
-<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/briannesbitt/Carbon/issues",
                 "source": "https://github.com/briannesbitt/Carbon"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://opencollective.com/Carbon",
@@ -2711,11 +2732,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2020-10-23T06:02:30+00:00"
-=======
             "time": "2020-09-23T08:17:37+00:00"
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
         },
         {
             "name": "nikic/php-parser",
@@ -3341,7 +3358,6 @@
                 "psr",
                 "psr-6"
             ],
-<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/schmittjoh/php-option/issues",
                 "source": "https://github.com/schmittjoh/php-option/tree/1.7.5"
@@ -3356,10 +3372,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-07-20T17:29:33+00:00"
-=======
             "time": "2016-08-06T20:24:11+00:00"
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
         },
         {
             "name": "psr/container",
@@ -4050,24 +4063,17 @@
                 "mysqldump",
                 "spatie"
             ],
-<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/spatie/db-dumper/issues",
                 "source": "https://github.com/spatie/db-dumper/tree/2.18.0"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://github.com/spatie",
                     "type": "github"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2020-11-10T09:20:18+00:00"
-=======
             "time": "2020-09-10T14:52:52+00:00"
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
         },
         {
             "name": "spatie/laravel-permission",
@@ -4135,13 +4141,10 @@
                 "security",
                 "spatie"
             ],
-<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/spatie/laravel-permission/issues",
                 "source": "https://github.com/spatie/laravel-permission/tree/3.17.0"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://spatie.be/open-source/support-us",
@@ -4347,12 +4350,9 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/console/tree/v4.4.16"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4367,11 +4367,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2020-10-24T11:50:19+00:00"
-=======
             "time": "2020-09-02T07:07:21+00:00"
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
         },
         {
             "name": "symfony/css-selector",
@@ -4419,12 +4415,9 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/css-selector/tree/v5.1.8"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4439,11 +4432,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2020-10-24T12:01:57+00:00"
-=======
             "time": "2020-05-20T17:43:50+00:00"
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
         },
         {
             "name": "symfony/debug",
@@ -4495,12 +4484,9 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/debug/tree/v4.4.16"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4515,11 +4501,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2020-10-24T11:50:19+00:00"
-=======
             "time": "2020-08-10T07:47:39+00:00"
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
         },
         {
             "name": "symfony/error-handler",
@@ -4571,12 +4553,9 @@
             ],
             "description": "Symfony ErrorHandler Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/error-handler/tree/v4.4.16"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4591,11 +4570,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2020-10-24T11:50:19+00:00"
-=======
             "time": "2020-08-17T09:56:45+00:00"
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
         },
         {
             "name": "symfony/event-dispatcher",
@@ -4661,12 +4636,9 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/event-dispatcher/tree/v4.4.16"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4681,11 +4653,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2020-10-24T11:50:19+00:00"
-=======
             "time": "2020-08-13T14:18:44+00:00"
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
         },
         {
             "name": "symfony/event-dispatcher-contracts",
@@ -4747,12 +4715,9 @@
                 "interoperability",
                 "standards"
             ],
-<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/event-dispatcher-contracts/tree/v1.1.9"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4811,12 +4776,9 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/finder/tree/v4.4.16"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4831,11 +4793,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2020-10-24T11:50:19+00:00"
-=======
             "time": "2020-08-17T09:56:45+00:00"
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
         },
         {
             "name": "symfony/http-client-contracts",
@@ -4889,7 +4847,6 @@
             ],
             "description": "Generic abstractions related to HTTP clients",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
             "keywords": [
                 "abstractions",
                 "contracts",
@@ -4968,8 +4925,6 @@
             "support": {
                 "source": "https://github.com/symfony/http-foundation/tree/v4.4.16"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4984,11 +4939,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2020-10-24T11:50:19+00:00"
-=======
             "time": "2020-08-17T07:39:58+00:00"
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
         },
         {
             "name": "symfony/http-kernel",
@@ -5075,12 +5026,9 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/http-kernel/tree/v4.4.16"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5095,11 +5043,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2020-10-28T05:50:56+00:00"
-=======
             "time": "2020-09-02T08:09:29+00:00"
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
         },
         {
             "name": "symfony/intl",
@@ -5170,12 +5114,9 @@
                 "l10n",
                 "localization"
             ],
-<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/intl/tree/v5.1.8"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5190,11 +5131,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2020-10-24T12:01:57+00:00"
-=======
             "time": "2020-08-17T07:42:30+00:00"
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
         },
         {
             "name": "symfony/mime",
@@ -5252,12 +5189,9 @@
                 "mime",
                 "mime-type"
             ],
-<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/mime/tree/v5.1.8"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5272,11 +5206,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2020-10-24T12:01:57+00:00"
-=======
             "time": "2020-08-17T10:01:29+00:00"
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -5338,12 +5268,9 @@
                 "polyfill",
                 "portable"
             ],
-<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/polyfill-ctype/tree/v1.20.0"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5358,11 +5285,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2020-10-23T14:02:19+00:00"
-=======
             "time": "2020-07-14T12:35:20+00:00"
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
         },
         {
             "name": "symfony/polyfill-iconv",
@@ -5425,12 +5348,9 @@
                 "portable",
                 "shim"
             ],
-<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/polyfill-iconv/tree/v1.20.0"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5445,11 +5365,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2020-10-23T14:02:19+00:00"
-=======
             "time": "2020-07-14T12:35:20+00:00"
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
         },
         {
             "name": "symfony/polyfill-intl-icu",
@@ -5511,12 +5427,9 @@
                 "portable",
                 "shim"
             ],
-<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/polyfill-intl-icu/tree/v1.20.0"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5531,11 +5444,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2020-10-23T14:02:19+00:00"
-=======
             "time": "2020-07-14T12:35:20+00:00"
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
         },
         {
             "name": "symfony/polyfill-intl-idn",
@@ -5605,12 +5514,9 @@
                 "portable",
                 "shim"
             ],
-<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/polyfill-intl-idn/tree/v1.20.0"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5625,11 +5531,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2020-10-23T14:02:19+00:00"
-=======
             "time": "2020-08-04T06:02:08+00:00"
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
         },
         {
             "name": "symfony/polyfill-intl-normalizer",
@@ -5696,12 +5598,9 @@
                 "portable",
                 "shim"
             ],
-<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/polyfill-intl-normalizer/tree/v1.20.0"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5716,11 +5615,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2020-10-23T14:02:19+00:00"
-=======
             "time": "2020-07-14T12:35:20+00:00"
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -5783,40 +5678,8 @@
                 "portable",
                 "shim"
             ],
-<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.20.0"
-=======
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2020-07-14T12:35:20+00:00"
-        },
-        {
-            "name": "symfony/polyfill-php70",
-            "version": "v1.18.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/polyfill-php70.git",
-                "reference": "0dd93f2c578bdc9c72697eaa5f1dd25644e618d3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php70/zipball/0dd93f2c578bdc9c72697eaa5f1dd25644e618d3",
-                "reference": "0dd93f2c578bdc9c72697eaa5f1dd25644e618d3",
-                "shasum": ""
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             },
             "funding": [
                 {
@@ -5832,33 +5695,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
             "time": "2020-10-23T14:02:19+00:00"
-=======
-            "description": "Symfony polyfill backporting some PHP 7.0+ features to lower PHP versions",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "compatibility",
-                "polyfill",
-                "portable",
-                "shim"
-            ],
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2020-07-14T12:35:20+00:00"
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
         },
         {
             "name": "symfony/polyfill-php72",
@@ -5917,12 +5754,9 @@
                 "portable",
                 "shim"
             ],
-<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/polyfill-php72/tree/v1.20.0"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5937,11 +5771,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2020-10-23T14:02:19+00:00"
-=======
             "time": "2020-07-14T12:35:20+00:00"
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
         },
         {
             "name": "symfony/polyfill-php73",
@@ -6003,12 +5833,9 @@
                 "portable",
                 "shim"
             ],
-<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/polyfill-php73/tree/v1.20.0"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -6023,11 +5850,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2020-10-23T14:02:19+00:00"
-=======
             "time": "2020-07-14T12:35:20+00:00"
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
         },
         {
             "name": "symfony/polyfill-php80",
@@ -6093,12 +5916,9 @@
                 "portable",
                 "shim"
             ],
-<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/polyfill-php80/tree/v1.20.0"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -6113,11 +5933,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2020-10-23T14:02:19+00:00"
-=======
             "time": "2020-07-14T12:35:20+00:00"
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
         },
         {
             "name": "symfony/process",
@@ -6161,12 +5977,9 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/process/tree/v4.4.16"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -6181,11 +5994,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2020-10-24T11:50:19+00:00"
-=======
             "time": "2020-07-23T08:31:43+00:00"
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
         },
         {
             "name": "symfony/routing",
@@ -6256,12 +6065,9 @@
                 "uri",
                 "url"
             ],
-<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/routing/tree/v4.4.16"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -6276,11 +6082,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2020-10-24T11:50:19+00:00"
-=======
             "time": "2020-08-10T07:27:51+00:00"
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
         },
         {
             "name": "symfony/service-contracts",
@@ -6342,12 +6144,9 @@
                 "interoperability",
                 "standards"
             ],
-<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/service-contracts/tree/master"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -6433,12 +6232,9 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/translation/tree/v4.4.16"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -6453,11 +6249,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2020-10-24T11:50:19+00:00"
-=======
             "time": "2020-08-17T09:56:45+00:00"
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
         },
         {
             "name": "symfony/translation-contracts",
@@ -6518,12 +6310,9 @@
                 "interoperability",
                 "standards"
             ],
-<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/translation-contracts/tree/v2.3.0"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -6538,11 +6327,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2020-09-28T13:05:58+00:00"
-=======
             "time": "2020-09-07T11:33:47+00:00"
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
         },
         {
             "name": "symfony/var-dumper",
@@ -6614,12 +6399,9 @@
                 "debug",
                 "dump"
             ],
-<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/var-dumper/tree/v4.4.16"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -6634,11 +6416,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2020-10-26T20:47:51+00:00"
-=======
             "time": "2020-08-17T07:31:35+00:00"
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
         },
         {
             "name": "tecnickcom/tcpdf",
@@ -6820,13 +6598,10 @@
                 "env",
                 "environment"
             ],
-<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/vlucas/phpdotenv/issues",
                 "source": "https://github.com/vlucas/phpdotenv/tree/v3.6.7"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://github.com/GrahamCampbell",
@@ -6890,13 +6665,10 @@
                 "constructor",
                 "instantiate"
             ],
-<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/doctrine/instantiator/issues",
                 "source": "https://github.com/doctrine/instantiator/tree/1.4.0"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://www.doctrine-project.org/sponsorship.html",
@@ -6911,11 +6683,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2020-11-10T18:47:58+00:00"
-=======
             "time": "2020-05-29T17:27:14+00:00"
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
         },
         {
             "name": "facade/flare-client-php",
@@ -6970,24 +6738,17 @@
                 "flare",
                 "reporting"
             ],
-<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/facade/flare-client-php/issues",
                 "source": "https://github.com/facade/flare-client-php/tree/1.3.7"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://github.com/spatie",
                     "type": "github"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2020-10-21T16:02:39+00:00"
-=======
             "time": "2020-09-18T06:35:11+00:00"
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
         },
         {
             "name": "facade/ignition",
@@ -7231,13 +6992,10 @@
                 "faker",
                 "fixtures"
             ],
-<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/fzaninotto/Faker/issues",
                 "source": "https://github.com/fzaninotto/Faker/tree/v1.9.1"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "abandoned": true,
             "time": "2019-12-12T13:22:17+00:00"
         },
@@ -7508,13 +7266,10 @@
                 "object",
                 "object graph"
             ],
-<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/myclabs/DeepCopy/issues",
                 "source": "https://github.com/myclabs/DeepCopy/tree/1.x"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://tidelift.com/funding/github/packagist/myclabs/deep-copy",
@@ -8292,13 +8047,10 @@
                 "testing",
                 "xunit"
             ],
-<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "source": "https://github.com/sebastianbergmann/phpunit/tree/8.5.9"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://phpunit.de/donate.html",
@@ -8309,11 +8061,7 @@
                     "type": "github"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2020-11-10T12:51:38+00:00"
-=======
             "time": "2020-06-22T07:06:58+00:00"
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
         },
         {
             "name": "scrivo/highlight.php",
@@ -8382,24 +8130,17 @@
                 "highlight.php",
                 "syntax"
             ],
-<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/scrivo/highlight.php/issues",
                 "source": "https://github.com/scrivo/highlight.php"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://github.com/allejo",
                     "type": "github"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2020-11-01T04:06:53+00:00"
-=======
             "time": "2020-08-27T03:24:44+00:00"
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
@@ -9102,13 +8843,10 @@
                 }
             ],
             "description": "A small library for converting tokenized PHP source code into XML and potentially other formats",
-<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/theseer/tokenizer/issues",
                 "source": "https://github.com/theseer/tokenizer/tree/master"
             },
-=======
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
             "funding": [
                 {
                     "url": "https://github.com/theseer",
@@ -9180,9 +8918,5 @@
         "php": "^7.2"
     },
     "platform-dev": [],
-<<<<<<< HEAD
     "plugin-api-version": "2.0.0"
-=======
-    "plugin-api-version": "1.1.0"
->>>>>>> 15f53eccfca5c376b60e874411808547f6874c5b
 }

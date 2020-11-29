@@ -1150,7 +1150,7 @@
     </ul>
 </li>
                 <li class="submenu ">
-                    <a href="javascript:;" class="{{ areActiveRoutes(['survey_category.index','survey_questions.index'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span>Survey Managment</span> <span class="menu-arrow"></span></a>
+                    <a href="javascript:;" class="{{ areActiveRoutes(['survey_category.index','survey_questions.index','survey_attemps'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span>Survey Managment</span> <span class="menu-arrow"></span></a>
                     <ul class="list-unstyled" style="display: none;">
                         <li class="{{ areActiveRoutes(['survey_category.index'])}}">
                             <a href="{{route('survey_category.index')}}" ><i class="fa fa-user" aria-hidden="true"></i>
@@ -1160,6 +1160,11 @@
                         <li class="{{ areActiveRoutes(['survey_questions.index'])}}">
                             <a href="{{route('survey_questions.index')}}" ><i class="fa fa-user" aria-hidden="true"></i>
                                 <span> Questions</span>
+                            </a>
+                        </li>
+                        <li class="{{ areActiveRoutes(['survey_attemps'])}}">
+                            <a href="{{route('survey_attemps')}}" ><i class="fa fa-user" aria-hidden="true"></i>
+                                <span> Survey Attempts</span>
                             </a>
                         </li>
                     </ul>

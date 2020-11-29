@@ -470,16 +470,16 @@ border-bottom-left-radius: 25px;
                                             <div class="form-check form-check-inline" id="hide1">
                                                 <input class="form-check-input" type="checkbox" name="check"
                                                        id="check_1">
-                                                <label class="form-check-label" for="inlineRadio1"
-                                                       style="display: inline">I do not want to mention my name</label>
+                                                <label class="form-check-label" for="check_1"
+                                                       style="display: inline;cursor: pointer" >I do not want to mention my name</label>
 {{--                                                <input type="hidden" name="name" value="1">--}}
                                             </div>
                                             <div class="form-check form-check-inline" id="hide2">
                                                 <input class="form-check-input" type="checkbox" name="check"
-                                                       id="check_2">
-                                                <label class="form-check-label" for="checkbox" style="display: inline">I
+                                                       id="check_2" >
+                                                <label class="form-check-label" for="check_2"  onclick="foucs()" style="display: inline;cursor: pointer" >I
                                                     am saving my name </label>:
-                                                <input id="checkbox" type="text" name="name" autocomplete="off"  >
+                                                <input id="check_3" type="text" name="name" autocomplete="off"  >
                                             </div>
                                             <p style="color: red;margin-top: 3px" id="check_error"></p>
                                             <div class="footer">
@@ -540,6 +540,11 @@ border-bottom-left-radius: 25px;
 
     <script type="text/javascript" src="{{asset('assets/chosen/chosen.jquery.js')}}"></script>
     <script type="text/javascript">
+        // function foucs()
+        // {
+        //     document.getElementById("check_3").focus();
+        //     console.log('hello');
+        // }
         // function count() {
         //     var seconds =0;
         //     var minute =0;
@@ -575,6 +580,11 @@ border-bottom-left-radius: 25px;
         }
         $(document).ready(function(){
             $('.loader-img').hide();
+            // $('#text_2').click(function(){
+            //     // alert(2);
+            //     $('#check_3').focus();
+            //     console.log('hi')
+            // })
             $('#check_1').click(function(){
                 console.log($(this).val());
                 $('#hide2').toggle();
@@ -620,9 +630,12 @@ border-bottom-left-radius: 25px;
                         // for (var i = 0; i < tabcontent.length; i++) {
                         //     tabcontent[i].style.display = "none";
                         // }
+                        // <input type="hidden" name="questions[]" value="${response.answer.id?response.answer.id:''}">
+                       // <input type="hidden" name="question_parent_${response.answer.id?response.answer.id:''}" value="${response.answer.parent_id?response.answer.parent_id:''}"">
+
                         html =`<tr id="row_${response.answer.id?response.answer.id:''}">
                                   <td></td>
-                                    <input type="hidden" name="questions[]" value="${response.answer.id?response.answer.id:''}">
+                                    <input type="hidden" name="question_parent_${question_id}" value="${response.answer.id?response.answer.id:''}">
                                   <td style="text-align: left; font-family: "Noto Serif", Garamond, "Times New Roman", Times, sans-serif;">
                                            ${response.answer.question?response.answer.question:''}
                                   </td>

@@ -4,9 +4,8 @@ namespace App\Http\Controllers\admins\survey;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SurveyAnswerValidation;
-use App\SurveyAns;
-use App\SurveyCategory;
-use App\SurveyTable;
+use App\Models\SurveyAns;
+use App\Models\SurveyTable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -41,11 +40,11 @@ class SurveyAnswerController extends Controller
     public function surveryStaffanswers(SurveyAnswerValidation $request)
     {
 
-//dd($request->all());
-        //dd($request->answer);
+
+//        dd($request->answer);
 //        implode(',',$request->answer);
         //dd(count($request->questions));
-//        dd($request->all());
+        dd($request->all());
 //        dd($request->name);
         $survey = SurveyTable::create([
             'branch_id' => $request->branch_id,
@@ -55,14 +54,29 @@ class SurveyAnswerController extends Controller
             'phone' =>Auth::user()?Auth::user()->phone:'null',
         ]);
         foreach ($request->questions as $data) {
-//    dd($request['question_ans_'.$data]);
+
             //dd($data);
             $survey_ans = SurveyAns::create([
                 'survey_id' => $survey->id,
                 'question_id' => $data,
+//                'question_parent_id_'=>isset($request['question_parent_' . $data])?$request['question_parent_' . $data]:null,
+//            'question_parent_id_'=>$data,
                 'category_id' => $request->category_id ? $request->category_id : 20,
                 'survey_ans' => $request['question_ans_' . $data],
             ]);
+//dd($request['question_ans_' .$data]);
+            if(isset($request['question_parent_' . $data]) && $request['question_parent_' . $data]){
+                if(isset($request['question_parent_' . $data]) && $request['question_parent_' . $data]){
+                    $childrens=SurveyAns::create([
+                        'survey_id' => $survey->id,
+                        'question_id' =>isset($request['question_parent_' . $data])?$request['question_parent_' . $data]:null,
+                        'question_parent_id_'=>isset($survey_ans->id)?$survey_ans->id:null,
+                        'category_id' => $request->category_id ? $request->category_id : 20,
+                        'survey_ans' => isset($request['question_ans_' . $request['question_parent_' . $data]])?
+                            $request['question_ans_' . $request['question_parent_' . $data]]:null,
+                    ]);
+                }
+            }
         }
         if ($survey_ans)
             return response()->json(['status' => 200]);

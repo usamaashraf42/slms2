@@ -36,7 +36,7 @@ Route::get('/unauthorized/user', function () { return view('error.401'); })->nam
 
 Route::get('challan/{fee_id}','Web\OnlineFeeDepositChallanController@onlineChallan')->name('fee.billing');
 Route::get('fee','Web\OnlineFeeDepositChallanController@feees');
-
+Route::get('challan-form','admins\ChallanForm\ChallanFormController@index')->name('challan_form');
 
 Route::prefix('muscat')->group(function () {
 	Route::get('/', 'Web\Muscat\PublicController@index')->name('muscat.index');
@@ -522,6 +522,9 @@ Route::prefix('admin')->group(function () {
             Route::resource('survey_category','admins\survey\SurveyController');
             Route::post('survey_category_update','admins\survey\SurveyController@update')->name('survey_category_update');
             Route::post('survey_category_status_change','admins\survey\SurveyController@Statuschange')->name('survey_category_status_change');
+            Route::get('survey_attempts','admins\survey\surveyattempsController@surveyattemps')->name('survey_attemps');
+            Route::resource('survey_attempts_modal','admins\survey\surveyattempsController');
+
         });
 
 	         //////////////////////MarkPostController /

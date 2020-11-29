@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.2",
         "barryvdh/laravel-dompdf": "^0.8.6",
+        "codedge/laravel-fpdf": "^1.7",
         "elibyy/tcpdf-laravel": "6.0.*",
         "fideloper/proxy": "^4.0",
         "google/apiclient": "^2.8",

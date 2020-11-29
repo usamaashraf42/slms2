@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Web\Pakistan;
 
-use App\SurveyCategory;
-use App\SurveyQuestion;
+use App\Models\SurveyCategory;
+use App\Models\SurveyQuestion;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controller\Fran;
