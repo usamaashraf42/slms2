@@ -1,339 +1,138 @@
+<form action="javascript:;" method="POST" id="easyPaisaForm">
+    @csrf
+	<! -- Store Id Provided by Easypay-->
+	<input name="storeId" id="storeId" value="11455" hidden = "true"/>
+	<! -- Amount of Transaction from merchant’s website -->
+	<input name="amount" id="amount" value="10.0" hidden = "true"/>
+	<! – Post back URL from merchant’s website -- >
+	<input name="postBackURL" id="postBackURL" value="https://lyceumgroupofschools.com/easypaisa/payment/status" hidden = "true"/>
+	<! – Order Reference Number from merchant’s website -- >
+	<input name="orderRefNum" id="orderId" value="1111" hidden = "true"/>
+	<! – Expiry Date from merchant’s website (Optional) -- >
+	<input type ="hidden" name="expiryDate" id="token" value="{{ date('Ymd His', strtotime(now()))}}">
+	<! – Merchant Hash Value (Optional) -- >
+	<! – If Merchant wants to redirect to Merchant website after payment completion (Optional) -- >
+	<input type ="hidden" name="autoRedirect" value="1">
+	<! – If merchant wants to post specific Payment Method (Optional) -- >
+	<input type ="hidden" name="paymentMethod" id="merchantPaymentMethod" value="MA_PAYMENT_METHOD">
 
+	<! – If merchant wants to post specific Payment Method (Optional) -- >
+	 <input type ="hidden" name="emailAddr" id="email" value="test@abcd.com">
+	<! – If merchant wants to post specific Payment Method (Optional) -- >
+	<input type ="hidden" name="mobileNum" id="cellNo" value="03325241789">
+	<! – If merchant wants to post specific Bank Identifier (Optional) -- >
+     <input type ="hidden" name="bankIdentifier" id="bankId" value="">
+    <input type="hidden" name="signature" id="signature" value="">
+    <input type="hidden" name="timeStamp" id="timeStamp" value="{{date("Y-m-d\TH:i:s", strtotime(now()))}}">
 
-<style>
-    body {
-        background: #fff;
-    }
+	<! – This is the button of the form which submits the form -- >
+    <button type="submit" name="pay" class="btn btn-primary" id="submitPaymentMethod">Continue to Easypay Portal</button>
 
-    form {
-        margin: 0;
-        padding: 0;
-    }
+</form>
 
-    .jsformWrapper {
-        border: 1px solid rgba(196, 21, 28, 0.50);
-        padding: 2rem;
-        width: 600px;
-        margin: 0 auto;
-        border-radius: 2px;
-        margin-top: 2rem;
-        box-shadow: 0 7px 5px #eee;
-        padding-bottom: 4rem;
-    }
+{{-- <div id="iframe-class"> --}}
+<iframe id="easypay-iframe" name="easypay-iframe" src="about:blank" width="100%"
+height="500px"></iframe>
+{{-- </div> --}}
 
-        .jsformWrapper .formFielWrapper label {
-            width: 300px;
-            float: left;
-        }
-
-        .jsformWrapper .formFielWrapper input {
-            width: 300px;
-            padding: 0.5rem;
-            border: 1px solid #ccc;
-            float: left;
-            font-family: sans-serif;
-        }
-
-        .jsformWrapper .formFielWrapper select {
-            width: 300px;
-            padding: 0.5rem;
-            border: 1px solid #ccc;
-            float: left;
-            font-family: sans-serif;
-        }
-
-        .jsformWrapper .formFielWrapper {
-            float: left;
-            margin-bottom: 1rem;
-        }
-
-        .jsformWrapper button {
-            background: rgba(196, 21, 28, 1);
-            border: none;
-            color: #fff;
-            width: 120px;
-            height: 40px;
-            line-height: 25px;
-            font-size: 16px;
-            font-family: sans-serif;
-            text-transform: uppercase;
-            border-radius: 2px;
-            cursor: pointer;
-        }
-
-    h3 {
-        text-align: center;
-        margin-top: 3rem;
-        color: rgba(196, 21, 28, 1);
-    }
-</style>
-<script>
-    function submitForm() {
-
-        CalculateHash();
-        var IntegritySalt = document.getElementById("salt").innerText;
-        var hash = CryptoJS.HmacSHA256(document.getElementById("hashValuesString").value, IntegritySalt);
-        document.getElementsByName("pp_SecureHash")[0].value = hash + '';
-
-        console.log('string: ' + hashString);
-        console.log('hash: ' + document.getElementsByName("pp_SecureHash")[0].value);
-
-        document.jsform.submit();
-    }
-</script>
-<script src="https://sandbox.jazzcash.com.pk/Sandbox/Scripts/hmac-sha256.js"></script>
-
-<h3>JazzCash HTTP POST (Page Redirection) Testing</h3>
-<div class="jsformWrapper">
-    <form name="jsform" method="post" action="https://sandbox.jazzcash.com.pk/CustomerPortal/transactionmanagement/merchantform/">
-
-        <div class="formFielWrapper">
-            <label class="active">pp_Version: </label>
-            <select name="pp_Version" id="pp_Version">
-                <option value="2.0" selected="">2.0</option>
-            </select>
-        </div>
-
-        <div class="formFielWrapper">
-            <label class="active">pp_IsRegisteredCustomer: </label>
-            <select name="pp_IsRegisteredCustomer" id="pp_IsRegisteredCustomer">
-                <option value="Yes" selected="">Yes</option>
-                <option value="No">No</option>
-            </select>
-        </div>
-
-        <div class="formFielWrapper">
-            <label class="active">pp_TxnType: </label>
-            <input type="text" name="pp_TxnType" value="MPAY">
-        </div>
-
-        <div class="formFielWrapper">
-            <label class="active">pp_TokenizedCardNumber: </label>
-            <input type="text" name="pp_TokenizedCardNumber" value="">
-        </div>
-
-        <div class="formFielWrapper">
-            <label class="active">pp_CustomerID: </label>
-            <input type="text" name="pp_CustomerID" value="">
-        </div>
-
-        <div class="formFielWrapper">
-            <label class="active">pp_CustomerEmail: </label>
-            <input type="text" name="pp_CustomerEmail" value="">
-        </div>
-
-        <div class="formFielWrapper">
-            <label class="active">pp_CustomerMobile: </label>
-            <input type="text" name="pp_CustomerMobile" value="">
-        </div>
-
-        <div class="formFielWrapper">
-            <label class="active">pp_MerchantID: </label>
-            <input type="text" name="pp_MerchantID">
-        </div>
-
-        <div class="formFielWrapper">
-            <label class="active">pp_Language: </label>
-            <input type="text" name="pp_Language" value="EN">
-        </div>
-
-        <div class="formFielWrapper">
-            <label class="active">pp_SubMerchantID: </label>
-            <input type="text" name="pp_SubMerchantID" value="">
-        </div>
-
-        <div class="formFielWrapper">
-            <label class="active">pp_Password: </label>
-            <input type="text" name="pp_Password">
-        </div>
-
-        <div class="formFielWrapper">
-            <label class="active">pp_TxnRefNo: </label>
-            <input type="text" name="pp_TxnRefNo" id="pp_TxnRefNo" value="T20200304124915">
-        </div>
-
-        <div class="formFielWrapper">
-            <label class="active">pp_Amount: </label>
-            <input type="text" name="pp_Amount" value="10000">
-        </div>
-
-        <div class="formFielWrapper">
-            <label class="active">pp_DiscountedAmount: </label>
-            <input type="text" name="pp_DiscountedAmount" value="">
-        </div>
-
-        <div class="formFielWrapper">
-            <label class="active">pp_DiscountBank: </label>
-            <input type="text" name="pp_DiscountBank" value="">
-        </div>
-
-        <div class="formFielWrapper">
-            <label class="active">pp_TxnCurrency: </label>
-            <input type="text" name="pp_TxnCurrency" value="PKR">
-        </div>
-
-        <div class="formFielWrapper">
-            <label class="active">pp_TxnDateTime: </label>
-            <input type="text" name="pp_TxnDateTime" id="pp_TxnDateTime" value="20200304124915">
-        </div>
-
-        <div class="formFielWrapper">
-            <label class="active">pp_TxnExpiryDateTime: </label>
-            <input type="text" name="pp_TxnExpiryDateTime" id="pp_TxnExpiryDateTime" value="20200305124915">
-        </div>
-
-        <div class="formFielWrapper">
-            <label class="active">pp_BillReference: </label>
-            <input type="text" name="pp_BillReference" value="billRef">
-        </div>
-
-        <div class="formFielWrapper">
-            <label class="active">pp_Description: </label>
-            <input type="text" name="pp_Description" value="Description of transaction">
-        </div>
-
-        <div class="formFielWrapper">
-            <label class="active">pp_ReturnURL: </label>
-            <input type="text" name="pp_ReturnURL">
-        </div>
-
-
-        <div class="formFielWrapper">
-            <label class="active">pp_SecureHash: </label>
-            <input type="text" name="pp_SecureHash" value="0123456789">
-        </div>
-
-        <div class="formFielWrapper">
-            <label class="active">ppmpf 1: </label>
-            <input type="text" name="ppmpf_1" value="1">
-        </div>
-
-        <div class="formFielWrapper">
-            <label class="active">ppmpf 2: </label>
-            <input type="text" name="ppmpf_2" value="2">
-        </div>
-
-        <div class="formFielWrapper">
-            <label class="active">ppmpf 3: </label>
-            <input type="text" name="ppmpf_3" value="3">
-        </div>
-
-        <div class="formFielWrapper">
-            <label class="active">ppmpf 4: </label>
-            <input type="text" name="ppmpf_4" value="4">
-        </div>
-
-        <div class="formFielWrapper">
-            <label class="active">ppmpf 5: </label>
-            <input type="text" name="ppmpf_5" value="5">
-        </div>
-
-        <button type="button" onclick="submitForm()">Submit</button>
-
-    </form>
-
-    <label id="salt" style="display:none;"></label>
-    <br><br>
-    <div class="formFielWrapper" style="margin-bottom: 2rem;">
-        <label class="active">Hash values string: </label>
-        <input type="text" id="hashValuesString" value="">
-        <br><br>
-    </div>
-
-</div>
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
 
 <script>
+    var token;
+    $(document).ready (function (){
+	function loadIframe(iframeName) {
+        // $.noConflict();
+		var storeID = document.getElementById("storeId").value;
+		var amount = document.getElementById("amount").value;
+		var orderID = document.getElementById("orderId").value;
+		// var email = document.getElementById("email").value;
+		// var cellNo = document.getElementById("cellNo").value;
+		// var token = document.getElementById("token").value;
+		// var bankId = document.getElementById("bankId").value;
+		// var postBackURL = document.getElementById("postBackURL").value;
+        var email;
+        var postBackURL;
+        var cellNo;
+        var bankId;
+        var merchantPaymentMethod;
+		// var merchantPaymentMethod =document.getElementById("merchantPaymentMethod").value;
 
-    function CalculateHash() {
-    var IntegritySalt = document.getElementById("salt").innerText;
-    hashString = '';
+        $.when(getHashedKey()).done(function(result){
+            console.log(' encryptedHashRequest',result);
+            var encryptedHashRequest=result;
+            console.log(' encryptedHashRequest2',encryptedHashRequest);
+            var url="https://easypaystg.easypaisa.com.pk/tpg/";
 
-    hashString += IntegritySalt + '&';
+            // var signature = document.getElementById("signature").value;
+            var signature;
 
-    if (document.getElementsByName("pp_Amount")[0].value != '') {
-        hashString += document.getElementsByName("pp_Amount")[0].value + '&';
-    }
+            var params= { storeId: storeID, orderId: orderID, transactionAmount: amount,mobileAccountNo: cellNo,
+                            emailAddress: email, transactionType: "InitialRequest", tokenExpiry: token,bankIdentificationNumber: bankId,merchantPaymentMethod:merchantPaymentMethod,
+                            postBackURL:postBackURL,signature:signature,encryptedHashRequest:encryptedHashRequest
+                        };
 
-    if (document.getElementsByName("pp_BillReference")[0].value != '') {
-        hashString += document.getElementsByName("pp_BillReference")[0].value + '&';
-    }
-    if (document.getElementsByName("pp_CustomerEmail")[0].value != '') {
-        hashString += document.getElementsByName("pp_CustomerEmail")[0].value + '&';
-    }
-    if (document.getElementsByName("pp_CustomerID")[0].value != '') {
-        hashString += document.getElementsByName("pp_CustomerID")[0].value + '&';
-    }
-    if (document.getElementsByName("pp_CustomerMobile")[0].value != '') {
-        hashString += document.getElementsByName("pp_CustomerMobile")[0].value + '&';
-    }
-    if (document.getElementsByName("pp_Description")[0].value != '') {
-        hashString += document.getElementsByName("pp_Description")[0].value + '&';
-    }
-    if (document.getElementsByName("pp_IsRegisteredCustomer")[0].value != '') {
-        hashString += document.getElementsByName("pp_IsRegisteredCustomer")[0].value + '&';
-    }
-    if (document.getElementsByName("pp_Language")[0].value != '') {
-        hashString += document.getElementsByName("pp_Language")[0].value + '&';
-    }
-    if (document.getElementsByName("pp_MerchantID")[0].value != '') {
-        hashString += document.getElementsByName("pp_MerchantID")[0].value + '&';
-    }
-    if (document.getElementsByName("pp_Password")[0].value != '') {
-        hashString += document.getElementsByName("pp_Password")[0].value + '&';
-    }
-    if (document.getElementsByName("pp_ReturnURL")[0].value != '') {
-        hashString += document.getElementsByName("pp_ReturnURL")[0].value + '&';
-    }
-    if (document.getElementsByName("pp_SubMerchantID")[0].value != '') {
-        hashString += document.getElementsByName("pp_SubMerchantID")[0].value + '&';
-    }
-    if (document.getElementsByName("pp_TokenizedCardNumber")[0].value != '') {
-        hashString += document.getElementsByName("pp_TokenizedCardNumber")[0].value + '&';
-    }
-    if (document.getElementsByName("pp_TxnCurrency")[0].value != '') {
-        hashString += document.getElementsByName("pp_TxnCurrency")[0].value + '&';
-    }
-    if (document.getElementsByName("pp_TxnDateTime")[0].value != '') {
-        hashString += document.getElementsByName("pp_TxnDateTime")[0].value + '&';
-    }
-    if (document.getElementsByName("pp_TxnExpiryDateTime")[0].value != '') {
-        hashString += document.getElementsByName("pp_TxnExpiryDateTime")[0].value + '&';
-    }
-    if (document.getElementsByName("pp_TxnRefNo")[0].value != '') {
-        hashString += document.getElementsByName("pp_TxnRefNo")[0].value + '&';
-    }
-
-    if (document.getElementsByName("pp_TxnType")[0].value != '') {
-        hashString += document.getElementsByName("pp_TxnType")[0].value + '&';
-    }
-
-    if (document.getElementsByName("pp_Version")[0].value != '') {
-        hashString += document.getElementsByName("pp_Version")[0].value + '&';
-    }
-    if (document.getElementsByName("ppmpf_1")[0].value != '') {
-        hashString += document.getElementsByName("ppmpf_1")[0].value + '&';
-    }
-    if (document.getElementsByName("ppmpf_2")[0].value != '') {
-        hashString += document.getElementsByName("ppmpf_2")[0].value + '&';
-    }
-    if (document.getElementsByName("ppmpf_3")[0].value != '') {
-        hashString += document.getElementsByName("ppmpf_3")[0].value + '&';
-    }
-    if (document.getElementsByName("ppmpf_4")[0].value != '') {
-        hashString += document.getElementsByName("ppmpf_4")[0].value + '&';
-    }
-    if (document.getElementsByName("ppmpf_5")[0].value != '') {
-        hashString += document.getElementsByName("ppmpf_5")[0].value + '&';
-    }
-
-    hashString = hashString.slice(0, -1);
-    document.getElementById("hashValuesString").value = hashString;
-    }
-    
-    
-
-</script>
+            // var params= { storeId: storeID, orderId: orderID, transactionAmount: amount,
+            //                 transactionType: "InitialRequest", tokenExpiry: token,
+            //                 encryptedHashRequest:encryptedHashRequest
+            //             };
 
 
 
-                                    
+                console.log('params',params,'encryptedHashRequest',encryptedHashRequest);
+
+                var $iframe = $('#' + iframeName);
+
+                if ( $iframe.length ) {
+                    if(params.storeId != "" && params.orderId !="") {
+                        var str = jQuery.param( params);
+                        console.log('url',url+'?'+str);
+                        $iframe.attr('src',url+'?'+str);
+                    }
+                    return false;
+                }
+
+            return true;
+
+        });
+        console.log('false');
+
+
+	}
+
+
+	$( "#submitPaymentMethod" ).click(function() {
+		$("#iframe-class").addClass("show-iframe");
+
+		return loadIframe('easypay-iframe');
+	});
+
+    function getHashedKey(){
+        token = document.getElementById("token").value;
+            var form = $('#easyPaisaForm')[0];
+        var formData = new FormData(form);
+
+        return  $.ajax({
+                    url: "{{route('EncriptHashedKey')}}",
+                    type: "POST",
+                    enctype: 'multipart/form-data',
+                    processData: false,
+                    contentType: false,
+                    cache: false,
+                    data: formData,
+                    success: function (response) {
+                        console.log(' HashKey', response);
+                        return response;
+
+                    }, error: function (e) {
+                        return false;
+
+                    }
+            });
+
+    }
+});
+
+	</script>

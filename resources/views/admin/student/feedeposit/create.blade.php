@@ -44,8 +44,8 @@
 			<div class="card-box">
 				<div class="card-block">
 					<h4 class="card-title">Fee Deposit</h4>
-					
-					
+
+
 					<form method="POST" action="{{ route('fee-deposit.store') }}" enctype = "multipart/form-data" id="upload_new_form">
 						@csrf
 						@component('_components.alerts-default')
@@ -86,7 +86,7 @@
 
 						</div>
 						<div class="form-group row">
-							
+
 							<label for="input-group-icon-email" class="col-sm-2 form-control-label">Amount</label>
 							<div class="col-sm-4">
 								<input id="input-group-icon" value="{{old('amount')?old('amount'):'H'}}" maxlength="1" type="text" name="amount" class="form-control" placeholder="">
@@ -97,7 +97,7 @@
 								@endif
 							</div>
 							<label for="input-group-icon-email" class="col-sm-2 form-control-label">Read in Bank</label>
-							
+
 							<div class="col-sm-4">
 								<select id="input-group-icon" type="text" name="bank" class="form-control" placeholder="">
 
@@ -116,15 +116,15 @@
 
 							</div>
 						</div>
-						
+
 						<!-- <div class="form-group row"> -->
 							<!-- <label for="input-group-icon-email" class="col-sm-2 form-control-label">Branch</label>
 							<div class="col-sm-4">
 								<input id="input-group-icon-email" name="branch" maxlength="1" type="text" class="form-control" placeholder="">
 							</div> -->
-							
+
 						<!-- </div> -->
-						<!-- <div class="form-group row">
+						 <div class="form-group row">
 							<label for="input-group-icon-email" class="col-sm-2 form-control-label">Month</label>
 							<div class="col-sm-4">
 								<select id="input-group-icon-email" name="month" type="text" class="form-control" placeholder="">
@@ -176,7 +176,7 @@
 
 
 							</div>
-						</div> -->
+						</div>
 						<div class="form-group row">
 							<!-- <label for="input-group-icon-email" class="col-sm-2 form-control-label">Transaction ID</label>
 							<div class="col-sm-4">

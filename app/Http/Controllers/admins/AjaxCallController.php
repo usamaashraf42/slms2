@@ -93,6 +93,18 @@ class AjaxCallController extends Controller
         }
     }
 
+    public function correctionStudentCorrection(Request $request){
+// return $request->all();
+        $student=FeePost::where('std_id',$request->id)->with('student.studentFee','student.Balance')->where('fee_month',$request->month)->where('fee_year',$request->year)->orderBy('id','DESC')->first();
+
+        if($student){
+            return response()->json(['status'=>1,'data'=>$student], 200);
+        }else{
+            $message='Record not found';
+             return response()->json(['status'=>0,'message'=>$message], 200);
+        }
+    }
+
     public function correctionRecord(Request $request){
 
 

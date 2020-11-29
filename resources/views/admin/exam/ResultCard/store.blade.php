@@ -233,15 +233,15 @@
 				<div class="repeatedCard" style="-webkit-print-color-adjust: exact!important; padding-top: 10px;">
 					<div style="width: 60%;float: left;">
 						<div style="font-size: 22px; font-weight: bold; margin-bottom: 1px;">
-							@if(isset($record->exam)) 
+							@if(isset($record->exam))
 							@if(isset($record->exam->parent))
 							{{$record->exam->parent->term}}
 							@else
 							{{$record->exam->term}}
 							@endif
-							@else 
-							@isset($record->exam_type->term){{$record->exam_type->term}}@endisset 
-							@endif, 
+							@else
+							@isset($record->exam_type->term){{$record->exam_type->term}}@endisset
+							@endif,
 							{{ date("m", strtotime($record->created_at)) }}/ {{date("Y", strtotime($record->created_at))}}</div>
 							<div style="font-size: 20px; font-weight: bold;">@isset($record->student){{$record->student->id}}@endisset</div>
 							<div style="font-size: 17px; font-weight: bold; margin-bottom: 1px;">@isset($record->student){{$record->student->s_name}}@endisset</div>
@@ -291,7 +291,7 @@
 										<?php
 										$totalSubject++;
 										$class_participation+=$sub->class_participation;
-										$social_integration+=$sub->social_integration; 
+										$social_integration+=$sub->social_integration;
 										$accept_to_suggestion+=$sub->accept_to_suggestion;
 										$share_with+=$sub->share_with;
 										$helping_other+=$sub->helping_other;
@@ -325,7 +325,7 @@
 											<th>Rank</th>
 										</tr>
 									</thead>
-									<tbody>		
+									<tbody>
 										<tr>
 											<td>Class Participation</td>
 											<td>
@@ -501,16 +501,16 @@
 								<br>
 								<div style="width:100%;">
 									<div class="block_name">Grading Key</div>
-									<div class="block_name"><span class="box_color_fill" style="background-color: #35ac46;"> </span> <p>A + 90% to 100%</p></div>	
-									<div class="block_name"><span class="box_color_fill"> </span> <p>A 85 % to 89.9%</p></div>	
-									<div class="block_name"><span class="box_color_fill"> </span> <p>A - 80% to 84.9%</p></div>	
-									<div class="block_name"><span class="box_color_fill" style="background-color: #ff7743;"> </span> <p>B + 75% to 79.9%; </p></div>	
-									<div class="block_name"><span class="box_color_fill"> </span> <p>B  70% to 74.9%; </p></div>	
-									<div class="block_name"></div>	
-									<div class="block_name"><span class="box_color_fill"> </span> <p>B - 65% to 69.9%</p></div>	
-									<div class="block_name"><span class="box_color_fill" style="background-color: #ff558f;"> </span> <p>C + 60 % to 64.9%</p></div>	
-									<div class="block_name"><span class="box_color_fill"> </span> <p>C  55% to 59.9%</p></div>	
-									<div class="block_name"><span class="box_color_fill"> </span> <p>C - 50% to 54.9%; </p></div>	
+									<div class="block_name"><span class="box_color_fill" style="background-color: #055631;"> </span> <p>A + 90% to 100%</p></div>
+									<div class="block_name"><span class="box_color_fill" style="background-color: #09f82d;"> </span> <p>A 85 % to 89.9%</p></div>
+									<div class="block_name"><span class="box_color_fill" style="background-color: #87ee97;"> </span> <p>A - 80% to 84.9%</p></div>
+									<div class="block_name"><span class="box_color_fill" style="background-color: #fa0909;"> </span> <p>B + 75% to 79.9%; </p></div>
+									<div class="block_name"><span class="box_color_fill" style="background-color: #f34f4f;"> </span> <p>B  70% to 74.9%; </p></div>
+									<div class="block_name"></div>
+									<div class="block_name"><span class="box_color_fill" style="background-color: #f79696;"> </span> <p>B - 65% to 69.9%</p></div>
+									<div class="block_name"><span class="box_color_fill" style="background-color: #01285c;"> </span> <p>C + 60 % to 64.9%</p></div>
+									<div class="block_name"><span class="box_color_fill" style="background-color: #365f9a;"> </span> <p>C  55% to 59.9%</p></div>
+									<div class="block_name"><span class="box_color_fill" style="background-color: #7ba6e6;"> </span> <p>C - 50% to 54.9%; </p></div>
 									<div class="block_name"><span class="box_color_fill" style="background-color: #ffd53b;"> </span> <p>D 33% to 49.9%; </p></div>
 								</div>
 								<br>
@@ -520,12 +520,12 @@
 									<img src="{{asset('images/school/Capture.JPG')}}" width="100%" height="40px;">
 								</div>
 								<div class=" line_last" style="float: right; width: 50%;">
-									<p style="font-size: 10px;width: 100%;padding-top: 8px;"> 
+									<p style="font-size: 10px;width: 100%;padding-top: 8px;">
 
 										<strong>Head Office:</strong> 58-l/B-l Peco Road Township Lahore Ph: 0423-5115411<br>
 										<strong> Email:</strong> info@americanlyceum.edu.pk
 										<strong>web:<br>
-										</strong> www.americanlyceum.edu.pk 
+										</strong> www.americanlyceum.edu.pk
 										Branches @isset($record->branch) {{$record->branch->b_address}} @endisset</p>
 									</div>
 								</div>

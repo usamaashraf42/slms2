@@ -48,12 +48,12 @@ class FeePostController extends Controller
        // dd($request->all());
        $ly_no=Student::select('id')->where('status',1)->where('branch_id',$request->branch_id)->get();
      
-        $correction=FeeCorrection::whereIn('std_id',$ly_no)->where('correction_approv',0)->whereMonth('created_at',"<",$request->month)->get();
+        // $correction=FeeCorrection::whereIn('std_id',$ly_no)->where('correction_approv',0)->whereMonth('created_at',"<",$request->month)->get();
         
-        if(count($correction)){
-             session()->flash('error_message', __('before fee post coreection approved'));
-             return redirect()->back();
-        }
+        // if(count($correction)){
+        //      session()->flash('error_message', __('before fee post coreection approved'));
+        //      return redirect()->back();
+        // }
         $discount=$request->discount;
         $discount_description=$request->discount_description;
     if(isset($request->courses) && count($request->courses)){

@@ -20,11 +20,11 @@ class ApproveCorrectionController extends Controller
     {
          $this->middleware('role_or_permission:Correction Approval', ['only' => ['create','store']]);
           $this->middleware('role_or_permission:Correction Approved Report', ['only' => ['index']]);
-         
+
     }
 
     function index(){
-       
+
 		$branch=Branch::where('status',1);
 
          if(Auth::user()->branch_id){
@@ -36,7 +36,7 @@ class ApproveCorrectionController extends Controller
         $branches=$branch->get();
 		return view('admin.account.approve-correction.create',compact('branches'));
 	}
-    
+
     public function create(){
          $branch=Branch::where('status',1);
 
@@ -54,14 +54,14 @@ class ApproveCorrectionController extends Controller
     }
 
     public function store(FeeCorrectionApprovalRequest $request){
-    	
+
 // return $request->all();
         $correction=FeeCorrection::where('id',$request->correctinId)->where('correction_approv',0)->first();
-     
+
         if(!($correction)){
             return response()->json(['status'=>2,'message'=>'Correction already approved']);
         }
-        
+
 
         $request->approveAmount=$request->approveAmount?$request->approveAmount:0;
     	 $correction=FeeCorrection::find($request->correctinId);
@@ -70,7 +70,7 @@ class ApproveCorrectionController extends Controller
         $approveAmount=isset($request->approveAmount)?$request->approveAmount:$correction->amount;
 
         $effected=FeeCorrection::where('id',$request->correctinId)->update($correc);
-        
+
         if($effected){
             if(isset($correction->make_auto_installments) && ($correction->make_auto_installments)>0){
                     $stdFee=StudentFeeStructure::where('std_id',$correction->std_id)->orderBy('id','DESC')->first();
@@ -109,7 +109,7 @@ class ApproveCorrectionController extends Controller
                                         $record2['m'.($i+5)]=$remaingFactor/6;
                                         $approveAmount=($stdFee->annual_fee-$stdFee->scholarship_of)/6;
                                     }else{
-                                      
+
                                         $latestFactor=round(($remaingFactor/12),1);
                                         $record2['installment_no']=12;
                                         $record2['m1']=1;
@@ -125,7 +125,7 @@ class ApproveCorrectionController extends Controller
                                         $record2['m11']=1;
                                         $record2['m12']=1;
                                         $approveAmount+=$singleFee;
-                                       
+
                                     }
                                     $stdFee=StudentFeeStructure::where('std_id',$correction->std_id)->orderBy('id','DESC')->update($record2);
                                     break;
@@ -137,7 +137,7 @@ class ApproveCorrectionController extends Controller
 
                         }
                 }
-            
+
             if(isset($effected)){
                 $stdent=Account::orderBy('id','DESC')->where('std_id',$correction->std_id)->first();
                 if($correction->amount==$request->approveAmount){
@@ -162,7 +162,7 @@ class ApproveCorrectionController extends Controller
                     ];
                     $std=Master::create($ledger);
                 }
-        
+
                 if(($correction->amount!=$request->approveAmount) && ($correction->make_auto_installments!=12)){
                     $effectedAmount=(($correction->amount)+(-($request->approveAmount)));
                     // return $effectedAmount;
@@ -193,9 +193,9 @@ class ApproveCorrectionController extends Controller
 					if(!$branch){
 						$baranch=Branch::find($stdent->branch_id);
 						$branch=Account::create([
-							'name'=>$baranch->branch_name, 
+							'name'=>$baranch->branch_name,
 							'branch_id'=>$baranch->id,
-							'type'=>'Branch', 
+							'type'=>'Branch',
 						]);
 					}
                     if($branch){
@@ -221,22 +221,22 @@ class ApproveCorrectionController extends Controller
                     }
 					Account::where('std_id',$student->id)->update($st);
                 }
-               
-                    $feeCorrection=FeePost::where('std_id',$correction->std_id)->orderBy('id','DESC')->first();
+
+                    $feeCorrection=FeePost::where('std_id',$correction->feeId)->orderBy('id','DESC')->first();
                     if($feeCorrection){
                         $approve=isset($request->approveAmount)?$request->approveAmount:$correction->amount;
                         $upto['correction_approv']=($feeCorrection->correction_approv + $approve);
                         $upto['iscorrection']=1;
                         $upto['correction_reason']=$request->corr_remarks;
 
-                        if(isset($feeCorrection->total_fee) && isset($approve) && !empty($approve)){
-                             $upto['total_fee']=$feeCorrection->total_fee-$approve;
-                        }
-                       
-                        $feeCorrection=FeePost::where('std_id',$correction->std_id)->orderBy('id','DESC')->update($upto);
+                        // if(isset($feeCorrection->total_fee) && isset($approve) && !empty($approve)){
+                        //      $upto['total_fee']=$feeCorrection->total_fee-$approve;
+                        // }
+
+                        $feeCorrection=FeePost::where('id',$correction->feeId)->orderBy('id','DESC')->update($upto);
                     }
-                    
-                
+
+
             }
             return response()->json(['status'=>1,'message'=>'record inserted Successfully']);
             // session()->flash('success_message', __('Record Inserted Successfully'));
@@ -274,7 +274,7 @@ class ApproveCorrectionController extends Controller
             $query->where('branch_id',$branch_id);
           });
         $correction=$records->get();
-      
+
         return view('admin.account.approve-correction.index',compact('correction'));
     }
 }

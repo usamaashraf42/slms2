@@ -31,7 +31,11 @@ Route::post('contactus','HomeController@ContactFom')->name('ContactFom');
 Route::get('/easypaisa', function () { return view('web.easypaisa.index'); });
 Route::get('/easypaisa/token', function () { return view('web.easypaisa.get_token'); });
 
+Route::get('easypaisa/payment/status','Web\EasypaisaController@easypaisaCallback')->name('easypaisaCallback');
+
 Route::post('easypaisa/store','Web\EasypaisaController@store')->name('easypaisaStore');
+Route::post('easypaisa/encriptHasKey','Web\EasypaisaController@EncriptHashedKey')->name('EncriptHashedKey');
+
 Route::get('/unauthorized/user', function () { return view('error.401'); })->name('401');
 
 Route::get('challan/{fee_id}','Web\OnlineFeeDepositChallanController@onlineChallan')->name('fee.billing');
@@ -182,7 +186,6 @@ Route::prefix('pakistan')->group(function () {
 Route::get('/forgot-password',function(){ return view('_layouts.admin.forgot-password'); })->name('forgot-password');
 
 Auth::routes();
-
 
 
 
@@ -571,6 +574,7 @@ Route::prefix('admin')->group(function () {
 		Route::post('marksPostingData','admins\AjaxCallController@marksPostingData')->name('marksPostingData');
 		Route::post('get/student','admins\AjaxCallController@getStudent')->name('getStudent');
 
+		Route::post('get/studentCorrection','admins\AjaxCallController@correctionStudentCorrection')->name('correctionStudentCorrection');
 
 		Route::post('get/correctionRecord','admins\AjaxCallController@correctionRecord')->name('correctionRecord');
 		Route::post('correction/approval/','Account\correction\ApproveCorrectionController@approveBranchWise')->name('approveBranchWise');
@@ -623,8 +627,6 @@ Route::prefix('admin')->group(function () {
 
 		Route::post('branchHasSectionStudent','admins\AjaxSecondCallController@branchHasSectionStudent')->name('branchHasSectionStudent');
 
-
-
 		//////////////////////????????????????????? UpdateStudentStatementController??????????????
 		Route::resource('update-student-statement','Account\UpdateStudentStatementController');
 		Route::post('updateStdStatementMaster','Account\UpdateStudentStatementController@updateStdStatementMaster')->name('updateStdStatementMaster');
@@ -633,6 +635,26 @@ Route::prefix('admin')->group(function () {
 	});
 
 });
+
+Route::prefix('job/applicant')->group(function () {
+
+    Route::get('login','Auth\JobApplicantLoginController@showLoginForm')->name('JobApplicant.login');
+    Route::post('login','Auth\JobApplicantLoginController@login')->name('JobApplicant.login.submit');
+    Route::get('register','Auth\JobApplicantLoginController@registerForm')->name('JobApplicant.register');
+    Route::post('register','Auth\JobApplicantLoginController@registerSubmit')->name('JobApplicant.register.submit');
+
+
+    Route::group(['middleware' => ['auth:JobApplicant']], function () {
+        Route::get('logout','Auth\JobApplicantLoginController@logout')->name('JobApplicant.logout');
+        Route::group(['namespace' => 'JobApplicant'], function () {
+
+            Route::get('/', 'JobApplicantDashboardController@dashboard')->name('jobApplicant.dashboard');
+        });
+    });
+});
+
+
+
 
 Route::post('countryHasBranch','admins\AjaxCallController@countryHasBranch')->name('countryHasBranch');
 Route::post('schoolHasBranch','admins\AjaxCallController@schoolHasBranch')->name('schoolHasBranch');
