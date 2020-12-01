@@ -649,6 +649,7 @@ Route::prefix('job/applicant')->group(function () {
         Route::group(['namespace' => 'JobApplicant'], function () {
 
             Route::get('/', 'JobApplicantDashboardController@dashboard')->name('jobApplicant.dashboard');
+            Route::get('profile','ProfileController@index')->name('jobApplicant.profile');
         });
     });
 });
