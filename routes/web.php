@@ -264,8 +264,9 @@ Route::prefix('admin')->group(function () {
 			Route::post('EditStudentProfile','admins\Student\EditStudent\EditStudentController@EditStudentProfile')->name('EditStudentProfile');
 
 
-			Route::resource('fee-challan','admins\Student\feeChallen\FeeChallenController');
+            Route::resource('fee-challan','admins\Student\feeChallen\FeeChallenController');
 
+            Route::resource('outstanding-fee-challan','admins\Student\feeChallen\OutstandingFeeChallanController');
 			Route::resource('blis-fee-challan','Account\Blis\BlisFeeChallanController');
 
 

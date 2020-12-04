@@ -619,6 +619,7 @@
 
                        @if(Auth::user()->can('Fee Challen')  )
                        <li class="{{ areActiveRoutes(['fee-challan.create','fee-challan.index' ,'fee-challan.store'])}}"><a href="{{route('fee-challan.create')}}">Fee Challan</a></li>
+                       <li class="{{ areActiveRoutes(['outstanding-fee-challan.create','outstanding-fee-challan.index' ,'outstanding-fee-challan.store'])}}"><a href="{{route('outstanding-fee-challan.index')}}">Outstanding Fee Challan</a></li>
                        <li class="{{ areActiveRoutes(['blis-fee-challan.create','blis-fee-challan.index' ,'blis-fee-challan.store'])}}"><a href="{{route('blis-fee-challan.index')}}">BLIS Fee Challan</a></li>
 
 
