@@ -1,11 +1,11 @@
 @extends('_layouts.admin.default')
-@section('title', 'Camps Applicants')
+@section('title', 'Campus Applicants')
 @section('content')
 <div class="content container-fluid">
 	<div class="row">
 		<div class="col-md-12 col-sm-12 col-lg-12 col-xl-12">
 			<div class="card-box">
-				
+
 				<div class="card-block">
 					<h4 class="card-title">Camps Applicants</h4>
 					<!-- <div class="heading-elements float-right">
@@ -13,7 +13,7 @@
 							<button type="button" class="btn btn-success btn-min-width mr-1 mb-1">
 								<i class="la la-plus">&nbsp;Add Staff</i>
 							</button>
-						</a> 
+						</a>
 					</div> -->
 					@component('_components.alerts-default')
 					@endcomponent
@@ -29,7 +29,7 @@
 									<th>Branch</th>
 									<th>Champs</th>
 									<th>Address</th>
-									
+
 								</tr>
 							</thead>
 							<tbody>
@@ -40,20 +40,20 @@
 									<td>@if($admin->school_id==1) {{'AMERICAN LYCEUM GROUP OF SCHOOL'}} @elseif($admin->school_id==2) {{'ROYAL LYCEUM'}} @else {{'AMERICAN LYCEUM GROUP OF SCHOOL'}}  @endif</td>
 									<td>@isset($admin->user_name){{$admin->user_name}}@endisset</td>
 									<td>@isset($admin->user_email){{$admin->user_email}}@endisset</td>
-									
+
 									<td>@isset($admin->user_phone){{$admin->user_phone}}@endisset</td>
 									<td>@isset($admin->branch){{$admin->branch->branch_name}}@endisset</td>
 									<td>@isset($admin->event_name){{$admin->event_name}}@endisset</td>
 									<td>@isset($admin->address){{$admin->address}}@endisset</td>
-									
-										
-										
-									
+
+
+
+
 									</tr>
 									@endforeach
 									@endisset
 								</tbody>
-								
+
 							</table>
 						</div>
 					</div>
@@ -83,7 +83,7 @@
 						<label for="course_code">Course Code</label>
 						<input type="number" class="form-control" id="course_code" name="course_code" placeholder="Enter Course Code">
 					</fieldset>
-					
+
 					<fieldset class="form-group floating-label-form-group">
 						<label for="course_name">Course Name</label>
 						<input type="text" class="form-control" id="course_name" name="course_name" placeholder="Enter Course Name">
@@ -141,7 +141,7 @@
  } );
 </script>
 <script>
-	
+
 
 	/*showing confirm cancel popup box*/
 	function showConfirm() {
@@ -289,7 +289,7 @@
                 	console.log('response', response);
                 	if (response.status == '200') {
 
-                		
+
 
                 		$('#add_shed').modal('hide');
 

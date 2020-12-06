@@ -1,5 +1,5 @@
 @extends('_layouts.admin.default')
-@section('title', 'Dashboard')
+@section('title', 'Survey Question')
 @section('content')
     <div class="content container-fluid">
         <div class="row">
