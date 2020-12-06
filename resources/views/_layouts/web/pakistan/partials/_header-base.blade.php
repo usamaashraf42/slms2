@@ -65,7 +65,7 @@
             </li>
           </ul>
         </li>
-        
+
         <li class="sw-menucode-item" id="mn-admissions">
           <a>Admission</a>
           <ul class="sw-menucode-list">
@@ -127,7 +127,7 @@
             <li class="sw-menucode-list__item" id="mn-core-values">
               <a href="https://britishlyceum.com/" class="first  sw-menucode-item__link">British Lyceum Pakistan</a>
             </li>
-          
+
           </ul>
         </li>
         <li class="sw-menucode-item" id="mn-arts">
@@ -135,7 +135,7 @@
 
         </li>
         <li class="sw-menucode-item" id="mn-summer">
-          <a href="{{route('pakistan.Summer')}}" class=" sw-menucode-item__link">Camps</a>
+          <a href="{{route('pakistan.Summer')}}" class=" sw-menucode-item__link">Campuses</a>
 
         </li>
         <li class="sw-menucode-item" id="mn-athletics">
