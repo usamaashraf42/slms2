@@ -1,5 +1,5 @@
 @extends('_layouts.admin.default')
-@section('title', 'Maintaince ')
+@section('title', 'Branch Maintenance ')
 @section('content')
 @php($classss=0)
 <div class="content container-fluid" style="background-color: #fff;">
@@ -84,7 +84,7 @@
       <input type='button' id='btn' value='All Record Print' onclick="printDivs(this,DivIdToPrint)" class="btn btn-primary float-center allrecord" style="width: 100%;">
     </div>
     <br><br> -->
-    
+
 
     <br><br>
 
@@ -126,14 +126,14 @@
                       <i class="fa fa-user"></i>  <span>Resolved Maintenance</span>
                     </a>
                   </li>
-                  
+
                 </ul>
 
                 <!-- Tab panes -->
 
                 <div class="tab-content">
                   <!-- //////////////////////////////////////////////// -->
-                  <div role="tabpanel" class="tab-pane active" id="maintain">  
+                  <div role="tabpanel" class="tab-pane active" id="maintain">
                     <h4 class="card-title"> New Maintenance</h4>
                     <form method="POST" action="{{ route('maintenance.store') }}" enctype = "multipart/form-data" id="upload_new_form">
                       <div class="col-md-12">
@@ -234,7 +234,7 @@
                           </div>
 
                         </div>
-                        
+
 
 
                         <div class="row">
@@ -266,7 +266,7 @@
                       </div>
                     </form>
                   </div>
-                  <div role="tabpanel" class="tab-pane" id="detail">      
+                  <div role="tabpanel" class="tab-pane" id="detail">
                     <div class="nav_bva" style="margin-top: -20px;">
                     New Maintenance Request</span>
                   </div>
@@ -410,7 +410,7 @@
                   </thead>
 
 
-                  
+
 
                 </table>
               </div>
@@ -459,7 +459,7 @@
 
 
 <script>
- 
+
 
   function maintainCategory(obj){
     maintainceUser('obh');
@@ -555,7 +555,7 @@
 
     var idd=$(ids).attr('data-ids');
     $.ajax({
-      url: "{{route('maintainceResolved')}}", 
+      url: "{{route('maintainceResolved')}}",
       method:"POST",
       data:{id:idd},
       success: function(response){
@@ -592,7 +592,7 @@
     var idd=$(ids).attr('data-ids');
     var remarks=$('.remarks_'+idd).val();
     $.ajax({
-      url: "{{route('approvedMaintainceHighLevel')}}", 
+      url: "{{route('approvedMaintainceHighLevel')}}",
       method:"POST",
       data:{id:idd,remarks:remarks},
       success: function(response){
@@ -601,7 +601,7 @@
         if(response.status){
           if(response.status==1){
             $(ids).parent().parent('tr').remove();
- 
+
             maintaince_new();
             maintaince_approval();
             maintaince_resolved();
@@ -619,7 +619,7 @@
         }
         else{
          toastr.danger('Record not update');
-         
+
        }
      }});
 
@@ -632,7 +632,7 @@
     var remarks=$('.remarks_'+idd).val();
     console.log('remarks',remarks);
     $.ajax({
-      url: "{{route('approvedMaintaince')}}", 
+      url: "{{route('approvedMaintaince')}}",
       method:"POST",
       data:{id:idd,remarks:remarks},
       success: function(response){
@@ -641,7 +641,7 @@
         if(response.status){
           if(response.status==1){
             $(ids).parent().parent('tr').remove();
- 
+
             maintaince_new();
             maintaince_approval();
             maintaince_resolved();
@@ -659,7 +659,7 @@
         }
         else{
          toastr.danger('Record not update');
-         
+
        }
      }});
   }
@@ -915,7 +915,7 @@ function maintaince_approval(){
       return row.posted_date?row.posted_date:'';
 
     }},
-    
+
 
 
     {"data":"type","render":function(status,type,row){
@@ -925,7 +925,7 @@ function maintaince_approval(){
       return buttons;
     },"searchable":false,"orderable":false}
 
-    
+
     ]
   } );
 }
@@ -992,7 +992,7 @@ table.destroy();
       return row.posted_date?row.posted_date:'';
 
     }},
-    
+
 
 
     {"data":"type","render":function(status,type,row){
@@ -1002,7 +1002,7 @@ table.destroy();
       return buttons;
     },"searchable":false,"orderable":false}
 
-    
+
     ]
   } );
 }
@@ -1021,7 +1021,7 @@ table.destroy();
   }
   $("#images").change(function(){
     readURL(this);
-  }); 
+  });
 
 </script>
 @endpush

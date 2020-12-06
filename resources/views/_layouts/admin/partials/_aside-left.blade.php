@@ -1171,7 +1171,7 @@
 
 
 <li class="submenu ">
-    <a href="javascript:;" class="{{ areActiveRoutes(['category.index','admission_inquiry','camp_applicant','category.create','category.edit','role.index','role.create','role.edit','permission.index','permission.create','permission.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Campus Management</span> <span class="menu-arrow"></span></a>
+    <a href="javascript:;" class="{{ areActiveRoutes(['admission_inquiry','camp_applicant','category.create','category.edit','role.index','role.create','role.edit','permission.index','permission.create','permission.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Campus Management</span> <span class="menu-arrow"></span></a>
     <ul class="list-unstyled" style="display: none;">
         <li class="{{ areActiveRoutes(['admission_inquiry'])}}">
             <a href="{{route('admission_inquiry')}}" ><i class="fa fa-user" aria-hidden="true"></i>

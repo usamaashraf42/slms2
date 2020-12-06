@@ -1,5 +1,5 @@
 @extends('_layouts.admin.default')
-@section('title', 'Maintaince User')
+@section('title', 'Maintenance User')
 @section('content')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
@@ -25,9 +25,9 @@ table.table-bordered.dataTable th, table.table-bordered.dataTable td {
 	<div class="row">
 		<div class="col-md-12 col-sm-12 col-lg-12 col-xl-12">
 			<div class="card-box">
-				
+
 				<div class="card-block">
-					<h4 class="card-title">Maintaince User </h4>
+					<h4 class="card-title">Maintenance User </h4>
 
 
 					<div class="table-responsive">
@@ -37,16 +37,16 @@ table.table-bordered.dataTable th, table.table-bordered.dataTable td {
                 <th></th>
 								<th>Maintain Category</th>
 								<th>Users</th>
-								
+
 							</tr>
 						</thead>
 						<tbody>
 
               @foreach($categories as $main)
               <tr >
-               
+
                 <td colspan="3"><strong style="font-size: 16px;padding-right: 12px;">{{$main->main_name}}</strong><i class="fa fa-angle-down" style="font-size:18px;font-weight: bold;"></i></td>
-               
+
                 @foreach($main->main_users as $user)
                   <tr>
                     <td colspan="2"></td>
@@ -70,7 +70,7 @@ table.table-bordered.dataTable th, table.table-bordered.dataTable td {
 
               </tr>
               @endforeach
-							
+
 						</tbody>
 					</table>
 				</div>
@@ -94,7 +94,7 @@ table.table-bordered.dataTable th, table.table-bordered.dataTable td {
 
 <script>
 
- 
+
 	function null_model(){
         // alert("s");
          $("#append_data").text('');
@@ -113,12 +113,12 @@ table.table-bordered.dataTable th, table.table-bordered.dataTable td {
           console.log('ddd',correctionAmount,'approvalAmount',approvalAmount,'approvedTotalAmount');
       });
 
-      
+
       function unapproveRequest(id){
           console.log('approve Request Id',id,$('form'+id).serialize(),`(#form${id})`);
 
          $.ajax({
-            url: "admin/account/correction" + '/' + id + '/edit', 
+            url: "admin/account/correction" + '/' + id + '/edit',
             method:"GET",
             success: function(response){
               console.log('ajax call',response);
@@ -131,7 +131,7 @@ table.table-bordered.dataTable th, table.table-bordered.dataTable td {
               }
             }});
       }
-      
+
       	function approveRequest(id){
 
       		console.log('approve Request Id',id,$('form'+id).serialize(),`(#form${id})`);
@@ -145,13 +145,13 @@ table.table-bordered.dataTable th, table.table-bordered.dataTable td {
           var query_params = {correctinId:correction_id,approveAmount:amount,description:description };
             console.log('query_params',query_params);
 
-               
+
          $.ajax({
-            url: "{{route('approval-correction.store')}}", 
+            url: "{{route('approval-correction.store')}}",
             method:"POST",
             data:{correctinId:correction_id,approveAmount:amount,description:description},
             success: function(response){
-             
+
             	console.log('ajax call',response);
               if(response.status){
                 if(response.status==1){
@@ -167,7 +167,7 @@ table.table-bordered.dataTable th, table.table-bordered.dataTable td {
               }
             }});
       }
- 
+
 </script>
 
 @endpush
