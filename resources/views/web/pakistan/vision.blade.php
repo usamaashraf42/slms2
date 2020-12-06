@@ -134,7 +134,7 @@
                     </p>
                     <center>&nbsp;</center>
                 </div>
-            
+
                 <script type="text/javascript">
                     !(function ($) {
                         $(document).ready(function () {
@@ -160,7 +160,7 @@
                         </li> <li class="sw-menucode-item" id="cpn-Lyceum-way-self-reflection">
                             <a href="{{route('pakistan.vision')}}" class=" sw-menucode-item__link">vision</a>
                         </li>
-                        </li> 
+                        </li>
                         <li class="sw-menucode-item" id="cpn-Lyceum-way-self-reflection">
                             <a href="{{route('pakistan.coreValue')}}" class=" sw-menucode-item__link">Core Values</a>
                         </li>
@@ -179,11 +179,11 @@
                                 <a href="{{route('pakistan.history')}}" class=" sw-menucode-item__link">History of Lyceum</a>
                         </li>
                         <li class="sw-menucode-item" id="cpn-Lyceum-way-self-reflection">
-                    <a href="{{route('pakistan.vision')}}" class=" sw-menucode-item__link">vision</a>
+                    <a href="{{route('pakistan.vision')}}" class=" sw-menucode-item__link">Vision</a>
                         </li>
-                        </li> 
+                        </li>
                         <li class="sw-menucode-item" id="cpn-Lyceum-way-self-reflection">
-                         <a href="{{route('pakistan.coreValue')}}" 
+                         <a href="{{route('pakistan.coreValue')}}"
                          class=" sw-menucode-item__link">Core Values</a>
                         </li>
                         </ul>

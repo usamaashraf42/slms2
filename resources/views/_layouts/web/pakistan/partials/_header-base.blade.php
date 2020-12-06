@@ -12,7 +12,7 @@
          <li>
           <a class="" href="{{route('onlineFeeDeposit')}}" style="margin-top: 0px!important;
     border: 2px solid #f7f7f7!important;
-    background: #363886!important; padding: 2px 4px;">Online feedeposit</a>
+    background: #363886!important; padding: 2px 4px;">Online fee deposit</a>
         </li>
          <li>
           <a class="" href="http://lectures.americanlyceum.com" style="margin-top: 0px!important;

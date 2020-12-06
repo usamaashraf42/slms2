@@ -7377,8 +7377,8 @@ body.signage div.event-module.birthdays .list-panel > table.event-listing-table:
 .ttc, div.event-module ul.sw-events-detail-list li h2.sw-events-detail-list-event-subject {
   text-transform: capitalize; }
 
-.ttl {
-  text-transform: lowercase; }
+/*.ttl {*/
+/*  text-transform: lowercase; }*/
 
 .ttu, .breadcrumb-container a, div.blog .blog-entry div.post-tags a, body.default div.recent-blog-posts-wrapper ul li .recent-blog-posts-date-wrapper, div.event-module .list-panel div.event-listing-date, div.event-module ul.sw-events-detail-list li div.sw-events-detail-list-event-location, div.event-module .detail-panel .event-detail-details span.tags, nav#sidecar .utility ul li a, header .utility ul li a, body.default div.veracross_athletics div.game div.outcome, body.home section.home-main .section-events .date, body.default .side-container ul > li.hasChild > span, body.default .side-container ul > li a:not(.expand-btn), body.signage div.recent-blog-posts-wrapper .recent-blog-posts-date-wrapper, body.signage div.veracross_athletics div.game div.outcome {
   text-transform: uppercase; }
@@ -11875,8 +11875,8 @@ form.http-404 div.hero-container .slider {
 
 /* .formmodule */
 /* ====================== FORM STYLING END ====================== */
-/* 
- *  CALENDAR V2 STYLING 
+/*
+ *  CALENDAR V2 STYLING
  */
 div.event-module .CalendarMenu a {
   flex-flow: row nowrap; }
@@ -12040,7 +12040,7 @@ nav.flex-nav ul#mainnav > li > a {
     left: 0;
     position: absolute; }
   nav.flex-nav ul#mainnav > li > a:hover:before {
-    bottom: 2px; 
+    bottom: 2px;
   }
 #siteWrapper {
   position: relative;
@@ -12192,7 +12192,7 @@ button.close-drawer {
       transition-delay: .6s !important; }
     #sidecar.slide-right.active ul#mainnav li a {
       margin-left: 0px;
-      opacity: 1; 
+      opacity: 1;
     }
 nav#sidecar ul#mainnav {
   margin: 30px 0 0 0;
@@ -12325,7 +12325,7 @@ nav#sidecar .utility ul {
       color: white;
       font-weight: 400; }
       nav#sidecar .utility ul li a:hover, nav#sidecar .utility ul li a:hover:before {
-        color: #24acce; 
+        color: #24acce;
       }
 header{
   z-index: 999999;
@@ -12437,7 +12437,7 @@ header{
       color: white;
       font-weight: 400; }
       header .utility ul li a:hover, header .utility ul li a:hover:before {
-        color: #24acce; 
+        color: #24acce;
       }
 #search-container {
   position: fixed;
@@ -13115,7 +13115,7 @@ div.event-module .calendar-controls .index-today, div.event-module ul.sw-events-
 .icon-youtube:before {
   content: "\f167"; }
 
-/* 
+/*
  * 	Core Owl Carousel CSS File
  *	v1.3.3
  */
@@ -13188,7 +13188,7 @@ div.event-module .calendar-controls .index-today, div.event-module ul.sw-events-
   -ms-transform: translate3d(0, 0, 0); }
 
 /*
-* 	Owl Carousel Owl Demo Theme 
+* 	Owl Carousel Owl Demo Theme
 *	v1.3.3
 */
 .owl-theme .owl-controls {

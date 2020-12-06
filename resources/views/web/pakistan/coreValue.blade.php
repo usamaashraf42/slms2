@@ -151,9 +151,9 @@
                             Teachers : Must be responsible for the results of the students.
                             Parents   : Must be responsible for the grooming of the children.
                         </a></li>
-                    
-                    
-                    
+
+
+
                 </ul>
 
                 <input type="hidden" name="ctl00$cphCustomSection1$public_partctrl_cphCustomSection1_1$hfPagePartId" id="ctl00_cphCustomSection1_public_partctrl_cphCustomSection1_1_hfPagePartId" value="298687">
@@ -178,9 +178,9 @@
                             <a href="{{route('pakistan.history')}}" class=" sw-menucode-item__link">History of Lyceum</a>
                         </li>
                         </li> <li class="sw-menucode-item" id="cpn-Lyceum-way-self-reflection">
-                            <a href="{{route('pakistan.vision')}}" class=" sw-menucode-item__link">vision</a>
+                            <a href="{{route('pakistan.vision')}}" class=" sw-menucode-item__link">Vision</a>
                         </li>
-                        </li> 
+                        </li>
                         <li class="sw-menucode-item" id="cpn-Lyceum-way-self-reflection">
                             <a href="{{route('pakistan.coreValue')}}" class=" sw-menucode-item__link">Core Values</a>
                         </li>
@@ -199,11 +199,11 @@
                                 <a href="{{route('pakistan.history')}}" class=" sw-menucode-item__link">History of Lyceum</a>
                         </li>
                         <li class="sw-menucode-item" id="cpn-Lyceum-way-self-reflection">
-                    <a href="{{route('pakistan.vision')}}" class=" sw-menucode-item__link">vision</a>
+                    <a href="{{route('pakistan.vision')}}" class=" sw-menucode-item__link">Vision</a>
                         </li>
-                        </li> 
+                        </li>
                         <li class="sw-menucode-item" id="cpn-Lyceum-way-self-reflection">
-                         <a href="{{route('pakistan.coreValue')}}" 
+                         <a href="{{route('pakistan.coreValue')}}"
                          class=" sw-menucode-item__link">Core Values</a>
                         </li>
                         </ul>

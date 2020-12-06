@@ -48,7 +48,7 @@ $(document).ready(function() {
                         </div>
 
                         <div class="item" id="banner-element-43151" style="height: 607px; width: 1903px; float: left; background-image: url({{asset('assets/frontend/images/student2.jpg')}});">
-            <img src="{{asset('assets/frontend/images/home.jpg')}}" alt="Pep Rally" class="o-0"> 
+            <img src="{{asset('assets/frontend/images/home.jpg')}}" alt="Pep Rally" class="o-0">
                         </div>
                         <div class="item" id="banner-element-43152" style="height: 607px; width: 1903px; float: left; background-image: url({{asset('assets/frontend/images/student2.jpg')}});">
                             <img src="({{asset('assets/frontend/images/student2.jpg')}}" alt="Teaching at Lyceum" class="o-0">
@@ -150,13 +150,13 @@ $(document).ready(function() {
                     and multiple the God-gifted skills and talent of students. Lets join hands by facilitating us in fulfilling
                     mission of enabling primary and secondary greatness.</p>
 
-                
 
-                
 
-                
 
-                
+
+
+
+
 
             </div>
 
@@ -176,9 +176,9 @@ $(document).ready(function() {
                             <a href="{{route('pakistan.history')}}" class=" sw-menucode-item__link">History of Lyceum</a>
                         </li>
                         </li> <li class="sw-menucode-item" id="cpn-Lyceum-way-self-reflection">
-                            <a href="{{route('pakistan.vision')}}" class=" sw-menucode-item__link">vision</a>
+                            <a href="{{route('pakistan.vision')}}" class=" sw-menucode-item__link">Vision</a>
                         </li>
-                        </li> 
+                        </li>
                         <li class="sw-menucode-item" id="cpn-Lyceum-way-self-reflection">
                             <a href="{{route('pakistan.coreValue')}}" class=" sw-menucode-item__link">Core Values</a>
                         </li>
@@ -197,11 +197,11 @@ $(document).ready(function() {
                                 <a href="{{route('pakistan.history')}}" class=" sw-menucode-item__link">History of Lyceum</a>
                         </li>
                         <li class="sw-menucode-item" id="cpn-Lyceum-way-self-reflection">
-                    <a href="{{route('pakistan.vision')}}" class=" sw-menucode-item__link">vision</a>
+                    <a href="{{route('pakistan.vision')}}" class=" sw-menucode-item__link"Vision</a>
                         </li>
-                        </li> 
+                        </li>
                         <li class="sw-menucode-item" id="cpn-Lyceum-way-self-reflection">
-                         <a href="{{route('pakistan.coreValue')}}" 
+                         <a href="{{route('pakistan.coreValue')}}"
                          class=" sw-menucode-item__link">Core Values</a>
                         </li>
                         </ul>
@@ -244,16 +244,16 @@ $(document).ready(function() {
     </div>
 
 </section>
-             
-                                                      
-        
-        
-        
-        
-        
-        
-                
-        
+
+
+
+
+
+
+
+
+
+
 
 </div>
 
@@ -264,6 +264,6 @@ $(document).ready(function() {
 
     <!-- Script Files-->
 
-   
+
 </section>
 @endsection

@@ -94,7 +94,7 @@
                         <h6 class="w-100 tl ma0">Related Facts</h6>
                         <div class="w-100 ph1">
                             <h2 class="ma0">8:1</h2>
-                            <p class="ma0 Times New Roman f6 b dark-blue">student/teacher ratio</p>
+                            <p class="ma0 Times New Roman f6 b dark-blue">Student/Teacher Ratio</p>
                         </div>
                         <div class="w-100 ph1">
                             <h2 class="ma0">25</h2>
@@ -123,7 +123,7 @@
                         <h6 class="w-100 tl ma0">Related Facts</h6>
                         <div class="w-100 ph1">
                             <h2 class="ma0">8:1</h2>
-                            <p class="ma0 Times New Roman f6 b dark-blue">student/teacher ratio</p>
+                            <p class="ma0 Times New Roman f6 b dark-blue">Student/Teacher Ratio</p>
                         </div>
                         <div class="w-100 ph1">
                             <h2 class="ma0">25</h2>
@@ -151,15 +151,15 @@
                         <h6 class="w-100 tl ma0">Related Facts</h6>
                         <div class="w-100 ph1">
                             <h2 class="ma0">14</h2>
-                            <p class="ma0 Times New Roman f6 b dark-blue">average class size</p>
+                            <p class="ma0 Times New Roman f6 b dark-blue">Average Class Size</p>
                         </div>
                         <div class="w-100 ph1">
                             <h2 class="ma0">30</h2>
-                            <p class="ma0 Times New Roman f6 b dark-blue">lakeside acres</p>
+                            <p class="ma0 Times New Roman f6 b dark-blue">Lakeside acres</p>
                         </div>
                         <div class="w-100 ph1">
                             <h2 class="ma0">50%</h2>
-                            <p class="ma0 Times New Roman f6 b dark-blue">siblings</p>
+                            <p class="ma0 Times New Roman f6 b dark-blue">Siblings</p>
                         </div>
                     </div>
                 </div>
@@ -207,15 +207,15 @@
                         <h6 class="w-100 tl ma0">Related Facts</h6>
                         <div class="w-100 ph1">
                             <h2 class="ma0">62</h2>
-                            <p class="ma0 Times New Roman f6 b dark-blue">advisory groups</p>
+                            <p class="ma0 Times New Roman f6 b dark-blue">Advisory groups</p>
                         </div>
                         <div class="w-100 ph1">
                             <h2 class="ma0">4</h2>
-                            <p class="ma0 Times New Roman f6 b dark-blue">learning specialists</p>
+                            <p class="ma0 Times New Roman f6 b dark-blue">Learning specialists</p>
                         </div>
                         <div class="w-100 ph1">
                             <h2 class="ma0">4</h2>
-                            <p class="ma0 Times New Roman f6 b dark-blue">counselors</p>
+                            <p class="ma0 Times New Roman f6 b dark-blue">Counsellors</p>
                         </div>
                     </div>
                 </div>
@@ -418,7 +418,7 @@
 
             <h4 class="mt0">Joining Hands with British Lyceum</h4>
 
-            <p>American Lyceum has made an arrangement with British Lyceum to provide online Teaching Facilities to the Students of American Lyceum. American Lyceum has given the exclusive status to British Lyceum to provide Online Teaching. 
+            <p>American Lyceum has made an arrangement with British Lyceum to provide online Teaching Facilities to the Students of American Lyceum. American Lyceum has given the exclusive status to British Lyceum to provide Online Teaching.
             </p>
 
             <p class="mb0"><a class="btn mb0" href="www.britishlyceu.com">Learn More</a></p>
@@ -435,16 +435,16 @@
             <p class="mb0"><a class="btn mb0" href="javascript:;">Learn More</a></p></div>
 
 
-            
-            
-            
+
+
+
         </div>
 
-        
 
-        
-        
-        
+
+
+
+
 
     </div>
 
@@ -465,7 +465,7 @@
                         <div class="quote absolute left-0 h-100 w-100 bg-white ">
                             <div class="absolute-centered w-100 pa3">
                                 <span class="light-gray icon icon-quote f2 db w-100 tc"></span><b class="Times New Roman" style="color: black"></b>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -473,10 +473,10 @@
                         <img src="{{asset('assets/frontend/images/student1.jpg')}}">
                         <div class="quote absolute left-0 h-100 w-100 bg-white ">
                             <div class="absolute-centered w-100 pa3">
-                                
+
                                 <b class="Times New Roman">
                                 </b>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -484,10 +484,10 @@
                         <img src="{{asset('assets/frontend/images/student2.jpg')}}">
                         <div class="quote absolute left-0 h-100 w-100 bg-white ">
                             <div class="absolute-centered w-100 pa3">
-                                
+
                                 <p class="Times New Roman">
                                 </p>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -495,37 +495,37 @@
                         <img src="{{asset('assets/frontend/images/student3.jpg')}}">
                         <div class="quote absolute left-0 h-100 w-100 bg-white ">
                             <div class="absolute-centered w-100 pa3">
-                                
-                                
-                                
+
+
+
                             </div>
                         </div>
                     </div><div class="hat w-90 center w-31-ns mh1p-ns mb3 overflow-hidden relative">
                         <img src="{{asset('assets/frontend/images/student4.jpg')}}">
                         <div class="quote absolute left-0 h-100 w-100 bg-white ">
                             <div class="absolute-centered w-100 pa3">
-                                
-                                
 
-                                
+
+
+
                             </div>
                         </div>
                     </div><div class="hat w-90 center w-31-ns mh1p-ns mb3 overflow-hidden relative">
                         <img src="{{asset('assets/frontend/images/student5.jpg')}}">
                         <div class="quote absolute left-0 h-100 w-100 bg-white ">
                             <div class="absolute-centered w-100 pa3">
-                                
-                                
-                                
+
+
+
                             </div>
                         </div>
                     </div><div class="hat w-90 center w-31-ns mh1p-ns mb3 overflow-hidden relative">
                         <img src="{{asset('assets/frontend/images/student6.jpg')}}">
                         <div class="quote absolute left-0 h-100 w-100 bg-white ">
                             <div class="absolute-centered w-100 pa3">
-                                
-                                
-                                
+
+
+
                             </div>
                         </div>
                     </div>
@@ -596,7 +596,7 @@
                             <div id="ctl00_cphCustomSection3_public_partctrl_cphCustomSection3_1_matrixContent" class="matrix-content"><div class="home-calendar-v2-widget h-100 w-100 sans-serif relative  owl-carousel owl-theme" style="opacity: 1; display: block;">
 
 
-                                
+
                                 <div class="owl-item" style="width: 607px;">
                                     <div class="first-item">
 
@@ -743,9 +743,9 @@
                                                     <div class="CalendarListEvent__header_date-date heading b f2 lh-solid">21</div>
                                                 </div>
                                                 <div class="text w-100 flex flex-column">
-                                                    
+
                                                     <div class="CalendarListEvent__date_time flex flex-column lh-expanded">
-                                                        
+
                                                         <span class="location flex flex-row lh-title"><span class="flex flex-column justify-center icon icon-map-pin white-50 mr2"></span> <span>American Lyceum</span></span>
                                                     </div>
                                                 </div>
@@ -829,7 +829,7 @@
 }
 </style>
     <script>
- var player; 
+ var player;
 function onYouTubeIframeAPIReady() {
   player = new YT.Player('video-foreground', {
     videoId: '4R7_Q6T6rkM', // YouTube Video ID
@@ -852,7 +852,7 @@ function onYouTubeIframeAPIReady() {
     }
   });
 }
-$(document).ready(function(e) {   
+$(document).ready(function(e) {
   $('.sound').on('click', function(){
     $('#video-foreground').toggleClass('mute');
     $('.volume-icon').toggleClass('fa-volume-up', 'fa-volume-off');
