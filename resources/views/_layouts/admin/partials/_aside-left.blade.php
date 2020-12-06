@@ -1034,16 +1034,14 @@
         @if(Auth::user()->can('Maintaince Category Record') || Auth::user()->can('Maintaince Category-Create') || Auth::user()->can('Maintaince Category-Edit')  )
         <li class="{{ areActiveRoutes(['category.index','category.create','category.edit'])}}">
             <a href="{{route('category.index')}}" class="{{ areActiveRoutes(['category.index','category.create','category.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i>
-                <span> maintenance Category</span>
+                <span> Maintenance Category</span>
             </a>
         </li>
         @endif
-
-
         @if(Auth::user()->can('Maintaince Users')  )
         <li class="{{ areActiveRoutes(['maintenance-user.index','maintenance-user.create','maintenance-user.edit'])}}">
             <a href="{{route('maintenance-user.index')}}" class="{{ areActiveRoutes(['maintenance-user.index','maintenance-user.create','maintenance-user.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i>
-                <span> maintenance Users</span>
+                <span> Maintenance Users</span>
             </a>
         </li>
         @endif
