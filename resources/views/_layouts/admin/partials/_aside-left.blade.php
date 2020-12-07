@@ -1029,7 +1029,7 @@
 
 @if(Auth::user()->can('Maintaince Category Record') || Auth::user()->can('Maintaince Category-Create') || Auth::user()->can('Maintaince Category-Edit')  || Auth::user()->can('Maintaince Users') || Auth::user()->can('Pending Maintainces') || Auth::user()->can('Resolved Maintainces') || Auth::user()->can('Maintaince-lists') )
 <li class="submenu ">
-    <a href="javascript:;" class="{{ areActiveRoutes(['category.index','category.create','category.edit','role.index','role.create','role.edit','permission.index','permission.create','permission.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Maintenance Management</span> <span class="menu-arrow"></span></a>
+    <a href="javascript:;" class="{{ areActiveRoutes(['category.index','category.create','category.edit','role.index','role.create','role.edit','permission.index','permission.create','permission.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Maintenance Management</span> <span class="menu-arrow" style="margin-right: -15px;"></span></a>
     <ul class="list-unstyled" style="display: none;">
         @if(Auth::user()->can('Maintaince Category Record') || Auth::user()->can('Maintaince Category-Create') || Auth::user()->can('Maintaince Category-Edit')  )
         <li class="{{ areActiveRoutes(['category.index','category.create','category.edit'])}}">

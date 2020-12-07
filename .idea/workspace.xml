@@ -4,8 +4,6 @@
     <list default="true" id="78e1e001-2c62-4804-a0c2-767e8c3957a8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/_layouts/admin/partials/_aside-left.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/_layouts/admin/partials/_aside-left.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/maintenance/maintaince/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/maintenance/maintaince/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/maintenance/userMaintain/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/maintenance/userMaintain/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,11 +187,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1607292648171</updated>
-      <workItem from="1607292649195" duration="3847000" />
+      <workItem from="1607292649195" duration="4795000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1607299885419">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1607299885419" />
   </component>
 </project>
