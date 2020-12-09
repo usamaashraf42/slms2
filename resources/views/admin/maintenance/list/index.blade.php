@@ -1,5 +1,5 @@
 @extends('_layouts.admin.default')
-@section('title', 'Statement')
+@section('title', 'Maintenance List')
 @section('content')
 <div class="content container-fluid" style="background-color: #fff;">
 	<div class="row">
@@ -17,11 +17,11 @@
 				}
 				.page[size="A4"][layout="landscape"] {
 					width: 29.7cm;
-					height: 21cm;  
+					height: 21cm;
 				}
 				th{
 					padding: 2px!important;
-					text-transform: 
+					text-transform:
 				}
 				.nav_bva{
 					text-align: center;
@@ -45,7 +45,7 @@
 
 				@page { size: auto;  margin: 5mm!important;}
 			</style>
-			
+
 			<div class="col-md-12">
 
 				<button style="font-size:36px;color:#000d82;" onclick="printDivs(this,printAllRecord);"> <i class="fa fa-print"></i><br><input type='button' id='btn' value='Print'  class="btn btn-primary float-center allrecord"></button>
@@ -69,7 +69,7 @@
 									Maintenance List
 								</div>
 								<br>
-								
+
 							</div>
 							<form method="POST" action="{{route('list.store')}}">
 								@csrf
@@ -134,7 +134,7 @@
 
 							</div>
 							<br><br>
-							
+
 							<div class="table-responsive">
 								<table class="table table_1 table-bordered" id="maintenanceList">
 									<thead>
@@ -186,7 +186,7 @@
 											<td>@isset($main->subcategory) {{ $main->subcategory->main_name }} @endisset</td>
 											<td>@isset($main->posted_date) {{$main->posted_date}} @endisset</td>
 											<td>
-												@if(isset($main->category->maintain_category)) 													{{$main->category->maintain_category->avg_time}} 
+												@if(isset($main->category->maintain_category)) 													{{$main->category->maintain_category->avg_time}}
 												@else
 													@isset($main->category) {{ $main->category->avg_time }} @endisset
 												@endif
@@ -196,7 +196,7 @@
 											<td>@isset($main->description) {{$main->description}} @endisset</td>
 											<td><textarea name="remarks" class="form-control" placeholder="Remarks"></textarea></td>
 											<td><input type="file" name="resolved_proof"></td>
-											
+
 											<td>
 												<button data-ids="{{$main->id}}" onclick="resolved(this)" class="btn-sm btn-success">Resolved</button>
 
@@ -233,7 +233,7 @@
 
 				var idd=$(ids).attr('data-ids');
 				$.ajax({
-					url: "{{route('maintenanceTransferToHigherLevel')}}", 
+					url: "{{route('maintenanceTransferToHigherLevel')}}",
 					method:"POST",
 					data:{id:idd},
 					success: function(response){
@@ -267,7 +267,7 @@
 
 				var idd=$(ids).attr('data-ids');
 				$.ajax({
-					url: "{{route('maintainceResolved')}}", 
+					url: "{{route('maintainceResolved')}}",
 					method:"POST",
 					data:{id:idd},
 					success: function(response){
@@ -277,12 +277,12 @@
 							if(response.status==1){
 								$(ids).parent().parent('tr').remove();
 								// maintenanceList();
-								
+
 								toastr.success('Record Update Successfully');
 							}else{
 								$(ids).parent().parent('tr').remove();
 								// maintenanceList();
-								
+
 								toastr.warning('Failed to update');
 							}
 
@@ -329,7 +329,7 @@
 						`<a class="example-image-link" href="http://lyceumgroupofschools.com/images/maintenance/no-image.png" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="http://lyceumgroupofschools.com/images/maintenance/no-image.png"  alt="''" height="60" width="60" style="border-radius: 50%!important;" />`;
 
 					}},
-				
+
 					{"data":"branch_id","render":function(status,type,row){
 
 						return row.branch?row.branch.branch_name:'';
@@ -377,7 +377,7 @@
 						return `<input type="file" name="resolved_proof">`;
 
 					}},
-					
+
 
 
 					{"data":"type","render":function(status,type,row){

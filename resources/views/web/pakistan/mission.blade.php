@@ -131,7 +131,7 @@
                 </div>
                 <input type="hidden" name="ctl00$cphPageBody$hfExistingUrl" id="ctl00_cphPageBody_hfExistingUrl" value="/history-of-Lyceum">
                 <script type="text/javascript">
-                    Sys.WebForms.PageRequestManager._initialize('ctl00$cphPageBody$ctl00', 'aspnetForm', [], [], [], 90, 'ctl00');              
+                    Sys.WebForms.PageRequestManager._initialize('ctl00$cphPageBody$ctl00', 'aspnetForm', [], [], [], 90, 'ctl00');
                 </script>
                 <input name="ctl00$cphPageBody$public_partctrl_cphPageBody_1$hfPagePartId" type="hidden" id="ctl00_cphPageBody_public_partctrl_cphPageBody_1_hfPagePartId" value="298751">
                 <div class="templatecontent ">
@@ -139,7 +139,7 @@
                             “To Enable Primary and Secondary Greatness in People
                             ”</em></p>
 
-                    
+
 
                     <center>&nbsp;</center>
 
@@ -177,9 +177,9 @@
                             <a href="{{route('pakistan.history')}}" class=" sw-menucode-item__link">History of Lyceum</a>
                         </li>
                         </li> <li class="sw-menucode-item" id="cpn-Lyceum-way-self-reflection">
-                            <a href="{{route('pakistan.vision')}}" class=" sw-menucode-item__link">vision</a>
+                            <a href="{{route('pakistan.vision')}}" class=" sw-menucode-item__link">Vision</a>
                         </li>
-                        </li> 
+                        </li>
                         <li class="sw-menucode-item" id="cpn-Lyceum-way-self-reflection">
                             <a href="{{route('pakistan.coreValue')}}" class=" sw-menucode-item__link">Core Values</a>
                         </li>
@@ -198,11 +198,11 @@
                                 <a href="{{route('pakistan.history')}}" class=" sw-menucode-item__link">History of Lyceum</a>
                         </li>
                         <li class="sw-menucode-item" id="cpn-Lyceum-way-self-reflection">
-                    <a href="{{route('pakistan.vision')}}" class=" sw-menucode-item__link">vision</a>
+                    <a href="{{route('pakistan.vision')}}" class=" sw-menucode-item__link">Vision</a>
                         </li>
-                        </li> 
+                        </li>
                         <li class="sw-menucode-item" id="cpn-Lyceum-way-self-reflection">
-                         <a href="{{route('pakistan.coreValue')}}" 
+                         <a href="{{route('pakistan.coreValue')}}"
                          class=" sw-menucode-item__link">Core Values</a>
                         </li>
                         </ul>

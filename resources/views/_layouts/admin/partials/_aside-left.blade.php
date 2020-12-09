@@ -1029,21 +1029,19 @@
 
 @if(Auth::user()->can('Maintaince Category Record') || Auth::user()->can('Maintaince Category-Create') || Auth::user()->can('Maintaince Category-Edit')  || Auth::user()->can('Maintaince Users') || Auth::user()->can('Pending Maintainces') || Auth::user()->can('Resolved Maintainces') || Auth::user()->can('Maintaince-lists') )
 <li class="submenu ">
-    <a href="javascript:;" class="{{ areActiveRoutes(['category.index','category.create','category.edit','role.index','role.create','role.edit','permission.index','permission.create','permission.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Maintenance Management</span> <span class="menu-arrow"></span></a>
+    <a href="javascript:;" class="{{ areActiveRoutes(['category.index','category.create','category.edit','role.index','role.create','role.edit','permission.index','permission.create','permission.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Maintenance Management</span> <span class="menu-arrow" style="margin-right: -15px;"></span></a>
     <ul class="list-unstyled" style="display: none;">
         @if(Auth::user()->can('Maintaince Category Record') || Auth::user()->can('Maintaince Category-Create') || Auth::user()->can('Maintaince Category-Edit')  )
         <li class="{{ areActiveRoutes(['category.index','category.create','category.edit'])}}">
             <a href="{{route('category.index')}}" class="{{ areActiveRoutes(['category.index','category.create','category.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i>
-                <span> maintenance Category</span>
+                <span> Maintenance Category</span>
             </a>
         </li>
         @endif
-
-
         @if(Auth::user()->can('Maintaince Users')  )
         <li class="{{ areActiveRoutes(['maintenance-user.index','maintenance-user.create','maintenance-user.edit'])}}">
             <a href="{{route('maintenance-user.index')}}" class="{{ areActiveRoutes(['maintenance-user.index','maintenance-user.create','maintenance-user.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i>
-                <span> maintenance Users</span>
+                <span> Maintenance Users</span>
             </a>
         </li>
         @endif
@@ -1173,7 +1171,7 @@
 
 
 <li class="submenu ">
-    <a href="javascript:;" class="{{ areActiveRoutes(['category.index','admission_inquiry','camp_applicant','category.create','category.edit','role.index','role.create','role.edit','permission.index','permission.create','permission.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Campus Management</span> <span class="menu-arrow"></span></a>
+    <a href="javascript:;" class="{{ areActiveRoutes(['admission_inquiry','camp_applicant','category.create','category.edit','role.index','role.create','role.edit','permission.index','permission.create','permission.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Campus Management</span> <span class="menu-arrow"></span></a>
     <ul class="list-unstyled" style="display: none;">
         <li class="{{ areActiveRoutes(['admission_inquiry'])}}">
             <a href="{{route('admission_inquiry')}}" ><i class="fa fa-user" aria-hidden="true"></i>
