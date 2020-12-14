@@ -163,9 +163,9 @@ table, th, td {
 
 											<div style="float: left; margin-top: 10px;">
 												<div style="float: left; width: 300px;"> <br><strong>Due date  =  @if($feeArray[0]->outstand_lastmonth > 0)
-													{{date("d-M-Y", strtotime($feeArray[0]['fee_due_date2']))}}
+													{{date("d-M-Y", strtotime("2020-12-15"))}}
 													@else
-													{{date("d-M-Y", strtotime($feeArray[0]['fee_due_date1']))}}
+													{{date("d-M-Y", strtotime("2020-12-15"))}}
 												@endisset</strong> After due date bank must charge @if(isset($record->userSetting->currency) && $record->userSetting->currency){{$record->userSetting->currency}}@else{{(' Rs')}} @endif. @if(isset($record->userSetting->fine) && $record->userSetting->fine){{$record->userSetting->fine}}@else{{('40')}} @endif/- fine per day</div>
 												<br>
 
@@ -511,9 +511,9 @@ table, th, td {
 													</table>
 												</div>
 												<div style="float: left; width: 300px;"><br> <strong>Due date  =  @if($feeArray[0]->outstand_lastmonth > 0)
-													{{date("d-M-Y", strtotime($feeArray[0]['fee_due_date2']))}}
+													{{date("d-M-Y", strtotime("2020-12-15"))}}
 													@else
-													{{date("d-M-Y", strtotime($feeArray[0]['fee_due_date1']))}}
+													{{date("d-M-Y", strtotime("2020-12-15"))}}
 												@endisset</strong> After due date bank must charge @if(isset($record->userSetting->currency) && $record->userSetting->currency){{$record->userSetting->currency}}@else{{(' Rs')}}@endif. @if(isset($record->userSetting->fine) && $record->userSetting->fine){{$record->userSetting->fine}}@else{{('40')}} @endif /- fine per day</div>
 												<br>
 												<div><span> SID#@isset($data->id){{$data->id}}@endisset</span></div>
@@ -602,9 +602,9 @@ table, th, td {
 														</table>
 													</div>
 													<div style="float: left; width: 300px;"> <strong>Due date  =  @if($feeArray[0]->outstand_lastmonth > 0)
-														{{date("d-M-Y", strtotime($feeArray[0]['fee_due_date2']))}}
+														{{date("d-M-Y", strtotime("2020-12-15"))}}
 														@else
-														{{date("d-M-Y", strtotime($feeArray[0]['fee_due_date1']))}}
+														{{date("d-M-Y", strtotime("2020-12-15"))}}
 													@endisset</strong> After due date bank must charge @if(isset($record->userSetting->currency) && $record->userSetting->currency){{$record->userSetting->currency}}@else{{(' Rs')}}@endif. @if(isset($record->userSetting->fine) && $record->userSetting->fine){{$record->userSetting->fine}}@else{{('40')}} @endif /- fine per day</div><br>
 													<div><span >    SID#@isset($data->id){{$data->id}}@endisset</span></div><br>
 																											<i style="float: left;margin-top: -10px;">@if(isset($feeArray[0]['fee_month'])){{getMonthName($feeArray[0]['fee_month'])}} @endisset/@if(isset($feeArray[0]['fee_year'])){{$feeArray[0]['fee_year']}}@else{{''}}@endif</i>
