@@ -14,7 +14,7 @@ class CreatePwdToApplicants extends Migration
     public function up()
     {
         Schema::connection('mysql2')->table('applicants', function (Blueprint $table) {
-            $table->string('pwd')->after('password')->nullable();
+//            $table->string('pwd')->after('password')->nullable();
         });
     }
 

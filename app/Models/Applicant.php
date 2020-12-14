@@ -41,7 +41,9 @@ class Applicant extends Authenticatable
    public function preferenceSubject3(){
       return $this->belongsTo(\App\Models\Subject::class,'subject_preference3');
    }
-
+    public function job_applicant_education(){
+        return $this->hasMany(JobApplicantEducation::class,'job_applicant_id');
+    }
 
 
 }
