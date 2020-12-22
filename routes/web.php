@@ -646,12 +646,39 @@ Route::prefix('job/applicant')->group(function () {
 
 
     Route::group(['middleware' => ['auth:JobApplicant']], function () {
+
         Route::get('logout','Auth\JobApplicantLoginController@logout')->name('JobApplicant.logout');
         Route::group(['namespace' => 'JobApplicant'], function () {
 
             Route::get('/', 'JobApplicantDashboardController@dashboard')->name('jobApplicant.dashboard');
             Route::get('profile','ProfileController@index')->name('jobApplicant.profile');
+            Route::get('record', 'JobApplicantDashboardController@record_video')->name('jobApplicant.record_video');
         });
+        //education
+        Route::post('education/added','JobApplicant\jobApplicantDashboardController@jobapplicanteducationAdd')->name('jobapplicant_educationAdd');
+        Route::post('job/applicant_qualification_ajax','JobApplicant\jobApplicantDashboardController@jobapplicant_qualification_ajax')->name('jobapplicant_qualification_get_ajax');
+        Route::post('job/applicant_qualification_ajax_delete','JobApplicant\jobApplicantDashboardController@jobapplicant_qualification_delete')->name('jobapplicant_qualification.delete');
+        Route::get('job/applicant_qualification_ajax_edit','JobApplicant\jobApplicantDashboardController@jobapplicant_qualification_edit')->name('jobapplicant_qualification_edit');
+        Route::post('job/applicant_qualification_ajax_update','JobApplicant\jobApplicantDashboardController@jobapplicant_qualification_Update')->name('jobapplicant_qualification_update');
+
+        //experience
+        Route::post('job/applicant_experience/added','JobApplicant\jobApplicantDashboardController@obapplicant_experienceAdd')->name('jobapplicant_experienceAdd');
+        Route::post('job/applicant_experience_ajax','JobApplicant\jobApplicantDashboardController@jobapplicant_experience_ajax')->name('jobapplicant_experience_get_ajax');
+        Route::post('job/applicant_experience_delete','JobApplicant\jobApplicantDashboardController@jobapplicant_experience_delete')->name('jobapplicant_experience_delete');
+        Route::get('job/applicant_experience_ajax_edit','JobApplicant\jobApplicantDashboardController@jobapplicant_experience_edit')->name('jobapplicant_experience_edit');
+        Route::post('job/applicant_experience_ajax_update','JobApplicant\jobApplicantDashboardController@jobapplicant_experience_Update')->name('jobapplicant_experience_update');
+        Route::post('job/applicant_profile_update','JobApplicant\jobApplicantDashboardController@jobapplicantProfileUpdate')->name('jobapplicant_profile_update');
+    });
+    Route::prefix('ajax')->group(function () {
+        Route::post('get_degree_ajax','JobApplicant\jobApplicantDashboardController@get_degree_ajax')->name('get_degree_ajax');
+        Route::post('get_institude_ajax','JobApplicant\jobApplicantDashboardController@get_institude_ajax')->name('get_institude_ajax');
+        Route::get('exp_institude_ajax','JobApplicant\jobApplicantDashboardController@exp_institude_ajax')->name('exp_institude_ajax');
+        Route::post('get_subject_ajax','JobApplicant\jobApplicantDashboardController@get_subject_ajax')->name('get_subject_ajax');
+        Route::post('get_grade_ajax','JobApplicant\jobApplicantDashboardController@get_grade_ajax')->name('get_grade_ajax');
+        Route::post('get_topic_ajax','Teacher\Ajax\FirstAjaxTeacherController@get_topic_ajax')->name('get_topic_ajax');
+        Route::post('get-city-ajax','Teacher\TeacherAjaxController@get_city_ajax')->name('get_city_ajax');
+        Route::post('get-state-ajax','Teacher\TeacherAjaxController@get_state_ajax')->name('get_state_ajax');
+
     });
 });
 

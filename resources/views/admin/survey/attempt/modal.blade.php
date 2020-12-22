@@ -10,6 +10,29 @@
             </div>
             <form action="" id="addDataForm" method="post" enctype="multipart/form-data">
                 <div class="modal-body">
+                    <div class="col-sm-6 list">
+                        @if($survey_table->name=='Not want to add name')
+                            @isset($survey_table)
+                                <ul>
+                                    <li>The survey person does not want to show his name</li>
+                                </ul>
+                            @endisset
+                        @else
+                            @isset($survey_table)
+                                <ul>
+                                    <li>The survey name id <b>{{$survey_table->name}}</b></li>
+                                </ul>
+                            @endisset
+                            @endif
+
+                    </div>
+                    <div class="col-sm-12 list">
+                    @isset($survey_table)
+                        <ul>
+                            <li>The survey person email is <b>{{$survey_table->email}}</b></li>
+                        </ul>
+                    @endisset
+                </div>
                         <div class="col-sm-6 list">
                                 @isset($survey_table)
                                     <ul>
