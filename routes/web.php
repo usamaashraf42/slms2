@@ -14,7 +14,7 @@
 include('Ajax/customRoute.php');
 Route::get('/', function () { return view('welcome'); });
 Route::get('/home', function () { return redirect('admin'); });
-
+Route::get('challan','HomeController@FeeChallan');
 
 
 // Route::get('/checkout', function () { return view('web.checkout'); });

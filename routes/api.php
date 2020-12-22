@@ -25,6 +25,8 @@ Route::get('students/{status?}/{start_at?}/{end_date?}','Api\ApiBankTransactionC
 
 // $amount,$user_id,$project_id,$package_id
 Route::post('sms4connect','Api\ApiQueryLogController@sms4connect');
+Route::get('delete/duplicate/entry','Api\ApiQueryLogController@feePostDuplicate');
+
 // Route::get('correction/reverse','Api\ApiQueryLogController@correctionApproved');
 // Route::get('studentStructureChange','Api\ApiSecondQueryController@studentStructureChange');
 // Route::get('branches/transfer','Api\ApiQueryLogController@branches');
