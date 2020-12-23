@@ -103,7 +103,7 @@ class FeePostController extends Controller
 
                 (FeePostJob::dispatch($branchId,$classId,$month,$year,$compFee,$labFee,$libFee,$examFee,$statFee,$acFee,$misc1,$misc2,$tution,$misc1_desc,$misc2_desc,$lyId,$studentId,$outType,$discount,$discount_description,$fee_due_date1,$fee_due_date2,$fine_per_day,Auth::user()->id));
 
-                \Artisan::call('queue:work');
+               
 
 
 
@@ -118,6 +118,7 @@ class FeePostController extends Controller
             session()->flash('error_message', __('please select class'));
 
         }
+         \Artisan::call('queue:work');
 
         return redirect()->back();
     }
