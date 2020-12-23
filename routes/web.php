@@ -209,6 +209,7 @@ Route::prefix('admin')->group(function () {
 	Route::group(['middleware' => ['auth:web']], function () {
 
 		Route::get('/','admins\DashboardController@index')->name('dashboard');
+        Route::get('/date-sheet','admins\DashboardController@datesheet')->name('date_sheet');
 		Route::get('/profile', function () { return view('_layouts.admin.profile'); })->name('admin.profile');
 		Route::resource('class','admins\CourseController');
 		Route::resource('sms-send','admins\SmsSendController');

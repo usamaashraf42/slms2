@@ -48,4 +48,7 @@ class DashboardController extends Controller
 
 		return view('admin.dashboard',compact('student','correction','transfers','lefts','initalAdmissionQuery'));
 	}
+	public function datesheet(){
+	    return view('admin.date_sheet');
+    }
 }

@@ -123,7 +123,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="page-title mb-2">
-							Exam-list
+							Exam-list(Online Exam)
 						</div>
 						<div class="table-responsive">
 							<table class="table table-striped custom-table">
@@ -131,11 +131,10 @@
 									<tr>
 										<th style="min-width:91px;">Exam Name </th>
 										<th style="min-width:50px;">Subject</th>
-										<th style="min-width:50px;">Class</th>
-										<th style="min-width:50px;">Section</th>
-										<th style="min-width:50px;">Time</th>
-										<th style="min-width:50px;">Date</th>
-										<th class="text-right" style="width:30%;">Action</th>
+										<th style="min-width:60px;">Grade</th>
+										<th style="min-width:70px;">Day</th>
+										<th style="min-width:60px;">Date</th>
+										<th class="text-right" style="width:20%;">View</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -143,36 +142,31 @@
 										<td>
 											<a href="exam-detail.html" class="avatar">C</a>
 										</td>
-										<td>English</td>
-										<td>5</td>
-										<td>B</td>
-										<td>10.00am</td>
-										<td>20/1/2019</td>
+										<td>Mathmatics</td>
+										<td>Grade I</td>
+										<td>Wednesday</td>
+										<td>16/12/2020</td>
 										<td class="text-right" >
-											<a href="edit-exam.html" class="btn btn-primary btn-sm mb-1">
-												<i class="fa fa-pencil" aria-hidden="true"></i>
+											<a href="{{route('date_sheet')}}" class="btn btn-primary btn-sm mb-1">
+												<i class="fa fa-eye" aria-hidden="true"></i>
 											</a>
-											<button type="submit" data-toggle="modal" data-target="#delete_employee" class="btn btn-danger btn-sm mb-1">
-												<i class="fa fa-trash" aria-hidden="true"></i>
-											</button>
+{{--											<button type="submit" data-toggle="modal" data-target="#delete_employee" class="btn btn-danger btn-sm mb-1">--}}
+{{--												<i class="fa fa-trash" aria-hidden="true"></i>--}}
+{{--											</button>--}}
 										</td>
 									</tr>
 									<tr>
 										<td>
 											<a href="exam-detail.html" class="avatar">C</a>
 										</td>
-										<td>English</td>
-										<td>4</td>
-										<td>A</td>
-										<td>10.00am</td>
-										<td>2/1/2019</td>
+                                        <td>English A,B</td>
+										<td>Grade I</td>
+										<td>Wednesday</td>
+										<td>17/12/2020</td>
 										<td class="text-right">
-											<a href="edit-exam.html" class="btn btn-primary btn-sm mb-1">
-												<i class="fa fa-pencil" aria-hidden="true"></i>
-											</a>
-											<button type="submit" data-toggle="modal" data-target="#delete_employee" class="btn btn-danger btn-sm mb-1">
-												<i class="fa fa-trash" aria-hidden="true"></i>
-											</button>
+                                            <a href="{{route('date_sheet')}}" class="btn btn-primary btn-sm mb-1">
+                                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                            </a>
 										</td>
 									</tr>
 
@@ -180,90 +174,71 @@
 										<td>
 											<a href="exam-detail.html" class="avatar">C</a>
 										</td>
-										<td>Maths</td>
-										<td>6</td>
-										<td>B</td>
-										<td>10.00am</td>
-										<td>2/1/2019</td>
+										<td>Science\Art</td>
+										<td>Grade I</td>
+										<td>Thursday</td>
+										<td>18/12/2020</td>
 										<td class="text-right">
-											<a href="edit-exam.html" class="btn btn-primary btn-sm mb-1">
-												<i class="fa fa-pencil" aria-hidden="true"></i>
-											</a>
-											<button type="submit" data-toggle="modal" data-target="#delete_employee" class="btn btn-danger btn-sm mb-1">
-												<i class="fa fa-trash" aria-hidden="true"></i>
-											</button>
+                                            <a href="{{route('date_sheet')}}" class="btn btn-primary btn-sm mb-1">
+                                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                            </a>
 										</td>
 									</tr>
 									<tr>
 										<td>
 											<a href="exam-detail.html" class="avatar">C</a>
 										</td>
-										<td>Science</td>
-										<td>3</td>
-										<td>B</td>
-										<td>10.00am</td>
-										<td>20/1/2019</td>
+										<td>Art\Environmenta Studies</td>
+										<td>Mont-J</td>
+										<td>Saturday</td>
+										<td>19/12/2020</td>
 										<td class="text-right">
-											<a href="edit-exam.html" class="btn btn-primary btn-sm mb-1">
-												<i class="fa fa-pencil" aria-hidden="true"></i>
-											</a>
-											<button type="submit" data-toggle="modal" data-target="#delete_employee" class="btn btn-danger btn-sm mb-1">
-												<i class="fa fa-trash" aria-hidden="true"></i>
-											</button>
+                                            <a href="{{route('date_sheet')}}" class="btn btn-primary btn-sm mb-1">
+                                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                            </a>
 										</td>
 									</tr>
 									<tr>
 										<td>
 											<a href="exam-detail.html" class="avatar">C</a>
 										</td>
-										<td>Maths</td>
-										<td>6</td>
-										<td>B</td>
-										<td>10.00am</td>
-										<td>20/1/2019</td>
+                                        <td>English</td>
+										<td>Mont-J</td>
+										<td>Monday</td>
+										<td>21/12/2020</td>
 										<td class="text-right">
-											<a href="edit-exam.html" class="btn btn-primary btn-sm mb-1">
-												<i class="fa fa-pencil" aria-hidden="true"></i>
-											</a>
-											<button type="submit" data-toggle="modal" data-target="#delete_employee" class="btn btn-danger btn-sm mb-1">
-												<i class="fa fa-trash" aria-hidden="true"></i>
-											</button>
+                                            <a href="{{route('date_sheet')}}" class="btn btn-primary btn-sm mb-1">
+                                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                            </a>
 										</td>
 									</tr>
 									<tr>
 										<td>
 											<a href="exam-detail.html" class="avatar">C</a>
 										</td>
-										<td>English</td>
-										<td>7</td>
-										<td>B</td>
-										<td>10.00am</td>
-										<td>20/1/2019</td>
+										<td>Art\Science</td>
+										<td>Grade II</td>
+										<td>Tuesday</td>
+										<td>22/12/2020</td>
 										<td class="text-right">
-											<a href="edit-exam.html" class="btn btn-primary btn-sm mb-1">
-												<i class="fa fa-pencil" aria-hidden="true"></i>
-											</a>
-											<button type="submit" data-toggle="modal" data-target="#delete_employee" class="btn btn-danger btn-sm mb-1">
-												<i class="fa fa-trash" aria-hidden="true"></i>
-											</button>
+                                            <a href="{{route('date_sheet')}}" class="btn btn-primary btn-sm mb-1">
+                                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                            </a>
+
 										</td>
 									</tr>
 									<tr>
 										<td>
 											<a href="exam-detail.html" class="avatar">C</a>
 										</td>
-										<td>Science</td>
-										<td>5</td>
-										<td>B</td>
-										<td>10.00am</td>
-										<td>20/1/2019</td>
+                                        <td>Art\General Knowledge</td>
+										<td>Mont-S</td>
+										<td>Tuesday</td>
+										<td>23/12/2020</td>
 										<td class="text-right">
-											<a href="edit-exam.html" class="btn btn-primary btn-sm mb-1">
-												<i class="fa fa-pencil" aria-hidden="true"></i>
-											</a>
-											<button type="submit" data-toggle="modal" data-target="#delete_employee" class="btn btn-danger btn-sm mb-1">
-												<i class="fa fa-trash" aria-hidden="true"></i>
-											</button>
+                                            <a href="{{route('date_sheet')}}" class="btn btn-primary btn-sm mb-1">
+                                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                            </a>
 										</td>
 									</tr>
 								</tbody>

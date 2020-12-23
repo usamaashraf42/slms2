@@ -26,6 +26,7 @@
                     }
                     th{
                         width: 10%;
+                        text-align: center;
                     }
                 </style>
                 <div class="swRotator swSlider " id="swSlider-296016">
@@ -178,8 +179,7 @@
     text-align: center;
     background: #ffcb05;padding: 10px;width: 100%;border-bottom: 5px solid #000;"><strong>Final Term Assessment (Date
                                             Sheet) September Session 2020-21</strong></p>
-                                    <table class="table table-bordered">
-                                        <tbody>
+                                    <table class="table table-bordered"  style="text-align: center">
                                         <tr class="background">
                                             <th>
                                                 <p>Date/ Day</p>
@@ -216,6 +216,7 @@
                                                 <p>Grade VII</p>
                                             </th>
                                         </tr>
+                                        <tbody>
                                         <tr>
                                             <td class="background">
                                                 <p>16-12-2020
@@ -443,7 +444,7 @@
                                         <li>Results will be announced later.
                                         </li>
                                         <li>You can access date sheet on school web site <a
-                                                href="http://www.americanlyceum.com">americanlyceum.com</a>.
+                                                href="http://www.americanlyceum.com" target="_blank">americanlyceum.com</a>.
                                         </li>
                                         <li>Final term classes will start from 04-01-2021 (Insha’Allah). </li>
                                         <li>In case of any ambiguity regarding First Term Assessment Fall Session 2020 don’t hesitate to contact +92-3-111-786-092</li>

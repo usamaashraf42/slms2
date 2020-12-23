@@ -1,28 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="c78adb79-1db6-427a-9122-10ce776c3b81" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/date_sheet.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/JobApplicant/JobApplicantDashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/JobApplicant/JobApplicantDashboardController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admins/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admins/DashboardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/jquery.fullcalendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/jquery.fullcalendar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/JobApplicant/profile/index2.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/JobApplicant/profile/index2.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/_layouts/admin/default.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/_layouts/admin/default.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/_layouts/admin/partials/_aside-left.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/_layouts/admin/partials/_aside-left.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/maintenance/category/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/maintenance/category/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/survey/question/add_question.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/survey/question/add_question.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/web/pakistan/date_sheet.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/web/pakistan/date_sheet.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -199,14 +209,34 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1608663088176</updated>
-      <workItem from="1608663089289" duration="12953000" />
+      <workItem from="1608663089289" duration="13649000" />
+      <workItem from="1608746155778" duration="6912000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="WindowStateProjectService">
+    <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1608746329558">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1608746329558" />
+    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1608750244283">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608750244283" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1608664150602">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
