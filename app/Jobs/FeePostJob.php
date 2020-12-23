@@ -91,7 +91,7 @@ class FeePostJob implements ShouldQueue
      */
     public function handle()
     {
-       try{
+       // try{
             $admin_id=$this->admin_id;
             $branchId=$this->branchId;
             $classId=$this->classId;
@@ -377,8 +377,8 @@ class FeePostJob implements ShouldQueue
                     }
                 }
             }
-       } catch(\Exception $e){
-        }
+       // } catch(\Exception $e){
+       //  }
     }
 
     public function feeTotalRounded($std_id,$totalFee,$on_round_off){
