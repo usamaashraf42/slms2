@@ -447,7 +447,7 @@
                                         </li>
                                         <li>Final term classes will start from 04-01-2021 (Insha’Allah). </li>
                                         <li>In case of any ambiguity regarding First Term Assessment Fall Session 2020 don’t hesitate to contact +92-3-111-786-092</li>
-                                      
+
                                         <span class="span"><i class="fa fa-smile-o" aria-hidden="true"></i> Best of Luck!</span>
                                     </ol>
                                 </div>

@@ -1048,7 +1048,7 @@
         @if(Auth::user()->can('Maintaince-Requests') || Auth::user()->can('Maintainces Create') || Auth::user()->can('Pending Maintainces') || Auth::user()->can('Resolved Maintainces') || Auth::user()->can('Approval Maintainces')  )
         <li class="{{ areActiveRoutes(['maintenance.index','maintenance.create','maintenance.edit'])}}">
             <a href="{{route('maintenance.index')}}" class="{{ areActiveRoutes(['maintenance.index','maintenance.create','maintenance.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i>
-                <span> Branch maintenance </span>
+                <span> Branch Maintenance </span>
             </a>
         </li>
         @endif

@@ -786,12 +786,12 @@ class JobApplicantDashboardController extends Controller
 
 
 
-//            return redirect()->route('teacher.review.rating');
-            return 'yes';
+            return redirect()->route('teacher.review.rating');
+//            return 'yes';
 
         }else{
-//            Session::flash('error_message', "Failed to update profile");
-            return 'no';
+            Session::flash('error_message', "Failed to update profile");
+//            return 'no';
 
         }
 

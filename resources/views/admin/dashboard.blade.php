@@ -106,7 +106,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="row mt-4">
 		<div class="col-lg-6 col-md-12 col-12">
 			<div class="card-box m-b-2">
@@ -175,7 +175,7 @@
 											</button>
 										</td>
 									</tr>
-									
+
 									<tr>
 										<td>
 											<a href="exam-detail.html" class="avatar">C</a>
@@ -274,7 +274,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="notification-box">
 		<div class="msg-sidebar notifications msg-noti">
 			<div class="topnav-dropdown-header">
@@ -495,7 +495,7 @@
 
 <script type="text/javascript">
 	    // Chart
-	
+
 
 
   var colorsDash = ['#8E37D7', '#01c0c8' ,'#6B8DD6'];

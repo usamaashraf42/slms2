@@ -132,6 +132,7 @@
             //     return false;
             // }
             // console.log('remove tr');
+            // ($(this).parent().parent().remove();
             $(this).closest('.remove').remove();
         });
         /*showing confirm cancel popup box*/

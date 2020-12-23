@@ -105,6 +105,18 @@
     .swal-button--confirm {
       background-color: #DD6B55;
     }
+    .slimScrollBar{
+        background: rgb(204, 204, 204);
+        width: 10px !important;
+        position: absolute;
+        top: 0px;
+        opacity: 0.4;
+        display: block;
+        border-radius: 7px;
+        z-index: 99;
+        right: 1px;
+        height: 388.992px;
+    }
   </style>
 
   <script type="text/javascript">

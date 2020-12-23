@@ -15,7 +15,7 @@
 
 
     /* on drop */
-    CalendarApp.prototype.onDrop = function (eventObj, date) { 
+    CalendarApp.prototype.onDrop = function (eventObj, date) {
         var $this = this;
             // retrieve the dropped element's stored Event Object
             var originalEventObject = eventObj.data('eventObject');
@@ -88,14 +88,14 @@
                         end: end,
                         allDay: false,
                         className: categoryClass
-                    }, true);  
+                    }, true);
                     $this.$modal.modal('hide');
                 }
                 else{
                     alert('You have to give a title to your event');
                 }
                 return false;
-                
+
             });
             $this.$calendarObj.fullCalendar('unselect');
     },
@@ -128,41 +128,70 @@
         var form = '';
         var today = new Date($.now());
 
-        var defaultEvents =  [{
-                title: 'Event Name 1',
-                start: new Date($.now() + 148000000),
-                className: 'bg-danger'
-            },
+        var defaultEvents =  [
+            // {
+            //     title: 'Event Name 1',
+            //     start: new Date($.now() + 148000000),
+            //     className: 'bg-danger'
+            // },
             {
-                title: 'Test Event 2',
+                title: 'Today',
                 start: today,
                 end: today,
-                className: 'bg-success'
+                textColor:"white",
+                backgroundColor: "green",
+            },
+            // {
+            //     title: 'Test Event 3',
+            //     start: new Date($.now() + 168000000),
+            //     className: 'bg-info'
+            // },
+            {
+                title: 'Human Rights Day',
+                start: '2020-12-10T20:00:00',
+                textColor:"white"
             },
             {
-                title: 'Test Event 3',
-                start: new Date($.now() + 168000000),
-                className: 'bg-info'
+                title: 'Christmas Day',
+                start: '2020-12-25T20:00:00',
+                textColor:"white",
+                backgroundColor: "red",
             },
             {
-                title: 'Test Event 4',
-                start: new Date($.now() + 338000000),
-                className: 'bg-warning'
+                title: 'Disability Day',
+                start: '2020-12-03T20:00:00',
+                backgroundColor: "blue",
+                textColor:"white"
             },
             {
-                title: 'Test Event 5',
-                start: new Date($.now() + 238000000),
-                className: 'bg-primary'
-            }];
+                title: 'Tolerance  Day',
+                start: '2020-11-16T20:00:00',
+                backgroundColor: "blue",
+                textColor:"white"
+            },
+
+            // {
+            //     title: 'Test Event 4',
+            //     start: new Date($.now() + 338000000),
+            //     className: 'bg-warning'
+            // },
+
+            // {
+            //     title: 'Test Event 5',
+            //     start: new Date($.now() + 238000000),
+            //     className: 'bg-primary'
+            // }
+            ];
 
         var $this = this;
         $this.$calendarObj = $this.$calendar.fullCalendar({
             slotDuration: '00:15:00', /* If we want to split day time each 15minutes */
             minTime: '08:00:00',
-            maxTime: '19:00:00',  
-            defaultView: 'month',  
-            handleWindowResize: true,   
-            height: $().height() - 200,   
+            maxTime: '19:00:00',
+            defaultView: 'month',
+            displayEventTime: false,
+            handleWindowResize: true,
+            height: $().height() - 200,
             header: {
                 left: 'prev,next today',
                 center: 'title',
@@ -190,10 +219,9 @@
 
         });
     },
-
    //init CalendarApp
     $.CalendarApp = new CalendarApp, $.CalendarApp.Constructor = CalendarApp
-    
+
 }(window.jQuery),
 
 //initializing CalendarApp

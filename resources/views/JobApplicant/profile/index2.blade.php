@@ -1042,7 +1042,7 @@
       <td> ${row.image?
                                 `<img src="${row.full_image_path?row.full_image_path:''}" alt="image not exist" id="educ_${row.id}" class="educ_${row.id}" width="80" height="80">`
                                 :`<img src="images/degree.jpg" alt="image not exist"  id="educ_${row.id}"  class="educ_${row.id}" width="80" height="80"`}</td>
-        <td style="display: flex"> <button class="btn btn-info btn-sm  qualification_edit_record" data-ids=${row.id} onclick="qualification_edit_record(this); return false;"><i class="fa fa-edit fa-sm" aria-hidden="true"></i></button> &nbsp<button class="btn  btn-danger btn-sm qualification_delete_record" data-ids=${row.id} onclick="qualification_delete_record(this)"><i class="fa fa-trash fa-sm" aria-hidden="true"></i></button></td></tr>`;
+        <td style="display: flex"> <div class="btn btn-info btn-sm  qualification_edit_record" data-ids=${row.id} onclick="qualification_edit_record(this); return false;"><i class="fa fa-edit fa-sm" aria-hidden="true"></i></div> &nbsp<div class="btn  btn-danger btn-sm qualification_delete_record" data-ids=${row.id} onclick="qualification_delete_record(this)"><i class="fa fa-trash fa-sm" aria-hidden="true"></i></div></td></tr>`;
                         }
                         $('#qualificationTable').html(qualificationTableHtml);
 
@@ -1119,9 +1119,6 @@
 {{--            }--}}
 {{--            return false;--}}
 {{--            @endif--}}
-
-
-
             var id=$(obj).attr('data-ids');
 
 

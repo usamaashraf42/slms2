@@ -49,14 +49,13 @@ class LoginController extends Controller
         $this->validateLogin($request);
 
         $Verify=User::where('email',$request->email)->where('pwd',$request->password)->first();
-
         if(isset($Verify) && ($Verify->activity==0)){
 
           session()->flash('warning_message', 'Oops! Your Account Not Approved by Admin');
           return redirect()->route('verifyUser',$Verify->email);
           return redirect()->back()->withInput($request->only('email', 'remember'));
         }
-        
+
 
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
 
@@ -64,7 +63,7 @@ class LoginController extends Controller
 
         // the IP address of the client making these requests into this application.......
 
-        
+
         if ($this->hasTooManyLoginAttempts($request)) {
             $this->fireLockoutEvent($request);
 
@@ -72,7 +71,7 @@ class LoginController extends Controller
         }
 
         if ($this->attemptLogin($request)) {
-        
+
               session()->flash('success_message', "Welcome".' '. Auth::user()->name );
              return $this->sendLoginResponse($request);
         }

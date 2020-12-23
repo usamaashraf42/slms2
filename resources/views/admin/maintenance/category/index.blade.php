@@ -5,7 +5,7 @@
 	<div class="row">
 		<div class="col-md-12 col-sm-12 col-lg-12 col-xl-12">
 			<div class="card-box">
-				
+
 				<div class="card-block">
 					<h4 class="card-title">Maintenance Category</h4>
 					<div class="heading-elements float-right">
@@ -39,15 +39,15 @@
 									<td>
 										<a href="javascript:;" onclick="editItem({{$sec->id}})" class="btn btn-info btn-sm" style="width: 75px;">Edit</a>
 										@if($sec->status)
-										<a href="javascript:;" onclick="deleteItem(this,{{$sec->id}},0)"  class="btn btn-success btn-sm">Active</a> 
-										@else 
+										<a href="javascript:;" onclick="deleteItem(this,{{$sec->id}},0)"  class="btn btn-success btn-sm">Active</a>
+										@else
 										<a href="javascript:;" onclick="deleteItem(this,{{$sec->id}},1)" class="btn btn-danger btn-sm">Deactive</a> @endif
 									</td>
 								</tr>
 								@endforeach
 								@endisset
 							</tbody>
-							
+
 						</table>
 					</div>
 				</div>
@@ -77,7 +77,7 @@ aria-hidden="true">
 					<label for="main_name"> Name</label>
 					<input type="text" class="form-control" id="main_name" name="main_name" placeholder="Enter Category Name">
 				</fieldset>
-				
+
 
 
 				<fieldset class="form-group floating-label-form-group">
@@ -101,7 +101,7 @@ aria-hidden="true">
 							<input type="text" min="0" max="999999999" class="form-control" id="avg_time" name="avg_time" placeholder="Enter Avg Time">
 						</fieldset>
 					</div>
-					
+
 				</div>
 
 
@@ -113,7 +113,7 @@ aria-hidden="true">
 						<label class="control-label">Maintenance being given to employee (click Employee to remove)</label>
 					</div>
 					<div class="col-md-12 col-sm-12">
-						
+
 						<select id='pre-selected-options' multiple='multiple' name="users[]">
 							@foreach($employees as $user)
 							<option value="{{$user->id}}">{{$user->name}}</option>
@@ -203,7 +203,7 @@ aria-hidden="true">
 
 </script>
 <script>
-	
+
 
 	/*showing confirm cancel popup box*/
 	function showConfirm() {
@@ -255,7 +255,7 @@ aria-hidden="true">
 	/*delete item */
 	function deleteItem(obj,id,status) {
 		$.ajax({
-			url: "{{ route('category-status-change') }}", 
+			url: "{{ route('category-status-change') }}",
 			method:"POST",
 			data:{'id':id,'status':status},
 			success: function(response){
@@ -275,7 +275,7 @@ aria-hidden="true">
 		});
 
 
-		
+
 	}
 
 	/*showing update item modal on click*/
