@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Employee;
 use App\Models\ContactUs;
 use Mail;
+use DOMPDF;
+
 class HomeController extends Controller
 {
     /**
@@ -81,6 +83,38 @@ class HomeController extends Controller
         }else{
            return response()->json(['status'=>0]);
         }
+    }
+
+
+    public function FeeChallan(){
+        $records=\App\Models\FeePost::limit(2)->orderBy('id','DESC')->get();
+        $records=['records'=>$records];
+
+
+        view()->share('employee',$records);
+
+        $pdf = DOMPDF::setOptions([
+                'isHtml5ParserEnabled' => true, 
+                'isRemoteEnabled' => true,
+                'isJavascriptEnabled'=>true,
+                'debugCss'=>true,
+                'logOutputFile' => storage_path('logs/log.html'),
+                'tempDir' => storage_path('logs/'),
+                'isPhpEnabled'=>true
+            ])->loadView('new-challan',$records);
+
+        $pdf->setPaper('A4', 'portrait');
+        $pdf->getDomPDF()->setHttpContext(
+            stream_context_create([
+                'ssl' => [
+                    'allow_self_signed'=> true,
+                    'verify_peer' => false,
+                    'verify_peer_name' => false,
+                ]
+            ])
+        );  
+
+        return $pdf->stream('ALIS-fee-challan.pdf');
     }
 
 }

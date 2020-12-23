@@ -20,6 +20,20 @@ use DB;
 use Validator;
 class ApiQueryLogController extends Controller
 {
+
+    public function feePostDuplicate(){
+        $feePosts=FeePost::select('std_id')->where('fee_month',12)->where('fee_year',2020)->groupBy('std_id')->having(DB::raw('count(std_id)'), '>', 1)->get();
+
+        return $feePosts;
+        
+        // foreach($feePosts as $data){
+
+        // 	$record=FeePost::where('fee_month',12)->where('fee_year',2020)->where('std_id',$data->std_id)->where('paid_amount',0)->orderBy('id','desc')->limit(1)->delete();
+
+        // }
+
+        return count($feePosts);
+    }
 	public function branches(){
 		return 'false';
 		$branches = DB::connection('mysql3')->table('branches')->get();
@@ -48,7 +62,7 @@ class ApiQueryLogController extends Controller
 					'isFranchise'=>$branch->isFranchise,
 					'isFranchise'=>$branch->isFranchise,
 				];
-				
+
 				DB::connection('mysql')->table('branches')->insert($data);
 			}
 		}
@@ -58,7 +72,7 @@ class ApiQueryLogController extends Controller
 	public function students(){
 		return 'false';
 		$std = DB::connection('mysql3')->table('stdinfo')->offset(0)->limit(9000)->get();
-		
+
 		foreach($std as $request){
 			$std=Student::where('id',$request->s_lyceonianNo)->first();
 
@@ -78,83 +92,83 @@ class ApiQueryLogController extends Controller
 						's_branchId'=>$request->s_branchId?$request->s_branchId:null,
 						'branch_id'=>$request->s_branchId?$request->s_branchId:null,
 
-						's_classPresent'=>$request->s_classPresent?$request->s_classPresent:null, 
+						's_classPresent'=>$request->s_classPresent?$request->s_classPresent:null,
 						'course_id'=>$request->s_classPresent?$request->s_classPresent:null,
 
 						's_section'=>$request->s_section?$request->s_section:null,
-						'section_id'=>$request->s_section?$request->s_section:null, 
+						'section_id'=>$request->s_section?$request->s_section:null,
 
 						'academic_session_id'=>null,
 						's_sex'=>$request->s_sex?$request->s_sex:null,
 						's_DOB'=>$request->s_DOB?$request->s_DOB:null,
 						's_fatherName'=>$request->s_fatherName?$request->s_fatherName:null,
-						's_phoneNo'=>$request->s_phoneNo?$request->s_phoneNo:null, 
-						'std_mail'=>$request->std_mail?$request->std_mail:null, 
-						'admission_date'=>$request->admission_date?$request->admission_date:null, 
-						'session'=>$request->session?$request->session:null, 
+						's_phoneNo'=>$request->s_phoneNo?$request->s_phoneNo:null,
+						'std_mail'=>$request->std_mail?$request->std_mail:null,
+						'admission_date'=>$request->admission_date?$request->admission_date:null,
+						'session'=>$request->session?$request->session:null,
 
-						'nationality'=>null, 
+						'nationality'=>null,
 
-						'is_active'=>$request->is_active?$request->is_active:null, 
-						'is_freeze'=>$request->is_freeze?$request->is_freeze:null, 
-						'freeze_month'=>$request->freeze_month?$request->freeze_month:null, 
-						'freeze_year'=>$request->freeze_year?$request->freeze_year:null, 
-						'freeze_toMonth'=>$request->freeze_toMonth?$request->freeze_toMonth:null, 
-						'freeze_toYear'=>$request->freeze_toYear?$request->freeze_toYear:null, 
-						'leaving_reason'=>$request->leaving_reason?$request->leaving_reason:null, 
-						'leaving_date'=>$request->leaving_date?$request->leaving_date:null, 
-						'religion'=>$request->Religion_X?$request->Religion_X:null, 
-						'Hobbies'=>$request->Hobbies_X?$request->Hobbies_X:null, 
-						'DOReg'=>$request->DOReg?$request->DOReg:null, 
-						'home_address'=>$request->HAddress_X?$request->HAddress_X:null, 
-						'office_address'=>$request->officeAddress_X?$request->officeAddress_X:null, 
-						'father_mobile'=>$request->MobileF_X?$request->MobileF_X:null, 
+						'is_active'=>$request->is_active?$request->is_active:null,
+						'is_freeze'=>$request->is_freeze?$request->is_freeze:null,
+						'freeze_month'=>$request->freeze_month?$request->freeze_month:null,
+						'freeze_year'=>$request->freeze_year?$request->freeze_year:null,
+						'freeze_toMonth'=>$request->freeze_toMonth?$request->freeze_toMonth:null,
+						'freeze_toYear'=>$request->freeze_toYear?$request->freeze_toYear:null,
+						'leaving_reason'=>$request->leaving_reason?$request->leaving_reason:null,
+						'leaving_date'=>$request->leaving_date?$request->leaving_date:null,
+						'religion'=>$request->Religion_X?$request->Religion_X:null,
+						'Hobbies'=>$request->Hobbies_X?$request->Hobbies_X:null,
+						'DOReg'=>$request->DOReg?$request->DOReg:null,
+						'home_address'=>$request->HAddress_X?$request->HAddress_X:null,
+						'office_address'=>$request->officeAddress_X?$request->officeAddress_X:null,
+						'father_mobile'=>$request->MobileF_X?$request->MobileF_X:null,
 						'mother_mobile'=>$request->MobileM_X?$request->MobileM_X:null,
-						'emergency_mobile'=>$request->EmergencyMobile_X?$request->EmergencyMobile_X:null, 
-						'home_telephone'=>$request->HOmetel_X?$request->HOmetel_X:null, 
-						'Admissionfee'=>$request->Admissionfee, 
-						'RegistrationFee'=>$request->RegistrationFee_X, 
-						'Securityfee'=>$request->Securityfee_X, 
-						'firstpayment'=>$request->firstpayment_X, 
+						'emergency_mobile'=>$request->EmergencyMobile_X?$request->EmergencyMobile_X:null,
+						'home_telephone'=>$request->HOmetel_X?$request->HOmetel_X:null,
+						'Admissionfee'=>$request->Admissionfee,
+						'RegistrationFee'=>$request->RegistrationFee_X,
+						'Securityfee'=>$request->Securityfee_X,
+						'firstpayment'=>$request->firstpayment_X,
 						'remainingamount'=>$request->remainingamount_X,
-						'Scholarship'=>$request->Scholarship_X, 
-						'insurance'=>$request->insurance_X, 
-						'api_token'=> str_random(60), 
-						'activity'=>1, 
+						'Scholarship'=>$request->Scholarship_X,
+						'insurance'=>$request->insurance_X,
+						'api_token'=> str_random(60),
+						'activity'=>1,
 						'status'=>$request->is_active,
 					]);
 					$structure=\App\Models\StudentFeeStructure::where('std_id',$studentReg->id)->first();
 					if(!$structure){
 						$structure=\App\Models\StudentFeeStructure::create([
-							'std_id'=>$studentReg->id, 
-							'adm_fee'=>isset($stdFee->adm_fee)?$stdFee->adm_fee:0, 
-							'sec_fee'=>isset($stdFee->sec_fee)?$stdFee->sec_fee:0, 
-							'scholarship_type'=>isset($stdFee->scholarship_type)?(int)($stdFee->scholarship_type):0, 
-							'scholarship_of'=>isset($stdFee->scholarship_of)?$stdFee->scholarship_of:0, 
-							'insurance_of'=>isset($stdFee->insurance_of)?$stdFee->insurance_of:0, 
-							'annual_fee'=>isset($stdFee->annual_fee)?$stdFee->annual_fee:0, 
-							'Net_AnnualFee'=>isset($stdFee->Net_AnnualFee)?$stdFee->Net_AnnualFee:0, 
-							'installment_no'=>isset($stdFee->installment_no)?$stdFee->installment_no:0, 
-							'm1'=>isset($stdFee->m1)?$stdFee->m1:0, 
-							'm2'=>isset($stdFee->m2)?$stdFee->m2:0, 
-							'm3'=>isset($stdFee->m3)?$stdFee->m3:0, 
-							'm4'=>isset($stdFee->m4)?$stdFee->m4:0, 
-							'm5'=>isset($stdFee->m5)?$stdFee->m5:0, 
-							'm6'=>isset($stdFee->m6)?$stdFee->m6:0, 
-							'm7'=>isset($stdFee->m7)?$stdFee->m7:0, 
-							'm8'=>isset($stdFee->m8)?$stdFee->m8:0, 
-							'm9'=>isset($stdFee->m9)?$stdFee->m9:0, 
-							'm10'=>isset($stdFee->m10)?$stdFee->m10:0, 
-							'm11'=>isset($stdFee->m11)?$stdFee->m11:0, 
+							'std_id'=>$studentReg->id,
+							'adm_fee'=>isset($stdFee->adm_fee)?$stdFee->adm_fee:0,
+							'sec_fee'=>isset($stdFee->sec_fee)?$stdFee->sec_fee:0,
+							'scholarship_type'=>isset($stdFee->scholarship_type)?(int)($stdFee->scholarship_type):0,
+							'scholarship_of'=>isset($stdFee->scholarship_of)?$stdFee->scholarship_of:0,
+							'insurance_of'=>isset($stdFee->insurance_of)?$stdFee->insurance_of:0,
+							'annual_fee'=>isset($stdFee->annual_fee)?$stdFee->annual_fee:0,
+							'Net_AnnualFee'=>isset($stdFee->Net_AnnualFee)?$stdFee->Net_AnnualFee:0,
+							'installment_no'=>isset($stdFee->installment_no)?$stdFee->installment_no:0,
+							'm1'=>isset($stdFee->m1)?$stdFee->m1:0,
+							'm2'=>isset($stdFee->m2)?$stdFee->m2:0,
+							'm3'=>isset($stdFee->m3)?$stdFee->m3:0,
+							'm4'=>isset($stdFee->m4)?$stdFee->m4:0,
+							'm5'=>isset($stdFee->m5)?$stdFee->m5:0,
+							'm6'=>isset($stdFee->m6)?$stdFee->m6:0,
+							'm7'=>isset($stdFee->m7)?$stdFee->m7:0,
+							'm8'=>isset($stdFee->m8)?$stdFee->m8:0,
+							'm9'=>isset($stdFee->m9)?$stdFee->m9:0,
+							'm10'=>isset($stdFee->m10)?$stdFee->m10:0,
+							'm11'=>isset($stdFee->m11)?$stdFee->m11:0,
 							'm12'=>isset($stdFee->m12)?$stdFee->m12:0
 						]);
 					}
 					$account=Account::where('std_id',$studentReg->id)->first();
 					if(!$account){
 						$account=Account::create([
-							'name'=>$studentReg->s_name.' '.$studentReg->s_fatherName, 
-							'std_id'=>$studentReg->id, 
-							'type'=>'student', 
+							'name'=>$studentReg->s_name.' '.$studentReg->s_fatherName,
+							'std_id'=>$studentReg->id,
+							'type'=>'student',
 						]);
 					}
 
@@ -163,12 +177,12 @@ class ApiQueryLogController extends Controller
 						$branchAcc=Branch::find($studentReg->branch_id);
 						if($branchAcc){
 							$branch=Account::create([
-								'name'=>$branchAcc->branch_name, 
+								'name'=>$branchAcc->branch_name,
 								'branch_id'=>$branchAcc->id,
-								'type'=>'Branch', 
+								'type'=>'Branch',
 							]);
 						}
-						
+
 					}
 
 					foreach($stdAcc as $acc){
@@ -229,7 +243,7 @@ class ApiQueryLogController extends Controller
 	public function classes(){
 		return 'false';
 		$classes = DB::connection('mysql3')->table('tbl_grade')->get();
-		
+
 		foreach($classes as $classs){
 			if(isset($classs->grade_code) && !empty($classs->grade_code)){
 				$data=[
@@ -242,7 +256,7 @@ class ApiQueryLogController extends Controller
 					'exam_fee'=>$classs->exam_fee,
 					'stationary'=>$classs->stationary,
 					'ac_charge'=>$classs->ac_charge,
-					
+
 				];
 				// return $data;
 				DB::connection('mysql')->table('courses')->insert($data);
@@ -255,20 +269,20 @@ class ApiQueryLogController extends Controller
 	public function BranchCourse(){
 		return 'false';
 		$courses = DB::connection('mysql3')->table('branch_classes')->get();
-		
+
 		foreach($courses as $classs){
 			if(isset($classs->branch_id) && !empty($classs->branch_id)){
 				$data=[
 					'branch_id'=>$classs->branch_id,
 					'course_id'=>$classs->class_id,
-					
+
 				];
 				$branch=\App\Models\Branch::find($classs->branch_id);
 				$course=\App\Models\Course::find($classs->class_id);
 				if($branch && $course){
 					DB::connection('mysql')->table('branch_courses')->insert($data);
 				}
-				
+
 			}
 		}
 
@@ -306,25 +320,25 @@ class ApiQueryLogController extends Controller
 		// $pending=(($annualFeeStd - $ScholarShipFeeStd) - $firstStdFee);
 
 		// $sms="Welcome to ALIS. Following are the Admission Details %0a Student Number : $ly %0aBranch :$branchNameStd %0aName : $stdNameStd %0aFather's Name:$stdFatherName %0aGrade : $courseName %0aAnnual Fee:$annualFeeStd %0aAnnual Scholarship:$ScholarShipFeeStd %0aPayment made at the time of Admission:12200 %0aPending Payment: $pending %0aThank you. If there is some error in the details %0aplease contact your branch";
-		
+
 
 		// $application_ids=$request->application_ids;
-		// $schedule=date('Y-m-d H:i:s', strtotime($request->schedule)); 
-		// $start_date=$request->start_date; 
-		// $till_date=$request->till_date; 
-		// $start_time=$request->start_time; 
-		// $till_time=$request->till_time; 
-		// $country_id=$request->country_id; 
-		// $Venue=$request->Venue; 
-		// $contact_no=$request->contact_no; 
-		// $email_subject=$request->email_subject; 
+		// $schedule=date('Y-m-d H:i:s', strtotime($request->schedule));
+		// $start_date=$request->start_date;
+		// $till_date=$request->till_date;
+		// $start_time=$request->start_time;
+		// $till_time=$request->till_time;
+		// $country_id=$request->country_id;
+		// $Venue=$request->Venue;
+		// $contact_no=$request->contact_no;
+		// $email_subject=$request->email_subject;
 		// $email_body=$request->email_body;
-		// $email_send=$request->email_send; 
+		// $email_send=$request->email_send;
 		// $address=$request->address;
 		// $email_body='';
 		// $message=strip_tags("$email_body"."\r\n"."Venue: $Venue \r\n"."Address: $address\r\n"."Time: ".date('h:i: A', strtotime($schedule))." \r\n"."Date: ".date('d F Y', strtotime($schedule))."\r\n"."Looking forward. \r\n"."Regards, \r\n"."HR Manager,\r\n"."American Lyceum International School.\r\n"."Contact: $contact_no");
 
-		
+
 		$validate = Validator::make($request->all(),[
 			'phone' => 'required',
 
@@ -397,7 +411,7 @@ class ApiQueryLogController extends Controller
 
 		}
 		return 'true';
-		
+
 	}
 
 
@@ -422,25 +436,25 @@ class ApiQueryLogController extends Controller
 				'year'=>$bala->year,
 			];
 			$std=Master::create($ledger);
-			
-		}	
+
+		}
 		return 'true';
 	}
 	public function sendsms(){
 		$user=\App\Models\User::orderBy('id','DESC')->first();
 
-		// Mail::send('emails.userForgotPasswordMail',['data'=>$stdent], function($message){    
-  //               $message->to('saddambhatti98@gmail.com')->subject('New Admission');    
+		// Mail::send('emails.userForgotPasswordMail',['data'=>$stdent], function($message){
+  //               $message->to('saddambhatti98@gmail.com')->subject('New Admission');
   //       });
 
          $passwordReset = \App\Models\PasswordReset::first();
-        
+
         if ($user && $passwordReset){
             if($passwordReset->token){
 
             	$emails = $user->email;
-	            Mail::send('emails.wellcome', ['data'=>$passwordReset,'user'=>$user], function($message) use ($emails) {    
-	                $message->to('saddambhatti98@gmail.com')->subject('Welcome ALIS');    
+	            Mail::send('emails.wellcome', ['data'=>$passwordReset,'user'=>$user], function($message) use ($emails) {
+	                $message->to('saddambhatti98@gmail.com')->subject('Welcome ALIS');
 	            });
 	        }
 	    }
@@ -467,12 +481,12 @@ class ApiQueryLogController extends Controller
 			$factir+=$bala->m10;
 			$factir+=$bala->m11;
 			$factir+=$bala->m12;
-			
+
 			if($factir<12){
 				array_push($temarray, $bala);
 			}
 		}
-		
+
 
 		foreach($temarray as $bala){
 			if(!$bala->m1)
@@ -549,13 +563,13 @@ class ApiQueryLogController extends Controller
 
 
 			}
-			
 
 
 
-			
-			
-		}	
+
+
+
+		}
 		return 'true';
 	}
 
@@ -607,48 +621,48 @@ class ApiQueryLogController extends Controller
 			$TotaL4thFee=($thirdReminder+($fee->m4*$currentFee));
 			$fourthReminder=($TotaL4thFee)%10;
 			$fourthFee=(int)($TotaL4thFee-$fourthReminder);
-			
+
 			////////// 5th fee
 			$TotaL5thFee=($fourthReminder+($fee->m5*$currentFee));
 			$fifthReminder=($TotaL5thFee)%10;
 			$fifthFee=(int)($TotaL5thFee-$fifthReminder);
 
-			
+
 			////////// 6th fee
 			$TotaL6thFee=($fifthReminder+($fee->m6*$currentFee));
 			$sixthReminder=($TotaL6thFee)%10;
 			$sixthFee=(int)($TotaL6thFee-$sixthReminder);
-			
+
 			////////// 7th fee
 			$TotaL6thFee=($sixthReminder+($fee->m7*$currentFee));
 			$sixthReminder=($TotaL6thFee)%10;
 			$sixthFee=(int)($TotaL6thFee-$sixthReminder);
-			
+
 			////////// 8th fee
 			$TotaL8thFee=($sixthReminder+($fee->m8*$currentFee));
 			$eightReminder=($TotaL8thFee)%10;
 			$eightFee=(int)($TotaL8thFee-$eightReminder);
-			
+
 			////////// 9th fee
 			$TotaL9thFee=($eightReminder+($fee->m9*$currentFee));
 			$ninthReminder=($TotaL9thFee)%10;
 			$ninthFee=(int)($TotaL9thFee-$ninthReminder);
-			
+
 			////////// 10th fee
 			$TotaL10thFee=($ninthReminder+($fee->m10*$currentFee));
 			$tenReminder=($TotaL10thFee)%10;
 			$tenFee=(int)($TotaL10thFee-$tenReminder);
-			
+
 			////////// 10th fee
 			$TotaL11thFee=($tenReminder+($fee->m11*$currentFee));
 			$elevenReminder=($TotaL11thFee)%10;
 			$elevenFee=(int)($TotaL11thFee-$elevenReminder);
-			
+
 			////////// 10th fee
 			$TotaL12thFee=($elevenReminder+($fee->m12*$currentFee));
 			$twelveReminder=($TotaL12thFee)%10;
 			$twelveFee=(int)($TotaL12thFee-$twelveReminder);
-			
+
 			////////// 10th fee
 
 
@@ -669,7 +683,7 @@ class ApiQueryLogController extends Controller
 			$fee->month12=$fee->m12*$currentFee;
 			$fee->save();
 		}
-		
+
 		return 'true';
 	}
 
@@ -692,5 +706,5 @@ class ApiQueryLogController extends Controller
 
 	}
 
-	
+
 }
