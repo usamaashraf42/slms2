@@ -13,33 +13,25 @@
             @endphp
             <form action="" id="updateDataForm" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
-                <input type="hidden" name="category_id" value="{{$category->id}}">
+                <input type="hidden" name="category_id" value="{{$question->id}}">
                 <div class="modal-body">
                     <div class="modal-body">
                         <fieldset class="form-group floating-label-form-group">
                             <label for="cat_name">Question Name</label>
-                            <input type="text" class="form-control" id="question" name="parent_question" value="{{$parent_question->question}}" >
+                            <input type="text" class="form-control" id="question" name="parent_question" value="{{$question->question}}" >
                             <p style="color: red;margin-top: 3px" id="cat_name_error"></p>
                         </fieldset>
-                        @foreach($child_questions as $question)
+                        @foreach(json_decode($advisary_board->option) as $option)
+                            {{$option->option_1}}
+                            {{$option->option_2}}
+                            {{$option->option_3}}
+                            {{$option->option_4}}
+                        @endforeach
                             <fieldset class="form-group floating-label-form-group">
                                 <label for="cat_name">Child Question Name</label>
                                 <input type="text" class="form-control" id="question" name="child_question[{{$question->id}}]" value="{{$question->question}}" >
                                 <p style="color: red;margin-top: 3px" id="cat_name_error"></p>
                             </fieldset>
-
-                            <fieldset class="form-group floating-label-form-group">
-                                <label for="cat_type">Child Question Type</label>
-                                <select name="question_type[{{$question->id}}]" class="form-control">
-                                    <option value=" " selected>choose..</option>
-                                    <option value="1" @if(isset($question) && @$question->question_type == 1){{'selected'}} @endif >Yes</option>
-                                    <option value="2"  @if(isset($question) && @$question->question_type == 2){{'selected'}} @endif>No</option>
-                                    <option value="3"  @if(isset($question) && @$question->question_type == 3){{'selected'}} @endif>May be</option>
-                                </select>
-                                <p style="color: red;margin-top: 3px" id="cat_type_error"></p>
-                            </fieldset>
-                        @endforeach
-
                         {{--                        <fieldset class="form-group floating-label-form-group">--}}
                         {{--                            <label for="month">Category Type</label>--}}
                         {{--                            <select name="category_id" class="form-control">--}}

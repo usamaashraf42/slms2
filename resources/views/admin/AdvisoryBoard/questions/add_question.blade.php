@@ -1,9 +1,17 @@
 @extends('_layouts.admin.default')
 @section('title', 'Advisory Board Questions')
+@push('post-styles')
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <style>
+        .alertify-notifier .ajs-message.ajs-error{
+            color: #fff;
+        }
+    </style>
+@endpush
 @section('content')
     <div class="content container-fluid">
         <div class="row">
-            <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12">
+            <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 col-md-12">
                 <div class="card-box">
                     <div class="card-block">
                         <h4 class="card-title">Advisory Board Questions</h4>
@@ -14,29 +22,58 @@
                             @php
                             $category =\App\Models\SurveyCategory::find(32);
                             @endphp
-                                <h3  id="myModalLabel35"> Add New Question</h3>
+                                <h3 id="myModalLabel35"> Add New Question</h3>
                             <form action="" id="addDataForm" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <input type="hidden" name="category_id" value="{{$category->id}}">
-                                <div class="modal-body">
+                                <div class="modal-body col-md-12 offset-md-4">
                                     <fieldset class="form-group floating-label-form-group">
                                         <div class="col-md-12">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <label for="cat_name">Question Name</label>
-                                                    <textarea type="text" class="form-control" id="question" name="question"></textarea>
+                                                    <textarea type="text" class="form-control question" id="question" name="question"></textarea>
+                                                    <p style="color: red;margin-top: 3px" id="question_error"></p>
+                                                </div>
+{{--                                                <div class="col-md-2">--}}
+{{--                                                    <br>--}}
+
+{{--                                                    <div class="btn btn-primary pull-right addquestion" style="text-align: center;">+</div>--}}
+{{--                                                </div>--}}
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset class="form-group floating-label-form-group">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <label for="cat_name">Option 1</label>
+                                                    <input type="text" class="form-control option_1" name="option_1">
                                                     <p style="color: red;margin-top: 3px" id="question_error"></p>
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <br>
-
-                                                    <div class="btn btn-primary pull-right addquestion" style="text-align: center;">+</div>
+                                                    <label for="cat_name">Option 2</label>
+                                                    <input type="text" class="form-control option_2" name="option_2">
+                                                    <p style="color: red;margin-top: 3px" id="question_error"></p>
                                                 </div>
                                             </div>
                                         </div>
                                     </fieldset>
-                                    <fieldset class="form-group floating-label-form-group" id="addrows">
-
+                                    <fieldset class="form-group floating-label-form-group">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <label for="cat_name">Option 3</label>
+                                                    <input type="text" class="form-control option_3" name="option_3">
+                                                    <p style="color: red;margin-top: 3px" id="question_error"></p>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <label for="cat_name">Option 4</label>
+                                                    <input type="text" class="form-control option_4"  name="option_4">
+                                                    <p style="color: red;margin-top: 3px" id="question_error"></p>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </fieldset>
 
 
@@ -79,6 +116,8 @@
     <script src="{{asset('assets/bootstrap-datatable/js/buttons.html5.min.js')}}"></script>
     <script src="{{asset('assets/bootstrap-datatable/js/buttons.print.min.js')}}"></script>
     <script src="{{asset('assets/bootstrap-datatable/js/buttons.colVis.min.js')}}"></script>
+            <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
     <script>
         $(document).ready(function() {
             //Default data table
@@ -96,6 +135,7 @@
         // } );
     </script>
     <script>
+
 
         $('.addquestion').on('click', function(e) {
 
@@ -268,73 +308,103 @@
             });
         }
 
-        function detail(id) {
-            window.location = baseurl + '/shed/' + id;
-        }
+
 
         $('.loader-img').hide();
-        $("#addDataBtn").click(function (e) {
-            var form = $('#addDataForm')[0]; // You need to use standard javascript object here
-            var formData = new FormData(form);
-            console.log('formData', formData);
-            console.log('form', form);
-            $.ajax({
-                url: "{{route('questions.store')}}",
-                type: "POST",
-                enctype: 'multipart/form-data',
-                processData: false,  // Important!
-                contentType: false,
-                cache: false,
-                data: formData,
-                beforeSend: function () {
-                    $('.loader-img').show();
-                    $('#preloader').show();
-                },
-                complete: function () {
-                    $('#preloader').fadeOut('slow', function () {
-                        $(this).remove();
-                    });
-                    $('.loader-img').hide();
-                },
-                success: function (response) {
-                    console.log('response', response);
-                    if (response.status == '200') {
-                        $('#add_shed').modal('hide');
-                        $("#addDataForm")[0].reset();
-                        $(".slim-btn-remove").click();
-                        swal(
-                            'Success!',
-                            'Survey Question added successfully',
-                            'success'
-                        ).then(function(){
-                            //location.reload();
-                             setTimeout(location.reload(),1000);
-                        });
-                        // location.reload(true);
-                    } else {
-                        // console.log('error blank', response.message);
-                        swal(
-                            'Warning!',
-                            response.message,
-                            'warning'
-                        );
-                    }
-                },
-                error: function (e) {
-                    console.log('error', e);
-                    swal(
-                        'Oops...',
-                        'Plz fill all fields',
-                        'error'
-                    )
-                }
-                // error: function (response) {
-                //     $('#question_error').text(response.responseJSON.errors.question);
-                //     $('#question_type_error').text(response.responseJSON.errors.question_type);
-                //     $('#category_id_error').text(response.responseJSON.errors.category_id);
-                // }
-            });
+        $('#addDataBtn').click(function(e){
             e.preventDefault();
+            if($("fieldset").find('.question').val()=='') {
+                alertify.set('notifier','position', 'top-right');
+                // var notification = alertify.notify('sample', 'success', 5, function(){  console.log('dismissed'); });
+                alertify.error('You must  give the question',2);
+        }
+            else if($("fieldset").find('.option_1').val()=='') {
+                alertify.set('notifier','position', 'top-right');
+                // var notification = alertify.notify('sample', 'success', 5, function(){  console.log('dismissed'); });
+                alertify.error('You must  give the Option 1',2);
+            }
+            else if($("fieldset").find('.option_2').val()=='') {
+                alertify.set('notifier','position', 'top-right');
+                // var notification = alertify.notify('sample', 'success', 5, function(){  console.log('dismissed'); });
+                alertify.error('You must  give the Option 2',2);
+            }
+            else if($("fieldset").find('.option_3').val()=='') {
+                alertify.set('notifier','position', 'top-right');
+                // var notification = alertify.notify('sample', 'success', 5, function(){  console.log('dismissed'); });
+                alertify.error('You must  give the Option 3',2);
+            }
+            else if($("fieldset").find('.option_4').val()=='') {
+                alertify.set('notifier','position', 'top-right');
+                // var notification = alertify.notify('sample', 'success', 5, function(){  console.log('dismissed'); });
+                alertify.error('You must  give the Option 4',2);
+            }
+            else{
+                console.log('yes');
+                var form = $('#addDataForm')[0]; // You need to use standard javascript object here
+                var formData = new FormData(form);
+                console.log('formData', formData);
+                console.log('form', form);
+                $.ajax({
+                    url: "{{route('questions.store')}}",
+                    type: "POST",
+                    enctype: 'multipart/form-data',
+                    processData: false,  // Important!
+                    contentType: false,
+                    cache: false,
+                    data: formData,
+                    beforeSend: function () {
+                        $('.loader-img').show();
+                        $('#preloader').show();
+                    },
+                    complete: function () {
+                        $('#preloader').fadeOut('slow', function () {
+                            $(this).remove();
+                        });
+                        $('.loader-img').hide();
+                    },
+                    success: function (response) {
+                        console.log('response', response);
+                        if (response.status == '200') {
+                            $('#add_shed').modal('hide');
+                            $("#addDataForm")[0].reset();
+                            $(".slim-btn-remove").click();
+                            swal(
+                                'Success!',
+                                'Advisoaty board Question added successfully',
+                                'success'
+                            ).then(function () {
+                                //location.reload();
+                                setTimeout(location.reload(), 1000);
+                            });
+                            // location.reload(true);
+                        } else {
+                            // console.log('error blank', response.message);
+                            swal(
+                                'Warning!',
+                                response.message,
+                                'warning'
+                            );
+                        }
+                    },
+                    error: function (e) {
+                        console.log('error', e);
+                        swal(
+                            'Oops...',
+                            'Plz fill all fields',
+                            'error'
+                        )
+                    }
+                    // error: function (response) {
+                    //     $('#question_error').text(response.responseJSON.errors.question);
+                    //     $('#question_type_error').text(response.responseJSON.errors.question_type);
+                    //     $('#category_id_error').text(response.responseJSON.errors.category_id);
+                    // }
+                });
+                e.preventDefault();
+            }
         });
+
+
+
     </script>
 @endpush

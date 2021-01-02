@@ -12,7 +12,10 @@
   <component name="ChangeListManager">
     <list default="true" id="f403c4b5-64ba-4790-b581-95bb39051bb0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/web/pakistan/advisoryboard/advisoryboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/web/pakistan/advisoryboard/advisoryboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admins/AdvisoryBoard/AdvisoryBoardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admins/AdvisoryBoard/AdvisoryBoardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/AdvisoryBoard/questions/add_question.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/AdvisoryBoard/questions/add_question.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/AdvisoryBoard/questions/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/AdvisoryBoard/questions/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/AdvisoryBoard/questions/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/AdvisoryBoard/questions/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,6 +217,7 @@
       <updated>1609440680862</updated>
       <workItem from="1609440682433" duration="15648000" />
       <workItem from="1609524850220" duration="26495000" />
+      <workItem from="1609613379899" duration="10057000" />
     </task>
     <servers />
   </component>
@@ -241,10 +245,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1609534860784" />
-    <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1609546558372">
+    <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1609617067742">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1609546558372" />
+    <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1609617067742" />
     <state x="794" y="443" key="NewPhpFileDialog" timestamp="1609458455445">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

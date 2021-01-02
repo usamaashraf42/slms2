@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\admins\AdvisoryBoard;
 
 use App\Http\Controllers\Controller;
-use App\Models\AdvisaryBoard;
+
+use App\Models\AdvisoryBoard;
 use App\Models\Month;
 use App\Models\SurveyCategory;
 use App\Models\SurveyQuestion;
@@ -20,8 +21,7 @@ class AdvisoryBoardController extends Controller
      */
     public function index()
     {
-        $advisary_boards= SurveyQuestion::where('category_id',32)->get();
-
+        $advisary_boards= AdvisoryBoard::where('status',1)->get();
         return view('admin.AdvisoryBoard.questions.index',compact('advisary_boards'));
     }
 
@@ -43,34 +43,26 @@ class AdvisoryBoardController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
+        $value1 = $request->option_1;
+        $value2 = $request->option_2;
+        $value3 = $request->option_3;
+        $value4 = $request->option_4;
+        $options = [];
+        array_push($options, ['option_1' => $value1, 'option_2' => $value2, 'option_2' => $value3,'option_4'=>$value4]);
 
-
-        $categories=SurveyQuestion::create([
+        $questions =AdvisoryBoard::create([
             'question'=>$request->question?$request->question:null,
-            'category_id'=>$request->category_id?$request->category_id:'null',
-            'question_type' => 'null',
+            'option'=>json_encode($options),
+            'parent_question_id' => null,
             'created_by'=>Auth::user()->id,
             'updated_by'=>Auth::user()->id,
         ]);
-
-        if($request->child_questions) {
-            for ($i=0;$i< count($request->child_questions);$i++) {
-//                $child_questions = implode(',', $request->child_questions);
-//                $questions_type = implode(',', $request->question_type);
-                $categories_1 = SurveyQuestion::create([
-                    'question' => $request->child_questions ?$request->child_questions[$i] : null,
-                    'category_id' => $request->category_id ? $request->category_id  : 'null',
-                    'question_type' => $request->question_type ? $request->question_type[$i]: null,
-                    'parent_id' => $categories->id,
-                    'created_by' => Auth::user()->id,
-                    'updated_by' => Auth::user()->id,
-                ]);
-            }
+        if(isset($questions))
+        {
             return response()->json(['status' => 200]);
         }
 
-
-        return response()->json(['status' => 200]);
+        return response()->json(['status' => 404]);
 
 
 //        return redirect()->route('survey_category.index');
@@ -96,15 +88,15 @@ class AdvisoryBoardController extends Controller
      */
     public function edit($id)
     {
-        $parent_question = SurveyQuestion::where('id',$id)->first();
-        $child_questions =SurveyQuestion::where('parent_id',$id)->get();
+        $question = AdvisoryBoard::where('id',$id)->first();
+//        $child_questions =SurveyQuestion::where('parent_id',$id)->get();
 //            dd($child_questions);
 
-        if(!$parent_question){
+        if(!$question){
             return response()->json(['status'=>false,'message'=>'data not found']);
         }
 //        return view('admin.OnlineSchool.TimeTablePeriods.edit_new',compact('periods'));
-        $html=view('admin.AdvisoryBoard.questions.edit',compact('parent_question','child_questions'))->render();
+        $html=view('admin.AdvisoryBoard.questions.edit',compact('question'))->render();
         return response()->json(['status'=>true,'contentHtml'=>$html,'message'=>'data not found']);
     }
     public function update(Request $request)
@@ -158,7 +150,7 @@ class AdvisoryBoardController extends Controller
     public function Statuschange(Request $request){
 
 
-        $data=SurveyQuestion::find($request->id);
+        $data=AdvisoryBoard::find($request->id);
 
         if(!$data){
             return response()->json(['status'=>false,'message'=>'Id not found']);

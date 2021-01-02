@@ -18,7 +18,7 @@
                                     <th></th>
                                     <th>Question</th>
                                     {{--                                    <th>Question Type</th>--}}
-                                    {{--                                    <th>Category type</th>--}}
+                                                                        <th>Answers</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -46,6 +46,14 @@
 
                                         {{--                                                @isset($survey_question->category){{$survey_question->category->category_name}}@endisset--}}
                                         {{--                                            </td>--}}
+                                        <td>
+                                            @foreach(json_decode($advisary_board->option) as $option)
+                                                {{$option->option_1}}
+                                                {{$option->option_2}}
+                                                {{$option->option_3}}
+                                                {{$option->option_4}}
+                                            @endforeach
+                                        </td>
 
                                         @if($advisary_board->status ==1)
                                             <td><button class="btn btn-success" onclick="change_status(this,'{{$advisary_board->id}}',0)">Active</button></td>
