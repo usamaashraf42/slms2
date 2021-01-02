@@ -6,39 +6,13 @@
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
     </expand>
     <select />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f403c4b5-64ba-4790-b581-95bb39051bb0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/assets/piechart/piechart.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/piechart/piechart.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/AdvisoryBoard/questions/add_question.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/AdvisoryBoard/questions/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/AdvisoryBoard/questions/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/web/pakistan/advisoryboard/advisoryboard.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Web/Pakistan/PublicController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Web/Pakistan/PublicController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admins/survey/SurveyAnswerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admins/survey/SurveyAnswerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admins/survey/SurveyQuestionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admins/survey/SurveyQuestionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_17_084539_create_failed_jobs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_17_084539_create_failed_jobs_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/_layouts/admin/default.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/_layouts/admin/default.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/_layouts/admin/partials/_aside-left.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/_layouts/admin/partials/_aside-left.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/maintenance/maintaince/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/maintenance/maintaince/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/survey/question/add_question.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/survey/question/add_question.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/survey/question/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/survey/question/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/web/pakistan/survey/surveryStaff.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/web/pakistan/survey/surveryStaff.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/web/pakistan/advisoryboard/advisoryboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/web/pakistan/advisoryboard/advisoryboard.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -239,7 +213,7 @@
       <option name="presentableId" value="Default" />
       <updated>1609440680862</updated>
       <workItem from="1609440682433" duration="15648000" />
-      <workItem from="1609524850220" duration="25875000" />
+      <workItem from="1609524850220" duration="26495000" />
     </task>
     <servers />
   </component>

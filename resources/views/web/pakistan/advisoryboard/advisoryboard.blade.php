@@ -17,9 +17,6 @@
                 ['Watch TV', 2],
                 ['Sleep',    7]
             ]);
-
-
-            
             var options = {
                 title: 'Response from users',
                 titlePosition:'none',
@@ -31,6 +28,7 @@
         }
     </script>
 @endpush
+
 @section('content')
 
     <div id="siteWrapper" class="slide-right" style="overflow:hidden;">
