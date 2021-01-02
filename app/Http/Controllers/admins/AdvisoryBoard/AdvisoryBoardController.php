@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\admins\survey;
+namespace App\Http\Controllers\admins\AdvisoryBoard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\surveyQuestionValidation;
+use App\Models\AdvisaryBoard;
 use App\Models\Month;
 use App\Models\SurveyCategory;
 use App\Models\SurveyQuestion;
@@ -11,13 +11,18 @@ use App\Models\Year;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class SurveyQuestionController extends Controller
+class AdvisoryBoardController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $categorys =SurveyCategory::all();
-       $survey_questions= SurveyQuestion::where('category_id',18)->get();
-        return view('admin.survey.question.index',compact('categorys','survey_questions'));
+        $advisary_boards= SurveyQuestion::where('category_id',32)->get();
+
+        return view('admin.AdvisoryBoard.questions.index',compact('advisary_boards'));
     }
 
     /**
@@ -27,11 +32,8 @@ class SurveyQuestionController extends Controller
      */
     public function create()
     {
-        $categorys =SurveyCategory::all();
-        $months =Month::all();
-        $years =Year::all();
-        $survey_questions= SurveyQuestion::all();
-        return view('admin.survey.question.add_question',compact('categorys','survey_questions'));
+
+        return view('admin.AdvisoryBoard.questions.add_question');
     }
 
     /**
@@ -41,10 +43,8 @@ class SurveyQuestionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
-//dd($request->child_questions);
-        //dd($request->question)
-        //$child_questions=json_encode($request->child_questions);
-//dd($request->question_type);
+
+
         $categories=SurveyQuestion::create([
             'question'=>$request->question?$request->question:null,
             'category_id'=>$request->category_id?$request->category_id:'null',
@@ -52,19 +52,14 @@ class SurveyQuestionController extends Controller
             'created_by'=>Auth::user()->id,
             'updated_by'=>Auth::user()->id,
         ]);
-        //$child_questions = implode(',', $request->child_questions);
-       //dd($child_questions);
-//        $implode_questions =implode(',',$request->child_questions);
-//        $implode_questions_type =implode(',',$request->question_type);
-//        dd($implode_questions,$implode_questions_type);
-//      dd(count($request->child_questions));
+
         if($request->child_questions) {
             for ($i=0;$i< count($request->child_questions);$i++) {
-                $child_questions = implode(',', $request->child_questions);
-                $questions_type = implode(',', $request->question_type);
+//                $child_questions = implode(',', $request->child_questions);
+//                $questions_type = implode(',', $request->question_type);
                 $categories_1 = SurveyQuestion::create([
                     'question' => $request->child_questions ?$request->child_questions[$i] : null,
-                    'category_id' => $request->category_id ? $questions_type : 'null',
+                    'category_id' => $request->category_id ? $request->category_id  : 'null',
                     'question_type' => $request->question_type ? $request->question_type[$i]: null,
                     'parent_id' => $categories->id,
                     'created_by' => Auth::user()->id,
@@ -104,12 +99,12 @@ class SurveyQuestionController extends Controller
         $parent_question = SurveyQuestion::where('id',$id)->first();
         $child_questions =SurveyQuestion::where('parent_id',$id)->get();
 //            dd($child_questions);
-        $categorys =SurveyCategory::all();
-        if(!$parent_question ){
+
+        if(!$parent_question){
             return response()->json(['status'=>false,'message'=>'data not found']);
         }
 //        return view('admin.OnlineSchool.TimeTablePeriods.edit_new',compact('periods'));
-        $html=view('admin.survey.question.edit',compact('parent_question','child_questions','categorys'))->render();
+        $html=view('admin.AdvisoryBoard.questions.edit',compact('parent_question','child_questions'))->render();
         return response()->json(['status'=>true,'contentHtml'=>$html,'message'=>'data not found']);
     }
     public function update(Request $request)
@@ -129,7 +124,7 @@ class SurveyQuestionController extends Controller
         $question = SurveyQuestion::where('id', $request->question_id)->first();
         $question->question = $request->parent_question;
         $question->question_type = 'null';
-        $question->category_id =$request->category_id?$request->category_id:'null';
+        $question->category_id = $request->category_id ? $request->category_id  : 'null';
         $question->created_by = Auth::user()->id;
         $question->updated_by = Auth::user()->id;
         $question_updated= $question->save();
@@ -141,7 +136,7 @@ class SurveyQuestionController extends Controller
             //dd($request->child_question);
             $child_question->question =$request->child_question[$child_question->id];
             $child_question->question_type =$request->question_type[$child_question->id];
-           $child_question_updated = $child_question->save();
+            $child_question_updated = $child_question->save();
         }
         if(isset($child_question_updated) || isset($question_updated))
         {
@@ -154,18 +149,12 @@ class SurveyQuestionController extends Controller
 
 
     }
-
-
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
-    }
     public function Statuschange(Request $request){
 
 

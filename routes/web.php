@@ -103,10 +103,14 @@ Route::get('/student_picture','Web\Pakistan\PublicController@student_picture')->
 Route::resource('feedeposit','Web\FeeDepositController');
 
 Route::get('/student_picture','Web\Pakistan\PublicController@student_picture')->name('pakistan.student_picture');
-
+//survey staff
 Route::get('/survey/staff','Web\Pakistan\PublicController@surveryStaff')->name('pakistan.survey.staff');
 Route::get('/survey/staff/questions','Web\Pakistan\PublicController@surveryStaffquestions')->name('pakistan_survey_staff_questions');
 Route::post('/survey/staff/ans','admins\survey\SurveyAnswerController@surveryStaffanswers')->name('pakistan_survey_staff_answers');
+//advisary board
+Route::get('/advisory/board','Web\Pakistan\AdvisoryBoard\AdvisoryBoardController@advisory_board')->name('pakistan_advisory_board');
+Route::get('/advisory/board/questions','Web\Pakistan\AdvisoryBoard\AdvisoryBoardController@advisory_board_questions')->name('pakistan_advisory_board_question');
+Route::post('/advisory/board','Web\Pakistan\AdvisoryBoard\AdvisoryBoardController@advisory_boardanswers')->name('pakistan_advisory_board_answers');
 Route::get('how-to-pay','Web\Pakistan\PublicController@howToPay')->name('pakistan.howToPay');
 
 
@@ -506,7 +510,7 @@ Route::prefix('admin')->group(function () {
 
 
 		Route::resource('maintenance-user','admins\Maintenance\MaintenanceUserController');
-		Route::resource('maintenance','admins\Maintenance\MaintenanceController');
+		Route::resource('maintenance-branch','admins\Maintenance\MaintenanceController');
 
 		Route::get('employee-sheet','Hr\EmployeeController@completeEmployee');
 
@@ -527,6 +531,14 @@ Route::prefix('admin')->group(function () {
             Route::resource('survey_category','admins\survey\SurveyController');
             Route::post('survey_category_update','admins\survey\SurveyController@update')->name('survey_category_update');
             Route::post('survey_category_status_change','admins\survey\SurveyController@Statuschange')->name('survey_category_status_change');
+            Route::get('survey_attempts','admins\survey\surveyattempsController@surveyattemps')->name('survey_attemps');
+            Route::resource('survey_attempts_modal','admins\survey\surveyattempsController');
+
+        });
+        Route::prefix('advisory/board')->group(function () {
+            Route::resource('/questions','admins\AdvisoryBoard\AdvisoryBoardController');
+            Route::post('question_update','admins\AdvisoryBoard\AdvisoryBoardController@update')->name('question_update');
+            Route::post('question_status_change','admins\AdvisoryBoard\AdvisoryBoardController@Statuschange')->name('question_status_change');
             Route::get('survey_attempts','admins\survey\surveyattempsController@surveyattemps')->name('survey_attemps');
             Route::resource('survey_attempts_modal','admins\survey\surveyattempsController');
 

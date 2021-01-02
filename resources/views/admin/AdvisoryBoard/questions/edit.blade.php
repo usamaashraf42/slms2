@@ -8,11 +8,11 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+            @php
+                $category =\App\Models\SurveyCategory::find(32);
+            @endphp
             <form action="" id="updateDataForm" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
-                @php
-                    $category =\App\Models\SurveyCategory::find(18);
-                @endphp
                 <input type="hidden" name="category_id" value="{{$category->id}}">
                 <div class="modal-body">
                     <div class="modal-body">
@@ -22,33 +22,33 @@
                             <p style="color: red;margin-top: 3px" id="cat_name_error"></p>
                         </fieldset>
                         @foreach($child_questions as $question)
-                        <fieldset class="form-group floating-label-form-group">
-                            <label for="cat_name">Child Question Name</label>
-                            <input type="text" class="form-control" id="question" name="child_question[{{$question->id}}]" value="{{$question->question}}" >
-                            <p style="color: red;margin-top: 3px" id="cat_name_error"></p>
-                        </fieldset>
+                            <fieldset class="form-group floating-label-form-group">
+                                <label for="cat_name">Child Question Name</label>
+                                <input type="text" class="form-control" id="question" name="child_question[{{$question->id}}]" value="{{$question->question}}" >
+                                <p style="color: red;margin-top: 3px" id="cat_name_error"></p>
+                            </fieldset>
 
-                        <fieldset class="form-group floating-label-form-group">
-                            <label for="cat_type">Child Question Type</label>
-                            <select name="question_type[{{$question->id}}]" class="form-control">
-                                <option value=" " selected>choose..</option>
-                                <option value="1" @if(isset($question) && @$question->question_type == 1){{'selected'}} @endif >Yes</option>
-                                <option value="2"  @if(isset($question) && @$question->question_type == 2){{'selected'}} @endif>No</option>
-                                <option value="3"  @if(isset($question) && @$question->question_type == 3){{'selected'}} @endif>May be</option>
-                            </select>
-                            <p style="color: red;margin-top: 3px" id="cat_type_error"></p>
-                        </fieldset>
+                            <fieldset class="form-group floating-label-form-group">
+                                <label for="cat_type">Child Question Type</label>
+                                <select name="question_type[{{$question->id}}]" class="form-control">
+                                    <option value=" " selected>choose..</option>
+                                    <option value="1" @if(isset($question) && @$question->question_type == 1){{'selected'}} @endif >Yes</option>
+                                    <option value="2"  @if(isset($question) && @$question->question_type == 2){{'selected'}} @endif>No</option>
+                                    <option value="3"  @if(isset($question) && @$question->question_type == 3){{'selected'}} @endif>May be</option>
+                                </select>
+                                <p style="color: red;margin-top: 3px" id="cat_type_error"></p>
+                            </fieldset>
                         @endforeach
 
-{{--                        <fieldset class="form-group floating-label-form-group">--}}
-{{--                            <label for="month">Category Type</label>--}}
-{{--                            <select name="category_id" class="form-control">--}}
-{{--                                @foreach($categorys as $category)--}}
-{{--                                    <option value="{{$category->id}}" @if(isset($questions) && @$questions->category_id == $category->id){{'selected'}} @endif >{{$category->category_name}}</option>--}}
-{{--                                @endforeach--}}
-{{--                            </select>--}}
-{{--                            <p style="color: red;margin-top: 3px" id="month_error"></p>--}}
-{{--                        </fieldset>--}}
+                        {{--                        <fieldset class="form-group floating-label-form-group">--}}
+                        {{--                            <label for="month">Category Type</label>--}}
+                        {{--                            <select name="category_id" class="form-control">--}}
+                        {{--                                @foreach($categorys as $category)--}}
+                        {{--                                    <option value="{{$category->id}}" @if(isset($questions) && @$questions->category_id == $category->id){{'selected'}} @endif >{{$category->category_name}}</option>--}}
+                        {{--                                @endforeach--}}
+                        {{--                            </select>--}}
+                        {{--                            <p style="color: red;margin-top: 3px" id="month_error"></p>--}}
+                        {{--                        </fieldset>--}}
                         <br>
                     </div>
 
@@ -83,7 +83,7 @@
                 processData: false,  // Important!
                 contentType: false,
                 cache: false,
-                url: "{{route('survey_question_update')}}",
+                url: "{{route('question_update')}}",
                 data: formData,
                 beforeSend: function () {
                     $('.loader-img').show();

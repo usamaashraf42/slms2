@@ -66,8 +66,6 @@ class Handler extends ExceptionHandler
             return response()->json(['status'=>false,'message' => 'Unauthenticated.'], 200);
         }
         $guard = array($exception->guards());
-
-
         $guard=isset($guard[0][0])?$guard[0][0]:null;
         switch ($guard) {
 

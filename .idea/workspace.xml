@@ -19,12 +19,25 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c78adb79-1db6-427a-9122-10ce776c3b81" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/date_sheet.blade.php" afterDir="false" />
+    <list default="true" id="f403c4b5-64ba-4790-b581-95bb39051bb0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/assets/piechart/piechart.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/piechart/piechart.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/AdvisoryBoard/questions/add_question.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/AdvisoryBoard/questions/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/AdvisoryBoard/questions/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/web/pakistan/advisoryboard/advisoryboard.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admins/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admins/DashboardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/web/pakistan/date_sheet.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/web/pakistan/date_sheet.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Web/Pakistan/PublicController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Web/Pakistan/PublicController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admins/survey/SurveyAnswerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admins/survey/SurveyAnswerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admins/survey/SurveyQuestionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admins/survey/SurveyQuestionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_17_084539_create_failed_jobs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_17_084539_create_failed_jobs_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/_layouts/admin/default.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/_layouts/admin/default.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/_layouts/admin/partials/_aside-left.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/_layouts/admin/partials/_aside-left.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/maintenance/maintaince/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/maintenance/maintaince/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/survey/question/add_question.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/survey/question/add_question.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/survey/question/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/survey/question/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/web/pakistan/survey/surveryStaff.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/web/pakistan/survey/surveryStaff.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,6 +48,14 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -178,7 +199,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu" />
     </include_path>
   </component>
-  <component name="ProjectId" id="1m1ZWJDh6uhCS3Q90Ww9ExsAAYK" />
+  <component name="ProjectId" id="1mQzcMhoXWM6BWwoOz2DmHjfVhv" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -186,6 +207,8 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/web/pakistan/advisoryboard" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -194,6 +217,12 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp1\htdocs\slms2\resources\views\web\pakistan\advisoryboard" />
+      <recent name="C:\xampp1\htdocs\slms2\resources\views\admin\AdvisoryBoard\questions" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -204,13 +233,13 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c78adb79-1db6-427a-9122-10ce776c3b81" name="Default Changelist" comment="" />
-      <created>1608663088176</created>
+      <changelist id="f403c4b5-64ba-4790-b581-95bb39051bb0" name="Default Changelist" comment="" />
+      <created>1609440680862</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1608663088176</updated>
-      <workItem from="1608663089289" duration="13649000" />
-      <workItem from="1608746155778" duration="6912000" />
+      <updated>1609440680862</updated>
+      <workItem from="1609440682433" duration="15648000" />
+      <workItem from="1609524850220" duration="25875000" />
     </task>
     <servers />
   </component>
@@ -227,28 +256,33 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1608746329558">
+    <state x="685" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1609459656512">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1608746329558" />
-    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1608750244283">
+    <state x="685" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1609459656512" />
+    <state x="690" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1609534860784">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608750244283" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1608664150602">
+    <state x="690" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1609534860784" />
+    <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1609546558372">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1608664150602" />
+    <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1609546558372" />
+    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1609458455445">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1609458455445" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php</url>
-          <line>24</line>
-          <option name="timeStamp" value="2" />
+          <url>file://$PROJECT_DIR$/resources/views/web/pakistan/advisoryboard/advisoryboard.blade.php</url>
+          <line>421</line>
+          <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

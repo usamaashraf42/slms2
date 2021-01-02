@@ -1046,8 +1046,8 @@
         </li>
         @endif
         @if(Auth::user()->can('Maintaince-Requests') || Auth::user()->can('Maintainces Create') || Auth::user()->can('Pending Maintainces') || Auth::user()->can('Resolved Maintainces') || Auth::user()->can('Approval Maintainces')  )
-        <li class="{{ areActiveRoutes(['maintenance.index','maintenance.create','maintenance.edit'])}}">
-            <a href="{{route('maintenance.index')}}" class="{{ areActiveRoutes(['maintenance.index','maintenance.create','maintenance.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i>
+        <li class="{{ areActiveRoutes(['maintenance-branch.index','maintenance-branch.create','maintenance-branch.edit'])}}">
+            <a href="{{route('maintenance-branch.index')}}" class="{{ areActiveRoutes(['maintenance-branch.index','maintenance-branch.create','maintenance-branch.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i>
                 <span> Branch Maintenance </span>
             </a>
         </li>
@@ -1168,7 +1168,26 @@
                         </li>
                     </ul>
                 </li>
-
+                <li class="submenu ">
+                    <a href="javascript:;" class="{{ areActiveRoutes(['survey_category.index','survey_questions.index','survey_attemps'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span>Advisory Board Managment</span> <span class="menu-arrow"></span></a>
+                    <ul class="list-unstyled" style="display: none;">
+{{--                        <li class="{{ areActiveRoutes(['survey_category.index'])}}">--}}
+{{--                            <a href="{{route('survey_category.index')}}" ><i class="fa fa-user" aria-hidden="true"></i>--}}
+{{--                                <span> Category</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+                        <li class="{{ areActiveRoutes(['questions.index'])}}">
+                            <a href="{{route('questions.index')}}" ><i class="fa fa-user" aria-hidden="true"></i>
+                                <span> Questions</span>
+                            </a>
+                        </li>
+{{--                        <li class="{{ areActiveRoutes(['survey_attemps'])}}">--}}
+{{--                            <a href="{{route('survey_attemps')}}" ><i class="fa fa-user" aria-hidden="true"></i>--}}
+{{--                                <span> Survey Attempts</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+                    </ul>
+                </li>
 
 <li class="submenu ">
     <a href="javascript:;" class="{{ areActiveRoutes(['admission_inquiry','camp_applicant','category.create','category.edit','role.index','role.create','role.edit','permission.index','permission.create','permission.edit'])}}"><i class="fa fa-user" aria-hidden="true"></i> <span> Campus Management</span> <span class="menu-arrow"></span></a>

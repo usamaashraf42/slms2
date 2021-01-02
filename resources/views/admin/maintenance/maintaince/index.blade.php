@@ -97,7 +97,7 @@
           <div class="row">
             <div class="col-md-12">
               <!-- Nav tabs -->
-              <a href="{{route('maintenance.create')}}" class="btn btn-success btn-sm">Add Request</a><br><br>
+              <a href="{{route('maintenance-branch.create')}}" class="btn btn-success btn-sm">Add Request</a><br><br>
 
               <div class="card">
                 <ul class="nav nav-tabs" role="tablist">
@@ -135,7 +135,7 @@
                   <!-- //////////////////////////////////////////////// -->
                   <div role="tabpanel" class="tab-pane active" id="maintain">
                     <h4 class="card-title"> New Maintenance</h4>
-                    <form method="POST" action="{{ route('maintenance.store') }}" enctype = "multipart/form-data" id="upload_new_form">
+                    <form method="POST" action="{{ route('maintenance-branch.store') }}" enctype = "multipart/form-data" id="upload_new_form">
                       <div class="col-md-12">
                         {{csrf_field()}}
                         <div class="row">

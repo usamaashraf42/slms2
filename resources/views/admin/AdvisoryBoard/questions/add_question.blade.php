@@ -1,56 +1,55 @@
 @extends('_layouts.admin.default')
-@section('title', 'Dashboard')
+@section('title', 'Advisory Board Questions')
 @section('content')
     <div class="content container-fluid">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12">
                 <div class="card-box">
-
                     <div class="card-block">
-                        <h4 class="card-title">Survey Categories</h4>
-                        <div class="heading-elements float-right">
-                            <a type="button" class="btn btn-success btn-min-width mr-1 mb-1" href="{{route('survey_questions.create')}}" ><i class="la la-plus">&nbsp;Add Question</i></a>
-                        </div>
+                        <h4 class="card-title">Advisory Board Questions</h4>
+{{--                        <div class="heading-elements float-right">--}}
+{{--                            <a type="button" class="btn btn-success btn-min-width mr-1 mb-1" href="{{route('survey_questions.create')}}" ><i class="la la-plus">&nbsp;Add Question</i></a>--}}
+{{--                        </div>--}}
                         <div class="">
+                            @php
+                            $category =\App\Models\SurveyCategory::find(32);
+                            @endphp
                                 <h3  id="myModalLabel35"> Add New Question</h3>
-                                <form action="" id="addDataForm" method="post" enctype="multipart/form-data">
-                                    {{ csrf_field() }}
-                                    @php
-                                        $category =\App\Models\SurveyCategory::find(18);
-                                    @endphp
-                                    <input type="hidden" name="category_id" value="{{$category->id}}">
-                                    <div class="modal-body">
-                                        <fieldset class="form-group floating-label-form-group">
-                                            <div class="col-md-12">
-                                                <div class="row">
-                                                    <div class="col-md-4">
-                                                        <label for="cat_name">Question Name</label>
-                                                        <textarea type="text" class="form-control" id="question" name="question"></textarea>
-                                                        <p style="color: red;margin-top: 3px" id="question_error"></p>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <br>
+                            <form action="" id="addDataForm" method="post" enctype="multipart/form-data">
+                                {{ csrf_field() }}
+                                <input type="hidden" name="category_id" value="{{$category->id}}">
+                                <div class="modal-body">
+                                    <fieldset class="form-group floating-label-form-group">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <label for="cat_name">Question Name</label>
+                                                    <textarea type="text" class="form-control" id="question" name="question"></textarea>
+                                                    <p style="color: red;margin-top: 3px" id="question_error"></p>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <br>
 
-                                                        <div class="btn btn-primary pull-right addquestion" style="text-align: center;">+</div>
-                                                    </div>
+                                                    <div class="btn btn-primary pull-right addquestion" style="text-align: center;">+</div>
                                                 </div>
                                             </div>
-                                        </fieldset>
-                                        <fieldset class="form-group floating-label-form-group" id="addrows">
+                                        </div>
+                                    </fieldset>
+                                    <fieldset class="form-group floating-label-form-group" id="addrows">
 
-                                        </fieldset>
+                                    </fieldset>
 
 
-                                    </div>
-                                    <div class="modal-footer">
-                                        <img class="loader-img" src="{{asset('images/ajax-loader.gif')}}" width="50"
-                                             height="50"/>
-                                        &nbsp;&nbsp;&nbsp;
-                                        <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal"
-                                               value="Dismiss">
-                                        <input type="submit" class="btn btn-outline-success btn-lg"  id="addDataBtn" value="Add Question">
-                                    </div>
-                                </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <img class="loader-img" src="{{asset('images/ajax-loader.gif')}}" width="50"
+                                         height="50"/>
+                                    &nbsp;&nbsp;&nbsp;
+                                    <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal"
+                                           value="Dismiss">
+                                    <input type="submit" class="btn btn-outline-success btn-lg"  id="addDataBtn" value="Add Question">
+                                </div>
+                            </form>
                             </div>
                         </div>
                         </div>
@@ -280,7 +279,7 @@
             console.log('formData', formData);
             console.log('form', form);
             $.ajax({
-                url: "{{route('survey_questions.store')}}",
+                url: "{{route('questions.store')}}",
                 type: "POST",
                 enctype: 'multipart/form-data',
                 processData: false,  // Important!

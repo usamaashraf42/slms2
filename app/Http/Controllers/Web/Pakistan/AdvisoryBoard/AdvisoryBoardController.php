@@ -1,43 +1,57 @@
 <?php
 
-namespace App\Http\Controllers\admins\survey;
+namespace App\Http\Controllers\Web\Pakistan\AdvisoryBoard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\SurveyAnswerValidation;
 use App\Models\SurveyAns;
+use App\Models\SurveyQuestion;
 use App\Models\SurveyTable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
-class SurveyAnswerController extends Controller
+class AdvisoryBoardController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
-    }
+    public function advisory_board(){
+        $questions =SurveyQuestion::where('status',1)->where('category_id',32)->get();
+//        $data = DB::table('survey_ans')
+//            ->select(
+//                DB::raw('course as course'),
+//                DB::raw('count(*) as number'))
+//            ->groupBy('course')
+//            ->get();
+        $chart_question =SurveyQuestion::where('category_id',32)->where('status',1)->first();
 
+        $user_info =  SurveyAns::where('question_id',$chart_question->id)
+            ->select('survey_ans','question_id', DB::raw('count(*) as total'))
+            ->groupBy('survey_ans')
+            ->get();
+
+
+//        $chart_question =SurveyQuestion::where('category_id',32)->where('status',1)->first();
+//        $chart_ans_yes= SurveyAns::where('question_id',$chart_question->id)->where('survey_ans',1)->get();
+//        $chart_ans_no= SurveyAns::where('question_id',$chart_question->id)->where('survey_ans',2)->get();
+//        $chart_ans_maybe= SurveyAns::where('question_id',$chart_question->id)->where('survey_ans',3)->get();
+////        dd(count($chart_ans));
+//        $array[] = ['Yes', 'No'];
+        foreach($user_info as $key => $value)
+        {
+            $array[++$key] = [$value->total, $value->total];
+        }
+//        return view('google-pie-chart')->with('course', json_encode($array));
+        return view('web.pakistan.advisoryboard.advisoryboard')->with(['course'=>json_encode($array),'questions'=>$questions]);
+    }
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function surveryStaffanswers(SurveyAnswerValidation $request)
+    public function advisory_boardanswers(Request $request)
     {
 
 
@@ -47,8 +61,7 @@ class SurveyAnswerController extends Controller
 //        dd($request->all());
 //        dd($request->name);
         $survey = SurveyTable::create([
-            'branch_id' => $request->branch_id,
-            'section_id' => $request->section_type,
+
             'name' => $request->name?$request->name:'Not want to add name',
             'email' => Auth::user()?Auth::user()->email:'null',
             'phone' =>Auth::user()?Auth::user()->phone:'null',
@@ -86,6 +99,32 @@ class SurveyAnswerController extends Controller
 
 //        return redirect()->route('survey_category.index');
 
+    }
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function advisory_board_questions(Request $request){
+//        dd($request->question_id,$request->answer_id);
+//        dd($request->question_id);
+        $answers =SurveyQuestion::where('parent_id',$request->question_id)->where('question_type',$request->answer_id)->first();
+//        if(!$answers)
+//        {
+//            $answers='';
+//            $childerns =SurveyQuestion::where('parent_id',$request->question_id)->get('id');
+////            $array_childrens =explode(' ',$childerns);
+////            dd($array_childrens);
+////           array_push($array_childrens,'');
+////            dd($array_childrens);
+//            return response()->json(['status'=>200,'answer'=>$answers,'childerns'=>$childerns]);
+//        }
+//dd($answers);
+        $childerns =SurveyQuestion::where('parent_id',$request->question_id)->get('id');
+//dd($childerns);
+
+        return response()->json(['status'=>200,'answer'=>$answers,'childerns'=>$childerns]);
     }
 
     /**

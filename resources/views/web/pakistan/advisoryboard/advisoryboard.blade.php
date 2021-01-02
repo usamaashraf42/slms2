@@ -1,5 +1,34 @@
 @extends('_layouts.web.pakistan.default')
-@section('title', 'Staff Survey')
+@section('title', 'Advisory board')
+@push('post-styles')
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = google.visualization.arrayToDataTable([
+                ['Task', 'Hours per Day'],
+                ['Work',    11],
+                ['Eat',      2],
+                ['Commute',  2],
+                ['Watch TV', 2],
+                ['Sleep',    7]
+            ]);
+
+            var options = {
+                title: 'Response from users',
+                titlePosition:'none',
+                legend: 'none'
+            };
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+            chart.draw(data, options);
+        }
+    </script>
+@endpush
 @section('content')
 
     <div id="siteWrapper" class="slide-right" style="overflow:hidden;">
@@ -312,7 +341,7 @@ color: white;
 padding: 6px;
 border-bottom-right-radius: 25px;
 border-bottom-left-radius: 25px;
-}">Employee Satisfaction Survey</h2>
+}">Advisory board</h2>
         </div>
     </div>
 
@@ -377,154 +406,126 @@ border-bottom-left-radius: 25px;
                             <div>
                                 <div class="table-responsive">
                                     <form action="" id="addDataForm" method="post" enctype="multipart/form-data">
-{{--                                        <label for="cat_type">Survey Category</label>--}}
-{{--                                        <select name="category_id" class="form-control">--}}
-{{--                                            <option value=" " selected>choose..</option>--}}
-{{--                                            @foreach($categorys as $category )--}}
-{{--                                                <option value="{{$category->id}}">{{$category->category_name}}</option>--}}
-{{--                                                @endforeach--}}
-{{--                                        </select>--}}
-{{--                                        <p style="color: red;margin-top: 3px" id="category_id_error"></p>--}}
-                                        <div class="header">
-                                            <div class="row">
-                                                <div class="col-sm-4 form-group">
-                                                        <label class="show"  for="branches">select Branch</label>
-                                                        <select name="branch_id" id="branch_id" class="form-control">
-                                                            <option value=" " selected>select Branch</option>
-                                                            @isset($branches)
-                                                            @foreach($branches as $branch)
-                                                                <option value="{{$branch->id}}">{{$branch->branch_name}}</option>
-                                                            @endforeach
-                                                            @endisset
-                                                        </select>
-                                                    <p style="color: red;margin-top: 3px" id="branch_id_error"></p>
-                                                </div>
-                                                <div class="col-sm-4 form-group">
-                                                        <label  class="show" for="sections">select section</label>
-                                                        <select name="section_type" id="section" class="form-control">
-                                                            <option  value=" " selected>select Section</option>
-                                                            <option value="Preschool">Preschool</option>
-                                                            <option value="Junior(1-5)">Junior(1-5)</option>
-                                                            <option value="Middle(6-8)">Middle(6-8)</option>
-                                                            <option value="Matric(9-10)">Matric(9-10)</option>
-                                                            <option value="O-level">O-level</option>
-                                                            <option value="Management">Management</option>
-                                                            <option value="Others">Others</option>
-                                                            <option value="Blue Color">Blue Color</option>
-                                                            <option value="E-School">E-School</option>
-                                                        </select>
-                                                    <p style="color: red;margin-top: 3px" id="section_error"></p>
-                                                    </div>
-                                            </div>
-                                        </div>
+                                        @php
+                                            $category =\App\Models\SurveyCategory::find(32);
+                                        @endphp
+                                        <input type="hidden" name="category_id" value="{{$category->id}}">
+                                        {{--                                        <label for="cat_type">Survey Category</label>--}}
+                                        {{--                                        <select name="category_id" class="form-control">--}}
+                                        {{--                                            <option value=" " selected>choose..</option>--}}
+                                        {{--                                            @foreach($categorys as $category )--}}
+                                        {{--                                                <option value="{{$category->id}}">{{$category->category_name}}</option>--}}
+                                        {{--                                                @endforeach--}}
+                                        {{--                                        </select>--}}
+                                        {{--                                        <p style="color: red;margin-top: 3px" id="category_id_error"></p>--}}
 
-                                    <table id="example" class="table border table-bordered " style="text-align: center!important">
-                                        <thead>
-                                        <tr>
-                                            <th width="10%"></th>
-                                            <th width="60%"></th>
-                                            <th width="10%">Yes</th>
-                                            <th width="10%">No</th>
-                                            <th width="10%">May be</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody id="data">
-                                            {{ csrf_field() }}
-
-                                        @isset($questions)
-                                            @php
-                                                $i =1;
-                                            @endphp
-                                            @foreach($questions as $question)
-                                                @if($question->question_type =='null')
-                                                <tr id="rows_{{$question->id}}" style="height: 50px;">
-                                                    <td>{{$i++}}</td>
-                                                    <td style="text-align: left;font-family: Noto Serif;">
-                                                        {{$question->question}}
-                                                        <input type="hidden" name="questions[]" value="{{$question->id}}">
-                                                    </td>
-                                                    <td>
-                                                        <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="radio" onclick="getChildQuestion(this)"  data-ids="{{$question->id}}" name="question_ans_{{$question->id}}" value="1"  >
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="form-check form-check-inline">
-                                                            <input class="form-check-input  " onclick="getChildQuestion(this)"  type="radio" data-ids="{{$question->id}}" name="question_ans_{{$question->id}}"  value="2"  >
-                                                            </div>
-
-
-                                                    </td>
-                                                    <td>
-                                                        <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" onclick="getChildQuestion(this)" type="radio" data-ids="{{$question->id}}" name="question_ans_{{$question->id}}"  value="3"  >
-                                                        </div>
-
-                                                    </td>
-
-                                                </tr>
-                                                @endif
-                                            @endforeach
-                                        @endisset
-                                        </tbody>
-                                    </table>
-                                        <div class="container" style="margin-top: 20px;">
-                                            <div class="form-check form-check-inline" id="hide1">
-                                                <input class="form-check-input" type="checkbox" name="check"
-                                                       id="check_1">
-                                                <label class="form-check-label" for="check_1"
-                                                       style="display: inline;cursor: pointer" >I do not want to mention my name</label>
-{{--                                                <input type="hidden" name="name" value="1">--}}
-                                            </div>
-                                            <div class="form-check form-check-inline" id="hide2">
-                                                <input class="form-check-input" type="checkbox" name="check"
-                                                       id="check_2" >
-                                                <label class="form-check-label" for="check_2"  onclick="foucs()" style="display: inline;cursor: pointer" >I
-                                                    am saving my name </label>:
-                                                <input id="check_3" type="text" name="name" autocomplete="off"  >
+                                        <div class="container col-md-5" style="margin-top: 20px;">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Name:</label>
+                                                <input type="text" class="form-control"  >
                                             </div>
                                             <p style="color: red;margin-top: 3px" id="check_error"></p>
-                                            <div class="footer">
-                                                <div class="flex_1">
-                                                    <b>Date :</b> <span>{{ date('Y-m-d') }}</span></div>
-                                                <div class="flex_2">Time taken by User <span
-                                                        id="count-up"> 0:00</span></div>
-                                            </div>
                                         </div>
+                                        <table id="example" class="table border table-bordered " style="text-align: center!important">
+                                            <thead>
+                                            <tr>
+                                                <th width="10%"></th>
+                                                <th width="60%"></th>
+                                                <th width="10%">Yes</th>
+                                                <th width="10%">No</th>
+                                                <th width="10%">May be</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody id="data">
+                                            {{ csrf_field() }}
+
+                                            @isset($questions)
+                                                @php
+                                                    $i =1;
+                                                @endphp
+                                                @foreach($questions as $question)
+                                                    @if($question->question_type =='null')
+                                                        <input type="hidden" name="question_id" value="{{$question->id}}">
+                                                        <tr id="rows_{{$question->id}}" style="height: 50px;">
+                                                            <td>{{$i++}}</td>
+                                                            <td style="text-align: left;font-family: Noto Serif;">
+                                                                {{$question->question}}
+                                                                <input type="hidden" name="questions[]" value="{{$question->id}}">
+                                                            </td>
+                                                            <td>
+                                                                <div class="form-check form-check-inline">
+                                                                    <input class="form-check-input" type="radio" onclick="getChildQuestion(this)"  data-ids="{{$question->id}}" name="question_ans_{{$question->id}}" value="1"  >
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="form-check form-check-inline">
+                                                                    <input class="form-check-input  " onclick="getChildQuestion(this)"  type="radio" data-ids="{{$question->id}}" name="question_ans_{{$question->id}}"  value="2"  >
+                                                                </div>
+
+
+                                                            </td>
+                                                            <td>
+                                                                <div class="form-check form-check-inline">
+                                                                    <input class="form-check-input" onclick="getChildQuestion(this)" type="radio" data-ids="{{$question->id}}" name="question_ans_{{$question->id}}"  value="3"  >
+                                                                </div>
+
+                                                            </td>
+
+                                                        </tr>
+                                                    @endif
+                                                @endforeach
+                                            @endisset
+                                            </tbody>
+                                        </table>
+{{--                                        <div class="footer">--}}
+{{--                                            <div class="flex_1">--}}
+{{--                                                <b>Date :</b> <span>{{ date('Y-m-d') }}</span></div>--}}
+{{--                                        </div>--}}
+
+
 
                                     </form>
+
                                 </div>
 
 
+                            </div>
+                            <div class="col-md-12 " >
+                                <div class="row" >
+                                    <div class="col-md-6"></div>
+                                    {{--                    <div class="col-md-2 float-right" style="float:right">--}}
+                                    {{--                        <input type="button"  class="btn btn-info btn-sm   float-left"   onclick="refreshwindow(this)"  value="back">--}}
+                                    {{--                    </div>--}}
+                                    <div class="col-md-3">
+                                        <div style="  ">
+                                            <input class="btn btn-success " id="view" value="View">
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-2" style="display: flex">
+                                        <div style="width: 40%;margin-top: 20px;">
+                                            <img class="loader-img" src="{{asset('images/ajax-loader.gif')}}" width="50"
+                                                 height="50"/>
+                                        </div>
+                                        <div style="    ">
+                                            <input class="btn btn-success btn-sm submitButton" id="addDataBtn"    value="submit">
+                                        </div>
+
+                                    </div>
+                                </div>
                             </div>
 
 
                             <!-- /////////////////////////////  end display none????????????????????????????????? -->
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12 " >
-                <div class="row" >
-                    <div class="col-md-8"></div>
-{{--                    <div class="col-md-2 float-right" style="float:right">--}}
-{{--                        <input type="button"  class="btn btn-info btn-sm   float-left"   onclick="refreshwindow(this)"  value="back">--}}
-{{--                    </div>--}}
-
-                    <div class="col-md-2 float-right" style="float:right;display: flex">
-                        <div style="     width: 40%;margin-top: 20px;">
-                            <img class="loader-img" src="{{asset('images/ajax-loader.gif')}}" width="50"
-                                 height="50"/>
-                        </div>
-                        <div style="    width: 60%;">
-                            <input class="btn btn-success btn-sm submitButton" id="addDataBtn"    value="submit">
-                        </div>
-
 
                     </div>
                 </div>
-
+                <div id="peichart">
+                    <div id="piechart" style="width: 900px; height: 500px;"></div>
+                </div>
             </div>
+
         </section>
 
     </div>
@@ -537,6 +538,7 @@ border-bottom-left-radius: 25px;
 
 
     <script type="text/javascript" src="{{asset('assets/chosen/chosen.jquery.js')}}"></script>
+
     <script type="text/javascript">
         // function foucs()
         // {
@@ -555,34 +557,35 @@ border-bottom-left-radius: 25px;
         //         document.getElementById('counter').innerHTML = c;
         //     }
         // }
-        var min    = 0;
-        var second = 0;
-        var zeroPlaceholder = 0;
-        var counterId = setInterval(countUp, 1000);
-
-        function countUp () {
-            second++;
-            if(second == 59){
-                second = 0;
-                min = min + 1;
-            }
-            if(second == 10){
-                zeroPlaceholder = '';
-            }else
-            if(second == 0){
-                zeroPlaceholder = 0;
-            }
-            // console.log(min+':'+zeroPlaceholder+second)
-
-            document.getElementById("count-up").innerText = min+':'+zeroPlaceholder+second;
-        }
+        // var min    = 0;
+        // var second = 0;
+        // var zeroPlaceholder = 0;
+        // var counterId = setInterval(countUp, 1000);
+        //
+        // function countUp () {
+        //     second++;
+        //     if(second == 59){
+        //         second = 0;
+        //         min = min + 1;
+        //     }
+        //     if(second == 10){
+        //         zeroPlaceholder = '';
+        //     }else
+        //     if(second == 0){
+        //         zeroPlaceholder = 0;
+        //     }
+        //     // console.log(min+':'+zeroPlaceholder+second)
+        //
+        //     document.getElementById("count-up").innerText = min+':'+zeroPlaceholder+second;
+        // }
         $(document).ready(function(){
-            $('.loader-img').hide();
+            // $('.loader-img').hide();
             // $('#text_2').click(function(){
             //     // alert(2);
             //     $('#check_3').focus();
             //     console.log('hi')
             // })
+            $('#peichart').hide();
             $('#check_1').click(function(){
                 console.log($(this).val());
                 $('#hide2').toggle();
@@ -590,6 +593,10 @@ border-bottom-left-radius: 25px;
             $('#check_2').click(function(){
                 console.log($(this).val());
                 $('#hide1').toggle();
+            })
+            $('#view').click(function(){
+                console.log($(this).val());
+                $('#peichart').toggle();
             })
         })
         function getChildQuestion(obj) {
@@ -599,7 +606,7 @@ border-bottom-left-radius: 25px;
 
             console.log('question', question_id, 'ans', answer_id);
             $.ajax({
-                url: "{{route('pakistan_survey_staff_questions')}}",
+                url: "{{route('pakistan_advisory_board_question')}}",
                 type: 'get',
                 data: {
                     'question_id': question_id,
@@ -624,12 +631,12 @@ border-bottom-left-radius: 25px;
                             console.log('child',chids[i].id);
                             $('#row_'+chids[i].id).css('display','none');
                         }
-                    console.log(response.answer);
+                        console.log(response.answer);
                         // for (var i = 0; i < tabcontent.length; i++) {
                         //     tabcontent[i].style.display = "none";
                         // }
                         // <input type="hidden" name="questions[]" value="${response.answer.id?response.answer.id:''}">
-                       // <input type="hidden" name="question_parent_${response.answer.id?response.answer.id:''}" value="${response.answer.parent_id?response.answer.parent_id:''}"">
+                        // <input type="hidden" name="question_parent_${response.answer.id?response.answer.id:''}" value="${response.answer.parent_id?response.answer.parent_id:''}"">
 
                         html =`<tr id="row_${response.answer.id?response.answer.id:''}">
                                   <td></td>
@@ -689,7 +696,7 @@ border-bottom-left-radius: 25px;
                 if ($(':radio:checked').length !== count) {
                     swal({
                         title:"warning",
-                        text:"Please fill all questions",
+                        text:"Please fill the question",
                         type:"warning"
                     })
                     // swal(
@@ -698,18 +705,18 @@ border-bottom-left-radius: 25px;
                     //     'warning'
                     // );
                 }
-                // if ($('input[type="radio"]:checked').length == 0) {
-                //     alert('please...');
+                    // if ($('input[type="radio"]:checked').length == 0) {
+                    //     alert('please...');
                 //     return false; }
                 else {
                     $.ajax({
-                        url: "{{route('pakistan_survey_staff_answers')}}",
+                        url: "{{route('pakistan_advisory_board_answers')}}",
                         type: "POST",
                         enctype: 'multipart/form-data',
                         processData: false,  // Important!
                         contentType: false,
                         cache: false,
-                     data:formData,
+                        data:formData,
                         beforeSend: function () {
                             $('.loader-img').show();
                             // $('#preloader').show();
@@ -749,27 +756,27 @@ border-bottom-left-radius: 25px;
                         //         'error'
                         //     )
                         // }
-                        error: function (response) {
-                            if(response.responseJSON.errors.branch_id)
-                            {
-                                $('#branch_id_error').text(response.responseJSON.errors.branch_id);
-                            }
-                            else{
-                                $('#branch_id_error').html(' ');
-                            }
-                            if(response.responseJSON.errors.section_type) {
-                                $('#section_error').text(response.responseJSON.errors.section_type);
-                            }
-                                else{
-                                    $('#section_error').html(' ');
-                                }
-                            if(response.responseJSON.errors.check) {
-                                $('#check_error').text(response.responseJSON.errors.check);
-                            }
-                            else{
-                                $('#check_error').html(' ');
-                            }
-                        }
+                        // error: function (response) {
+                        //     if(response.responseJSON.errors.branch_id)
+                        //     {
+                        //         $('#branch_id_error').text(response.responseJSON.errors.branch_id);
+                        //     }
+                        //     else{
+                        //         $('#branch_id_error').html(' ');
+                        //     }
+                        //     if(response.responseJSON.errors.section_type) {
+                        //         $('#section_error').text(response.responseJSON.errors.section_type);
+                        //     }
+                        //     else{
+                        //         $('#section_error').html(' ');
+                        //     }
+                        //     if(response.responseJSON.errors.check) {
+                        //         $('#check_error').text(response.responseJSON.errors.check);
+                        //     }
+                        //     else{
+                        //         $('#check_error').html(' ');
+                        //     }
+                        // }
                     });
                     e.preventDefault();
                 }
@@ -777,5 +784,8 @@ border-bottom-left-radius: 25px;
             });
         })
     </script>
+
+
+
 
 @endsection
