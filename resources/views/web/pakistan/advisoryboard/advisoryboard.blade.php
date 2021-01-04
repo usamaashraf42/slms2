@@ -398,129 +398,39 @@ border-bottom-left-radius: 25px;
                 <h5 style="text-align: center;color: #fff;padding-top: 5px;"></h5>
             </div>
             <div class="col-md-12" style=" padding: 20px; margin: 0 auto; border: 1px solid #ccc; width: 100%;box-shadow: 0px 4px 4px #bbb;">
-                <div class="row">
-                    <div class="">
+
                         @component('_components.alerts-default')
                         @endcomponent
-                        <div id="signupbox"  class="mainbox col-md-12  col-sm-12 col-xs-12">
-                            <div>
-                                <div class="table-responsive">
-                                    <form action="" id="addDataForm" method="post" enctype="multipart/form-data">
-                                        @php
-                                            $category =\App\Models\SurveyCategory::find(32);
-                                        @endphp
-                                        <input type="hidden" name="category_id" value="{{$category->id}}">
-                                        {{--                                        <label for="cat_type">Survey Category</label>--}}
-                                        {{--                                        <select name="category_id" class="form-control">--}}
-                                        {{--                                            <option value=" " selected>choose..</option>--}}
-                                        {{--                                            @foreach($categorys as $category )--}}
-                                        {{--                                                <option value="{{$category->id}}">{{$category->category_name}}</option>--}}
-                                        {{--                                                @endforeach--}}
-                                        {{--                                        </select>--}}
-                                        {{--                                        <p style="color: red;margin-top: 3px" id="category_id_error"></p>--}}
-
-                                        <div class="container col-md-5" style="margin-top: 20px;">
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Name:</label>
-                                                <input type="text" class="form-control"  >
-                                            </div>
-                                            <p style="color: red;margin-top: 3px" id="check_error"></p>
-                                        </div>
-                                        <table id="example" class="table border table-bordered " style="text-align: center!important">
-                                            <thead>
-                                            <tr>
-                                                <th width="10%"></th>
-                                                <th width="60%"></th>
-                                                <th width="10%">Yes</th>
-                                                <th width="10%">No</th>
-                                                <th width="10%">May be</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody id="data">
-                                            {{ csrf_field() }}
-
-                                            @isset($questions)
-                                                @php
-                                                    $i =1;
-                                                @endphp
-                                                @foreach($questions as $question)
-                                                    @if($question->question_type =='null')
-                                                        <input type="hidden" name="question_id" value="{{$question->id}}">
-                                                        <tr id="rows_{{$question->id}}" style="height: 50px;">
-                                                            <td>{{$i++}}</td>
-                                                            <td style="text-align: left;font-family: Noto Serif;">
-                                                                {{$question->question}}
-                                                                <input type="hidden" name="questions[]" value="{{$question->id}}">
-                                                            </td>
-                                                            <td>
-                                                                <div class="form-check form-check-inline">
-                                                                    <input class="form-check-input" type="radio" onclick="getChildQuestion(this)"  data-ids="{{$question->id}}" name="question_ans_{{$question->id}}" value="1"  >
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <div class="form-check form-check-inline">
-                                                                    <input class="form-check-input  " onclick="getChildQuestion(this)"  type="radio" data-ids="{{$question->id}}" name="question_ans_{{$question->id}}"  value="2"  >
-                                                                </div>
-
-
-                                                            </td>
-                                                            <td>
-                                                                <div class="form-check form-check-inline">
-                                                                    <input class="form-check-input" onclick="getChildQuestion(this)" type="radio" data-ids="{{$question->id}}" name="question_ans_{{$question->id}}"  value="3"  >
-                                                                </div>
-
-                                                            </td>
-
-                                                        </tr>
-                                                    @endif
-                                                @endforeach
-                                            @endisset
-                                            </tbody>
-                                        </table>
-{{--                                        <div class="footer">--}}
-{{--                                            <div class="flex_1">--}}
-{{--                                                <b>Date :</b> <span>{{ date('Y-m-d') }}</span></div>--}}
-{{--                                        </div>--}}
-
-
-
-                                    </form>
-
+                        <div   class="mainbox col-md-12  col-sm-12 col-xs-12">
+                            <form>
+                                <div class="form-group ">
+                                    <label for="name">Advisory Name:</label>
+                                    <select name="name_advisor" id="name" class="form-control" style="margin: 0">
+                                        <option selected>Choose name..</option>
+                                        <option>Name</option>
+                                    </select>
                                 </div>
-
-
-                            </div>
-                            <div class="col-md-12 " >
-                                <div class="row" >
-                                    <div class="col-md-6"></div>
-                                    {{--                    <div class="col-md-2 float-right" style="float:right">--}}
-                                    {{--                        <input type="button"  class="btn btn-info btn-sm   float-left"   onclick="refreshwindow(this)"  value="back">--}}
-                                    {{--                    </div>--}}
-                                    <div class="col-md-3">
-                                        <div style="  ">
-                                            <input class="btn btn-success " id="view" value="View">
-                                        </div>
-
-                                    </div>
-                                    <div class="col-md-2" style="display: flex">
-                                        <div style="width: 40%;margin-top: 20px;">
-                                            <img class="loader-img" src="{{asset('images/ajax-loader.gif')}}" width="50"
-                                                 height="50"/>
-                                        </div>
-                                        <div style="    ">
-                                            <input class="btn btn-success btn-sm submitButton" id="addDataBtn"    value="submit">
-                                        </div>
-
+                                <h4 >Advise Required</h4>
+                                <div class="form-group ">
+                                    <label >Topic</label>
+                                    <textarea class="form-control" rows="3" readonly>{{$question->question}}</textarea>
+                                </div>
+                                <div class="col-md-4">
+                                    <p style="    font-size: 25px;
+    margin-top: 20px;">Your suggestion</p>
+                                </div>
+                                <div class="col-md-8" style="margin-top: 35px;">
+                                    <div class="form-check form-check-inline" style="display: flex">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            Default radio
+                                        </label>
                                     </div>
                                 </div>
-                            </div>
-
-
-                            <!-- /////////////////////////////  end display none????????????????????????????????? -->
-                        </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
 
                     </div>
-                </div>
                 <div id="peichart">
                     <div id="piechart" style="width: 900px; height: 500px;"></div>
                 </div>

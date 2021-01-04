@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web\Pakistan\AdvisoryBoard;
 
 use App\Http\Controllers\Controller;
+use App\Models\AdvisoryBoard;
 use App\Models\SurveyAns;
 use App\Models\SurveyQuestion;
 use App\Models\SurveyTable;
@@ -18,7 +19,8 @@ class AdvisoryBoardController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function advisory_board(){
-        $questions =SurveyQuestion::where('status',1)->where('category_id',32)->get();
+        $question =AdvisoryBoard::where('status',1)->where('parent_question_id',null)->first();
+
 //        $data = DB::table('survey_ans')
 //            ->select(
 //                DB::raw('course as course'),
@@ -27,10 +29,10 @@ class AdvisoryBoardController extends Controller
 //            ->get();
         $chart_question =SurveyQuestion::where('category_id',32)->where('status',1)->first();
 
-        $user_info =  SurveyAns::where('question_id',$chart_question->id)
-            ->select('survey_ans','question_id', DB::raw('count(*) as total'))
-            ->groupBy('survey_ans')
-            ->get();
+//        $user_info =  SurveyAns::where('question_id',$chart_question->id)
+//            ->select('survey_ans','question_id', DB::raw('count(*) as total'))
+//            ->groupBy('survey_ans')
+//            ->get();
 
 
 //        $chart_question =SurveyQuestion::where('category_id',32)->where('status',1)->first();
@@ -39,12 +41,12 @@ class AdvisoryBoardController extends Controller
 //        $chart_ans_maybe= SurveyAns::where('question_id',$chart_question->id)->where('survey_ans',3)->get();
 ////        dd(count($chart_ans));
 //        $array[] = ['Yes', 'No'];
-        foreach($user_info as $key => $value)
-        {
-            $array[++$key] = [$value->total, $value->total];
-        }
+//        foreach($user_info as $key => $value)
+//        {
+//            $array[++$key] = [$value->total, $value->total];
+//        }
 //        return view('google-pie-chart')->with('course', json_encode($array));
-        return view('web.pakistan.advisoryboard.advisoryboard')->with(['course'=>json_encode($array),'questions'=>$questions]);
+        return view('web.pakistan.advisoryboard.advisoryboard')->with(['question'=>$question]);
     }
     /**
      * Show the form for creating a new resource.

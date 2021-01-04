@@ -18,7 +18,6 @@
                                     <th></th>
                                     <th>Question</th>
                                     {{--                                    <th>Question Type</th>--}}
-                                                                        <th>Answers</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -33,28 +32,6 @@
                                     <tr>
                                         <td>{{$i++}}</td>
                                         <td style="text-align: left;width: 40%;">@isset($advisary_board->question){{$advisary_board->question}}@endisset</td>
-                                        {{--                                            <td>--}}
-                                        {{--                                                @if($survey_question->question_type==1)--}}
-                                        {{--                                                    <h2 class="badge badge-primary">Yes</h2>--}}
-                                        {{--                                                @elseif($survey_question->question_type==2)--}}
-                                        {{--                                                    <h2 class="badge badge-secondary">No</h2>--}}
-                                        {{--                                                @elseif($survey_question->question_type==3)--}}
-                                        {{--                                                    <h2 class="badge badge-default">May be</h2>--}}
-                                        {{--                                                @endif--}}
-                                        {{--                                            </td>--}}
-                                        {{--                                            <td>--}}
-
-                                        {{--                                                @isset($survey_question->category){{$survey_question->category->category_name}}@endisset--}}
-                                        {{--                                            </td>--}}
-                                        <td>
-                                            @foreach(json_decode($advisary_board->option) as $option)
-                                                {{$option->option_1}}
-                                                {{$option->option_2}}
-                                                {{$option->option_3}}
-                                                {{$option->option_4}}
-                                            @endforeach
-                                        </td>
-
                                         @if($advisary_board->status ==1)
                                             <td><button class="btn btn-success" onclick="change_status(this,'{{$advisary_board->id}}',0)">Active</button></td>
                                         @else
