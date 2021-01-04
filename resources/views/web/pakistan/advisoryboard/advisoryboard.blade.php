@@ -402,7 +402,8 @@ border-bottom-left-radius: 25px;
                         @component('_components.alerts-default')
                         @endcomponent
                         <div   class="mainbox col-md-12  col-sm-12 col-xs-12">
-                            <form>
+                            <form id="question">
+                                <input type="hidden" name="question_id" class="question-id" value="{{$question->id}}">
                                 <div class="form-group ">
                                     <label for="name">Advisory Name:</label>
                                     <select name="name_advisor" id="name" class="form-control" style="margin: 0">
@@ -448,8 +449,54 @@ border-bottom-left-radius: 25px;
 
 
     <script type="text/javascript" src="{{asset('assets/chosen/chosen.jquery.js')}}"></script>
+    <script type="text/javascript">
+        option();
+        function option() {
+            var id =$('.question-id').val();
+            console.log('question id',id);
+            $.ajax({
+                url: "",
+                type: "POST",
+                data: {grade_ids:grade_ids,sub_ids:sub_ids,teacher_name:teacher_name,offset:offset},
+                beforeSend: function () {
+                    $('.loader-img').show();
+                    $('#preloader').show();
+                },
+                complete: function () {
+                    $('#preloader').fadeOut('slow', function () {
+                        $(this).remove();
+                    });
+                    $('.loader-img').hide();
+                },
+                success: function (response) {
+
+                    if(response.status){
+                        var res_message=``;
+                        var data=response.message;
+                        $('#teacherListQuery').html('');
+                        $("#teacherListQuery").html(response.addhtml);
+
+
+
+                    }else{
+                        $('#teacherListQuery').html('');
+                        $("#teacherListQuery").html(`<p style="text-align:center; font-size:16px; font-weight:1000; color:#004080">Record not found</p>`);
+                    }
+
+                }, error: function (e) {
+                    console.log('signup-form error', e);
+
+                }
+            });
+
+
+
+
+        }
+    </script>
 
     <script type="text/javascript">
+
         // function foucs()
         // {
         //     document.getElementById("check_3").focus();
@@ -488,6 +535,7 @@ border-bottom-left-radius: 25px;
         //
         //     document.getElementById("count-up").innerText = min+':'+zeroPlaceholder+second;
         // }
+
         $(document).ready(function(){
             // $('.loader-img').hide();
             // $('#text_2').click(function(){
