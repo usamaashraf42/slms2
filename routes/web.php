@@ -110,7 +110,7 @@ Route::post('/survey/staff/ans','admins\survey\SurveyAnswerController@surverySta
 //advisary board
 Route::get('/advisory/board','Web\Pakistan\AdvisoryBoard\AdvisoryBoardController@advisory_board')->name('pakistan_advisory_board');
 Route::get('/advisory/board/questions','Web\Pakistan\AdvisoryBoard\AdvisoryBoardController@advisory_board_questions')->name('pakistan_advisory_board_question');
-Route::post('/advisory/board','Web\Pakistan\AdvisoryBoard\AdvisoryBoardController@advisory_boardanswers')->name('pakistan_advisory_board_answers');
+Route::post('/advisory/board','Web\Pakistan\AdvisoryBoard\AdvisoryBoardController@advisory_board_answers')->name('pakistan_advisory_board_answers');
 Route::get('how-to-pay','Web\Pakistan\PublicController@howToPay')->name('pakistan.howToPay');
 
 

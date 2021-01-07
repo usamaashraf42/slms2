@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Web\Pakistan\AdvisoryBoard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\advisorybaordvaldation;
+use App\Http\Requests\advisoryboardvalidation;
 use App\Models\AdvisoryBoard;
 use App\Models\SurveyAns;
 use App\Models\SurveyQuestion;
@@ -19,7 +21,8 @@ class AdvisoryBoardController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function advisory_board(){
-        $question =AdvisoryBoard::where('status',1)->where('parent_question_id',null)->first();
+        $question =SurveyQuestion::where('status',1)->where('parent_id',null)->where('category_id',4)->with('childrens')->get();
+
 
 //        $data = DB::table('survey_ans')
 //            ->select(
@@ -33,6 +36,19 @@ class AdvisoryBoardController extends Controller
 //            ->select('survey_ans','question_id', DB::raw('count(*) as total'))
 //            ->groupBy('survey_ans')
 //            ->get();
+//        $data = SurveyAns::where('question_id',$question->id)
+//            ->select('survey_ans',
+////                DB::raw('survey_ans'),
+//                DB::raw('count(*) as count'))
+//            ->groupBy('survey_ans')
+//            ->with('options')
+//            ->get();
+//
+//        $count[] = ['option', 'count'];
+//        foreach($data as $key => $value)
+//        {
+//            $count[++$key] = [$value->options->question, $value->count];
+//        }
 
 
 //        $chart_question =SurveyQuestion::where('category_id',32)->where('status',1)->first();
@@ -46,14 +62,14 @@ class AdvisoryBoardController extends Controller
 //            $array[++$key] = [$value->total, $value->total];
 //        }
 //        return view('google-pie-chart')->with('course', json_encode($array));
-        return view('web.pakistan.advisoryboard.advisoryboard')->with(['question'=>$question]);
+        return view('web.pakistan.advisoryboard.advisoryboard')->with(['questions'=>$question]);
     }
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function advisory_boardanswers(Request $request)
+    public function advisory_board_answers(advisorybaordvaldation $request)
     {
 
 
@@ -68,32 +84,23 @@ class AdvisoryBoardController extends Controller
             'email' => Auth::user()?Auth::user()->email:'null',
             'phone' =>Auth::user()?Auth::user()->phone:'null',
         ]);
-        foreach ($request->questions as $data) {
+        foreach ($request->questions as $data)
+        {
 
-            //dd($data);
-            $survey_ans = SurveyAns::create([
+            $advisory_board_ans = SurveyAns::create([
+
                 'survey_id' => $survey->id,
                 'question_id' => $data,
 //                'question_parent_id_'=>isset($request['question_parent_' . $data])?$request['question_parent_' . $data]:null,
 //            'question_parent_id_'=>$data,
-                'category_id' => $request->category_id ? $request->category_id : 20,
-                'survey_ans' => $request['question_ans_' . $data],
+                'category_id' => $request->category_id ? $request->category_id : null,
+                'survey_ans' => $request['question_ans_'.$data],
             ]);
-//dd($request['question_ans_' .$data]);
-            if(isset($request['question_parent_' . $data]) && $request['question_parent_' . $data]){
-                if(isset($request['question_parent_' . $data]) && $request['question_parent_' . $data]){
-                    $childrens=SurveyAns::create([
-                        'survey_id' => $survey->id,
-                        'question_id' =>isset($request['question_parent_' . $data])?$request['question_parent_' . $data]:null,
-                        'question_parent_id_'=>isset($survey_ans->id)?$survey_ans->id:null,
-                        'category_id' => $request->category_id ? $request->category_id : 20,
-                        'survey_ans' => isset($request['question_ans_' . $request['question_parent_' . $data]])?
-                            $request['question_ans_' . $request['question_parent_' . $data]]:null,
-                    ]);
-                }
-            }
+
         }
-        if ($survey_ans)
+
+
+        if (isset($survey) || isset($advisory_board_ans))
             return response()->json(['status' => 200]);
         else
             return response()->json(['message' => 'Survey not added']);
@@ -111,7 +118,7 @@ class AdvisoryBoardController extends Controller
     public function advisory_board_questions(Request $request){
 //        dd($request->question_id,$request->answer_id);
 //        dd($request->question_id);
-        $answers =SurveyQuestion::where('parent_id',$request->question_id)->where('question_type',$request->answer_id)->first();
+        $options =AdvisoryBoard::where('parent_question_id',$request->question_id)->get('option');
 //        if(!$answers)
 //        {
 //            $answers='';
@@ -123,10 +130,10 @@ class AdvisoryBoardController extends Controller
 //            return response()->json(['status'=>200,'answer'=>$answers,'childerns'=>$childerns]);
 //        }
 //dd($answers);
-        $childerns =SurveyQuestion::where('parent_id',$request->question_id)->get('id');
+//        $childerns =SurveyQuestion::where('parent_id',$request->question_id)->get('id');
 //dd($childerns);
 
-        return response()->json(['status'=>200,'answer'=>$answers,'childerns'=>$childerns]);
+        return response()->json(['status'=>200,'options'=>$options]);
     }
 
     /**

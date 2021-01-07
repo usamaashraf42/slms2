@@ -41,6 +41,8 @@
                                                         <h2 class="badge badge-secondary">Teacher</h2>
                                                 @elseif($category->cat_type==3)
                                                     <h2 class="badge badge-default">Parent</h2>
+                                                @elseif($category->cat_type==4)
+                                                    <h2 class="badge badge-light">Advisory Board</h2>
                                                 @endif
                                             </td>
                                             <td>
@@ -99,6 +101,7 @@
                                 <option value="1">Students</option>
                                 <option value="2">Teachers</option>
                                 <option value="3">Parents</option>
+                                <option value="4">Advisary Board</option>
                             </select>
                             <p style="color: red;margin-top: 3px" id="cat_type_error"></p>
                         </fieldset>

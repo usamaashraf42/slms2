@@ -16,11 +16,12 @@
                                 <form action="" id="addDataForm" method="post" enctype="multipart/form-data">
                                     {{ csrf_field() }}
                                     @php
-                                        $category =\App\Models\SurveyCategory::find(18);
+                                        $categorys =\App\Models\SurveyCategory::all();
                                     @endphp
                                     <input type="hidden" name="category_id" value="{{$category->id}}">
                                     <div class="modal-body">
                                         <fieldset class="form-group floating-label-form-group">
+
                                             <div class="col-md-12">
                                                 <div class="row">
                                                     <div class="col-md-4">

@@ -25,6 +25,7 @@
                                 <option value="1" @if(isset($categorys) && @$categorys->cat_type == 1){{'selected'}} @endif >Students</option>
                                 <option value="2"  @if(isset($categorys) && @$categorys->cat_type == 2){{'selected'}} @endif>Teachers</option>
                                 <option value="3"  @if(isset($categorys) && @$categorys->cat_type == 3){{'selected'}} @endif>Parents</option>
+                                <option value="4"  @if(isset($categorys) && @$categorys->cat_type == 4){{'selected'}} @endif>Advisary Board</option>
                             </select>
                             <p style="color: red;margin-top: 3px" id="cat_type_error"></p>
                         </fieldset>

@@ -2,11 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c18d7c82-88e9-44b4-8b76-70af87e868ab" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/slms3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/slms3.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Web/Pakistan/AdvisoryBoard/AdvisoryBoardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Web/Pakistan/AdvisoryBoard/AdvisoryBoardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admins/AdvisoryBoard/AdvisoryBoardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admins/AdvisoryBoard/AdvisoryBoardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/advisorybaordvaldation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/advisorybaordvaldation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/AdvisoryBoard/questions/add_question.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/AdvisoryBoard/questions/add_question.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/AdvisoryBoard/questions/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/AdvisoryBoard/questions/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/course/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/course/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/survey/category/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/survey/category/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/survey/category/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/survey/category/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/survey/question/add_question.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/survey/question/add_question.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/web/pakistan/advisoryboard/advisoryboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/web/pakistan/advisoryboard/advisoryboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,6 +176,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/web/pakistan/advisoryboard/advisoryboard.blade.php" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -187,7 +200,10 @@
       <option name="presentableId" value="Default" />
       <updated>1609743474822</updated>
       <workItem from="1609743475948" duration="510000" />
-      <workItem from="1609744021681" duration="1026000" />
+      <workItem from="1609744021681" duration="1445000" />
+      <workItem from="1609823268509" duration="4828000" />
+      <workItem from="1610000143298" duration="4557000" />
+      <workItem from="1610006037034" duration="1272000" />
     </task>
     <servers />
   </component>

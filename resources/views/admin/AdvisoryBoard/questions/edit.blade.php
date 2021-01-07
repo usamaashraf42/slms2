@@ -8,46 +8,35 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            @php
-                $category =\App\Models\SurveyCategory::find(32);
-            @endphp
             <form action="" id="updateDataForm" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
+                <div class="modal-body">
+                    <div class="modal-body">
+                        <fieldset class="form-group floating-label-form-group">
+                            <label for="cat_name">Question Name</label>
+                            <input type="text" class="form-control" id="question" name="parent_question" value="{{$parent_question->question}}" >
+                            <p style="color: red;margin-top: 3px" id="cat_name_error"></p>
+                        </fieldset>
+                        @foreach($options as $option)
+                            <fieldset class="form-group floating-label-form-group">
+                                <label for="cat_name">Option/Answer Name</label>
+                                <input type="text" class="form-control" id="question" name="option[{{$option->id}}]" value="{{$option->question}}" >
+                                <p style="color: red;margin-top: 3px" id="cat_name_error"></p>
+                            </fieldset>
+                        @endforeach
+                        <br>
+                    </div>
 
-                    <fieldset class="form-group floating-label-form-group">
-                        <div class="col-md-12">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <label for="cat_name">Question Name</label>
-                                    <textarea type="text" class="form-control question" id="question" name="question">@isset($question){{$question->question}}@endisset</textarea>
-                                    <p style="color: red;margin-top: 3px" id="question_error"></p>
-                                </div>
-                            </div>
-                        </div>
-                    </fieldset>
-                    <fieldset class="form-group floating-label-form-group">
-                        <div class="col-md-12">
-                            <div class="row">
-                                <div class="col-md-4">
+                    <input type="hidden" name="question_id" value="{{$parent_question->id}}">
 
-                                    <label for="cat_name">All Options</label>
-                                    @foreach($options as$option)
-                                    <input type="text" class="form-control option_1" name="option[{{$option->id}}]" value="@isset($option){{$option->option}}@endisset">
-                                    <p style="color: red;margin-top: 3px" id="question_error"></p>
-                                        @endforeach
-                                </div>
-                                <input type="hidden" name="question_id" value="{{$question->id}}">
-                            </div>
-                        </div>
-                    </fieldset>
-
+                </div>
                 <div class="modal-footer">
                     <img class="loader-img" src="{{asset('images/ajax-loader.gif')}}" width="50"
                          height="50"/>
                     &nbsp;&nbsp;&nbsp;
                     <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal"
                            value="Dismiss">
-                    <input type="submit" class="btn btn-outline-success btn-lg"  id="updateDataBtn" value="Add Question">
+                    <input type="submit" class="btn btn-outline-info btn-lg"  id="updateDataBtn" value="Update Question">
                 </div>
             </form>
         </div>

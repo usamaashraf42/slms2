@@ -24,7 +24,13 @@ class advisorybaordvaldation extends FormRequest
     public function rules()
     {
         return [
-            'option'
+            'name'=>'required'
         ];
+    }
+    public function  message()
+    {
+       return[
+           'name.required'=>'Advisory name is required'
+       ];
     }
 }
